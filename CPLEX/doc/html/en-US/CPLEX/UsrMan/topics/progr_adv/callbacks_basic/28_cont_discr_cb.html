@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Callbacks for continuous and discrete problems" />
+<meta name="abstract" content="Describes when callbacks are invoked and enumerates the arguments of a user-defined callback in the C API." />
+<meta name="Description" content="Describes when callbacks are invoked and enumerates the arguments of a user-defined callback in the C API." />
+<meta name="DC.subject" content="CPXsetlpcallbackfunc routine, CPXsetmipcallbackfunc routine, CPXgetcallbackinfo routine" />
+<meta name="keywords" content="CPXsetlpcallbackfunc routine, CPXsetmipcallbackfunc routine, CPXgetcallbackinfo routine" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/25_Capi_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_callbacks.1008333" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/25_Capi_title_synopsis.html" />
+<title>Callbacks for continuous and discrete problems</title>
+</head>
+<body id="User_manual.uss_callbacks.1008333"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Callbacks for continuous and discrete problems</h1>
+<div class="body"><p class="shortdesc">Describes when callbacks are invoked and enumerates the
+arguments of a user-defined callback in the C API.</p>
+
+<p class="p">CPLEX will evaluate two user-defined callback functions,
+one during the solution of continuous problems and one during the
+solution of discrete problems. CPLEX calls the continuous callback
+once per iteration during the solution of an LP, QP, or QCP problem
+and periodically during the presolve. CPLEX calls the discrete callback
+periodically during the probing phase of MIP preprocessing, periodically
+during cut generation, and periodically in the branch &amp; cut
+process.</p>
+
+<p class="p">Every user-defined callback must have these arguments:</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">env</code>, a pointer
+to the CPLEX environment;</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">cbdata</code>,
+a pointer to CPLEX internal data structures needed by <code class="ph codeph">CPXgetcallbackinfo</code>;</p>
+
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">wherefrom</code>,
+specifies which optimizer is calling the callback;</p>
+
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">cbhandle</code>,
+a pointer supplied when your application calls <code class="ph codeph">CPXsetlpcallbackfunc</code> or <code class="ph codeph">CPXsetmipcallbackfunc</code> (so
+that the callback has access to private user data).</p>
+
+</li>
+</ul>
+
+<p class="p">The arguments <code class="ph codeph">wherefrom</code> and <code class="ph codeph">cbdata</code> should
+be used only in calls to <code class="ph codeph">CPXgetcallbackinfo</code>.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/25_Capi_title_synopsis.html" title="Documents callbacks in the Callable Library C API.">Implementing callbacks in the Callable Library</a></div>
+</div>
+</nav></div></body>
+</html>

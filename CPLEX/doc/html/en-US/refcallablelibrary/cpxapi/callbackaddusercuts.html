@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbackaddusercuts and CPXcallbackaddusercuts" />
+<meta name="abstract" content="Add user cuts from CPX_CALLBACKCONTEXT_RELAXATION." />
+<meta name="Description" content="Add user cuts from CPX_CALLBACKCONTEXT_RELAXATION." />
+<meta name="DC.subject" content="CPXcallbackaddusercuts, C API Reference Manual, CPXXcallbackaddusercuts" />
+<meta name="keywords" content="CPXcallbackaddusercuts, C API Reference Manual, CPXXcallbackaddusercuts" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="callbacksetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" />
+<meta name="DC.Relation" scheme="URI" content="callbackgetrelaxationpoint.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackaddusercuts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXcallbackaddusercuts and CPXcallbackaddusercuts</title>
+</head>
+<body id="callbackaddusercuts"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbackaddusercuts</span> and <span class="keyword apiname">CPXcallbackaddusercuts</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     Add user cuts from <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></code>.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbackaddusercuts</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">purgeable</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">local</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbackaddusercuts</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">purgeable</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">local</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+    <p class="p">This routine separates user cuts in callbacks of type
+      <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></code>.
+      Both local and global user cuts can be separated. Cuts can be specified
+      only in the original space.
+    </p>
+
+    <div class="note important"><span class="importanttitle">Important:</span> 
+    <p class="p">
+      You can call this routine more than once in the same callback
+      invocation; CPLEX will accumulate the constraints from all function
+      calls.
+    </p>
+
+    </div>
+
+    <div class="note important"><span class="importanttitle">Important:</span> 
+    <p class="p">
+      There is no guarantee CPLEX will use the constraints you specify. It will
+      try to do so, but for technical reasons it is not always possible to use
+      the constraints. You can thus not assume that in subsequent callback
+      invocations the relaxation solutions satisfy the constraints you specified
+      here.
+    </p>
+
+    </div>
+
+    <div class="note warning"><span class="warningtitle">Warning:</span> 
+      Calling this function is valid only if the callback was invoked in the
+      context <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a>. In all
+      other contexts, it returns an error.
+    </div>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">context</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The callback context as passed into the callback function.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">rcnt</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The number of cuts submitted.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">nzcnt</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The number of nonzeros in the cuts specified.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Righthand sides for cuts.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Sense for cuts.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatbeg</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Array of indices into <code class="ph codeph">rmatind</code> and <code class="ph codeph">rmatval</code>
+             that specify where each cut starts in the sparse representation
+             of the cuts.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">rmatind</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Indices of nonzero columns in sparse representation of cuts.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">rmatval</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Coefficients of nonzero columns in sparse representation of cuts.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">purgeable</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Array of integer values specifying how CPLEX should treat each cut.
+          See the table for possible values.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">local</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Array of flags that specifies for each cut whether it is only locally
+          valid (value = 1) or globally valid (value = 0).</p>
+
+        </dd>
+
+      
+    </dl>
+
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Possible values of purgeable and their meaning</span></caption><colgroup></colgroup><tbody class="tbody">
+          <tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_USECUT_FORCE</code></td>
+
+            <td class="entry" valign="top">The cut is added to the relaxation and stays there</td>
+
+          </tr>
+
+          <tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_USECUT_PURGE</code></td>
+
+            <td class="entry" valign="top">The cut is added to the relaxation but can be purged later on if
+              CPLEX deems the cut ineffective.</td>
+
+          </tr>
+
+          <tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_USECUT_FILTER</code></td>
+
+            <td class="entry" valign="top">The cut is treated exactly as cuts generated by CPLEX; that is,
+              CPLEX applies its filtering process and can possibly not even add the cut
+              to the relaxation, for example, if CPLEX deems other cuts
+              more effective, or if the cut is too dense.</td>
+
+          </tr>
+
+        </tbody>
+</table>
+</div>
+
+  </section>
+
+
+    
+    
+
+
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked."><code class="ph codeph">CPXXcallbacksetfunc</code>/<code class="ph codeph">CPXcallbacksetfunc</code></a></li>
+<li class="linklist"><a class="link" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate"><code class="ph codeph">CPX_CALLBACKCONTEXT_RELAXATION</code></a></li>
+<li class="linklist"><a class="link" href="callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***."><code class="ph codeph">CPXXcallbackgetrelaxationpoint</code>/<code class="ph codeph">CPXcallbackgetrelaxationpoint</code></a></li></ul></div>
+</nav>
+</div></body>
+</html>

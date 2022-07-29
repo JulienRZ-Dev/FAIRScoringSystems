@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="ANN: annotations for modeling elements" />
+<meta name="abstract" content="CPLEX supports ANN file format for annotating modeling elements." />
+<meta name="Description" content="CPLEX supports ANN file format for annotating modeling elements." />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/reffileformatscplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_reference.uss_reffileformatscplex.annotations" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/reffileformatscplex.html" />
+<title>ANN: annotations for modeling elements</title>
+</head>
+<body id="File_formats_reference.uss_reffileformatscplex.annotations"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">ANN: annotations for modeling elements</h1>
+ 
+ 
+<div class="body"><p class="shortdesc">CPLEX supports ANN file format for annotating modeling elements.</p>
+ 
+<p class="p"> 
+CPLEX enables a user to annotate elements of a model by associating (key, value) pairs 
+with those elements. 
+A user can annotate such modeling elements as rows, columns, indicators, and 
+so forth. 
+When you annotate the variables of your model, 
+the annotations make it possible 
+to specify the blocks of the 
+variable partition needed to apply Benders algorithm to decompose the model. 
+</p>
+
+<p class="p">The contents of a file of annotations are formatted in XML. CPLEX provides a 
+data schema, <code class="ph codeph">annotation.xsd</code>, in the standard distribution of the 
+product.
+</p>
+ 
+<p class="p">For a sample annotation file, see UFL_25_35_1, an annotated model distributed 
+with CPLEX. For more detail about annotations, see the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/benders/annotations.html" title="Annotation of a model specifies to CPLEX how to decompose your model.">Annotating a model for CPLEX</a> 
+in the <em class="ph i">CPLEX User's Manual</em>. 
+</p>
+
+</div>
+ 
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/reffileformatscplex.html">File formats supported by CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

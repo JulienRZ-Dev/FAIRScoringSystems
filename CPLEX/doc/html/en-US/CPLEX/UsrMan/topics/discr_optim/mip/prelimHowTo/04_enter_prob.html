@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Entering MIP problems" />
+<meta name="abstract" content="Describes special considerations for entering a MIP or reading a MIP from a file," />
+<meta name="Description" content="Describes special considerations for entering a MIP or reading a MIP from a file," />
+<meta name="DC.subject" content="entering, mixed integer programs (MIPs), type, specifying types of variables, enter Interactive Optimizer command, MIP problem data from file" />
+<meta name="keywords" content="entering, mixed integer programs (MIPs), type, specifying types of variables, enter Interactive Optimizer command, MIP problem data from file" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/prelimHowTo/03_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveMIP.641788" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/prelimHowTo/03_title_synopsis.html" />
+<title>Entering MIP problems</title>
+</head>
+<body id="User_manual.uss_solveMIP.641788"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Entering MIP problems</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Describes special considerations for entering a MIP or
+reading a MIP from a file, </p>
+
+      <p class="p">You enter MIPs into CPLEX as explained in each of the topics about
+the APIs of CPLEX, with this additional consideration: you need to
+specify which variables are binary, general integer, semi-continuous,
+and semi-integer, and which are contained in special ordered sets
+(SOS). </p>
+
+      <div class="p">
+         <strong class="ph b">Concert Technology</strong> users specify this information by passing
+the value of a type to the appropriate constructor when creating the
+variable, as summarized in <a class="xref" href="04_enter_prob.html#User_manual.uss_solveMIP.641788__User_manual.uss_solveMIP.683804" title="A four-column table showing the type of a variable, its class in Concert Technology C++, its class in Concert Technology Java, and its class in Concert Technology .NET.">Table 1</a>.
+ </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table showing the type of a variable, its class in Concert Technology C++, its class in Concert Technology Java, and its class in Concert Technology .NET." id="User_manual.uss_solveMIP.641788__User_manual.uss_solveMIP.683804" class="table ShadedHead" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Specifying type of variable for a MIP in Concert
+Technology</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+               <tr class="row" style="vertical-align:top;">
+                  <th class="entry thleft" align="left" valign="top" id="d219004e104"> Type of Variable </th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d219004e107"> C++ API </th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d219004e110"> Java API </th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d219004e113"> .NET API </th>
+
+               </tr>
+
+            </thead>
+<tbody class="tbody">
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d219004e104 "> binary </td>
+
+                  <td class="entry" valign="top" headers="d219004e107 ">
+                     <code class="ph codeph">IloNumVar::Type::ILOBOOL</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e110 ">
+                     <code class="ph codeph">IloNumVarType.Bool</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e113 ">
+                     <code class="ph codeph">NumVarType.Bool</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d219004e104 "> integer </td>
+
+                  <td class="entry" valign="top" headers="d219004e107 ">
+                     <code class="ph codeph">IloNumVar::Type::ILOINT</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e110 ">
+                     <code class="ph codeph">IloNumVarType.Int</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e113 ">
+                     <code class="ph codeph">NumVarType.Int</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d219004e104 "> semi-continuous </td>
+
+                  <td class="entry" valign="top" headers="d219004e107 ">
+                     <code class="ph codeph">IloSemiContVar::Type::ILONUM</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e110 ">
+                     <code class="ph codeph">IloNumVarType.Float</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e113 ">
+                     <code class="ph codeph">NumVarType.Float</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d219004e104 "> semi-integer </td>
+
+                  <td class="entry" valign="top" headers="d219004e107 ">
+                     <code class="ph codeph">IloSemiContVar::Type::ILOINT</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e110 ">
+                     <code class="ph codeph">IloNumVarType.Int</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d219004e113 ">
+                     <code class="ph codeph">NumVarType.Int</code>
+                  </td>
+
+               </tr>
+
+            </tbody>
+</table>
+</div>
+
+      <p class="p">
+         <strong class="ph b">Callable Library</strong> users specify this information through
+the routine <code class="ph codeph">
+            <a class="xref" href="../../../../../../refcallablelibrary/mipapi/copyctype.html" title="The routine CPXXcopyctype/CPXcopyctype can be used to copy variable type information into a given problem.">CPXcopyctype</a>
+         </code>.</p>
+
+      <p class="p">In the <strong class="ph b">Interactive Optimizer</strong>, to specify binary integers
+in the context of the <code class="ph codeph">enter</code> command, type <code class="ph codeph">binaries</code> on
+a separate line, followed by the designated binary variables. To specify
+general integers, type <code class="ph codeph">generals</code>  on a separate line,
+followed by the designated general variables. To specify semi-continuous
+variables, type <code class="ph codeph">semi-continuous</code>  on a separate line,
+followed by the designated variables. Semi-integer variables are specified
+as both general integer and semi-continuous. The order of these three
+sections (generals, semi-continuous, semi-integer as both) does not
+matter. To enter the general integer variable of the <a class="xref" href="../02_prob_statement.html" title="Defines the kind of problems that the mixed integer optimizer solves.">Stating a MIP problem</a>, you type this:  </p>
+
+      <pre class="pre codeblock"><code>generals
+x4 </code></pre>
+      <p class="p">You may also read MIP data in from a formatted file, just as you
+do for linear programming problems. <a class="xref" href="../../../progr_consid/input_output/manageIO_file_formats_synopsis.html" title="Explains programming considerations about widely used file formats.">Understanding file formats</a> in
+this manual lists the file formats briefly, and the reference manual <a class="xref" href="../../../../../homepages/reffileformatscplex.html">File formats supported by CPLEX</a>documents
+file formats, such as MPS, LP, and others. </p>
+
+      <ul class="ul">
+         <li class="li">
+            <p class="p">To read MIP problem data into the <strong class="ph b">Interactive Optimizer</strong>,
+use the <code class="ph codeph">read</code>  command with an option to indicate
+the file type. </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">To read MIP problem data into your application, use the <a class="xref hardcodedApiLink" href="../../../../../../refcppcplex/html/classes/IloCplex.html#importModel">importModel</a> method in <strong class="ph b">Concert
+Technology</strong> or use <code class="ph codeph">CPXreadcopyprob</code>  in the <strong class="ph b">Callable
+Library</strong>. </p>
+
+         </li>
+
+      </ul>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/prelimHowTo/03_title_synopsis.html" title="When you are optimizing a MIP, there are a few preliminary issues that you need to consider to get the most out of CPLEX. The following sections cover such topics as entering variable types, displaying MIPs in the Interactive Optimizer, detecting the problem type, and switching to the fixed form of your problem.">Preliminary issues</a></div>
+</div>
+</nav></div></body>
+</html>

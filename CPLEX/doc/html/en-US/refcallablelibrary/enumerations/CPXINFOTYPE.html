@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXINFOTYPE" />
+<meta name="abstract" content="Enumeration of types of information." />
+<meta name="Description" content="Enumeration of types of information." />
+<meta name="DC.subject" content="CPXINFOTYPE, C API Reference Manual" />
+<meta name="keywords" content="CPXINFOTYPE, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/enumerations/homepageenumerations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPXINFOTYPE" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/enumerations/homepageenumerations.html" />
+<title>CPXINFOTYPE</title>
+</head>
+<body id="CPXINFOTYPE"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">CPXINFOTYPE</h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Enumeration of types of information.</p>
+
+    <section class="section refsyn"><pre class="pre codeblock"><code>
+typedef enum {
+   CPXINFO_BYTE,
+   CPXINFO_SHORT,
+   CPXINFO_INT,
+   CPXINFO_LONG,
+   CPXINFO_DOUBLE
+} CPXINFOTYPE; 
+            </code></pre>
+    </section>
+
+
+    
+    
+    
+
+  <section class="section">
+<p class="p">
+This type definition enumerates the various types of information 
+that  CPXINFOHANDLER can handle and that the
+following routines can send:
+</p>
+
+<ul class="ul">
+<li class="li"><p class="p">
+<code class="ph codeph"><a class="xref" href="../cpxremoteapi/sendinfobyte.html" title="This routine is deprecated and will be removed in a future release."><span class="keyword apiname">CPXXsendinfobyte</span>/<span class="keyword apiname">CPXsendinfobyte</span></a></code>
+</p>
+</li>
+
+<li class="li"><p class="p">
+<code class="ph codeph"><a class="xref" href="../cpxremoteapi/sendinfodouble.html" title="This routine is deprecated and will be removed in a future release."><span class="keyword apiname">CPXXsendinfodouble</span>/<span class="keyword apiname">CPXsendinfodouble</span></a></code>
+</p>
+</li>
+
+<li class="li"><p class="p">
+<code class="ph codeph"><a class="xref" href="../cpxremoteapi/sendinfoint.html" title="This routine is deprecated and will be removed in a future release."><span class="keyword apiname">CPXXsendinfoint</span>/<span class="keyword apiname">CPXsendinfoint</span></a></code>
+</p>
+</li>
+
+<li class="li"><p class="p">
+<code class="ph codeph"><a class="xref" href="../cpxremoteapi/sendinfolong.html" title="This routine is deprecated and will be removed in a future release."><span class="keyword apiname">CPXXsendinfolong</span>/<span class="keyword apiname">CPXsendinfolong</span></a></code>
+</p>
+</li>
+
+<li class="li"><p class="p">
+<code class="ph codeph"><a class="xref" href="../cpxremoteapi/sendinfoshort.html" title="This routine is deprecated and will be removed in a future release."><span class="keyword apiname">CPXXsendinfoshort</span>/<span class="keyword apiname">CPXsendinfoshort</span></a></code>
+</p>
+</li>
+
+</ul>
+
+
+  </section>
+
+    <table cellpadding="4" cellspacing="0" border="1" class="simpletable properties simpletableborder" summary="Each row in this table describes a property; each property can have a type, value, and description."><col style="width:50%" /><col style="width:50%" /><tr class="sthead prophead">
+<th style="vertical-align:bottom;text-align:left;" id="d817104e144" class="stentry propvaluehd">Name</th>
+<th style="vertical-align:bottom;text-align:left;" id="d817104e146" class="stentry propdeschd">Description</th>
+</tr><tbody><tr class="strow property">
+<td style="vertical-align:top;" headers="d817104e144" class="stentry propvalue">CPXINFO_BYTE</td>
+<td style="vertical-align:top;" headers="d817104e146" class="stentry propdesc">
+          8-bit signed integer.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d817104e144" class="stentry propvalue">CPXINFO_SHORT</td>
+<td style="vertical-align:top;" headers="d817104e146" class="stentry propdesc">
+          16-bit signed integer.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d817104e144" class="stentry propvalue">CPXINFO_INT</td>
+<td style="vertical-align:top;" headers="d817104e146" class="stentry propdesc">
+          32-bit signed integer.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d817104e144" class="stentry propvalue">CPXINFO_LONG</td>
+<td style="vertical-align:top;" headers="d817104e146" class="stentry propdesc">
+          64-bit signed integer.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d817104e144" class="stentry propvalue">CPXINFO_DOUBLE</td>
+<td style="vertical-align:top;" headers="d817104e146" class="stentry propdesc">
+          IEEE double-precision number.
+        </td>
+</tr>
+</tbody></table>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/enumerations/homepageenumerations.html">Enumerations in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

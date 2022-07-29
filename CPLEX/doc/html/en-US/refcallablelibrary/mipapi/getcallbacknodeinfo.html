@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetcallbacknodeinfo and CPXgetcallbacknodeinfo" />
+<meta name="abstract" content="The routine CPXXgetcallbacknodeinfo/CPXgetcallbacknodeinfo is called from within user-written callbacks during a MIP optimization and accesses information about nodes." />
+<meta name="Description" content="The routine CPXXgetcallbacknodeinfo/CPXgetcallbacknodeinfo is called from within user-written callbacks during a MIP optimization and accesses information about nodes." />
+<meta name="DC.subject" content="CPXgetcallbacknodeinfo, C API Reference Manual, CPXXgetcallbacknodeinfo" />
+<meta name="keywords" content="CPXgetcallbacknodeinfo, C API Reference Manual, CPXXgetcallbacknodeinfo" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/getcallbackinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="getcallbackseqinfo.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getcallbacknodeinfo" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXgetcallbacknodeinfo and CPXgetcallbacknodeinfo</title>
+</head>
+<body id="getcallbacknodeinfo"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetcallbacknodeinfo</span> and <span class="keyword apiname">CPXgetcallbacknodeinfo</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeinfo</span>/<span class="keyword apiname">CPXgetcallbacknodeinfo</span></code> is called from within
+ user-written callbacks during a MIP optimization and accesses information
+ about nodes.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetcallbacknodeinfo</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCNT</span><span class="ph sep"> </span><span class="ph var">nodeindex</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">whichinfo</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">result_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetcallbacknodeinfo</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nodeindex</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">whichinfo</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">result_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeinfo</span>/<span class="keyword apiname">CPXgetcallbacknodeinfo</span></code> is called from within
+ user-written callbacks during a MIP optimization and accesses information
+ about nodes. The node information is from the original problem if the 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>) 
+ is turned off (set to <code class="ph codeph">CPX_OFF</code>). 
+ Otherwise, the information is from the presolved problem.
+ </p>
+
+<p class="p">In opportunistic parallel mode, CPLEX supports queries only about 
+the current node, that is, the node with index 0 (zero). CPLEX does 
+not support queries about any other open node. Queries about any other 
+open node than the current node with index 0 (zero) in opportunistic 
+parallel mode can provoke undefined behavior. Consequently, the user 
+should not use the node callback in opportunistic parallel mode. If 
+you think you need the node callback in opportunistic parallel mode, 
+restrict its use to simple tracking; that is, ask only about the current 
+node, and set the user action to 
+<code class="ph codeph">CPX_CALLBACK_DEFAULT</code>.
+</p>
+
+ <p class="p">The primary purpose of this routine is to examine nodes in order to
+ select one from which to proceed. In this case, the <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code>
+ argument is <code class="ph codeph">CPX_CALLBACK_MIP_NODE</code>, and a node with any
+ <code class="ph codeph"><span class="keyword parmname">nodeindex</span></code> value can be queried. </p>
+
+ <p class="p">A secondary purpose of this routine is to
+ obtain information about the current node. When
+ the <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> argument is any one of
+ the following values, only the current node can be queried.
+ </p>
+
+ <ul class="ul">
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_CUT_FEAS</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_CUT_UNBD</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_CUT_LOOP</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_CUT_LAST</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_NODESOLN</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_HEURSOLN</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_USERSOLN</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_HEURISTIC</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_SOLVE</code></li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_BRANCH</code></li>
+
+ </ul>
+
+ <p class="p">
+ To query the current node, specify a <code class="ph codeph"><span class="keyword parmname">nodeindex</span></code> value of
+ 0 (zero). Other values
+ of the <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> argument are invalid for this routine. An
+ invalid <code class="ph codeph"><span class="keyword parmname">nodeindex</span></code> value or <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> argument
+ value will result in an error as return value.</p>
+
+
+ <p class="p">The values returned for <code class="ph codeph">CPX_CALLBACK_INFO_NODE_SIINF</code>
+ and <code class="ph codeph">CPX_CALLBACK_INFO_NODE_NIINF</code> for the current node are the
+ values that applied to the node when it was stored and thus before the
+ branch was solved. As a result, these values should not be used to assess
+ the feasibility of the node. Instead, use the routine
+ <code class="ph codeph"><a class="xref" href="getcallbacknodeintfeas.html" title="The routine CPXXgetcallbacknodeintfeas/CPXgetcallbacknodeintfeas retrieves information for each variable about whether or not the variable is integer feasible in the subproblem at the current node."><span class="keyword apiname">CPXXgetcallbacknodeintfeas</span>/<span class="keyword apiname">CPXgetcallbacknodeintfeas</span></a></code>
+ to check the feasibility of a node.</p>
+
+
+ <p class="p">This routine cannot retrieve information about nodes that have been moved
+ to node files. For more information about node files, see the topic 
+ <em class="ph i">Using node files</em> in the <em class="ph i">CPLEX User's Manual</em>.
+ If the argument <code class="ph codeph"><span class="keyword parmname">nodeindex</span></code> refers to a node in a
+ node file, <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeinfo</span>/<span class="keyword apiname">CPXgetcallbacknodeinfo</span></code> returns the value
+ <code class="ph codeph">CPXERR_NODE_ON_DISK</code>. Nodes still in memory have the lowest
+ index numbers, so a user can loop through the nodes until
+ <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeinfo</span>/<span class="keyword apiname">CPXgetcallbacknodeinfo</span></code> returns an error, and then exit the
+ loop.</p>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbdata</dt>
+
+        <dd class="dd pd">
+          
+          The pointer passed to the user-written callback. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">cbdata</span></code> passed to the user-written callback.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">wherefrom</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">An integer value reporting where the user-written callback 
+was called from. This argument must be the value of 
+<code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> passed to the user-written callback.
+Do not call this routine with 
+<code class="ph codeph"><span class="keyword apiname">wherefrom==CPX_CALLBACK_MIP_DELETENODE</span></code>.</p>
+
+<div class="note important"><span class="importanttitle">Important:</span>  
+<p class="p">Any routine that queries the current LP solution can yield invalid
+data when <code class="ph codeph"><span class="keyword apiname">wherefrom==CPX_CALLBACK_MIP</span></code> because in that case, 
+the MIP callback is called before the LP relaxation of the current node 
+is solved.
+</p>
+
+</div>
+ 
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nodeindex</dt>
+
+        <dd class="dd pd">
+          
+          The index of the node for which information is requested. Nodes are indexed from <code class="ph codeph">0</code> (zero) to <code class="ph codeph">(<span class="keyword parmname">nodesleft</span>-1)</code> where <code class="ph codeph"><span class="keyword parmname">nodesleft</span></code> is obtained from the callback information function <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackinfo</span>/<span class="keyword apiname">CPXgetcallbackinfo</span></code>, with a <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code> value of <code class="ph codeph">CPX_CALLBACK_INFO_NODES_LEFT</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">whichinfo</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying which information is requested. Table 1 summarizes the possible values. Table 2 summarizes possible values returned when the type of information requested is branch type (that is, <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code> = <code class="ph codeph">CPX_CALLBACK_INFO_NODE_TYPE</code>).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">result_p</dt>
+
+        <dd class="dd pd">
+          
+          A generic pointer to a variable of type <code class="ph codeph">double</code>, <code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code>, <code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code>, or <code class="ph codeph">void*</code>, representing the value returned by <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>. (The column C Type in Table 1 shows the type of various values returned by <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>.)
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      <p class="p">The routine returns 0 (zero) if successful and nonzero if an error occurs. The return value <code class="ph codeph">CPXERR_NODE_ON_DISK</code>
+ reports an attempt to access a node currently
+ located in a node file on disk.</p>
+
+
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+
+ <pre class="pre codeblock"><code>
+ status = CPXgetcallbacknodeinfo(env,
+                                 cbdata,
+                                 wherefrom,
+                                 0,
+                                 CPX_CALLBACK_INFO_NODE_NIINF,
+                                 &amp;numiinf);
+ </code></pre>
+
+ <p class="p">
+ Some of the values can be queried by two different <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>
+ parameters. For example, the depth of a node can be queried by
+ <code class="ph codeph">CPX_CALLBACK_INFO_NODE_DEPTH</code> and
+ <code class="ph codeph">CPX_CALLBACK_INFO_NODE_DEPTH_LONG</code>. When a query uses
+ <code class="ph codeph">CPX_CALLBACK_INFO_NODE_DEPTH_LONG</code>, then <code class="ph codeph"><span class="keyword parmname">result_p</span></code>
+ must point to a value of type
+ <code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code>. When a query uses
+ <code class="ph codeph">CPX_CALLBACK_INFO_NODE_DEPTH</code>, then <code class="ph codeph"><span class="keyword parmname">result_p</span></code>
+ must point to a value of type
+ <code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code>. In this case, if
+ the value to be returned in <code class="ph codeph"><span class="keyword parmname">result_p</span></code> exceeds the maximum
+ value of a 32-bit signed integer, the routine will store <code class="ph codeph">INT_MAX</code>
+ in <code class="ph codeph">*<span class="keyword parmname">result_p</span></code> and return the error
+ <code class="ph codeph"><a class="xref" href="../macros/CPXERR_OVERFLOW.html" title="1810 32-bit overflow">CPXERR_OVERFLOW</a></code>.
+ </p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Information requested for a user-written node callback</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+ <tr class="row"><th class="entry" valign="top" id="d937182e637">Symbolic Constant</th>
+<th class="entry" valign="top" id="d937182e639">C Type</th>
+<th class="entry" valign="top" id="d937182e641">Meaning</th>
+</tr>
+</thead>
+<tbody class="tbody">
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_SIINF</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph">double</code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">sum of integer infeasibilities</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_NIINF</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">number of integer infeasibilities</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_ESTIMATE</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph">double</code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">estimated integer objective</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_DEPTH</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">depth of node in branch-and-cut tree, truncated to 32bit</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_DEPTH_LONG</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">depth of node in branch-and-cut tree</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_OBJVAL</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph">double</code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">a valid dual bound; usually, objective value of continuous relaxation at parent node</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_TYPE</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph">char</code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">type of branch at this node; see Table 2</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_VAR</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">for nodes of type <code class="ph codeph">CPX_TYPE_VAR</code>, the branching variable
+ for this node; for other types, -1 is returned</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_SOS</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">for nodes of type <code class="ph codeph"><span class="keyword apiname">CPX_TYPE_SOS1</span></code> or
+ <code class="ph codeph"><span class="keyword apiname">CPX_TYPE_SOS2</span></code> the number of the SOS used in
+ branching; <code class="ph codeph">-1</code> otherwise</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_SEQNUM</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">sequence number of the node, truncated to 32-bits</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_SEQNUM_LONG</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">sequence number of the node</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_USERHANDLE</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph">void*</code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">userhandle associated with the node upon its creation</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_NODENUM</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">node index of the node (only available for
+ <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackseqinfo</span>/<span class="keyword apiname">CPXgetcallbackseqinfo</span></code>), truncated to 32-bits</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_NODE_NODENUM_LONG</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">node index of the node (only available for
+ <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackseqinfo</span>/<span class="keyword apiname">CPXgetcallbackseqinfo</span></code>)</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e637 "><code class="ph codeph">CPX_CALLBACK_INFO_LAZY_SOURCE</code></td>
+
+ <td class="entry" valign="top" headers="d937182e639 "><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+ <td class="entry" valign="top" headers="d937182e641 ">From where a lazy constraint callback was invoked. Must only be queried
+ from a lazy constraint callback. Returns one of
+ <code class="ph codeph"><a class="xref" href="../macros/CPX_LAZYCONSTRAINTCALLBACK_NODE.html">CPX_LAZYCONSTRAINTCALLBACK_NODE</a></code>,
+ <code class="ph codeph"><a class="xref" href="../macros/CPX_LAZYCONSTRAINTCALLBACK_HEUR.html">CPX_LAZYCONSTRAINTCALLBACK_HEUR</a></code>, or
+ <code class="ph codeph"><a class="xref" href="../macros/CPX_LAZYCONSTRAINTCALLBACK_MIPSTART.html">CPX_LAZYCONSTRAINTCALLBACK_MIPSTART</a></code>.
+ </td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Branch types returned when whichinfo = CPX_CALLBACK_INFO_NODE_TYPE</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+ <tr class="row"><th class="entry" valign="top" id="d937182e931">Symbolic Constant</th>
+<th class="entry" valign="top" id="d937182e933">Value</th>
+<th class="entry" valign="top" id="d937182e935">Branch Type</th>
+</tr>
+</thead>
+<tbody class="tbody">
+ <tr class="row"><td class="entry" valign="top" headers="d937182e931 "><code class="ph codeph">CPX_TYPE_VAR</code></td>
+<td class="entry" valign="top" headers="d937182e933 "><code class="ph codeph">'0'</code></td>
+
+ <td class="entry" valign="top" headers="d937182e935 ">variable branch</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e931 "><code class="ph codeph"><span class="keyword apiname">CPX_TYPE_SOS1</span></code></td>
+<td class="entry" valign="top" headers="d937182e933 "><code class="ph codeph">'1'</code></td>
+
+ <td class="entry" valign="top" headers="d937182e935 ">SOS1 branch</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e931 "><code class="ph codeph"><span class="keyword apiname">CPX_TYPE_SOS2</span></code></td>
+<td class="entry" valign="top" headers="d937182e933 "><code class="ph codeph">'2'</code></td>
+
+ <td class="entry" valign="top" headers="d937182e935 ">SOS2 branch</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e931 "><code class="ph codeph">CPX_TYPE_USER</code></td>
+<td class="entry" valign="top" headers="d937182e933 "><code class="ph codeph">'X'</code></td>
+
+ <td class="entry" valign="top" headers="d937182e935 ">user-defined</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d937182e931 "><code class="ph codeph">CPX_TYPE_ANY</code></td>
+<td class="entry" valign="top" headers="d937182e933 "><code class="ph codeph">'A'</code></td>
+
+ <td class="entry" valign="top" headers="d937182e935 ">multiple bound changes or constraints were used for branching</td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+ <p class="p">See also <em class="ph i">Advanced MIP Control Interface</em> in the
+ <em class="ph i">CPLEX User's Manual</em>.</p>
+
+
+
+ 
+ 
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../cpxapi/getcallbackinfo.html" title="The routine CPXXgetcallbackinfo/CPXgetcallbackinfo accesses information about the current optimization process from within a user-written legacy callback function.">CPXgetcallbackinfo</a></li>
+<li class="linklist"><a class="link" href="getcallbackseqinfo.html" title="The routine CPXXgetcallbackseqinfo/CPXgetcallbackseqinfo accesses information about nodes during the MIP optimization from within user-written callbacks.">CPXgetcallbackseqinfo</a></li></ul></div>
+</nav>
+</div></body>
+</html>

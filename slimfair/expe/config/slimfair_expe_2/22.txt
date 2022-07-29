@@ -1,0 +1,9 @@
+dataset_path=data/german_credit_binary.csv
+label_name=Risk == good
+lambda_bound=9
+e=0.5
+c_0=0.0001
+time_limit=3600
+testing_mode=True
+n_folds=5
+sensitive_group=Sex == female

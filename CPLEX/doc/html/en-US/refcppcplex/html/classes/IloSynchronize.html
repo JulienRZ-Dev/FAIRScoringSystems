@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>IloSynchronize</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.concert.cpoptimizer/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../classes/IloSynchronize.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Class IloSynchronize</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+                class="definition-file">ilconcert/ilosmodel.h</span></div><div><img
+                src="IloSynchronize.png" border="0"
+                usemap="#svg_map_IloSynchronize"
+                    alt="Map of IloSynchronize"><map
+                        name="svg_map_IloSynchronize"><area
+                        href="../classes/IloSynchronize.html"
+                        shape="rect" alt="IloSynchronize"
+                        coords="10.0,120.5625,91.0,138.203125" /><area
+                        href="../classes/IloSynchronize.html"
+                        shape="rect" alt="IloSynchronize"
+                        coords="10.0,120.5625,91.0,138.203125" /><area
+                        href="../classes/IloConstraint.html"
+                        shape="rect" alt="IloConstraint"
+                        coords="60.5,92.921875,141.5,110.5625" /><area
+                        href="../classes/IloIntExprArg.html"
+                        shape="rect" alt="IloIntExprArg"
+                        coords="111.0,65.28125,192.0,82.921875" /><area
+                        href="../classes/IloNumExprArg.html"
+                        shape="rect" alt="IloNumExprArg"
+                        coords="161.5,37.640625,242.5,55.28125" /><area
+                        href="../classes/IloExtractable.html"
+                        shape="rect" alt="IloExtractable"
+            coords="212.0,10.0,293.0,27.640625" /></map></img></div>
+An instance of this class represents a synchronization constraint. This class has been deprecated in CP Optimizer 20.1.0.
+    <div
+                    class="description"><p>The class <code>IloSynchronize</code> has been deprecated in CP Optimizer 20.1.0 and will be removed in a future release.
+Instead, use a set of <code>IloStartAtStart</code> and <code>IloStartAtEnd</code> constraints between the master interval variables and the other interval variables. If the <code>IloSynchronize</code> constraint is meant to formulate the selection of a subset of intervals, consider using the <code>IloAlternative</code> constraint instead (with unit, multiple or variable cardinality).</p></div><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Method Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public IloSynchronizeI *</code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloSynchronize.html#method_getImpl">getImpl</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public </code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloSynchronize.html#method_IloSynchronize">IloSynchronize</a>()</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public </code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloSynchronize.html#method_IloSynchronize">IloSynchronize</a>(IloSynchronizeI * impl)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public </code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloSynchronize.html#method_IloSynchronize">IloSynchronize</a>(const <a
+                            href="../classes/IloEnv.html">IloEnv</a> env, const <a
+                            href="../classes/IloIntervalVar.html">IloIntervalVar</a> a, const <a
+            href="../typedefs/IloIntervalVarArray.html">IloIntervalVarArray</a> bs, const char * name=0)</code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                            colspan="1">Inherited Methods from <code><a
+                    href="../classes/IloConstraint.html">IloConstraint</a></code></th></tr><tr><td
+                            width="100%"><code><a
+                            href="../classes/IloConstraint.html#method_getImpl">getImpl</a>, <a
+                            href="../classes/IloConstraint.html#method_IloConstraint">IloConstraint</a>, <a
+            href="../classes/IloConstraint.html#method_IloConstraint">IloConstraint</a></code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                            colspan="1">Inherited Methods from <code><a
+                    href="../classes/IloIntExprArg.html">IloIntExprArg</a></code></th></tr><tr><td
+                            width="100%"><code><a
+                            href="../classes/IloIntExprArg.html#method_getImpl">getImpl</a>, <a
+                            href="../classes/IloIntExprArg.html#method_IloIntExprArg">IloIntExprArg</a>, <a
+            href="../classes/IloIntExprArg.html#method_IloIntExprArg">IloIntExprArg</a></code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                            colspan="1">Inherited Methods from <code><a
+                    href="../classes/IloNumExprArg.html">IloNumExprArg</a></code></th></tr><tr><td
+                            width="100%"><code><a
+                            href="../classes/IloNumExprArg.html#method_getImpl">getImpl</a>, <a
+                            href="../classes/IloNumExprArg.html#method_IloNumExprArg">IloNumExprArg</a>, <a
+            href="../classes/IloNumExprArg.html#method_IloNumExprArg">IloNumExprArg</a></code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                            colspan="1">Inherited Methods from <code><a
+                    href="../classes/IloExtractable.html">IloExtractable</a></code></th></tr><tr><td
+                            width="100%"><code><a
+                            href="../classes/IloExtractable.html#method_asConstraint">asConstraint</a>, <a
+                            href="../classes/IloExtractable.html#method_asIntExpr">asIntExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_asModel">asModel</a>, <a
+                            href="../classes/IloExtractable.html#method_asNumExpr">asNumExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_asObjective">asObjective</a>, <a
+                            href="../classes/IloExtractable.html#method_asVariable">asVariable</a>, <a
+                            href="../classes/IloExtractable.html#method_end">end</a>, <a
+                            href="../classes/IloExtractable.html#method_getEnv">getEnv</a>, <a
+                            href="../classes/IloExtractable.html#method_getId">getId</a>, <a
+                            href="../classes/IloExtractable.html#method_getImpl">getImpl</a>, <a
+                            href="../classes/IloExtractable.html#method_getName">getName</a>, <a
+                            href="../classes/IloExtractable.html#method_getObject">getObject</a>, <a
+                            href="../classes/IloExtractable.html#method_IloExtractable">IloExtractable</a>, <a
+                            href="../classes/IloExtractable.html#method_isConstraint">isConstraint</a>, <a
+                            href="../classes/IloExtractable.html#method_isIntExpr">isIntExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_isModel">isModel</a>, <a
+                            href="../classes/IloExtractable.html#method_isNumExpr">isNumExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_isObjective">isObjective</a>, <a
+                            href="../classes/IloExtractable.html#method_isVariable">isVariable</a>, <a
+                            href="../classes/IloExtractable.html#method_removeFromAll">removeFromAll</a>, <a
+                            href="../classes/IloExtractable.html#method_setLocation">setLocation</a>, <a
+                            href="../classes/IloExtractable.html#method_setName">setName</a>, <a
+            href="../classes/IloExtractable.html#method_setObject">setObject</a></code></td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Method Detail</th></tr></table><h3><a
+            name="method_IloSynchronize">IloSynchronize</a></h3><div
+                class="prototype">public  <span
+            class="function-name">IloSynchronize</span>()</div><div
+                class="description">
+ This constructor creates an empty handle. You must initialize it before you use it. 
+        </div><hr /><h3><a
+            name="method_IloSynchronize">IloSynchronize</a></h3><div
+                class="prototype">public  <span
+                class="function-name">IloSynchronize</span>(IloSynchronizeI * <span
+            class="parameter-name">impl</span>)</div><div
+                class="description">
+ This constructor creates a handle object from a pointer to an implementation object.  
+        </div><hr /><h3><a
+            name="method_IloSynchronize">IloSynchronize</a></h3><div
+                class="prototype">public  <span
+                class="function-name">IloSynchronize</span>(const <a
+                href="../classes/IloEnv.html">IloEnv</a> <span
+                class="parameter-name">env</span>, const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="parameter-name">a</span>, const <a
+                href="../typedefs/IloIntervalVarArray.html">IloIntervalVarArray</a> <span
+                class="parameter-name">bs</span>, const char * <span
+                class="parameter-name">name</span>=<span
+            class="parameter-name">0</span>)</div><div
+                class="description"><p>This constructor creates a synchronization constraint between
+ interval variable <code>a</code> and the set of interval
+ variables in the array <code>bs</code> and makes it part of the
+ environment <code>env</code>.</p></div><hr /><h3><a
+            name="method_getImpl">getImpl</a></h3><div
+                class="prototype">public IloSynchronizeI * <span
+            class="function-name">getImpl</span>() const</div><div class="description">
+ This member function returns a pointer to the implementation object of the invoking handle.  
+        </div><hr /></body>
+</html>

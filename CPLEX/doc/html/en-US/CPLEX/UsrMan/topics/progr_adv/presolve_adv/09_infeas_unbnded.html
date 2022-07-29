@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Infeasibility or unboundedness in presolve reductions" />
+<meta name="abstract" content="Describes special considerations of presolve with respect to infeasible or unbounded models." />
+<meta name="Description" content="Describes special considerations of presolve with respect to infeasible or unbounded models." />
+<meta name="DC.subject" content="CPXERR_PRESLV_INF, CPXERR_PRESLV_UNBD" />
+<meta name="keywords" content="CPXERR_PRESLV_INF, CPXERR_PRESLV_UNBD" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/presolve_adv/04_reductions_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_advancedPresolve.1004961" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/presolve_adv/04_reductions_title_synopsis.html" />
+<title>Infeasibility or unboundedness in presolve reductions</title>
+</head>
+<body id="User_manual.uss_advancedPresolve.1004961"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Infeasibility or unboundedness in presolve reductions</h1>
+ 
+ 
+ 
+<div class="body"><p class="shortdesc">Describes special considerations of presolve with respect
+to infeasible or unbounded models.</p>
+
+<p class="p">Restricting the type of presolve reductions will also
+allow presolve to conclude more about infeasible and/or unbounded
+problems. Under the default setting of the <a class="xref" href="../../../../Parameters/topics/Reduce.html" title="Specifies whether primal reductions, dual reductions, both, or neither are performed during preprocessing.">primal and dual reduction type</a> (<code class="ph codeph">CPX_PARAM_REDUCE</code>) parameter, presolve can only conclude
+that a problem is infeasible and/or unbounded. If the <code class="ph codeph">CPX_PARAM_REDUCE</code> parameter is set to <code class="ph codeph">CPX_PREREDUCE_PRIMALONLY</code>  (1), presolve can conclude that a problem is primal infeasible
+with return status <code class="ph codeph">CPXERR_PRESLV_INF</code> .
+If <code class="ph codeph">CPX_PARAM_REDUCE</code> is set to <code class="ph codeph">CPX_PREREDUCE_DUALONLY</code>  (2), presolve can conclude
+that a problem is primal unbounded (if it is primal feasible) with
+return status <code class="ph codeph">CPXERR_PRESLV_UNBD</code> .  </p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">This paragraph applies to CPXpresolve, not CPXlpopt. </p>
+
+</div>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/presolve_adv/04_reductions_title_synopsis.html" title="Describes conditions under which a user might restrict presolve.">Restricting presolve reductions</a></div>
+</div>
+</nav></div></body>
+</html>

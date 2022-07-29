@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex._internal._multiobj.MultiObjInterface</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        <a href="cplex._internal-module.html" onclick="show_private();">Package&nbsp;_internal</a> ::
+        <a href="cplex._internal._multiobj-module.html">Module&nbsp;_multiobj</a> ::
+        Class&nbsp;MultiObjInterface
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex._internal._multiobj.MultiObjInterface-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MultiObjInterface</h1><p class="nomargin-top"></p>
+<center>
+<center>  <map id="class_hierarchy_for_multiobjin" name="class_hierarchy_for_multiobjin">
+<area shape="rect" id="node1" href="cplex._internal._baseinterface.BaseInterface-class.html" title="_baseinterface.BaseInterface" alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="cplex._internal._multiobj.MultiObjInterface-class.html" title="MultiObjInterface" alt="" coords="42,61,163,88"/>
+</map>
+  <img src="class_hierarchy_for_multiobjin.gif" alt='' usemap="#class_hierarchy_for_multiobjin" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Methods for adding, querying, and modifying multiple objectives.</p>
+<p>The methods in this interface can be used to add, query, and modify
+objectives in a specified problem. These objectives are used when
+multi-objective optimization is initiated.</p>
+<p>See also <a href="cplex._internal._multiobjsoln.MultiObjSolnInterface-class.html" class="link">MultiObjSolnInterface</a> where methods for accessing
+solutions for multi-objective models can be found.</p>
+<p>For more details see the section on multi-objective optimization in
+the CPLEX User's Manual.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cpx</span>)</span><br />
+      Creates a new MultiObjInterface.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_num" class="summary-sig-name">get_num</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the number of objectives in the problem.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_num" class="summary-sig-name">set_num</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">numobj</span>)</span><br />
+      Sets the number of objectives in the problem instance.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_names" class="summary-sig-name">get_names</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Returns the names of a set of objectives.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_name" class="summary-sig-name">set_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Sets the name of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_definition" class="summary-sig-name">get_definition</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">begin</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">end</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the definition of an objective.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_definition" class="summary-sig-name">set_definition</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">obj</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">offset</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">priority</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">abstol</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">reltol</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Sets the definition of an objective.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_linear" class="summary-sig-name">get_linear</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Returns the linear coefficients of a set of variables.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_linear" class="summary-sig-name">set_linear</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Changes the linear part of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_sense" class="summary-sig-name">get_sense</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the sense of all objective functions.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_sense" class="summary-sig-name">set_sense</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sense</span>)</span><br />
+      Sets the sense of all objective functions.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_offset" class="summary-sig-name">get_offset</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>)</span><br />
+      Returns the constant offset of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_offset" class="summary-sig-name">set_offset</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">offset</span>)</span><br />
+      Sets the constant offset of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_weight" class="summary-sig-name">get_weight</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>)</span><br />
+      Returns the weight of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_weight" class="summary-sig-name">set_weight</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">weight</span>)</span><br />
+      Sets the weight of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_priority" class="summary-sig-name">get_priority</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>)</span><br />
+      Returns the priority of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_priority" class="summary-sig-name">set_priority</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">priority</span>)</span><br />
+      Sets the priority of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_abstol" class="summary-sig-name">get_abstol</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>)</span><br />
+      Returns the absolute tolerance of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_abstol" class="summary-sig-name">set_abstol</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">abstol</span>)</span><br />
+      Sets the absolute tolerance of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#get_reltol" class="summary-sig-name">get_reltol</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>)</span><br />
+      Returns the relative tolerance of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_reltol" class="summary-sig-name">set_reltol</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">objidx</span>,
+        <span class="summary-sig-arg">reltol</span>)</span><br />
+      Sets the relative tolerance of an objective function.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cplex._internal._baseinterface.BaseInterface-class.html">_baseinterface.BaseInterface</a></code></b>:
+      <code><a href="cplex._internal._baseinterface.BaseInterface-class.html#get_indices">get_indices</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Class Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="sense"></a><span class="summary-name">sense</span> = <code title="ObjSense()">ObjSense()</code><br />
+      See <a href="cplex._internal._subinterfaces.ObjSense-class.html" class="link">ObjSense()</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Method Details</span></td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cpx</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates a new MultiObjInterface.</p>
+<p>The Multi-Objective interface is exposed by the top-level <a href="cplex.Cplex-class.html" class="link">Cplex</a>
+class as <a href="cplex.Cplex-class.html#multiobj" class="link">Cplex.multiobj</a>. This constructor is not meant to be
+used externally.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cplex._internal._baseinterface.BaseInterface-class.html#__init__">_baseinterface.BaseInterface.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_num"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_num</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the number of objectives in the problem.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/getnumobjs.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXgetnumobjs</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_num()
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>indices = c.multiobj.set_num(2)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_num()
+<span class="py-output">2</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_num"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_num</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">numobj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the number of objectives in the problem instance.</p>
+<p>There is always at least one objective in the problem instance
+(indexed 0) thus numobj must be at least 1. If before calling
+this method there were more objectives in the instance than the
+specified numobj then the objectives whose index is &gt;= numobj are
+removed from the instance. If before calling this method the
+number of objectives was &lt;= numobj then new objectives are
+created, all with all-zero coefficients and default settings
+(like priority, weight, etc).</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/setnumobjs.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXsetnumobjs</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_num(2)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_num()
+<span class="py-output">2</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_names"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_names</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the names of a set of objectives.</p>
+<p>There are four forms by which multiobj.get_names may be called.</p>
+<dl class="rst-docutils">
+<dt>multiobj.get_names()</dt>
+<dd>return the names of all objectives from the problem.</dd>
+<dt>multiobj.get_names(i)</dt>
+<dd>i must be an objective index. Returns the name of row i.</dd>
+<dt>multiobj.get_names(s)</dt>
+<dd>s must be a sequence of objective indices. Returns the names of
+the objectives with indices the members of s. Equivalent to
+[multiobj.get_names(i) for i in s]</dd>
+<dt>multiobj.get_names(begin, end)</dt>
+<dd>begin and end must be objective indices. Returns the names of
+the objectives with indices between begin and end, inclusive of
+end. Equivalent to multiobj.get_names(range(begin, end + 1)).</dd>
+</dl>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/multiobjgetname.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmultiobjgetname</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_definition(0, name=<span class="py-string">'mo1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_names(0)
+<span class="py-output">'mo1'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the name of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_num(3)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3):
+<span class="py-more">... </span>    c.multiobj.set_name(i, str(i))
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_names()
+<span class="py-output">['0', '1', '2']</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_definition"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_definition</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">begin</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">end</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the definition of an objective.</p>
+<p>Returns an objective definitions, where the definition is a list
+containing the following components: obj (a list containing the
+linear objective coefficients), offset, weight, priority, abstol,
+reltol (see <a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_definition" class="link">set_definition</a>).</p>
+<p>objidx is the name or index of the objective to be accessed.</p>
+<p>The optional begin and end arguments must be variable indices
+or names. Together, begin and end specify the range of objective
+function coefficients to be returned. By default, the linear
+objective coefficients of all variables from the problem will be
+returned (i.e., begin will default to the first variable index
+and end will default to the last variable index).</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/multiobjgetobj.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmultiobjgetobj</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>varind = list(c.variables.add(obj=[1.0, 2.0]))
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_definition(0)
+<span class="py-output">[[1.0, 2.0], 0.0, 1.0, 0, 0.0, 0.0]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_definition"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_definition</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">obj</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">offset</span>=<span class="sig-default">0.0</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">1.0</span>,
+        <span class="sig-arg">priority</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">abstol</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">reltol</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the definition of an objective.</p>
+<p>multiobj.set_definition accepts the keyword arguments objidx,
+obj, offset, weight, priority, abstol, reltol, and name.</p>
+<p>objidx is the name or index of the objective to be set. The
+objective index must be in the interval
+[0, Cplex.multiobj.get_num() - 1].</p>
+<p>obj can be either a SparsePair or a list of two lists specifying
+the linear component of the objective. If not specified, the
+coefficients of every variable are set to 0.0.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>obj must not contain duplicate indices. If obj references a
+variable more than once, either by index, name, or a
+combination of index and name, an exception will be raised.</dd>
+</dl>
+<p>offset is the offset of the objective to be set. If not
+specififed, the offset is set to 0.0.</p>
+<p>weight is the weight of the objective to be set. For the
+definition of the weight see the description of blended objective
+in the multi-objective optimization section of the CPLEX User's
+Manual. If not specified, the weight is set to 1.0.</p>
+<p>priority is the priority of the objective to be set. It must be a
+nonnegative integer. For the definition of the priority see the
+description of lexicographic objective in the multi-objective
+optimization section of the CPLEX User's Manual. If not
+specified, the priority is set to 0.</p>
+<p>abstol is the absolute tolerance of the objective to be set. If
+not specified, the absolute tolerance is set to 0.0.</p>
+<p>reltol is the relative tolerance of the objective to be set. If
+not specified, the relative tolerance is set to 0.0.</p>
+<p>name is a string representing the name of the objective to be
+set. If not specified, the objective name will default to None.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/multiobjsetobj.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmultiobjsetobj</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>varind = list(c.variables.add(names=[<span class="py-string">'x1'</span>, <span class="py-string">'x2'</span>]))
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_definition(
+<span class="py-more">... </span>    objidx=0,
+<span class="py-more">... </span>    obj=cplex.SparsePair(ind=varind, val=[1.0, 2.0]),
+<span class="py-more">... </span>    offset=0.0,
+<span class="py-more">... </span>    weight=1.0,
+<span class="py-more">... </span>    priority=0,
+<span class="py-more">... </span>    abstol=1e-06,
+<span class="py-more">... </span>    reltol=1e-04,
+<span class="py-more">... </span>    name=<span class="py-string">'obj1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_definition(<span class="py-string">'obj1'</span>)
+<span class="py-output">[[1.0, 2.0], 0.0, 1.0, 0, 1e-06, 0.0001]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_names(0)
+<span class="py-output">'obj1'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_linear"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_linear</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the linear coefficients of a set of variables.</p>
+<p>Can be called by four forms each of which requires an objidx
+argument. objidx must be an objective name or index.</p>
+<dl class="rst-docutils">
+<dt>multiobj.get_linear(objidx)</dt>
+<dd>return the linear objective coefficients of all variables
+from the problem.</dd>
+<dt>multiobj.get_linear(objidx, i)</dt>
+<dd>i must be a variable name or index. Returns the linear
+objective coefficient of the variable whose index or name is i.</dd>
+<dt>multiobj.get_linear(objidx, s)</dt>
+<dd>s must be a sequence of variable names or indices. Returns the
+linear objective coefficient of the variables with indices the
+members of s. Equivalent to
+[multiobj.get_linear(objidx, i) for i in s]</dd>
+<dt>multiobj.get_linear(objidx, begin, end)</dt>
+<dd>begin and end must be variable indices or variable names.
+Returns the linear objective coefficient of the variables with
+indices between begin and end, inclusive of end. Equivalent to
+multiobj.get_linear(objidx, range(begin, end + 1)).</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(
+<span class="py-more">... </span>    obj=[1.5 * i <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(10)],
+<span class="py-more">... </span>    names=[str(i) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(10)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.variables.get_num()
+<span class="py-output">10</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0, 8)
+<span class="py-output">12.0</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0, <span class="py-string">'1'</span>, 3)
+<span class="py-output">[1.5, 3.0, 4.5]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0, [2, <span class="py-string">'0'</span>, 5])
+<span class="py-output">[3.0, 0.0, 7.5]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0)
+<span class="py-output">[0.0, 1.5, 3.0, 4.5, 6.0, 7.5, 9.0, 10.5, 12.0, 13.5]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_linear"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_linear</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Changes the linear part of an objective function.</p>
+<p>Can be called by two forms each of which requires an objidx
+argument. objidx must be an objective name or index.</p>
+<dl class="rst-docutils">
+<dt>multiobj.set_linear(objidx, var, value)</dt>
+<dd>var must be a variable index or name and value must be a float.
+Changes the coefficient of the variable identified by var to
+value.</dd>
+<dt>multiobj.set_linear(objidx, sequence)</dt>
+<dd>sequence is a sequence of pairs (var, value) as described
+above. Changes the coefficients for the specified variables to
+the given values.</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[str(i) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(4)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0)
+<span class="py-output">[0.0, 0.0, 0.0, 0.0]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_linear(0, 0, 1.0)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0)
+<span class="py-output">[1.0, 0.0, 0.0, 0.0]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_linear(0, <span class="py-string">'3'</span>, -1.0)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0)
+<span class="py-output">[1.0, 0.0, 0.0, -1.0]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_linear(0, [(<span class="py-string">'2'</span>, 2.0), (1, 0.5)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_linear(0)
+<span class="py-output">[1.0, 0.5, 2.0, -1.0]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_sense"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_sense</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the sense of all objective functions.</p>
+<p>See <a href="cplex._internal._subinterfaces.ObjSense-class.html" class="link">ObjSense</a>.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.sense[c.multiobj.get_sense()]
+<span class="py-output">'minimize'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_sense(c.multiobj.sense.maximize)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.sense[c.multiobj.get_sense()]
+<span class="py-output">'maximize'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_sense(c.multiobj.sense.minimize)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.sense[c.multiobj.get_sense()]
+<span class="py-output">'minimize'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_sense"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_sense</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">sense</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the sense of all objective functions.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>All objective functions share the same sense. To model an
+objective with a different sense use a negative value for the
+weight attribute. See <a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_weight" class="link">set_weight</a>.</dd>
+</dl>
+<p>The argument to this method must be either <a href="cplex._internal._subinterfaces.ObjSense-class.html#minimize" class="link">ObjSense.minimize</a>
+or <a href="cplex._internal._subinterfaces.ObjSense-class.html#maximize" class="link">ObjSense.maximize</a>.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.sense[c.multiobj.get_sense()]
+<span class="py-output">'minimize'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_sense(c.multiobj.sense.maximize)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.sense[c.multiobj.get_sense()]
+<span class="py-output">'maximize'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_sense(c.multiobj.sense.minimize)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.sense[c.multiobj.get_sense()]
+<span class="py-output">'minimize'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_offset"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_offset</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the constant offset of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_offset(0)
+<span class="py-output">0.0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_offset"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_offset</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">offset</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the constant offset of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.objective.set_offset(3.14)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.objective.get_offset()
+<span class="py-output">3.14</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_weight"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_weight</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the weight of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_weight(0)
+<span class="py-output">1.0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_weight"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_weight</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">weight</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the weight of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>All objective functions share the same sense. To model an
+objective with a different sense use a negative value for the
+weight attribute. See <a href="cplex._internal._multiobj.MultiObjInterface-class.html#set_sense" class="link">set_sense</a>.</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_weight(0, -2.0)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_weight(0)
+<span class="py-output">-2.0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_priority"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_priority</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the priority of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_priority(0)
+<span class="py-output">0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_priority"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_priority</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">priority</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the priority of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_priority(0, 2)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_priority(0)
+<span class="py-output">2</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_abstol"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_abstol</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the absolute tolerance of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_abstol(0)
+<span class="py-output">0.0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_abstol"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_abstol</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">abstol</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the absolute tolerance of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>abstol should be a float. When specifying a new value, the same
+limits apply as with the
+Cplex.parameters.mip.tolerances.absmipgap parameter. See the
+section on Specifying multiple objective problems in the CPLEX
+User's Manual for the details on the meaning of this tolerance.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/multiobjchgattribs.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmultiobjchgattribs</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_abstol(0, 1e-6)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_abstol(0)
+<span class="py-output">1e-06</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_reltol"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_reltol</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the relative tolerance of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_reltol(0)
+<span class="py-output">0.0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_reltol"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_reltol</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">objidx</span>,
+        <span class="sig-arg">reltol</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the relative tolerance of an objective function.</p>
+<p>objidx must be an objective name or index.</p>
+<p>reltol should be a float. When specifying a new value, the same
+limits apply as with the Cplex.parameters.mip.tolerances.mipgap
+parameter. Note that a nondefault setting of this parameter only
+applies to MIP multiobjective problems. See the section on
+Specifying multiple objective problems in the CPLEX User's Manual
+for the details on the meaning of this tolerance.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/multiobjchgattribs.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmultiobjchgattribs</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0 <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(3)])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.set_reltol(0, 1e-4)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.multiobj.get_reltol(0)
+<span class="py-output">0.0001</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

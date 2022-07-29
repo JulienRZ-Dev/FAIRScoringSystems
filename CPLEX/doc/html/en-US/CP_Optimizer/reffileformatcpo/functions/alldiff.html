@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="alldiff" />
+<meta name="abstract" content="Ensures a number of expressions contain no duplicate values." />
+<meta name="Description" content="Ensures a number of expressions contain no duplicate values." />
+<meta name="DC.subject" content="alldiff" />
+<meta name="keywords" content="alldiff" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="allMinDistance.html" />
+<meta name="DC.Relation" scheme="URI" content="intVar.html" />
+<meta name="DC.Relation" scheme="URI" content="distribute.html" />
+<meta name="DC.Relation" scheme="URI" content="count.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/100_Expressions.html#Operator_expressions" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="alldiff" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>alldiff</title>
+</head>
+<body id="alldiff"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">alldiff</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Ensures a number of expressions contain no duplicate values.
+</p>
+
+
+
+<section class="section" id="alldiff__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alldiff</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x)
+</code></pre>
+</section>
+
+
+<section class="section" id="alldiff__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code>: an array of integer expressions.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="alldiff__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The <code class="ph codeph"><a class="xref" href="alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a></code> function returns a constraint which ensures that no
+two expressions in the array <code class="ph codeph">x</code> can have equivalent values.
+</p>
+
+
+</section>
+
+
+<section class="section" id="alldiff__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+Let's assume we wish to allow sport teams fair access to a particular
+piece of equipment.  Below, we schedule 5 teams over a 5 week period.
+Assume an array of variables <code class="ph codeph">week</code>, with <code class="ph codeph">week[i]</code> indicating which week
+team <code class="ph codeph">i</code> has access.  Non-concurrent access can be modeled using an <code class="ph codeph"><a class="xref" href="alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a></code>
+constraint since in this way, no two teams can have access in the same week:
+</p>
+
+
+<pre class="pre codeblock"><code>
+week = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..4), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..4), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..4), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..4), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..4)];
+<strong class="ph b">alldiff</strong>(week);
+</code></pre>
+</section>
+
+
+<section class="section" id="alldiff__Notes"><h2 class="title sectiontitle">Notes</h2>
+<ul class="ul">
+  <li class="li">
+    CP Optimizer is able automatically aggregate and build <code class="ph codeph"><a class="xref" href="alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a></code>
+    constraints by detecting subset of expressions which are fully
+    pairwise connected via <code class="ph codeph">!=</code> constraints.
+  </li>
+
+</ul>
+
+
+<pre class="pre codeblock"><code>
+<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a> a = (0..3);
+<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a> b = (0..3);
+<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a> c = (0..3);
+<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a> d = (0..3);
+a != b;
+a != c;
+a != d;
+b != c;
+b != d;
+c != d;
+</code></pre>
+<p class="p">
+For the above model, during presolve, CP Optimizer will generate the constraint
+<code class="ph codeph"><strong class="ph b">alldiff</strong>([a,b,c,d]);</code> while removing the individual <code class="ph codeph">!=</code> constraints.
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relconcepts" xml:lang="en-us"><strong>Related concepts</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/100_Expressions.html#Operator_expressions">operators</a></li></ul></div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="allMinDistance.html" title="Constraint on the minimum absolute distance between a pair of integer expressions in an array.">allMinDistance</a></li>
+<li class="linklist"><a class="link" href="intVar.html" title="Creates a new integer variable.">intVar</a></li>
+<li class="linklist"><a class="link" href="distribute.html" title="Calculates and/or constrains the distribution of values taken by an array of integer expressions.">distribute</a></li>
+<li class="linklist"><a class="link" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

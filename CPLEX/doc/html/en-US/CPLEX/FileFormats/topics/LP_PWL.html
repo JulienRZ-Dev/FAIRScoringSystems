@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Piecewise linear (PWL) constraints in LP file format" />
+<meta name="abstract" content="CPLEX conforms to these rules about piecewise linear (PWL) constraints in LP file format." />
+<meta name="Description" content="CPLEX conforms to these rules about piecewise linear (PWL) constraints in LP file format." />
+<meta name="DC.subject" content="LP file format, piecewise linear constraints (PWL), piecewise linear" />
+<meta name="keywords" content="LP file format, piecewise linear constraints (PWL), piecewise linear" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/FileFormats/topics/LP.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_pieceswiselinearInLP" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/FileFormats/topics/LP.html" />
+<title>Piecewise linear (PWL) constraints in LP file format</title>
+</head>
+<body id="File_formats_pieceswiselinearInLP"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Piecewise linear (PWL) constraints in LP file format</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX conforms to these rules about piecewise linear (PWL) constraints in LP file format.</p>
+ 
+<p class="p">For a definition of a piecewise-linear (PWL) constraint, see the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/pwl/02_pwl_defn.html" title="Defines a piecewise linear function.">What is a piecewise linear function?</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.
+ </p>
+
+<p class="p">To specify piecewise-linear constraints, use a <strong class="ph b">PWL section</strong>. A PWL section 
+must be the last section before the END section.  By convention, a new PWL 
+constraint starts a new line in the formatted file. Piecewise-linear
+constraints begin with an optional name followed by a colon (as with
+objective function names, or other constraint names).  The rest of the piecewise-linear
+constraint is specified by a 'y' variable followed by an equal sign
+('='), an 'x' variable, preslope, list of breakpoints, and a
+postslope.  Only the name is optional; all other syntactic elements are required. 
+In particular, CPLEX rejects a PWL declaration with no breakpoint and issues the error message 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_ILL_DEFINED_PWL.html" title="1213 ill defined piecewise linear function">CPXERR_ILL_DEFINED_PWL</a>.
+</p>
+
+<div class="p">For example:
+<pre class="pre codeblock"><code>
+pwl1: y = x 0.5 (0, 0) (1, 1) (2, 4) 2.0  
+</code></pre> 
+In that example, the variable is x; the preslope is 0.5; the breakpoints are 
+(0, 0) (1, 1) (2, 4); the postslope is 2.0. The name of this piecewise linear constraint 
+is pwl1.
+</div>
+
+<p class="p">
+ A breakpoint, 
+such as (1, 1) or (2, 4), is <strong class="ph b">not</strong> an acceptable name of a variable 
+nor of a piecewise linear constraint. 
+The name of a piecewise linear constraint must
+adhere to the same guidelines as variable names. (See the rule about 
+<a class="xref" href="LP_VariableNames.html" title="CPLEX conforms to these rules about variable names in the LP file format.">Variable names in LP file format</a>.) 
+</p>
+
+<p class="p"><strong class="ph b">Tip</strong>: You must specify breakpoints in the order that you want CPLEX 
+to extract them. </p>
+ 
+<div class="p">Consider, for example, these breakpoints: 
+<pre class="pre codeblock"><code> 
+(0,0) (1,0) (1,1) (2,1)
+(0,0) (1,1) (1,0) (2,1) 
+</code></pre> 
+Both sets cite the same four breakpoints, but notice that the order is different.
+The first set specifies these two horizontal line segments:
+<pre class="pre codeblock"><code> 
+                          _
+(0,0) (1,0) (1,1) (2,1)  _
+</code></pre> 
+The second set specifies these two parallel line segments sloping at 45 degrees: 
+<pre class="pre codeblock"><code> 
+(0,0) (1,1) (1,0) (2,1) //
+</code></pre> 
+</div>
+
+<section class="section"><h2 class="title sectiontitle">Sample LP file format</h2> 
+ 
+<p class="p">Cplex produces the following data in LP file format from the Python example 
+<code class="ph codeph">transport.py</code> of a model with a piecewise linear objective function.</p>
+ 
+<pre class="pre codeblock"><code> 
+\ENCODING=ISO-8859-1
+\Problem name: transport.py
+
+Minimize
+ obj: y1 + y2 + y3 + y4 + y5 + y6 + y7 + y8 + y9 + y10 + y11 + y12
+Subject To
+ c1: x1 + x2 + x3 + x4  = 1000
+ c2: x5 + x6 + x7 + x8  = 850
+ c3: x9 + x10 + x11 + x12  = 1250
+ c4: x1 + x5 + x9  = 900
+ c5: x2 + x6 + x10  = 1200
+ c6: x3 + x7 + x11  = 600
+ c7: x4 + x8 + x12  = 400
+Pwl
+ p1:  y1 = x1 120 (200, 24000) (400, 40000) 50
+ p2:  y2 = x2 120 (200, 24000) (400, 40000) 50
+ p3:  y3 = x3 120 (200, 24000) (400, 40000) 50
+ p4:  y4 = x4 120 (200, 24000) (400, 40000) 50
+ p5:  y5 = x5 120 (200, 24000) (400, 40000) 50
+ p6:  y6 = x6 120 (200, 24000) (400, 40000) 50
+ p7:  y7 = x7 120 (200, 24000) (400, 40000) 50
+ p8:  y8 = x8 120 (200, 24000) (400, 40000) 50
+ p9:  y9 = x9 120 (200, 24000) (400, 40000) 50
+ p10: y10 = x10 120 (200, 24000) (400, 40000) 50
+ p11: y11 = x11 120 (200, 24000) (400, 40000) 50
+ p12: y12 = x12 120 (200, 24000) (400, 40000) 50
+End
+</code></pre>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/FileFormats/topics/LP.html" title="CPLEX conforms to these rules for the LP file format.">LP file format: algebraic representation</a></div>
+</div>
+</nav></div></body>
+</html>

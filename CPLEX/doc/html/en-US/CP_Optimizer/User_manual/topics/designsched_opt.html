@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Chains of optional intervals" />
+<meta name="abstract" content="Though there are various methods for modeling a chain of optional interval variables, an efficient method is recommended." />
+<meta name="Description" content="Though there are various methods for modeling a chain of optional interval variables, an efficient method is recommended." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/designsched.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GHnc8NZm" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/designsched.html" />
+<title>Chains of optional intervals</title>
+</head>
+<body id="GHnc8NZm"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Chains of optional intervals</h1>
+<div class="body"><p class="shortdesc">Though there are various methods for modeling a chain of optional interval variables, an
+efficient method is recommended.</p>
+
+<p class="p">Sometimes it is necessary to model a chain of n optional
+intervals for which, only the first <em class="ph i">k
+(k&lt;=n)</em> will be present where <em class="ph i">k</em> is an implicit decision of the
+problem.  </p>
+
+<p class="p">For instance, this is useful for modeling a preemptive activity that can be split into at most
+<em class="ph i">n</em> parts. In the following sample, there are the additional constraints that each “part” of
+the activity has specified a minimal (<code class="ph codeph">pmin</code>) and a maximal duration
+(<code class="ph codeph">pmax</code>) and that the total duration (size) of the parts must equal the processing
+time <code class="ph codeph">pt</code> of the preemptive activity. Note that when the part <code class="ph codeph">i</code> is
+absent, the value returned by <code class="ph codeph">IloSizeOf(part[i])</code> will be 0 (this is the default
+value when no argument is passed to the expression), thus it will not be counted in the sum. </p>
+
+<pre class="pre codeblock"><code>IloIntExpr totalSize(env);
+IloIntervalVarArray part(env,n);
+part[0] = IloIntervalVar(env, pmin, pmax, IloTrue);
+totalSize += IloSizeOf(part[0]);
+for (IloInt i=1; i &lt; n; i++) {
+  part[i] = IloIntervalVar(env, pmin, pmax,IloTrue);
+  totalSize += IloSizeOf(part[i]);
+  m.add(IloIfThen(env,IloPresenceOf(env,part[i]),IloPresenceOf(env,part[i-1])));
+  m.add(IloEndBeforeStart(env,part[i-1],part[i]);
+}
+m.add(totalSize == pt);
+</code></pre>
+<p class="p">Another example is a set of at most <em class="ph i">n</em> flexible shifts for a worker with
+specific constraints on the shift duration and minimal resting time
+between shifts (see <a class="xref" href="designsched_alt.html" title="The alternative constraint between interval variables should be used when an interval variable represents a set of alternative possibilities.">Different uses of the alternative constraint</a>).</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/designsched.html" title="Although developing scheduling models for CP Optimizer can be straightforward, there are some principles that you should consider while working on a model.">Designing scheduling models</a></div>
+</div>
+</nav></div></body>
+</html>

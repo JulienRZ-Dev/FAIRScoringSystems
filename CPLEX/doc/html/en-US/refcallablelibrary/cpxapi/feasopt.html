@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXfeasopt and CPXfeasopt" />
+<meta name="abstract" content="The routine CPXXfeasopt/CPXfeasopt computes a minimum-cost relaxation of the righthand side values of constraints or bounds on variables in order to make an infeasible problem feasible." />
+<meta name="Description" content="The routine CPXXfeasopt/CPXfeasopt computes a minimum-cost relaxation of the righthand side values of constraints or bounds on variables in order to make an infeasible problem feasible." />
+<meta name="DC.subject" content="CPXfeasopt, C API Reference Manual, CPXXfeasopt" />
+<meta name="keywords" content="CPXfeasopt, C API Reference Manual, CPXXfeasopt" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetEF.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageoptimizers.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="feasopt" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetEF.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageoptimizers.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<title>CPXXfeasopt and CPXfeasopt</title>
+</head>
+<body id="feasopt"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXfeasopt</span> and <span class="keyword apiname">CPXfeasopt</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> 
+computes a minimum-cost relaxation of the righthand side
+values of constraints or bounds on variables in order
+to make an infeasible problem feasible.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXfeasopt</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rng</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">lb</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">ub</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXfeasopt</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rng</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">lb</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">ub</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> computes
+a minimum-cost relaxation of the righthand side
+values of constraints or bounds on variables in order
+to make an infeasible problem feasible.
+The routine also computes a relaxed solution vector
+that can be queried with <code class="ph codeph"><a class="xref" href="solution.html" title="The routine CPXXsolution/CPXsolution accesses the solution values produced by all the optimization routines except the routine CPXXNETprimopt/CPXNETprimopt.">CPXXsolution and CPXsolution</a></code>,
+<code class="ph codeph"><a class="xref" href="getcolinfeas.html" title="The routine CPXXgetcolinfeas/CPXgetcolinfeas computes the infeasibility of a given solution for a range of variables.">CPXXgetcolinfeas and CPXgetcolinfeas</a></code> for columns,
+<code class="ph codeph"><a class="xref" href="getrowinfeas.html" title="The routine CPXXgetrowinfeas/CPXgetrowinfeas computes the infeasibility of a given solution for a range of linear constraints.">CPXXgetrowinfeas and CPXgetrowinfeas</a></code> for rows,
+<code class="ph codeph"><a class="xref" href="../mipapi/getsosinfeas.html" title="The routine CPXXgetsosinfeas/CPXgetsosinfeas computes the infeasibility of a given solution for a range of special ordered sets (SOSs).">CPXXgetsosinfeas and CPXgetsosinfeas</a></code> for special ordered sets.
+</p>
+
+<p class="p">
+If <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> finds a feasible solution,
+it returns the solution and the corresponding objective
+in terms of the original model.
+</p>
+
+<div class="note tip"><span class="tiptitle">Tip:</span> 
+<p class="p">If you call 
+<code class="ph codeph"><a class="xref" href="getobjval.html" title="The routine CPXXgetobjval/CPXgetobjval accesses the solution objective value.">CPXXgetobjval and CPXgetobjval</a></code> 
+after phase one of 
+<code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code>, 
+it accesses the total infeasibility computed (not necessarily a feasible 
+objective). 
+</p>
+
+</div>
+
+<p class="p">This routine supports several options for the metric used to
+determine what constitutes a minimum-cost relaxation. These options are
+specified by the parameter that controls the
+<a class="xref" href="../../CPLEX/Parameters/topics/FeasOptMode.html" title="Decides how FeasOpt measures the relaxation when finding a minimal relaxation in an infeasible model.">mode of FeasOpt</a> 
+(<code class="ph codeph">CPXPARAM_Feasopt_Mode</code>) 
+which can take the following values:
+</p>
+
+<ul class="ul">
+<li class="li">CPX_FEASOPT_MIN_SUM 0 </li>
+
+<li class="li">CPX_FEASOPT_OPT_SUM 1 </li>
+
+<li class="li">CPX_FEASOPT_MIN_INF 2 </li>
+
+<li class="li">CPX_FEASOPT_OPT_INF 3 </li>
+
+<li class="li">CPX_FEASOPT_MIN_QUAD 4 </li>
+
+<li class="li">CPX_FEASOPT_OPT_QUAD 5 </li>
+
+</ul>
+
+<ul class="ul">
+<li class="li">It can minimize the weighted sum of the penalties for relaxations
+(denoted by <code class="ph codeph">SUM</code>).</li>
+
+<li class="li">It can minimize the weighted number of relaxed bounds and constraints
+(denoted by <code class="ph codeph">INF</code>). </li>
+
+<li class="li">It can minimize the weighted sum of the squared penalties of the relaxations
+(denoted by <code class="ph codeph">QUAD</code>). </li>
+
+</ul>
+
+<p class="p">
+This routine can also optionally perform a secondary optimization
+(denoted by <code class="ph codeph">OPT</code> in the name of the option),
+where it optimizes the original objective function over
+all possible relaxations for which the relaxation metric does not exceed the
+amount computed in the first phase.
+These options are specified by the parameter that controls the 
+<a class="xref" href="../../CPLEX/Parameters/topics/FeasOptMode.html" title="Decides how FeasOpt measures the relaxation when finding a minimal relaxation in an infeasible model.">mode of FeasOpt</a> 
+(<code class="ph codeph">CPXPARAM_Feasopt_Mode</code>). 
+Thus, for example, the value 
+<code class="ph codeph">CPX_FEASOPT_MIN_SUM</code>
+denotes that 
+<code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> 
+should find a relaxation that minimizes the
+weighted sum of relaxations. Similarly, the value
+<code class="ph codeph">CPX_FEASOPT_OPT_INF</code>
+specifies that 
+<code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> 
+should find a solution that
+optimizes the original objective function, choosing from among all possible
+relaxations that minimize the number of relaxed constraints and bounds.
+</p>
+
+<p class="p">
+If you use INF mode, the resulting feasopt problems
+will be MIPs even if
+your problem is continuous. Similarly, if you use QUAD mode, the feasopt
+problems will become quadratic even if your original problem is linear. This
+change in problem type can result in higher than expected solve times.
+</p>
+
+<p class="p">The user can specify preferences associated with relaxing a bound
+or righthand side value through input values of the
+<code class="ph codeph"><span class="keyword parmname">rhs</span></code>, <code class="ph codeph"><span class="keyword parmname">rng</span></code>, <code class="ph codeph"><span class="keyword parmname">lb</span></code>, and
+<code class="ph codeph"><span class="keyword parmname">ub</span></code> arguments. The input value denotes the
+user's willingness to relax a constraint or bound. More precisely,
+the reciprocal of the specified preference is used to weight the
+relaxation of that constraint or bound. For example, consider a preference
+of <code class="ph codeph"><span class="keyword parmname">p</span></code> on a constraint that is relaxed by 2 units.
+The penalty of this relaxation will be 1/p when minimizing
+the weighted number
+of infeasibilities; the penalty will be 2/p when minimizing the weighted sum
+of infeasibilities; and the penalty will be 4/p when minimizing the
+weighted sum of the squares of the infeasibilities.
+The user may specify a preference less than or equal to 0 (zero),
+which denotes that the corresponding constraint or bound must not be
+relaxed.</p>
+
+<p class="p">
+To determine whether <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> found relaxed values
+to make the problem feasible, call the routine
+<code class="ph codeph"><a class="xref" href="solninfo.html">CPXXsolninfo and CPXsolninfo</a></code>
+for continuous problems or
+<code class="ph codeph"><a class="xref" href="getstat.html" title="The routine CPXXgetstat/CPXgetstat accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization, after CPXXfeasopt/CPXfeasopt and its extensions, after CPXXrefineconflict/CPXrefineconflict and its extensions.">CPXXgetstat and CPXgetstat</a></code> for any problem type.
+<code class="ph codeph"><span class="keyword apiname">CPXXsolninfo</span>/<span class="keyword apiname">CPXsolninfo</span></code> will return a value of <code class="ph codeph">CPX_NO_SOLN</code>
+for the argument <code class="ph codeph"><span class="keyword parmname">solntype_p</span></code> if <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code>
+could not find a feasible relaxation.
+Otherwise, it will return one of the following, depending on the
+value of the parameter that controls the
+<a class="xref" href="../../CPLEX/Parameters/topics/FeasOptMode.html" title="Decides how FeasOpt measures the relaxation when finding a minimal relaxation in an infeasible model.">mode of FeasOpt</a> 
+(<code class="ph codeph">CPXPARAM_Feasopt_Mode</code>):</p>
+
+<ul class="ul">
+<li class="li">CPX_STAT_FEASIBLE_RELAXED_SUM </li>
+
+<li class="li">CPX_STAT_OPTIMAL_RELAXED_SUM </li>
+
+<li class="li">CPX_STAT_FEASIBLE_RELAXED_INF </li>
+
+<li class="li">CPX_STAT_OPTIMAL_RELAXED_INF </li>
+
+<li class="li">CPX_STAT_FEASIBLE_RELAXED_QUAD </li>
+
+<li class="li">CPX_STAT_OPTIMAL_RELAXED_QUAD </li>
+
+</ul>
+
+<p class="p">For a MIP problem, the routine
+<code class="ph codeph"><a class="xref" href="getstat.html" title="The routine CPXXgetstat/CPXgetstat accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization, after CPXXfeasopt/CPXfeasopt and its extensions, after CPXXrefineconflict/CPXrefineconflict and its extensions.">CPXXgetstat and CPXgetstat</a></code> 
+will return a value of <code class="ph codeph">CPXMIP_INFEASIBLE</code> or
+<code class="ph codeph">CPX_STAT_INFEASIBLE</code>
+if it could not find
+a feasible relaxation. Otherwise, it will return one of the following,
+depending on the value of the parameter that controls the
+<a class="xref" href="../../CPLEX/Parameters/topics/FeasOptMode.html" title="Decides how FeasOpt measures the relaxation when finding a minimal relaxation in an infeasible model.">mode of FeasOpt</a> 
+(<code class="ph codeph">CPXPARAM_Feasopt_Mode</code>):</p>
+ 
+<ul class="ul">
+<li class="li">CPXMIP_FEASIBLE_RELAXED_SUM </li>
+
+<li class="li">CPXMIP_OPTIMAL_RELAXED_SUM </li>
+
+<li class="li">CPXMIP_FEASIBLE_RELAXED_INF </li>
+
+<li class="li">CPXMIP_OPTIMAL_RELAXED_INF </li>
+
+<li class="li">CPXMIP_FEASIBLE_RELAXED_QUAD </li>
+
+<li class="li">CPXMIP_OPTIMAL_RELAXED_QUAD </li>
+
+</ul>
+
+<p class="p">
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code> accepts all problem types. However,
+it does not allow you to relax convex quadratic constraints nor
+indicator constraints; use the routine
+<code class="ph codeph"><a class="xref" href="feasoptext.html" title="The routine CPXXfeasoptext/CPXfeasoptext extends CPXXfeasopt/CPXfeasopt in several ways.">CPXXfeasoptext and CPXfeasoptext</a></code>.</p>
+
+<div class="p">
+These four parameters do <strong class="ph b">not</strong> influence this routine.
+<ul class="ul">
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/CutUp.html" title="Sets the upper cutoff tolerance.">upper cutoff</a> 
+<code class="ph codeph">CPXPARAM_MIP_Tolerances_UpperCutoff</code>  
+</li>
+
+
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/CutLo.html" title="Sets lower cutoff tolerance.">lower cutoff</a> 
+<code class="ph codeph">CPXPARAM_MIP_Tolerances_LowerCutoff</code>  
+</li>
+
+
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/ObjULim.html" title="Sets an upper limit on the value of the objective function in the simplex algorithms.">upper objective value limit</a> 
+<code class="ph codeph">CPXPARAM_Simplex_Limits_UpperObj</code>  
+</li>
+
+
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/ObjLLim.html" title="Sets a lower limit on the value of the objective function in the simplex algorithms.">lower objective value limit</a> 
+<code class="ph codeph">CPXPARAM_Simplex_Limits_LowerObj</code>  
+</li>
+ 
+</ul>
+ 
+If you want to study infeasibilities introduced by those parameters,
+consider adding an objective function constraint to your model to
+enforce their effect before you invoke this routine.
+</div>
+
+
+    <div class="note warning"><span class="warningtitle">Warning:</span> 
+      <p class="p">
+        For efficiency reasons this function temporarily modifies your problem
+        to account for the relaxations. In certain corner cases, such as out of
+        memory situations, CPLEX may fail to restore your problem to its
+        original state. In such a case, CPLEX clears your problem, and the
+        <code class="ph codeph">lp</code> argument will refer to an empty object. The only
+        valid operation on this object is then for you to call
+        <code class="ph codeph"><a class="xref" href="freeprob.html" title="The routine CPXXfreeprob/CPXfreeprob removes the specified CPLEX problem object from the CPLEX environment and frees the associated memory used internally by CPLEX.">CPXXfreeprob and CPXfreeprob</a></code>.
+      </p>
+
+    </div>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to the CPLEX environment as returned by 
+           <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+        
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to a CPLEX problem object as returned by 
+           <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>. </p>
+         
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          An array of doubles of length at least equal to the number of rows in the problem. 
+          NULL may be specified if no rhs values are allowed to be relaxed.
+          When not NULL, the array specifies the preference values that
+          determine the cost of relaxing each constraint.      
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rng</dt>
+
+        <dd class="dd pd">
+          
+           An array of doubles of length at least equal to the number of rows in the problem. 
+           NULL may be specified if no range values are allowed to be relaxed or
+           none are present in the active problem.
+           When not NULL, the array specifies the preference values that
+           determine the cost of relaxing each range.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lb</dt>
+
+        <dd class="dd pd">
+          
+          An array of doubles of length at least equal to the number of columns in the problem.
+          NULL may be passed if no lower bound of any variable is allowed to be relaxed.
+          When not NULL, the array specifies the preference values that determine the cost of relaxing each lower bound.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">ub</dt>
+
+        <dd class="dd pd">
+          
+          An array of doubles of length at least equal to the number of columns in the problem.
+          NULL may be passed if no upper bound of any variable is allowed to be relaxed.
+          When not NULL, the array specifies the preference values that determine the cost 
+          of relaxing each upper bound.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXfeasopt (env, lp, rhs, rng, lb, ub);
+</code></pre>
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetEF.html">E, F</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzesolution.html">Analyzing Solutions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html">Analyzing Infeasibility in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageoptimizers.html">Optimizers in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html">Detecting and resolving conflicts with the conflict refiner and feasopt</a></div>
+</div>
+</nav></div></body>
+</html>

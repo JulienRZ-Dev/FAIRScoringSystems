@@ -1,0 +1,88 @@
+<!-- Generator: GNU source-highlight 2.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>01: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+02: <b><font color="#007D00">// Licensed Materials - Property of IBM</font></b>
+03: <b><font color="#007D00">//</font></b>
+04: <b><font color="#007D00">// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55</font></b>
+05: <b><font color="#007D00">// Copyright IBM Corporation 1998, 2013. All Rights Reserved.</font></b>
+06: <b><font color="#007D00">//</font></b>
+07: <b><font color="#007D00">// Note to U.S. Government Users Restricted Rights:</font></b>
+08: <b><font color="#007D00">// Use, duplication or disclosure restricted by GSA ADP Schedule</font></b>
+09: <b><font color="#007D00">// Contract with IBM Corp.</font></b>
+10: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+11: 
+12: <b><font color="#007D00">/****************************************************************** </font></b>
+13: <b><font color="#007D00"> * This example demonstrates how to use the CPLEX multi objective (lexicographic objectives) with OPL.</font></b>
+14: <b><font color="#007D00"> * It is using a dummy model derived from the Life Game from Robert Bosch and Michael Trick, CP 2001, CPAIOR 2002.</font></b>
+15: <b><font color="#007D00"> * Original model IP2 available at </font></b>http://mat.gsia.cmu.edu/Life/
+16: <b><font color="#007D00"> * Basic integer program with birth constraints</font></b>
+17: <b><font color="#007D00"> *</font></b>
+18: <b><font color="#007D00"> * This model is greater than the size allowed in trial mode. </font></b>
+19: <b><font color="#007D00"> * You therefore need a commercial edition of CPLEX Studio to run this example. </font></b>
+20: <b><font color="#007D00"> * If you are a student or teacher, you can also get a full version through</font></b>
+21: <b><font color="#007D00"> * the IBM Academic Initiative.</font></b>
+22: <b><font color="#007D00"> *</font></b>
+23: <b><font color="#007D00"> ******************************************************************/</font></b>
+24: 
+25: <b><font color="#007D00">//using CP;</font></b>
+26: <b><font color="#0000FF">int</font></b> n=6;
+27: <b><font color="#0000FF">int</font></b> Half=n <b><font color="#0000FF">div</font></b> 2;
+28: <b><font color="#0000FF">range</font></b> FirstHalf = 1..Half;
+29: <b><font color="#0000FF">range</font></b> LastHalf = n-Half+1..n; 
+30: <b><font color="#0000FF">range</font></b> States = 0..1;
+31: <b><font color="#0000FF">range</font></b> Bord = 0..(n+1);
+32: <b><font color="#0000FF">range</font></b> Interior = 1..n;
+33: 
+34: <b><font color="#0000FF">range</font></b> obj = 0..(n*n);
+35: 
+36: <b><font color="#0000FF">tuple</font></b> neighbors {
+37:    <b><font color="#0000FF">int</font></b> row;
+38:    <b><font color="#0000FF">int</font></b> col;
+39: }
+40: 
+41: {neighbors} Neighbor = 
+42:   {&lt;(-1),(-1)&gt;,&lt;(-1),0&gt;,&lt;(-1),1&gt;,&lt;0,(-1)&gt;,&lt;0,1&gt;,&lt;1,(-1)&gt;,&lt;1,0&gt;,&lt;1,1&gt;};
+43: 
+44: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">int</font></b> Life[Bord][Bord] <b><font color="#0000FF">in</font></b> States;
+45: <b><font color="#0000FF">range</font></b> Bord1 = 0..3;
+46: <b><font color="#0000FF">dexpr</font></b> <b><font color="#0000FF">float</font></b> kpis[i <b><font color="#0000FF">in</font></b> Bord1] = <b><font color="#7D007D">sum</font></b>(i1 <b><font color="#0000FF">in</font></b> Bord, j1 <b><font color="#0000FF">in</font></b> Bord : i1 != i)Life[i1][j1];
+47: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">int</font></b> Obj <b><font color="#0000FF">in</font></b> obj;
+48: 
+49: 
+50: <b><font color="#0000FF">maximize</font></b> <b><font color="#7D007D">staticLex</font></b>(kpis);
+51: 
+52: <b><font color="#0000FF">subject</font></b> <b><font color="#0000FF">to</font></b> {
+53:     Obj == <b><font color="#7D007D">sum</font></b>( i , j <b><font color="#0000FF">in</font></b> Bord ) Life[i][j];
+54:      
+55:   <b><font color="#7D007D">forall</font></b>( i , j <b><font color="#0000FF">in</font></b> Interior ) {
+56:         2*Life[i][j] - <b><font color="#7D007D">sum</font></b>( nb <b><font color="#0000FF">in</font></b> Neighbor ) Life[i+nb.row][j+nb.col] &lt;= 0;
+57:     3*Life[i][j] + <b><font color="#7D007D">sum</font></b>( nb <b><font color="#0000FF">in</font></b> Neighbor ) Life[i+nb.row][j+nb.col] &lt;= 6;
+58:     <b><font color="#7D007D">forall</font></b>( <b><font color="#0000FF">ordered</font></b> n1 , n2 , n3 <b><font color="#0000FF">in</font></b> Neighbor ) {
+59:         -Life[i][j]+Life[i+n1.row][j+n1.col]+Life[i+n2.row][j+n2.col]+Life[i+n3.row][j+n3.col]-<b><font color="#7D007D">sum</font></b>( nb <b><font color="#0000FF">in</font></b> Neighbor : nb!=n1 &amp;&amp; nb!=n2 &amp;&amp; nb!=n3 )  Life[i+nb.row][j+nb.col] &lt;= 2;
+60:     }
+61:   }
+62:   <b><font color="#7D007D">forall</font></b>( j <b><font color="#0000FF">in</font></b> Bord ) {
+63:       Life[0][j] == 0;
+64:       Life[j][0] == 0;
+65:       Life[j][n+1] == 0;
+66:       Life[n+1][j] == 0;
+67:   }
+68:   <b><font color="#7D007D">forall</font></b>( i <b><font color="#0000FF">in</font></b> Bord : i&lt;n ) {
+69:       Life[i][1]+Life[i+1][1]+Life[i+2][1] &lt;= 2;
+70:       Life[1][i]+Life[1][i+1]+Life[1][i+2] &lt;= 2;
+71:       Life[i][n]+Life[i+1][n]+Life[i+2][n] &lt;= 2;
+72:       Life[n][i]+Life[n][i+1]+Life[n][i+2] &lt;= 2;
+73:   }
+74:     <b><font color="#7D007D">sum</font></b>( i <b><font color="#0000FF">in</font></b> FirstHalf , j <b><font color="#0000FF">in</font></b> Bord ) Life[i][j] &gt;= 
+75:     <b><font color="#7D007D">sum</font></b>( i <b><font color="#0000FF">in</font></b> LastHalf , j <b><font color="#0000FF">in</font></b> Bord ) Life[i][j];
+76:     <b><font color="#7D007D">sum</font></b>( i <b><font color="#0000FF">in</font></b> Bord , j <b><font color="#0000FF">in</font></b> FirstHalf ) Life[i][j] &gt;= 
+77:     <b><font color="#7D007D">sum</font></b>( i <b><font color="#0000FF">in</font></b> Bord , j <b><font color="#0000FF">in</font></b> LastHalf ) Life[i][j];   
+78: }
+79: 
+80: 
+81: <b><font color="#0000FF">execute</font></b>{
+82: <b><font color="EA7D00">for</font></b> (<b><font color="EA7D00">var</font></b> j <b><font color="EA7D00">in</font></b> Bord1) writeln(kpis[j]);
+83: }
+</tt></pre>

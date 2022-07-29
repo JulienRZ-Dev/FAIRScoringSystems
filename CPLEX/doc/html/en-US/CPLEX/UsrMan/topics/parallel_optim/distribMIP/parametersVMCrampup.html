@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="VMC file for specifying parameters, ramp up options, and environment variables in distributed parallel optimization" />
+<meta name="abstract" content="Documents how to specify CPLEX parameters, ramp up options, and environment variables in a VMC file for distributed parallel optimization." />
+<meta name="Description" content="Documents how to specify CPLEX parameters, ramp up options, and environment variables in a VMC file for distributed parallel optimization." />
+<meta name="DC.subject" content="distributed parallel optimization, environment variables, ramp up options, parameters, virtual machine configuration (VMC) files, ramp up, options, virtual machine configuration (VMC) and, virtual machine configuration (VMC), configuring workers" />
+<meta name="keywords" content="distributed parallel optimization, environment variables, ramp up options, parameters, virtual machine configuration (VMC) files, ramp up, options, virtual machine configuration (VMC) and, virtual machine configuration (VMC), configuring workers" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/parallel_optim/distribMIP/01_distributed_mip_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="parameters_VMC_rampup" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/parallel_optim/distribMIP/01_distributed_mip_title_synopsis.html" />
+<title>VMC file for specifying parameters, ramp up options, and environment variables in distributed parallel optimization</title>
+</head>
+<body id="parameters_VMC_rampup"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">VMC file for specifying parameters, ramp up options, and environment variables in distributed parallel optimization</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">Documents how to specify CPLEX parameters, ramp up options, and 
+environment variables in a VMC file for distributed parallel optimization.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">Distributed parallel optimization of mixed integer programming (MIP) models has been
+<strong class="ph b">deprecated</strong> in CPLEX 20.1.0 and will be removed in a future release.</p>
+
+</div>
+
+<p class="p">A virtual machine configuration (VMC) file is an XML file 
+that specifies the communication protocol between a master and 
+the workers, as well as the configuration of each worker 
+(one entry per worker), in a distributed parallel optimization application. 
+CPLEX accepts VMC files to specify a virtual machine configuration for 
+distributed parallel optimization.</p>
+
+<p class="p">To assist you in creating such a file yourself, 
+your installation of the product includes a 
+document type definition (DTD) vmc.dtd and 
+an XML schema declaration (XSD) vmc.xsd.</p>
+
+
+<p class="p">Sample VMC files are available in 
+<code class="ph codeph"><em class="ph i">yourCPLEXhome</em>/examples/<em class="ph i">SYSTEM</em>/<em class="ph i">FORMAT</em></code> 
+where 
+</p>
+
+<ul class="ul">
+<li class="li"><em class="ph i">yourCPLEXhome</em> specifies the folder or directory 
+in your file system where you installed CPLEX as part of 
+IBM ILOG CPLEX Optimization Studio.</li>
+
+<li class="li"><em class="ph i">SYSTEM</em> specifies your combination of computer 
+and operating system.</li>
+
+<li class="li"><em class="ph i">FORMAT</em> specifies your compiler.</li>
+
+</ul>
+
+<section class="section"><h2 class="title sectiontitle">Setting parameters in a VMC file</h2>
+
+<p class="p">To specify parameter settings in a distributed MIP application, use 
+a virtual machine configuration (VMC) file. By default, workers inherit 
+the parameter settings of the master, but you can apply different parameter 
+settings for different workers in the VMC file. You specify CPLEX 
+parameters by name in the <code class="ph codeph">&lt;machine&gt;</code> 
+section for a worker in a VMC file.  In the event of a 
+conflict between parameter settings for the master and parameter 
+settings for a worker, the parameter settings in the VMC file take 
+precedence.</p>
+
+<p class="p">For example, the following line in a VMC file specifies that 
+CPLEX performs depth-first search in both the ramp up phase and  
+distributed MIP optimization. </p>
+
+<pre class="pre codeblock"><code>
+&lt;param name="CPX_PARAM_NODESEL" value="0"/&gt;
+</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Setting CPLEX parameters only for ramp up in a VMC file</h2>
+
+
+<div class="p">
+CPLEX also offers a way of specifying parameters that apply only 
+during ramp up for distributed parallel optimization. To specify that 
+a given CPLEX parameter applies only during ramp up, prepend 
+<pre class="pre codeblock"><code>
+rampup: 
+</code></pre>
+to the name of the CPLEX parameter in the virtual machine configuration (VMC) file.
+</div>
+
+<p class="p">For example, look again at the line in a VMC file to specify that 
+CPLEX performs depth-first search in both the ramp up phase and  
+distributed MIP optimization. </p>
+
+<pre class="pre codeblock"><code>
+&lt;param name="CPX_PARAM_NODESEL" value="0"/&gt;
+</code></pre>
+<p class="p">
+In contrast, the following line in a VMC file 
+specifies that CPLEX performs depth-first search only in the ramp up 
+phase; outside the ramp up phase, CPLEX applies the default setting 
+for node selection during distributed MIP optimization.</p>
+
+<pre class="pre codeblock"><code>
+&lt;param name="rampup:CPX_PARAM_NODESEL" value="0"/&gt;
+</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Special ramp up options in a VMC file</h2>
+
+
+<p class="p">CPLEX recognizes special ramp up options in a virtual machine configuration (VMC) file 
+so that you can give CPLEX useful information about the workers. </p>
+
+<ul class="ul">
+<li class="li"><p class="p"><strong class="ph b">"unlikely_winner"</strong></p>
+
+
+<p class="p">Some combinations of CPLEX parameter settings can have the effect 
+of the worker having a very good dual bound, but very few unprocessed search tree nodes.
+For example, forcing extremely strong cut generation 
+in a worker can result in such a situation, making it unlikely for 
+that worker to win the ramp up competition. In this case CPLEX is likely 
+to delay switching from ramp up to distributed MIP, even though other workers 
+may have already generated a good tree (though with a slightly worse dual bound). 
+Therefore, you can mark this worker as unlikely to be a winner in a reasonable timeframe.
+</p>
+
+<p class="p">To indicate to CPLEX that you know that the CPLEX parameter settings can have this side-effect, 
+use the following line in the section declaring the worker in the 
+virtual machine configuration (VMC) file:</p>
+
+<pre class="pre codeblock"><code>
+&lt;param name="unlikely_winner" value="1"/&gt;
+</code></pre>
+<p class="p">That line does <strong class="ph b">not</strong> exclude the worker from winning; it simply 
+makes CPLEX take a harder look at the other workers when CPLEX considers 
+when to terminate the ramp up phase. </p>
+
+</li>
+
+<li class="li"><p class="p"><strong class="ph b">"keeps_all_opt"</strong></p>
+
+<p class="p">You can specify the ramp up option <code class="ph codeph">"keeps_all_opt"</code> in the 
+<code class="ph codeph">machine</code> section for a worker in a virtual machine configuration (VMC) file 
+to force CPLEX <strong class="ph b">not</strong> to eliminate any optimal solution during presolve in 
+the ramp up phase. As a consequence of that ramp up option, CPLEX 
+can merge information from that worker at the end of ramp up  before 
+CPLEX starts the distributed MIP optimization.</p>
+
+<pre class="pre codeblock"><code>
+&lt;param name="keeps_all_opt" value="1"/&gt;
+</code></pre>
+<p class="p">When a worker is marked in that way, CPLEX makes sure that presolve does 
+not eliminate any possible optimal solutions (rather than making sure that 
+at least one optimal solution remains in the search space).</p>
+
+
+<p class="p">Why does CPLEX offer this ramp up option?  Without this option, CPLEX 
+can possibly eliminate some optimal solutions in a given worker. Furthermore, 
+the combined set of optimal solutions eliminated from each of the workers can 
+(unfortunately, by chance) cover every optimal solution to the problem.
+</p>
+
+<p class="p">Therefore, CPLEX accepts information from those workers where this option is set and 
+merges that acceptable information into the information from the worker that wins the 
+ramp up competition. </p>
+
+<p class="p">Whether to set this ramp up option for a worker or not is a delicately balanced decision. 
+Setting this option enables CPLEX to merge information from the worker after ramp up. 
+However, as a consequence of setting this option, presolve can be less effective in 
+this worker. Not setting this option can make presolve more effective for this worker 
+(a desirable outcome if this worker wins the ramp up competition). However, if the 
+worker is not a winner, then some of the information that the worker gathered can 
+<strong class="ph b">not</strong> be merged with the information from the winning worker.</p>
+
+<p class="p">For example, consider the following straight forward problem: </p>
+
+<pre class="pre codeblock"><code>
+max x1 + x2
+x1 + x2 ≤ 1
+x1, x2 binary
+</code></pre>
+<p class="p">In one worker, CPLEX can fix <code class="ph codeph">x2=0</code> (zero) as a result of presolve. 
+After all, such a fix still retains the optimal solution <code class="ph codeph">(x1=1, x2=0)</code>.</p>
+
+<p class="p">In another worker, again as a result of presolve, CPLEX can fix 
+<code class="ph codeph">x1=0</code>. After all, that fix still keeps the optimal solution 
+<code class="ph codeph">(x1=0, x2=1)</code>.</p>
+
+<p class="p">If information from those two workers in this example were merged without 
+consideration, then CPLEX concludes unfortunately in the distributed MIP optimization that 
+<code class="ph codeph">(x1=0, x2=0)</code> and thus loses both optimal solutions found by those two workers 
+(not the results you want, of course).</p>
+
+</li>
+
+</ul>
+
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Environment variables in a VMC file</h2>
+
+<div class="p"> CPLEX expands an environment variable cited in a VMC file 
+at the time that CPLEX reads the VMC file. Reference to an  
+environment variable must be of the form: 
+<pre class="pre codeblock"><code>
+$(name)
+</code></pre>
+In particular, CPLEX does not recognize 
+<code class="ph codeph">$name</code> 
+nor <code class="ph codeph">${name}</code>. 
+CPLEX interprets the character sequence 
+<code class="ph codeph">$$</code> 
+as a single <code class="ph codeph">$</code>. 
+This convention means that you 
+can produce verbatim <code class="ph codeph">$(</code> 
+by writing <code class="ph codeph">$$(</code>. 
+</div>
+
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/parallel_optim/distribMIP/01_distributed_mip_title_synopsis.html" title="Documents the solution in parallel of a mixed integer program (MIP) in a distributed environment">Solving a MIP with distributed parallel optimization</a></div>
+</div>
+</nav></div></body>
+</html>

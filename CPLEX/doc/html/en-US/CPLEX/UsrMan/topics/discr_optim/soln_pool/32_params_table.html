@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Which parameters control the solution pool?" />
+<meta name="abstract" content="Lists parameters to control the solution pool." />
+<meta name="Description" content="Lists parameters to control the solution pool." />
+<meta name="DC.subject" content="solution pool, parameters" />
+<meta name="keywords" content="solution pool, parameters" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/31_params_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solnpool.1052920" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/31_params_title_synopsis.html" />
+<title>Which parameters control the solution pool?</title>
+</head>
+<body id="User_manual.uss_solnpool.1052920"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Which parameters control the solution pool?</h1>
+
+ 
+
+<div class="body"><p class="shortdesc">Lists parameters to control the solution pool.</p>
+
+<div class="p">CPLEX provides parameters to control the solution pool.
+The table titled 
+<a class="xref" href="32_params_table.html#User_manual.uss_solnpool.1052920__User_manual.uss_solnpool.1049092" title="A four-column table showing the purpose of a parameter, its name in Concert Technology (C++, Java, .NET APIs), its name in the Callable Library (C API), its name in the Interactive Optimizer,and a link to the documentation of the parameter.">Table 1</a> 
+summarizes these parameters. <em class="ph i">CPLEX Parameters
+Reference Manual</em> documents each of these parameters in greater
+detail.  </div>
+ 
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table showing the purpose of a parameter, its name in Concert Technology (C++, Java, .NET APIs), its name in the Callable Library (C API), its name in the Interactive Optimizer,and a link to the documentation of the parameter." id="User_manual.uss_solnpool.1052920__User_manual.uss_solnpool.1049092" class="table ShadedHead" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Parameters for the solution pool</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:middle;">
+<th class="entry thleft thmid" align="left" valign="middle" id="d231588e68">Purpose</th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d231588e71">Concert parameter</th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d231588e74">Callable Library parameter</th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d231588e77">Interactive Optimizer</th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d231588e80">Parameter Reference</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d231588e68 "> Intensity </td>
+
+<td class="entry" valign="top" headers="d231588e71 "> <code class="ph codeph">SolnPoolIntensity</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e74 "><code class="ph codeph">CPX_PARAM_SOLNPOOLINTENSITY</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e77 ">  <code class="ph codeph">mip pool intensity</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e80 "><a class="xref" href="../../../../Parameters/topics/SolnPoolIntensity.html" title="Controls the trade-off between the number of solutions generated for the solution pool and the amount of time or memory consumed.">solution pool intensity</a> </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d231588e68 "> Limit on populate (number of solutions generated) </td>
+
+<td class="entry" valign="top" headers="d231588e71 "> <code class="ph codeph">PopulateLim</code> </td>
+
+<td class="entry" valign="top" headers="d231588e74 "><code class="ph codeph">CPX_PARAM_POPULATELIM</code></td>
+
+<td class="entry" valign="top" headers="d231588e77 ">  <code class="ph codeph">mip limits populate</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e80 "><a class="xref" href="../../../../Parameters/topics/PopulateLim.html" title="Sets the maximum number of mixed integer programming (MIP) solutions generated for the solution pool during each call to the populate procedure.">maximum number of solutions generated for solution pool by populate</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d231588e68 "> Maximum capacity (number of solutions stored) </td>
+
+<td class="entry" valign="top" headers="d231588e71 "><code class="ph codeph">SolnPoolCapacity</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e74 "><code class="ph codeph">CPX_PARAM_SOLNPOOLCAPACITY</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e77 ">  <code class="ph codeph">mip pool capacity</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e80 "><a class="xref" href="../../../../Parameters/topics/SolnPoolCapacity.html" title="Limits the number of solutions kept in the solution pool">maximum number of solutions kept in solution pool</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d231588e68 "> Replacement strategy </td>
+
+<td class="entry" valign="top" headers="d231588e71 "><code class="ph codeph">SolnPoolReplace</code> </td>
+
+<td class="entry" valign="top" headers="d231588e74 "><code class="ph codeph">CPX_PARAM_SOLNPOOLREPLACE</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e77 ">  <code class="ph codeph">mip pool replace</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e80 "><a class="xref" href="../../../../Parameters/topics/SolnPoolReplace.html" title="Designates the strategy for replacing a solution in the solution pool when the solution pool has reached its capacity.">solution pool replacement strategy</a> </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d231588e68 "> Relative objective gap </td>
+
+<td class="entry" valign="top" headers="d231588e71 "><code class="ph codeph">SolnPoolGap</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e74 "> <code class="ph codeph">CPX_PARAM_SOLNPOOLGAP</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e77 ">  <code class="ph codeph">mip pool relgap</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e80 "><a class="xref" href="../../../../Parameters/topics/SolnPoolGap.html" title="Sets a relative tolerance on the objective value for the solutions in the solution pool.">relative gap for solution pool</a> </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d231588e68 "> Absolute objective gap </td>
+
+<td class="entry" valign="top" headers="d231588e71 "> <code class="ph codeph">SolnPoolAGap</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e74 "> <code class="ph codeph">CPX_PARAM_SOLNPOOLAGAP</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e77 ">  <code class="ph codeph">mip pool absgap</code>  </td>
+
+<td class="entry" valign="top" headers="d231588e80 "><a class="xref" href="../../../../Parameters/topics/SolnPoolAGap.html" title="Sets an absolute tolerance on the objective value for the solutions in the solution pool.">absolute gap for solution pool</a></td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">The <a class="xref" href="../../../../Parameters/topics/NodeLim.html" title="Sets the maximum number of nodes solved before the algorithm terminates without reaching optimality.">MIP node limit</a> parameter
+(<code class="ph codeph">NodeLim</code>, <code class="ph codeph">CPX_PARAM_NODELIM</code>)
+and <a class="xref" href="../../../../Parameters/topics/TiLim.html" title="Sets the maximum time, in seconds, for a call to an optimizer.">optimizer time limit in seconds</a> parameter
+(<code class="ph codeph">TiLim</code>, <code class="ph codeph">CPX_PARAM_TILIM</code>)
+also have an effect on the solution pool, just as they influence MIP
+optimization generally. For more detail about these parameters, see
+their entries in the <em class="ph i">CPLEX Parameters Reference Manual</em>.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/31_params_title_synopsis.html" title="Describes parameters to control the solution pool.">Parameters of the solution pool</a></div>
+</div>
+</nav></div></body>
+</html>

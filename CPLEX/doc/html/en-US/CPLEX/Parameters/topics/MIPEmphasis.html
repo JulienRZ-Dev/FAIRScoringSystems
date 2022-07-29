@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIP emphasis switch" />
+<meta name="abstract" content="Controls trade-offs between speed, feasibility, optimality, and moving bounds in MIP." />
+<meta name="Description" content="Controls trade-offs between speed, feasibility, optimality, and moving bounds in MIP." />
+<meta name="DC.subject" content="CPX_PARAM_MIPEMPHASIS, MIPEmphasis, mip emphasis" />
+<meta name="keywords" content="CPX_PARAM_MIPEMPHASIS, MIPEmphasis, mip emphasis" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196787239416" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>MIP emphasis switch</title>
+</head>
+<body id="languageRefTopic1196787239416"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">MIP emphasis switch</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Controls trade-offs between speed, feasibility, optimality,
+and moving bounds in MIP.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">MIP emphasis switch</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d109255e53">API</th>
+
+<th class="entry nrule" valign="top" id="d109255e56">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d109255e59">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">CPXPARAM_Emphasis_MIP</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">CPX_PARAM_MIPEMPHASIS</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">IloCplex::Param::Emphasis::MIP</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">MIPEmphasis (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">IloCplex.Param.Emphasis.MIP</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">MIPEmphasis (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">Cplex.Param.Emphasis.MIP</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">MIPEmphasis (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">mipemphasis </td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">mipemphasis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">parameters.emphasis.mip</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">emphasis.mip</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">emphasis mip</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">emphasis mip</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109255e53 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d109255e56 ">2058</td>
+
+<td class="entry nrule" valign="top" headers="d109255e59 ">2058</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Controls trade-offs between
+speed, feasibility, optimality, and moving bounds in MIP.</p>
+<p class="p">With
+the default setting of BALANCED, CPLEX works toward a rapid proof
+of an optimal solution, but balances that with effort toward finding
+high quality feasible solutions early in the optimization. </p>
+<p class="p">When
+this parameter is set to FEASIBILITY, CPLEX frequently will generate
+more feasible solutions as it optimizes the problem, at some sacrifice
+in the speed to the proof of optimality. </p>
+<p class="p">When set to OPTIMALITY,
+less effort may be applied to finding feasible solutions early. </p>
+<p class="p">With
+the setting BESTBOUND, even greater emphasis is placed on proving
+optimality through moving the best bound value, so that the detection
+of feasible solutions along the way becomes almost incidental. </p>
+<p class="p">When
+the parameter is set to HIDDENFEAS, the MIP optimizer works hard to
+find high quality feasible solutions that are otherwise very difficult
+to find, so consider this setting when the FEASIBILITY setting has
+difficulty finding solutions of acceptable quality. </p>
+
+<p class="p">When the parameter is set to HEURISTIC, the MIP optimizer entirely focuses on finding high
+quality heuristic solutions as early as possible, and puts almost no effort in moving the best bound
+and proving optimality. This setting should be considered when the proof of optimality is either not
+important or is out of reach, and the other settings have difficulty finding solutions of acceptable
+quality.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d109255e205">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d109255e208">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d109255e211">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d109255e205 ">0</td>
+
+<td class="entry" valign="top" headers="d109255e208 "><code class="ph codeph">CPX_MIPEMPHASIS_BALANCED</code> </td>
+
+<td class="entry" valign="top" headers="d109255e211 ">Balance optimality and feasibility; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d109255e205 ">1</td>
+
+<td class="entry" valign="top" headers="d109255e208 "><code class="ph codeph">CPX_MIPEMPHASIS_FEASIBILITY</code> </td>
+
+<td class="entry" valign="top" headers="d109255e211 ">Emphasize feasibility over optimality</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d109255e205 ">2</td>
+
+<td class="entry" valign="top" headers="d109255e208 "><code class="ph codeph">CPX_MIPEMPHASIS_OPTIMALITY</code> </td>
+
+<td class="entry" valign="top" headers="d109255e211 ">Emphasize optimality over feasibility </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d109255e205 ">3</td>
+
+<td class="entry" valign="top" headers="d109255e208 "><code class="ph codeph">CPX_MIPEMPHASIS_BESTBOUND</code> </td>
+
+<td class="entry" valign="top" headers="d109255e211 ">Emphasize moving best bound </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d109255e205 ">4</td>
+
+<td class="entry" valign="top" headers="d109255e208 "><code class="ph codeph">CPX_MIPEMPHASIS_HIDDENFEAS</code> </td>
+
+<td class="entry" valign="top" headers="d109255e211 ">Emphasize finding hidden feasible solutions</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d109255e205 ">5</td>
+
+<td class="entry" valign="top" headers="d109255e208 "><code class="ph codeph">CPX_MIPEMPHASIS_HEURISTIC</code></td>
+
+<td class="entry" valign="top" headers="d109255e211 ">Emphasize finding high quality feasible solutions earlier</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p">For more information, see <a class="xref" href="../../UsrMan/topics/discr_optim/mip/usage/10_emph_feas.html" title="Describes the context of the MIP emphasis parameter.">Emphasizing feasibility and optimality</a>. </p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

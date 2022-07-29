@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="limit on nodes explored when CPLEX solves a subMIP" />
+<meta name="abstract" content="Limits the number of nodes explored when CPLEX solves a subMIP." />
+<meta name="Description" content="Limits the number of nodes explored when CPLEX solves a subMIP." />
+<meta name="DC.subject" content="CPX_PARAM_SUBMIPNODELIMIT, CPXPARAM_MIP_SubMIP_NodeLimit, SubMIPNodeLimit, subMIP, node limit in, mip submip nodelimit, MIP limit, nodes explored in subMIP, advanced start, node exploration limit" />
+<meta name="keywords" content="CPX_PARAM_SUBMIPNODELIMIT, CPXPARAM_MIP_SubMIP_NodeLimit, SubMIPNodeLimit, subMIP, node limit in, mip submip nodelimit, MIP limit, nodes explored in subMIP, advanced start, node exploration limit" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="subMIPNodeLimit" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>limit on nodes explored when CPLEX solves a subMIP</title>
+</head>
+<body id="subMIPNodeLimit"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">limit on nodes explored when CPLEX solves a subMIP</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Limits the number of nodes explored when CPLEX solves a subMIP.
+</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Limits the number of nodes explored when CPLEX solves a subMIP</p>
+ 
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d139701e73">API</th>
+
+<th class="entry nrule" valign="top" id="d139701e76">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">CPXPARAM_MIP_SubMIP_NodeLimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">IloCplex::Param::MIP::SubMIP::NodeLimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">IloCplex.Param.MIP.SubMIP.NodeLimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">Cplex.Param.MIP.SubMIP.NodeLimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">submipnodelimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">parameters.mip.submip.nodelimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">mip submip nodelimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d139701e73 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d139701e76 ">2212</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p">This parameter sets the number of nodes
+explored when CPLEX is solving a subMIP. </p>
+ 
+
+<div class="p">
+With this parameter, you can change the limit on the number of nodes 
+explored when CPLEX solves a subMIP of a MIP.
+ See the documentation of these other subMIP parameters
+for further instructions that you can impose when CPLEX solves a subMIP:
+<ul class="ul"> 
+<li class="li"><a class="xref" href="SubMIPScale.html" title="Decides how to scale the problem matrix when CPLEX solves a subMIP during MIP optimization.">scale parameter for subMIPs</a></li>
+ 
+<li class="li"><a class="xref" href="SubMIPStartAlg.html" title="Sets which continuous optimizer will be used to solve the initial relaxation of a subMIP of a MIP.">algorithm for initial MIP relaxation of a subMIP of a MIP</a></li>
+ 
+<li class="li"><a class="xref" href="SubMIPSubAlg.html" title="Sets which optimizer will be used to solve the subproblems of a subMIP of a MIP.">algorithm for subproblems of a subMIP of a MIP</a></li>
+ 
+</ul>
+
+</div>
+ 
+<div class="note tip"><span class="tiptitle">Tip:</span> This rarely used parameter is helpful <strong class="ph b">only</strong> in rare "corner" cases 
+where there is clear evidence that the default limit 
+is really inappropriate for this particular problem.
+</div>
+
+<p class="p">For a definition of <strong class="ph b">subMIP</strong> and for a list of conditions in which 
+CPLEX solves a subMIP, see the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/mip/heuristics/subMIP.html" title="Defines subMIP and documents conditions in which CPLEX solves a subMIP.">What is a subMIP?</a> 
+in the <em class="ph i">CPLEX User's Manual</em>. 
+</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Values</h2> 
+
+<p class="p">Any positive integer; <strong class="ph b">default</strong>: 500.</p>
+ 
+</section>
+ 
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

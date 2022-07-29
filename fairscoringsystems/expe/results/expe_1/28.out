@@ -1,0 +1,12 @@
+dataset : data/customer.csv
+labels_name : ['A', 'B', 'C', 'D']
+s : 9.0
+a : 1.0
+sensitive_groups : []
+sensitive_labels : []
+time_limit : 3600
+lambda_bound : 9
+n_folds : 5
+nb_samples : 4765
+nb_features : 33
+nb_labels : 4

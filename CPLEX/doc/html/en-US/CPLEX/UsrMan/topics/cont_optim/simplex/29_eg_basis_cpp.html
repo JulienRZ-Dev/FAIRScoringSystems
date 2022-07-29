@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Example ilolpex6.cpp" />
+<meta name="abstract" content="Shows an example of starting from in advanced basis in the C++ API." />
+<meta name="Description" content="Shows an example of starting from in advanced basis in the C++ API." />
+<meta name="DC.subject" content="getStatuses method, IloCplex class" />
+<meta name="keywords" content="getStatuses method, IloCplex class" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/27_eg_basis_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveLP.652814" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/27_eg_basis_title_synopsis.html" />
+<title>Example ilolpex6.cpp</title>
+</head>
+<body id="User_manual.uss_solveLP.652814"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Example ilolpex6.cpp</h1>
+<div class="body"><p class="shortdesc">Shows an example of starting from in advanced basis in
+the C++ API.</p>
+
+<p class="p">The example, <code class="ph codeph">ilolpex6.cpp</code>,
+resembles one you may have studied in the <em class="ph i">Getting
+Started</em> manual, <code class="ph codeph">ilolpex1.cpp</code>.
+This example differs from that one in these ways:</p>
+
+<ul class="ul"><li class="li"><p class="p">Arrays are constructed using the <code class="ph codeph">populatebycolumn</code> method,
+and thus no command line arguments are needed to select a construction
+method.</p>
+</li>
+<li class="li"><p class="p">In the <code class="ph codeph">main</code> routine,
+the arrays <code class="ph codeph">cstat</code> and <code class="ph codeph">rstat</code> set
+the status of the initial basis.</p>
+</li>
+<li class="li"><p class="p">After the problem data has been copied
+into the problem object, the basis is copied by a call to <code class="ph codeph">cplex.setBasisStatuses</code>.</p>
+
+</li>
+<li class="li"><p class="p">After the problem has been optimized,
+the iteration count is printed. For the given data and basis, the
+basis is optimal, so no iterations are required to optimize the problem.</p>
+
+</li>
+</ul>
+
+<p class="p">The main program starts by declaring the environment
+and terminates by calling method <code class="ph codeph">end</code> for
+the environment. The code in between is encapsulated in a try block
+that catches all Concert Technology exceptions and prints them to
+the C++ error stream <code class="ph codeph">cerr</code>. All other exceptions
+are caught as well, and a simple error message is issued. Next the
+model object and the <code class="ph codeph">cplex</code> object are constructed.
+The function <code class="ph codeph">populatebycolumn</code> builds the
+problem object and, as noted earlier, <code class="ph codeph">cplex.setBasisStatuses</code> copies
+the advanced starting basis.</p>
+
+<p class="p">The call to <code class="ph codeph">cplex.solve</code> optimizes
+the problem, and the subsequent print of the iteration count demonstrates
+that the advanced basis took effect. In fact, this basis is immediately
+detected as optimal, resulting in zero iterations being performed,
+in contrast to the behavior seen in the example program <code class="ph codeph">ilolpex1.cpp</code> where
+the same model is solved without the use of an advanced basis.</p>
+
+<p class="p">The complete program <code class="ph codeph">ilolpex6.cpp</code> appears
+online in the standard distribution at <em class="ph i">yourCPLEXinstallation</em> <code class="ph codeph">/examples/src.</code> </p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/27_eg_basis_title_synopsis.html" title="Shows examples of starting from an advanced basis for LP optimization.">Examples: using a starting basis in LP optimization</a></div>
+</div>
+</nav></div></body>
+</html>

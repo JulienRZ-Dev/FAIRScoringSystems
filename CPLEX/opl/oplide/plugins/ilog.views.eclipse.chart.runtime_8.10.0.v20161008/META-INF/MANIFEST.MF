@@ -1,0 +1,44 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ilog.views.eclipse.chart.runtime
+Archiver-Version: Plexus Archiver
+Built-By: jviewsadm
+Require-Bundle: ilog.views.eclipse.framework.runtime;bundle-version="[
+ 8.10.0,8.11.0)";visibility:=reexport,org.eclipse.core.runtime,com.ibm
+ .icu
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Rogue Wave Software, Inc.
+Eclipse-LazyStart: true
+Eclipse-ExtensibleAPI: true
+Export-Package: ilog.views.chart,ilog.views.chart.action,ilog.views.ch
+ art.beans.editor,ilog.views.chart.data,ilog.views.chart.data.lod,ilog
+ .views.chart.data.xml,ilog.views.chart.datax,ilog.views.chart.datax.a
+ dapter,ilog.views.chart.datax.adapter.connector,ilog.views.chart.data
+ x.adapter.partition,ilog.views.chart.datax.adapter.partition.event,il
+ og.views.chart.datax.adapter.sort,ilog.views.chart.datax.event,ilog.v
+ iews.chart.datax.flat.list,ilog.views.chart.datax.flat.list.event,ilo
+ g.views.chart.datax.flat.set,ilog.views.chart.datax.flat.set.event,il
+ og.views.chart.datax.flat.table,ilog.views.chart.datax.flat.table.eve
+ nt,ilog.views.chart.datax.operator,ilog.views.chart.datax.operator.ev
+ ent,ilog.views.chart.datax.tree,ilog.views.chart.datax.tree.list,ilog
+ .views.chart.datax.tree.list.event,ilog.views.chart.datax.tree.set,il
+ og.views.chart.datax.tree.set.event,ilog.views.chart.event,ilog.views
+ .chart.graphic,ilog.views.chart.graphic.marker,ilog.views.chart.inter
+ actor,ilog.views.chart.java2d,ilog.views.chart.print,ilog.views.chart
+ .renderer,ilog.views.chart.servlet,ilog.views.chart.styling,ilog.view
+ s.chart.styling.function,ilog.views.chart.swing,ilog.views.chart.util
+ ,ilog.views.chart.view3d,ilog.views.eclipse.chart.runtime
+Bundle-Name: Rogue Wave JViews Charts Runtime for Eclipse
+Bundle-Version: 8.10.0.v20161008
+Bundle-ClassPath: .,lib/eclipse-chart-runtime.jar
+Bundle-Activator: ilog.views.eclipse.chart.runtime.ChartRuntimePlugin
+Created-By: Apache Maven 3.0.5
+Build-Jdk: 1.8.0_101
+
+Name: ilog/views/eclipse/chart/runtime/ChartRuntimePlugin.class
+SHA-256-Digest: B8UaBg+Ew31j1HCeqCdbIG6n+pzIpQoMombEHRhsdO8=
+
+Name: lib/eclipse-chart-runtime.jar
+SHA-256-Digest: 7yDtiiIBwUr0gwhOcoR+PjZnQf3JncTWawGY5+GMLHw=
+

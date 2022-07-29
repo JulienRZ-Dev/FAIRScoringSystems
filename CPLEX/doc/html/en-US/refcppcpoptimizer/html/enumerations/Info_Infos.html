@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>Infos</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cplex.cpp/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../enumerations/Info_Infos.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+                name="ibm-content"></a><h1><a
+            name="enumeration_Infos">Enumeration Infos</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcplex/ilocplexi.h</span></div><div
+            class="description"><p>This <code>enum</code> identifies the kinds of information 
+ that your application can retrieve from a generic callback
+ by means of the methods 
+ <code>IloCple::Callback::getIntInfo(Info)</code>, 
+ <code>IloCplex::Callback::getLongInfo(Info)</code>, or 
+ <code>IloCplex::Callback::getDoubleInfo(Info)</code>. 
+ See documentation of the enumeration <code>CPXCALLBACKINFO</code> in 
+ the reference manual of the Callable Library (C API) 
+ for further details about these values. </p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>ThreadId = CPXCALLBACKINFO_THREADID</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_THREADID</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodeCount = CPXCALLBACKINFO_NODECOUNT</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_NODECOUNT</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>IterationCount = CPXCALLBACKINFO_ITCOUNT</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_ITCOUNT</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>BestSolution = CPXCALLBACKINFO_BEST_SOL</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_BEST_SOL</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>BestBound = CPXCALLBACKINFO_BEST_BND</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_BEST_BND</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Threads = CPXCALLBACKINFO_THREADS</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_THREADS</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Feasible = CPXCALLBACKINFO_FEASIBLE</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_FEASIBLE</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Time = CPXCALLBACKINFO_TIME</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_TIME</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>DeterministicTime = CPXCALLBACKINFO_DETTIME</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_DETTIME</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodeUID = CPXCALLBACKINFO_NODEUID</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_NODEUID</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodeDepth = CPXCALLBACKINFO_NODEDEPTH</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_NODEDEPTH</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>CandidateSource = CPXCALLBACKINFO_CANDIDATE_SOURCE</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_CANDIDATE_SOURCE</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Restarts = CPXCALLBACKINFO_RESTARTS</code></td><td 
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_RESTARTS</code> in the callable library reference manual. 
+                        </div></td></tr><tr><td 
+                    valign="top" align="left"
+                    width="20%"><code>AfterCutLoop = CPXCALLBACKINFO_AFTERCUTLOOP</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+See <code>CPXCALLBACKINFO_AFTERCUTLOOP</code> in the callable library reference manual.
+                        </div></td></tr><tr><td 
+                    valign="top" align="left"
+				    width="20%"><code>NodesLeft = CPXCALLBACKINFO_NODESLEFT</code></td><td	
+                    valign="top" align="left"><div
+                    valign="top">	
+ See <code>CPXCALLBACKINFO_NODESLEFT</code> in the callable library reference manual.  
+                        </div></td></tr></table><br /></body>
+</html>

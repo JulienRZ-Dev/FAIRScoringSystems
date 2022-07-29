@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbackpostheursoln and CPXcallbackpostheursoln" />
+<meta name="abstract" content="Posts a feasible solution to CPLEX." />
+<meta name="Description" content="Posts a feasible solution to CPLEX." />
+<meta name="DC.subject" content="CPXcallbackpostheursoln, C API Reference Manual, CPXXcallbackpostheursoln" />
+<meta name="keywords" content="CPXcallbackpostheursoln, C API Reference Manual, CPXXcallbackpostheursoln" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackpostheursoln" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXcallbackpostheursoln and CPXcallbackpostheursoln</title>
+</head>
+<body id="callbackpostheursoln"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbackpostheursoln</span> and <span class="keyword apiname">CPXcallbackpostheursoln</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+    Posts a feasible solution to CPLEX.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbackpostheursoln</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">ind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">val</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">obj</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCALLBACKSOLUTIONSTRATEGY</span><span class="ph sep"> </span><span class="ph var">strat</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbackpostheursoln</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">ind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">val</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">obj</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCALLBACKSOLUTIONSTRATEGY</span><span class="ph sep"> </span><span class="ph var">strat</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+    <div class="p">
+      This routine posts a feasible solution to CPLEX.
+      The solution passed to the routine may be partial; that is, possibly 
+      the solution does not
+      specify values for all the variables in the model. If the solution is
+      partial, then the argument <span class="keyword parmname">strat</span> specifies the 
+      solution strategy; that is, how CPLEX
+      should try to find values for the missing variables.
+      CPLEX applies the following scheme to process a solution posted by this
+      routine:
+      <ol class="ol">
+        <li class="li">CPLEX checks whether the solution is incomplete. (A solution is incomplete 
+            if the solution does not specify a
+            non-NaN value for each variable, where NaN means not a number.)</li>
+
+        <li class="li">If the solution is incomplete, then CPLEX applies the completion
+            strategy specified by the argument <span class="keyword parmname">strat</span>.</li>
+
+        <li class="li">CPLEX checks the feasibility of the completed solution.</li>
+
+        <li class="li">CPLEX accepts the completed solution if the completed solution is feasible and improves on
+            the current incumbent.</li>
+
+      </ol>
+
+    </div>
+
+
+    <p class="p">
+      You must not call this routine from callbacks in the context 
+      <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a> or
+      <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a>. If you do so, 
+      this routine returns 
+      <a class="xref" href="../macros/CPXERR_UNSUPPORTED_OPERATION.html" title="1811 Attempt to invoke unsupported operation.">CPXERR_UNSUPPORTED_OPERATION</a> or
+      <a class="xref" href="../macros/CPXERR_NO_ENVIRONMENT.html" title="1002 No environment">CPXERR_NO_ENVIRONMENT</a>.
+    </p>
+ 
+    <p class="p">
+    You must not call this routine with Benders algorithm in any context. 
+    </p>
+
+
+    <div class="note important"><span class="importanttitle">Important:</span> 
+    <p class="p">
+      It is possible that CPLEX does not handle the posted solution immediately. Generally, 
+      CPLEX adds the
+      solution to a queue, and the next time that CPLEX runs heuristics,
+      CPLEX looks at this queue for feasible solutions that come from an
+      external source.
+      This procedure implies that possibly CPLEX does not use the posted solution at all; for
+      example, if CPLEX found a better solution before it looked at that queue again.
+      Also possibly, CPLEX can run improvement heuristics on the specified solution, and these heuristics
+      result in even better solutions. In such cases, the solution passed
+      to this routine possibly does not appear as a new incumbent.
+    </p>
+
+    </div>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">context</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The callback context as passed into the callback function.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">cnt</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The number of elements in <code class="ph codeph">ind</code> and <code class="ph codeph">val</code>.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">ind</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Nonzero indices of solution values.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">val</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Nonzero values of solution values. NaNs (that is, 
+             values that are not a number) are allowed
+             in this array. They specify missing values in an incomplete solution.
+          </p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">obj</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">
+            Objective value of the new solution. This value is merely a hint for CPLEX:
+            CPLEX recalculates this value after completing the solution.
+            However, if the value passed into this routine is worse than the
+            current incumbent at the time CPLEX processes the posted solution, then
+            CPLEX can discard the posted solution.
+          </p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">strat</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Strategy to complete the solution in <code class="ph codeph">ind</code> and <code class="ph codeph">val</code> 
+             if the solution is partial.</p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+     
+        <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+ 
+    
+    <section class="section"><h2 class="title sectiontitle">See also</h2> 
+     
+    <p class="p"><a class="xref" href="callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a></p>
+ 
+    <p class="p"><a class="xref" href="../enumerations/CPXCALLBACKSOLUTIONSTRATEGY.html" title="Solution strategies for handling solutions passed to CPXXcallbackpostheursoln.">CPXCALLBACKSOLUTIONSTRATEGY</a></p>
+ 
+    </section>
+
+  </div>
+ 
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

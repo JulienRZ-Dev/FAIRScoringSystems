@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Warnings from modeling assistance in CPLEX" />
+<meta name="abstract" content="CPLEX can assist you as you develop your model with its warnings." />
+<meta name="Description" content="CPLEX can assist you as you develop your model with its warnings." />
+<meta name="DC.subject" content="modeling assistance, examples, warning messages, modeling assistance and" />
+<meta name="keywords" content="modeling assistance, examples, warning messages, modeling assistance and" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="warningsModelingAssistance" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" />
+<title>Warnings from modeling assistance in CPLEX</title>
+</head>
+<body id="warningsModelingAssistance"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Warnings from modeling assistance in CPLEX</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX can assist you as you develop your model with its warnings.</p>
+
+<p class="p">When CPLEX solves a model with the <a class="xref" href="../../../../Parameters/topics/DataCheck.html" title="Turns on or off data consistency checking and modeling assistance.">data consistency checking and modeling assistance</a> parameter 
+set to the value 2, CPLEX examines features of the model that can impede performance or 
+produce numerical instability (even if the features are otherwise valid). 
+When CPLEX detects such detrimental or unstable features as it solves your model, 
+it issues a warning and suggests possible improvements. 
+For example, the following warnings are typical of such 
+situations:</p>
+ 
+<pre class="pre codeblock"><code>
+CPLEX Warning 1040: Detected a big coefficient for a binary
+variable in a constraint. In constraint c171832, variable
+x490416 has a coefficient 1000.21 times larger than second
+largest. Consider turning constraint into an indicator.
+
+CPLEX Warning 1041: Detected big-M constraint that could be
+turned into an indicator. In constraint c8095, variable x354
+has a bigM of 1000 and could be turned into indicator.
+
+CPLEX Warning 1042: Detected a variable bound constraint with
+large coefficients. Constraint c8101, links binary variable
+x934 with variable x2642 and the ratio between the two is
+1e+06. Consider turning constraint into an indicator for
+better performance and numerical stability.
+</code></pre> 
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" title="CPLEX can assist you as you develop your model.">Modeling assistance in CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

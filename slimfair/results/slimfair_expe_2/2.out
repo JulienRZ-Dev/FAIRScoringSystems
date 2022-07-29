@@ -1,0 +1,17 @@
+dataset : data/german_credit_binary.csv
+label_name : Risk == good
+sensitive_group : Sex == female
+time_limit : 3600
+lambda_bound : 9
+n_folds : 5
+nb_samples : 1000
+nb_features : 33
+optimality_gap : [0.1820315508563122, 0.16873948805775507, 0.17366392179816437, 0.19727432661846633, 0.19351159755092615]
+execution_time : [3600.00239109993, 3600.00266289711, 3600.0007870197296, 3600.001223087311, 3600.0039689540863]
+objective_function : [0.30125000000000013, 0.3050000000000001, 0.30125000000000013, 0.2962500000000001, 0.2937500000000003]
+sparsity : [0, 0, 0, 0, 2]
+accuracy_train : [0.69875, 0.695, 0.69875, 0.70375, 0.72625]
+accuracy_test : [0.705, 0.72, 0.705, 0.685, 0.695]
+statistical_parity_train : [0.0, 0.0, 0.0, 0.0, 0.043010752688172116]
+statistical_parity_test : [0.0, 0.0, 0.0, 0.0, 0.011220196353436185]
+end

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Path invariance and generic callbacks" />
+<meta name="abstract" content="An empty generic callback produces the same solution path as no generic callback." />
+<meta name="Description" content="An empty generic callback produces the same solution path as no generic callback." />
+<meta name="DC.subject" content="callback, path invariance and" />
+<meta name="keywords" content="callback, path invariance and" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="pathInvarianceCallbacks" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<title>Path invariance and generic callbacks</title>
+</head>
+<body id="pathInvarianceCallbacks"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Path invariance and generic callbacks</h1>
+
+ 
+ 
+<div class="body"><p class="shortdesc">An empty generic callback produces the same solution path as no generic callback. 
+</p>
+ 
+         
+            <p class="p">
+              Using an empty generic callback will yield the <em class="ph i">same</em>
+              solution path as using no generic callback. (This convention is not true
+              for CPLEX legacy callbacks.) Of course, invoking an empty
+              callback incurs some overhead, so a run with an empty callback
+              will be slightly slower than a run without any callback, but the
+              solution path will still be the same.
+            </p>
+ 
+            <div class="p">In fact, a generic callback that uses only informational routines respects the same
+path invariance as an empty generic callback or no callback at all. Informational routines are those
+where the name of the routine conforms to this pattern: CPXXcallbackget<em class="ph i">information</em>.
+Specifically, the following (non-exhaustive) list of routines invoked from a generic callback are
+path-invariant: <ul class="ul">
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetcandidatepoint.html" title="Gets the candidate solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetcandidateray.html" title="Gets the unbounded ray for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidateray and CPXcallbackgetcandidateray</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetincumbent.html" title="Gets the incumbent solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.">CPXXcallbackgetincumbent and CPXcallbackgetincumbent</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetrelaxationstatus.html" title="Get the solution status for the current node relaxation.">CPXXcallbackgetrelaxationstatus and CPXcallbackgetrelaxationstatus</a> (depending on the
+arguments passed to the function)</li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/mipapi/getcallbackgloballb.html" title="The routine CPXXgetcallbackgloballb/CPXgetcallbackgloballb retrieves the best known global lower bound values during MIP optimization from within a user-written callback.">CPXXgetcallbackgloballb and CPXgetcallbackgloballb</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/mipapi/getcallbackglobalub.html" title="The routine CPXXgetcallbackglobalub/CPXgetcallbackglobalub retrieves the best known global upper bound values during MIP optimization from within a user-written callback.">CPXXgetcallbackglobalub and CPXgetcallbackglobalub</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/mipapi/getcallbacknodelb.html" title="The routine CPXXgetcallbacknodelb/CPXgetcallbacknodelb retrieves the lower bound values for the subproblem at the current node during MIP optimization from within a user-written callback.">CPXXgetcallbacknodelb and CPXgetcallbacknodelb</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/mipapi/getcallbacknodeub.html" title="The routine CPXXgetcallbacknodeub/CPXgetcallbacknodeub retrieves the upper bound values for the subproblem at the current node during MIP optimization from within a user-written callback.">CPXXgetcallbacknodeub and CPXgetcallbacknodeub</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackcandidateispoint.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for a candidate feasible point.">CPXXcallbackcandidateispoint and CPXcallbackcandidateispoint</a></li>
+
+</ul>
+
+</div>
+
+            <p class="p"> One exception to this convention about same solution path occurs if you ask CPLEX to
+invoke the callback in the context <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a>. Since CPLEX
+cannot know whether your callback is empty or not, CPLEX always disables dual and nonlinear
+reductions when you ask CPLEX to invoke the callback in that context. This disablement of dual
+reductions and nonlinear reductions can result in a different solution path, of course. Similar
+considerations apply to using the <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a> context. For
+this context, certain presolve reductions have to be disabled as well to make sure results are
+correct. Disabling these reductions may again result in path changes.</p>
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

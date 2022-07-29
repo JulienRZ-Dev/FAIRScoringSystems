@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Selecting an encoding" />
+<meta name="abstract" content="Explains special considerations about encoding, also known as code pages." />
+<meta name="Description" content="Explains special considerations about encoding, also known as code pages." />
+<meta name="DC.subject" content="encoding, selecting, multi-byte, NULL byte in, multi-byte encoding, NULL byte encoding" />
+<meta name="keywords" content="encoding, selecting, multi-byte, NULL byte in, multi-byte encoding, NULL byte encoding" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1304688815312" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_synopsis.html" />
+<title>Selecting an encoding</title>
+</head>
+<body id="descriptiveTopic1304688815312"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Selecting an encoding</h1>
+ 
+ 
+
+<div class="body"><p class="shortdesc">Explains special considerations about encoding, also known
+as code pages.</p>
+
+<p class="p">CPLEX offers parameters that specify the encoding (also known as
+the code page) for CPLEX to use in the representation of data, whether
+as input or output. For details about these encoding parameters, see
+also the documentation of the  <a class="xref" href="../../../../Parameters/topics/APIEncoding.html" title="API string encoding switch">API string encoding switch</a>  and
+the <a class="xref" href="../../../../Parameters/topics/FileEncoding.html" title="file encoding switch">file encoding switch</a>  in
+the <em class="ph i">CPLEX Parameters Reference Manual</em>.</p>
+
+<div class="note tip"><span class="tiptitle">Tip:</span> <p class="p">These encoding parameters have no effect on IBM CPLEX Optimizer
+for z/OS, where only EBCDIC IBM-1047 encoding is available.</p>
+
+</div>
+
+<p class="p paragrouptitle">Default encoding</p>
+ 
+<p class="p">By default, CPLEX uses the encoding ISO-8859-1 (also known as Latin-1).
+The familiar encoding known as ASCII is a subset of ISO-8859-1. In
+fact, ISO-8859-1 supports a wide variety of character sets, so this
+default is a reasonable choice for many users.</p>
+ 
+<p class="p paragrouptitle">Multi-byte encoding</p>
+ 
+<p class="p">However, the encoding ISO-8859-1 cannot represent character sets with large number of characters,
+such as Chinese, Japanese, Korean, Indian, or Vietnamese. Such character sets require multiple-byte
+encoding, that is multiple bytes may be used to represent single characters. For example, UTF-8 is
+such an encoding. UTF-8 is a multi-byte character encoding that can represent every character in the
+Unicode character set; that is, it is sufficiently comprehensive for many purposes. It is also
+compatible with ASCII. It does not require byte-order marks (also known as BOM) nor specification of
+big-endian or little-endian byte-order. It does not include multi-byte characters that contain a
+<code class="ph codeph">NULL</code> byte in their multi-byte encoding. In short, it is a useful encoding for many
+users whose needs reach beyond ASCII or Latin-1.</p>
+ 
+
+<p class="p">Also take care if you choose another multi-byte encoding instead of UTF-8: CPLEX routines such as
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/msgstr.html" title="The routine CPXXmsgstr/CPXmsgstr sends a character string to a CPLEX message channel.">CPXXmsgstr and CPXmsgstr</a></code> do not work well with
+encodings that include characters that contain a <code class="ph codeph">NULL</code> byte in their multi-byte
+representation. The presence of these <code class="ph codeph">NULL</code> bytes can lead to unfortunate
+coincidences and in the worst case, errors in handling the characters. Indeed, for precisely those
+reasons CPLEX does not guarantee support for such encodings (of which UTF-16 and UTF-32 are the most
+well-known).</p>
+ 
+
+<p class="p paragrouptitle"> Example: why one must be careful with encodings</p>
+
+<p class="p">To get an idea of the hazards of encodings, imagine a situation in which a user creates a model
+as a file in a favorite editor with the encoding <code class="ph codeph">cp424</code>, which supports Hebrew
+characters. The unsuspecting user names the model gimel (a single Hebrew character, not reproduced
+here). In this model, the user names each variable with a distinct, single Hebrew character. The
+user, aware that the encoding used in the editor is not the default file encoding in CPLEX,
+carefully sets the CPLEX file encoding parameter to the value <code class="ph codeph">cp424</code> before reading
+the file into CPLEX. Unfortunately, our unlucky user then forgets to change the default value
+ISO-8859-1 of the API encoding parameter of CPLEX when extracting names through the API. Since the
+Hebrew character gimel (the name of the model) cannot be represented in the Latin-1 code page, a
+silent substitution of the ISO-8859-1 substitute character (hex value 0x1a) occurs. Similarly, the
+names of the variables will be substituted since they are characters not representable in Latin-1.
+And all these substitutions will not appear to the software to be an error.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">Due to a difference in the way that the IBM Java Virtual Machine and Runtime Environment and the
+International Components for Unicode (ICU) interpret newline characters in EBCDIC encoding and its
+variants, it may be necessary to append the option <code class="ph codeph">swaplfnl</code> to the encoding name
+when the user intends to use a form of EBCDIC encoding in file or API operations. For example,</p>
+
+<pre class="pre codeblock"><code>"IBM1047,swaplfnl"</code></pre>
+<p class="p">may need to be used instead of</p>
+
+<pre class="pre codeblock"><code>"IBM1047"</code></pre>
+<p class="p">to avoid anomalies.</p>
+
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_synopsis.html" title="Describes input to and output from CPLEX.">Managing input and output</a></div>
+</div>
+</nav></div></body>
+</html>

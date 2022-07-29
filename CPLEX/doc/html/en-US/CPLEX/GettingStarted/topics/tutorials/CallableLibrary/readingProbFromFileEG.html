@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Reading a problem from a file: example lpex2.c" />
+<meta name="abstract" content="This application reads the model from a formatted file." />
+<meta name="Description" content="This application reads the model from a formatted file." />
+<meta name="DC.subject" content="example, reading a problem file (C API), problem, reading files (C API), reading, problem files (C API), lpex2.c (C API), CPXreadcopyprob routine, example in C API, CPXcreateprob routine, LP example in C API, CPXopenCPLEX routine, file format example in C API, CPXfreeprob routine, file format example in C API, CPXcloseCPLEX routine, MPS example in C API" />
+<meta name="keywords" content="example, reading a problem file (C API), problem, reading files (C API), reading, problem files (C API), lpex2.c (C API), CPXreadcopyprob routine, example in C API, CPXcreateprob routine, LP example in C API, CPXopenCPLEX routine, file format example in C API, CPXfreeprob routine, file format example in C API, CPXcloseCPLEX routine, MPS example in C API" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_callableLibraryStart.1014327" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/synopsis.html" />
+<title>Reading a problem from a file: example lpex2.c</title>
+</head>
+<body id="Getting_started.uss_callableLibraryStart.1014327"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Reading a problem from a file: example lpex2.c</h1>
+
+
+
+<div class="body"><p class="shortdesc">This application reads the model from a formatted file.</p>
+
+<p class="p">The previous example, <code class="ph codeph">lpex1.c</code> , shows a way to
+copy problem data into a problem object as part of an application
+that calls routines from the CPLEX Callable Library. Frequently, however,
+a file already exists containing a linear programming problem in the
+industry standard MPS format, the CPLEX LP format, or the CPLEX binary
+SAV format. In example <code class="ph codeph">lpex2.c</code> , CPLEX file-reading
+and optimization routines read such a file to solve the problem.</p>
+
+<p class="p">Example <code class="ph codeph">lpex2.c</code> uses command line arguments to
+specify the name of the input file and the optimizer to call.</p>
+
+<p class="p">Usage: <code class="ph codeph">lpex2 filename optimizer</code> </p>
+
+<p class="p">Where: <code class="ph codeph">filename</code> is a file with extension MPS,
+SAV, or LP (lower case is allowed), and <code class="ph codeph">optimizer</code> is
+one of the following letters:</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table listing possible values and their meaning." class="table NoBorder" rules="none" frame="void" border="0"><span class="desc tabledesc">  </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d22940e114">Value</th>
+
+<th class="entry nrule" valign="top" id="d22940e117">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> o </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> default </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> p </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> primal simplex </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> d </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> dual simplex </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> n </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> network with dual simplex cleanup </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> h </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> barrier with crossover </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> b </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> barrier without crossover </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> s </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> sifting </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d22940e114 "> c </td>
+
+<td class="entry nrule" valign="top" headers="d22940e117 "> concurrent </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">For example, this command:</p>
+
+<p class="p"> <code class="ph codeph">lpex2 example.mps d</code> </p>
+
+<p class="p">reads the file <code class="ph codeph">example.mps</code> and solves the problem
+with the dual simplex optimizer.</p>
+
+<p class="p">To illustrate the ease of reading a problem, the example uses the
+routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/readcopyprob.html" title="The routine CPXXreadcopyprob/CPXreadcopyprob reads an MPS, LP, or SAV file into an existing CPLEX problem object.">CPXreadcopyprob</a></code>.
+This routine detects the type of the file, reads the file, and copies
+the data into the CPLEX problem object that is created with a call
+to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/createprob.html" title="The routine CPXXcreateprob/CPXcreateprob creates a CPLEX problem object in the CPLEX environment.">CPXcreateprob</a></code>.
+The user need not be concerned with the memory management of the data.
+Memory management is handled transparently by <code class="ph codeph">CPXreadcopyprob</code> .</p>
+
+<p class="p">After calling <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code> and
+turning on the screen switch by setting the <code class="ph codeph">CPX_PARAM_SCRIND</code> parameter
+to <code class="ph codeph">CPX_ON</code>, the example creates an empty problem object
+with a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/createprob.html" title="The routine CPXXcreateprob/CPXcreateprob creates a CPLEX problem object in the CPLEX environment.">CPXcreateprob</a></code>.
+This call returns a pointer, <code class="ph codeph">lp</code> , to the new problem
+object. Then the data is read in by the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/readcopyprob.html" title="The routine CPXXreadcopyprob/CPXreadcopyprob reads an MPS, LP, or SAV file into an existing CPLEX problem object.">CPXreadcopyprob</a></code>.
+After the data is copied, the appropriate optimization routine is
+called, based on the command line argument. </p>
+
+<p class="p">After optimization, a call to <code class="ph codeph">CPXgetstat</code> retrieves
+the status of the solution . The cases of infeasibility or unboundedness
+in the model are handled in a simple fashion here; a more complex
+application program might treat these cases in more detail. With these
+two cases out of the way, the program then calls <code class="ph codeph">CPXsolninfo</code> to
+examine the nature of the solution. Certain that a solution exists,
+the application then calls <code class="ph codeph">CPXgetobjval</code> to obtain
+the objective function value for this solution and report it.</p>
+
+<p class="p">Next, preparations are made to print the solution value and basis
+status of each individual variable, by allocating arrays of appropriate
+size; these sizes are detected by calls to the routines <code class="ph codeph">CPXgetnumcols</code> and <code class="ph codeph">CPXgetnumrows</code> .
+Note that a basis is not guaranteed to exist, depending on which optimizer
+was selected at run time, so some of these steps, including the call
+to <code class="ph codeph">CPXgetbase</code> , are dependent on the solution type
+returned by <code class="ph codeph">CPXsolninfo</code> . </p>
+
+<p class="p">The primal solution values of the variables are obtained by a call
+to <code class="ph codeph">CPXgetx</code> , and then these values (along with the
+basis statuses if available) are printed, in a loop, for each variable.
+After that, a call to <code class="ph codeph">CPXgetdblquality</code> provides a
+measure of the numerical roundoff error present in the solution, by
+obtaining the maximum amount by which any variable's lower or upper
+bound is violated.</p>
+
+<p class="p">After the <code class="ph codeph">TERMINATE:</code> label, the data for the solution
+(<code class="ph codeph">x</code> , <code class="ph codeph">cstat</code> , and <code class="ph codeph">rstat</code> )
+are freed. Then the problem object is freed by <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/freeprob.html" title="The routine CPXXfreeprob/CPXfreeprob removes the specified CPLEX problem object from the CPLEX environment and frees the associated memory used internally by CPLEX.">CPXfreeprob</a></code>.
+After the problem is freed, the CPLEX environment is freed by <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/closeCPLEX.html" title="This routine frees all of the data structures associated with CPLEX.">CPXcloseCPLEX</a></code>.</p>
+
+<p class="p">You can view the complete program online in the standard distribution
+of the product at <em class="ph i">yourCPLEXinstallation</em><code class="ph codeph">/examples/src/lpex2.c</code>.</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/synopsis.html" title="Applications written in C use the CPLEX Callable Library (C API).">Callable Library tutorial</a></div>
+</div>
+</nav></div></body>
+</html>

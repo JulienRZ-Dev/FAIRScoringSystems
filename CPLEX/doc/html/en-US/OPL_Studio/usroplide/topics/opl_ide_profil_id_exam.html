@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Examining the profiling information" />
+<meta name="abstract" content="Explains how to analyze time and memory consumption after execution of the model." />
+<meta name="Description" content="Explains how to analyze time and memory consumption after execution of the model." />
+<meta name="DC.subject" content="Profiler output tab, analyzing contents" />
+<meta name="keywords" content="Profiler output tab, analyzing contents" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplide/topics/opl_ide_profil_id.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplide.uss_ide_profiling.140181" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplide/topics/opl_ide_profil_id.html" />
+<title>Examining the profiling information</title>
+</head>
+<body id="usroplide.uss_ide_profiling.140181"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Examining the profiling information</h1>
+<div class="body"><p class="shortdesc">Explains how to analyze time and memory consumption after
+execution of the model.</p>
+
+<p class="p">You are now going to analyze the time and memory figures
+of the <code class="ph codeph">profiler.mod</code> example.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">The figures shown in the illustrations may be different
+on your machine.</p>
+
+</div>
+
+<section class="section" id="usroplide.uss_ide_profiling.140181__usroplide.uss_ide_profiling.137422"><h2 class="title sectiontitle">Slow elements</h2><p class="p">In the profiling context, slow elements are elements
+with a bad execution time. All three data structures are equivalent
+(see <a class="xref" href="opl_ide_profil_id_present.html" title="Discusses the model profiler.mod.">Presenting the profiler example</a>).
+However, if you look at the first column (Time) of the Profiler table,
+you can see that execution of <code class="ph codeph">EXECUTE INIT_Values1</code> (which
+includes initializing the structure plus setting the values in the
+script) takes nearly twice as long as execution of <code class="ph codeph">EXECUTE INIT_Values2</code> (which
+includes initialization of <code class="ph codeph">Values2</code>).</p>
+<figure class="fig fignone" id="usroplide.uss_ide_profiling.140181__usroplide.uss_ide_profiling.136904"><span class="figcap">Figure 1. Comparing execution time (<code class="ph codeph">profiler.mod</code>)</span><div class="image"><img class="image" src="../images/badruntime27.jpg" alt="Profiler window detail showing a bad run time" /></div></figure>
+<p class="p">In other words, inline initialization of the <code class="ph codeph">Values2</code> array
+is faster than initialization in the script.</p>
+</section>
+
+<section class="section" id="usroplide.uss_ide_profiling.140181__usroplide.uss_ide_profiling.135648"><h2 class="title sectiontitle">Memory consuming elements</h2><p class="p">If you now examine the Profiler table from the point
+of view of memory consumption and look at the Local Memory column,
+you can see that initialization of <code class="ph codeph">Values2</code> uses
+much more memory than initialization of <code class="ph codeph">Values3</code>.
+It even increases the Peak Memory.</p>
+<figure class="fig fignone" id="usroplide.uss_ide_profiling.140181__usroplide.uss_ide_profiling.144000"><span class="figcap">Figure 2. Memory consumption (<code class="ph codeph">profiler.mod</code>)</span><div class="image"><img class="image" src="../images/memoryconsumption8.jpg" alt="Profiler window showing excess memory consumption" /></div></figure>
+<p class="p">This shows the interest of using tuple-based indexing
+when the structure is very sparse. </p>
+</section>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplide/topics/opl_ide_profil_id.html" title="The information displayed in the table of the Profiler enables you to identify slow or memory-consuming elements during execution of the profiler model, and, possibly, to infer what changes in your model might improve execution performance. This part of the tutorial uses the profiler example to demonstrate this.">Identifying slow and memory-consuming model elements</a></div>
+</div>
+</nav></div></body>
+</html>

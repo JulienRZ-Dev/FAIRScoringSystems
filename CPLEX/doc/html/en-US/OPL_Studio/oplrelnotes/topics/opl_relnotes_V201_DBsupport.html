@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="New database support in OPL" />
+<meta name="abstract" content="This latest version of CPLEX Optimization Studio 20.1.0 has increased database support in OPL. There are prebuilt database connection types for JDBCConnection, CSVConnection, ODBCConnection, MySQLConnection, and SQLiteConnection. In addition, you can build a custom database connection type. There are also several examples provided to demonstrate this functionality." />
+<meta name="Description" content="This latest version of CPLEX Optimization Studio 20.1.0 has increased database support in OPL. There are prebuilt database connection types for JDBCConnection, CSVConnection, ODBCConnection, MySQLConnection, and SQLiteConnection. In addition, you can build a custom database connection type. There are also several examples provided to demonstrate this functionality." />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/oplrelnotes/topics/opl_relnotes_V201_home.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="opl_relnotes_V201_DBsupport" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/oplrelnotes/topics/opl_relnotes_V201_home.html" />
+<title>New database support in OPL</title>
+</head>
+<body id="opl_relnotes_V201_DBsupport"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">New database support in OPL</h1>
+
+
+<div class="body"><p class="shortdesc">This latest version of CPLEX Optimization Studio 20.1.0 has increased database support in
+OPL. There are prebuilt database connection types for <code class="ph codeph">JDBCConnection</code>,
+<code class="ph codeph">CSVConnection</code>, <code class="ph codeph">ODBCConnection</code>, <code class="ph codeph">MySQLConnection</code>,
+and <code class="ph codeph">SQLiteConnection</code>. In addition, you can build a custom database connection type.
+There are also several examples provided to demonstrate this functionality.</p>
+
+<section class="section"><h2 class="title sectiontitle"><strong class="ph b">Overview</strong></h2>
+
+<p class="p">OPL allows reading data from data bases using a <code class="ph codeph">.dat</code> file. This is done by means
+of three different statements:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">XXXConnection conn(CONNECTION_STRING, INITIAL_UPDATE);</code></li>
+
+<li class="li">data from <code class="ph codeph">XXXRead(conn, SQL_QUERY);</code></li>
+
+<li class="li">results to <code class="ph codeph">XXXPublish(conn, SQL_UPDATE);</code></li>
+
+</ul>
+
+<p class="p">Here <code class="ph codeph">XXX</code> is a placeholder for a database connection type, for example
+<code class="ph codeph">JDBC</code>, <code class="ph codeph">ODBC</code>, <code class="ph codeph">SQLite</code>, <code class="ph codeph">MySQL</code>, and
+so on. OPL will search for and select an appropriate database driver based on this type. </p>
+
+<div class="note note"><span class="notetitle">Note:</span> OPL itself does <strong class="ph b">NOT</strong> provide any database drivers. OPL relies on 3rd party drivers to be
+installed on your machine, see sections below for more detail.</div>
+
+<p class="p"><code class="ph codeph">CONNECTION_STRING</code> is a database connection string that is passed to the driver
+in order to connect to the database. For example:</p>
+
+<pre class="pre codeblock"><code>"jdbc:mysql:database?username=john&amp;password=unknown"</code></pre>
+<p class="p"><code class="ph codeph">INITIAL_UPDATE</code> is explained in the section <a class="xref" href="#opl_relnotes_V201_DBsupport__PrebuiltCSVConnection">Prebuilt CSVConnection</a>.</p>
+
+<p class="p"><code class="ph codeph">SQL_QUERY</code> is an SQL query string such as:</p>
+
+<pre class="pre codeblock"><code>"FROM datatable SELECT col1, col3"</code></pre>
+<p class="p"> OPL will run the query using the specified connection and assign the result to the OPL elements
+to be filled. Each row in the query result fills one element in the OPL model.</p>
+
+<p class="p"><code class="ph codeph">SQL_UPDATE</code> is an SQL update expression such as:</p>
+
+<pre class="pre codeblock"><code>"INSERT INTO resulttable VALUES (?, ?)"</code></pre>
+<p class="p">OPL will execute this statement once for each element that is published using this statement.</p>
+
+<p class="p">Here is a short example:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">.mod</code>
+file:<pre class="pre codeblock"><code>
+tuple D {
+  string product;  // name of product
+  int    stock;    // initial stock of this product
+  double profit;   // profit for selling one unit of this product
+};
+{D} Products = ...;
+
+dvar int+ sell[Products];
+maximize sum(p in Products) sell[p];
+subject to {
+ // Some constraints that make this
+ // an interesting model
+}
+
+tuple R {
+  string product;
+  int    sell;
+};
+{R} Results = { &lt;p, x[p]&gt; | p in Products };</code></pre></li>
+
+<li class="li"><code class="ph codeph">.dat</code>
+file:<pre class="pre codeblock"><code>
+JDBCConnection conn("jdbc:sqlite:database.db",
+                    "DROP TABLE IF EXISTS results; CREATE TABLE results (Product VARCHAR, Sell INTEGER)");
+Products from JDBCRead(conn, "SELECT ProductName, InitialStock, Profit FROM ProductTable");
+Results to JDBCPublish(conn, "INSERT INTO results VALUES(?, ?)");</code></pre></li>
+
+<li class="li">SQLite database file <code class="ph codeph">database.db</code> has one table
+<code class="ph codeph">ProductTable</code>:<pre class="pre codeblock"><code>
+   ProductName | Profit | InitialStock
+   ------------+--------+-------------
+    Product1   |    100 |     10
+    Product2   |    200 |     15</code></pre></li>
+
+</ul>
+
+<p class="p">With this data the following will be executed:</p>
+
+<ol class="ol">
+<li class="li">OPL will load the <code class="ph codeph">.dat</code> file and recognize the <code class="ph codeph">JDBCConnection</code>
+statement. It takes the connection string <code class="ph codeph">"jdbc:sqlite:database.db"</code> and passes that
+to the generic Java JDBC driver. That driver will inspect the connection string and as a result will
+look for a SQLite driver and connect to the database called <code class="ph codeph">database.db</code> file using
+that driver. It will return a handle to that connection to OPL. OPL stores that handle as well as
+the string: <pre class="pre codeblock"><code>"DROP TABLE ...; CREATE TABLE ..."</code></pre>Note that the string is stored
+for later use. It is not executed at this point in time.</li>
+
+<li class="li">OPL will execute <code class="ph codeph">JDBCRead</code> statement to fill the <code class="ph codeph">Products</code> set
+with data from the database. It will read the records from the query result line by line and create
+one tuple for each line. As a result, the <code class="ph codeph">Products</code> set will have this form:
+<pre class="pre codeblock"><code>{ &lt;"Product1", 10, 100&gt;, &lt;"Product2", 15, 200&gt; }</code></pre>Note how the order of
+the queried fields in the statement matches the order in which the fields are defined in the tuple:
+<pre class="pre codeblock"><code>ProductName, InitialStock, Profit</code></pre>The names of the columns are not required to
+match the names of the tuple fields. Only the order of fields must match. This also implies that the
+order of columns in the database is not required to be the same as the fields in the tuple. Also the
+table in the database can have more columns than the tuple has fields.</li>
+
+<li class="li">Next OPL will build and optimize the mathematical optimization model.</li>
+
+<li class="li">After the optimal solution is found, OPL will populate the <code class="ph codeph">Results</code> set.</li>
+
+<li class="li">Finally, OPL will execute the <code class="ph codeph">JDBCPublish</code> operation. Before executing the
+<strong class="ph b"><em class="ph i">first</em></strong>
+<code class="ph codeph">XXXPublish</code> operation for a connection, OPL will execute the SQL statement that was
+passed as the second argument to <code class="ph codeph">XXXConnection()</code>. In your example this is the
+string:
+<pre class="pre codeblock"><code>DROP TABLE IF EXISTS results; CREATE TABLE results (Product VARCHAR, Sell INTEGER)</code></pre>
+That string (re)creates the results table from scratch. After executing this, OPL will publish the
+results set into the results table using the specified SQL update statement. Here the
+<code class="ph codeph">?</code> in the publish SQL statement matches the fields in the tuple. The values for
+<code class="ph codeph">?</code> are assigned in the order of the tuple fields. Again, the name of tuple fields
+and columns in the table need not match, only the order is important. Assuming the optimal solution
+was <pre class="pre codeblock"><code>sell[Product1] = 5 and Sell[Product2] = 7</code></pre>, after executing the
+<code class="ph codeph">JDBCPublish()</code> statement the database will have an additional table called
+<code class="ph codeph">"results"</code> of this
+form:<pre class="pre codeblock"><code>
+ Product  | Sell
+ ---------+-----`
+ Product1 | 5
+ Product2 | 7</code></pre></li>
+
+</ol>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Some important technical details</h2>
+
+<p class="p">An <code class="ph codeph">XXXConnection()</code> statement may result in up to two connections being made to
+the database. As soon as the <code class="ph codeph">XXXConnection()</code> statement is executed, OPL creates a
+read-only connection to the database. This connection is used to process <code class="ph codeph">XXXRead()</code>
+statements. Once all data has been read into the model, this connection is closed. Upon encountering
+an <code class="ph codeph">XXXConnection()</code> statement, OPL also saves the <code class="ph codeph">CONNECTION_STRING</code>
+and <code class="ph codeph">INITIAL_UPDATE</code> strings. If during post-processing an
+<code class="ph codeph">XXXPublish()</code> statement is encountered for that connection, then OPL creates a new
+connection that is also open for writing. This connection is used to process the
+<code class="ph codeph">XXXPublish()</code> statements. Before the first statement is executed, OPL also executes
+the <code class="ph codeph">INITIAL_UPDATE</code> command. Note that if there is no <code class="ph codeph">XXXPublish()</code>
+statement for a connection, then the <code class="ph codeph">INITIAL_UPDATE</code> is <strong class="ph b">NOT</strong> executed!</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Additional information</h2>
+
+<p class="p">In the prebuilt database connectors that ship with OPL, all string arguments are preprocessed
+with the following benefits:</p>
+
+<ul class="ul">
+<li class="li">Environment variables can be referenced in a string via the
+<code class="ph codeph">${ENVIRONMENT_VARIABLE_NAME}</code> syntax and will have their value interpolated before
+the string is passed on to the driver.</li>
+
+<li class="li">Model elements can be referenced in a string via the <code class="ph codeph">$(MODEL_ELEMENT_NAME)</code>
+syntax and will have their value interpolated before the string is passed to the driver.</li>
+
+<li class="li">Characters can be escaped using <code class="ph codeph">%xx</code>, where <code class="ph codeph">xx</code> is the byte
+value for the character (in hexadecimal notation and <em class="ph i">exactly</em> two characters wide). Note that
+with updates using <code class="ph codeph">%xx</code>, multi-byte characters require multiple escape sequences
+(one for each byte).</li>
+
+</ul>
+
+<p class="p">The first two bullet points allow for building dynamic queries.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Prebuilt JDBCConnection</h2>
+
+<p class="p">The <code class="ph codeph">JDBCConnection</code> type is always supported. The code for it is compiled into
+the OPL core code. The connection uses generic Java libraries to connect to databases. This implies
+that OPL must run within a Java Virtual Machine (JVM) or must be able to create a Java Virtual
+Machine. So, for example, on non-Windows platforms, you must use <code class="ph codeph">oplrunjava</code> instead
+of <code class="ph codeph">oplrun</code> if you want to use this connection type.</p>
+
+<p class="p">The connection passes the connection string to the JDBC code. That, in turn, determines the
+database type from the string and attempts to find an appropriate driver and establish a connection
+using that driver. This implies that an appropriate driver must be installed on your machine and the
+respective <code class="ph codeph">JAR</code> must be found by the generic JDBC code.</p>
+
+<p class="p">The <code class="ph codeph">SQL_QUERY</code> supports usual SQL. When loading tuples, you can also have
+something like this:</p>
+
+<pre class="pre codeblock"><code>
+  tuple T {
+    int field1;
+    string field2;
+  }
+  {T} tuples = ...;
+  tuples from JDBCRead(conn, "SELECT stringcol AS field2, intcol AS field1 FROM dataTable");</code></pre>
+<p class="p">That is, you can use the SQL keyword <code class="ph codeph">AS</code> to specify how columns in the database
+should be mapped to tuple fields. If the tuple contains subtuples, then the name in the subtuple is
+the fully-qualified name in which segments are separated by a dot:</p>
+
+<pre class="pre codeblock"><code>
+  tuple S {
+    int subfield1;
+    float subfield2;
+  }
+  tuple T {
+    int field1;
+    S sub;
+  }
+  {T} tuples = ...;
+  tuples from JDBCRead(conn, "SELECT col1 AS sub.subfield1, col2 AS sub.subfield2, col3 AS field1");</code></pre>
+<p class="p">The <code class="ph codeph">AS</code> keyword must be used for either all or none of the tuple queries for a
+particular connection. If the <code class="ph codeph">AS</code> keyword is used, then this must be indicated by
+setting the <code class="ph codeph">named</code> parameter to <code class="ph codeph">true</code> in the connection string.</p>
+
+<p class="p">If no <code class="ph codeph">AS</code> keyword is specified, then select results are matched left-to-right to
+the tuple fields in order of their definition.</p>
+
+<p class="p">Since JDBC does not support named parameters, the <code class="ph codeph">SQL_UPDATE</code> strings for
+<code class="ph codeph">JDBCConnection</code> cannot have named parameters.</p>
+
+<p class="p">The <code class="ph codeph">CONNECTION_STRING</code> argument to <code class="ph codeph">JDBCConnection()</code> is a regular
+JDBC connection string that can have additional URL-encoded arguments. These arguments are stripped
+before passing on the string to the JDBC code. The supported arguments are:</p>
+
+<ul class="ul">
+<li class="li">use<code class="ph codeph"></code>rname: specifies the username for database connection.</li>
+
+<li class="li"><code class="ph codeph">password</code>: specifies the password for username.</li>
+
+<li class="li"><code class="ph codeph">named</code>: indicates whether tuple fields are queried using the <code class="ph codeph">AS</code>
+keyword. This must be set to <code class="ph codeph">true</code> if tuple fields are queried by name. The default
+value is <code class="ph codeph">false</code>.</li>
+
+<li class="li"><code class="ph codeph">maxbatch</code>: gives the maximum number of batches to use for update
+operations.</li>
+
+</ul>
+
+<p class="p">If the JDBC code for your database is in a <code class="ph codeph">JAR</code> that is not on the default
+classpath, you need to tell the JVM used by OPL where it can find this code. This is done by passing
+the argument <code class="ph codeph">-classpath /path/to/driver.jar</code>, either by setting environment variable
+<code class="ph codeph">ODMS_JAVA_ARGS</code> or using command line argument <code class="ph codeph">-Xjavaargs</code> for
+<code class="ph codeph">oplrun</code> (or <code class="ph codeph">oplrunjava</code> on non-Windows).</p>
+
+</section>
+
+<section class="section" id="opl_relnotes_V201_DBsupport__PrebuiltCSVConnection"><h2 class="title sectiontitle">Prebuilt CSVConnection</h2>
+
+<p class="p">The <code class="ph codeph">CSVConnection</code> is always available in <code class="ph codeph">.dat</code> files since its
+code is compiled directly into OPL. It uses the <code class="ph codeph">IloCsvReader</code> class from Concert.
+The <code class="ph codeph">CONNECTION_STRING</code> for <code class="ph codeph">CSVConnection()</code> is the name of the CSV
+file which can have additional URL-encoded arguments. The supported arguments are:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">firstIsHeader</code>: if true, then it is assumed that the first line of the file is a
+column header (that is, it is not data but, instead, the column names).</li>
+
+<li class="li"><code class="ph codeph">inputSeparator</code>: a string of characters that are considered record separators on
+input (the default is <code class="ph codeph">",;\t"</code>).</li>
+
+<li class="li"><code class="ph codeph">decimalPoint</code>: the character that is used as the decimal point (the default is
+dot).</li>
+
+<li class="li"><code class="ph codeph">comment</code>: the character that is used to introduce comments. Lines that start
+with this character are ignored.</li>
+
+<li class="li"><code class="ph codeph">outputSeparator</code>: string that is used to separate records on output.</li>
+
+<li class="li"><code class="ph codeph">outputOnly</code>: if true, then the file is only opened for output.</li>
+
+<li class="li"><code class="ph codeph">append</code>: if true, then the file is appended on output (the default is to
+truncate the file at the first <code class="ph codeph">CSVPublish()</code> operation).</li>
+
+</ul>
+
+<p class="p">If the <code class="ph codeph">INITIAL_UPDATE</code> string for this connection type is non-empty, then this
+string is printed along with the first <code class="ph codeph">CSVPublish()</code> statement as header for the
+file.</p>
+
+<p class="p">The <code class="ph codeph">SQL_QUERY</code> string for this connection type is a comma-separated list of
+fields to select from the table. A field selector can either be the 0-based index of the column or
+the name of the column (if columns have names). If <code class="ph codeph">SQL_QUERY</code> is the empty string,
+then all columns from the file are read. In this case, beware of trailing separators since they will
+create an empty field at the end of the line.</p>
+
+<p class="p">The <code class="ph codeph">SQL_UPDATE</code> string for this connection type is ignored. For each element to
+be published the connection always writes out all data. For a tuple that means that all fields are
+printed to the file in order of their definition. In order to be compatible with potential future
+changes, the <code class="ph codeph">SQL_UPDATE</code> string should always be the empty string for this
+connection.</p>
+
+<p class="p">The example <code class="ph codeph">&lt;Install_dir&gt;/opl/examples/foodcsv/foodcsv.dat</code> shows how to use
+the <code class="ph codeph">CSVConnection</code> in OPL.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Prebuilt ODBCConnection</h2>
+
+<p class="p">This connection is similar to the <code class="ph codeph">JDBCConnection</code> but uses ODBC instead. The code
+is not compiled directly into OPL but is provided in the <code class="ph codeph">opltabODBC</code> shared library.
+The source code can be found in
+<code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl_interfaces/libopltabODBC.c</code>.</p>
+
+<p class="p">The connection requires appropriate ODBC libraries and drivers to be installed.</p>
+
+<p class="p">The <code class="ph codeph">CONNECTION_STRING</code> is an ODBC connection string that will be passed to the
+ODBC library after environment variables have been expanded. Such a connection string is a
+semi-colon separated list of name/value pairs. The following arguments can be provided and will be
+handled/stripped before the string is passed to the ODBC library:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">named</code>: same as the <code class="ph codeph">named</code> parameter for
+<code class="ph codeph">JDBCConnection</code>.</li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Prebuilt MySQLConnection</h2>
+
+<p class="p">This connection directly connects to a MySQL database, without taking a detour through a JDBC or
+ODBC abstraction layer. The code is not compiled directly into OPL but is provided in the
+<code class="ph codeph">opltabMySQL</code> shared library. The source code can be found in
+<code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl_interfaces/libopltabMySQL.c</code> and can be used as a
+starting point for implementing other database connections.</p>
+
+<p class="p">The <code class="ph codeph">CONNECTION_STRING</code> is a semi-colon separated list of name/value pairs that
+specify the database and credentials that are used for connection. The following arguments are
+recognized:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">hostname</code>: hostname on which the database server runs.</li>
+
+<li class="li"><code class="ph codeph">port</code>: port on which the server listens.</li>
+
+<li class="li"><code class="ph codeph">database</code>: name of the database.</li>
+
+<li class="li"><code class="ph codeph">username</code>: username for database connection.</li>
+
+<li class="li"><code class="ph codeph">password</code>: password for username.</li>
+
+<li class="li"><code class="ph codeph">named</code>: same as <code class="ph codeph">named</code> in <code class="ph codeph">JDBCConnection</code> and
+<code class="ph codeph">ODBCConnection</code>.</li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Prebuilt SQLiteConnection</h2>
+
+<p class="p">This connection directly connects to a SQLite database, without taking a detour through a JDBC or
+ODBC abstraction layer. The code is not compiled directly into OPL but is provided in the
+<code class="ph codeph">opltabSQLite</code> shared library. The source code can be found in
+<code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl_interfaces/libopltabSQLite.c</code> and can be used as a
+starting point for implementing other database connections.</p>
+
+<p class="p">The <code class="ph codeph">CONNECTION_STRING</code> for this connection type is the name of the file that
+contains the database. Additionally, there can be the following URL-encoded arguments:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">writeonly</code>: the connection will only perform <code class="ph codeph">SQLitePublish()</code>
+operations (no <code class="ph codeph">SQLiteRead()</code> operations). Without this, the file will be created
+unless it exists as soon as the <code class="ph codeph">SQLiteConnection()</code> statement executed. With this,
+it will only be created if there is at least one <code class="ph codeph">SQLitePublish()</code> statement for this
+connection.</li>
+
+<li class="li"><code class="ph codeph">named</code>: same as <code class="ph codeph">named</code> in <code class="ph codeph">JDBCConnection()</code> and
+<code class="ph codeph">ODBCConnection()</code>.</li>
+
+</ul>
+
+<p class="p">Note that SQLite supports named parameters. So when publishing tuples via
+<code class="ph codeph">SQLitePublish()</code> you can use commands such as:</p>
+
+<pre class="pre codeblock"><code>
+  data to SQLitePublish(conn, "INSERT INTO results VALUES (?4, ?6)")
+  data to SQLitePublish(conn, "INSERT INTO results VALUES (?field1, ?sub.subfield2")</code></pre>
+<p class="p">The value after the <code class="ph codeph">?</code> is either the 0-based field index or the fully qualified
+field name.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Building your own custom database connection type</h2>
+
+<p class="p">In order to create your own database connection, you have to create a shared library (also called
+<code class="ph codeph">dll</code> on some platforms) that provides the connection and can be loaded at runtime.
+As soon as OPL encounters a statement such as:</p>
+
+<pre class="pre codeblock"><code>
+ MYOWNConnection conn(...)</code></pre>
+<p class="p">, OPL looks for a shared library called <code class="ph codeph">opltabMYOWN&lt;version&gt;</code>, where
+<code class="ph codeph">&lt;version&gt;</code> is the CPLEX Optimization Studio version without periods. For example
+on Linux this is a file called <code class="ph codeph">libopltabMYOWN2010.so</code>, on Windows it is
+<code class="ph codeph">opltabMYOWN2010.dll</code>, and so on. In that library, OPL looks for a function
+<code class="ph codeph">MYOWNconstruct</code>.</p>
+
+<p class="p">You can find the API for implementing your own table data source handler in
+<code class="ph codeph">&lt;Install_dir&gt;/opl/include/ilopl/data/iloopltabledatasource.h</code>. Note that such a
+handler does not require being backed up by a database. The only requirement is that the data is
+presented in a table-like view.</p>
+
+<p class="p">You can see examples of table data handlers in the files
+<code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl_interfaces/libopltab*.c</code>. You can start from one
+of these examples and adapt to your needs.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">OPL database support examples</h2>
+
+<p class="p">In OPL, there are prebuilt database connection types for <code class="ph codeph">JDBCConnection</code>,
+<code class="ph codeph">CSVConnection</code>, <code class="ph codeph">ODBCConnection</code>, <code class="ph codeph">MySQLConnection</code>,
+and <code class="ph codeph">SQLiteConnection</code>. In addition, you can build a custom database connection type.
+The following examples show how to use this functionality:</p>
+
+<div class="p">
+<ul class="ul">
+<li class="li"><code class="ph codeph">&lt;Install_dir&gt;\opl\examples\opl\foodcsv\foodcsv.dat</code></li>
+
+<li class="li"><code class="ph codeph">&lt;Install_dir&gt;\opl\examples\opl_interfaces\libopltabODBC.c</code></li>
+
+<li class="li"><code class="ph codeph">&lt;Install_dir&gt;\opl\examples\opl_interfaces\libopltabMySQL.c</code></li>
+
+<li class="li"><code class="ph codeph">&lt;Install_dir&gt;\opl\examples\opl_interfaces\libopltabSQLite.c</code></li>
+
+</ul>
+
+</div>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/oplrelnotes/topics/opl_relnotes_V201_home.html" title="These release notes highlight changes in the IDE and OPL 20.1.0. Please review these notes before using IDE and OPL 20.1.0.">Release notes for IDE and OPL 20.1.0</a></div>
+</div>
+</nav></div></body>
+</html>

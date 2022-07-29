@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Changing variable type" />
+<meta name="abstract" content="Describes IloConversion, the class of the C++ API to change the type of a variable." />
+<meta name="Description" content="Describes IloConversion, the class of the C++ API to change the type of a variable." />
+<meta name="DC.subject" content="IloConversion class (C++ API), changing, variable type (C++ API), changing type (C++ API)" />
+<meta name="keywords" content="IloConversion class (C++ API), changing, variable type (C++ API), changing type (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modify_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cplusIloCplex.115478" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modify_synopsis.html" />
+<title>Changing variable type</title>
+</head>
+<body id="User_manual.uss_cplusIloCplex.115478"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Changing variable type</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Describes IloConversion, the class of the C++ API to
+change the type of a variable.</p>
+
+      <p class="p">The type of a variable cannot be changed by calling modification
+methods. Instead, Concert Technology provides the modeling class <code class="ph codeph">IloConversion</code> ,
+the objects of which allow you to override the type of a variable
+in a model. This design allows you to use the same variable in different
+models with different types. Consider for example <code class="ph codeph">model1</code> 
+containing integer variable <code class="ph codeph">x</code> . You then
+create <code class="ph codeph">model2</code> , as a copy of <code class="ph codeph">model1</code> ,
+that treats <code class="ph codeph">x</code>  as a continuous variable,
+with the following code: </p>
+
+      <pre class="pre codeblock"><code>
+IloModel model2(env); 
+model2.add(model1); 
+model2.add(IloConversion(env, x, ILOFLOAT));
+</code></pre>
+      <p class="p">A conversion object, that is, an instance of <code class="ph codeph">IloConversion</code> ,
+can specify a type only for a variable that is in a model. Converting
+the type more than once is an error, because there is no rule about
+which would have precedence. However, this convention is not too restrictive,
+since you can remove the conversion from a model and add a new one.
+To remove a conversion from a model, use the method <code class="ph codeph">IloExtractable::end</code> .
+To add a new one, use the method<code class="ph codeph">IloModel::add</code> .
+For a sample of code using these methods in this procedure, see the
+documentation of the class <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloConversion.html">IloConversion</a> in the <em class="ph i">CPLEX C++
+API Reference Manual</em>.</p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modify_synopsis.html" title="Describes methods in the C++ API to modify a model.">Modifying a model</a></div>
+</div>
+</nav></div></body>
+</html>

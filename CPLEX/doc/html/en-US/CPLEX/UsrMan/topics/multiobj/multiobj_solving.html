@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Solving multiple objective problems" />
+<meta name="abstract" content="Explains how to solve a multiple objective problem." />
+<meta name="Description" content="Explains how to solve a multiple objective problem." />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobj_solving" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<title>Solving multiple objective problems</title>
+</head>
+<body id="multiobj_solving"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Solving multiple objective problems</h1>
+
+
+<div class="body"><p class="shortdesc">Explains how to solve a multiple objective problem.</p>
+
+<p class="p">The CPLEX multiobjective optimization algorithm sorts the objectives by decreasing priority
+value. If several objectives have the same priority, they are blended in a single objective using
+the weight attributes provided. As a result, CPLEX constructs a sorted list of objectives (or
+blended objectives), each with a unique priority. CPLEX can then proceed to find the
+lexicographically minimal (or maximal) solution for this order.</p>
+
+<p class="p">To obtain this solution, each objective is optimized in turn by decreasing order of the priority
+value in a hierarchical manner. Whenever the optimal solution for an objective (or blended
+objective) is found, CPLEX imposes that, for the remaining (lower priority) objectives, the only
+solutions considered are those that are also optimal for the previously (higher priority) optimized
+objectives. All solution values, including primal and dual variables, reduced costs, as well as
+primal and dual feasibility status, correspond to the solution of the last subproblem that has been
+solved.</p>
+
+<p class="p">The two attributes <code class="ph codeph">AbsTol</code> and <code class="ph codeph">RelTol</code> relax the requirement that
+in each step the objective is optimized among the solutions that are optimal to the previous
+optimization problems. More precisely, for each objective <code class="ph codeph">AbsTol</code> and
+<code class="ph codeph">RelTol</code> specify, in absolute and relative terms, the maximum deviations allowed from
+the optimal value of that objective. However, the meaning of the relaxation of the objective depends
+on whether the multiobjective problem is an LP or MIP. </p>
+
+<div class="note note"><span class="notetitle">Note:</span> These two attributes only apply to multiobjective problems with more than one priority, in
+other words, they don't apply to a single, blended objective.</div>
+
+<section class="section"><h2 class="title sectiontitle">MIP</h2>
+
+<p class="p">The relative or absolute deviation is incorporated into a constraint on the associated objective.
+Leaving these values at their defaults of 0 implies restricting the next optimization to only
+consider solutions from the optimal set from the previous optimization.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">LP</h2>
+
+<p class="p">For LPs, CPLEX uses a typically faster method involving reduced cost fixing to enforce
+lexicographic multiobjective optimization. This alters the meaning of the absolute and relative
+tolerances. The absolute tolerance defines the threshold for reduced costs above which nonbasic
+variables in the associated LP solve will be fixed at the bound at which they reside. This typically
+will be a relatively small value like the optimality tolerance (whose default is 1e-6). It is used
+to define a meaningful value that defines a significant reduced cost in the context of the
+multiobjective model (in contrast to the meaningful reduced cost defined by the optimality
+tolerance, which is for a single LP solve). Given this interpretation, the relative tolerance has no
+meaningful definition and is not used.</p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.ibm.docplex.help; singleton:=true
+Archiver-Version: Plexus Archiver
+Built-By: opladm
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Name: %Bundle-Name
+Bundle-Version: 2.16.0.202012011542
+Bundle-Localization: plugin
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_191
+Eclipse-BundleShape: dir
+
+Name: plugin.xml
+SHA-256-Digest: d7do8g/3fpFrxnTfPN8mMiL3RhF/wfOY5g72m6YpQDg=
+
+Name: index.xml
+SHA-256-Digest: UIVRHvz+Iqux8YKLhhjm2HR7DRPtX99MFFD7L+NrxPI=
+
+Name: toc.xml
+SHA-256-Digest: WWZeDXqMACMj5XgC7+g+hwz4v6TlI9euMVEegrSl/M4=
+
+Name: plugin.properties
+SHA-256-Digest: a72e3VfVZsWhlf7i/x4XRn5BLb/15LMiIAbAp3kksLQ=
+
+Name: doc.zip
+SHA-256-Digest: nTQrgSW8bxvThu8p4g1KGr7Xl/1g/24iQZktI/a2EyU=
+

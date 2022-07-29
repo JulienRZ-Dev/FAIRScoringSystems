@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Multithreading and generic callbacks" />
+<meta name="abstract" content="Generic callbacks demand certain considerations when used in a multithreaded application." />
+<meta name="Description" content="Generic callbacks demand certain considerations when used in a multithreaded application." />
+<meta name="DC.subject" content="callback, multithreading, generic callbacks and, nondeterminism, deterministic invocations, global progress, thread-local information, speculative code evaluation, thread-safety, notification" />
+<meta name="keywords" content="callback, multithreading, generic callbacks and, nondeterminism, deterministic invocations, global progress, thread-local information, speculative code evaluation, thread-safety, notification" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiThreadingCallback" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<title>Multithreading and generic callbacks</title>
+</head>
+<body id="multiThreadingCallback"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Multithreading and generic callbacks </h1>
+
+ 
+ 
+<div class="body"><p class="shortdesc">Generic callbacks demand certain considerations when used in a multithreaded application. 
+</p>
+ 
+<p class="p"> 
+There are conventions to observe when you use a generic callback in a multithreaded application of CPLEX.
+</p>
+ 
+<section class="section"><h2 class="title sectiontitle">Global and thread-local information</h2> 
+ 
+<p class="p"> In general, any information that can be queried in a generic callback is <strong class="ph b">thread-local</strong>. 
+That is, the values returned for queries are based on the information that the current 
+thread can see at the moment the callback is invoked. This return is not necessarily 
+all information available to CPLEX.</p>
+
+<p class="p">Consider, for example, a multithreaded search of a tree in a minimization problem. 
+Let T denote the set of all open nodes. 
+Assume that the tree is searched with two threads, and T is partitioned into three sets: T1, T2, and TX. 
+Let the nodes in T1 be assigned to the first thread, and those in T2 to the second thread. 
+Nodes in TX are not assigned to any thread. In this setting, best objective bound in the first thread 
+is the minimum of the LP relaxations of all nodes in T1. This bound may well be larger than 
+the global objective bound, which is the minimum of the LP relaxations of all nodes in T1, T2, and TX. 
+Moreover, the objective bound in the first thread can decrease if a node that 
+is currently in TX moves to T1. Similar considerations apply to the best known objective value. </p>
+
+<p class="p">The only situation in which callback queries return globally valid data is 
+when the context of the generic callback is 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a>. 
+ This context is also the only case in which CPLEX guarantees a deterministic order of callback invocations. 
+ For all other callback contexts, the order of callback invocations between 
+ different threads is not deterministic. 
+</p>
+
+</section>
+ 
+<section class="section"><h2 class="title sectiontitle">Speculative execution of code</h2> 
+ 
+<p class="p">In general, you cannot assume that information that you pass to CPLEX 
+from within a generic callback will be used and recorded by CPLEX. </p>
+
+<p class="p">In multithreaded execution, CPLEX may perform speculative execution of some algorithms. 
+A common case is that CPLEX launches search tasks that are parallel to the main solution algorithm. 
+These tasks might be interrupted before their completion or even possibly ignored. This situation 
+means that anything (such as a heuristic, a lazy constraint, and so forth) that was passed by the 
+user within these tasks through the generic callback might be discarded and might not be applied as
+the user expects. </p>
+ 
+<p class="p">Likewise, any information found by CPLEX itself (and reported to the user) in such tasks 
+might have to be discarded. Consequently, you can not assume that any thread-local information 
+reported from a generic callback will definitely make it into a globally valid state. 
+Only global information is definitive. </p>
+ 
+<p class="p">In contrast, CPLEX does not invoke a generic callback in the context 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a> 
+when CPLEX is engaged in speculative evaluation. Thus, everything submitted in such an invocation 
+can be used by CPLEX. 
+</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Thread safety and generic callbacks</h2> 
+
+<p class="p">CPLEX itself cannot guarantee the thread-safety of a generic callback in an application. In other words, thread-safety 
+in a multithreaded application is ultimately the responsibility of the user.  You must 
+protect access to global data, for example, by appropriate locks. However, if CPLEX routines accept 
+<a class="xref" href="../../../../../refcallablelibrary/typedefs/CPXCALLBACKCONTEXTptr.html" title="Pointer to a callback context.">CPXCALLBACKCONTEXTptr</a> as an argument, 
+then you can safely call those routines from generic callbacks in different threads.</p>
+ 
+<div class="note tip"><span class="tiptitle">Tip:</span> There is an important exception to that general rule: invocations of a generic callback 
+in the context 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a> 
+holds a lock. Such invocations are consequently thread-safe.  However, lengthy computations in the  
+callback blocks other threads. In other words, your application should not perform lengthy computations 
+in such situations because you risk blocking other threads. 
+</div>
+
+</section>
+ 
+<section class="section"><h2 class="title sectiontitle">Thread notifications</h2> 
+ 
+<p class="p">It may be important to your application to know when CPLEX starts or ends a new thread. 
+In other words, you want CPLEX to notify your application when CPLEX starts or ends a new thread.
+In such a case, have CPLEX invoke the callback with the context 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a> 
+when it starts the thread.
+Likewise, have CPLEX invoke the callback with the context 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a> 
+when it ends the thread. These contexts carry out "book-keeping" tasks. For example, 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a> 
+can potentially create thread-local data, while 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a> 
+can potentially destroy thread-local data. 
+</p>
+ 
+<p class="p"> 
+These contexts typically have no information 
+about the current state or progress of the search.  Attempts to query such information from these
+contexts returns an error.
+</p>
+ 
+<p class="p">Furthermore, <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a> 
+ignores the return value of the callback function. 
+</p>
+
+</section>
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

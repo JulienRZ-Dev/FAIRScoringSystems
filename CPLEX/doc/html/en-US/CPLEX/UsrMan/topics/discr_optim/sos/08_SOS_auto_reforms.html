@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Automatic reformulation of special ordered sets" />
+<meta name="abstract" content="Describes the automatic reformulation of special ordered sets available in CPLEX." />
+<meta name="Description" content="Describes the automatic reformulation of special ordered sets available in CPLEX." />
+<meta name="DC.subject" content="special ordered sets of type 1, special ordered sets of type 2, SOS1, SOS2, performance, SOS, branching strategies and" />
+<meta name="keywords" content="special ordered sets of type 1, special ordered sets of type 2, SOS1, SOS2, performance, SOS, branching strategies and" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/sos/01_SOS_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="SOS_auto_reforms" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/sos/01_SOS_title_synopsis.html" />
+<title>Automatic reformulation of special ordered sets</title>
+</head>
+<body id="SOS_auto_reforms"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Automatic reformulation of special ordered sets</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes the automatic reformulation of special ordered sets available in
+CPLEX.</p>
+
+<p class="p">A special ordered set (SOS) can be used for modeling complex nonlinearities, for example,
+disjunctive constraints or piecewise linear functions, in an easy and natural way. However, in order
+to achieve good performance and effectively solve the problem, during the solution process it can be
+advantageous to reformulate the special ordered sets as linear constraints, by introducing
+additional variables into the problem formulation.</p>
+
+<p class="p">CPLEX implements a logarithmic reformulation of special ordered sets, where each SOS is
+reformulated by adding to the problem a number of binary variables and extra linear constraints
+which are logarithmic in the size of the SOS. By default, CPLEX automatically decides whether a SOS
+should be reformulated or not. However, the user can explicitly control the reformulation of special
+ordered sets of type 1 (SOS1) and type 2 (SOS2) through, respectively, the <a class="xref" href="../../../../Parameters/topics/SOS1Reform.html" title="Defines whether special ordered sets of type 1 (SOS1) should be reformulated as linear constraints.">SOS1 reformulations</a>
+(<code class="ph codeph">CPXPARAM_Preprocessing_SOS1Reform</code>) parameter and the <a class="xref" href="../../../../Parameters/topics/SOS2Reform.html" title="Defines whether special ordered sets of type 2 (SOS2) should be reformulated as linear constraints.">SOS2 reformulations</a>
+(<code class="ph codeph">CPXPARAM_Preprocessing_SOS2Reform</code>) parameter.</p>
+
+<p class="p">For a more thorough exploration of the theory supporting SOS reformulations, see, for example,
+the following research: J.P. Vielma and G.L. Nemhauser, "Modeling disjunctive constraints with a
+logarithmic number of binary variables and constraints," in <em class="ph i">Mathematical Programming</em>, volume
+128, pages 49-72, 2011. </p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">The reformulation of special ordered sets of type 2 (SOS2) implicitly affects the performance of
+the solver also on problems formulated with piecewise linear (PWL) functions, since PWL functions in
+the problem are internally reformulated with SOS2. See <a class="xref" href="../pwl/01_pwl_title_synopsis.html" title="Demonstrates the use of piecewise linear functions to solve a transportation problem.">Using piecewise linear functions in optimization: a transport example</a>.</p>
+
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/sos/01_SOS_title_synopsis.html" title="Describes special ordered sets (SOSs) in a model as a way to specify integrality conditions.">Using special ordered sets (SOS)</a></div>
+</div>
+</nav></div></body>
+</html>

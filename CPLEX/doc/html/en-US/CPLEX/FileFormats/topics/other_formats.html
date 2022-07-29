@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Other file formats" />
+<meta name="abstract" content="CPLEX recognizes and supports these other file formats." />
+<meta name="Description" content="CPLEX recognizes and supports these other file formats." />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/reffileformatscplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_reference.uss_reffileformatscplex.other_formats" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/reffileformatscplex.html" />
+<title>Other file formats</title>
+</head>
+<body id="File_formats_reference.uss_reffileformatscplex.other_formats"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Other file formats</h1>
+
+
+<div class="body" id="body1314885743945other"><p class="shortdesc">CPLEX recognizes and supports these other file formats.</p>
+
+<section class="section"><h2 class="title sectiontitle">ALP</h2>
+
+
+
+
+
+<p class="p">files are LP files that contain the generic <strong class="ph b">name</strong> of each variable, annotated by the
+<strong class="ph b">type</strong> of each variable and the <strong class="ph b">bounds</strong> on each variable.</p>
+
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.171816"><h2 class="title sectiontitle">CLP</h2>
+
+<p class="p">is the format CPLEX uses to represent the conflicting constraints and bounds (a subset of an
+infeasible model) that were found by the conflict refiner.</p>
+
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.161702"><h2 class="title sectiontitle">DPE</h2>
+
+
+
+
+<p class="p">is the format CPLEX uses to write a problem in a binary SAV file after the objective function of
+the problem has been perturbed. The topic <a class="xref" href="SAV.html" title="CPLEX supports the SAV binary file format for numerical accuracy in reading and writing problems.">SAV file format: numerically accurate binary files</a> puts this file
+format in context. </p>
+
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.155837"><h2 class="title sectiontitle">DUA</h2>
+
+
+
+
+
+<p class="p">format, governed by MPS conventions, writes the dual formulation of a problem currently in memory
+so that the MPS file can later be read back in and the dual formulation can then be optimized
+explicitly. This file format is largely obsolete now since you can use the command
+<code class="ph codeph">set presolve dual</code> in the Interactive Optimizer to tell CPLEX to solve the dual
+formulation of an LP automatically. (You no longer have to tell CPLEX to write the dual formulation
+to a DUA file and then tell CPLEX to read the file back in and solve it.)</p>
+
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.172527"><h2 class="title sectiontitle">EMB</h2>
+
+
+
+
+
+<p class="p">is the format CPLEX uses to save an embedded network it extracts from a problem. EMB files are
+written in MPS format.</p>
+
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.155901"><h2 class="title sectiontitle">MIN</h2>
+
+
+
+<p class="p">format for representing minimum-cost network-flow problems was introduced by DIMACS in 1991. More
+information about DIMACS network file formats is available via anonymous ftp from:
+<code class="ph codeph">ftp://dimacs.rutgers.edu/pub/netflow/general-info/specs.tex</code>
+</p>
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.161725"><h2 class="title sectiontitle">PPE</h2>
+
+
+
+
+<p class="p">is the format CPLEX uses to write a problem in a binary SAV file after the righthand side (RHS)
+has been perturbed. The topic <a class="xref" href="SAV.html" title="CPLEX supports the SAV binary file format for numerical accuracy in reading and writing problems.">SAV file format: numerically accurate binary files</a> puts this file format in
+context. </p>
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.166911"><h2 class="title sectiontitle">PRM</h2>
+
+
+
+
+<p class="p">is the format CPLEX uses to read and write nondefault values of parameters in a file. <a class="xref" href="PRM.html" title="CPLEX supports the PRM file format for nondefault parameter settings.">PRM file format: parameter settings</a> documents the format and conventions for reading and writing such
+files through the Callable Library.</p>
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.161804"><h2 class="title sectiontitle">REW</h2>
+
+
+
+
+
+
+<p class="p">is a format to write a problem in MPS format with disguised row and column names. This format is
+simply an MPS file format with all variable (column) and constraint (row) names converted to generic
+names. Variables are relabeled <code class="ph codeph">x1</code> through <code class="ph codeph">xn</code>, and rows are renamed
+<code class="ph codeph">c1</code> through <code class="ph codeph">cm</code>. This format may be useful, for example, for
+problems that you consider highly proprietary. </p>
+</section>
+
+<section class="section" id="File_formats_reference.uss_reffileformatscplex.other_formats__File_formats_reference.uss_reffileformatscplex.167385"><h2 class="title sectiontitle">RLP</h2>
+
+
+
+<p class="p">is the LP format using generic names in the Interactive Optimizer.</p>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/reffileformatscplex.html">File formats supported by CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

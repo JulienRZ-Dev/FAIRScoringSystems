@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Specifying multiple objective problems" />
+<meta name="abstract" content="Explains how to specify multiple objective problems." />
+<meta name="Description" content="Explains how to specify multiple objective problems." />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobj_specifying" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<title>Specifying multiple objective problems</title>
+</head>
+<body id="multiobj_specifying"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Specifying multiple objective problems</h1>
+
+
+<div class="body"><p class="shortdesc">Explains how to specify multiple objective problems.</p>
+
+<p class="p">Multiple objectives can be specified, both through <strong class="ph b">LP</strong> and <strong class="ph b">MPS</strong> input files, and
+through the various APIs. Together with the linear form describing the objective function, each
+objective has four attributes: priority, weight, absolute tolerance (<code class="ph codeph">AbsTol</code>) and
+relative tolerance (<code class="ph codeph">RelTol</code>).</p>
+
+<p class="p">The attribute priority is used to order objectives by priority.</p>
+
+<p class="p">The weight is a scalar by which the objective coefficients are multiplied when forming a blended
+objective.</p>
+
+<p class="p">For a purely blended objective, each objective receives the same priority, and a (not necessarily
+unique) weight value. For a purely lexicographic objective, each objective receives a different
+priority that specifies the hierarchy of objective. Weights are not required, but a weight other
+than 1.0 can be used to rescale a particular objective. For a combination of blended and
+lexicographic objectives, the blending weights are applied separately to objectives with the same
+priority.</p>
+
+<p class="p">The absolute tolerance, <code class="ph codeph">AbsTol</code>, is an amount by which the <strong class="ph b">final</strong> returned
+solution may deviate from the optimal value for this objective in absolute terms.</p>
+
+<p class="p">The relative tolerance, <code class="ph codeph">RelTol</code>, is an amount by which the <strong class="ph b">final</strong> returned
+solution may deviate  from the optimal value for this objective in relative terms.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> The meaning of the deviation allowed by <code class="ph codeph">AbsTol</code> or <code class="ph codeph">RelTol</code>
+depends on whether the multiobjective problem is an LP or MIP, as will be explained in the section
+<a class="xref" href="multiobj_solving.html" title="Explains how to solve a multiple objective problem.">Solving multiple objective problems</a>.</div>
+
+<p class="p">For more information, see <a class="xref" href="../../../FileFormats/topics/LP_MultiObj.html" title="CPLEX conforms to these rules about multiobjective optimization in LP file format.">Multiobjective optimization in LP file format</a> and <a class="xref" href="../../../FileFormats/topics/MPS_ext_MultiObj.html" title="CPLEX extends MPS file format to support multiobjective optimization.">Multiobjective optimization in MPS files</a>.</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a></div>
+</div>
+</nav></div></body>
+</html>

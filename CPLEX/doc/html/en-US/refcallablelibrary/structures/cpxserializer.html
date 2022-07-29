@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="cpxserializer" />
+<meta name="abstract" content="Serializer interface." />
+<meta name="Description" content="Serializer interface." />
+<meta name="DC.subject" content="cpxserializer, C API Reference Manual" />
+<meta name="keywords" content="cpxserializer, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/structures/homepagestructures.html" />
+<meta name="DC.Relation" scheme="URI" content="cpxdeserializer.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/serializercreate.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="cpxserializer" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/structures/homepagestructures.html" />
+<title>cpxserializer</title>
+</head>
+<body id="cpxserializer"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">cpxserializer</h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Serializer interface.</p>
+
+    <section class="section refsyn"><pre class="pre codeblock"><code>
+struct cpxserializer {
+   int (CPXPUBLIC *addbyte) (CPXSERIALIZERptr ser, CPXBYTE b);
+   int (CPXPUBLIC *addshort) (CPXSERIALIZERptr ser, CPXSHORT s);
+   int (CPXPUBLIC *addint) (CPXSERIALIZERptr ser, CPXINT i);
+   int (CPXPUBLIC *addlong) (CPXSERIALIZERptr ser, CPXLONG l);
+   int (CPXPUBLIC *addfloat) (CPXSERIALIZERptr ser, float f);
+   int (CPXPUBLIC *adddouble) (CPXSERIALIZERptr ser, double d);
+   int (CPXPUBLIC *addbytes) (CPXSERIALIZERptr ser, CPXLONG cnt, CPXBYTE const *b);
+   int (CPXPUBLIC *addshorts) (CPXSERIALIZERptr ser, CPXLONG cnt, CPXSHORT const *s);
+   int (CPXPUBLIC *addints) (CPXSERIALIZERptr ser, CPXLONG cnt, CPXINT const *i);
+   int (CPXPUBLIC *addlongs) (CPXSERIALIZERptr ser, CPXLONG cnt, CPXLONG const *l);
+   int (CPXPUBLIC *addfloats) (CPXSERIALIZERptr ser, CPXLONG cnt, float const *d);
+   int (CPXPUBLIC *adddoubles) (CPXSERIALIZERptr ser, CPXLONG cnt, double const *d);
+}
+    </code></pre></section>
+
+
+    
+    
+    
+
+    <section class="section">
+This structure defines the API for serializers. A serializer is 
+a group of function pointers that add data to a serializer.
+Serializers are used to transfer data in a platform-independent manner
+between remote master and worker.
+    </section>
+
+
+    <table cellpadding="4" cellspacing="0" border="1" class="simpletable properties simpletableborder" summary="Each row in this table describes a property; each property can have a type, value, and description."><col style="width:66.66666666666666%" /><col style="width:33.33333333333333%" /><tr class="sthead prophead gentext">
+<th style="vertical-align:bottom;text-align:left;" id="d1047689e41" class="stentry propvaluehd gentext">Value</th>
+<th style="vertical-align:bottom;text-align:left;" id="d1047689e43" class="stentry propdeschd gentext">Description</th>
+</tr><tbody><tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addbyte(CPXSERIALIZERptr ser, CPXBYTE b)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes a single, 8-bit, signed integer to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">b</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addshort(CPXSERIALIZERptr ser, CPXSHORT s)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes a single, 16-bit, signed integer to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">s</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addint(CPXSERIALIZERptr ser, CPXINT i)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes a single, 32-bit, signed integer to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">i</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addlong(CPXSERIALIZERptr ser, CPXLONG l)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes a single, 64-bit, signed integer to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">l</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addfloat(CPXSERIALIZERptr ser, float f)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes a single, IEEE single-precision number to this serializer. 
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">f</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int adddouble(CPXSERIALIZERptr ser, double d)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes a single, IEEE double-precision number to this serializer. 
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">d</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addbytes(CPXSERIALIZERptr ser, CPXLONG cnt, CPXBYTE const *b)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes an array of 8-bit, signed integers to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">cnt</td>
+<td style="vertical-align:top;" class="stentry">Number of 8-bit, signed integers to write (elements in <code class="ph codeph">b</code>.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">b</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addshorts(CPXSERIALIZERptr ser, CPXLONG cnt, CPXSHORT const *s)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes an array of 16-bit, signed integers to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">cnt</td>
+<td style="vertical-align:top;" class="stentry">Number of 16-bit, signed integers to write (elements in <code class="ph codeph">s</code>.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">s</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addints(CPXSERIALIZERptr ser, CPXLONG cnt, CPXINT const *i)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes an array of 32-bit, signed integers to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">cnt</td>
+<td style="vertical-align:top;" class="stentry">Number of 32-bit, signed integers to write (elements in <code class="ph codeph">i</code>.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">i</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addlongs(CPXSERIALIZERptr ser, CPXLONG cnt, CPXLONG const *l)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes an array of 64-bit, signed integers to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">cnt</td>
+<td style="vertical-align:top;" class="stentry">Number of 64-bit, signed integers to write (elements in <code class="ph codeph">l</code>.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">l</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int addfloats(CPXSERIALIZERptr ser, CPXLONG cnt, float const *f)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes an array of IEEE single-precision numbers to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">cnt</td>
+<td style="vertical-align:top;" class="stentry">Number of floating point values to write (elements in <code class="ph codeph">f</code>.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">f</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1047689e41" class="stentry propvalue"><code class="ph codeph">int adddoubles(CPXSERIALIZERptr ser, CPXLONG cnt, double const *d)</code></td>
+<td style="vertical-align:top;" headers="d1047689e43" class="stentry propdesc">
+<div class="p">
+Writes an array of IEEE double-precision numbers to this serializer.
+<table cellpadding="4" cellspacing="0" summary="" border="0" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead></thead><tbody><tr class="strow">
+    <td style="vertical-align:top;" class="stentry">ser</td>
+<td style="vertical-align:top;" class="stentry">This serializer.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">cnt</td>
+<td style="vertical-align:top;" class="stentry">Number of floating point values to write (elements in <code class="ph codeph">d</code>.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry">d</td>
+<td style="vertical-align:top;" class="stentry">The data to write.</td>
+
+  </tr>
+<tr class="strow">
+    <td style="vertical-align:top;" class="stentry"> </td>
+<td style="vertical-align:top;" class="stentry">Returns 0 (zero) on success, or an error code otherwise.</td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+        </td>
+</tr>
+</tbody></table>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/structures/homepagestructures.html">Structs in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="cpxdeserializer.html" title="Serializer interface.">deserializer</a></li>
+<li class="linklist"><a class="link" href="../cpxapi/serializercreate.html" title="This routine creates a new serializer.">CPXXserializercreate/CPXserializercreate</a></li></ul></div>
+</nav>
+</div></body>
+</html>

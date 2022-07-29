@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="IBM ILOG CPLEX Optimization Studio considerations for GDPR readiness" />
+<meta name="abstract" content="" />
+<meta name="Description" content="" />
+<meta name="DC.Relation" scheme="URI" content="../../Optimization_Studio/maps/ps_COS_Eclipse_legal_terms.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_dpr_gr1_x3b" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../Optimization_Studio/maps/ps_COS_Eclipse_legal_terms.html" />
+<title>IBM ILOG CPLEX Optimization Studio considerations for GDPR readiness</title>
+</head>
+<body id="topic_dpr_gr1_x3b"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">IBM ILOG CPLEX Optimization Studio considerations for GDPR readiness</h1>
+
+
+
+
+<div class="body"><p class="shortdesc"></p>
+
+<p class="p"><strong class="ph b">For PID(s): 5725A06</strong></p>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_fzh_5r1_x3b"><h2 class="title sectiontitle"><strong class="ph b">Notice:</strong></h2>
+
+<p class="p">This document is intended to help you in your preparations for GDPR readiness. It provides
+information about features of IBM ILOG CPLEX Optimization Studio that you can configure, and aspects
+of the product's use, that you should consider to help your organization with GDPR readiness. This
+information is not an exhaustive list, due to the many ways that clients can choose and configure
+features, and the large variety of ways that the product can be used in itself and with third-party
+applications and systems.</p>
+
+<p class="p"><strong class="ph b">Clients are responsible for ensuring their own compliance with various laws and regulations,
+including the European Union General Data Protection Regulation. Clients are solely responsible for
+obtaining advice of competent legal counsel as to the identification and interpretation of any
+relevant laws and regulations that may affect the clients' business and any actions the clients may
+need to take to comply with such laws and regulations.</strong></p>
+
+<p class="p"><strong class="ph b">The products, services, and other capabilities described herein are not suitable for all
+client situations and may have restricted availability. IBM does not provide legal, accounting, or
+auditing advice or represent or warrant that its services or products will ensure that clients are
+in compliance with any law or regulation.</strong></p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_wwn_vr1_x3b"><h2 class="title sectiontitle">Contents</h2>
+
+<div class="p">
+<ol class="ol" id="topic_dpr_gr1_x3b__ol_mq3_ds1_x3b">
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_utq_wr1_x3b">GDPR</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_rnk_xr1_x3b">Product Configuration - considerations for GDPR Readiness</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_zpx_2t1_x3b">Data Lifecycle</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_lp4_yr1_x3b">Data Collection</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_jwd_zr1_x3b">Data Storage</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_cqn_zr1_x3b">Data Access</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_cvf_1s1_x3b">Data Processing</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_nxs_1s1_x3b">Data Deletion</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_qcf_bs1_x3b">Data Monitoring</a></li>
+
+<li class="li"><a class="xref" href="#topic_dpr_gr1_x3b__section_cct_bs1_x3b">Responding to Data Subject Rights</a></li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_utq_wr1_x3b"><h2 class="title sectiontitle">GDPR</h2>
+
+<p class="p">General Data Protection Regulation (GDPR) has been adopted by the European Union ("EU") and
+applies from May 25, 2018.</p>
+
+<p class="p"><strong class="ph b">Why is GDPR important?</strong></p>
+
+<p class="p">GDPR establishes a stronger data protection regulatory framework for processing of personal data
+of individuals. GDPR brings:</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_mfy_ps1_x3b">
+<li class="li">New and enhanced rights for individuals</li>
+
+<li class="li">Widened definition of personal data</li>
+
+<li class="li">New obligations for processors</li>
+
+<li class="li">Potential for significant financial penalties for non-compliance</li>
+
+<li class="li">Compulsory data breach notification</li>
+
+</ul>
+
+<p class="p"><strong class="ph b">Read more about GDPR</strong></p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_nfy_ps1_x3b">
+<li class="li"><a class="xref" href="https://www.eugdpr.org/" target="_blank" rel="noopener" title="(Opens in a new tab or window)">EU GDPR Information
+Portal</a></li>
+
+<li class="li"><a class="xref" href="http://ibm.com/GDPR" target="_blank" rel="noopener" title="(Opens in a new tab or window)">ibm.com/GDPR website</a></li>
+
+</ul>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_rnk_xr1_x3b"><h2 class="title sectiontitle">Product Configuration - considerations for GDPR Readiness</h2>
+
+<p class="p"><strong class="ph b">Data handling in CPLEX Optimization Studio</strong></p>
+
+<p class="p">In IBM ILOG CPLEX Optimization Studio, data is present in the following:</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_ym2_1t1_x3b">
+<li class="li">
+<p class="p">Data used with models to represent optimization problems. Typically, this data does not contain
+personal information. The data is used by CPLEX Optimization Studio for the purposes of finding
+solutions to the optimization problem. The data is accessed using a database connector or from
+files. It is not stored by CPLEX Optimization Studio.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Data written to log files by CPLEX Optimization Studio. These files do not contain personal
+information.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Username and password data if a user connects CPLEX Optimization Studio either to the IBM Watson
+Machine Learning service or to IBM ILOG CPLEX Enterprise Server. This username and password data can
+be entered and deleted using the IDE.</p>
+
+</li>
+
+</ul>
+
+<p class="p">In IBM ILOG CPLEX Enterprise Server, data is present in the following:</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_zm2_1t1_x3b">
+<li class="li">
+<p class="p">Data submitted with models to represent optimization problems, as for CPLEX Optimization
+Studio.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Username and activity data for users who connect to the server. Management of this data is fully
+delegated to WebSphere Application Server or WebSphere Liberty. </p>
+
+</li>
+
+</ul>
+
+<p class="p">The following sections provide considerations for configuring IBM ILOG CPLEX Optimization Studio
+to help your organization with GDPR readiness.</p>
+
+<p class="p"><strong class="ph b">Configuration to support data handling requirements</strong></p>
+
+<p class="p">The GDPR legislation requires that personal data is strictly controlled and that the integrity of
+the data is maintained. This requires the data to be secured against loss through system failure and
+also through unauthorized access or via theft of computer equipment or storage media.</p>
+
+<p class="p">If your use of IBM ILOG CPLEX Optimization Studio includes the use of personal data for your
+optimization problems, you need to ensure that data your data is secured against loss or
+unauthorized access.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_zpx_2t1_x3b"><h2 class="title sectiontitle">Data Lifecycle</h2>
+
+<p class="p">The data life cycle for IBM ILOG CPLEX Optimization Studio is</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_pm2_gt1_x3b">
+<li class="li">
+<p class="p">The customer creates an optimization model for use with data either from a database or a
+file.</p>
+
+</li>
+
+<li class="li">
+<p class="p">The customer tests the model with the data and debugs the model. </p>
+
+</li>
+
+<li class="li">
+<p class="p">Once the model performs successfully, it is deployed outside the studio.</p>
+
+</li>
+
+</ul>
+
+<p class="p">The data life cycle for IBM ILOG CPLEX Enterprise Server is</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_qm2_gt1_x3b">
+<li class="li">
+<p class="p">The customer creates user accounts for CPLEX Enterprise Server using a WebSphere administration
+console.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Users submit jobs to CPLEX Enterprise Server. Data management is fully delegated to
+WebSphere.</p>
+
+</li>
+
+</ul>
+
+<p class="p"><strong class="ph b">Personal data used for online contact with IBM</strong></p>
+
+<p class="p">IBM ILOG CPLEX Optimization Studio clients can submit online comments/feedback/requests to
+contact IBM about IBM ILOG CPLEX Optimization Studio subjects in a variety of ways, primarily:</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_rm2_gt1_x3b">
+<li class="li">Public comments area on pages in the IBM ILOG CPLEX Optimization Studio community on IBM
+developerWorks</li>
+
+<li class="li">Public comments area on pages of IBM ILOG CPLEX Optimization Studio documentation in IBM
+Knowledge Center</li>
+
+<li class="li">Public comments in the IBM ILOG CPLEX Optimization Studio space of dWAnswers</li>
+
+<li class="li">Feedback forms in the IBM ILOG CPLEX Optimization Studio community</li>
+
+</ul>
+
+<p class="p">Typically, only the client name and email address are used, to enable personal replies for the
+subject of the contact, and the use of personal data conforms to the <a class="xref" href="https://www.ibm.com/privacy/us/en/" target="_blank" rel="noopener" title="(Opens in a new tab or window)">IBM Online Privacy
+Statement</a>.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_lp4_yr1_x3b"><h2 class="title sectiontitle">Data Collection</h2>
+
+<p class="p"><strong class="ph b">Types of Data Collected</strong></p>
+
+<p class="p">IBM ILOG CPLEX Optimization Studio may collect user credentials if a user chooses to connect the
+studio to either the IBM Watson Machine Learning service or IBM ILOG CPLEX Enterprise Server. </p>
+
+<p class="p">IBM ILOG CPLEX Enterprise Server uses usernames and passwords, managed by a WebSphere server, to
+associate jobs with different users. For more information on this data, consult the documentation
+for the WebSphere server you have deployed.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_jwd_zr1_x3b"><h2 class="title sectiontitle">Data Storage</h2>
+
+<p class="p">IBM ILOG CPLEX Optimization Studio may store user credentials if a user chooses to connect the
+studio to either the IBM Watson Machine Learning service or IBM ILOG CPLEX Enterprise Server. These
+credentials can be entered and deleted using the studio IDE. </p>
+
+<p class="p">IBM ILOG CPLEX Enterprise Server does not store user credentials. It delegates user management to
+the WebSphere application server.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_cqn_zr1_x3b"><h2 class="title sectiontitle">Data Access</h2>
+
+<p class="p">IBM ILOG CPLEX Optimization Studio is a single-user product. Access to user credentials is
+restricted to the currently active user. </p>
+
+<p class="p">IBM ILOG CPLEX Enterprise Server is a multi-user product. Data access is managed by the WebSphere
+application server that hosts CPLEX Enterprise Server. </p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_cvf_1s1_x3b"><h2 class="title sectiontitle">Data Processing</h2>
+
+<p class="p">IBM ILOG CPLEX Optimization Studio does not encrypt data that it processes as part of an
+optimization problem. The user credentials stored for access to the IBM Watson Machine Learning web
+service are encrypted. The user credentials stored for access to IBM ILOG CPLEX Enterprise Server
+are not encrypted.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_nxs_1s1_x3b"><h2 class="title sectiontitle">Data Deletion</h2>
+
+<p class="p"><strong class="ph b">Right to Erasure</strong></p>
+
+<p class="p">Article 17 of the GDPR states that data subjects have the right to have their personal data
+removed from the systems of controllers and processors - without undue delay - under a set of
+circumstances.</p>
+
+<p class="p"><strong class="ph b">Data Deletion characteristics</strong></p>
+
+<p class="p">If your use of IBM ILOG CPLEX Optimization Studio includes the use of personal data, you should
+implement appropriate controls and tools to satisfy the right to erasure.</p>
+
+<p class="p">IBM ILOG CPLEX Optimization Studio does not require any special method for data deletion. You are
+responsible for implementing appropriate methods for storage media to securely delete data, which
+includes media zeroization if necessary. You are also responsible for deleting data.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_qcf_bs1_x3b"><h2 class="title sectiontitle">Data Monitoring</h2>
+
+<p class="p">You should regularly test, assess, and evaluate the effectiveness of your technical and
+organizational measures to comply with GDPR. These measures should include ongoing privacy
+assessments, threat modeling, centralized security logging and monitoring among others.</p>
+
+</section>
+
+<section class="section" id="topic_dpr_gr1_x3b__section_cct_bs1_x3b"><h2 class="title sectiontitle">Responding to Data Subject Rights</h2>
+
+<p class="p">The personal data stored or processed by IBM ILOG CPLEX Optimization Studio falls under the
+following categories:</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_c3j_l2b_x3b">
+<li class="li">Basic user data, such as usernames and passwords</li>
+
+<li class="li">Personal data that could be used as an input to an optimization problem.</li>
+
+</ul>
+
+<p class="p">If you use personal data as an input to optimization problems, you should consider and implement
+methods so that you can respond to a request to:</p>
+
+<ul class="ul" id="topic_dpr_gr1_x3b__ul_d3j_l2b_x3b">
+<li class="li">Delete data</li>
+
+<li class="li">Correct data</li>
+
+<li class="li">Modify data</li>
+
+<li class="li">Extract specific data for export to another system</li>
+
+<li class="li">Restrict the use of the data within the overall system</li>
+
+</ul>
+
+<p class="p">securely and responsively.</p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../Optimization_Studio/maps/ps_COS_Eclipse_legal_terms.html">Legal Terms</a></div>
+</div>
+</nav></div></body>
+</html>

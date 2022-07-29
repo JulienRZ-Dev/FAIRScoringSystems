@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Identifiers" />
+<meta name="abstract" content="A variable or expression can be referenced later by the identifier associated with it. As such, the identifier must be unique." />
+<meta name="Description" content="A variable or expression can be referenced later by the identifier associated with it. As such, the identifier must be unique." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Identifiers" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<title>Identifiers</title>
+</head>
+<body id="Identifiers"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Identifiers</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+A variable or expression can be referenced later by the identifier
+associated with it. As such, the identifier must be unique.
+</p>
+
+
+<section class="section">
+
+<p class="p">
+There are two kinds of identifiers: simple and generic identifiers.
+</p>
+
+
+</section>
+
+
+<section class="section" id="Identifiers__Simple_identifiers"><h2 class="title sectiontitle">Simple identifiers</h2>
+<p class="p">
+A simple identifier is a name that most programming languages allow as
+an identifier. The
+first character must be an ASCII letter or underscore, while the remaining characters could also be ASCII digits. 
+For example <code class="ph codeph">foo</code>, <code class="ph codeph">_x</code>, <code class="ph codeph">foo2</code>, and <code class="ph codeph">fooFoo</code> are all
+simple identifiers. The following words are reserved and cannot be used as
+simple identifiers: <code class="ph codeph">inf</code>, <code class="ph codeph">intmax</code>, <code class="ph codeph">intmin</code>, <code class="ph codeph">intervalmax</code>,
+<code class="ph codeph">intervalmin</code>, <code class="ph codeph">div</code>, <code class="ph codeph">mod</code>, <code class="ph codeph">present</code>, <code class="ph codeph">absent</code> and <code class="ph codeph">optional</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="Identifiers__Generic_identifiers"><h2 class="title sectiontitle">Generic identifiers</h2>
+<p class="p">
+A generic identifier does not have to start with a letter, and it can contain any
+UTF-8 characters (although some of them must be escaped). Unlike simple
+identifiers, generic identifiers must be enclosed in quotation marks. For
+example, <code class="ph codeph"><span class="ph stringemph">"foo foo"</span></code>, <code class="ph codeph"><span class="ph stringemph">"x[1]"</span></code>, <code class="ph codeph"><span class="ph stringemph">"x+y"</span></code> are valid generic identifiers. Note
+that enclosing quotation marks are not part of the identifier. Even reserved
+words, when enclosed in quotation marks, become identifiers, e.g. <code class="ph codeph"><span class="ph stringemph">"inf"</span></code>
+is also valid identifier. Recognized escape sequences are:
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">\"</code> is a quotation mark,
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">\\</code> is a single backslash,
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">\n</code>, <code class="ph codeph">\r</code>, <code class="ph codeph">\t</code>, <code class="ph codeph">\f</code> and <code class="ph codeph">\b</code> have the same meaning as in the C programming language: new line, carriage return, tab, form feed and backspace.
+  </li>
+
+</ul>
+
+
+<p class="p">
+Note that simple identifiers can be also enclosed in quotation marks. There is
+no difference between <code class="ph codeph">foo</code> and <code class="ph codeph"><span class="ph stringemph">"foo"</span></code>; they can be used interchangeably.
+</p>
+
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" title="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them.">CP Optimizer file format syntax</a></div>
+</div>
+</nav></div></body>
+</html>

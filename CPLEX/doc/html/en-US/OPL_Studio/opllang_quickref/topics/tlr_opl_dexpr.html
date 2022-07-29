@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="dexpr" />
+<meta name="abstract" content="OPL keyword to express decision variables." />
+<meta name="Description" content="OPL keyword to express decision variables." />
+<meta name="DC.subject" content="solving time, memory consumption, decision expressions, decision variables, expressed as dexpr, dexpr, OPL keyword" />
+<meta name="keywords" content="solving time, memory consumption, decision expressions, decision variables, expressed as dexpr, dexpr, OPL keyword" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_dvar.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="DGHFhV9U" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<title>dexpr</title>
+</head>
+<body id="DGHFhV9U"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">dexpr</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL keyword to express decision variables.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL keyword to express decision
+variables in a more compact way.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d422628e47" class="stentry">context</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d422628e47" class="stentry">Model files (.mod)</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+LocalVar: Type VariableDeclarator
+          | "dvar" Type VariableDeclarator DecisionVarRange_opt
+          | "dexpr" Type VariableDeclarator "=" Expression
+          | Type VariableDeclarator "=" Expression
+          | Type VariableDeclarator "=" "..."
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Use this keyword to express
+decision variables in a more compact way. This keyword modifies the
+number of variables, constraints, and nonzeros at execution time and,
+therefore, affects both the solving time and the memory consumption.</p>
+<p class="p">Using <code class="ph codeph">dexpr</code> is
+particularly recommended to write objectives to be used with ODM Enterprise.
+See the documentation for ODM Enterprise.</p>
+<p class="p">In constraint programming
+models, you can use the <code class="ph codeph">dexpr</code> keyword to declare
+floating point expressions. (The CP Optimizer engine supports only
+integer decision variables.)</p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p">Manipulation of <code class="ph codeph">dexpr</code> may
+lead to slower performance than direct manipulation of <code class="ph codeph">dvar</code>.
+For example, adding <code class="ph codeph">dexpr</code> to a set of <code class="ph codeph">int</code> in
+post-processing causes slower performance than adding <code class="ph codeph">dvar</code> to
+a set of <code class="ph codeph">int</code>.</p>
+ </div>
+</section>
+
+<div class="example"><p class="p paragrouptitle">Example 1</p>
+<p class="p">Compare the following two code
+extracts.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table presents the effects of using decision expressions to express decision variables." class="table ShadedHead" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d422628e124"> </th>
+
+<th class="entry thleft" align="left" valign="top" id="d422628e126">Without dexpr</th>
+
+<th class="entry thleft" align="left" valign="top" id="d422628e129">With dexpr</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d422628e124 "> </td>
+
+<td class="entry" valign="top" headers="d422628e126 "><pre class="pre codeblock"><code>dvar int x in 0..20;
+dvar int y in 0..20;
+dvar int d;
+dvar int s;
+maximize (d);
+   subject to
+   {
+      d==x-y;
+      s==x+y;
+      s&lt;=15;
+      s&lt;=x-2*y;
+      d&gt;=2;
+      d&lt;=y+8;
+      1&lt;=d;
+   }</code></pre></td>
+
+<td class="entry" valign="top" headers="d422628e129 "><pre class="pre codeblock"><code>dvar int x in 0..20;
+dvar int y in 0..20;
+dexpr int d=x-y;
+dexpr int s=x+y;
+maximize (d);
+   subject to
+   {
+      s&lt;=15;
+      s&lt;=x-2*y;
+      d&gt;=2;
+      d&lt;=y+8;
+      1&lt;=d;
+}</code></pre></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d422628e124 ">Effect</td>
+
+<td class="entry" valign="top" headers="d422628e126 "><p class="p">7 constraints</p>
+<p class="p">5 variables</p>
+<p class="p">14 non zeros</p>
+</td>
+
+<td class="entry" valign="top" headers="d422628e129 "><p class="p">5 constraints</p>
+<p class="p">3 variables</p>
+<p class="p">9 non zeros</p>
+ </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p paragrouptitle">Example 2</p>
+<pre class="pre codeblock"><code>using CP; &#xD;
+&#xD;
+dvar int i in 1..100; &#xD;
+dvar int j in 1..100; &#xD;
+dvar int k in 1..99; &#xD;
+&#xD;
+dexpr float kf = k/100; &#xD;
+dexpr float ar[l in 1..10] = k/l; &#xD;
+&#xD;
+minimize kf + sum(l in 1..10)ar[l]; &#xD;
+&#xD;
+constraints { &#xD;
+i*(1+kf) == j; &#xD;
+}&#xD;
+&#xD;
+</code></pre></div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" title="Description, syntax, and example for each individual OPL keyword..">OPL keywords</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_opl_dvar.html" title="OPL keyword for decision variables.">dvar</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

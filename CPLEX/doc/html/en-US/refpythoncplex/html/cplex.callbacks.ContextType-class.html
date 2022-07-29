@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex.callbacks.ContextType</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        <a href="cplex.callbacks-module.html">Module&nbsp;callbacks</a> ::
+        Class&nbsp;ContextType
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex.callbacks.ContextType-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ContextType</h1><p class="nomargin-top"></p>
+<center>
+<center>  <map id="class_hierarchy_for_contexttyp" name="class_hierarchy_for_contexttyp">
+<area shape="rect" id="node1" href="cplex.callbacks.ContextType-class.html" title="ContextType" alt="" coords="56,61,152,88"/>
+<area shape="rect" id="node2" href="cplex.constant_class.ConstantClass-class.html" title="constant_class.ConstantClass" alt="" coords="4,5,203,32"/>
+</map>
+  <img src="class_hierarchy_for_contexttyp.gif" alt='' usemap="#class_hierarchy_for_contexttyp" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>The different contexts in which a generic callback can be invoked.</p>
+<p>The values defined here serve two purposes:</p>
+<blockquote>
+<p>They are returned from <a href="cplex.callbacks.Context-class.html#get_id" class="link">Context.get_id()</a> to indicate in which
+context a particular callback invocation happened.</p>
+<p>The bit-wise OR of these values specifies to
+<a href="cplex.Cplex-class.html#set_callback" class="link">Cplex.set_callback()</a> in which contexts CPLEX invokes the
+callback.</p>
+</blockquote>
+<p>See the reference manual of the CPLEX Callable Library (C API)
+for a more detailed description of the various contexts.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cplex.constant_class.ConstantClass-class.html">constant_class.ConstantClass</a></code></b>:
+      <code><a href="cplex.constant_class.ConstantClass-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="cplex.constant_class.ConstantClass-class.html#__init__">__init__</a></code>,
+      <code><a href="cplex.constant_class.ConstantClass-class.html#__iter__">__iter__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Class Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="thread_up"></a><span class="summary-name">thread_up</span> = <code title="2">2</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_THREAD_UP</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="thread_down"></a><span class="summary-name">thread_down</span> = <code title="4">4</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_THREAD_DOWN</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="local_progress"></a><span class="summary-name">local_progress</span> = <code title="8">8</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="global_progress"></a><span class="summary-name">global_progress</span> = <code title="16">16</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="candidate"></a><span class="summary-name">candidate</span> = <code title="32">32</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_CANDIDATE</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="relaxation"></a><span class="summary-name">relaxation</span> = <code title="64">64</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_RELAXATION.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_RELAXATION</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="branching"></a><span class="summary-name">branching</span> = <code title="128">128</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_BRANCHING.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_CALLBACKCONTEXT_BRANCHING</span></tt></a> in the C API.
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

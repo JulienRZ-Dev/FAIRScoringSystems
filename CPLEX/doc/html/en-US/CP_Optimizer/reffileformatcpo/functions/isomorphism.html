@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="isomorphism" />
+<meta name="abstract" content="Returns an isomorphism constraint between two sets of interval variables." />
+<meta name="Description" content="Returns an isomorphism constraint between two sets of interval variables." />
+<meta name="DC.subject" content="isomorphism" />
+<meta name="keywords" content="isomorphism" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/isomorphism.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="isomorphism" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>isomorphism</title>
+</head>
+<body id="isomorphism"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">isomorphism</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns an isomorphism constraint between two sets of interval variables.
+</p>
+
+
+
+<section class="section" id="isomorphism__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">isomorphism</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intervalVarArray">intervalVarArray</a> array1, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intervalVarArray">intervalVarArray</a> array2, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> map = null, <a class="xref" href="../syntax/070_Types.html#Numerical_types__int">int</a> absentValue = 0)
+</code></pre>
+</section>
+
+
+<section class="section" id="isomorphism__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">array1</code>: the first isomorphic sets of interval variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">array1</code>: the second isomorphic sets of interval variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">map</code>: array of integer expressions mapping intervals of <code class="ph codeph">array2</code> on <code class="ph codeph">array1</code> (optional argument).
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">absentValue</code>: value of <code class="ph codeph">map[i]</code> when <code class="ph codeph">array2[i]</code> is absent (default value is 0).
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="isomorphism__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function creates an isomorphism constraint between the set of interval variables in the array <code class="ph codeph">array1</code> and the set of interval variables in the array <code class="ph codeph">array2</code>. If an integer expression array <code class="ph codeph">map</code> is used, it is used to reflect the mapping of the intervals of <code class="ph codeph">array1</code> on the intervals of <code class="ph codeph">array2</code>, that is, interval variable <code class="ph codeph">array2[i]</code>, if present, is mapped on interval variable <code class="ph codeph">array1[map[i]]</code>. If <code class="ph codeph">array2[i]</code> is absent, index <code class="ph codeph">map[i]</code> takes value <code class="ph codeph">absentValue</code>.
+</p>
+
+
+<p class="p">
+For more information on the <a class="xref" href="isomorphism.html" title="Returns an isomorphism constraint between two sets of interval variables.">isomorphism</a> constraint, see the concept <a class="xref" href="../../../refcppcpoptimizer/html/isomorphism.html">Isomorphism constraint</a>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="isomorphism__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+In the example below we have a set of 8 activities a1, ..., a8 of different size. These activities should be grouped by pairs of contiguous activities with a minimal separation time between each pair. There is a minimal total duration for each pair of contiguous activities.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=8);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=3);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=7);
+a5 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=4);
+a6 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2);
+a7 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=9);
+a8 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=3);
+minSepTime = 5;
+minPairDur = 10;
+slot11 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot12 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot21 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot22 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot31 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot32 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot41 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+slot42 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2..9);
+<a class="xref" href="endAtStart.html" title="Constrains the delay between the end of one interval variable and start of another one.">endAtStart</a>(slot11, slot12);
+<a class="xref" href="endAtStart.html" title="Constrains the delay between the end of one interval variable and start of another one.">endAtStart</a>(slot21, slot22);
+<a class="xref" href="endAtStart.html" title="Constrains the delay between the end of one interval variable and start of another one.">endAtStart</a>(slot31, slot32);
+<a class="xref" href="endAtStart.html" title="Constrains the delay between the end of one interval variable and start of another one.">endAtStart</a>(slot41, slot42);
+<a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(slot12, slot21, minSepTime);
+<a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(slot22, slot31, minSepTime);
+<a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(slot32, slot41, minSepTime);
+<a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot11) + <a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot12) &gt;= minPairDur;
+<a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot21) + <a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot22) &gt;= minPairDur;
+<a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot31) + <a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot32) &gt;= minPairDur;
+<a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot41) + <a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(slot42) &gt;= minPairDur;
+<strong class="ph b">isomorphism</strong>([a1, a2, a3, a4, a5, a6, a7, a8], [slot11, slot12, slot21, slot22, slot31, slot32, slot41, slot42]);
+</code></pre>
+<p class="p">
+A possible solution to this problem is the following mapping:
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">slot11</code>: <code class="ph codeph">a6</code> [0, 2)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot12</code>: <code class="ph codeph">a1</code> [2, 10)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot21</code>: <code class="ph codeph">a2</code> [15, 18)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot22</code>: <code class="ph codeph">a4</code> [18, 25)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot31</code>: <code class="ph codeph">a8</code> [30, 33)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot32</code>: <code class="ph codeph">a7</code> [33, 42)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot41</code>: <code class="ph codeph">a3</code> [47, 53)
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slot42</code>: <code class="ph codeph">a5</code> [53, 57)
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/isomorphism.html">Isomorphism constraint</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

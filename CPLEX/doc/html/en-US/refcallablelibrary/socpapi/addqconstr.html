@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXaddqconstr and CPXaddqconstr" />
+<meta name="abstract" content="The routine CPXXaddqconstr/CPXaddqconstr adds a quadratic constraint to a specified CPLEX problem object." />
+<meta name="Description" content="The routine CPXXaddqconstr/CPXaddqconstr adds a quadratic constraint to a specified CPLEX problem object." />
+<meta name="DC.subject" content="CPXaddqconstr, C API Reference Manual, CPXXaddqconstr" />
+<meta name="keywords" content="CPXaddqconstr, C API Reference Manual, CPXXaddqconstr" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/socpapi/homepagesocpapi.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="addqconstr" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<link rel="Start" href="../../refcallablelibrary/socpapi/homepagesocpapi.html" />
+<title>CPXXaddqconstr and CPXaddqconstr</title>
+</head>
+<body id="addqconstr"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXaddqconstr</span> and <span class="keyword apiname">CPXaddqconstr</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddqconstr</span>/<span class="keyword apiname">CPXaddqconstr</span></code> adds a quadratic constraint
+ to a specified
+ CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXaddqconstr</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">linnzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">quadnzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">linind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">linval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">quadrow</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">quadcol</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">quadval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">lname_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXaddqconstr</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">linnzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">quadnzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">linind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">linval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">quadrow</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">quadcol</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">quadval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">lname_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddqconstr</span>/<span class="keyword apiname">CPXaddqconstr</span></code> adds a quadratic constraint
+ to a specified
+ CPLEX problem object. This routine may be called any time after a call to
+ <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>. </p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Codes for sense of constraints in QCPs</span></caption><colgroup></colgroup><tbody class="tbody">
+ 
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'L'</code></td>
+
+ <td class="entry" valign="top">&lt;= constraint</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'G'</code></td>
+
+ <td class="entry" valign="top">&gt;= constraint </td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">linnzcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of nonzero constraint coefficients in the linear part of the constraint. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">linind</span></code> and <code class="ph codeph"><span class="keyword parmname">linval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">quadnzcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of nonzero constraint coefficients in the quadratic part of the constraint. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">quadrow</span></code>, <code class="ph codeph"><span class="keyword parmname">quadcol</span></code> and <code class="ph codeph"><span class="keyword parmname">quadval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          The righthand side term for the constraint to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          The sense of the constraint to be added. Note that quadratic constraints may only be less-than-or-equal-to or greater-than-or-equal-to constraints. See the discussion of QCP in the <em class="ph i">CPLEX User's Manual</em>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">linind</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">linval</span></code> defines the linear part of the quadratic constraint to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">linval</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">linind</span></code> defines the linear part of the constraint to be added. The nonzero coefficients of the linear terms must be stored in sequential locations in the arrays <code class="ph codeph"><span class="keyword parmname">linind</span></code> and <code class="ph codeph"><span class="keyword parmname">linval</span></code> from positions <code class="ph codeph">0</code> to <code class="ph codeph"><span class="keyword parmname">linnzcnt</span>-1</code>. Each entry, <code class="ph codeph"><span class="keyword parmname">linind</span>[i]</code>, specifies the variable index of the corresponding coefficient, <code class="ph codeph"><span class="keyword parmname">linval</span>[i]</code>. May be NULL; then the constraint will have no linear terms.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">quadrow</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">quadcol</span></code> and <code class="ph codeph"><span class="keyword parmname">quadval</span></code> defines the quadratic part of the quadratic constraint to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">quadcol</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">quadrow</span></code> and <code class="ph codeph"><span class="keyword parmname">quadval</span></code> defines the quadratic part of the quadratic constraint to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">quadval</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">quadrow</span></code> and <code class="ph codeph"><span class="keyword parmname">quadcol</span></code> define the quadratic part of the constraint to be added. The nonzero coefficients of the quadratic terms must be stored in sequential locations in the arrays <code class="ph codeph"><span class="keyword parmname">quadrow</span></code>, <code class="ph codeph"><span class="keyword parmname">quadcol</span></code> and <code class="ph codeph"><span class="keyword parmname">quadval</span></code> from positions <code class="ph codeph">0</code> to <code class="ph codeph"><span class="keyword parmname">quadnzcnt</span>-1</code>. Each pair, <code class="ph codeph"><span class="keyword parmname">quadrow</span>[i], <span class="keyword parmname">quadcol</span>[i]</code>, specifies the variable indices of the quadratic term, and <code class="ph codeph"><span class="keyword parmname">quadval</span>[i]</code> the corresponding coefficient.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lname_str</dt>
+
+        <dd class="dd pd">
+          
+          The name of the constraint to be added. May be NULL, in which case the new constraint is assigned a default name if the quadratic constraints already resident in the CPLEX problem object have names; otherwise, no name is associated with the constraint.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) on success and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXaddqconstr (env, lp, linnzcnt, quadnzcnt, rhsval,
+                         sense, linind, linval,
+                         quadrow, quadcol, quadval, NULL);
+ </code></pre>
+
+ <p class="p">See also the example <code class="ph codeph">qcpex1.c</code> in the
+ <em class="ph i">CPLEX User's Manual</em> and in the standard distribution.</p>
+
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetA.html">A</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodifyproblem.html">Modifying Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/socpapi/homepagesocpapi.html">QCP and SOCP in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

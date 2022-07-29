@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>IloBlackbox</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer.extensions/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../classes/IloBlackbox.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Class IloBlackbox</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+                class="definition-file">ilcp/cpext.h</span></div><div><img
+                src="IloBlackbox.png" border="0"
+                usemap="#svg_map_IloBlackbox"
+                    alt="Map of IloBlackbox"><map
+                        name="svg_map_IloBlackbox"><area
+                        href="../classes/IloBlackbox.html" shape="rect"
+                        alt="IloBlackbox"
+                        coords="10.0,37.640625,83.0,55.28125" /><area
+                        href="../classes/IloBlackbox.html" shape="rect"
+                        alt="IloBlackbox"
+                        coords="10.0,37.640625,83.0,55.28125" /><area
+                        href="../classes/IloExtractable.html"
+                        shape="rect" alt="IloExtractable"
+            coords="56.5,10.0,129.5,27.640625" /></map></img></div><div
+            class="description"><p>This is the handle class created by the macros <code>ILOBLACKBOX</code>.
+ It represents a black-box expression in the model.</p><p>An instance of this class is similar to an <code>IloNumExpr</code> or an array of
+ <code>IloNumExpr</code> representing the value(s) of a black-box expression.</p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+            href="../macros/ILOBLACKBOX0.html">ILOBLACKBOX0</a></p><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Method Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_add">add</a>(<a
+                    href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_add">add</a>(<a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_add">add</a>(<a
+                    href="../classes/IloNumExpr.html">IloNumExpr</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_add">add</a>(<a
+                    href="../classes/IloIntExpr.html">IloIntExpr</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_add">add</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloBlackbox.html#method_getArity">getArity</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public const char *</code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloBlackbox.html#method_getFunctionName">getFunctionName</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public </code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloBlackbox.html#method_operator_IloNumExpr">operator IloNumExpr</a>()</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloNumExpr.html">IloNumExpr</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_operator[]">operator[]</a>(<a
+                    href="../typedefs/IloInt.html">IloInt</a> i)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_remove">remove</a>(<a
+                    href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_remove">remove</a>(<a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_remove">remove</a>(<a
+                    href="../classes/IloNumExpr.html">IloNumExpr</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_remove">remove</a>(<a
+                    href="../classes/IloIntExpr.html">IloIntExpr</a> x)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloBlackbox.html#method_remove">remove</a>(<a
+            href="../classes/IloIntVar.html">IloIntVar</a> x)</code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                            colspan="1">Inherited Methods from <code><a
+                    href="../classes/IloExtractable.html">IloExtractable</a></code></th></tr><tr><td
+                            width="100%"><code><a
+                            href="../classes/IloExtractable.html#method_asConstraint">asConstraint</a>, <a
+                            href="../classes/IloExtractable.html#method_asIntExpr">asIntExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_asModel">asModel</a>, <a
+                            href="../classes/IloExtractable.html#method_asNumExpr">asNumExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_asObjective">asObjective</a>, <a
+                            href="../classes/IloExtractable.html#method_asVariable">asVariable</a>, <a
+                            href="../classes/IloExtractable.html#method_end">end</a>, <a
+                            href="../classes/IloExtractable.html#method_getEnv">getEnv</a>, <a
+                            href="../classes/IloExtractable.html#method_getId">getId</a>, <a
+                            href="../classes/IloExtractable.html#method_getImpl">getImpl</a>, <a
+                            href="../classes/IloExtractable.html#method_getName">getName</a>, <a
+                            href="../classes/IloExtractable.html#method_getObject">getObject</a>, <a
+                            href="../classes/IloExtractable.html#method_IloExtractable">IloExtractable</a>, <a
+                            href="../classes/IloExtractable.html#method_isConstraint">isConstraint</a>, <a
+                            href="../classes/IloExtractable.html#method_isIntExpr">isIntExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_isModel">isModel</a>, <a
+                            href="../classes/IloExtractable.html#method_isNumExpr">isNumExpr</a>, <a
+                            href="../classes/IloExtractable.html#method_isObjective">isObjective</a>, <a
+                            href="../classes/IloExtractable.html#method_isVariable">isVariable</a>, <a
+                            href="../classes/IloExtractable.html#method_removeFromAll">removeFromAll</a>, <a
+                            href="../classes/IloExtractable.html#method_setLocation">setLocation</a>, <a
+                            href="../classes/IloExtractable.html#method_setName">setName</a>, <a
+            href="../classes/IloExtractable.html#method_setObject">setObject</a></code></td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Method Detail</th></tr></table><h3><a
+            name="method_add">add</a></h3><div
+                class="prototype">public void <span
+                class="function-name">add</span>(<a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function adds variable <code>x</code> to the scope of the invoking black-box
+ expression if it was not already in the scope.</p></div><hr /><h3><a
+            name="method_add">add</a></h3><div
+                class="prototype">public void <span
+                class="function-name">add</span>(<a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function adds variable <code>x</code> to the scope of the invoking black-box
+ expression if it was not already in the scope.</p></div><hr /><h3><a
+            name="method_add">add</a></h3><div
+                class="prototype">public void <span
+                class="function-name">add</span>(<a
+                href="../classes/IloNumExpr.html">IloNumExpr</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function adds expression <code>x</code> to the scope of the invoking black-box
+ expression if was not already in the scope.</p></div><hr /><h3><a
+            name="method_add">add</a></h3><div
+                class="prototype">public void <span
+                class="function-name">add</span>(<a
+                href="../classes/IloIntExpr.html">IloIntExpr</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function adds expression <code>x</code> to the scope of the invoking black-box
+ expression if was not already in the scope.</p></div><hr /><h3><a
+            name="method_add">add</a></h3><div
+                class="prototype">public void <span
+                class="function-name">add</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function adds variable <code>x</code> to the scope of the invoking black-box
+ expression if was not already in the scope.</p></div><hr /><h3><a
+            name="method_getArity">getArity</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="function-name">getArity</span>() const</div><div
+                class="description"><p>This member function returns the arity of the black-box expression that is, the number
+ of variables and expressions in its scope.</p></div><hr /><h3><a
+            name="method_getFunctionName">getFunctionName</a></h3><div
+                class="prototype">public const char * <span
+            class="function-name">getFunctionName</span>() const</div><div
+                class="description"><p>This member function returns the name of the black-box expression that was used in the macro.</p></div><hr /><h3><a
+            name="method_operator_IloNumExpr">operator IloNumExpr</a></h3><div
+                class="prototype">public  <span
+            class="function-name">operator IloNumExpr</span>()</div><div
+                class="description"><p>This automatic type conversion operator returns the numerical expression that represents
+ the value of invoking black-box expression in case of a single-value black-box.
+ Any instance of <code>IloBlackbox</code> can be used as a regular numerical expression
+ <code>IloNumExpr</code> in the Concert model. In case of multi-valued black-box expression,
+ this numerical expression will represent the first component of the returned vector of values.</p></div><hr /><h3><a
+            name="method_operator[]">operator[]</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloNumExpr.html">IloNumExpr</a> <span
+                class="function-name">operator[]</span>(<a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">i</span>)</div><div
+                class="description"><p>This member function returns the numerical expression that represents the value of
+ the ith component of the vector of values computed by the invoking black-box expression.</p></div><hr /><h3><a
+            name="method_remove">remove</a></h3><div
+                class="prototype">public void <span
+                class="function-name">remove</span>(<a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function removes variable <code>x</code> from the scope of the invoking black-box
+ expression if it was contained in the scope.</p></div><hr /><h3><a
+            name="method_remove">remove</a></h3><div
+                class="prototype">public void <span
+                class="function-name">remove</span>(<a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function removes variable <code>x</code> from the scope of the invoking black-box
+ expression if it was contained in the scope.</p></div><hr /><h3><a
+            name="method_remove">remove</a></h3><div
+                class="prototype">public void <span
+                class="function-name">remove</span>(<a
+                href="../classes/IloNumExpr.html">IloNumExpr</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function removes expression <code>x</code> from the scope of the invoking black-box
+ expression if it was contained in the scope.</p></div><hr /><h3><a
+            name="method_remove">remove</a></h3><div
+                class="prototype">public void <span
+                class="function-name">remove</span>(<a
+                href="../classes/IloIntExpr.html">IloIntExpr</a> <span
+            class="parameter-name">x</span>)</div><div
+                class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function removes expression <code>x</code> from the scope of the invoking black-box
+ expression if it was contained in the scope.</p></div><hr /><h3><a
+            name="method_remove">remove</a></h3><div
+                class="prototype">public void <span
+                class="function-name">remove</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">x</span>)</div><div class="description"><p>The scope of a black-box expression is the set of variables or expressions used to
+ compute the value(s) of the black-box. The scope is computed automatically from the
+ arguments of the black-box function.</p><p>This member function removes variable <code>x</code> from the scope of the invoking black-box
+ expression if it was contained in the scope.</p></div><hr /></body>
+</html>

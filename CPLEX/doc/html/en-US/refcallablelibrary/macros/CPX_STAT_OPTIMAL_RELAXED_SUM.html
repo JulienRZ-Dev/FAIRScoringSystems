@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPX_STAT_OPTIMAL_RELAXED_SUM" />
+<meta name="abstract" content="15 (Simplex or Barrier) enum: OptimalRelaxedSum" />
+<meta name="Description" content="15 (Simplex or Barrier) enum: OptimalRelaxedSum" />
+<meta name="DC.subject" content="CPX_STAT_OPTIMAL_RELAXED_SUM, C API Reference Manual" />
+<meta name="keywords" content="CPX_STAT_OPTIMAL_RELAXED_SUM, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepagesolutionstatus.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPX_STAT_OPTIMAL_RELAXED_SUM" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepagesolutionstatus.html" />
+<title>CPX_STAT_OPTIMAL_RELAXED_SUM</title>
+</head>
+<body id="CPX_STAT_OPTIMAL_RELAXED_SUM"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">CPX_STAT_OPTIMAL_RELAXED_SUM</h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">15 (Simplex or Barrier) enum: OptimalRelaxedSum</p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPX_STAT_OPTIMAL_RELAXED_SUM</span><span class="ph sep"> </span>15
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section">
+      
+ <p class="p">This status occurs only after a call to the Callable Library routine
+ <code class="ph codeph">CPXfeasopt</code> (or the Concert Technology method
+ <code class="ph codeph">feasOpt</code>) with the parameter <code class="ph codeph">CPX_PARAM_FEASOPTMODE</code>
+ (or <code class="ph codeph">FeasOptMode</code>) set to <code class="ph codeph">CPX_FEASOPT_OPT_SUM</code>
+ (or <code class="ph codeph">OptSum</code>) on a continuous problem.
+  A relaxation was successfully
+ found and a feasible solution for the problem
+ (if relaxed according to that relaxation) was installed.
+ The relaxation is optimal.</p>
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepagesolutionstatus.html">Solution Status Symbols in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

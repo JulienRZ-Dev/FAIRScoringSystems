@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="cumulRange" />
+<meta name="abstract" content="Limits the range of a cumul function expression." />
+<meta name="Description" content="Limits the range of a cumul function expression." />
+<meta name="DC.subject" content="cumulRange" />
+<meta name="keywords" content="cumulRange" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/cumul_functions.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="alwaysIn.html" />
+<meta name="DC.Relation" scheme="URI" content="pulse.html" />
+<meta name="DC.Relation" scheme="URI" content="stepAt.html" />
+<meta name="DC.Relation" scheme="URI" content="stepAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="stepAtEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="heightAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="heightAtEnd.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="cumulRange" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>cumulRange</title>
+</head>
+<body id="cumulRange"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">cumulRange</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Limits the range of a cumul function expression.
+</p>
+
+
+
+<section class="section" id="cumulRange__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">cumulRange</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> function, <a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> vmin, <a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> vmax)
+</code></pre>
+</section>
+
+
+<section class="section" id="cumulRange__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">function</code>: cumul function expression.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">vmin</code>: minimum of the range of allowed values for the cumul <code class="ph codeph">function</code>.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">vmax</code>: maximum of the range of allowed values for the cumul <code class="ph codeph">function</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="cumulRange__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns a constraint that restricts the possible values of cumul <code class="ph codeph">function</code> to belong to a range [<code class="ph codeph">vmin</code>,<code class="ph codeph">vmax</code>]. 
+</p>
+
+
+</section>
+
+
+<section class="section" id="cumulRange__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+This example minimizes the peak usage of a discrete resource by a set of activities.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=3, end=0..10);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5, end=0..10);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=3, end=0..10);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=4, end=0..10);
+a5 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5, end=0..10);
+peakUsage = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+resourceUse = <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a1,2) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a2,3) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a3,3) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a4,2) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a5,2);
+<strong class="ph b">cumulRange</strong>(resourceUse, 0, peakUsage);
+<a class="xref" href="minimize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to minimize the value of an expression.">minimize</a>(peakUsage);
+</code></pre>
+<p class="p">
+The optimal peak usage in this problem is 5. A possible solution is the following assignment of interval variables: <code class="ph codeph">a1=[3,6)</code>, <code class="ph codeph">a2=[5,10)</code>, <code class="ph codeph">a3=[0,3)</code>, <code class="ph codeph">a4=[6,10)</code>, <code class="ph codeph">a5=[0,5)</code>.
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li>
+<li class="linklist"><a class="link" href="alwaysIn.html" title="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval.">alwaysIn</a></li>
+<li class="linklist"><a class="link" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a></li>
+<li class="linklist"><a class="link" href="stepAt.html" title="Returns an elementary cumul function of constant value after a given point.">stepAt</a></li>
+<li class="linklist"><a class="link" href="stepAtStart.html" title="Returns an elementary cumul function of constant value after the start of an interval.">stepAtStart</a></li>
+<li class="linklist"><a class="link" href="stepAtEnd.html" title="Returns an elementary cumul function of constant value after the end of an interval.">stepAtEnd</a></li>
+<li class="linklist"><a class="link" href="heightAtStart.html" title="Returns the contribution of an interval variable to a cumul function at its start point.">heightAtStart</a></li>
+<li class="linklist"><a class="link" href="heightAtEnd.html" title="Returns the contribution of an interval variable to a cumul function at its end point.">heightAtEnd</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/cumul_functions.html">Cumul functions in CP Optimizer</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

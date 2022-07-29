@@ -1,0 +1,152 @@
+<!-- Generator: GNU source-highlight 2.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>001: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+002: <b><font color="#007D00">// Licensed Materials - Property of IBM</font></b>
+003: <b><font color="#007D00">//</font></b>
+004: <b><font color="#007D00">// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55</font></b>
+005: <b><font color="#007D00">// Copyright IBM Corporation 1998, 2013. All Rights Reserved.</font></b>
+006: <b><font color="#007D00">//</font></b>
+007: <b><font color="#007D00">// Note to U.S. Government Users Restricted Rights:</font></b>
+008: <b><font color="#007D00">// Use, duplication or disclosure restricted by GSA ADP Schedule</font></b>
+009: <b><font color="#007D00">// Contract with IBM Corp.</font></b>
+010: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+011: <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">CP</font></b>;
+012: 
+013: <b><font color="#007D00">/// -- DATA ---</font></b>
+014: <b><font color="#007D00">///</font></b>
+015: <b><font color="#007D00">/// The number of teams in a division.</font></b>
+016: <b><font color="#0000FF">int</font></b> nbTeamsInDivision = ...;
+017: <b><font color="#0000FF">execute</font></b>{
+018:         cp.param.TimeLimit = 60;
+019:         writeln(<b><font color="#8A2BE2">"Scheduling "</font></b> + nbTeamsInDivision + <b><font color="#8A2BE2">" teams from each of the divisions."</font></b>)
+020: }
+021: 
+022: /// The number of games to play in and out of the division.
+023: int nbIntraDivisional = ...;
+024: int nbInterDivisional = ...;
+025: 
+026: int maxTeamsInDivision = ...;
+027: assert nbTeamsInDivision &lt;= maxTeamsInDivision; // Limited data
+028: 
+029: {string} teamDiv1 = ...;
+030: {string} teamDiv2 = ...;
+031: 
+032: assert card(teamDiv1) &gt;= nbTeamsInDivision;
+033: assert card(teamDiv2) &gt;= nbTeamsInDivision;
+034: ///
+035: /// -- END DATA ---
+036: 
+037: /// There are two divisions.
+038: int nbTeams = 2 * nbTeamsInDivision;
+039: range Teams = 1..nbTeams;
+040: 
+041: /// Calculate the number of weeks necessary.
+042: int nbWeeks = (nbTeamsInDivision-1) * nbIntraDivisional 
+043:               + nbTeamsInDivision * nbInterDivisional;
+044: range Weeks = 1..nbWeeks;
+045: execute{
+046:   writeln(nbWeeks + <b><font color="#8A2BE2">" games, "</font></b> + (nbTeamsInDivision-1) * nbIntraDivisional + 
+047:           <b><font color="#8A2BE2">" intradivisional, "</font></b> + nbTeamsInDivision * nbInterDivisional + <b><font color="#8A2BE2">" interdivisional."</font></b>)
+048: }
+049: 
+050: /// Season is split into two halves.
+051: range FirstHalfWeeks = 1..ftoi(floor(nbWeeks/2));
+052: int nbFirstHalfGames = ftoi(floor(nbWeeks/3));
+053: 
+054: /// Game variables - value of plays[t][w] will be the team assigned to play team t in week w. 
+055: dvar int plays[Teams][Weeks] in Teams;
+056: 
+057: /// Gain is for intradivisional pairings only.
+058: int intraDivisionalPair[ t1 in Teams][t2 in Teams ] = 
+059:   ( ((t2 &lt;= nbTeamsInDivision) &amp;&amp; (t1 &lt;=nbTeamsInDivision)) || 
+060:     ((t1 &gt; nbTeamsInDivision) &amp;&amp; (t2 &gt; nbTeamsInDivision)) ) ? 1 : 0 ;
+061: 
+062: /// The goal is for intradivisional games to be played late in the schedule.
+063: /// Only intradivisional pairings contribute to the overall gain.
+064: int Gain[t1 in Teams][t2 in Teams][w in Weeks] = 
+065:   ((intraDivisionalPair[t1][t2]==1) ? w*w : 0) ;
+066: 
+067: /// The objective is used to maximize the overall quality of solutions.
+068: dexpr int DivisionalLateness =
+069:   sum(t in Teams, w in Weeks) Gain[t][plays[t][w]][w];
+070: 
+071: ///
+072: /// Map unique team id to team name for formatted solution. 
+073: tuple teamMapping{
+074:   key <b><font color="#0000FF">int</font></b> id;
+075:   string name; 
+076: };
+077: {teamMapping} teamLeague = {&lt;t, item(teamDiv1,t)&gt; | t <b><font color="EA7D00">in</font></b> 1..nbTeamsInDivision} union 
+078:                            {&lt;t+nbTeamsInDivision, item(teamDiv2,t)&gt; 
+079:                              | t <b><font color="EA7D00">in</font></b> 1..nbTeamsInDivision};
+080: 
+081: maximize DivisionalLateness/2;
+082: 
+083: subject to { 
+084:   forall (t <b><font color="EA7D00">in</font></b> Teams, w <b><font color="EA7D00">in</font></b> Weeks) {      
+085:     <b><font color="#007D00">// A team cannot play itself.</font></b>
+086:     cannotPlaySelf:
+087:     plays[t][w] != t;
+088:     <b><font color="#007D00">// The plays function is symmetrical.</font></b>
+089:     symmetricalPairs:
+090:     plays[plays[t][w]][w] == t; 
+091:   }
+092:   
+093:   <b><font color="#007D00">// Each week, each team is assigned to one game.</font></b>
+094:   forall (w <b><font color="EA7D00">in</font></b> Weeks)
+095:     playsExactlyOnce:
+096:     allDifferent( all (t <b><font color="EA7D00">in</font></b> Teams) plays[t][w] );
+097:   
+098:   <b><font color="#007D00">// Each team plays the required number of (intra/inter) divisional matches.</font></b>
+099:   forall (t1 <b><font color="EA7D00">in</font></b> Teams, t2 <b><font color="EA7D00">in</font></b> Teams:  t1 &lt; t2)
+100:         correctNumberOfGames:
+101:     count( all(w <b><font color="EA7D00">in</font></b> Weeks) plays[t1][w], t2 ) == 
+102:          (intraDivisionalPair[t1][t2] == 1 ? nbIntraDivisional : nbInterDivisional);
+103:   
+104:   <b><font color="#007D00">// Games between the same teams cannot be on successive weeks.</font></b>
+105:   forall (w <b><font color="EA7D00">in</font></b> Weeks, t <b><font color="EA7D00">in</font></b> Teams) 
+106:     cannotPlayAgain:
+107:     <b><font color="EA7D00">if</font></b> ( w &lt; nbWeeks ) plays[t][w] != plays[t][w+1];
+108:  
+109:    <b><font color="#007D00">// Some intradivisional games should be in the first half.</font></b>
+110:    forall (t1 <b><font color="EA7D00">in</font></b> Teams)
+111:     inDivisionFirstHalf:
+112:     sum (t2 <b><font color="EA7D00">in</font></b> Teams :  intraDivisionalPair[t1][t2] == 1)     
+113:           count (all(w <b><font color="EA7D00">in</font></b> FirstHalfWeeks) plays[t1][w], t2 ) 
+114:         &gt;= nbFirstHalfGames;
+115: }
+116: 
+117: /// Postprocess to output a formatted solution.
+118: tuple Solution{
+119:   <b><font color="#0000FF">int</font></b> week;
+120:   <b><font color="#0000FF">int</font></b> isDivisional;
+121:   string team1;
+122:   string team2;
+123: };
+124: sorted {Solution} solution = {&lt;w,
+125:                                intraDivisionalPair[t][plays[t][w]],
+126:                                item(teamLeague, &lt;t&gt;).name, 
+127:                                item(teamLeague, &lt;plays[t][w]&gt;).name&gt;  |
+128:                               t <b><font color="EA7D00">in</font></b> Teams, w <b><font color="EA7D00">in</font></b> Weeks : t &lt; plays[t][w]};
+129: 
+130: execute DEBUG {
+131:   <b><font color="EA7D00">var</font></b> week = 0;
+132:   writeln(<b><font color="#8A2BE2">"Intradivisional games are marked with a *"</font></b>);
+133:   <b><font color="EA7D00">for</font></b> (<b><font color="EA7D00">var</font></b> s <b><font color="EA7D00">in</font></b> solution) {
+134:     <b><font color="EA7D00">if</font></b> (s.week != week) {
+135:       week = s.week;
+136:       writeln(<b><font color="#8A2BE2">"================================"</font></b>);
+137:       writeln(<b><font color="#8A2BE2">"On week "</font></b> + week);
+138:     }                   
+139:     <b><font color="EA7D00">if</font></b> ( s.isDivisional ) {             
+140:       writeln(<b><font color="#8A2BE2">" *"</font></b> + s.team1 + <b><font color="#8A2BE2">" will meet the "</font></b> + s.team2);
+141:     }                       
+142:     <b><font color="EA7D00">else</font></b> {
+143:       writeln(<b><font color="#8A2BE2">"  "</font></b> + s.team1 + <b><font color="#8A2BE2">" will meet the "</font></b> + s.team2)                 
+144:     }
+145:   }
+146: }
+147:  
+148:  </tt></pre>

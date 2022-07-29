@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex._internal._subinterfaces.QualityMetrics</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        <a href="cplex._internal-module.html" onclick="show_private();">Package&nbsp;_internal</a> ::
+        <a href="cplex._internal._subinterfaces-module.html">Module&nbsp;_subinterfaces</a> ::
+        Class&nbsp;QualityMetrics
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex._internal._subinterfaces.QualityMetrics-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class QualityMetrics</h1><p class="nomargin-top"></p>
+<p>A class containing measures of the quality of a solution.</p>
+<p>The __str__ method of this class prints all available measures of
+the quality of the solution in human readable form.</p>
+<p>This class may have a different set of data members depending on
+the optimization algorithm used and the quality metrics that are
+available.</p>
+<p>An instance of this class always has the member quality_type,
+which is one of the following strings:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>&quot;feasopt&quot;</li>
+<li>&quot;simplex&quot;</li>
+<li>&quot;quadratically_constrained&quot;</li>
+<li>&quot;barrier&quot;</li>
+<li>&quot;MIP&quot;</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;feasopt&quot; this instance has the following
+members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>scaled</li>
+<li>max_x</li>
+<li>max_bound_infeas</li>
+<li>max_Ax_minus_b</li>
+<li>max_slack</li>
+</ul>
+</blockquote>
+<p>If self.scaled is 1, this instance also has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>max_scaled_x</li>
+<li>max_scaled_bound_infeas</li>
+<li>max_scaled_Ax_minus_b</li>
+<li>max_scaled_slack</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;simplex&quot; this instance has the following
+members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>scaled</li>
+<li>max_x</li>
+<li>max_pi</li>
+<li>max_reduced_cost</li>
+<li>max_bound_infeas</li>
+<li>max_reduced_cost_infeas</li>
+<li>max_Ax_minus_b</li>
+<li>max_c_minus_Bpi</li>
+<li>max_slack</li>
+</ul>
+</blockquote>
+<p>If self.scaled is 1, this instance also has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>max_scaled_x</li>
+<li>max_scaled_pi</li>
+<li>max_scaled_reduced_cost</li>
+<li>max_scaled_bound_infeas</li>
+<li>max_scaled_reduced_cost_infeas</li>
+<li>max_scaled_Ax_minus_b</li>
+<li>max_scaled_c_minus_Bpi</li>
+<li>max_scaled_slack</li>
+</ul>
+</blockquote>
+<p>If the condition number of the final basis is available, this
+instance has the member:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>kappa</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;quadratically_constrained&quot; this instance
+has the following members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>objective</li>
+<li>norm_total</li>
+<li>norm_max</li>
+<li>error_Ax_b_total</li>
+<li>error_Ax_b_max</li>
+<li>error_xQx_dx_f_total</li>
+<li>error_xQx_dx_f_max</li>
+<li>x_bound_error_total</li>
+<li>x_bound_error_max</li>
+<li>slack_bound_error_total</li>
+<li>slack_bound_error_max</li>
+<li>quadratic_slack_bound_error_total</li>
+<li>quadratic_slack_bound_error_max</li>
+<li>normalized_error_max</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;barrier&quot; this instance has the following
+members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>primal_objective</li>
+<li>dual_objective</li>
+<li>duality_gap</li>
+<li>complementarity_total</li>
+<li>column_complementarity_total</li>
+<li>column_complementarity_max</li>
+<li>row_complementarity_total</li>
+<li>row_complementarity_max</li>
+<li>primal_norm_total</li>
+<li>primal_norm_max</li>
+<li>dual_norm_total</li>
+<li>dual_norm_max</li>
+<li>primal_error_total</li>
+<li>primal_error_max</li>
+<li>dual_error_total</li>
+<li>dual_error_max</li>
+<li>primal_x_bound_error_total</li>
+<li>primal_x_bound_error_max</li>
+<li>primal_slack_bound_error_total</li>
+<li>primal_slack_bound_error_max</li>
+<li>dual_pi_bound_error_total</li>
+<li>dual_pi_bound_error_max</li>
+<li>dual_reduced_cost_bound_error_total</li>
+<li>dual_reduced_cost_bound_error_max</li>
+<li>primal_normalized_error</li>
+<li>dual_normalized_error</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;MIP&quot; and this instance was generated for
+a specific member of the solution pool, it has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>solution_name</li>
+<li>num_solutions</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;MIP&quot;, this instance was not generated for
+a specific member of the solution pool, and kappa statistics are
+available, it has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>max_kappa</li>
+<li>pct_kappa_stable</li>
+<li>pct_kappa_suspicious</li>
+<li>pct_kappa_unstable</li>
+<li>pct_kappa_illposed</li>
+<li>kappa_attention</li>
+</ul>
+</blockquote>
+<p>If self.quality_type is &quot;MIP&quot; and this instance was generated for
+the incumbent solution, it has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>solver</li>
+<li>objective</li>
+<li>x_norm_total</li>
+<li>x_norm_max</li>
+<li>error_Ax_b_total</li>
+<li>error_Ax_b_max</li>
+<li>x_bound_error_total</li>
+<li>x_bound_error_max</li>
+<li>integrality_error_total</li>
+<li>integrality_error_max</li>
+<li>slack_bound_error_total</li>
+<li>slack_bound_error_max</li>
+</ul>
+</blockquote>
+<p>If in addition the problem this instance was generated for has
+indicator constraints, it has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>indicator_slack_bound_error_total</li>
+<li>indicator_slack_bound_error_max</li>
+</ul>
+</blockquote>
+<p>if in addition the problem this instance was generated for has
+piecewise linear constraints, it has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>piecewise_linear_error_total</li>
+<li>piecewise_linear_error_max</li>
+</ul>
+</blockquote>
+<p>If solver is &quot;MIQCP&quot; this instance also has the members:</p>
+<blockquote>
+<ul class="rst-simple">
+<li>error_xQx_dx_f_total</li>
+<li>error_xQx_dx_f_max</li>
+<li>quadratic_slack_bound_error_total</li>
+<li>quadratic_slack_bound_error_max</li>
+</ul>
+</blockquote>
+<p>See also <a href="cplex._internal._subinterfaces.SolutionInterface-class.html#get_quality_metrics" class="link">SolutionInterface.get_quality_metrics</a> and
+<a href="cplex._internal._subinterfaces.SolnPoolInterface-class.html#get_quality_metrics" class="link">SolnPoolInterface.get_quality_metrics</a>.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">c</span>,
+        <span class="summary-sig-arg">soln</span>=<span class="summary-sig-default">-1</span>)</span></td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__str__"></a><span class="summary-sig-name">__str__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a string containing quality metrics in human readable form.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: opladm
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_191
+
+Name: feature.xml
+SHA-256-Digest: RbfROBe8d91lu8i8c9u2YoJ0mmP5oThquRfRdzvTNII=
+
+Name: feature.properties
+SHA-256-Digest: AJwzIwP7Kd51H30qCAyog6trzMfcCabm6COiscVxjzE=
+
+Name: license.html
+SHA-256-Digest: 28MCw0v+AXYobp9Wwjvwptwx3uIVYZa9UJfur2zR9Zc=
+

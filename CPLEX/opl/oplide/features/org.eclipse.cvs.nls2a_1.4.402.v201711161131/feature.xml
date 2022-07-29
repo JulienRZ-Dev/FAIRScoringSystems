@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.cvs.nls2a" label="%featureName" provider-name="%providerName" version="1.4.402.v201711161131">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>%copyright</copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin fragment="true" id="org.eclipse.cvs.nl2a" unpack="false" version="1.4.402.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.team.cvs.core.nl2a" unpack="false" version="3.4.100.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.team.cvs.ssh2.nl2a" unpack="false" version="3.3.0.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.team.cvs.ui.nl2a" unpack="false" version="3.4.1.v201711161131"></plugin>
+
+</feature>

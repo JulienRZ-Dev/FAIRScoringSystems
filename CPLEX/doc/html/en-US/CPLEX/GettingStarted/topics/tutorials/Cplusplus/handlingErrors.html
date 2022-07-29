@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Handling errors" />
+<meta name="abstract" content="A robust application of CPLEX in C++ avoids errors with assertions and handles unforeseeable errors with exceptions." />
+<meta name="Description" content="A robust application of CPLEX in C++ avoids errors with assertions and handles unforeseeable errors with exceptions." />
+<meta name="DC.subject" content="Concert Technology, error handling (C++ API), error handling (C++ API), errors (C++ API), programming errors (C++ API), -DNDEBUG option (C++ API), runtime errors (C++ API), IloException class (C++ API), exceptions (C++ API), exception handling (C++ API)" />
+<meta name="keywords" content="Concert Technology, error handling (C++ API), error handling (C++ API), errors (C++ API), programming errors (C++ API), -DNDEBUG option (C++ API), runtime errors (C++ API), IloException class (C++ API), exceptions (C++ API), exception handling (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/appliAnatomy_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_cplusStart.999927" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/appliAnatomy_synopsis.html" />
+<title>Handling errors</title>
+</head>
+<body id="Getting_started.uss_cplusStart.999927"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Handling errors</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">A robust application of CPLEX in C++ avoids errors
+with assertions and handles unforeseeable errors with exceptions.</p>
+
+      <p class="p">Concert Technology provides two lines of defense for dealing
+with error conditions, suited for addressing two kinds of errors.
+The first kind covers simple programming errors. Examples of this
+kind are trying to use empty handle objects or passing arrays of incompatible
+lengths to functions.</p>
+
+      <p class="p">This kind of error is usually an oversight and should
+not occur in a correct program. In order not to pay any runtime cost
+for correct programs asserting such conditions, the conditions are
+checked using <code class="ph codeph">assert</code> statements. The checking
+is disabled for production runs if compiled with the <code class="ph codeph">-DNDEBUG</code> compiler
+option.</p>
+
+      <p class="p">The second kind of error is more complex and cannot generally
+be avoided by correct programming. An example is memory exhaustion.
+The data may simply require too much memory, even when the program
+is correct. This kind of error is always checked at runtime. In cases
+where such an error occurs, Concert Technology throws a C++ exception.</p>
+
+      <p class="p">In fact, Concert Technology provides a hierarchy of exception
+classes that all derive from the common base class <code class="ph codeph">IloException</code> .
+Exceptions derived from this class are the only kind of exceptions
+that are thrown by Concert Technology. The exceptions thrown by <code class="ph codeph">IloCplex</code> objects all derive from class <code class="ph codeph">IloAlgorithm::Exception</code> or <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex_Exception.html">IloCplex::Exception</a> .</p>
+
+      <p class="p">To handle exceptions gracefully in a Concert Technology
+application, include all of the code in a <code class="ph codeph">try/catch</code> clause,
+like this:</p>
+
+      <pre class="pre codeblock"><code>
+IloEnv env;
+try {
+// ...
+} catch (IloException&amp; e) {
+cerr &lt;&lt; "Concert Exception: " &lt;&lt; e &lt;&lt; endl;
+} catch (...) {
+cerr &lt;&lt; "Other Exception" &lt;&lt; endl;
+}
+env.end();
+</code></pre>
+      <div class="note note"><span class="notetitle">Note:</span> 
+         <p class="p"> The construction of the environment comes
+before the <code class="ph codeph">try/catch</code> clause. In case of
+an exception, <code class="ph codeph">env.end</code> must still be called.
+To protect against failure during the construction of the environment,
+you can add another <code class="ph codeph">try/catch</code> clause. </p>
+
+      </div>
+
+      <p class="p">If code other than Concert Technology code is used in
+the part of that sample denoted by <code class="ph codeph">...</code> ,
+all other exceptions will be caught with the statement <code class="ph codeph">catch(...)</code> .
+Doing so is good practice, as it makes sure that no exception is unhandled.</p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/appliAnatomy_synopsis.html" title="Concert Technology is a C++ class library, and therefore Concert Technology applications consist of interacting C++ objects. This topic gives a short introduction to the most important classes that are usually found in a complete Concert Technology CPLEX C++ application.">The anatomy of a Concert Technology C++ application</a></div>
+</div>
+</nav></div></body>
+</html>

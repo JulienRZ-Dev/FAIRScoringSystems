@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Correspondence of parameters between APIs" />
+<meta name="abstract" content="Certain specialized parameters of one API may not have an equivalent in another API." />
+<meta name="Description" content="Certain specialized parameters of one API may not have an equivalent in another API." />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/refparameterscplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1197396210963" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/refparameterscplex.html" />
+<title>Correspondence of parameters between APIs</title>
+</head>
+<body id="descriptiveTopic1197396210963"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Correspondence of parameters between APIs</h1>
+
+
+<div class="body"><p class="shortdesc">Certain specialized parameters of one API may not have
+an equivalent in another API.</p>
+
+<p class="p">Some parameters available for the C API are not supported as parameters
+for the object-oriented APIs or have a slightly different name there.
+In particular:</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><a class="xref" href="MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a><code class="ph codeph">(CPX_PARAM_MIPCBREDLP)</code>, the parameter specifying
+whether to use the reduced or original model in MIP callbacks, has no equivalent in the
+object-oriented APIs (C++, Java, .NET), nor in the Python API.</p>
+ </li>
+
+<li class="li"><p class="p">Logging output is controlled by a parameter in the C API (<code class="ph codeph">CPX_PARAM_SCRIND</code>),
+but when using the object-oriented APIs, you control logging by configuring
+the output channel: </p>
+ <ul class="ul">
+<li class="li">
+<p class="p"><code class="ph codeph">IloCplex::out</code> in C++</p>
+
+<p class="p">For example, to turn off output to the screen, use
+<code class="ph codeph">cplex.setOut(env.getNullStream()</code>) .</p>
+
+</li>
+
+<li class="li">
+<p class="p"><code class="ph codeph">IloCplex.output</code> in Java</p>
+
+<p class="p">For example, to turn off output to the screen, use <code class="ph codeph">cplex.setOut(null)</code>.</p>
+
+</li>
+
+<li class="li">
+<p class="p"><code class="ph codeph">Cplex.Out</code> in .NET</p>
+
+<p class="p">For example, to turn off output to the screen, use <code class="ph codeph">Cplex.SetOut(Null)</code>.</p>
+
+</li>
+
+<li class="li">
+<p class="p"><code class="ph codeph">cplex.set_results_stream</code> in Python</p>
+
+<p class="p">For example, to turn off output to the screen, use
+<code class="ph codeph">cplex.set_results_stream(None)</code>.</p>
+
+</li>
+
+
+</ul>
+ </li>
+
+<li class="li"><p class="p">The parameter  <code class="ph codeph">IloCplex::RootAlg</code> in the C++
+API corresponds to these parameters in the C API:</p>
+ <ul class="ul">
+<li class="li"><p class="p"> <a class="xref" href="STARTALG.html" title="Sets which continuous optimizer will be used to solve the initial relaxation of a MIP.">algorithm for initial MIP relaxation</a>: <code class="ph codeph">CPX_PARAM_STARTALG</code></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="LPMETHOD.html" title="Controls which algorithm is used to solve continuous linear models or to solve the root relaxation of a MIP.">algorithm for continuous linear problems</a>: <code class="ph codeph">CPX_PARAM_LPMETHOD</code></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="QPMETHOD.html" title="Sets which algorithm to use when the C routine CPXqpopt (or the command optimize in the Interactive Optimizer) is invoked.">algorithm for continuous quadratic optimization</a>: <code class="ph codeph">CPX_PARAM_QPMETHOD</code></p>
+ </li>
+
+</ul>
+ </li>
+
+<li class="li"><p class="p">The parameter <code class="ph codeph">IloCplex::NodeAlg</code> in the C++
+API corresponds to the parameter <a class="xref" href="NodeAlg.html" title="Decides which continuous optimizer will be used to solve the subproblems in a MIP, after the initial relaxation.">MIP subproblem algorithm</a><code class="ph codeph"> CPX_PARAM_SUBALG</code> in
+the C API.</p>
+</li>
+
+</ul>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/refparameterscplex.html">Parameters of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

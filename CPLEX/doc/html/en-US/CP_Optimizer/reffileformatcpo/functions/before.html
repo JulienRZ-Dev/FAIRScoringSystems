@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="before" />
+<meta name="abstract" content="Constrains an interval variable to be before another interval variable in a sequence." />
+<meta name="Description" content="Constrains an interval variable to be before another interval variable in a sequence." />
+<meta name="DC.subject" content="before" />
+<meta name="keywords" content="before" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/interval_sequence.html" />
+<meta name="DC.Relation" scheme="URI" content="sequenceVar.html" />
+<meta name="DC.Relation" scheme="URI" content="noOverlap.html" />
+<meta name="DC.Relation" scheme="URI" content="previous.html" />
+<meta name="DC.Relation" scheme="URI" content="first.html" />
+<meta name="DC.Relation" scheme="URI" content="last.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="before" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>before</title>
+</head>
+<body id="before"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">before</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Constrains an interval variable to be before another interval variable in a sequence.
+</p>
+
+
+
+<section class="section" id="before__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">before</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__sequenceVar">sequenceVar</a> seq, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval1, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval2)
+</code></pre>
+</section>
+
+
+<section class="section" id="before__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">seq</code>: sequence variable.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">interval1</code>: first interval variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">interval2</code>: second interval variables.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="before__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns a constraint that states that whenever both interval variables <code class="ph codeph">interval1</code> and <code class="ph codeph">interval2</code> are present, 
+<code class="ph codeph">interval1</code> must be ordered before <code class="ph codeph">interval2</code> in the sequence variable <code class="ph codeph">seq</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="before__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+b = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, size=6);
+c = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=7);
+<span class="ph commentemph">// A sequence variable defined on {a,b,c}</span>
+seq = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([a,b,c]);
+<span class="ph commentemph">// The interval variables of the sequence cannot overlap</span>
+<a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a>(seq);
+<span class="ph commentemph">// If interval variable b is present, it must be ordered before c in the sequence</span>
+<strong class="ph b">before</strong>(seq,b,c);
+</code></pre>
+</section>
+
+
+<section class="section" id="before__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    Interval variables <code class="ph codeph">interval1</code> and <code class="ph codeph">interval2</code> should both belong to sequence variable <code class="ph codeph">seq</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a></li>
+<li class="linklist"><a class="link" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a></li>
+<li class="linklist"><a class="link" href="previous.html" title="Constrains an interval variable to be previous to another interval variable in a sequence.">previous</a></li>
+<li class="linklist"><a class="link" href="first.html" title="Constrains an interval variable to be the first in a sequence.">first</a></li>
+<li class="linklist"><a class="link" href="last.html" title="Constrains an interval variable to be the last in a sequence.">last</a></li>
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/interval_sequence.html">Interval variable sequencing in CP Optimizer</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

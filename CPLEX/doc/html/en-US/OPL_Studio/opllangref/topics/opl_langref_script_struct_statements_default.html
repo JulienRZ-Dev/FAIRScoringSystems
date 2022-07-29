@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Default values" />
+<meta name="abstract" content="Lists the default values used in OPL." />
+<meta name="Description" content="Lists the default values used in OPL." />
+<meta name="DC.subject" content="IBM ILOG Script, default values of statements, values, in IBM ILOG Script, default, syntax, in IBM ILOG Script, default values, of statements in IBM ILOG Script, with, IBM ILOG Script keyword, strings, length" />
+<meta name="keywords" content="IBM ILOG Script, default values of statements, values, in IBM ILOG Script, default, syntax, in IBM ILOG Script, default values, of statements in IBM ILOG Script, with, IBM ILOG Script keyword, strings, length" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_statements.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptStructure.1021185" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_statements.html" />
+<title>Default values</title>
+</head>
+<body id="usropllangref.uss_langref_scriptStructure.1021185"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Default values</h1>
+
+
+
+<div class="body"><p class="shortdesc">Lists the default values used in OPL.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table lists the syntax and effect of default values in OPL." id="usropllangref.uss_langref_scriptStructure.1021185__usropllangref.uss_langref_scriptStructure.1021188" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Default value syntax</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d486190e68">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d486190e71">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d486190e68 "><p class="p"><code class="ph codeph">with</code> </p>
+<p class="p">  (expression)</p>
+<p class="p">    statement</p>
+</td>
+
+<td class="entry" valign="top" headers="d486190e71 "><p class="p">Evaluate <code class="ph codeph">expression</code>, then execute <code class="ph codeph">statement</code> with
+the value of <code class="ph codeph">expression</code> temporarily installed as
+the default value. </p>
+<p class="p">When a reference to an identifier name in <code class="ph codeph">statement</code> is
+evaluated, this identifier is first looked up as a property of the
+default value; if the default value does not have such a property, <code class="ph codeph">name</code> is
+treated as a regular variable. </p>
+<p class="p">For example, the following program
+displays "The length is 3", because the identifier <code class="ph codeph">length</code> is
+taken as the <code class="ph codeph">length</code> property of the string "abc". </p>
+<p class="p"></p>
+with
+("abc") {   writeln("The length is ", length) }  <p class="p">You can nest <code class="ph codeph">with</code> statements;
+in this case, references to identifiers are looked up in the successive
+default values, from the innermost to the outermost <code class="ph codeph">with</code> statement. </p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_statements.html" title="A statement can be a conditional statement, a loop statement, a local script variable declaration, a function definition, or a default value.">Statements</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="The Statistics table (MP models)" />
+<meta name="abstract" content="Analyzes the results of the solve process displayed as statistics in the IDE." />
+<meta name="Description" content="Analyzes the results of the solve process displayed as statistics in the IDE." />
+<meta name="DC.subject" content="quadratic constraints, number displayed in Statistics output tab" />
+<meta name="keywords" content="quadratic constraints, number displayed in Statistics output tab" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplide/topics/opl_ide_stats_MP_exam.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplide.uss_ide_progress.1016678" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplide/topics/opl_ide_stats_MP_exam.html" />
+<title>The Statistics table (MP models)</title>
+</head>
+<body id="usroplide.uss_ide_progress.1016678"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">The Statistics table (MP models)</h1>
+<div class="body"><p class="shortdesc">Analyzes the results of the solve process displayed as
+statistics in the IDE.</p>
+
+<p class="p">The table in the Statistics tab reflects the contents of the Engine Log hierarchically as a tree.
+The table shown in the following screen capture is displayed at the end of the solve process for
+<code class="ph codeph">scalableWarehouse.mod</code>.</p>
+
+<figure class="fig fignone"><span class="figcap">Figure 1. MP models: results for <code class="ph codeph">scalableWarehouse.mod</code></span><div class="image"><img class="image" src="../images/scalableprogressend7.jpg" alt="Statistics table for the scalableWarehouse model" /></div></figure>
+
+<p class="p">The top level of the Statistic tree indicates the solving
+engine (CPLEX). You see certain statistic values change dynamically
+as the solving takes place. </p>
+
+<p class="p">For most algorithms, the statistics items are:</p>
+
+<ul class="ul"><li class="li"><p class="p">the <span class="ph uicontrol">CPLEX problem</span> </p>
+
+<ul class="ul"><li class="li"><p class="p">Number of constraints and variables,
+in a format similar to that of the Engine Log, with various characterizations.</p>
+
+</li>
+<li class="li"><p class="p">Number of nonzero coefficients</p>
+
+</li>
+<li class="li"><p class="p">Number of quadratic constraints and
+coefficients, when applicable</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">the <span class="ph uicontrol">presolve</span> stage
+(not shown in the <code class="ph codeph">scalableWarehouse</code> example)</p>
+
+<ul class="ul"><li class="li"><p class="p">Number of rows and columns removed,
+when applicable</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">the <span class="ph uicontrol">solve</span> stage,
+with the names of the algorithms used, such as MIP, Barrier, Simplex,
+and so on, with the corresponding statistics for each of them.</p>
+
+</li>
+</ul>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplide/topics/opl_ide_stats_MP_exam.html" title="Describes the engine log, progress chart and statistics table for MP models.">Examining the statistics and progress chart (MP)</a></div>
+</div>
+</nav></div></body>
+</html>

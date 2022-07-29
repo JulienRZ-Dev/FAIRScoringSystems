@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXERR_BAD_METHOD" />
+<meta name="abstract" content="1292 Invalid choice of optimization method" />
+<meta name="Description" content="1292 Invalid choice of optimization method" />
+<meta name="DC.subject" content="CPXERR_BAD_METHOD, C API Reference Manual" />
+<meta name="keywords" content="CPXERR_BAD_METHOD, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepageerrorcodes.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPXERR_BAD_METHOD" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepageerrorcodes.html" />
+<title>CPXERR_BAD_METHOD</title>
+</head>
+<body id="CPXERR_BAD_METHOD"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXERR_BAD_METHOD</span></h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">1292 Invalid choice of optimization method </p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPXERR_BAD_METHOD</span><span class="ph sep"> </span>1292
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section"> 
+    
+    <p class="p">CPLEX returns this error from such routines as <a class="xref" href="../cpxapi/hybnetopt.html" title="The routine CPXXhybnetopt/CPXhybnetopt, given a linear program that has been created via a call to CPXXcreateprob/CPXcreateprob, extracts an embedded network, uses the CPLEX Network Optimizer to attempt to obtain an optimal basis to the network, and optimizes the entire linear program using one of the CPLEX simplex methods.">CPXXhybnetopt and CPXhybnetopt</a>, <a class="xref" href="../barapi/hybbaropt.html" title="The routine CPXXhybbaropt/CPXhybbaropt may be used, at any time after a linear program has been created via a call to CPXXcreateprob/CPXcreateprob, to find a solution to that problem.">CPXXhybbaropt and CPXhybbaropt</a>, or other routines where the user specifies the optimization
+algorithm for CPLEX to use. In that case, choose a different algorithm
+(<code class="ph codeph">CPX_ALG_PRIMAL</code> or <code class="ph codeph">CPX_ALG_DUAL</code>, for example).</p>
+ 
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepageerrorcodes.html">Error Code Symbols in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

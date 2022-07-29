@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="warning limit" />
+<meta name="abstract" content="Determines how many times warnings of a specific type will be displayed." />
+<meta name="Description" content="Determines how many times warnings of a specific type will be displayed." />
+<meta name="DC.subject" content="warning limit parameter, CPXPARAM_Read_WarningLimit, ReadWarningLimit, limit, warning" />
+<meta name="keywords" content="warning limit parameter, CPXPARAM_Read_WarningLimit, ReadWarningLimit, limit, warning" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="WarningLimit" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>warning limit</title>
+</head>
+<body id="WarningLimit"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">warning limit</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Determines how many times warnings of a specific type will be displayed.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">warning limit parameter</p>
+
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d145286e61">API</th>
+
+<th class="entry nrule" valign="top" id="d145286e64">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">CPXPARAM_Read_WarningLimit </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">IloCplex::Param::Read::WarningLimit </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">IloCplex.Param.Read.WarningLimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">Cplex.Param.Read.WarningLimit </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">warnlim</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">parameters.read.warninglimit </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">read warninglimit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d145286e61 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d145286e64 ">1157</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">By default, when modeling assistance is turned on via the data consistency checking parameter,
+CPLEX will display 10 warnings for a given modeling issue and then omit the rest. This parameter
+controls this limit and allows the user to display all of the warnings if desired.</p>
+
+<p class="p">Although this parameter is currently used for modeling assistance warnings, it may be used for
+other types of warnings in the future.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d145286e179">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d145286e182">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d145286e179 ">n&gt;=0</td>
+
+<td class="entry" valign="top" headers="d145286e182 ">Limits number of warnings of each type displayed; default is 10 </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">See also <a class="xref" href="DataCheck.html" title="Turns on or off data consistency checking and modeling assistance.">data consistency checking and modeling assistance</a></p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

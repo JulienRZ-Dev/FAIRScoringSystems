@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="or" />
+<meta name="abstract" content="OPL aggregate for alternative constraints." />
+<meta name="Description" content="OPL aggregate for alternative constraints." />
+<meta name="DC.subject" content="logical OR, constraint programming, aggregate OR, or, OPL keyword, empty sets, or" />
+<meta name="keywords" content="logical OR, constraint programming, aggregate OR, or, OPL keyword, empty sets, or" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_and.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_forall.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="kgglma7L" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<title>or</title>
+</head>
+<body id="kgglma7L"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">or</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL aggregate for alternative constraints.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL aggregate
+constraint to express alternative constraints more compactly.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:50%" /><col style="width:50%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d428110e47" class="stentry">context</th>
+
+<th style="vertical-align:bottom;text-align:left;" id="d428110e50" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d428110e47" class="stentry">Model files (.mod) - Not allowed in a CPLEX constraint block.</td>
+
+<td style="vertical-align:top;" headers="d428110e50" class="stentry">
+<pre class="pre msgblock">boolean (1 if the constraint is true, 0 otherwise)</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+AggregateExpression: "sum" '(' Qualifiers ')' Expression
+                   | "min" '(' Qualifiers ')' Expression
+                   | "max" '(' Qualifiers ')' Expression
+                   | "prod" '(' Qualifiers ')' Expression
+                   | "or" '(' Qualifiers ')' Expression
+                   | "and" '(' Qualifiers ')' Expression
+                   | "union" '(' Qualifiers ')' Expression
+                   | "inter" '(' Qualifiers ')' Expression
+                   | AllExpression
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">This
+constraint enables you to express alternative constraints in a more
+compact form by using a logical OR to aggregate several constraints
+into a single one. Behavior on empty sets:</p>
+<pre class="pre codeblock"><code>or(empty set)=false</code></pre></section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>using CP;
+
+int n = 5;
+
+range R = 1..n;
+dvar int x[R] in R;
+
+maximize sum(i in R)x[i];
+
+subject to {
+  or(i in 1..5:i % 2==1) x[i]==1;
+  or(i in 1..5:i % 2==0) x[i]==2;
+}
+</code></pre></div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" title="Description, syntax, and example for each individual OPL keyword..">OPL keywords</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_opl_and.html" title="OPL aggregate to express cumulative constraints.">and</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_forall.html" title="OPL keyword to specify constraints.">forall</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

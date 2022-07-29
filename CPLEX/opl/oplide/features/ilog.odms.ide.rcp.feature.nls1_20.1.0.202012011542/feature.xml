@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ilog.odms.ide.rcp.feature.nls1"
+      label="%Feature-Name"
+      version="20.1.0.202012011542"
+      provider-name="%Feature-Vendor">
+
+   <includes
+         id="ilog.odms.ide.opl.feature.nls1"
+         version="20.1.0.202012011542"/>
+
+ 
+   <plugin
+         id="ilog.odms.ide.rcp.nl1"
+         download-size="22"
+         install-size="39"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

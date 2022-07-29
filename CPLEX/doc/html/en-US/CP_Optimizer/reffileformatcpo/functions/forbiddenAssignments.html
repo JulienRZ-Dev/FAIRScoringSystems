@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="forbiddenAssignments" />
+<meta name="abstract" content="Explicitly defines forbidden assignments for one or more integer expressions." />
+<meta name="Description" content="Explicitly defines forbidden assignments for one or more integer expressions." />
+<meta name="DC.subject" content="forbiddenAssignments" />
+<meta name="keywords" content="forbiddenAssignments" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="allowedAssignments.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/070_Types.html#Basic_expression_types/intExpr" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/130_MoreTypes.html#More_types/Type_tupleSet" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="forbiddenAssignments" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>forbiddenAssignments</title>
+</head>
+<body id="forbiddenAssignments"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">forbiddenAssignments</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Explicitly defines forbidden assignments for one or more integer expressions.
+</p>
+
+
+
+<section class="section" id="forbiddenAssignments__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">forbiddenAssignments</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> expr, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> values)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">forbiddenAssignments</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> exprs, <a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_tupleSet">tupleSet</a> tuples)
+</code></pre>
+</section>
+
+
+<section class="section" id="forbiddenAssignments__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">expr</code>: an integer expression.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">values</code>: an integer array defining forbidden values of <code class="ph codeph">expr</code>.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">exprs</code>: an array of integer expressions.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">tuples</code>: specifies the combinations of forbidden values of the expressions <code class="ph codeph">exprs</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="forbiddenAssignments__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function can be used to define simple constraints based
+on explicitly giving the forbidden assignments for a single expression or
+a small group of expressions.  The function returns a Boolean expression
+that represents the truth value of the statement: the values of the
+variables <code class="ph codeph">exprs</code> is a combination not present in <code class="ph codeph">tuples</code>. 
+</p>
+
+
+<p class="p">
+This Boolean expression (which is interpreted as a constraint outside of
+an expression) determines whether the assignment to a single expression <code class="ph codeph">expr</code>
+or to an array of expressions <code class="ph codeph">exprs</code> is not contained within the value set
+<code class="ph codeph">values</code> or the tuple set <code class="ph codeph">tuples</code> respectively.  The Boolean expression
+will be true if and only if (depending on the signature):
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    the value of the expression <code class="ph codeph">expr</code> is not present in the array <code class="ph codeph">values</code>.
+  </li>
+
+  <li class="li">
+    the values of the expressions <code class="ph codeph">exprs</code> are not present in the tuple set <code class="ph codeph">tuples</code>.
+  </li>
+
+</ul>
+
+
+<p class="p">
+The order of the constrained variables in the array <code class="ph codeph">exprs</code> is
+important because the same order is respected in the tuple set <code class="ph codeph">tuples</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="forbiddenAssignments__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+b = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+c = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+<strong class="ph b">forbiddenAssignments</strong>([a, b, c], [[1, 2, 3], [3, 2, 1], [2, 3, 1]]);
+</code></pre>
+</section>
+
+
+<section class="section" id="forbiddenAssignments__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    The size of <code class="ph codeph">exprs</code> must be the same as the arity of <code class="ph codeph">tuples</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="allowedAssignments.html" title="Explicitly defines possible assignments on one or more integer expressions.">allowedAssignments</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a></li>
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/130_MoreTypes.html#More_types__Type_tupleSet">tupleSet</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

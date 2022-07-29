@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Interactive CP Optimizer" />
+<meta name="abstract" content="Users can invoke CP Optimizer from the command line." />
+<meta name="Description" content="Users can invoke CP Optimizer from the command line." />
+<meta name="DC.subject" content="interactive" />
+<meta name="keywords" content="interactive" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/topics/cpoptimizer_splash.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_mbz_5w1_ww" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/topics/cpoptimizer_splash.html" />
+<title>Interactive CP Optimizer</title>
+</head>
+<body id="topic_mbz_5w1_ww"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Interactive CP Optimizer</h1>
+
+
+
+<div class="body"><p class="shortdesc">Users can invoke CP Optimizer from the command line.</p>
+
+
+<section class="section"><h2 class="title sectiontitle">Starting the CP Interactive Optimizer</h2>
+
+
+<p class="p">To start the CP Interactive Optimizer,
+type the command <code class="ph codeph">cpoptimizer</code> at your operating system prompt. 
+A message similar to the following one appears
+on the screen: </p>
+<pre class="pre codeblock"><code>
+Welcome to IBM(R) ILOG(R) CP Interactive Optimizer 12.7.0.0
+5724-Y48 5724-Y49 5724-Y54 5724-Y55 5725-A06 5725-A29
+Copyright IBM Corp. 1990, 2016.  All Rights Reserved
+
+Type 'help' for a list of available commands
+Type 'help' followed by a command name for more
+information on commands
+
+CP-Optimizer&gt; 
+
+</code></pre>
+<p class="p">The last line, <code class="ph codeph">CP-Optimizer&gt;</code>,
+is the prompt, showing that the product is running and is ready to
+accept one of the available CP Optimizer commands. Use the <code class="ph codeph">help</code> command
+to see a list of these commands.</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Flags for the CP Interactive Optimizer</h2>
+
+
+<div class="p">
+The CP Interactive Optimizer supports the flags <code class="ph codeph">-h</code> to display the usage, <code class="ph codeph">-f</code> to run commands from a specified file, 
+<code class="ph codeph">-c</code> to run specified commands, and <code class="ph codeph">-i</code> to start the 
+interactive shell.
+<pre class="pre codeblock"><code>
+Usage: ./cpoptimizer.bin [-h] [-i] [-f filename] [-c "cmd1" .. "cmdn"]
+    &lt;filename&gt; contains commands, one per line
+    "&lt;cmdi&gt;" is a single command enclosed in quotes
+Execution:
+    All commands specified via -f and -c are executed in order.
+    Then, if neither -f nor -c were specified, or -i was
+    specified, the interactive shell is started and additional
+    commands can be entered interactively.
+</code></pre>
+</div>
+
+<div class="p">
+For	example:
+<pre class="pre codeblock"><code> 
+cpoptimizer -c "read mymodel.cpo" -i
+</code></pre>
+starts the interactive optimizer after first loading <code class="ph codeph">mymodel.cpo</code>. The command
+<pre class="pre codeblock"><code> 
+cpoptimizer -f myfile.txt
+</code></pre> 
+where <code class="ph codeph">myfile.txt</code> contains interactive optimizer commands such as:
+<pre class="pre codeblock"><code> 
+read mymodel.cpo
+set Workers 4
+set TimeLimit 60
+opt
+</code></pre> 
+runs the commands in file <code class="ph codeph">myfile.txt</code> before exiting the interactive
+optimizer.
+</div>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Invoking the CP Interactive Optimizer</h2>
+
+<p class="p">If launching the CP Interactive Optimizer from the prompt of your operating system is not your preferred way of working, you can configure an integrated development environment (IDE) to launch 
+the interactive optimizer or launch the interactive optimizer from certain file browsers.</p>
+
+<p class="p">If you use an <strong class="ph b">integrated development environment (IDE) based on Eclipse</strong>, such
+as IBM ILOG CPLEX Optimization Studio or Rational Team Concert (RTC),
+you can configure your IDE to launch the interactive optimizer.
+To do so, follow these steps.</p>
+
+<ol class="ol">
+<li class="li">Open your IDE.</li>
+
+<li class="li">Click Run (the menu item) and select
+External Tools &gt; External Tools Configurations.</li>
+
+<li class="li">Select Program as the type of configuration and then click New.</li>
+
+<li class="li">In the dialog, supply a Name for your new configuration.
+For example, type <code class="ph codeph">CP Interactive Optimizer</code>.</li>
+
+<li class="li">On the Main tab of the dialog, supply the Location, that is,
+the path to the executable file of the CP Interactive Optimizer
+in your installation on your platform.  For example,
+on a typical Windows installation, the default path is:
+<pre class="pre codeblock"><code>C:\IBM\ILOG\CPLEX Optimization Studio\cpoptimizer\bin\x64_win64\cpoptimizer.exe</code></pre>
+or on a typical GNU/Linux installation, the default path resembles:
+<pre class="pre codeblock"><code>/opt/IBM/ILOG/CPLEX_Optimization_Studio/cpoptimizer/bin/port/cpoptimizer</code></pre>
+</li>
+
+<li class="li">Still on the Main tab, you can optionally supply a Working Directory,
+that is, a directory or folder where you have write permission and where
+you want CP Optimizer to write logs and to search for data.</li>
+
+<li class="li">After completing the dialog, click Apply and Run.</li>
+
+</ol>
+
+<p class="p">After those steps, the new run configuration appears in the list of
+Run Configurations in your IDE.  There, you can run the new configuration from your IDE 
+in the usual way to launch the executable file of CP Interactive Optimizer.</p>
+
+<div class="p">If you use a <strong class="ph b">file browser</strong>, such as the file explorer on Windows,
+you can also launch the interactive optimizer by browsing
+to the location of the executable file and double clicking it.
+<pre class="pre codeblock"><code>C:\IBM\ILOG\CPLEX Optimization
+Studio\cpoptimizer\bin\x64_win64\cpoptimizer.exe</code></pre> or
+<pre class="pre codeblock"><code>/opt/IBM/ILOG/CPLEX_Optimization_Studio/cpoptimizer/bin/port/cpoptimizer</code></pre>
+</div>
+
+<div class="note tip"><span class="tiptitle">Tip:</span> The precise location of the executable file of the CP Interactive
+Optimizer may differ slightly from the path in those examples. For example,
+your path may include the version number, especially if you have more than
+one installation of the product, or you may have installed the product
+in a customized location.  In such cases, adapt the paths shown in these
+examples to your particular situation.</div>
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/topics/cpoptimizer_splash.html">CP Optimizer</a></div>
+</div>
+</nav></div></body>
+</html>

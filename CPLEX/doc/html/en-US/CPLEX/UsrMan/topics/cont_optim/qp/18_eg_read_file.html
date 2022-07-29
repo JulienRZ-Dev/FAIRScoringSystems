@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Example: reading a QP from a file qpex2.c" />
+<meta name="abstract" content="Demonstrates reading data for a quadratic program from a file and solving in the C API." />
+<meta name="Description" content="Demonstrates reading data for a quadratic program from a file and solving in the C API." />
+<meta name="DC.subject" content="QP, example, reading QP from file, solution example, solution, example QP, reading, QP problem data from file, CPXlpopt, CPXqpopt routine, CPXopenCPLEX routine, example qpex2.c, CPXcreateprob routine, CPXfreeprob routine, CPXcloseCPLEX routine, example qpex2.c, solving, optimizer, barrier (quadratic), barrier optimizer, quadratic" />
+<meta name="keywords" content="QP, example, reading QP from file, solution example, solution, example QP, reading, QP problem data from file, CPXlpopt, CPXqpopt routine, CPXopenCPLEX routine, example qpex2.c, CPXcreateprob routine, CPXfreeprob routine, CPXcloseCPLEX routine, example qpex2.c, solving, optimizer, barrier (quadratic), barrier optimizer, quadratic" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/cont_optim/qp/01_QP_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveQP.656678" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/cont_optim/qp/01_QP_title_synopsis.html" />
+<title>Example: reading a QP from a file qpex2.c</title>
+</head>
+<body id="User_manual.uss_solveQP.656678"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Example: reading a QP from a file qpex2.c</h1>
+
+
+
+<div class="body"><p class="shortdesc">Demonstrates reading data for a quadratic program from
+a file and solving in the C API.</p>
+
+<p class="p">This example shows you how to optimize a QP with routines from
+the CPLEX Callable Library when the problem data is stored in a file.
+The example derives from <code class="ph codeph">lpex2.c</code> discussed in<em class="ph i"> Getting
+Started</em>. The Concert forms of this example, <code class="ph codeph">iloqpex2.cpp</code> and <code class="ph codeph">QPex2.java</code> ,
+are included online in the standard distribution.</p>
+
+<p class="p">Instead of calling <code class="ph codeph">CPXlpopt</code> to find a solution
+as for the <em class="ph i">linear</em> programming problem in <code class="ph codeph">lpeq2.c</code>,
+this example calls <code class="ph codeph">CPXqpopt</code>  to optimize this <em class="ph i">quadratic</em> programming
+problem. </p>
+
+<p class="p">Like other applications based on the CPLEX Callable Library, this
+one begins with calls to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code> to
+initialize the CPLEX environment and to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/createprob.html" title="The routine CPXXcreateprob/CPXcreateprob creates a CPLEX problem object in the CPLEX environment.">CPXcreateprob</a></code> to
+create the problem object. Before it ends, it frees the problem object
+with a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/freeprob.html" title="The routine CPXXfreeprob/CPXfreeprob removes the specified CPLEX problem object from the CPLEX environment and frees the associated memory used internally by CPLEX.">CPXfreeprob</a></code>,
+and it frees the environment with a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/closeCPLEX.html" title="This routine frees all of the data structures associated with CPLEX.">CPXcloseCPLEX</a></code>.</p>
+
+<p class="p">The complete program, <code class="ph codeph">qpex2.c</code>, appears online
+in the standard distribution at <em class="ph i">yourCPLEXinstallation</em><code class="ph codeph">/examples/src</code>.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/cont_optim/qp/01_QP_title_synopsis.html" title="Describes solving quadratic programming problems (QPs) with CPLEX.">Solving problems with a quadratic objective (QP)</a></div>
+</div>
+</nav></div></body>
+</html>

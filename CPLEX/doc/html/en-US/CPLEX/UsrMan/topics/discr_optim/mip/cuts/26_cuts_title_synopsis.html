@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Cuts" />
+<meta name="abstract" content="Describes types of cuts available in the MIP optimizer as performance features." />
+<meta name="Description" content="Describes types of cuts available in the MIP optimizer as performance features." />
+<meta name="DC.subject" content="cuts, what are" />
+<meta name="keywords" content="cuts, what are" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/01_mip_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/27_cuts_defn.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/28_BQPcuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/28_clique.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/29_cover.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/30_disj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/31_flow_cover.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/32_flow_path.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/33_Gomory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/34_gub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/35_impl_bnds.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/35_liftproj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/36_mir.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/37_mcf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/38_RLTcuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/38_zerohalf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/39_add_reopt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/40_count.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/41_params.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveMIP.638116" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/01_mip_title_synopsis.html" />
+<title>Cuts</title>
+</head>
+<body id="User_manual.uss_solveMIP.638116"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Cuts</h1>
+
+<p class="shortdesc">Describes types of cuts available in the MIP optimizer
+as performance features.</p>
+
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/27_cuts_defn.html">What are cuts?</a></strong><br />
+Defines cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/28_BQPcuts.html">Boolean Quadric Polytope (BQP) cuts</a></strong><br />
+Defines a Boolean Quadric Polytope (BQP) cut.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/28_clique.html">Clique cuts</a></strong><br />
+Defines a clique cut.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/29_cover.html">Cover cuts</a></strong><br />
+Defines a cover cut.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/30_disj.html">Disjunctive cuts</a></strong><br />
+Defines disjunctive cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/31_flow_cover.html">Flow cover cuts</a></strong><br />
+Defines flow cover cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/32_flow_path.html">Flow path cuts</a></strong><br />
+Defines flow path cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/33_Gomory.html">Gomory fractional cuts</a></strong><br />
+Defines Gomory fractional cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/34_gub.html">Generalized upper bound (GUB) cover cuts</a></strong><br />
+Defines GUB cover cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/35_impl_bnds.html">Implied bound cuts: global and local</a></strong><br />
+Defines both global and local implied bound cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/35_liftproj.html">Lift-and-project cuts</a></strong><br />
+Defines lift-and-project cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/36_mir.html">Mixed integer rounding (MIR) cuts</a></strong><br />
+Defines MIR cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/37_mcf.html">Multi-commodity flow (MCF) cuts</a></strong><br />
+Defines multi-commodity flow cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/38_RLTcuts.html">Reformulation Linearization Technique (RLT) cuts</a></strong><br />
+Defines a Reformulation Linearization Technique (RLT) cut.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/38_zerohalf.html">Zero-half cuts</a></strong><br />
+Defines zero-half cuts and offers an example.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/39_add_reopt.html">Adding cuts and re-optimizing</a></strong><br />
+Describes conditions under which CPLEX adds cuts.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/40_count.html">Counting cuts</a></strong><br />
+Describes methods and routines to calculate how many cuts have been added.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/41_params.html">Parameters affecting cuts</a></strong><br />
+Summarizes parameters controlling cuts.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/01_mip_title_synopsis.html" title="Documents the solution of mixed integer programs (MIPs) with the CPLEX mixed integer optimizer; that is, solving models in which one or more variables must take integer solution values.">Solving mixed integer programming problems (MIP)</a></div>
+</div>
+</nav></div></body>
+</html>

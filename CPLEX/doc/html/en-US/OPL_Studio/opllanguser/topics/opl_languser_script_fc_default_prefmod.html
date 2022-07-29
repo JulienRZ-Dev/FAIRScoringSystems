@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="The conflictIterator model" />
+<meta name="abstract" content="Presents the variables and constraints of this infeasible model." />
+<meta name="Description" content="Presents the variables and constraints of this infeasible model." />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_default_pref.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangtut.uss_langtut_conflictbasis.1018000" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_default_pref.html" />
+<title>The conflictIterator model</title>
+</head>
+<body id="usropllangtut.uss_langtut_conflictbasis.1018000"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">The conflictIterator model</h1>
+
+
+<div class="body"><p class="shortdesc">Presents the variables and constraints of this
+infeasible model.</p>
+
+<p class="p">This tutorial uses a simple infeasible model that defines
+the following variables and constraints.</p>
+
+<section class="section" id="usropllangtut.uss_langtut_conflictbasis.1018000__usropllangtut.uss_langtut_conflictbasis.1018565"><h2 class="title sectiontitle">Variables</h2><pre class="pre codeblock"><code>range r = 1..10;
+dvar int+ x[r] in 1..10;
+</code></pre></section>
+
+<section class="section" id="usropllangtut.uss_langtut_conflictbasis.1018000__usropllangtut.uss_langtut_conflictbasis.1018572"><h2 class="title sectiontitle">Constraints</h2><pre class="pre codeblock"><code>minimize sum(i in r) x[i];
+subject to {
+   ct: sum(i in r) x[i] &gt;= 10;
+   forall(i in r) 
+     cts: x[i] &gt;= i+5;
+} 
+</code></pre><p class="p">This model is clearly infeasible.
+All constraints from <code class="ph codeph">cts[6]</code> through <code class="ph codeph">cts[10]</code> are infeasible.</p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_default_pref.html" title="The conflictIterator example, with its model conflictIterator.mod, explains how to use the class IloOplConflictIterator to refine a conflict with user-defined preferences.">Setting preferences on the search for conflicts and relaxations</a></div>
+</div>
+</nav></div></body>
+</html>

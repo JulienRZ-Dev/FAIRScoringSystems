@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="solution type for LP and QP" />
+<meta name="abstract" content="Specifies type of solution (basic or non basic) that CPLEX produces for a linear program (LP) or quadratic program (QP)." />
+<meta name="Description" content="Specifies type of solution (basic or non basic) that CPLEX produces for a linear program (LP) or quadratic program (QP)." />
+<meta name="DC.subject" content="CPX_PARAM_SOLUTIONTYPE, CPXPARAM_SolutionType, SolutionType, basic solution, nonbasic solution, solution, basic, non basic" />
+<meta name="keywords" content="CPX_PARAM_SOLUTIONTYPE, CPXPARAM_SolutionType, SolutionType, basic solution, nonbasic solution, solution, basic, non basic" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="paramSolutionType" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>solution type for LP and QP</title>
+</head>
+<body id="paramSolutionType"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">solution type for LP and QP</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Specifies type of solution (basic or non basic) that CPLEX produces 
+for a linear program (LP) or quadratic program (QP).</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> <p class="p">Solution type for LP or QP</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d138661e70">API</th>
+
+<th class="entry nrule" valign="top" id="d138661e73">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">CPXPARAM_SolutionType</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">IloCplex::Param::SolutionType</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">IloCplex.Param.SolutionType</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">Cplex.Param.SolutionType</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">solutiontype</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">parameters.solutiontype</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">solutiontype</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138661e70 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d138661e73 ">1147</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+ 
+<p class="p">Specifies the type of solution (basic or non basic) 
+that CPLEX attempts to compute for a linear program (LP) 
+or for a quadratic program (QP). In this context, 
+<em class="ph i">basic</em> means having to do with the basis.
+When CPLEX offers a <em class="ph i">non basic</em> solution, the solution 
+consists of a pair of primal-dual solution vectors.
+</p>
+ 
+<p class="p">By <strong class="ph b">default</strong>  
+(that is, when the value of this parameter is 0 (zero) automatic), 
+CPLEX seeks a basic solution (that is, a solution with a basis) 
+for all linear programs (LP) and for all quadratic programs (QP). 
+</p>
+
+<p class="p">When the value of this parameter is 1 (one), CPLEX seeks a basic solution, 
+that is, a solution that includes a basis with a basic status for variables 
+and constraints. In other words, CPLEX behaves the same way for the values 
+0 (zero) and 1 (one) of this parameter.
+</p>
+
+<p class="p">When the value of this parameter is 2, CPLEX seeks a pair of 
+primal-dual solution vectors. This setting does not prevent CPLEX from 
+producing status information, but in seeking a pair of primal-dual solution vectors,
+CPLEX possibly may not produce <em class="ph i">basic</em> status information; that is, 
+it is possible that CPLEX does not produce status information about which 
+variables and constraints participate in the  
+<em class="ph i">basis</em> at this setting. 
+</p>
+
+</section>
+
+<section class="section">
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d138661e211">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d138661e214">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d138661e217">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d138661e211 ">0</td>
+
+<td class="entry" valign="top" headers="d138661e214 "><code class="ph codeph">CPX_AUTO_SOLN</code> </td>
+
+<td class="entry" valign="top" headers="d138661e217 ">Automatic: let CPLEX decide; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d138661e211 ">1</td>
+
+<td class="entry" valign="top" headers="d138661e214 "><code class="ph codeph">CPX_BASIC_SOLN</code> </td>
+
+<td class="entry" valign="top" headers="d138661e217 ">CPLEX computes a basic solution.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d138661e211 ">2</td>
+
+<td class="entry" valign="top" headers="d138661e214 "><code class="ph codeph">CPX_NONBASIC_SOLN</code> </td>
+
+<td class="entry" valign="top" headers="d138661e217 ">CPLEX computes a primal-dual pair of solution-vectors</td>
+
+</tr>
+
+
+</tbody>
+</table>
+</div>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

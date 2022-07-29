@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="strictLexicographic" />
+<meta name="abstract" content="Returns a constraint which maintains two arrays to be lexicographically ordered in strict order." />
+<meta name="Description" content="Returns a constraint which maintains two arrays to be lexicographically ordered in strict order." />
+<meta name="DC.subject" content="strictLexicographic" />
+<meta name="keywords" content="strictLexicographic" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="strictLexicographic" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>strictLexicographic</title>
+</head>
+<body id="strictLexicographic"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">strictLexicographic</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc"> Returns a constraint which maintains two arrays to be lexicographically ordered in
+strict order. </p>
+
+<section class="section" id="strictLexicographic__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">strictLexicographic</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> y)
+</code></pre>
+</section>
+
+<section class="section" id="strictLexicographic__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+
+<ul class="ul">
+<li class="li">
+<code class="ph codeph">x</code>: an array of integer expressions </li>
+
+<li class="li">
+<code class="ph codeph">y</code>: an array of integer expressions </li>
+
+</ul>
+
+</section>
+
+<section class="section" id="strictLexicographic__Description"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p"> The <code class="ph codeph"><a class="xref" href="strictLexicographic.html" title="Returns a constraint which maintains two arrays to be lexicographically ordered in strict order.">strictLexicographic</a></code> function
+returns a constraint which maintains two arrays to be lexicographically ordered, such that the first
+array of variables is strictly less than the second array of variables in the lexicographic order.. </p>
+
+<p class="p"> More specifically, <code class="ph codeph"><strong class="ph b">strictLexicographic</strong>(x, y)</code> maintains that
+<code class="ph codeph">x</code> is strictly less than <code class="ph codeph">y</code> in the lexicographical sense of the
+term. This means that there exists <code class="ph codeph">i &lt; size(x)</code> such that for all <code class="ph codeph">j &lt;
+i, x[j] = y[j]</code> and <code class="ph codeph">x[i] &lt; y[i]</code>. Note that the size of the two arrays
+must be the same.</p>
+
+</section>
+
+<section class="section" id="strictLexicographic__Example"><h2 class="title sectiontitle">Example</h2>
+
+<p class="p">
+<code class="ph codeph"><a class="xref" href="strictLexicographic.html" title="Returns a constraint which maintains two arrays to be lexicographically ordered in strict order.">strictLexicographic</a></code> is often used for
+symmetry breaking purposes. Assuming your model includes a matrix where rows can be interchanged, it
+is possible to reduce the problem search space by enforcing a strict lexicographic order between
+rows: </p>
+
+<pre class="pre codeblock"><code>
+x1 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+x2 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+x3 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+y1 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+y2 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+y3 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+<strong class="ph b">strictLexicographic</strong>([x1, x2, x3], [y1, y2, y3]);
+</code></pre>
+<p class="p"> Naturally, if your problem's matrix also has permutable columns, you can use the same approach
+on them. </p>
+
+</section>
+
+<section class="section" id="strictLexicographic__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+
+<p class="p"> Arrays <code class="ph codeph">x</code> and <code class="ph codeph">y</code> must have the same size. </p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li></ul></div>
+</nav>
+</div></body>
+</html>

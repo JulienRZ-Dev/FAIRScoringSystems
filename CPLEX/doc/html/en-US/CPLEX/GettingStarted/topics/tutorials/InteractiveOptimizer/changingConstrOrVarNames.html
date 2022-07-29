@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Changing constraint or variable names" />
+<meta name="abstract" content="These options change the name of a constraint or variable in the Interactive Optimizer." />
+<meta name="Description" content="These options change the name of a constraint or variable in the Interactive Optimizer." />
+<meta name="DC.subject" content="changing, variable names in Interactive Optimizer, constraint names in Interactive Optimizer, variable, changing names in Interactive Optimizer, constraint, problem, verifying entry in Interactive Optimizer, display Interactive Optimizer command" />
+<meta name="keywords" content="changing, variable names in Interactive Optimizer, constraint names in Interactive Optimizer, variable, changing names in Interactive Optimizer, constraint, problem, verifying entry in Interactive Optimizer, display Interactive Optimizer command" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/changingProb_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_interactiveOptimizerStart.149050" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/changingProb_synopsis.html" />
+<title>Changing constraint or variable names</title>
+</head>
+<body id="Getting_started.uss_interactiveOptimizerStart.149050"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Changing constraint or variable names</h1>
+<div class="body"><p class="shortdesc">These options change the name of a constraint or variable
+in the Interactive Optimizer.</p>
+
+<p class="p">Enter <code class="ph codeph">name</code> at the <code class="ph codeph">Change
+to make:</code> prompt to change the name of a constraint:</p>
+
+<pre class="pre codeblock"><code>
+Change to make: name
+</code></pre>
+<p class="p">The present name of the constraint is <code class="ph codeph">c3</code> .
+In the example, you can change the name to <code class="ph codeph">new3</code> to
+differentiate it from the other constraints using the following entries: </p>
+
+<pre class="pre codeblock"><code>
+Change a constraint or variable name [‘c’ or ‘v’]: c 
+Present name of constraint: c3 
+New name of constraint: new3 
+The constraint ‘c3’ now has name ‘new3’.
+</code></pre>
+<p class="p">The name of the constraint has been changed.</p>
+
+<p class="p">The problem can be checked with a <code class="ph codeph">display</code> command
+(for example, <code class="ph codeph">display problem constraints new3</code> )
+to confirm that the change was made.</p>
+
+<p class="p">This same technique can also be used to change the name
+of a variable.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/changingProb_synopsis.html" title="To change a problem, the Interactive Optimizer supports these commands and options.">Changing a problem</a></div>
+</div>
+</nav></div></body>
+</html>

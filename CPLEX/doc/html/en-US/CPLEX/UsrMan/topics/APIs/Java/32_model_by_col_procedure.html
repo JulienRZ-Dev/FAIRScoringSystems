@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Procedure for Modeling by Column" />
+<meta name="abstract" content="Tells how to model by columns in the Java API." />
+<meta name="Description" content="Tells how to model by columns in the Java API." />
+<meta name="DC.subject" content="variable, constructing arrays of (Java API), array, constructing (Java API), constructing arrays of variables (Java API), IloColumnArray class (Java API)" />
+<meta name="keywords" content="variable, constructing arrays of (Java API), array, constructing (Java API), constructing arrays of variables (Java API), IloColumnArray class (Java API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Java/30_model_by_col_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_javaIloCplex.1018648" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/30_model_by_col_title_synopsis.html" />
+<title>Procedure for Modeling by Column</title>
+</head>
+<body id="User_manual.uss_javaIloCplex.1018648"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Procedure for Modeling by Column</h1>
+<div class="body"><p class="shortdesc">Tells how to model by columns in the Java API.</p>
+
+<p class="p">Start by creating a description of how to install a new
+variable into existing modeling objects. Such a description is represented
+by <code class="ph codeph">IloColumn</code> objects. Individual <code class="ph codeph">IloColumn</code> objects
+define how to install a new variable in one existing modeling object
+and are created with one of the <code class="ph codeph">IloMPModeler.column</code> methods.
+Several <code class="ph codeph">IloColumn</code> objects can be linked
+together (with the <code class="ph codeph">IloCplex.and</code> method)
+to install a new variable in all modeling objects in which it is to
+appear. For example:</p>
+
+<pre class="pre codeblock"><code>IloColumn col = cplex.column(obj, 1.0).and(cplex.column(rng, 2.0));
+</code></pre>
+<p class="p">can be used to create a new variable and install it in
+the objective function represented by <code class="ph codeph">obj</code> with
+a linear coefficient of<code class="ph codeph"> 1.0</code> and in the
+ranged constraint <code class="ph codeph">rng</code> with a linear coefficient
+of <code class="ph codeph">2.0</code> .</p>
+
+<p class="p">After you have created the proper column object, use
+it to create a new variable by passing it as the first parameter to
+the variable constructor. The newly created variable will be immediately
+installed in existing modeling objects as defined by the <code class="ph codeph">IloColumn</code> object
+that has been used. So this line: </p>
+
+<pre class="pre codeblock"><code>
+IloNumVar var = cplex.numVar(col, 0.0, 1.0);
+</code></pre>
+<p class="p">creates a new variable with bounds <code class="ph codeph">0.0</code> and <code class="ph codeph">1.0</code> and
+immediately installs it in the objective <code class="ph codeph">obj</code> with
+linear coefficient <code class="ph codeph">1.0</code> and in the ranged
+constraint <code class="ph codeph">rng</code> with linear coefficient <code class="ph codeph">2.0</code> .</p>
+
+<p class="p">All constructor methods for variables come in pairs,
+one with and one without a first <code class="ph codeph">IloColumn</code> parameter.
+Methods for constructing arrays of variables are also provided for
+modeling by column. These methods take an <code class="ph codeph">IloColumnArray</code> object
+as a parameter that defines how each individual new variable is to
+be installed in existing modeling objects.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/30_model_by_col_title_synopsis.html" title="Introduces modeling by columns as implemented in the Java API.">Modeling by column</a></div>
+</div>
+</nav></div></body>
+</html>

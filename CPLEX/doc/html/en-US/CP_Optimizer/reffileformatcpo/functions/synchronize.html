@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="synchronize" />
+<meta name="abstract" content="Creates a synchronization constraint between interval variables." />
+<meta name="Description" content="Creates a synchronization constraint between interval variables." />
+<meta name="DC.subject" content="synchronize" />
+<meta name="keywords" content="synchronize" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/constraints_groups.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="alternative.html" />
+<meta name="DC.Relation" scheme="URI" content="span.html" />
+<meta name="DC.Relation" scheme="URI" content="startAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="endAtEnd.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="synchronize" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>synchronize</title>
+</head>
+<body id="synchronize"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">synchronize</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Creates a synchronization constraint between interval variables.
+</p>
+
+
+
+<section class="section" id="synchronize__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">synchronize</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intervalVarArray">intervalVarArray</a> array)
+</code></pre>
+</section>
+
+
+<section class="section" id="synchronize__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">interval</code>: interval variable.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">array</code>: array of interval variables synchronized with <code class="ph codeph">interval</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="synchronize__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function creates a synchronization constraint between an interval variable <code class="ph codeph">interval</code> and a set of interval variables in <code class="ph codeph">array</code>. This constraint makes all present intervals in <code class="ph codeph">array</code> start and end together with <code class="ph codeph">interval</code>, if it is present.
+</p>
+
+
+</section>
+
+
+<section class="section" id="synchronize__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a  = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=10..20);
+b1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional);  
+b2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional);  
+b3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional);  
+<span class="ph commentemph">// If an interval b is present it must start and end at the same value as interval a</span>
+<strong class="ph b">synchronize</strong>(a, [b1,b2,b3]);
+</code></pre>
+</section>
+
+
+<section class="section" id="synchronize__Notes"><h2 class="title sectiontitle">Notes</h2>
+<p class="p">
+The <code class="ph codeph"><a class="xref" href="synchronize.html" title="Creates a synchronization constraint between interval variables.">synchronize</a></code> constraint is the same as a set of <code class="ph codeph"><a class="xref" href="startAtStart.html" title="Constrains the delay between the starts of two interval variables.">startAtStart</a></code> and <code class="ph codeph"><a class="xref" href="endAtEnd.html" title="Constrains the delay between the ends of two interval variables.">endAtEnd</a></code> constraints between interval variable <code class="ph codeph">interval</code> and each of the interval variables in <code class="ph codeph">array</code>.
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li>
+<li class="linklist"><a class="link" href="alternative.html" title="Creates an alternative constraint between interval variables.">alternative</a></li>
+<li class="linklist"><a class="link" href="span.html" title="Creates a span constraint between interval variables.">span</a></li>
+<li class="linklist"><a class="link" href="startAtStart.html" title="Constrains the delay between the starts of two interval variables.">startAtStart</a></li>
+<li class="linklist"><a class="link" href="endAtEnd.html" title="Constrains the delay between the ends of two interval variables.">endAtEnd</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/constraints_groups.html">Constraints on groups of interval variables in CP Optimizer</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

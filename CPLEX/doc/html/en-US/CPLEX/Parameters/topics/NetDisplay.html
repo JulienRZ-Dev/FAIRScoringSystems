@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="network logging display switch" />
+<meta name="abstract" content="Decides what CPLEX reports to the screen during network optimization." />
+<meta name="Description" content="Decides what CPLEX reports to the screen during network optimization." />
+<meta name="DC.subject" content="CPX_PARAM_NETDISPLAY, NetDisplay, network display" />
+<meta name="keywords" content="CPX_PARAM_NETDISPLAY, NetDisplay, network display" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196788233648" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>network logging display switch</title>
+</head>
+<body id="languageRefTopic1196788233648"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">network logging display switch</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Decides what CPLEX reports to the screen during
+network optimization.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Network
+logging display switch</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d113652e52">API</th>
+
+<th class="entry nrule" valign="top" id="d113652e55">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d113652e58">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">CPXPARAM_Network_Display</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">CPX_PARAM_NETDISPLAY</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">IloCplex::Param::Network::Display</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">NetDisplay (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">IloCplex.Param.Network.Display</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">NetDisplay (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">Cplex.Param.Network.Display</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">NetDisplay (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">netdisplay </td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">netdisplay</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">parameters.network.display</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">not available</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">network display</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">network display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113652e52 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d113652e55 ">5005</td>
+
+<td class="entry nrule" valign="top" headers="d113652e58 ">5005</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Decides
+what CPLEX reports to the screen during network optimization. Settings
+1 and 2 differ only during Phase I. Setting 2 shows monotonic values,
+whereas 1 usually does not. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><span class="desc tabledesc">
+
+</span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d113652e188">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d113652e191">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d113652e194">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d113652e188 ">0</td>
+
+<td class="entry" valign="top" headers="d113652e191 "><code class="ph codeph">CPXNET_NO_DISPLAY_OBJECTIVE</code> </td>
+
+<td class="entry" valign="top" headers="d113652e194 ">No display</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d113652e188 ">1</td>
+
+<td class="entry" valign="top" headers="d113652e191 "><code class="ph codeph">CPXNET_TRUE_OBJECTIVE</code> </td>
+
+<td class="entry" valign="top" headers="d113652e194 "> Display true objective values</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d113652e188 ">2</td>
+
+<td class="entry" valign="top" headers="d113652e191 "><code class="ph codeph">CPXNET_PENALIZE_OBJECTIVE</code> </td>
+
+<td class="entry" valign="top" headers="d113652e194 "> Display penalized objective values; <strong class="ph b">default</strong> </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p"> </p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

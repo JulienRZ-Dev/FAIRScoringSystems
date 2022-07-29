@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Solving OPL models on the cloud" />
+<meta name="abstract" content="IBM Decision Optimization for Watson Machine Learning makes it possible to solve OPL models on the cloud." />
+<meta name="Description" content="IBM Decision Optimization for Watson Machine Learning makes it possible to solve OPL models on the cloud." />
+<meta name="DC.subject" content="cloud mode, cloud ready models, models adapted for the cloud, Watson Machine Learning" />
+<meta name="keywords" content="cloud mode, cloud ready models, models adapted for the cloud, Watson Machine Learning" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplide/topics/opl_ide_tutorialsTOP.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_ody_qv5_kr" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplide/topics/opl_ide_tutorialsTOP.html" />
+<title>Solving OPL models on the cloud</title>
+</head>
+<body id="topic_ody_qv5_kr"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Solving OPL models on the cloud</h1>
+
+
+
+<div class="body"><p class="shortdesc">IBM Decision Optimization for Watson Machine Learning makes it possible to solve OPL
+models on the cloud.</p>
+
+<section class="section"><h2 class="title sectiontitle">Models available for the cloud</h2><p class="p">Some of the OPL models can be run on the
+cloud from the IDE. In the New Example wizard, most of the models are "cloud ready". To work with an
+example that has been adapted for the cloud, select <span class="ph uicontrol">File &gt; Import &gt; Example</span>,
+and then <span class="ph uicontrol">IBM ILOG OPL Examples</span>. Click the tab <span class="ph uicontrol">Sorted by
+Feature</span>, and expand the <span class="ph uicontrol">Watson Machine Learning ready</span>
+list.</p>
+<img class="image" src="../images/cloud_examples.jpg" alt="Example Wizard showing the &#34;DOcplexcloud ready&#34; option for example models that can be solved in a cloud environment." /><p class="p">The run configuration of a model can contain zero or any number of plain
+<code class="ph codeph">.dat</code> files (that is, a <code class="ph codeph">.dat</code> file with no Excel statement, or no DB
+Link statement). The code in a standalone <code class="ph codeph">.mod</code> file must be cloud compliant (it
+does not require access to your disk).</p>
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_z3y_y2v_pjb"><h2 class="title sectiontitle">Setup for Watson Machine Learning</h2>
+
+<div class="p">There are five basic steps to set up your CPLEX Optimization Studio IDE to work with IBM Watson
+Machine Learning:<ol class="ol" id="topic_ody_qv5_kr__ol_uj3_gfv_pjb">
+<li class="li"><a class="xref" href="#topic_ody_qv5_kr__section_pwy_xyz_hnb">Create an IBM Cloud API
+key.</a></li>
+
+<li class="li"><a class="xref" href="#topic_ody_qv5_kr__section_enf_kfv_pjb">Create a WML service instance
+to deploy models</a></li>
+
+<li class="li"><a class="xref" href="#topic_ody_qv5_kr__section_prw_kfv_pjb">Create a Cloud Object Storage
+instance to store results</a></li>
+
+<li class="li"><a class="xref" href="#topic_ody_qv5_kr__section_ilz_25n_3nb">Create a deployment space to host your WML service</a></li>
+
+<li class="li"><a class="xref" href="#topic_ody_qv5_kr__section_i3r_lfv_pjb">Set your preferences in CPLEX
+Optimization Studio</a></li>
+
+</ol>
+</div>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">You need to register for an IBM Cloud account before completing these steps.</p>
+
+</div>
+
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_pwy_xyz_hnb"><h2 class="title sectiontitle">Create an IBM Cloud API key.</h2>
+
+<div class="p">
+<ol class="ol">
+<li class="li">Log in to <a class="xref" href="https://cloud.ibm.com" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://cloud.ibm.com</a>.</li>
+
+<li class="li">Click <span class="ph uicontrol">Manage</span> in the IBM Cloud menu and select <span class="ph uicontrol">Access
+(IAM)</span>.</li>
+
+<li class="li">On the <strong class="ph b">Access (IAM)</strong> page, click <span class="ph uicontrol">API keys</span> then <span class="ph uicontrol">Create an
+IBM Cloud API key</span>.</li>
+
+<li class="li">Download your new API key to your local machine.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_enf_kfv_pjb"><h2 class="title sectiontitle">Create a WML service instance to deploy models</h2>
+
+<ol class="ol" id="topic_ody_qv5_kr__ol_o3j_5fv_pjb">
+<li class="li">When logged into IBM Cloud, click <span class="ph uicontrol">Catalog</span> in the menu.</li>
+
+<li class="li">In the search field, type <em class="ph i">Machine Learning</em> and press <span class="keyword cmdname">Enter</span>. <p class="p">Click
+the Watson Machine Learning tile in your search results. <img class="image" src="../images/MLtile.jpg" alt="Tile display for Watson Machine Learning in IBM Cloud" /></p>
+</li>
+
+<li class="li">Create an instance of the Machine Learning service using the plan of your choice. For example,
+create a <strong class="ph b">Lite</strong> plan in the <strong class="ph b">Dallas</strong> region.</li>
+
+</ol>
+
+<p class="p">Keep your web browser open and logged into <a class="xref" href="https://cloud.ibm.com" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://cloud.ibm.com</a>.</p>
+
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_prw_kfv_pjb"><h2 class="title sectiontitle">Create a Cloud Object Storage instance and a bucket</h2>
+
+<div class="p">
+<ol class="ol" id="topic_ody_qv5_kr__ol_sxb_ggv_pjb">
+<li class="li">Still logged into <a class="xref" href="https://cloud.ibm.com" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://cloud.ibm.com</a>, click
+<span class="ph uicontrol">Catalog</span>.</li>
+
+<li class="li">Type <em class="ph i">Object Storage</em> in the search field and press <span class="keyword cmdname">Enter</span>.<p class="p">Click the
+<strong class="ph b">Object Storage</strong> tile in your search results. <img class="image" src="../images/objstoretile.jpg" alt="cloud object storage tile" /></p>
+</li>
+
+<li class="li">Create an instance of Cloud Object Storage using the plan of your choice.</li>
+
+<li class="li">Once it's created, click <span class="ph uicontrol">Buckets</span> and select <span class="ph uicontrol">Custom
+Bucket</span>. Enter a name for your bucket and select a <span class="ph uicontrol">Location</span>, for
+example <strong class="ph b">us-south</strong>. </li>
+
+<li class="li">Once you’ve created the bucket, click <span class="ph uicontrol">Service credentials</span>.</li>
+
+<li class="li">On the Service credentials page, click <span class="ph uicontrol">New credential</span> with the
+<em class="ph i">Role</em>
+<strong class="ph b">Manager</strong>.</li>
+
+<li class="li">Click the <span class="ph uicontrol">Advanced options</span> and choose the option <span class="ph uicontrol">Include HMAC
+Credential</span>, then click <span class="ph uicontrol">Add</span>.</li>
+
+</ol>
+
+</div>
+
+<p class="p">Keep your web browser open and logged into <a class="xref" href="https://cloud.ibm.com" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://cloud.ibm.com</a>.</p>
+
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_ilz_25n_3nb"><h2 class="title sectiontitle">Create a deployment space to host your WML service</h2>
+
+<div class="p">
+<ol class="ol">
+<li class="li">Still logged into <a class="xref" href="https://cloud.ibm.com" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://cloud.ibm.com</a>, select
+<span class="ph uicontrol">Resource list</span>.</li>
+
+<li class="li">In your list of resources, click the name of your WML instance in the
+<span class="ph uicontrol">Services</span> section.</li>
+
+<li class="li">On the Watson Machine Learning page, click <strong class="ph b">Access in Watson Studio</strong>. This opens Watson
+Studio in a new browser tab.</li>
+
+<li class="li">On the Watson Studio home page, click <span class="ph uicontrol">New deployment space</span> and select
+<span class="ph uicontrol">Create an empty space</span>.</li>
+
+<li class="li">Enter a name for your deployment space. <p class="p">The Cloud Object Storage instance that you created
+should be identified.</p>
+<p class="p">Select the WML service instance that you created earlier.</p>
+</li>
+
+<li class="li">Click <span class="ph uicontrol">Create</span>.</li>
+
+<li class="li">Once the deployment space is ready, click <span class="ph uicontrol">View new space</span>.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_i3r_lfv_pjb"><h2 class="title sectiontitle">Set your preferences in CPLEX Optimization Studio</h2>
+
+<p class="p">To connect the CPLEX Optimization Studio IDE to Watson Machine Learning you need the following
+information:</p>
+
+<div class="p">
+<ul class="ul">
+<li class="li">The IBM Cloud API key you created as part of this procedure: <a class="xref" href="#topic_ody_qv5_kr__section_pwy_xyz_hnb">Create an IBM Cloud API key.</a></li>
+
+<li class="li">The base URL of your Watson Machine Learning service. This URL depends on the region you
+selected for your service. For example, the base URL for the Dallas region is <a class="xref" href="https://us-south.ml.cloud.ibm.com" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://us-south.ml.cloud.ibm.com</a>. You can find a list of
+these URLs here: <a class="xref" href="https://cloud.ibm.com/apidocs/machine-learning#endpoint-url" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://cloud.ibm.com/apidocs/machine-learning#endpoint-url</a></li>
+
+<li class="li">The instance ID of your WML service. You can access this in IBM Cloud by navigating to your
+<span class="ph uicontrol">Resource List</span> and highlighting the WML service instance in the list. This
+opens a summary details pane from where you can copy the service GUID.<div class="note note"><span class="notetitle">Note:</span> Don't click the name of
+your WML service, as this will open the <strong class="ph b">Details</strong> page. Click elsewhere in the same row of your
+<span class="ph uicontrol">Resource List</span>.</div>
+</li>
+
+<li class="li">The Space ID of your deployment space. You can access this in Watson Studio by navigating to
+your deployment space and selecting the <span class="ph uicontrol">Settings</span> tab. </li>
+
+</ul>
+
+</div>
+
+
+<p class="p">To use Cloud Object Storage to keep a copy of your models, results, and logs, you need to specify
+the information listed here. </p>
+
+<p class="p">It's not essential to use Cloud Object Storage if, for example, you're working on a new model and
+you don't need to keep copies on the cloud.</p>
+
+<ul class="ul">
+<li class="li">The Endpoint URL of the bucket you will use. This depends on the location you selected for your
+bucket. For example, if you selected us-south, the URL is <a class="xref" href="https://s3.us-south.cloud-object-storage.appdomain.cloud" target="_blank" rel="noopener" title="(Opens in a new tab or window)">https://s3.us-south.cloud-object-storage.appdomain.cloud</a>.
+You can consult the list of <span class="ph uicontrol">Endpoints</span> in the IDE
+<span class="ph uicontrol">Preferences</span> panel.</li>
+
+<li class="li">The name of the bucket that you specified earlier in <a class="xref" href="#topic_ody_qv5_kr__section_prw_kfv_pjb">Create a Cloud Object Storage instance and a bucket</a>.</li>
+
+<li class="li">The service credentials of your Cloud Object Storage instance. You can copy these in IBM Cloud
+by clicking the Copy icon <img class="image" src="../images/copy_icon.jpg" alt="icon showing copy" /> beside the <span class="ph uicontrol">Service credentials</span> that you created. Once
+they're copied, you can paste them directly into the IDE Preferences panel by clicking the
+underlined link in the sentence “Click <u class="ph u">here</u> to paste WML or COS JSON credentials”.</li>
+
+</ul>
+
+<p class="p">Once you've collected all the information you need, you can enter it in the CPLEX Optimization
+Studio IDE.</p>
+
+<div class="p">
+<ol class="ol" id="topic_ody_qv5_kr__ol_b14_ymv_pjb">
+<li class="li">Launch the CPLEX Optimization Studio IDE and select
+<span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">OPL</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Watson
+Machine Learning</span></span>.</li>
+
+<li class="li">In the <strong class="ph b">Edit Watson Machine Learning preferences</strong> section of the dialog: <ul class="ul">
+<li class="li">enter your IBM Cloud API key in the <strong class="ph b">API Key</strong> field.</li>
+
+<li class="li">enter the base URL for your WML service instance in the <span class="ph uicontrol">Base URL</span> field. </li>
+
+<li class="li">enter the ID of your WML service instance in the <span class="ph uicontrol">Instance Id</span> field.</li>
+
+<li class="li">enter the ID of your Watson Studio deployment space in the <span class="ph uicontrol">Space Id</span>
+field.</li>
+
+</ul>
+</li>
+
+<li class="li">In IBM Cloud, in your Cloud Object Storage instance, click <span class="ph uicontrol">View
+credentials</span> beside the service credentials that you created earlier.</li>
+
+<li class="li">Click the <span class="ph uicontrol">Copy</span> icon <img class="image" id="topic_ody_qv5_kr__image_c4k_zqv_pjb" src="../images/copy_icon.jpg" alt="icon showing copy" />to copy the credentials to the
+clipboard.</li>
+
+<li class="li">In the CPLEX Optimization Studio IDE, click the underlined link in the sentence “Click
+<u class="ph u">here</u> to paste WML or COS JSON credentials” to paste your Object Storage credentials. Your
+<span class="ph uicontrol">Access Key</span> and <span class="ph uicontrol">Secret Key</span> are added to the
+<span class="ph uicontrol">Preferences</span> dialog.</li>
+
+<li class="li">Click the underlined link in the sentence “Click <u class="ph u">here</u> to select Endpoint” and select, for
+example, the second <strong class="ph b">us-south</strong> option from the list then click <span class="ph uicontrol">OK</span>.
+<div class="image"><img class="image" id="topic_ody_qv5_kr__image_ax2_c5v_pjb" src="../images/wml-creds.jpg" /></div></li>
+
+<li class="li">Click <span class="ph uicontrol">Apply and Close</span>.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Running a model in cloud mode</h2><p class="p">If you select <span class="ph uicontrol">Cloud
+mode</span> in a settings file, and run a model in your local IDE, all non compliant cloud
+features will raise an error. This setting helps you develop a model for the cloud on your local
+machine by checking the local solve more thoroughly. When you run a model with the Watson Machine
+Learning option, this setting detects OPL statements that are not supported on the cloud although
+they are supported on premises.</p>
+<img class="image" src="../images/cloudmode_setting.jpg" alt="Setting for cloud mode in the IDE" /><p class="p">To run a model on the cloud, select the run configuration and right-click to display the
+menu. Select the option <span class="ph uicontrol">Run this on Watson Machine Learning</span>.</p>
+<img class="image" src="../images/run_on_wmlcloud.jpg" alt="Option for a run configuration: Run this on Watson Machine Learning" /></section>
+
+<section class="section"><h2 class="title sectiontitle">Monitoring jobs in the IDE</h2><p class="p">The <span class="ph uicontrol">Watson Machine
+Learning</span> tab in the IDE displays the status of an executed run configuration. Only a run
+configuration containing a tuple set as a post processing structure will provide a report.</p>
+<img class="image" id="topic_ody_qv5_kr__image_sc3_hqc_qjb" src="../images/wmlcloud_jobstatus.jpg" alt="WML job status tab in the IDE" /><div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">You may need to refresh the <span class="ph uicontrol">Watson Machine Learning</span> view to see the status
+of your job.</p>
+
+</div>
+</section>
+
+<section class="section" id="topic_ody_qv5_kr__section_yrt_hqc_qjb"><h2 class="title sectiontitle">Accessing results or logs</h2><p class="p">Once you've run a job
+in the IDE, you can import results or logs by right-clicking the job name in the Watson Machine
+Learning tab and selecting the appropriate option.</p>
+<img class="image" id="topic_ody_qv5_kr__image_fw3_5qc_qjb" src="../images/cloud_importresult.jpg" alt="Import results or logs dialog" /></section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplide/topics/opl_ide_tutorialsTOP.html" title="The tutorials use examples from the product distribution to illustrate typical features and use cases of the CPLEX Studio IDE.">IDE Tutorials</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Elements of the blending model" />
+<meta name="abstract" content="Presents the data file, decision variables and constraints." />
+<meta name="Description" content="Presents the data file, decision variables and constraints." />
+<meta name="DC.subject" content="data, of blending problem, code samples, blending.dat, decision variables, for blending problem, range of variables, constraints, in blending problem" />
+<meta name="keywords" content="data, of blending problem, code samples, blending.dat, decision variables, for blending problem, range of variables, constraints, in blending problem" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangtut.uss_langtut_shortTour.1005989" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<title>Elements of the blending model</title>
+</head>
+<body id="usropllangtut.uss_langtut_shortTour.1005989"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Elements of the blending model</h1>
+
+
+<div class="body"><p class="shortdesc">Presents the data file, decision variables and constraints.</p>
+</div>
+
+<article class="topic nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" id="usropllangtut.uss_langtut_shortTour.1079953">
+<h2 class="title topictitle2" id="ariaid-title2">Problem data</h2>
+
+
+<div class="body">
+<p class="p">The model is described in terms of a number of constants specifying
+the various types of metals, raw materials, scrap, and ingots. In
+the instance data shown in <a class="xref" href="opl_languser_shortTour_elements.html#usropllangtut.uss_langtut_shortTour.1079953__usropllangtut.uss_langtut_shortTour.1070098">Instance
+data for the blending problem (<code class="ph codeph">blending.dat</code>)</a>,
+there are three metals, two raw materials, two kinds of scrap, and
+one kind of ingot. The model also defines ranges for each of the components.
+It then defines the cost of the various components in <code class="ph codeph">costMetal</code>, <code class="ph codeph">costRaw</code>, <code class="ph codeph">costScrap</code>, <code class="ph codeph">costIngo</code>.
+In the instance data, for example, the second raw material has a cost
+of 5. The data items <code class="ph codeph">Low</code> and <code class="ph codeph">Up</code> specify
+the production constraints and give lower and upper bounds on the
+quantity of each sort of metal in the alloy. For example, in the instance
+data, between 30% and 40% of the alloy must be the second metal. The
+next data items, <code class="ph codeph">percRaw</code>, <code class="ph codeph">percScrap</code>,
+and <code class="ph codeph">percIngo</code>, specify the percentage of each metal
+in the sources. In <a class="xref" href="opl_languser_shortTour_elements.html#usropllangtut.uss_langtut_shortTour.1079953__usropllangtut.uss_langtut_shortTour.1070098">Instance
+data for the blending problem (<code class="ph codeph">blending.dat</code>)</a>,
+the second type of scrap contains 1% of the first metal, none of the
+second metal, and 70% of the third metal. Finally, the data alloy
+specifies the amount of alloy to be produced. </p>
+
+<p class="p exampletitle" id="usropllangtut.uss_langtut_shortTour.1079953__usropllangtut.uss_langtut_shortTour.1070098">Instance data for the blending problem
+(<code class="ph codeph">blending.dat</code>)</p>
+
+<pre class="pre codeblock"><code>NbMetals = 3;
+NbRaw = 2;
+NbScrap = 2;
+NbIngo = 1;
+
+CostMetal = [22, 10, 13];
+CostRaw = [6, 5];
+CostScrap = [ 7, 8];
+CostIngo = [ 9 ];
+Low = [0.05, 0.30, 0.60];
+Up = [0.10, 0.40, 0.80];
+PercRaw = [ [ 0.20, 0.01 ], [ 0.05, 0 ], [ 0.05, 0.30 ] ];
+PercScrap = [ [ 0 , 0.01 ], [ 0.60, 0 ], [ 0.40, 0.70 ] ];
+PercIngo = [ [ 0.10 ], [ 0.45 ], [ 0.45 ] ];
+Alloy  = 71;
+</code></pre>
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" id="usropllangtut.uss_langtut_shortTour.1070071">
+<h2 class="title topictitle2" id="ariaid-title3">Decision variables</h2>
+
+
+<div class="body">
+<p class="p">The decision variables specify how much of each source is used
+in the alloy: the array <code class="ph codeph">p</code> specifies the quantities
+of pure metals, array <code class="ph codeph">r</code> specifies the quantities
+of raw materials, array <code class="ph codeph">s</code> specifies the quantities
+of scrap, array <code class="ph codeph">i</code> specifies the number of ingots.
+All variables are of type <code class="ph codeph">float</code> except number of
+ingots, which are integers. The problem is thus a mixed integer-linear
+program. The instruction </p>
+
+<pre class="pre codeblock"><code>
+dvar float m[j in Metals] in low[j] * alloy .. up[j] * alloy; 
+</code></pre>
+<p class="p">is particularly interesting, since it shows how to specify the
+range of decision variables in a generic fashion. More precisely,
+the range of variables <code class="ph codeph">m[j]</code> is given by the expression:</p>
+
+<pre class="pre codeblock"><code>
+low[j] * alloy .. up[j] * alloy
+</code></pre>
+<p class="p">Note also that the model uses the variables in array <code class="ph codeph">m</code> as
+intermediary variables to represent the quantity of each metal produced. </p>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title4" xml:lang="en-us" id="usropllangtut.uss_langtut_shortTour.1006058">
+<h2 class="title topictitle2" id="ariaid-title4">Constraints</h2>
+
+
+<div class="body">
+
+<p class="p">There are two types of constraints in this problem. </p>
+
+<ul class="ul">
+<li class="li"><p class="p">The <code class="ph codeph">forall</code> constraint</p>
+  <pre class="pre codeblock"><code>subject to {
+  forall( j in Metals )
+    ct1:
+      m[j] == 
+      p[j] + 
+      sum( k in Raws )   PercRaw[j][k] * r[k] +
+      sum( k in Scraps ) PercScrap[j][k] * s[k] +
+      sum( k in Ingos )  PercIngo[j][k] * i[k];
+    ct2:  
+      sum( j in Metals ) m[j] == Alloy;
+}
+</code></pre><p class="p">makes
+sure that the right amounts of metal are produced. The amount <code class="ph codeph">m[j]</code> of
+metal <code class="ph codeph">j</code> must be equal to the amount of pure metal <code class="ph codeph">p[j]</code> added
+to the quantity of metal <code class="ph codeph">j</code> contained in the raw materials,
+the scrap, and the ingots. The correct amount of metals are computed
+using the percentage of metals contained in the sources. </p>
+ </li>
+
+<li class="li"><p class="p">The <code class="ph codeph">sum</code> constraint </p>
+ <pre class="pre codeblock"><code>
+sum(j in Metals) m[j] == alloy;
+</code></pre> <p class="p">makes sure that the various metals produced give the
+correct amount of alloy. The objective function in this model is rather
+simple. It consists of computing the price of each source from its
+unit price (e.g., <code class="ph codeph">costMetal</code>) and the amount produced
+(e.g., <code class="ph codeph">p[j]</code>).</p>
+ </li>
+
+</ul>
+
+<section class="section" id="usropllangtut.uss_langtut_shortTour.1006058__usropllangtut.uss_langtut_shortTour.1056973"><h3 class="title sectiontitle">A
+solution to blending.mod</h3><p class="p">For
+the instance data given in <a class="xref" href="opl_languser_shortTour_elements.html#usropllangtut.uss_langtut_shortTour.1079953__usropllangtut.uss_langtut_shortTour.1070098">Instance
+data for the blending problem (<code class="ph codeph">blending.dat</code>)</a>,
+OPL returns the solution </p>
+<pre class="pre codeblock"><code>
+Final Solution with objective 653.6100:
+  p = [0.0467 0.0000 0.0000];
+  r = [0.0000 0.0000];
+  s = [17.4167 30.3333];
+  i = [32];
+  m = [3.5500 24.8500 42.6000];
+</code></pre></section>
+
+</div>
+
+</article>
+
+
+</div></body>
+</html>

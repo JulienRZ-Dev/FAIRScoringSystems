@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Controlling Output in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/addfuncdest.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delfuncdest.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/disconnectchannel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/flushchannel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/flushstdchannels.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getchannels.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/geterrorstring.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/msg.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/msgstr.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlogfilename.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagemessage" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Controlling Output in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepagemessage"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Controlling Output in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines manage messages and control output channels from CPLEX.
+</p>
+
+<p class="p">
+These routines make it possible for your application to control 
+which messages from CPLEX appear on screen, which are sent to files. 
+These routines also provide support for you to create your own messages. 
+</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/addfuncdest.html">CPXXaddfuncdest and CPXaddfuncdest</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddfuncdest</span>/<span class="keyword apiname">CPXaddfuncdest</span></code> adds a function <code class="ph codeph"><span class="keyword parmname">msgfunction</span></code> to the message destination list for a channel.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delfuncdest.html">CPXXdelfuncdest and CPXdelfuncdest</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelfuncdest</span>/<span class="keyword apiname">CPXdelfuncdest</span></code> removes the function <code class="ph codeph"><span class="keyword parmname">msgfunction</span></code> from the list of message destinations associated with a channel.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/disconnectchannel.html">CPXXdisconnectchannel and CPXdisconnectchannel</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdisconnectchannel</span>/<span class="keyword apiname">CPXdisconnectchannel</span></code> flushes all message destinations associated with a channel and clears the corresponding message destination list.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/flushchannel.html">CPXXflushchannel and CPXflushchannel</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXflushchannel</span>/<span class="keyword apiname">CPXflushchannel</span></code> flushes (outputs and clears the buffers of) all message destinations for a channel.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/flushstdchannels.html">CPXXflushstdchannels and CPXflushstdchannels</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXflushstdchannels</span>/<span class="keyword apiname">CPXflushstdchannels</span></code> flushes the output buffers of the four standard channels <code class="ph codeph">cpxresults</code>, <code class="ph codeph">cpxwarning</code>, <code class="ph codeph">cpxerror</code>, and <code class="ph codeph">cpxlog</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getchannels.html">CPXXgetchannels and CPXgetchannels</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetchannels</span>/<span class="keyword apiname">CPXgetchannels</span></code> obtains pointers to the four default channels created when you call the routine <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/geterrorstring.html">CPXXgeterrorstring and CPXgeterrorstring</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgeterrorstring</span>/<span class="keyword apiname">CPXgeterrorstring</span></code> returns an error message string corresponding to an error code.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/msg.html">CPXXmsg and CPXmsg</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXmsg</span>/<span class="keyword apiname">CPXmsg</span></code>   is deprecated in CPLEX V12.9.0. Instead, use   <code class="ph codeph"><a class="xref" href="../cpxapi/msgstr.html" title="The routine CPXXmsgstr/CPXmsgstr sends a character string to a CPLEX message channel."><span class="keyword apiname">CPXXmsgstr/CPXmsgstr</span></a></code>.    For a simple way of transitioning, see the steel.c example code.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/msgstr.html">CPXXmsgstr and CPXmsgstr</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmsgstr</span>/<span class="keyword apiname">CPXmsgstr</span></code> sends a character string to a CPLEX message channel.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setlogfilename.html">CPXXsetlogfilename and CPXsetlogfilename</a></strong><br />
+      Sets and opens the log file.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="CP Optimizer File Format Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/topics/cpoptimizer_splash.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/search.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/startingpoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/kpis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/parameters.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/internals.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_bnf_rxs_vp" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../CP_Optimizer/topics/cpoptimizer_splash.html" />
+<title>CP Optimizer File Format Reference Manual</title>
+</head>
+<body id="topic_bnf_rxs_vp"><div role="main">
+
+ <h1 class="title topictitle1" id="ariaid-title1">CP Optimizer File Format Reference Manual</h1>
+
+<div class="body">
+ <p class="p">This is the <em class="ph i">CP Optimizer File Format Reference Manual</em>.</p>
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax.html">CP Optimizer file format syntax</a></strong><br />
+ This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/functions.html">Functions</a></strong><br />
+ The following functions can be used in a CP Optimizer model file (CPO file): </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/search.html">The search section</a></strong><br />
+ A CPO file may contain an optional  <code class="ph codeph">search</code> section which specifies a variable fixing strategy that CP Optimizer should use while searching for solutions. The strategy is described by <em class="ph i">search phases</em>. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/startingpoint.html">The startingPoint section</a></strong><br />
+ The optional section <code class="ph codeph">startingPoint</code> specifies a (possibly partial) solution that could be used by CP Optimizer to start the search. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/kpis.html">The KPIs section</a></strong><br />
+ Key Performance Indicators (KPIs) are expressions whose value somehow characterize a solution and its quality. They differ from objective expressions: objective expressions are passed to <code class="ph codeph"><a class="xref" href="functions/minimize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to minimize the value of an expression.">minimize</a></code> or <code class="ph codeph"><a class="xref" href="functions/maximize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to maximize the value of an expression.">maximize</a></code> and CP Optimizer actively works on improving their value. KPIs are not actively improved in that sense: achieving good values of KPIs is usually a side product of achieving good objective value. For example, objective could be to minimize total duriation of a schedule and KPI could be the total idle time of a bottleneck machine. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/parameters.html">The parameters section</a></strong><br />
+ The optional section <code class="ph codeph">parameters</code> specifies the CP Optimizer parameters that should be used for solving the model. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/internals.html">The internals section</a></strong><br />
+ The section <code class="ph codeph">internals</code> contains internal data of CP Optimizer produced by the model dump function: <code class="ph codeph">IloCP::dumpModel</code> in the C++ API, <code class="ph codeph">IloCP.dumpModel</code> in the Java™ API, <code class="ph codeph">CP.DumpModel</code> in C# API or <code class="ph codeph">oplrun -d</code> for OPL models. </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../CP_Optimizer/topics/cpoptimizer_splash.html">CP Optimizer</a></div>
+</div>
+</nav></div></body>
+</html>

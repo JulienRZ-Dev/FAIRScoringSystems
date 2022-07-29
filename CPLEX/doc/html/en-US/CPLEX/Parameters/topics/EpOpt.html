@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="optimality tolerance" />
+<meta name="abstract" content="Influences the reduced-cost tolerance for optimality." />
+<meta name="Description" content="Influences the reduced-cost tolerance for optimality." />
+<meta name="DC.subject" content="CPX_PARAM_EPOPT, EpOpt, simplex tolerances optimality, optimality tolerance (simplex), tolerance, optimality (simplex)" />
+<meta name="keywords" content="CPX_PARAM_EPOPT, EpOpt, simplex tolerances optimality, optimality tolerance (simplex), tolerance, optimality (simplex)" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196783506259" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>optimality tolerance</title>
+</head>
+<body id="languageRefTopic1196783506259"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">optimality tolerance</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Influences the reduced-cost tolerance for optimality.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>     
+     
+<p class="p">Optimality tolerance</p>
+ 
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d99050e63">API</th>
+
+<th class="entry nrule" valign="top" id="d99050e66">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d99050e69">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">CPXPARAM_Simplex_Tolerances_Optimality</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">CPX_PARAM_EPOPT</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">IloCplex::Param::Simplex::Tolerances::Optimality</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">EpOpt (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">IloCplex.Param.Simplex.Tolerances.Optimality</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">EpOpt (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">Cplex.Param.Simplex.Tolerances.Optimality</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">EpOpt (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">epopt </td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">epopt</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">parameters.simplex.tolerances.optimality</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">simplex.tolerances.optimality</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">simplex tolerances optimality</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">simplex tolerances optimality</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99050e63 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d99050e66 ">1014</td>
+
+<td class="entry nrule" valign="top" headers="d99050e69 ">1014</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p"> Influences the reduced-cost
+tolerance for optimality. This parameter governs how closely CPLEX
+must approach the theoretically optimal solution. </p>
+ <p class="p">The simplex
+algorithm halts when it has found a basic feasible solution  with
+all reduced costs nonnegative. CPLEX uses this optimality tolerance
+to  make the decision of whether or not a given reduced cost should
+be  considered nonnegative. CPLEX considers "nonnegative" a negative
+reduced cost  having absolute value less than the optimality tolerance.
+ For example, if your optimality tolerance is set to 1e-6, then CPLEX
+considers  a reduced cost of -1e-9 as nonnegative for the purpose
+of deciding  whether the solution is optimal. </p>
+
+  
+<p class="p paragrouptitle">Values</p>
+
+<p class="p">Any number from 1e-9 to 1e-1; <strong class="ph b">default</strong>: 1e-06.</p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

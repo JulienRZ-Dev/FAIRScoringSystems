@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ilog.odms.ide.opl.feature"
+      label="%Feature-Name"
+      version="20.1.0.202012011542"
+      provider-name="%Feature-Vendor"
+      plugin="ilog.odms.ide.opl">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.dom4j" version="2.1.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.ltk.core.refactoring"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.compare" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="com.ibm.icu" version="3.8.1" match="greaterOrEqual"/>
+      <import plugin="ilog.odms.ide.opllang.data" version="20.1.0" match="greaterOrEqual"/>
+      <import plugin="ilog.odms.ide.opllang.ast" version="20.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.ui.intro"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.ui" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="ilog.views.eclipse.gantt.runtime" version="8.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.navigator"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui.externaltools"/>
+      <import plugin="org.eclipse.core.variables"/>
+      <import plugin="org.eclipse.ltk.ui.refactoring"/>
+      <import plugin="org.eclipse.nebula" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="ilog.views.eclipse.chart.runtime" version="8.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.search" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.security" version="1.0.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.swt" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.jobs"/>
+      <import plugin="ilog.views.eclipse.framework.runtime" version="8.10.0" match="equivalent"/>
+      <import plugin="ilog.views.eclipse.chart.runtime" version="8.10.0" match="equivalent"/>
+      <import plugin="ilog.views.eclipse.utilities.runtime" version="8.10.0" match="equivalent"/>
+      <import plugin="ilog.odms.ide.opllang.interfaces" version="20.1.0" match="greaterOrEqual"/>
+      <import plugin="ilog.odms.ide.lpg" version="20.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.wst.jsdt.core" version="1.1.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text" version="3.9.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.text"/>
+   </requires>
+
+   <plugin
+         id="ilog.odms.ide.core"
+         download-size="720"
+         install-size="1482"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.help"
+         download-size="47596"
+         install-size="53205"
+         version="20.1.0.202012011542"/>
+
+   <plugin
+         id="ilog.odms.ide.intro"
+         download-size="68"
+         install-size="106"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.lpg"
+         download-size="91"
+         install-size="100"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opl"
+         download-size="9"
+         install-size="12"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang"
+         download-size="1313"
+         install-size="1481"
+         version="20.1.0.202012011542"/>
+
+   <plugin
+         id="ilog.odms.ide.samples.opl"
+         download-size="9981"
+         install-size="18145"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.ui"
+         download-size="2885"
+         install-size="4725"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula"
+         download-size="137"
+         install-size="152"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.swtchart"
+         download-size="116"
+         install-size="223"
+         version="0.10.0.v201605200358"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.win32.win32.x86_64"
+         os="win32"
+         ws="win32"
+         arch="x86_64"
+         download-size="49530"
+         install-size="151038"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.remote"
+         download-size="92"
+         install-size="176"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.gtk.linux.x86_64"
+         os="linux"
+         ws="gtk"
+         arch="x86_64"
+         download-size="54532"
+         install-size="177672"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="org.slf4j.api"
+         download-size="33"
+         install-size="60"
+         version="1.7.2.v20121108-1250"
+         unpack="false"/>
+
+   <plugin
+         id="org.slf4j.nop"
+         download-size="10"
+         install-size="14"
+         version="1.7.2.v201212060727"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.views.eclipse.gantt.runtime"
+         download-size="1015"
+         install-size="1016"
+         version="8.10.0.v20161008"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.views.eclipse.framework.runtime"
+         download-size="7311"
+         install-size="7316"
+         version="8.10.0.v20161008"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.views.eclipse.utilities.runtime"
+         download-size="1083"
+         install-size="1088"
+         version="8.10.0.v20161008"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.views.eclipse.chart.runtime"
+         download-size="1785"
+         install-size="1786"
+         version="8.10.0.v20161008"/>
+
+   <plugin
+         id="ilog.odms.studio.help"
+         download-size="500"
+         install-size="534"
+         version="20.1.0.202012011542"/>
+
+   <plugin
+         id="ilog.odms.cplex.help"
+         download-size="20381"
+         install-size="27254"
+         version="20.1.0.202012011542"/>
+
+   <plugin
+         id="ilog.odms.cpo.help"
+         download-size="11407"
+         install-size="13786"
+         version="20.1.0.202012011542"/>
+
+   <plugin
+         id="com.ibm.docplex.help"
+         download-size="22"
+         install-size="27"
+         version="2.16.0.202012011542"/>
+
+       
+   <plugin
+         id="ilog.odms.ide.opllang.cocoa.macosx.x86_64"
+         os="macosx"
+         ws="cocoa"
+         arch="x86_64"
+         download-size="50819"
+         install-size="148241"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.interfaces"
+         download-size="21"
+         install-size="30"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.data"
+         download-size="141"
+         install-size="269"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.ast"
+         download-size="574"
+         install-size="2547"
+         version="20.1.0.202012011542"
+         unpack="false"/>
+
+   <plugin
+         id="org.dom4j"
+         download-size="498"
+         install-size="547"
+         version="2.1.1"
+         unpack="false"/>
+
+</feature>

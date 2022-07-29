@@ -1,0 +1,162 @@
+<!-- Generator: GNU source-highlight 2.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>001: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+002: <b><font color="#007D00">// Licensed Materials - Property of IBM</font></b>
+003: <b><font color="#007D00">//</font></b>
+004: <b><font color="#007D00">// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55</font></b>
+005: <b><font color="#007D00">// Copyright IBM Corporation 1998, 2013. All Rights Reserved.</font></b>
+006: <b><font color="#007D00">//</font></b>
+007: <b><font color="#007D00">// Note to U.S. Government Users Restricted Rights:</font></b>
+008: <b><font color="#007D00">// Use, duplication or disclosure restricted by GSA ADP Schedule</font></b>
+009: <b><font color="#007D00">// Contract with IBM Corp.</font></b>
+010: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+011: 
+012: 
+013: <b><font color="#007D00">/****************************************************************** </font></b>
+014: <b><font color="#007D00"> OPL Model for Multi-Product Deployment Example</font></b>
+015: <b><font color="#007D00"> </font></b>
+016: <b><font color="#007D00">This model is described in the documentation. </font></b>
+017: <b><font color="#007D00">See IDE and OPL &gt; Language and Interfaces Examples.</font></b>
+018: 
+019: <b><font color="#007D00"> ******************************************************************/</font></b>
+020: 
+021: <b><font color="#007D00">// The network configuration</font></b>
+022: {<b><font color="#0000FF">string</font></b>} Sites = ...;
+023: {<b><font color="#0000FF">string</font></b>} Articles = ...;
+024: 
+025: <b><font color="#0000FF">tuple</font></b> link {
+026:    <b><font color="#0000FF">string</font></b> org;
+027:    <b><font color="#0000FF">string</font></b> dst;
+028: }
+029: 
+030: {link} Links = ...;
+031: 
+032: <b><font color="#0000FF">tuple</font></b> OnHandT{ 
+033:         <b><font color="#0000FF">string</font></b> Sites; 
+034:         <b><font color="#0000FF">string</font></b> Articles; 
+035:         <b><font color="#0000FF">float</font></b> value; 
+036: };
+037: 
+038: {OnHandT} OnHandSet = ...;
+039: 
+040: <b><font color="#0000FF">tuple</font></b> DemandT{ 
+041:         <b><font color="#0000FF">string</font></b> Sites; 
+042:         <b><font color="#0000FF">string</font></b> Articles; 
+043:         <b><font color="#0000FF">float</font></b> value; 
+044: };
+045: 
+046: {DemandT} DemandSet = ...;
+047: 
+048: <b><font color="#0000FF">tuple</font></b> CostT{ 
+049: link Links;     <b><font color="#0000FF">float</font></b> value; 
+050: };
+051: 
+052: {CostT} CostSet = ...;
+053: 
+054: <b><font color="#0000FF">tuple</font></b> LinkExtraCostT{ 
+055: link Links;     <b><font color="#0000FF">float</font></b> value; 
+056: };
+057: 
+058: {LinkExtraCostT} LinkExtraCostSet = ...;
+059: 
+060: <b><font color="#0000FF">tuple</font></b> LinkCapacityT{ 
+061: link Links;     <b><font color="#0000FF">float</font></b> value; 
+062: };
+063: 
+064: {LinkCapacityT} LinkCapacitySet = ...;
+065: 
+066: <b><font color="#0000FF">tuple</font></b> SiteCapacityT{ 
+067:         <b><font color="#0000FF">string</font></b> Sites; 
+068:         <b><font color="#0000FF">float</font></b> value; 
+069: };
+070: 
+071: {SiteCapacityT} SiteCapacitySet = ...;
+072: 
+073: <b><font color="#0000FF">tuple</font></b> SiteExtraCostT{ 
+074:         <b><font color="#0000FF">string</font></b> Sites; 
+075:         <b><font color="#0000FF">float</font></b> value; 
+076: };
+077: 
+078: {SiteExtraCostT} SiteExtraCostSet = ...;
+079: 
+080: 
+081: <b><font color="#0000FF">float</font></b> OnHand[Sites][Articles] = [ t.Sites : [t.Articles : t.value ]  | t <b><font color="#0000FF">in</font></b> OnHandSet];
+082: <b><font color="#0000FF">float</font></b> Demand[Sites][Articles] = [ t.Sites : [t.Articles : t.value ]  | t <b><font color="#0000FF">in</font></b> DemandSet];
+083: <b><font color="#0000FF">float</font></b> Cost[Links] = [ t.Links : t.value | t <b><font color="#0000FF">in</font></b> CostSet];
+084: <b><font color="#0000FF">float</font></b> LinkExtraCost[Links] = [ t.Links : t.value | t <b><font color="#0000FF">in</font></b> LinkExtraCostSet];
+085: <b><font color="#0000FF">float</font></b> LinkCapacity[Links] = [ t.Links : t.value | t <b><font color="#0000FF">in</font></b> LinkCapacitySet];
+086: <b><font color="#0000FF">float</font></b> SiteCapacity[Sites] = [ t.Sites : t.value | t <b><font color="#0000FF">in</font></b> SiteCapacitySet];
+087: <b><font color="#0000FF">float</font></b> SiteExtraCost[Sites] = [ t.Sites : t.value | t <b><font color="#0000FF">in</font></b> SiteExtraCostSet];
+088: 
+089: 
+090: 
+091: <b><font color="#007D00">// Extra storage capacity required at a node</font></b>
+092: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">float</font></b>+ SiteExtra[Sites];
+093:   
+094: <b><font color="#007D00">// Extra transportation capacity required on the links </font></b>
+095: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">float</font></b>+ LinkExtra[Links];
+096: 
+097: <b><font color="#007D00">// Flow for each article on each link </font></b>
+098: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">float</font></b>+ Flow[Links][Articles];
+099: 
+100: <b><font color="#007D00">// Total transportation costs and extra storage costs</font></b>
+101: <b><font color="#0000FF">dexpr</font></b> <b><font color="#0000FF">float</font></b> TotalLinkCost = 
+102:   <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Links, a <b><font color="#0000FF">in</font></b> Articles) 
+103:     (Cost[l] * Flow[l][a] + LinkExtraCost[l] * LinkExtra[l]);
+104: 
+105: <b><font color="#0000FF">dexpr</font></b> <b><font color="#0000FF">float</font></b> TotalSiteCost =
+106:   <b><font color="#7D007D">sum</font></b>(i <b><font color="#0000FF">in</font></b> Sites) SiteExtraCost[i]*SiteExtra[i];
+107: 
+108:   <b><font color="#007D00">// Standard cost of flows  + Extra cost paid for flows over capacity + Cost of extra storage capacity  </font></b>
+109: <b><font color="#0000FF">minimize</font></b> TotalLinkCost + TotalSiteCost;
+110:    
+111: <b><font color="#0000FF">subject</font></b> <b><font color="#0000FF">to</font></b> {
+112: 
+113:   <b><font color="#007D00">// The transportation capacity constraint. It computes how much extra</font></b>
+114:   <b><font color="#007D00">// transportation capacity is required   </font></b>
+115:   <b><font color="#7D007D">forall</font></b>(l <b><font color="#0000FF">in</font></b> Links) 
+116:     ctLinkCapa: <b><font color="#7D007D">sum</font></b>(a <b><font color="#0000FF">in</font></b> Articles) Flow[l][a] &lt;= LinkCapacity[l] + LinkExtra[l];
+117: 
+118:   <b><font color="#007D00">// The storage capacity constraint. It computes how much extra storage</font></b>
+119:   <b><font color="#007D00">// capacity is required</font></b>
+120:   <b><font color="#7D007D">forall</font></b>(s <b><font color="#0000FF">in</font></b> Sites) 
+121:     ctSiteCapa: <b><font color="#7D007D">sum</font></b>(a <b><font color="#0000FF">in</font></b> Articles)   (  <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Links: s == l.dst) Flow[l][a] -
+122:                         <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Links: s == l.org) Flow[l][a] +
+123:                         OnHand[s][a] -
+124:                         Demand[s][a] ) &lt;= SiteCapacity[s] + SiteExtra[s];
+125: 
+126: 
+127:   <b><font color="#007D00">// At each node, the incoming quantities and the stock should cover the</font></b>
+128:   <b><font color="#007D00">// demand plus the outgoing quantities</font></b>
+129:   <b><font color="#7D007D">forall</font></b>(s <b><font color="#0000FF">in</font></b> Sites, a <b><font color="#0000FF">in</font></b> Articles)
+130:     ctDemand: Demand[s][a] &lt;= OnHand[s][a] + <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Links: s == l.dst) Flow[l][a] -
+131:                                    <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Links: s == l.org) Flow[l][a];           
+132:                                    
+133: }
+134: 
+135: <b><font color="#0000FF">execute</font></b> DISPLAY {
+136:    writeln(<b><font color="#8A2BE2">"LinkExtra = "</font></b>, LinkExtra);
+137:    writeln(<b><font color="#8A2BE2">"SiteExtra = "</font></b>, SiteExtra);
+138:    writeln(<b><font color="#8A2BE2">"Flow = "</font></b>, Flow);
+139: }
+140: 
+141: 
+142: tuple FlowSolutionT{ 
+143:         link Links;
+144:         string Articles; 
+145:         <b><font color="#0000FF">float</font></b> value; 
+146: };
+147: {FlowSolutionT} FlowSolution = {&lt;i0,i1,Flow[i0][i1]&gt; | i0 <b><font color="EA7D00">in</font></b> Links,i1 <b><font color="EA7D00">in</font></b> Articles};
+148: tuple LinkExtraSolutionT{ 
+149:         link Links;     
+150:         <b><font color="#0000FF">float</font></b> value; 
+151: };
+152: {LinkExtraSolutionT} LinkExtraSolution = {&lt;i0,LinkExtra[i0]&gt; | i0 <b><font color="EA7D00">in</font></b> Links};
+153: tuple SiteExtraSolutionT{ 
+154:         string Sites; 
+155:         <b><font color="#0000FF">float</font></b> value; 
+156: };
+157: {SiteExtraSolutionT} SiteExtraSolution = {&lt;i0,SiteExtra[i0]&gt; | i0 <b><font color="EA7D00">in</font></b> Sites};
+</tt></pre>

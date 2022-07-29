@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="convergence tolerance for QC problems" />
+<meta name="abstract" content="Sets the tolerance on complementarity for convergence in quadratically constrained problems (QCPs)." />
+<meta name="Description" content="Sets the tolerance on complementarity for convergence in quadratically constrained problems (QCPs)." />
+<meta name="DC.subject" content="CPX_PARAM_BARQCPEPCOMP, BarQCPEpComp, tolerance, complementarity convergence QCP, complementarity convergence, barrier (QCP), QCP, termination criterion, barrier complementarity convergence (QCP)" />
+<meta name="keywords" content="CPX_PARAM_BARQCPEPCOMP, BarQCPEpComp, tolerance, complementarity convergence QCP, complementarity convergence, barrier (QCP), QCP, termination criterion, barrier complementarity convergence (QCP)" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196683902750" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>convergence tolerance for QC problems</title>
+</head>
+<body id="languageRefTopic1196683902750"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">convergence tolerance for QC problems</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets the tolerance on complementarity for convergence
+in quadratically constrained problems (QCPs).</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+    
+    <p class="p">Convergence tolerance for quadratically constrained problems</p>
+
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d85989e75">API</th>
+
+<th class="entry nrule" valign="top" id="d85989e78">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d85989e81">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">CPXPARAM_Barrier_QCPConvergeTol</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">CPX_PARAM_BARQCPEPCOMP</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">IloCplex::Param::Barrier::QCPConvergeTol</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">BarQCPEpComp (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">IloCplex.Param.Barrier.QCPConvergeTol</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">BarQCPEpComp (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">Cplex.Param.Barrier.QCPConvergeTol</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">BarQCPEpComp (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">barqcpepcomp </td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">barqcpepcomp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">parameters.barrier.qcpconvergetol</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">barrier.qcpconvergetol</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">barrier qcpconvergetol</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">barrier qcpconvergetol</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d85989e75 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d85989e78 ">3020</td>
+
+<td class="entry nrule" valign="top" headers="d85989e81 ">3020</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Sets
+the tolerance on complementarity for convergence in quadratically
+constrained problems (QCPs). The barrier algorithm terminates with
+an optimal solution if the relative complementarity is smaller than
+this value. </p>
+<p class="p">Changing this tolerance to a smaller value
+may result in greater numerical precision of the solution, but also
+increases the chance of a convergence failure in the algorithm and
+consequently may result in no solution at all. Therefore, caution
+is advised in deviating from the default setting. </p>
+
+
+<p class="p paragrouptitle">Values</p>
+
+<p class="p">Any positive number greater than or equal to 1e-12; <strong class="ph b">default</strong>: 1e-7.</p>
+
+
+<p class="p">For LPs and for QPs (that is, when all the constraints are
+linear) see <a class="xref" href="BarEpComp.html" title="Sets the tolerance on complementarity for convergence.">convergence tolerance for LP and QP problems</a>.
+</p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

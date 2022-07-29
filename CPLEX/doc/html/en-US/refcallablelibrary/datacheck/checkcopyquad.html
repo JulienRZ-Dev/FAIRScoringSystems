@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcheckcopyquad and CPXcheckcopyquad" />
+<meta name="abstract" content="Checks data when a quadratic objective matrix Q is not diagonal." />
+<meta name="Description" content="Checks data when a quadratic objective matrix Q is not diagonal." />
+<meta name="DC.subject" content="CPXXcheckcopyquad, C API Reference Manual, CPXcheckcopyquad" />
+<meta name="keywords" content="CPXXcheckcopyquad, C API Reference Manual, CPXcheckcopyquad" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/homepagedatacheck.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="checkcopyquad" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/datacheck/homepagedatacheck.html" />
+<title>CPXXcheckcopyquad and CPXcheckcopyquad</title>
+</head>
+<body id="checkcopyquad"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">
+    <span class="keyword apiname">CPXXcheckcopyquad</span> and <span class="keyword apiname">CPXcheckcopyquad</span>
+  </h1>
+ 
+  
+  
+  <div class="body refbody"><p class="shortdesc">
+Checks data when a quadratic objective matrix Q is not diagonal.
+  </p>
+
+
+<section class="section"><h2 class="title sectiontitle">Signature</h2></section>
+
+    <section class="section refsyn">
+    <pre class="pre codeblock"><code>
+CPXCHECKLIBAPI
+int CPXPUBLIC CPXXcheckcopyquad (CPXCENVptr env, 
+                                 CPXCLPptr lp, 
+                           const CPXNNZ *qmatbeg,
+                           const CPXDIM *qmatcnt, 
+                           const CPXDIM *qmatind,
+                           const double *qmatval);
+    </code></pre>
+    <pre class="pre codeblock"><code>
+CPXCHECKLIBAPI
+int CPXPUBLIC CPXcheckcopyquad  (CPXCENVptr env, 
+                                 CPXCLPptr lp, 
+                           const CPXNNZ *qmatbeg,
+                           const CPXDIM *qmatcnt, 
+                           const CPXDIM *qmatind,
+                           const double *qmatval);
+    </code></pre>
+    </section>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p"> 
+This routine validates the arguments of the corresponding routine 
+<a class="xref" href="../qpapi/copyquad.html" title="The routine CPXXcopyquad/CPXcopyquad is used to copy a quadratic objective matrix Q when Q is not diagonal.">CPXXcopyquad and CPXcopyquad</a>. In other words, this routine 
+checks data copied from a nondiagonal quadratic program (QP).
+Q must be symmetric. </p>
+
+<p class="p">
+The source code of this data checking routine 
+is in the file <code class="ph codeph">check.c</code>, provided 
+as part of the product.  </p>
+
+<p class="p">To call this routine, you must compile 
+and link <code class="ph codeph">check.c</code> with your program 
+as you compile and link with the CPLEX Callable Library.
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Arguments</h2>
+
+<p class="p">The arguments of this routine are the same as those of 
+<a class="xref" href="../qpapi/copyquad.html" title="The routine CPXXcopyquad/CPXcopyquad is used to copy a quadratic objective matrix Q when Q is not diagonal.">CPXXcopyquad and CPXcopyquad</a>.
+The second argument, <code class="ph codeph">lp</code>, is technically 
+a pointer to a <strong class="ph b">constant</strong> LP object 
+of type <code class="ph codeph">CPXCLPptr</code> rather than type <code class="ph codeph">CPXLPptr</code>, 
+because this routine does not modify the problem. 
+For most user applications, this distinction is unimportant. 
+</p>
+
+</section>
+
+
+    <table cellpadding="4" cellspacing="0" border="1" class="simpletable properties simpletableborder" summary="Each row in this table describes a property; each property can have a type, value, and description."><col style="width:50%" /><col style="width:50%" /><tr class="sthead prophead">
+<th style="vertical-align:bottom;text-align:left;" id="d814137e129" class="stentry propvaluehd">Name</th>
+<th style="vertical-align:bottom;text-align:left;" id="d814137e131" class="stentry propdeschd">Description</th>
+</tr><tbody><tr class="strow property">
+<td style="vertical-align:top;" headers="d814137e129" class="stentry propvalue">env</td>
+<td style="vertical-align:top;" headers="d814137e131" class="stentry propdesc">
+          
+
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d814137e129" class="stentry propvalue">lp</td>
+<td style="vertical-align:top;" headers="d814137e131" class="stentry propdesc">
+          
+
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d814137e129" class="stentry propvalue">qmatbeg</td>
+<td style="vertical-align:top;" headers="d814137e131" class="stentry propdesc">
+          
+
+          An array that with <code class="ph codeph"><span class="keyword apiname">qmatcnt</span></code>, <code class="ph codeph"><span class="keyword apiname">qmatind</span></code>, and <code class="ph codeph"><span class="keyword apiname">qmatval</span></code> defines the quadratic coefficient matrix.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d814137e129" class="stentry propvalue">qmatcnt</td>
+<td style="vertical-align:top;" headers="d814137e131" class="stentry propdesc">
+          
+
+          An array that with <code class="ph codeph"><span class="keyword apiname">qmatbeg</span></code>, <code class="ph codeph"><span class="keyword apiname">qmatind</span></code>, and <code class="ph codeph"><span class="keyword apiname">qmatval</span></code> defines the quadratic coefficient matrix.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d814137e129" class="stentry propvalue">qmatind</td>
+<td style="vertical-align:top;" headers="d814137e131" class="stentry propdesc">
+          
+
+          An array that with <code class="ph codeph"><span class="keyword apiname">qmatbeg</span></code>, <code class="ph codeph"><span class="keyword apiname">qmatcnt</span></code>, and <code class="ph codeph"><span class="keyword apiname">qmatval</span></code> defines the quadratic coefficient matrix.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d814137e129" class="stentry propvalue">qmatval</td>
+<td style="vertical-align:top;" headers="d814137e131" class="stentry propdesc">
+          
+
+          An array that with <code class="ph codeph"><span class="keyword apiname">qmatbeg</span></code>, <code class="ph codeph"><span class="keyword apiname">qmatcnt</span></code>, and <code class="ph codeph"><span class="keyword apiname">qmatind</span></code> defines the quadratic coefficient matrix. The arrays <code class="ph codeph"><span class="keyword apiname">qmatbeg</span></code> and <code class="ph codeph"><span class="keyword apiname">qmatcnt</span></code> should be of length at least <code class="ph codeph"><span class="keyword apiname">CPXgetnumcols(env,lp)</span></code>. The arrays <code class="ph codeph"><span class="keyword apiname">qmatind</span></code> and <code class="ph codeph"><span class="keyword apiname">qmatval</span></code> should be of length at least <code class="ph codeph"><span class="keyword apiname">qmatbeg[numcols-1]+qmatcnt[numcols-1]</span></code>. CPLEX requires only the nonzero coefficients grouped by column in the array <code class="ph codeph"><span class="keyword apiname">qmatval</span></code>. The nonzero elements of every column must be stored in sequential locations in this array with <code class="ph codeph"><span class="keyword apiname">qmatbeg[j]</span></code> containing the index of the beginning of column<code class="ph codeph"><span class="keyword apiname"> j </span></code>and <code class="ph codeph"><span class="keyword apiname">qmatcnt[j]</span></code> containing the number of entries in column <code class="ph codeph"><span class="keyword apiname">j</span></code>. Note that the components of <code class="ph codeph"><span class="keyword apiname">qmatbeg</span></code> must be in ascending order. For each <code class="ph codeph"><span class="keyword apiname">k</span></code>, <code class="ph codeph"><span class="keyword apiname">qmatind[k]</span></code> indicates the column number of the corresponding coefficient, <code class="ph codeph"><span class="keyword apiname">qmatval[k]</span></code>. These arrays are accessed as explained above.
+        </td>
+</tr>
+</tbody></table>
+
+<section class="section"><h2 class="title sectiontitle">Return</h2>
+
+<p class="p"> 
+The routine returns nonzero if it detects an error in the data; 
+it returns zero if it does not detect any data errors.
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Example</h2>
+   
+    <pre class="pre codeblock"><code>
+status = CPXcheckcopyquad (env, lp, qmatbeg, qmatcnt,
+                           qmatind, qmatval);
+    </code></pre> 
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/datacheck/homepagedatacheck.html">Data checking in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

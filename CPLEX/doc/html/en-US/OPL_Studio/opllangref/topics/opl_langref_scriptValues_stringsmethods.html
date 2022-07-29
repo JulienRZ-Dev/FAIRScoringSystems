@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="String methods" />
+<meta name="abstract" content="Provides a reference for string methods." />
+<meta name="Description" content="Provides a reference for string methods." />
+<meta name="DC.subject" content="strings, methods, methods, for strings" />
+<meta name="keywords" content="strings, methods, methods, for strings" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_strings.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1009597" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_strings.html" />
+<title>String methods</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1009597"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">String methods</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a reference for string methods.</p>
+
+<p class="p">Characters in a string are indexed from left to right. The index
+of the first character in a string is 0, and the index of the last
+character is <code class="ph codeph">string.length-1</code>. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists the syntax and effects of string methods in IBM ILOG Script." id="usropllangref.uss_langref_scriptValues.1009597__usropllangref.uss_langref_scriptValues.1009601" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. String methods</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d480869e56">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d480869e59">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "> <em class="ph i">string</em>.substring(<em class="ph i">start</em> [ , <em class="ph i">end</em> ] )</td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns the substring of <code class="ph codeph">string</code> starting
+at the index <code class="ph codeph">start</code> and ending at the index <code class="ph codeph">end-1</code>.
+If <code class="ph codeph">end</code> is omitted, the tail of <code class="ph codeph">string</code> is
+returned.</p>
+<p class="p">Examples:</p>
+<p class="p">"0123456".substring(0, 3) –&gt; "012"</p>
+<p class="p">"0123456".substring(2,
+4) –&gt; "23"</p>
+<p class="p">"0123456".substring(2) –&gt; "23456"</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.charAt(<em class="ph i">index</em>) </td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns a one-character string containing the character
+at the specified index of string. If <code class="ph codeph">index</code> is out
+of range, an empty string is returned.</p>
+<p class="p">Examples:</p>
+<p class="p">"abcdef".charAt(0)
+–&gt; "a"</p>
+<p class="p">"abcdef".charAt(3) –&gt; "d"</p>
+<p class="p">"abcdef".charAt(100)
+–&gt; ""</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.charCodeAt(<em class="ph i">index</em>)</td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns the ASCII code of the character at the specified
+index of <code class="ph codeph">string</code>. If<code class="ph codeph">index</code> is out
+of range, returns NaN.</p>
+<p class="p">Examples:</p>
+<p class="p">"abcdef".charCodeAt(0)
+ –&gt; 97</p>
+<p class="p">"abcdef".charCodeAt(3) –&gt; 100</p>
+<p class="p">"abcdef".charCodeAt(100)
+–&gt; NaN</p>
+ </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.indexOf(<em class="ph i">substring</em> [ , <em class="ph i">index</em> ] )</td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns the index in <code class="ph codeph">string</code> of the first
+occurrence of <code class="ph codeph">substring</code>. The string is searched starting
+at <code class="ph codeph">index</code>. If <code class="ph codeph">index</code> is omitted, <code class="ph codeph">string</code> is
+searched from the beginning. This method returns -1 if <code class="ph codeph">substring</code> is
+not found.</p>
+<p class="p">Examples:</p>
+<p class="p">"abcdabcd".indexOf("bc") –&gt; 1</p>
+<p class="p">"abcdabcd".indexOf("bc",
+1) –&gt; 1</p>
+<p class="p">"abcdabcd".indexOf("bc", 2) –&gt; 5</p>
+<p class="p">"abcdabcd".indexOf("bc",
+10) –&gt; -1</p>
+<p class="p">"abcdabcd".indexOf("foo") –&gt; -1</p>
+<p class="p">"abcdabcd".indexOf("BC")
+–&gt; -1</p>
+   </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.lastIndexOf(<em class="ph i">substring</em> [ , <em class="ph i">index</em> ]
+)</td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns the index in <code class="ph codeph">string</code> of the last
+occurrence of <code class="ph codeph">substring</code>, when <code class="ph codeph">string</code> is
+searched backwards, starting at <code class="ph codeph">index</code>. If <code class="ph codeph">index</code> is
+omitted, <code class="ph codeph">string</code> is searched from the end. This method
+returns <code class="ph codeph">-1</code> if <code class="ph codeph">substring</code> is not found. </p>
+<p class="p">Examples:</p>
+<p class="p">"abcdabcd".lastIndexOf("bc")
+–&gt; 5</p>
+<p class="p">"abcdabcd".lastIndexOf("bc", 5) –&gt; 5</p>
+<p class="p">"abcdabcd".lastIndexOf("bc",
+4) –&gt; 1</p>
+<p class="p">"abcdabcd".lastIndexOf("bc", 0) –&gt; -1</p>
+<p class="p">"abcdabcd".lastIndexOf("foo")
+–&gt; -1</p>
+<p class="p">"abcdabcd".lastIndexOf("BC") –&gt; -1</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.toLowerCase() </td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns <code class="ph codeph">string</code> converted to lowercase.</p>
+<p class="p">Example:</p>
+ "Hello,
+World".toLowerCase()  "hello, world"    </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.toUpperCase() </td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">string.toUpperCase()  Returns <code class="ph codeph">string</code> converted
+to uppercase.</p>
+<p class="p">Example:</p>
+"Hello, World".toUpperCase()  "HELLO,
+WORLD"   </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.split(<em class="ph i">separator</em>) </td>
+
+<td class="entry" valign="top" headers="d480869e59 "><p class="p">Returns an array of strings containing the substrings of <code class="ph codeph">string</code> that
+are separated by <code class="ph codeph">separator</code>. See also the array method <code class="ph codeph">join</code>.</p>
+<p class="p">Examples:</p>
+<p class="p">"<code class="ph codeph">first
+name,last name,age".split(",")</code> -&gt; an array <code class="ph codeph">a</code> such
+that <code class="ph codeph">.length</code> is 3, <code class="ph codeph">a[0]</code> is <code class="ph codeph">"first
+name"</code>, <code class="ph codeph">a[1]</code> is <code class="ph codeph">"last name"</code>,
+and<code class="ph codeph"> a[2]</code> is <code class="ph codeph">"age"</code>. </p>
+<p class="p"></p>
+<p class="p">If <code class="ph codeph">string</code> does
+not contain <code class="ph codeph">separator</code>, an array with one element
+containing the whole string is returned.</p>
+<p class="p">Example:</p>
+<p class="p"><code class="ph codeph">"hello".split(",")</code> –&gt;
+an array a such that a.length is 1 and a[0] is "hello", </p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480869e56 "><em class="ph i">string</em>.toString()</td>
+
+<td class="entry" valign="top" headers="d480869e59 ">Returns the string itself.</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_strings.html" title="String representation and functions.">IBM ILOG Script strings</a></div>
+</div>
+</nav></div></body>
+</html>

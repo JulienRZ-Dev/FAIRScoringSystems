@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="noOverlap" />
+<meta name="abstract" content="Constrains a set of interval variables not to overlap each others." />
+<meta name="Description" content="Constrains a set of interval variables not to overlap each others." />
+<meta name="DC.subject" content="noOverlap" />
+<meta name="keywords" content="noOverlap" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/interval_sequence.html" />
+<meta name="DC.Relation" scheme="URI" content="sequenceVar.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/130_MoreTypes.html#More_types/Type_transitionMatrix" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="noOverlap" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>noOverlap</title>
+</head>
+<body id="noOverlap"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">noOverlap</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Constrains a set of interval variables not to overlap each others.
+</p>
+
+
+
+<section class="section" id="noOverlap__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">noOverlap</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intervalVarArray">intervalVarArray</a> intervals)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">noOverlap</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__sequenceVar">sequenceVar</a> <a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a>, <a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_transitionMatrix">transitionMatrix</a> distanceMatrix = null, <a class="xref" href="../syntax/070_Types.html#Numerical_types__bit">bit</a> isDirect = 0)
+</code></pre>
+</section>
+
+
+<section class="section" id="noOverlap__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">intervals</code>: an array of interval variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph"><a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a></code>: a sequence variable.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">distanceMatrix</code>: an optional argument, transition matrix defining the transition distance between consecutive interval variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">isDirect</code>: a Boolean flag stating whether the distance specified in the transition matrix <code class="ph codeph">distanceMatrix</code> holds between direct successors (<code class="ph codeph">isDirect</code>=1) or also between indirect successors (<code class="ph codeph">isDirect</code>=0, default).
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns a constraint over a set of interval variables {<code class="ph codeph">a1</code>, ..., <code class="ph codeph">an</code>} that states that all the present intervals in the set are pairwise non-overlapping. It means that whenever both interval variables <code class="ph codeph">ai</code> and <code class="ph codeph">aj</code>, i!=j are present, <code class="ph codeph">ai</code> is constrained to end before the start of <code class="ph codeph">aj</code> or <code class="ph codeph">aj</code> is constrained to end before the start of <code class="ph codeph">ai</code>.
+</p>
+
+
+<p class="p">
+If the no-overlap constraint has been built on an interval sequence variable <code class="ph codeph"><a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a></code>, it means that the no-overlap constraint works on the set of interval variables {<code class="ph codeph">a1</code>, ..., <code class="ph codeph">an</code>} of the sequence and that the order of interval variables of the sequence will describe the order of the non-overlapping intervals. That is, if <code class="ph codeph">ai</code> and <code class="ph codeph">aj</code>, i!=j are both present and if <code class="ph codeph">ai</code> appears before <code class="ph codeph">aj</code> in the sequence value, then <code class="ph codeph">ai</code> is constrained to end before the start of <code class="ph codeph">aj</code>. If a transition matrix <code class="ph codeph">distanceMatrix</code> is specified and if <code class="ph codeph">tpi</code> and <code class="ph codeph">tpj</code> respectively denote the types of interval variables <code class="ph codeph">ai</code> and <code class="ph codeph">aj</code> in the <code class="ph codeph"><a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a></code>, it means that a minimal distance <code class="ph codeph">distanceMatrix[tpi, tpj]</code> is to be maintained between the end of <code class="ph codeph">ai</code> and the start of <code class="ph codeph">aj</code>. If Boolean flag <code class="ph codeph">isDirect</code> is true, the transition distance holds between an interval and its immediate successor in the sequence otherwise, if <code class="ph codeph">isDirect</code> is false (default), the transition distance holds between an interval and all its successors in the sequence.
+</p>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+b = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+c = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, size=7);
+<span class="ph commentemph">// A sequence variable defined on {a, b, c}</span>
+<a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a> = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([a, b, c]);
+<span class="ph commentemph">// Interval variables in the sequence do not overlap</span>
+<strong class="ph b">noOverlap</strong>(<a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a>);
+</code></pre>
+<p class="p">
+A possible value for the interval variables in this problem is <code class="ph codeph">a=[0, 5)</code>, <code class="ph codeph">b=[5, 11)</code>, <code class="ph codeph">c=[11, 18)</code>.
+Another one is  <code class="ph codeph">b=[0, 6)</code>, <code class="ph codeph">c=[6, 13)</code>, <code class="ph codeph">a=[13, 18)</code>. Another solution with <code class="ph codeph">c</code> absent is <code class="ph codeph">a=[0, 5)</code>, <code class="ph codeph">b=[5, 11)</code>, <code class="ph codeph">c=absent</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Example2"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+b = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+c = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, size=7);
+<strong class="ph b">noOverlap</strong>([a, b, c]);
+</code></pre>
+<p class="p">
+This example shows the same problem as above using the constructor with an array of interval variables to shortcut the manual construction of the sequence variable <code class="ph codeph"><a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a></code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Example3"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+b = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+c = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, size=7);
+<span class="ph commentemph">// A sequence variable defined on {a, b, c} with types {0, 1, 2}</span>
+<a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a> = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([a, b, c], [0, 1, 2]);
+<span class="ph commentemph">// A transition matrix between types [0, 1, 2]</span>
+distanceMatrix = <a class="xref" href="transitionMatrix.html" title="Creates a new square matrix of minimum transition times.">transitionMatrix</a>(
+           0,  5, 20, 
+          14, 10,  7, 
+           5,  8,  0, );
+<span class="ph commentemph">// Interval variables in the sequence do not overlap and must satisfy the transition distance</span>
+<strong class="ph b">noOverlap</strong>(<a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a>, distanceMatrix, 1);
+</code></pre>
+<p class="p">
+A possible value for the interval variables in this problem is <code class="ph codeph">a=[0, 5)</code>, <code class="ph codeph">b=[10, 16)</code>, <code class="ph codeph">c=[23, 30)</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Example4"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+b = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+c = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, size=7);
+<span class="ph commentemph">// A sequence variable defined on {a, b, c} with types {0, 1, 2}</span>
+<a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a> = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([a, b, c], [0, 1, 2]);
+<span class="ph commentemph">// A transition matrix between types [0, 1, 2]</span>
+distanceMatrix = <a class="xref" href="transitionMatrix.html" title="Creates a new square matrix of minimum transition times.">transitionMatrix</a>(
+           0,  5, 20, 
+          14, 10,  7, 
+           5,  8,  0, );
+<span class="ph commentemph">// Interval variables in the sequence do not overlap and must satisfy the transition distance</span>
+<strong class="ph b">noOverlap</strong>(<a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a>, distanceMatrix);
+</code></pre>
+<p class="p">
+The difference between this example and the previous one is that the <a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a> constraint specifies 
+that the transition distance should also hold between indirect successors (<code class="ph codeph">isDirect=0</code> by default). 
+A possible value for the interval variables in this problem is <code class="ph codeph">a=[0, 5)</code>, <code class="ph codeph">b=[10, 16)</code>, <code class="ph codeph">c=[25, 32)</code>.
+Note that the solution of the previous problem <code class="ph codeph">a=[0, 5)</code>, <code class="ph codeph">b=[10, 16)</code>, <code class="ph codeph">c=[23, 30)</code> is not feasible here
+because <code class="ph codeph">c</code> (of type 2) is a (indirect) successor of <code class="ph codeph">a</code> (of type 0) and the transition distance <code class="ph codeph">distanceMatrix[0, 2]=20</code> 
+between the end value of <code class="ph codeph">a</code> (5) and the start value of <code class="ph codeph">c</code> (23) is not respected. 
+</p>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    All types of interval variables in <code class="ph codeph"><a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a></code> should be possible indexes of matrix <code class="ph codeph">distanceMatrix</code>. Stated otherwise, the size of matrix <code class="ph codeph">distanceMatrix</code> should be strictly larger than any interval type in <code class="ph codeph"><a class="xref" href="sequence.html" title="Constrains occurences of specified values in an array of expressions.">sequence</a></code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="noOverlap__Notes"><h2 class="title sectiontitle">Notes</h2>
+<ul class="ul">
+  <li class="li">
+    The Boolean flag <code class="ph codeph">isDirect</code> makes a difference only in case the transition matrix does not satisfy the triangle inequality.
+  </li>
+
+  <li class="li">
+    The function that takes an array of interval variables as argument is a shortcut to avoid the manual creation of a sequence variable in case this sequence is used in a unique <a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a> constraint without transition matrix.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a></li>
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/interval_sequence.html">Interval variable sequencing in CP Optimizer</a></li>
+<li class="linklist"><a class="link" href="../syntax/130_MoreTypes.html#More_types__Type_transitionMatrix">transitionMatrix</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXreadcopyvmconfig and CPXreadcopyvmconfig" />
+<meta name="abstract" content="This routine is deprecated and will be removed in a future release." />
+<meta name="Description" content="This routine is deprecated and will be removed in a future release." />
+<meta name="DC.subject" content="CPXreadcopyvmconfig, C API Reference Manual, CPXXreadcopyvmconfig" />
+<meta name="keywords" content="CPXreadcopyvmconfig, C API Reference Manual, CPXXreadcopyvmconfig" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagedistrib.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxdistmipapi/homepagecpxdistmipapi.html" />
+<meta name="DC.Relation" scheme="URI" content="distmipopt.html" />
+<meta name="DC.Relation" scheme="URI" content="copyvmconfig.html" />
+<meta name="DC.Relation" scheme="URI" content="delvmconfig.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="readcopyvmconfig" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagedistrib.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxdistmipapi/homepagecpxdistmipapi.html" />
+<title>CPXXreadcopyvmconfig and CPXreadcopyvmconfig</title>
+</head>
+<body id="readcopyvmconfig"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXreadcopyvmconfig</span> and <span class="keyword apiname">CPXreadcopyvmconfig</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+This routine is <strong class="ph b">deprecated</strong> and will be removed in a future release.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXreadcopyvmconfig</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const</span><span class="ph oper">*</span><span class="ph var">filename</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXreadcopyvmconfig</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const</span><span class="ph oper">*</span><span class="ph var">filename</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+<p class="p">This routine is <strong class="ph b">deprecated</strong> and will be removed in a future release.</p>
+  
+  <p class="p">Before you can run distributed parallel MIP 
+  (<code class="ph codeph"><a class="xref" href="distmipopt.html" title="This routine is deprecated and will be removed in a future release."><span class="keyword apiname">CPXXdistmipopt</span>/<span class="keyword apiname">CPXdistmipopt</span></a></code>), 
+  you must load a parallel machine configuration. The parallel
+  machine configuration tells the distributed parallel MIP algorithm which
+  machines it can employ in order to optimize a problem.
+  </p>
+
+
+  <p class="p">This routine loads a parallel MIP machine configuration from a file
+  The file must be in the VMC format. (See the topic 
+  <a class="xref" href="../../CPLEX/FileFormats/topics/VMC.html" title="File format to specify a virtual machine configuration for distributed parallel optimization">VMC file format: virtual machine configuration for distributed parallel optimization</a>
+ for more information.)
+  </p>
+
+
+  <p class="p">CPLEX destroys any previously loaded parallel machine configuration 
+  before this routine attempts to load the new configuration.
+  </p>
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filename</dt>
+
+        <dd class="dd pd">
+          
+          The name of a file that contains a parallel machine configuration
+          in VMC format.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXreadcopyvmconfig (env, "distmip.vmconfig");
+ </code></pre>
+ 
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetR.html">R</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagedistrib.html">Distributed Parallel MIP Optimization in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxdistmipapi/homepagecpxdistmipapi.html">Distributed Parallel MIP Optimizer in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="distmipopt.html" title="This routine is deprecated and will be removed in a future release.">CPXdistmipopt</a></li>
+<li class="linklist"><a class="link" href="copyvmconfig.html" title="This routine is deprecated and will be removed in a future release.">CPXcopyvmconfig</a></li>
+<li class="linklist"><a class="link" href="delvmconfig.html" title="This routine is deprecated and will be removed in a future release.">CPXdelvmconfig</a></li></ul></div>
+</nav>
+</div></body>
+</html>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ilog.odms.ide.opl.feature.nls2"
+      label="%Feature-Name"
+      version="20.1.0.202012011542"
+      provider-name="%Feature-Vendor">
+
+   <plugin
+         id="ilog.odms.cplex.help.nl2"
+         download-size="7"
+         install-size="9"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="ilog.odms.ide.opl.nl2"
+         download-size="9"
+         install-size="12"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.cpo.help.nl2"
+         download-size="7"
+         install-size="9"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="ilog.odms.ide.help.nl2"
+         download-size="7"
+         install-size="9"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="ilog.odms.studio.help.nl2"
+         download-size="7"
+         install-size="9"
+         version="20.1.0.202012011542"
+         fragment="true"/>
+
+   <plugin
+         id="ilog.odms.ide.core.nl2"
+         download-size="21"
+         install-size="68"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.intro.nl2"
+         download-size="26"
+         install-size="43"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.nl2"
+         download-size="11"
+         install-size="17"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.opllang.remote.nl2"
+         download-size="7"
+         install-size="10"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.rcp.nl2"
+         download-size="14"
+         install-size="26"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.samples.opl.nl2"
+         download-size="9455"
+         install-size="16777"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="ilog.odms.ide.ui.nl2"
+         download-size="80"
+         install-size="400"
+         version="20.1.0.202012011542"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

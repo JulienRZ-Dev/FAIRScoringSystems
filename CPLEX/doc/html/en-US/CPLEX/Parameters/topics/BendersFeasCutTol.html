@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Benders feasibility cut tolerance" />
+<meta name="abstract" content="This parameter specifies a tolerance for the feasibility of cuts when CPLEX solves a model decomposed according to Benders algorithm." />
+<meta name="Description" content="This parameter specifies a tolerance for the feasibility of cuts when CPLEX solves a model decomposed according to Benders algorithm." />
+<meta name="DC.subject" content="decomposition, Benders, feasibility cut tolerance, Benders decomposition, Benders algorithm, Benders tolerances feasibility cut, CPXPARAM_Benders_Tolerances_feasibilitycut, tolerance" />
+<meta name="keywords" content="decomposition, Benders, feasibility cut tolerance, Benders decomposition, Benders algorithm, Benders tolerances feasibility cut, CPXPARAM_Benders_Tolerances_feasibilitycut, tolerance" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="BendersFeasCutTolParameter" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>Benders feasibility cut tolerance</title>
+</head>
+<body id="BendersFeasCutTolParameter"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Benders feasibility cut tolerance</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">This parameter specifies a tolerance for the feasibility of cuts 
+when CPLEX solves a model decomposed according to Benders algorithm. </p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Tolerance for whether a feasibility cut has been violated in Benders decomposition</p>
+ 
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d86619e73">API</th>
+
+<th class="entry nrule" valign="top" id="d86619e76">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">CPXPARAM_Benders_Tolerances_feasibilitycut </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">IloCplex::Param::Benders::Tolerances::feasibilitycut </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">IloCplex.Param.Benders.Tolerances.feasibilitycut </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">Cplex.Param.Benders.Tolerances.feasibilitycut </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">bendersfeascuttol</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">parameters.benders.tolerances.feasibilitycut </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">benders tolerances feasibilitycut</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d86619e73 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d86619e76 ">1509 </td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p"> 
+This parameter sets a tolerance for the violation of a feasibility cut in Benders algorithm.
+</p>
+ 
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Values</h2>
+
+<p class="p">Any number from 1e-9 to 1e-1; <strong class="ph b">default</strong>: 1e-06. </p>
+
+</section>
+
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

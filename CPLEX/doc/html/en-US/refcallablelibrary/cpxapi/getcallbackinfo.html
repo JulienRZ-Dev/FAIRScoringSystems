@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetcallbackinfo and CPXgetcallbackinfo" />
+<meta name="abstract" content="The routine CPXXgetcallbackinfo/CPXgetcallbackinfo accesses information about the current optimization process from within a user-written legacy callback function." />
+<meta name="Description" content="The routine CPXXgetcallbackinfo/CPXgetcallbackinfo accesses information about the current optimization process from within a user-written legacy callback function." />
+<meta name="DC.subject" content="CPXgetcallbackinfo, C API Reference Manual, CPXXgetcallbackinfo" />
+<meta name="keywords" content="CPXgetcallbackinfo, C API Reference Manual, CPXXgetcallbackinfo" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getcallbackinfo" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXgetcallbackinfo and CPXgetcallbackinfo</title>
+</head>
+<body id="getcallbackinfo"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetcallbackinfo</span> and <span class="keyword apiname">CPXgetcallbackinfo</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackinfo</span>/<span class="keyword apiname">CPXgetcallbackinfo</span></code> accesses
+information about the current optimization process from within a 
+user-written legacy callback function.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetcallbackinfo</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">whichinfo</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">result_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetcallbackinfo</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">whichinfo</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">result_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackinfo</span>/<span class="keyword apiname">CPXgetcallbackinfo</span></code> accesses
+information about the current optimization process from within a
+user-written legacy callback function.</p>
+
+
+<div class="note tip"><span class="tiptitle">Tip:</span> 
+<p class="p">
+This routine is part of legacy callbacks.
+Do not use this routine with a generic callback in your application.
+If your application uses a generic callback, consider 
+<a class="xref" href="callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a>, 
+<a class="xref" href="callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a>, or 
+<a class="xref" href="callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a> 
+instead.
+For more about generic callbacks, see the topic 
+<a class="xref" href="../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.
+</p>
+
+</div>
+
+
+<p class="p">
+This routine is the only routine that can access optimization status
+information from within a nonadvanced, user-written, legacy callback function.
+It is also the
+only Callable Library routine that you can call from within a
+nonadvanced, user-written, legacy 
+callback function. In fact, you can call it only from the legacy callback
+function. </p>
+
+
+
+<div class="note important"><span class="importanttitle">Important:</span> 
+<p class="p">
+Some of the values can be queried by two different <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>
+arguments. For example, the iteration count can be queried by
+<code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT</code> and
+<code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT_LONG</code>. 
+Similarly, the node count can be queried by 
+<code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT</code> and
+<code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT_LONG</code>.  
+When the query uses 
+<code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT_LONG</code> 
+(or <code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT_LONG</code>), then <code class="ph codeph"><span class="keyword parmname">result_p</span></code>
+must point to a value of type <code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code>.
+When the query uses
+<code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT</code>
+(or <code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT</code>), then <code class="ph codeph"><span class="keyword parmname">result_p</span></code>
+must point to a value of type <code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code>.
+In this case, if
+the value to be returned in <code class="ph codeph"><span class="keyword parmname">result_p</span></code> exceeds the maximum
+value of a 32-bit signed integer, the routine will store <code class="ph codeph">INT_MAX</code>
+in <code class="ph codeph">*<span class="keyword parmname">result_p</span></code> and return the error
+<code class="ph codeph"><a class="xref" href="../macros/CPXERR_OVERFLOW.html" title="1810 32-bit overflow">CPXERR_OVERFLOW</a></code>.
+</p>
+
+</div>
+
+
+<p class="p"><strong class="ph b">For LP algorithms:</strong></p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">whichinfo</td>
+<td class="entry" valign="top">type of *result_p</td>
+<td class="entry" valign="top">description</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRIMAL_OBJ</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">primal objective value</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_DUAL_OBJ</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">dual objective value </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRIMAL_INFMEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">measure of primal infeasibility</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_DUAL_INFMEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">measure of dual infeasibility</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRIMAL_FEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">1 if primal feasible, 0 if not</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_DUAL_FEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">1 if dual feasible, 0 if not </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">iteration count, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">iteration count</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_PPUSH</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">primal push crossover itn. count, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_PPUSH_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">primal push crossover itn. count</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_PEXCH</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">primal exchange crossover itn. count, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_PEXCH_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">primal exchange crossover itn. count </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_DPUSH</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">dual push crossover itn. count, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_DPUSH_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">dual push crossover itn. count</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_DEXCH</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">dual exchange crossover itn. count</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CROSSOVER_SBCNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of super-basic variables left in the basis</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_USER_PROBLEM</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">CPXCLPptr</code></td>
+
+<td class="entry" valign="top">returns pointer to original user problem; available for primal,
+dual, barrier, mip</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p class="p">
+Crossover from a barrier to a simplex solution reduces
+the super-basic count. In fact, in a barrier crossover, if
+the count reaches 0 (zero), the crossover has finished. Thus, the
+super-basic count serves as a measure of progress for
+the crossover algorithm.
+</p>
+
+
+<p class="p"><strong class="ph b">For Network algorithms:</strong></p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">whichinfo</td>
+<td class="entry" valign="top">type of *result_p</td>
+<td class="entry" valign="top">description</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRIMAL_OBJ</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">primal objective value</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRIMAL_INFMEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">measure of primal infeasibility</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">iteration count, truncate to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ITCOUNT_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">iteration count</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRIMAL_FEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">1 if primal feasible, 0 if not</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p class="p"><strong class="ph b">For Presolve algorithms:</strong></p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">whichinfo</td>
+<td class="entry" valign="top">type of *result_p</td>
+<td class="entry" valign="top">description</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRESOLVE_ROWSGONE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">number of rows eliminated</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRESOLVE_COLSGONE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">number of columns eliminated </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRESOLVE_AGGSUBST</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">number of aggregator substitutions, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRESOLVE_AGGSUBST_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">number of aggregator substitutions</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRESOLVE_COEFFS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">number of modified coefficients, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PRESOLVE_COEFFS_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">number of modified coefficients</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+<p class="p"><strong class="ph b">For MIP algorithms and informational callbacks:</strong></p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">whichinfo</td>
+<td class="entry" valign="top">type of *result_p</td>
+<td class="entry" valign="top">description</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_BEST_INTEGER</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">obj. value of best integer solution</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_BEST_REMAINING</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">obj. value of best remaining node</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">total number of nodes solved, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">total number of nodes solved </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODES_LEFT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">number of remaining nodes, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODES_LEFT_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">number of remaining nodes</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_ITERATIONS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">total number of MIP iterations, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_ITERATIONS_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">total number of MIP iterations</td>
+</tr>
+
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_REL_GAP</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">accesses the current relative gap, like the routine 
+<code class="ph codeph"><a class="xref" href="../mipapi/getmiprelgap.html" title="The routine CPXXgetmiprelgap/CPXgetmiprelgap accesses the relative objective gap for a MIP optimization."><span class="keyword apiname">CPXXgetmiprelgap</span>/<span class="keyword apiname">CPXgetmiprelgap</span></a></code>.  </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_FEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">returns 1 (one) if a feasible solution exists; otherwise, 0 (zero)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CUTOFF</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">updated cutoff value</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PROBE_PHASE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">current phase of probing (0-3)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PROBE_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of probing phase completed (0.0-1.0)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FRACCUT_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of Gomory cut generation for the pass completed (0.0 - 1.0)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_DISJCUT_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of disjunctive cut generation for the pass completed (0.0 - 1.0)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FLOWMIR_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of flow cover and MIR cut generation for the pass
+completed (0.0 - 1.0)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_STABLE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of stable simplex bases
+(condition number less than 1e+7)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_SUSPICIOUS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of questionable simplex bases
+(condition number between 1e+7 and 1e+10)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_UNSTABLE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of unstable simplex bases
+(condition number between 1e+10 and 1e+14)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_ILLPOSED</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of ill-posed simplex bases
+(condition number greater than 1e+14)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_MAX</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">highest condition number encountered
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_ATTENTION</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">Indicator of numerical difficulties. See the symbolic value
+<code class="ph codeph">CPX_KAPPA_ATTENTION</code> for more detail.
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_BENDERS_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of Benders cuts added
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+
+<p class="p">
+The information specified by variations of
+<code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_</code> is available only
+when all of these conditions are met:
+</p>
+
+<ul class="ul">
+<li class="li">The subproblems are solved by <strong class="ph b">simplex</strong>.
+</li>
+
+<li class="li"> The parameter to control 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPKappaStats.html" title="Sets the strategy for computing statistics about MIP kappa">MIP kappa computation</a>
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_KappaStats</code>)
+ is set.
+</li>
+
+<li class="li"> CPLEX has processed at least one LP-basis during the solve.
+</li>
+
+</ul>
+
+<p class="p"> In all
+other cases, CPLEX returns the error <code class="ph codeph">CPXERR_NO_KAPPASTATS</code>.
+</p>
+
+
+<p class="p">
+You can query the relative MIP gap between the current
+best primal and dual bounds <strong class="ph b">outside</strong> a callback
+with the routine
+<code class="ph codeph"><a class="xref" href="../mipapi/getmiprelgap.html" title="The routine CPXXgetmiprelgap/CPXgetmiprelgap accesses the relative objective gap for a MIP optimization."><span class="keyword apiname">CPXXgetmiprelgap</span>/<span class="keyword apiname">CPXgetmiprelgap</span></a></code>.
+</p>
+
+
+<p class="p"><strong class="ph b">For distributed parallel MIP algorithms and informational callbacks:</strong></p>
+
+<div class="p">Because of the distributed aspects of such an application, special 
+considerations apply to informational callbacks in a distributed parallel MIP application. 
+For example, when you query certain information by means of this routine  
+in the Callable Library (C API), the following considerations apply:
+    <ul class="ul"> 
+    <li class="li">Queries about cut counts, such as 
+    CPX_CALLBACK_INFO_COVER_COUNT, always 
+    return 0 (zero).</li>
+
+    <li class="li">Queries about MIP kappa statistics, such as 
+    CPX_CALLBACK_INFO_KAPPA_MAX, 
+    result in the error message CPXERR_NO_KAPPASTATS.</li>
+
+    <li class="li">The number of threads, 
+    as queried by CPX_CALLBACK_INFO_USER_THREADS, is 
+    always 1 (one).
+    </li>
+
+    <li class="li">The user thread index as identified by 
+    CPX_CALLBACK_INFO_MY_THREAD_NUM is always 0 (zero).
+    </li>
+
+    <li class="li">Queries about the current node count, the number of 
+    nodes left, and the iteration count all return correct values during 
+    distributed MIP tree search (that is, branch and bound) after ramp up terminates.
+    However, during ramp up, the following queries always return 0 (zero):
+        <ul class="ul">
+        <li class="li">CPX_CALLBACK_INFO_NODE_COUNT</li>
+
+        <li class="li">CPX_CALLBACK_INFO_NODE_COUNT_LONG</li>
+
+        <li class="li">CPX_CALLBACK_INFO_NODES_LEFT</li>
+
+        <li class="li">CPX_CALLBACK_INFO_NODES_LEFT_LONG</li>
+
+        <li class="li">CPX_CALLBACK_INFO_MIP_ITERATIONS</li>
+
+        <li class="li">CPX_CALLBACK_INFO_MIP_ITERATIONS_LONG</li>
+
+        </ul>
+
+    </li>
+
+    <li class="li">The informational callback is only called at synchronization points 
+    during distributed MIP optimization; that is, less frequently than in 
+    conventional MIP optimization in shared memory.
+    </li>
+
+    </ul>
+
+</div>
+
+
+
+<p class="p"><strong class="ph b">For MIP algorithms and advanced callbacks:</strong></p>
+
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">whichinfo</td>
+<td class="entry" valign="top">type of *result_p</td>
+<td class="entry" valign="top">description</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_BEST_INTEGER</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">obj. value of best integer solution</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_BEST_REMAINING</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">obj. value of best remaining node</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">total number of nodes solved, truncated to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODE_COUNT_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">total number of nodes solved </td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODES_LEFT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">number of remaining nodes, truncate to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_NODES_LEFT_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">number of remaining nodes</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_ITERATIONS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code></td>
+
+<td class="entry" valign="top">total number of MIP iterations, truncate to 32bit</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_ITERATIONS_LONG</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code></td>
+
+<td class="entry" valign="top">total number of MIP iterations</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIP_FEAS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">returns 1 (one) if a feasible solution exists; otherwise, 0 (zero)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CUTOFF</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">updated cutoff value</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_CLIQUE_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of clique cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_COVER_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of cover cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_DISJCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of disjunctive cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FLOWCOVER_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of flow cover cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FLOWPATH_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of flow path cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FRACCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of Gomory fractional cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_GUBCOVER_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of GUB cover cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_IMPLBD_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of implied bound cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_LANDPCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of lift and project cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MCFCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of multi-commodity flow cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MIRCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of mixed integer rounding cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ZEROHALFCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of zero-half cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_USERCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of user cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_TABLECUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of lazy constraints added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_SOLNPOOLCUT_COUNT</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">number of solution pool cuts added</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_USER_PROBLEM</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">CPXCLPptr</code></td>
+
+<td class="entry" valign="top">returns pointer to original user problem; available for primal,
+dual, barrier, MIP</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PROBE_PHASE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">current phase of probing (0-3)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_PROBE_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of probing phase completed (0.0 - 1.0)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FRACCUT_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of Gomory cut generation for the pass completed (0.0 - 1.0)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_DISJCUT_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of disjunctive cut generation for the pass completed (0.0 - 1.0)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_FLOWMIR_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">fraction of flow cover and MIR cut generation for the pass
+completed (0.0 - 1.0)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_STABLE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of stable simplex bases
+(condition number less than 1e+7)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_SUSPICIOUS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of questionable simplex bases
+(condition number between 1e+7 and 1e+10)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_UNSTABLE</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of unstable simplex bases
+(condition number between 1e+10 and 1e+14)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_ILLPOSED</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">percentage of ill-posed simplex bases
+(condition number greater than 1e+14)
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_MAX</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">highest condition number encountered
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_KAPPA_ATTENTION</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">Indicator of numerical difficulties. See the symbolic value
+<code class="ph codeph">CPX_KAPPA_ATTENTION</code> for more detail.
+</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_MY_THREAD_NUM</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">identifier of the parallel thread making this call</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_USER_THREADS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">int</code></td>
+
+<td class="entry" valign="top">total number of parallel threads currently running</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p class="p"><strong class="ph b">For Tuning:</strong></p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">whichinfo</td>
+<td class="entry" valign="top">type of *result_p</td>
+<td class="entry" valign="top">description</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_STARTTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">system time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDDETTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">deterministic time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_ENDTIME</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">time stamp</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CALLBACK_INFO_TUNING_PROGRESS</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph">double</code></td>
+
+<td class="entry" valign="top">elapsed percentage of total tuning time</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+<p class="p">A pointer to the CPLEX environment as returned by 
+<code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbdata</dt>
+
+        <dd class="dd pd">
+          
+<p class="p">The <code class="ph codeph"><span class="keyword parmname">cbdata</span></code> pointer passed to the
+user-written callback function. The argument
+<code class="ph codeph"><span class="keyword parmname">cbdata</span></code> <strong class="ph b">must</strong> be the value of
+<code class="ph codeph"><span class="keyword parmname">cbdata</span></code> passed to the user-written callback function.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">wherefrom</dt>
+
+        <dd class="dd pd">
+          
+<p class="p">An integer value specifying the optimization algorithm
+from which the user-written callback function was called.
+The argument <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> <strong class="ph b">must</strong> be the value of
+<code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> passed to the user-written callback
+function. See 
+<code class="ph codeph"><a class="xref" href="getlpcallbackfunc.html" title="Accesses the user-written legacy callback routine to be called after each iteration during the optimization of a continuous problem (LP, QP, or QCP), and also periodically during the CPLEX presolve algorithm.">
+<span class="keyword apiname">CPXXgetlpcallbackfunc</span>/<span class="keyword apiname">CPXgetlpcallbackfunc</span>
+</a></code>,
+<code class="ph codeph"><a class="xref" href="../mipapi/getmipcallbackfunc.html" title="The routine CPXXgetmipcallbackfunc/CPXgetmipcallbackfunc accesses the user-written callback routine to be called in the branch-and-cut tree during the optimization of a mixed integer program.">
+<span class="keyword apiname">CPXXgetmipcallbackfunc</span>/<span class="keyword apiname">CPXgetmipcallbackfunc</span>
+</a></code>,
+and <code class="ph codeph"><a class="xref" href="getnetcallbackfunc.html" title="Accesses the user-written legacy callback routine to be called each time a log message is issued during the optimization of a network problem.">
+<span class="keyword apiname">CPXXgetnetcallbackfunc</span>/<span class="keyword apiname">CPXgetnetcallbackfunc</span>
+</a></code>
+for possible values of <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> and their meaning. </p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">whichinfo</dt>
+
+        <dd class="dd pd">
+          
+<p class="p">An integer value specifying the specific information
+that should be returned by 
+<code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackinfo</span>/<span class="keyword apiname">CPXgetcallbackinfo</span></code>
+to the result argument. Values for <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>,
+the type of the information returned into <code class="ph codeph">*<span class="keyword parmname">result_p</span></code>,
+plus a description appear in the table.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">result_p</dt>
+
+        <dd class="dd pd">
+          
+<p class="p">A generic pointer to a variable of type <code class="ph codeph">double</code>, 
+<code class="ph codeph"><a class="xref" href="../inttypes/CPXINT.html" title="A 32 bit, signed integer.">CPXINT</a></code>, or
+<code class="ph codeph"><a class="xref" href="../inttypes/CPXLONG.html" title="A 64-bit signed integer">CPXLONG</a></code>, 
+depending on the value of
+<code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>, as documented in the following tables.</p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      <p class="p">The routine returns 0 (zero) if successful and nonzero if an error occurs. If nonzero, the requested value may not be
+available for the specific optimization algorithm. For example,
+the dual objective is not available from primal simplex.</p>
+
+
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+       
+
+<p class="p">See <code class="ph codeph">lpex4.c</code> in the <em class="ph i">CPLEX User's Manual</em>.</p>
+
+
+<p class="p">Suppose you want to know the objective value on each iteration for a
+graphical user display. In addition, if primal simplex is not feasible after
+1000 iterations, you want to stop the optimization. The function
+<code class="ph codeph"><span class="keyword parmname">mycallback</span></code> is a callback function to do this.</p>
+
+
+<pre class="pre codeblock"><code>
+int mycallback (CPXCENVptr env, void *cbdata, int wherefrom,
+void *cbhandle)
+{
+int itcount;
+double objval;
+int ispfeas;
+int status = 0;
+
+if ( wherefrom == CPX_CALLBACK_PRIMAL ) {
+status = CPXgetcallbackinfo (env, cbdata, wherefrom,
+			    CPX_CALLBACK_INFO_PRIMAL_FEAS,
+			    &amp;ispfeas);
+if ( status ) {
+  fprintf (stderr,"error %d in CPXgetcallbackinfo \n", status);
+  status = 1;
+  goto TERMINATE;
+}
+if ( ispfeas ) {
+  status = CPXgetcallbackinfo (env, cbdata, wherefrom,
+			       CPX_CALLBACK_INFO_PRIMAL_OBJ,
+			       &amp;objval) )
+  if ( status ) {
+     fprintf (stderr,"error %d in CPXgetcallbackinfo \n",
+	      status);
+     status = 1;
+     goto TERMINATE;
+  }
+}
+else {
+  status = CPXgetcallbackinfo (env, cbdata, wherefrom,
+			       CPX_CALLBACK_INFO_ITCOUNT,
+			       &amp;itcount);
+  if ( status ) {
+     fprintf (stderr,"error %d in CPXgetcallbackinfo \n", status);
+     status = 1;
+     goto TERMINATE;
+  }
+  if ( itcount &gt; 1000 ) status = 1;
+}
+}
+
+TERMINATE:
+return (status);
+}
+</code></pre>
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

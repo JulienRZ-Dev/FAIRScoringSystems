@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Writing an output file" />
+<meta name="abstract" content="How to use script statements to write an output file." />
+<meta name="Description" content="How to use script statements to write an output file." />
+<meta name="DC.subject" content="models, writing to an output file, files, output file, writing to, classes, IloOplOutputFile, IloOplOutputFile class" />
+<meta name="keywords" content="models, writing to an output file, files, output file, writing to, classes, IloOplOutputFile, IloOplOutputFile class" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangtut.uss_langtut_mulmod.1014968" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<title>Writing an output file</title>
+</head>
+<body id="usropllangtut.uss_langtut_mulmod.1014968"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Writing an output file</h1>
+<div class="body taskbody"><p class="shortdesc">How to use script statements to write an output file.</p>
+<section class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd509591e33">About this task</h2></div>
+<p class="p">The distributed example <code class="ph codeph">mulprod_main</code> also illustrates how to use script statements to write an output
+file. To do so, you use the <span class="keyword apiname">IloOplOutputFile</span> class.</p>
+
+</section>
+</div>
+<article class="topic task nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" id="usropllangtut.uss_langtut_mulmod.1014800"><h2 class="title topictitle2" id="ariaid-title2">Opening a file</h2>
+<div class="body taskbody"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd509591e48">Procedure</h3></div><p class="li stepsection"><p class="p">To open a file:</p>
+</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Write the following code:</span> <div class="itemgroup info"><pre class="pre codeblock"><code>  var ofile = new IloOplOutputFile("mulprod_main.txt");
+</code></pre></div></li>
+<li class="li step stepexpand"><span class="ph cmd">Then you can write statements such as:</span> <div class="itemgroup info"><pre class="pre codeblock"><code>      ofile.writeln("Objective with capFlour = ", capFlour, " is ", curr);        
+</code></pre></div></li>
+</ol>
+</div>
+</article>
+<article class="topic task nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" id="usropllangtut.uss_langtut_mulmod.1014725"><h2 class="title topictitle2" id="ariaid-title3">Closing the file</h2>
+<div class="body taskbody"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd509591e68">Procedure</h3></div><p class="li stepsection"><p class="p">To close the file:</p>
+</p><div class="li step p"><span class="ph cmd">Write the following code:</span> <div class="itemgroup info"><pre class="pre codeblock"><code>  ofile.close();
+</code></pre></div></div>
+</div>
+</article>
+</div></body>
+</html>

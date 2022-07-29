@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Parameters affecting cuts" />
+<meta name="abstract" content="Summarizes parameters controlling cuts." />
+<meta name="Description" content="Summarizes parameters controlling cuts." />
+<meta name="DC.subject" content="CutsFactor parameter, controlling cuts, AggCutLim parameter, FracPass parameter, FracCand parameter" />
+<meta name="keywords" content="CutsFactor parameter, controlling cuts, AggCutLim parameter, FracPass parameter, FracCand parameter" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/26_cuts_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveMIP.672903" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/26_cuts_title_synopsis.html" />
+<title>Parameters affecting cuts</title>
+</head>
+<body id="User_manual.uss_solveMIP.672903"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Parameters affecting cuts</h1>
+
+
+
+<div class="body"><p class="shortdesc">Summarizes parameters controlling cuts.</p>
+
+<p class="p">Parameters control the way each class of cuts is used.
+Those parameters are listed in the table <a class="xref" href="#User_manual.uss_solveMIP.672903__title1310474232097">Parameters
+for controlling cuts</a>.  </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A five-column table showing types of cuts, the Interactive Optimizer command to invoke that type, its name in Concert Technology (C++, Java, .NET APIs), its name in the Callable Library (C API), and a link to the documentation of the parameter." id="User_manual.uss_solveMIP.672903__User_manual.uss_solveMIP.679513" class="table ShadedHead" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Parameters for controlling cuts </span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:middle;">
+<th class="entry thleft thmid" align="left" valign="middle" id="d209577e75">Cut Type</th>
+ 
+<th class="entry thleft thmid" align="left" valign="middle" id="d209577e78">Interactive Command</th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d209577e81">Concert Technology</th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d209577e84">Callable Library </th>
+
+<th class="entry thleft thmid" align="left" valign="middle" id="d209577e87">Parameter Reference</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Boolean Quadric Polytope (BQP)</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts bqp</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.BQP</code></td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_BQP</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/BQPcuts.html" title="Controls the addition of BQP cuts for nonconvex QP or MIQP solved to global optimality.">Boolean Quadric Polytope cuts</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Clique</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts cliques</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.Cliques</code></td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_Cliques</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/Cliques.html" title="Decides whether or not clique cuts should be generated for the problem.">MIP cliques switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Cover</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts covers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.Covers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_Covers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/Covers.html" title="Decides whether or not cover cuts should be generated for the problem.">MIP covers switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Disjunctive </td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts disjunctive</code> </td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.Disjunctive</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_Disjunctive</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/DisjCuts.html" title="Decides whether or not disjunctive cuts should be generated for the problem.">MIP disjunctive cuts switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Flow Cover</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts flowcovers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.FlowCovers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_FlowCovers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/FlowCovers.html" title="Decides whether or not to generate flow cover cuts for the problem.">MIP flow cover cuts switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Flow Path</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts pathcut</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.PathCut</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_PathCut</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/FlowPaths.html" title="Decides whether or not flow path cuts should be generated for the problem.">MIP flow path cut switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Gomory</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts gomory</code> </td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.Gomory</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_Gomory</code>  </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/FracCuts.html" title="Decides whether or not Gomory fractional cuts should be generated for the problem.">MIP Gomory fractional cuts switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">GUB Cover</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts gubcovers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.GUBCovers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_GUBCovers</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/GUBCovers.html" title="Decides whether or not to generate GUB cuts for the problem.">MIP GUB cuts switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Globally Valid Implied Bound</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts implied</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.Implied</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_Implied</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/ImplBd.html" title="Decides whether or not to generate globally valid implied bound cuts for the model.">MIP globally valid implied bound cuts switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Locally Valid Implied Bound</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts localimplied</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.LocalImplied</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_LocalImplied</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/ImplBdLocal.html" title="Decides whether or not to generate locally valid implied bound cuts for the problem.">MIP locally valid implied bound cuts switch</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Lift and Project </td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts liftproj</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.LiftProj</code></td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_LiftProj</code></td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/LiftProjCuts.html" title="Decides whether or not lift-and-project cuts are generated for the problem.">Lift-and-project cuts switch for MIP and MIQCP</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Mixed Integer Rounding (MIR)</td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts mircut</code> </td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.MIRCut</code> </td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_MIRCut</code> </td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/MIRCuts.html" title="Decides whether or not to generate MIR cuts (mixed integer rounding cuts) for the problem.">MIP MIR (mixed integer rounding) cut switch</a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d209577e75 ">Multi-commodity Flow </td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts mcfcut</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.MCFCut</code></td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cut_MCFCut</code></td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/MCFCuts.html" title="Switches on or off generation of multi-commodity flow cuts in a MIP.">MCF cut switch</a></td>
+
+</tr>
+ 
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Reformulation Linearization Technique (RLT) </td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts rlt</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.RLT</code></td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_RLT</code></td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/RLTcuts.html" title="Controls the addition of RLT cuts for nonconvex QP solved to global optimality.">Reformulation Linearization Technique (RLT) cuts</a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d209577e75 ">Zero-Half </td>
+
+<td class="entry" valign="top" headers="d209577e78 "><code class="ph codeph">set mip cuts zerohalfcut</code></td>
+
+<td class="entry" valign="top" headers="d209577e81 "><code class="ph codeph">MIP.Cuts.ZeroHalfCut</code></td>
+
+<td class="entry" valign="top" headers="d209577e84 "><code class="ph codeph">CPXPARAM_MIP_Cuts_ZeroHalfCut</code></td>
+
+<td class="entry" valign="top" headers="d209577e87 "><a class="xref" href="../../../../../Parameters/topics/ZeroHalfCuts.html" title="Decides whether or not to generate zero-half cuts for the problem.">MIP zero-half cuts switch</a></td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">The default value of each of those parameters is <code class="ph codeph">0</code>  (zero). By default, CPLEX automatically decides
+how often (if at all) it should try to generate that class of cut.
+A setting of <code class="ph codeph">-1</code> specifies that no cuts of
+the class should be generated; a setting of <code class="ph codeph">1</code> specifies
+that cuts of the class should be generated moderately; and a setting
+of <code class="ph codeph">2</code> specifies that cuts of the class should
+be generated aggressively. For clique cuts, cover cuts, disjunctive 
+cuts, local implied bound cuts, as well as lift and project cuts, 
+a setting of 3 is permitted. This setting specifies that this 
+type of cut should be generated very aggressively.</p>
+
+<p class="p">In the Interactive Optimizer, the command <code class="ph codeph">set mip cuts all i</code> applies
+the value <code class="ph codeph">i</code> to all types of cut parameters.
+That is, you can set them all simultaneously.</p>
+
+<p class="p">The <a class="xref" href="../../../../../Parameters/topics/CutsFactor.html" title="Limits the number of cuts that can be added.">cut factor row-multiplier limit</a> 
+(<code class="ph codeph">CutsFactor, CPXPARAM_MIP_Limits_CutsFactor</code>) parameter controls
+the number of cuts CPLEX adds to the model.  </p>
+
+<p class="p">The <a class="xref" href="../../../../../Parameters/topics/AggCutLim.html" title="Limits the number of constraints that can be aggregated for generating flow cover and mixed integer rounding (MIR) cuts.">constraint aggregation limit for cut generation</a> 
+(<code class="ph codeph">AggForCut, CPXPARAM_MIP_Limits_AggForCut</code>) parameter controls
+the number of constraints allowed to be aggregated for generating
+MIR and flow cover cuts.</p>
+
+<p class="p">The <a class="xref" href="../../../../../Parameters/topics/FracPass.html" title="Limits the number of passes for generating Gomory fractional cuts.">pass limit for generating Gomory fractional cuts</a> 
+(<code class="ph codeph">GomoryPass, CPXPARAM_MIP_Limits_GomoryPass</code>) parameter controls
+the number of passes for generating Gomory fractional cuts. This parameter
+will not have any effect if the parameter for <code class="ph codeph">set
+mip cuts gomory</code>  has a nondefault value. </p>
+
+<p class="p">The <a class="xref" href="../../../../../Parameters/topics/FracCand.html" title="Limits the number of candidate variables for generating Gomory fractional cuts.">candidate limit for generating Gomory fractional cuts</a> 
+(<code class="ph codeph">GomoryCand, CPXPARAM_MIP_Limits_GomoryCand</code>) parameter controls
+the number of variable candidates to be considered for generating
+Gomory fractional cuts.</p>
+
+<p class="p">The <a class="xref" href="../../../../../Parameters/topics/CutPass.html" title="Sets the upper limit on the number of cutting plane passes CPLEX performs when solving the root node of a MIP model.">number of cutting plane passes</a> 
+parameter (<code class="ph codeph">CutPass, CPXPARAM_MIP_Limits_CutPass</code>) sets the upper 
+limit on the number of cutting plane passes that CPLEX performs when it solves the 
+root node of a MIP model. The value -1 (that is, negative one) 
+disables cut separation and may be a more 
+convenient way for you to turn off all cuts than for you to set them individually.
+</p>
+
+<p class="p">The <a class="xref" href="../../../../../Parameters/topics/NodeCutsSwitch.html" title="Decides whether or not cutting planes are separated at the nodes of the branch-and-bound tree.">node cuts switch</a>
+(<code class="ph codeph">CPXPARAM_MIP_Cuts_Nodecuts</code>) parameter allows  you to control the effort that CPLEX
+should spend in separating cutting planes at the tree nodes of the branch-and-bound tree. In
+particular, setting the value of this parameter to -1 (that is, negative one) completely disables
+the separation of cutting planes in the tree, but it has no impact on the cut separation applied at
+the root node.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/26_cuts_title_synopsis.html" title="Describes types of cuts available in the MIP optimizer as performance features.">Cuts</a></div>
+</div>
+</nav></div></body>
+</html>

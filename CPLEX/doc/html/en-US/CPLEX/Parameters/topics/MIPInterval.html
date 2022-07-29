@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIP node log interval" />
+<meta name="abstract" content="Controls the frequency of node logging when the MIP display parameter is set higher than 1 (one)." />
+<meta name="Description" content="Controls the frequency of node logging when the MIP display parameter is set higher than 1 (one)." />
+<meta name="DC.subject" content="CPX_PARAM_MIPINTERVAL, MIPInterval, mip interval, NodeDisplayInterval" />
+<meta name="keywords" content="CPX_PARAM_MIPINTERVAL, MIPInterval, mip interval, NodeDisplayInterval" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196787367699" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>MIP node log interval</title>
+</head>
+<body id="languageRefTopic1196787367699"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">MIP node log interval</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Controls the frequency of node logging when the MIP display
+parameter is set higher than 1 (one).</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">MIP node log interval</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d109725e56">API</th>
+
+<th class="entry nrule" valign="top" id="d109725e59">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d109725e62">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">CPXPARAM_MIP_Interval</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">CPX_PARAM_MIPINTERVAL</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">IloCplex::Param::MIP::Interval</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">MIPInterval (long)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">IloCplex.Param.MIP.Interval</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">MIPInterval (long)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">Cplex.Param.MIP.Interval</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">MIPInterval (long)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">mipinterval </td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">mipinterval</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">parameters.mip.interval</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">mip.interval</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">mip interval</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">mip interval</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d109725e56 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d109725e59 ">2013</td>
+
+<td class="entry nrule" valign="top" headers="d109725e62 ">2013</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+<p class="p">Controls the frequency of node
+logging when the MIP display parameter (<a class="xref" href="MIPDisplay.html" title="Decides what CPLEX reports to the screen during mixed integer optimization (MIP).">MIP node log display information</a>)
+is set higher than 1 (one). Frequency must be an integer; it may be
+0 (zero), positive, or negative. </p>
+
+<p class="p">By <strong class="ph b">default</strong>, CPLEX displays
+new information in the node log during a MIP solve at relatively high
+frequency during the early stages of solving a MIP model, and adds
+lines to the log at progressively longer intervals as solving continues.
+In other words, CPLEX logs information frequently in the beginning
+and progressively less often as it works.</p>
+
+<p class="p">When the value is a <strong class="ph b">positive</strong> <strong class="ph b">integer</strong> n, 
+CPLEX displays new incumbents,
+plus it displays a new line in the log every n nodes.</p>
+
+<p class="p">When the value is a <strong class="ph b">negative</strong> <strong class="ph b">integer</strong> n, 
+CPLEX displays new incumbents,
+and the negative value determines how much processing CPLEX does before
+it displays a new line in the node log. A negative value close to
+zero means that CPLEX displays new lines in the log frequently. A
+negative value far from zero means that CPLEX displays new lines in
+the log less frequently. In other words, a negative value of this
+parameter contracts or dilates the interval at which CPLEX displays
+information in the node log. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry thleft" align="left" valign="top" id="d109725e227">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d109725e230">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d109725e227 ">n &lt; 0</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d109725e230 ">Display new incumbents, and display a log line frequently at
+the beginning of solving and less frequently as solving progresses</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d109725e227 ">0 (zero)</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d109725e230 ">automatic: let CPLEX decide the frequency to log nodes (<strong class="ph b">default</strong>)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d109725e227 ">n &gt; 0</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d109725e230 ">Display new incumbents, and display a log line every n nodes</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p paragrouptitle">See also</p>
+<p class="p"><a class="xref" href="MIPDisplay.html" title="Decides what CPLEX reports to the screen during mixed integer optimization (MIP).">MIP node log display information</a></p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

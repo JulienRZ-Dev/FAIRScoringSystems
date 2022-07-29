@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex._internal._pwl.PWLConstraintInterface</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        <a href="cplex._internal-module.html" onclick="show_private();">Package&nbsp;_internal</a> ::
+        <a href="cplex._internal._pwl-module.html">Module&nbsp;_pwl</a> ::
+        Class&nbsp;PWLConstraintInterface
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex._internal._pwl.PWLConstraintInterface-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PWLConstraintInterface</h1><p class="nomargin-top"></p>
+<center>
+<center>  <map id="class_hierarchy_for_pwlconstra" name="class_hierarchy_for_pwlconstra">
+<area shape="rect" id="node1" href="cplex._internal._baseinterface.BaseInterface-class.html" title="_baseinterface.BaseInterface" alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="cplex._internal._pwl.PWLConstraintInterface-class.html" title="PWLConstraintInterface" alt="" coords="21,61,184,88"/>
+</map>
+  <img src="class_hierarchy_for_pwlconstra.gif" alt='' usemap="#class_hierarchy_for_pwlconstra" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Methods for adding, querying, and modifying PWL constraints.</p>
+<p>A PWL constraint describes a piecewise linear relationship between
+two variables: vary=pwl(varx).  The PWL constraint is described by
+specifying the index of the vary and varx variables involved and by
+providing the breakpoints of the PWL function (specified by the
+(breakx[i],breaky[i]) coordinate pairs).  Before the first segment of
+the PWL function there may be a half-line; its slope is specified by
+preslope.  After the last segment of the the PWL function there may
+be a half-line; its slope is specified by postslope.  Two consecutive
+breakpoints may have the same x coordinate, in such cases there is a
+discontinuity in the PWL function.  Three consecutive breakpoints
+may not have the same x coordinate.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._pwl.PWLConstraintInterface-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cpx</span>)</span><br />
+      Creates a new PWLConstraintInterface.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._pwl.PWLConstraintInterface-class.html#get_num" class="summary-sig-name">get_num</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the number of PWL constraints in the problem.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._pwl.PWLConstraintInterface-class.html#add" class="summary-sig-name">add</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">vary</span>,
+        <span class="summary-sig-arg">varx</span>,
+        <span class="summary-sig-arg">preslope</span>,
+        <span class="summary-sig-arg">postslope</span>,
+        <span class="summary-sig-arg">breakx</span>,
+        <span class="summary-sig-arg">breaky</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Adds a PWL constraint to the problem.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._pwl.PWLConstraintInterface-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Deletes PWL constraints from the problem.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._pwl.PWLConstraintInterface-class.html#get_names" class="summary-sig-name">get_names</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Returns the names of a set of PWL constraints.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex._internal._pwl.PWLConstraintInterface-class.html#get_definitions" class="summary-sig-name">get_definitions</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Returns the definitions of a set of PWL constraints.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cplex._internal._baseinterface.BaseInterface-class.html">_baseinterface.BaseInterface</a></code></b>:
+      <code><a href="cplex._internal._baseinterface.BaseInterface-class.html#get_indices">get_indices</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Method Details</span></td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cpx</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates a new PWLConstraintInterface.</p>
+<p>The PWL constraint interface is exposed by the top-level <a href="cplex.Cplex-class.html" class="link">Cplex</a>
+class as <a href="cplex.Cplex-class.html#pwl_constraints" class="link">Cplex.pwl_constraints</a>.  This constructor is not meant
+to be used externally.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cplex._internal._baseinterface.BaseInterface-class.html#__init__">_baseinterface.BaseInterface.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_num"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_num</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the number of PWL constraints in the problem.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_num()
+<span class="py-output">0</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'y'</span>, <span class="py-string">'x'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.pwl_constraints.add(vary=<span class="py-string">'y'</span>, varx=<span class="py-string">'x'</span>,
+<span class="py-more">... </span>                            preslope=0.5, postslope=2.0,
+<span class="py-more">... </span>                            breakx=[0.0, 1.0, 2.0],
+<span class="py-more">... </span>                            breaky=[0.0, 1.0, 4.0],
+<span class="py-more">... </span>                            name=<span class="py-string">'pwl1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_num()
+<span class="py-output">1</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="add"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">vary</span>,
+        <span class="sig-arg">varx</span>,
+        <span class="sig-arg">preslope</span>,
+        <span class="sig-arg">postslope</span>,
+        <span class="sig-arg">breakx</span>,
+        <span class="sig-arg">breaky</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds a PWL constraint to the problem.</p>
+<p>vary: the index of the 'y' variable in the vary=pwl(varx)
+function.</p>
+<p>varx: the index of the 'x' variable in the vary=pwl(varx)
+function.</p>
+<p>preslope: before the first segment of the PWL function there is
+a half-line; its slope is specified by preslope.</p>
+<p>postslope: after the last segment of the the PWL function there
+is a half-line; its slope is specified by postslope.</p>
+<p>breakx: A list containing the indices of the 'x' variables
+involved.</p>
+<p>breaky: A list containing the indices of the 'y' variables
+involved.</p>
+<p>name: the name of the PWL constraint; defaults to the empty
+string.</p>
+<p>Returns the index of the PWL constraint.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'y'</span>, <span class="py-string">'x'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.pwl_constraints.add(vary=<span class="py-string">'y'</span>, varx=<span class="py-string">'x'</span>,
+<span class="py-more">... </span>                            preslope=0.5, postslope=2.0,
+<span class="py-more">... </span>                            breakx=[0.0, 1.0, 2.0],
+<span class="py-more">... </span>                            breaky=[0.0, 1.0, 4.0],
+<span class="py-more">... </span>                            name=<span class="py-string">'pwl1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_num()
+<span class="py-output">1</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="delete"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Deletes PWL constraints from the problem.</p>
+<p>There are four forms by which pwl_constraints.delete may be
+called.</p>
+<dl class="rst-docutils">
+<dt>pwl_constraints.delete()</dt>
+<dd>deletes all PWL constraints from the problem.</dd>
+<dt>pwl_constraints.delete(i)</dt>
+<dd>i must be a PWL constraint name or index. Deletes the PWL
+constraint whose index or name is i.</dd>
+<dt>pwl_constraints.delete(seq)</dt>
+<dd>seq must be a sequence of PWL constraint names or indices.
+Deletes the PWL constraints with names or indices contained
+within s. Equivalent to [pwl_constraints.delete(i) for i in s].</dd>
+<dt>pwl_constraints.delete(begin, end)</dt>
+<dd>begin and end must be PWL constraint indices or PWL constraint
+names. Deletes the PWL constraints with indices between begin
+and end, inclusive of end. Equivalent to
+pwl_constraints.delete(range(begin, end + 1)). This will give
+the best performance when deleting batches of PWL constraints.</dd>
+</dl>
+<p>See CPXdelpwl in the Callable Library Reference Manual for more
+detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'y'</span>, <span class="py-string">'x'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.pwl_constraints.add(vary=<span class="py-string">'y'</span>, varx=<span class="py-string">'x'</span>,
+<span class="py-more">... </span>                            preslope=0.5, postslope=2.0,
+<span class="py-more">... </span>                            breakx=[0.0, 1.0, 2.0],
+<span class="py-more">... </span>                            breaky=[0.0, 1.0, 4.0],
+<span class="py-more">... </span>                            name=<span class="py-string">'pwl1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_num()
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.delete(idx)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_num()
+<span class="py-output">0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_names"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_names</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the names of a set of PWL constraints.</p>
+<p>May be called by four forms.</p>
+<dl class="rst-docutils">
+<dt>pwl_constraints.get_names()</dt>
+<dd>return the names of all PWL constraints in the problem.</dd>
+<dt>pwl_constraints.get_names(i)</dt>
+<dd>i must be a PWL constraint name or index.  Returns the name of
+PWL constraint i.</dd>
+<dt>pwl_constraints.get_names(seq)</dt>
+<dd>seq must be a sequence of PWL constraint names or indices.
+Returns the names of PWL constraints with names or indices in
+s.  Equivalent to
+[pwl_constraints.get_names(i) for i in s]</dd>
+<dt>pwl_constraints.get_names(begin, end)</dt>
+<dd>begin and end must be PWL constraint indices or PWL constraint
+names. Returns the names of PWL constraints with indices
+between begin and end, inclusive of end.  Equivalent to
+pwl_constraints.get_names(range(begin, end + 1))</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'y'</span>, <span class="py-string">'x'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.pwl_constraints.add(vary=<span class="py-string">'y'</span>, varx=<span class="py-string">'x'</span>,
+<span class="py-more">... </span>                            preslope=0.5, postslope=2.0,
+<span class="py-more">... </span>                            breakx=[0.0, 1.0, 2.0],
+<span class="py-more">... </span>                            breaky=[0.0, 1.0, 4.0],
+<span class="py-more">... </span>                            name=<span class="py-string">'pwl1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_names(idx)
+<span class="py-output">'pwl1'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_definitions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_definitions</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the definitions of a set of PWL constraints.</p>
+<p>Returns a list of PWL definitions, where each definition is a
+list containing the following components: vary, varx, preslope,
+postslope, breakx, breaky (see <a href="cplex._internal._pwl.PWLConstraintInterface-class.html#add" class="link">add</a>).</p>
+<p>May be called by four forms.</p>
+<dl class="rst-docutils">
+<dt>pwl_constraints.get_definitions()</dt>
+<dd>return the definitions of all PWL constraints in the
+problem.</dd>
+<dt>pwl_constraints.get_definitions(i)</dt>
+<dd>i must be a PWL constraint name or index.  Returns the
+definition of PWL constraint i.</dd>
+<dt>pwl_constraints.get_definitions(seq)</dt>
+<dd>seq must be a sequence of PWL constraint names or indices.
+Returns the definitions of PWL constraints with names or
+indices in s.  Equivalent to
+[pwl_constraints.get_definitions(i) for i in s]</dd>
+<dt>pwl_constraints.get_definitions(begin, end)</dt>
+<dd>begin and end must be PWL constraint indices or PWL constraint
+names. Returns the definitions of PWL constraints with indices
+between begin and end, inclusive of end. Equivalent to
+pwl_constraints.get_definitions(list(range(begin, end + 1)))</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'y'</span>, <span class="py-string">'x'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.pwl_constraints.add(vary=<span class="py-string">'y'</span>, varx=<span class="py-string">'x'</span>,
+<span class="py-more">... </span>                            preslope=0.5, postslope=2.0,
+<span class="py-more">... </span>                            breakx=[0.0, 1.0, 2.0],
+<span class="py-more">... </span>                            breaky=[0.0, 1.0, 4.0],
+<span class="py-more">... </span>                            name=<span class="py-string">'pwl1'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.pwl_constraints.get_definitions(idx)
+<span class="py-output">[0, 1, 0.5, 2.0, [0.0, 1.0, 2.0], [0.0, 1.0, 4.0]]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

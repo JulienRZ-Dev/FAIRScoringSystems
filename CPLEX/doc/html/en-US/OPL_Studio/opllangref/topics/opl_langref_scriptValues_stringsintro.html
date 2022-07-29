@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Introduction" />
+<meta name="abstract" content="Provides an overview of the use of strings in IBM ILOG Script." />
+<meta name="Description" content="Provides an overview of the use of strings in IBM ILOG Script." />
+<meta name="DC.subject" content="delimiters, quotes" />
+<meta name="keywords" content="delimiters, quotes" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_strings.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1009479" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_strings.html" />
+<title>Introduction</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1009479"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Introduction</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides an overview of the use of strings in IBM ILOG
+Script.</p>
+
+<p class="p">A string literal is zero or more characters enclosed in double
+(“) or single (’) quotes. </p>
+
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p"><em class="ph i"> </em><strong class="ph b">For C/C++ programmers:</strong> Except for the use
+of single quotes, string literals have the same syntax as in C and
+C++. </p>
+ </div>
+
+<p class="p">Here are examples of string literals: </p>
+
+<pre class="pre codeblock"><code>
+"My name is Hal"  
+’My name is Hal’  
+’"Hi there", he said’  
+"3.14"  
+"Hello, world\n"  
+</code></pre>
+<p class="p">In these examples, the first and second strings are identical. </p>
+
+<p class="p">The backslash character <code class="ph codeph">\</code> can be used to introduce
+an escape sequence, which stands for a character which cannot be directly
+expressed in a string literal.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists IBM ILOG Script escape sequences and their meanings." id="usropllangref.uss_langref_scriptValues.1009479__usropllangref.uss_langref_scriptValues.1013452" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Escape sequences in strings</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d480458e76">Escape sequence</th>
+
+<th class="entry thleft" align="left" valign="top" id="d480458e79">Stands for</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\n</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Newline</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\t</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Tab</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\\</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Backslash character (\)</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\”</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Double quote (") </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\’</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Single quote (’) </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\b</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Backspace</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\f</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Form feed</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\r</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">Carriage return</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\xhh</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">The character whose ASCII code is hh, where hh is a sequence
+of two hexadecimal digits. </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e76 ">\ooo</td>
+
+<td class="entry" valign="top" headers="d480458e79 ">The character whose ASCII code is ooo, where ooo is a sequence
+of one, two, or three octal digits.</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+<p class="p">Here are examples of string literals using escape sequences: </p>
+
+<p class="p"> </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists examples of string literals using escape sequences and what they stand for." id="usropllangref.uss_langref_scriptValues.1009479__usropllangref.uss_langref_scriptValues.1013301" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Examples of string literals
+using escape sequences</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d480458e205">String literal</th>
+
+<th class="entry thleft" align="left" valign="top" id="d480458e208">Stands for</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e205 "><code class="ph codeph">"Read 'The Black Bean'"</code> </td>
+
+<td class="entry" valign="top" headers="d480458e208 ">Read ‘The Black Bean’</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e205 "><code class="ph codeph">’"Hello", he said’</code> </td>
+
+<td class="entry" valign="top" headers="d480458e208 ">“Hello”, he said</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e205 "><code class="ph codeph">"c:\\temp"</code> </td>
+
+<td class="entry" valign="top" headers="d480458e208 ">c:\temp</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e205 "><code class="ph codeph">"First line\nSecond line\nThird line"</code> </td>
+
+<td class="entry" valign="top" headers="d480458e208 "><p class="p">First line</p>
+<p class="p">Second line</p>
+<p class="p">Third line</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d480458e205 "><code class="ph codeph">"\xA9 1995-1997"</code> </td>
+
+<td class="entry" valign="top" headers="d480458e208 ">© 1995-1997 </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">When a string is converted to a number, an attempt is made to parse
+it as a number literal. If the string does not represent a valid number
+literal, the conversion yields <code class="ph codeph">NaN</code>. </p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_strings.html" title="String representation and functions.">IBM ILOG Script strings</a></div>
+</div>
+</nav></div></body>
+</html>

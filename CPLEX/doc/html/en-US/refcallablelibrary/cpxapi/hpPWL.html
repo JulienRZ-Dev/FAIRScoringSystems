@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Piecewise linearity (PWL) in models in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/addpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delsetpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwlindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwlname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/addpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delsetpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwlindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwlname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/homepagemipapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/addpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delsetpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwlindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpwlname.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpPWL" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/homepagemipapi.html" />
+<title>Piecewise linearity (PWL) in models in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="hpPWL"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Piecewise linearity (PWL) in models in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines are available in the CPLEX Callable Library (C API) to 
+support the expression of modeling elements as piecewise linear (PWL) functions. 
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/addpwl.html">CPXXaddpwl and CPXaddpwl</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXaddpwl</span>/<span class="keyword apiname">CPXaddpwl</span></code>     adds a piecewise linear constraint to the specified CPLEX     problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delpwl.html">CPXXdelpwl and CPXdelpwl</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXdelpwl</span>/<span class="keyword apiname">CPXdelpwl</span></code>     deletes a range of piecewise linear (PWL) constraints from a CPLEX     problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delsetpwl.html">CPXXdelsetpwl and CPXdelsetpwl</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXdelsetpwl</span>/<span class="keyword apiname">CPXdelsetpwl</span></code>     deletes a group of piecewise linear (PWL) constraints from a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumpwl.html">CPXXgetnumpwl and CPXgetnumpwl</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumpwl</span>/<span class="keyword apiname">CPXgetnumpwl</span></code> accesses the number of     piecewise linear (PWL) constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getpwl.html">CPXXgetpwl and CPXgetpwl</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXgetpwl</span>/<span class="keyword apiname">CPXgetpwl</span></code>     accesses the definitions of a piecewise linear (PWL) constraint     stored in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getpwlindex.html">CPXXgetpwlindex and CPXgetpwlindex</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXgetpwlindex</span>/<span class="keyword apiname">CPXgetpwlindex</span></code>     searches for the index number of the piecewise liner (PWL) constraint in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getpwlname.html">CPXXgetpwlname and CPXgetpwlname</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXgetpwlname</span>/<span class="keyword apiname">CPXgetpwlname</span></code>     accesses the name of a piecewise linear (PWL) constraint of a     CPLEX problem object.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/homepagemipapi.html">Discrete Optimization in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

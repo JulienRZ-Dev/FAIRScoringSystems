@@ -1,0 +1,13 @@
+dataset : data/wine.csv
+labels_name : ['quality == low', 'quality == medium', 'quality == high']
+s : 3.0
+sp : 0.12
+ba : 1.0
+sensitive_groups : ['type == red']
+sensitive_labels : ['quality == low']
+time_limit : 3600
+lambda_bound : 9
+n_folds : 5
+nb_samples : 5040
+nb_features : 25
+nb_labels : 3

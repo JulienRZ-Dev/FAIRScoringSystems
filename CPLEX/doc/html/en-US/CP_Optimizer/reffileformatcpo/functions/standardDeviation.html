@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="standardDeviation" />
+<meta name="abstract" content="Creates a constrained numeric expression equal to the standard deviation of the values of the variables in an array." />
+<meta name="Description" content="Creates a constrained numeric expression equal to the standard deviation of the values of the variables in an array." />
+<meta name="DC.subject" content="standardDeviation" />
+<meta name="keywords" content="standardDeviation" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="standardDeviation" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>standardDeviation</title>
+</head>
+<body id="standardDeviation"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">standardDeviation</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Creates a constrained numeric expression equal
+to the standard deviation of the values of the variables in an array.
+</p>
+
+
+
+<section class="section" id="standardDeviation__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">standardDeviation</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> meanLB = -<a class="xref" href="../syntax/040_Constants.html#Constants__inf">inf</a>, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> meanUB = <a class="xref" href="../syntax/040_Constants.html#Constants__inf">inf</a>)
+</code></pre>
+</section>
+
+
+<section class="section" id="standardDeviation__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code>: an array of integer expressions.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">meanLB</code>: a lower bound on the mean of the array.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">meanUB</code>: an upper bound on the mean of the array.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="standardDeviation__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function creates a new constrained numeric expression which is
+equal to the standard deviation of the values of the variables in the
+array <code class="ph codeph">x</code>.  The mean of the values of the variables in the array x is 
+constrained to be in the interval [meanLB, meanUB].
+</p>
+
+
+</section>
+
+
+<section class="section" id="standardDeviation__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+b = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+c = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+<strong class="ph b">standardDeviation</strong>([a, b, c], 30, 30) &lt;= 5;
+</code></pre>
+<p class="p">
+The mean of the three variables <code class="ph codeph">a</code>, <code class="ph codeph">b</code>, <code class="ph codeph">c</code> is constrained to be 30, and their standard deviation 
+must be less than or equal to 5.
+</p>
+
+
+</section>
+
+
+<section class="section" id="standardDeviation__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<p class="p">
+Array <code class="ph codeph">x</code> cannot be empty.
+</p>
+
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+</nav></div></body>
+</html>

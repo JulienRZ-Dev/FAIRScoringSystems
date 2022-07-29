@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Integer variable evaluators" />
+<meta name="abstract" content="The list of integer variable evaluators." />
+<meta name="Description" content="The list of integer variable evaluators." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<meta name="DC.Relation" scheme="URI" content="040_Types.html#Types_in_search_section/intVarEval" />
+<meta name="DC.Relation" scheme="URI" content="040_Types.html#Types_in_search_section/intVarSelector" />
+<meta name="DC.Relation" scheme="URI" content="080_searchPhase.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Integer_variable_evaluators" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<title>Integer variable evaluators</title>
+</head>
+<body id="Integer_variable_evaluators"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Integer variable evaluators</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+The list of integer variable evaluators.
+</p>
+
+
+
+<section class="section" id="Integer_variable_evaluators__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">domainSize</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">domainMax</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">domainMin</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">varImpact</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">varSuccessRate</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">varLocalImpact</strong>(<a class="xref" href="../syntax/070_Types.html#Numerical_types__int">int</a> effort = -1)
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">impactOfLastBranch</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">varIndex</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> defaultEval = -1)
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> <strong class="ph b">explicitVarEval</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> evalArray, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> defaultEval = 0)
+</code></pre>
+</section>
+
+
+<section class="section" id="Integer_variable_evaluators__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+Each of the functions above creates an integer variable evaluator.
+</p>
+
+
+<dl class="dl">
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__domainSize"><code class="ph codeph">domainSize()</code></dt>
+
+    <dd class="dd">
+This evaluation is the number of elements in the current domain of
+the evaluated variable.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__domainMax"><code class="ph codeph">domainMax()</code></dt>
+
+    <dd class="dd">
+This evaluation is the maximum value in the current domain of the
+variable.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__domainMin"><code class="ph codeph">domainMin()</code></dt>
+
+    <dd class="dd">
+This evaluation is the minimum value in the current domain of the
+variable.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__varImpact"><code class="ph codeph">varImpact()</code></dt>
+
+    <dd class="dd">
+The evaluation is the average reduction of the search space
+observed so far for this variable. The greater the evaluation, the
+more space reduction this variable achieves when fixed. In general, it is a good
+strategy to start with a variable having the greatest impact in order to
+reduce the search space size.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__varSuccessRate"><code class="ph codeph">varSuccessRate()</code></dt>
+
+    <dd class="dd">
+The evaluation is the the success rate of the variable. Assuming the
+evaluated variable has been fixed <code class="ph codeph">n</code> times so far and this has
+resulted in <code class="ph codeph">f</code> failures, the success rate is <code class="ph codeph">(n-f)/n</code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__varLocalImpactint_effort__1"><code class="ph codeph">varLocalImpact(int effort = -1)</code></dt>
+
+    <dd class="dd">
+The evaluation is the impact of the variable computed at the current
+node of the search tree. This computation is made by probing on values
+from the domain of the variable. The parameter <code class="ph codeph">effort</code> indicates how
+much effort should be spent to compute this impact. When <code class="ph codeph">effort</code> is
+equal to -1, every value of the domain is probed. Otherwise, the
+number of probes will increase as the effort value increases.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__impactOfLastBranch"><code class="ph codeph">impactOfLastBranch()</code></dt>
+
+    <dd class="dd">
+The evaluation is a measure of the amount of domain reduction made by
+the last search branch on the evaluated variable.  The evaluation ranges from 0 to 1.0.
+If the evaluation is close to zero then there was little domain
+reduction on the evaluated variable. If the value is close to one, the
+domain was reduced considerably.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__varIndexintExprArray_x_float_defaultEval__1"><code class="ph codeph">varIndex(intExprArray x, float defaultEval = -1)</code></dt>
+
+    <dd class="dd">
+The evaluation is the index of the variable in the array
+<code class="ph codeph">x</code>. That is, the evaluation of <code class="ph codeph">x[i]</code> is <code class="ph codeph">i</code>. If the variable does
+not appear in the array <code class="ph codeph">x</code> then the evaluation is <code class="ph codeph">defaultEval</code>. Array
+<code class="ph codeph">x</code> may contain only integer variables.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_variable_evaluators__explicitVarEvalintExprArray_x_floatArray_evalArray_float_defaultEval"><code class="ph codeph">explicitVarEval(intExprArray x, floatArray evalArray, float defaultEval)</code></dt>
+
+    <dd class="dd">
+The evaluations of variables in the array <code class="ph codeph">x</code> are explicitly defined
+in the array <code class="ph codeph">evalArray</code>; that is, the evaluation of
+<code class="ph codeph">x[i]</code> is <code class="ph codeph">evalArray[i]</code>. The evaluation of a variable that does not
+appear in the array <code class="ph codeph">x</code> is <code class="ph codeph">defaultEval</code>. Array <code class="ph codeph">x</code> may contain only
+integer variables. Array <code class="ph codeph">evalArray</code> must have the same size as array <code class="ph codeph">x</code>.</dd>
+
+  
+</dl>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/search.html" title="A CPO file may contain an optional search section which specifies a variable fixing strategy that CP Optimizer should use while searching for solutions. The strategy is described by search phases.">The search section</a></div>
+</div>
+
+<div class="linklist linklist relinfo relconcepts" xml:lang="en-us"><strong>Related concepts</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="080_searchPhase.html" title="The function searchPhase defines an variable fixing strategy.">Function searchPhase</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a></li>
+<li class="linklist"><a class="link" href="040_Types.html#Types_in_search_section__intVarSelector">intVarSelector</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

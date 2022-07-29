@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Solution Status Symbols Specific to MIP in the CPLEX Callable Library (C API)" />
+<meta name="DC.subject" content="solution status (MIP), symbolic names in C API Reference Manual, by name" />
+<meta name="keywords" content="solution status (MIP), symbolic names in C API Reference Manual, by name" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepagemacros.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_ABORT_FEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_ABORT_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_ABORT_RELAXATION_UNBOUNDED.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_ABORT_RELAXED.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_DETTIME_LIM_FEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_DETTIME_LIM_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FAIL_FEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FAIL_FEAS_NO_TREE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FAIL_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FAIL_INFEAS_NO_TREE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FEASIBLE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FEASIBLE_RELAXED_INF.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FEASIBLE_RELAXED_QUAD.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_FEASIBLE_RELAXED_SUM.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_INFEASIBLE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_INForUNBD.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_MEM_LIM_FEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_MEM_LIM_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_NODE_LIM_FEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_NODE_LIM_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_POPULATED.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_POPULATED_TOL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_RELAXED_INF.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_RELAXED_QUAD.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_RELAXED_SUM.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_TOL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_POPULATESOL_LIM.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_SOL_LIM.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_TIME_LIM_FEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_TIME_LIM_INFEAS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMIP_UNBOUNDED.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagesolutionstatusMIP" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepagemacros.html" />
+<title>Solution Status Symbols Specific to MIP in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepagesolutionstatusMIP"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Solution Status Symbols Specific to MIP in the CPLEX Callable Library (C API) </h1>
+ 
+  
+<div class="body">
+<p class="p">
+These symbols represent the status of a mixed integer programming (MIP) solution produced by CPLEX. 
+Other more general solution status symbols are documented in 
+<a class="xref" href="homepagesolutionstatus.html">Solution Status Symbols in the CPLEX Callable Library (C API)</a>.
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_ABORT_FEAS.html">CPXMIP_ABORT_FEAS</a></strong><br />
+113 (MIP only) enum: AbortFeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_ABORT_INFEAS.html">CPXMIP_ABORT_INFEAS</a></strong><br />
+114 (MIP only) enum: AbortInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_ABORT_RELAXATION_UNBOUNDED.html">CPXMIP_ABORT_RELAXATION_UNBOUNDED</a></strong><br />
+133 (MIP only) enum: Relaxation Unbounded</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_ABORT_RELAXED.html">CPXMIP_ABORT_RELAXED</a></strong><br />
+126 (MIP only) enum: AbortRelaxed</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_DETTIME_LIM_FEAS.html">CPXMIP_DETTIME_LIM_FEAS</a></strong><br />
+131 (MIP only) enum: DetTimeLimFeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_DETTIME_LIM_INFEAS.html">CPXMIP_DETTIME_LIM_INFEAS</a></strong><br />
+132 (MIP only) enum: DetTimeLimInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FAIL_FEAS.html">CPXMIP_FAIL_FEAS</a></strong><br />
+109 (MIP only) enum: FailFeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FAIL_FEAS_NO_TREE.html">CPXMIP_FAIL_FEAS_NO_TREE</a></strong><br />
+116 (MIP only) enum:  FailFeasNoTree</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FAIL_INFEAS.html">CPXMIP_FAIL_INFEAS</a></strong><br />
+110 (MIP only) enum: FailInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FAIL_INFEAS_NO_TREE.html">CPXMIP_FAIL_INFEAS_NO_TREE</a></strong><br />
+117 (MIP only) enum: FailInfeasNoTree</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FEASIBLE.html">CPXMIP_FEASIBLE</a></strong><br />
+127 (MIP only) enum: Feasible</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FEASIBLE_RELAXED_INF.html">CPXMIP_FEASIBLE_RELAXED_INF</a></strong><br />
+122 (MIP only) enum: FeasibleRelaxedInf</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FEASIBLE_RELAXED_QUAD.html">CPXMIP_FEASIBLE_RELAXED_QUAD</a></strong><br />
+124 (MIP only) enum: FeasibleRelaxedQuad</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_FEASIBLE_RELAXED_SUM.html">CPXMIP_FEASIBLE_RELAXED_SUM</a></strong><br />
+120 (MIP only) enum: FeasibleRelaxedSum</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_INFEASIBLE.html">CPXMIP_INFEASIBLE</a></strong><br />
+103 (MIP only) enum: Infeasible</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_INForUNBD.html">CPXMIP_INForUNBD</a></strong><br />
+119 (MIP only) enum: InfOrUnbd</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_MEM_LIM_FEAS.html">CPXMIP_MEM_LIM_FEAS</a></strong><br />
+111 (MIP only) enum: MemLimFeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_MEM_LIM_INFEAS.html">CPXMIP_MEM_LIM_INFEAS</a></strong><br />
+112 (MIP only) enum: MemLimInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_NODE_LIM_FEAS.html">CPXMIP_NODE_LIM_FEAS</a></strong><br />
+105 (MIP only) enum: NodeLimFeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_NODE_LIM_INFEAS.html">CPXMIP_NODE_LIM_INFEAS</a></strong><br />
+106 (MIP only) enum: NodeLimInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL.html">CPXMIP_OPTIMAL</a></strong><br />
+101 (MIP only) enum: Optimal</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_INFEAS.html">CPXMIP_OPTIMAL_INFEAS</a></strong><br />
+115 (MIP only) enum: OptimalInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_POPULATED.html">CPXMIP_OPTIMAL_POPULATED</a></strong><br />
+129 (MIP only) enum: OptimalPopulated</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_POPULATED_TOL.html">CPXMIP_OPTIMAL_POPULATED_TOL</a></strong><br />
+130 (MIP only) enum: OptimalPopulatedTol</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_RELAXED_INF.html">CPXMIP_OPTIMAL_RELAXED_INF</a></strong><br />
+123 (MIP only) enum: OptimalRelaxedInf</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_RELAXED_QUAD.html">CPXMIP_OPTIMAL_RELAXED_QUAD</a></strong><br />
+125 (MIP only) enum: OptimalRelaxedQuad</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_RELAXED_SUM.html">CPXMIP_OPTIMAL_RELAXED_SUM</a></strong><br />
+121 (MIP only) enum: OptimalRelaxedSum</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_OPTIMAL_TOL.html">CPXMIP_OPTIMAL_TOL</a></strong><br />
+102 (MIP only) enum: OptimalTol</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_POPULATESOL_LIM.html">CPXMIP_POPULATESOL_LIM</a></strong><br />
+128 (MIP only) enum: PopulateSolLim</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_SOL_LIM.html">CPXMIP_SOL_LIM</a></strong><br />
+104 (MIP only) enum: SolLim</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_TIME_LIM_FEAS.html">CPXMIP_TIME_LIM_FEAS</a></strong><br />
+107 (MIP only) enum: TimeLimFeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_TIME_LIM_INFEAS.html">CPXMIP_TIME_LIM_INFEAS</a></strong><br />
+108 (MIP only) enum: TimeLimInfeas</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMIP_UNBOUNDED.html">CPXMIP_UNBOUNDED</a></strong><br />
+118 (MIP only) enum: Unbounded</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepagemacros.html">Macros in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="last" />
+<meta name="abstract" content="OPL function to return the last element in a set." />
+<meta name="Description" content="OPL function to return the last element in a set." />
+<meta name="DC.subject" content="elements, positions in sets, positions of elements in sets, sets, positions of elements, last, OPL function" />
+<meta name="keywords" content="elements, positions in sets, positions of elements in sets, sets, positions of elements, last, OPL function" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_card.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_first.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_item.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_next.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_nextc.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_ord.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_prev.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_prevc.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_last.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="OCHsMFSe" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>last</title>
+</head>
+<body id="OCHsMFSe"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">last</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL function to return the last element in a set.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL function
+to return the last element in a set. For the <em class="ph i">scheduling</em> function
+on interval variables, see <a class="xref" href="tlr_oplsch_last.html" title="OPL function (scheduling) to sequence interval variables">last (scheduling)</a>.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d435797e56" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d435797e56" class="stentry">
+<pre class="pre msgblock">int, float, string, or a tuple type</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+int last({int})
+float last({float}) 
+string last({string}) 
+&lt;tuple type&gt; last({&lt;tuple type&gt;})
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Returns
+the last element in a set. You can use this function within IBM ILOG
+Script statements by specifying the OPL namespace:</p>
+<pre class="pre codeblock"><code>
+(Opl.xxx())
+</code></pre></section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>{string} Days ={"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+string l = last(Days);
+
+execute
+{
+ writeln("last(",Days,") gives ",l);  
+}
+</code></pre><p class="p">initializes <code class="ph codeph">l</code> to <code class="ph codeph">Sunday</code>. This also
+indicates that sets in OPL are totally ordered according to their
+order of appearance in the initialization. </p>
+<p class="p paragrouptitle">Result</p>
+<pre class="pre codeblock"><code>last( {"Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday"}) gives Sunday
+</code></pre></div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_oplf_card.html" title="OPL function for the cardinality">card</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_first.html" title="OPL function to return the first element in a set.">first</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_item.html" title="OPL function to access the n-th item of a set or a tuple from a tuple set.">item</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_next.html" title="OPL function to return the successor to an element">next</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_nextc.html" title="A circular version of the function next">nextc</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_ord.html" title="OPL function to return the position of an element">ord</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_prev.html" title="OPL function to return the predecessor to an element">prev</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_prevc.html" title="A circular version of the function prev">prevc</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_last.html" title="OPL function (scheduling) to sequence interval variables">last (scheduling)</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

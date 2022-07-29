@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Reading a search log" />
+<meta name="abstract" content="The search log provides detailed information of the model and the search." />
+<meta name="Description" content="The search log provides detailed information of the model and the search." />
+<meta name="DC.subject" content="branch, branch decision, choice point, extraction, memory usage, log, search log, solution status, time, elapsed" />
+<meta name="keywords" content="branch, branch decision, choice point, extraction, memory usage, log, search log, solution status, time, elapsed" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/search_log.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizersearch.1027817" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/search_log.html" />
+<title>Reading a search log</title>
+</head>
+<body id="migration.uss_usrcpoptimizersearch.1027817"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Reading a search log</h1>
+
+
+
+<div class="body"><p class="shortdesc">The search log provides detailed information of the model
+and the search.</p>
+
+<p class="p">A sample of the search log looks like: </p>
+
+<pre class="pre codeblock"><code>
+ ! ----------------------------------------------------------------------------
+ ! Minimization problem - 13 variables, 13 constraints
+ ! Presolve      : 5 extractables eliminated, 1 constraint generated
+ ! Workers              = 2
+ ! LogPeriod            = 100
+ ! Initial process time : 0.00s (0.00s extraction + 0.00s propagation)
+ !  . Log search space  : 23.6 (before), 23.6 (after)
+ !  . Memory usage      : 290.4 kB (before), 290.4 kB (after)
+ ! Using parallel search with 2 workers.
+ ! ----------------------------------------------------------------------------
+ !          Best Branches  Non-fixed    W       Branch decision
+                        0         13                 -
+ + New bound is 256
+                        0         13    1   F        -
+ + New bound is 633
+                        0         13    1   F        -
+ + New bound is 634
+ *          1704       15  0.02s        1      (gap is 62.79%)
+ *          1644       53  0.02s        1      (gap is 61.44%)
+ *          1525       88  0.02s        1      (gap is 58.43%)
+            1525      100          1    1         2  = S_6
+            1525      133          1    1   F     1  = O_4
+ + New bound is 1080 (gap is 29.18%)
+            1525      141          1    1   F     1  = O_0
+ + New bound is 1304 (gap is 14.49%)
+ *          1414      159  0.02s        1      (gap is 7.78%)
+            1414      169          1    1   F     1  = O_1
+ + New bound is 1360 (gap is 3.82%)
+ *          1383      191  0.02s        1      (gap is 1.66%)
+            1383      200          1    1   F     0  = O_1
+            1383      201         10    1   F     1  = O_1
+ + New bound is 1372 (gap is 0.8%)
+            1383      215          5    1   F     1  = O_4
+ + New bound is 1379 (gap is 0.29%)
+            1383      231          5    1   F     1  = O_1
+ + New bound is 1382 (gap is 0.072%)
+            1383      300          4    1   F     2  = S_4
+            1383      400          5    1   F     0 != S_5
+            1383      500          5    1   F     0  = S_6
+            1383      600          5    1   F     3  = S_7
+ ! Time = 0.02s, Average fail depth = 7, Memory usage = 778.6 kB
+ ! Current bound is 1382 (gap is 0.072%)
+ !          Best Branches  Non-fixed    W       Branch decision
+            1383      700          5    1   F     1  = S_1
+            1383      790          4    1   F     1  = O_1
+ + New bound is 1383 (gap is 0%)
+ ! ----------------------------------------------------------------------------
+ ! Search completed, 5 solutions found.
+ ! Best objective         : 1383 (optimal - effective tol. is 0)
+ ! Best bound             : 1383
+ ! Number of branches     : 790
+ ! Number of fails        : 379
+ ! Total memory usage     : 812.0 kB (759.8 kB CP Optimizer + 52.2 kB Concert)
+ ! Time spent in solve    : 0.02s (0.02s engine + 0.00s extraction)
+ ! Search speed (br. / s) : 37619.0
+ ! ----------------------------------------------------------------------------
+
+</code></pre>
+
+<p class="p">The first line of the log indicates the type of problem, along with the number of decision
+variables and constraints in the model. In this case, there is an objective included in the model,
+so the problem is reported to be a “Minimization problem”. When the model does not include an
+objective, the problem type is reported as a “Satisfiability problem”. The number of search phases,
+if any, is also displayed in the first line. </p>
+
+<p class="p">The second line of the log shows the result of presolve. The number of model objects
+(extractables) eliminated is displayed along with the number of constraints generated to improve the
+formulation of the eliminated extractables if any. </p>
+
+<p class="p">Any parameter change from its default is displayed after the preprocessing information.</p>
+
+<p class="p">The next three lines of the log provide information regarding the initial constraint propagation.
+The “Initial process time” is the time in seconds spent at the root node of the search tree where
+the initial propagation occurs. This time encompasses the time used by the optimizer to load the
+model, called extraction, and the time spent in initial propagation. The value for “Log search
+space” provides an estimate on the size of the depth-first search tree; this value is the log (base
+2) of the products of the domains sizes of all the decision variables of the problem. Typically, the
+estimate of the size of the search tree should be smaller after the initial propagation, as choices
+will have been eliminated. However, this value is always an overestimate of the log of the number of
+remaining leaf nodes of the tree because it does not take into account the action of propagation of
+constraints at each node. The memory used by the optimizer during the initial propagation is
+reported. </p>
+
+<p class="p">The log then display the type of search used, sequential or parallel; in the latter case, the
+number of workers used is also displayed. </p>
+
+<p class="p">In order to interpret the remainder of the log file, you may want to think about the search as a
+binary tree. The root of the tree is the starting point in the search for a solution; each branch
+descending from the root represents an alternative choice or decision in the search. Each of these
+branches leads to a node where constraint propagation during search will occur. If the branch does
+not lead to a failure and a solution is not found at a node, the node is called a choice point. The
+optimizer can make an additional decision and create two new alternative branches from the current
+node, or it can jump in the tree and search from another node.</p>
+
+<p class="p">The lines in the next section of the progress log are displayed periodically during the search
+and describe the state of the search. The display frequency of the progress log can be controlled
+with parameters of the optimizer.</p>
+
+
+<p class="p">The progress information given in a progress log update includes:</p>
+
+<ul class="ul">
+<li class="li">
+<p class="p">Best: the value of the best solution found so far, in the case of an optimization problem;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Branches: the number of branches explored in the binary search tree;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Non-fixed: the number of uninstantiated (not fixed) model variables, or the elapsed time;</p>
+
+</li>
+
+<li class="li">
+<p class="p">W: the id of the worker at the branch currently under consideration by the optimizer;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Branch decision: the decision made at the branch currently under consideration by the
+optimizer.</p>
+
+</li>
+
+</ul>
+
+<p class="p">For optimization problems, whenever a solution is found, the log displays a specific line
+starting with "*". In this line, the time is displayed in place of the non-fixed value (which is
+always zero in this case), and the relative gap is displayed when it is meaningful in place of the
+branch decision. For minimization (resp. maximization) problems, the best known lower (resp. upper)
+bound is displayed each time it is improved, in a line starting with "+".</p>
+
+<p class="p"> Since V12.8.0, CP Optimizer maintains a <strong class="ph b">bound on the objective</strong> (a lower bound for
+minimization problems and an upper bound for maximization problems). This bound is displayed in the
+log when a new bound is found, along with the optimality gap when an improving solution has been
+found. At the end of the search, the best bound and gap are displayed. </p>
+
+<p class="p"> The methods <code class="ph codeph">IloCP::getObjBound()</code> and <code class="ph codeph">IloCP::getObjGap()</code> give
+access to the bound and the gap. Multi-criterion versions of these are also available through
+<code class="ph codeph">IloCP::getObjBounds(IloNumArray)</code> and
+<code class="ph codeph">IloCP::getObjGaps(IloNumArray)</code>. </p>
+
+<p class="p">The final lines of the log provide information about the entire search, after the search has
+terminated. This information about the search includes:</p>
+
+<ul class="ul">
+<li class="li">
+<p class="p"> Termination status line: the conditions under which the search terminated and the number of
+solutions found during search;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Best objective: the value of the best solution found during search along with the effective
+optimality tolerance;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Best bound: in case of optimality, this is equal to the best objective; </p>
+
+</li>
+
+<li class="li">
+<p class="p">Number of branches: the number of branches explored in the binary search tree;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Number of fails: the number of branches that did not lead to a solution;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Total memory usage: the memory used by IBM®
+ILOG® Concert Technology and the CP Optimizer engine;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Time spent in solve: the elapsed time from start to the end of the search displayed in
+hh:mm:ss.ff format;</p>
+
+</li>
+
+<li class="li">
+<p class="p">Search speed: average time spent per branch.</p>
+
+</li>
+
+</ul>
+
+<p class="p">If the search terminated due to a limit, this final part of the log could be quite different and
+the objective not optimal, as in the following sample:</p>
+
+<pre class="pre codeblock"><code>
+ ! ----------------------------------------------------------------------------
+ ! Minimization problem - 5100 variables, 11134 constraints, 1 phase
+ ! Presolve      : 378 extractables eliminated
+ ! TimeLimit            = 20
+ ! LogPeriod            = 10000
+ ! Initial process time : 0.63s (0.62s extraction + 0.00s propagation)
+ !  . Log search space  : 11936.1 (before), 11936.1 (after)
+ !  . Memory usage      : 7.3 MB (before), 7.3 MB (after)
+ ! Using parallel search with 8 workers.
+ ! ----------------------------------------------------------------------------
+ !          Best Branches  Non-fixed    W       Branch decision
+                        0       2679                 -
+ + New bound is 28
+                        0       2679    1   F        -
+ + New bound is 32
+                        0       2679    1   F        -
+ + New bound is 33
+ *           183     5481  6.30s        4      (gap is 81.97%)
+             183    10000       2549    5   F     0  = _int4922
+             183    10000       2520    6   F     0  = _int4920
+             183    10000       2446    7         1  = _int3209
+             183    10000       2528    8   F     0  = _int4922
+             183    10000       2446    1         0  = _int3844
+             183    10000       2469    2         0  = _int4941
+             183    10000       2540    3   F     0  = _int4921
+             183    10000          1    4         0  = _int3698
+ *           182    17106  13.81s       7      (gap is 81.87%)
+             182    20000       2534    8   F     1  = _int4920
+             182    20000       2553    5         0  = _int3447
+             182    20000          1    7         2  = _int2240
+ *           181    20032  15.69s       7      (gap is 81.77%)
+             181    20000       2446    1         1  = _int4943
+             181    20000       2446    2         1  = _int4935
+             181    20000       2515    6   F     1  = _int3466
+ ! Time = 16.23s, Average fail depth = 61, Memory usage = 118.8 MB
+ ! Current bound is 33 (gap is 81.77%)
+ !          Best Branches  Non-fixed    W       Branch decision
+             181    20000       2529    3         0  = _int3255
+             181    20000          1    4   F     0  = _int4515
+ *           180    22955  17.34s       7      (gap is 81.67%)
+ ! ----------------------------------------------------------------------------
+ ! Search terminated by limit, 4 solutions found.
+ ! Best objective         : 180 (gap is 81.67%)
+ ! Best bound             : 33
+ ! Number of branches     : 167651
+ ! Number of fails        : 67872
+ ! Total memory usage     : 129.1 MB (122.4 MB CP Optimizer + 6.7 MB Concert)
+ ! Time spent in solve    : 20.23s (19.60s engine + 0.62s extraction)
+ ! Search speed (br. / s) : 8551.4
+ ! ----------------------------------------------------------------------------
+</code></pre>
+<p class="p">In this case, the objective and the best bound don't fit and the gap is displayed. </p>
+
+<p class="p">For multicriteria optimization, the log displays the objective of the best solution found, the
+best known bound and the gap as in the following example.</p>
+
+<pre class="pre codeblock"><code>
+ ! ----------------------------------------------------------------------------
+ ! Minimization problem - 102 variables, 114 constraints
+ ! TimeLimit            = 4
+ ! Workers              = 2
+ ! LogPeriod            = 25000
+ ! Initial process time : 0.00s (0.00s extraction + 0.00s propagation)
+ !  . Log search space  : 280.6 (before), 280.6 (after)
+ !  . Memory usage      : 585.4 kB (before), 585.4 kB (after)
+ ! Using parallel search with 2 workers.
+ ! ----------------------------------------------------------------------------
+ !          Best Branches  Non-fixed    W       Branch decision
+                        0        102                 -
+ + New bound is 2; 9
+                        0        102    1   F        -
+ + New bound is 3; 15
+                        0        102    1   F        -
+ + New bound is 3; 16
+ *            86      421  0.03s        2      (gap is 96.51% @ crit. 1 of 2)
+   New objective is 86; 12
+ *            42     1430  0.04s        1      (gap is 92.86% @ crit. 1 of 2)
+   New objective is 42; 15
+ *            30     1226  0.05s        2      (gap is 90.00% @ crit. 1 of 2)
+   New objective is 30; 15
+ *            28     5646  0.10s        2      (gap is 89.29% @ crit. 1 of 2)
+   New objective is 28; 14
+ *            26    11964  0.20s        1      (gap is 88.46% @ crit. 1 of 2)
+   New objective is 26; 13
+              26    25000          1    2        10  = _int55
+              26    25000          1    1        14 != _int51
+              26    50000          1    1         4  = _int53
+              26    50000          1    2        10  = _int59
+              26    75000          1    2        12 != _int58
+              26    75000          1    1   F     4 != _int54
+              26     100k          1    2         0  = _int18
+              26     100k          1    1   F     4  = _int48
+              26     125k          1    2   F    12  = _int46
+              26     125k         10    1   F     0  = _int88
+              26     150k         13    2   F    12  = _int60
+              26     150k          1    1         7 != _int51
+ ! Time = 2.42s, Average fail depth = 19, Memory usage = 3.1 MB
+ ! Current objective is 26; 13
+ ! Current bound is 3; 16 (gap is 88.46% @ crit. 1 of 2)
+ !          Best Branches  Non-fixed    W       Branch decision
+              26     175k          1    2         9  = _int60
+              26     175k          1    1         5  = _int76
+              26     200k          1    2         2  = _int25
+              26     200k          1    1   F    10  = _int12
+              26     225k          1    2         0 != _int5
+              26     225k          1    1        13 != _int60
+              26     250k         14    2         0  = _int18
+ ! ----------------------------------------------------------------------------
+ ! Search terminated by limit, 5 solutions found.
+ ! Best objective         : 26; 13 (gap is 88.46% @ crit. 1 of 2)
+ ! Best bound             : 3; 16
+ ! Number of branches     : 486763
+ ! Number of fails        : 229441
+ ! Total memory usage     : 3.4 MB (3.2 MB CP Optimizer + 0.1 MB Concert)
+ ! Time spent in solve    : 4.00s (4.00s engine + 0.00s extraction)
+ ! Search speed (br. / s) : 121599.6
+ ! ---------------------------------------------------------------------------- 
+</code></pre>
+<p class="p"> In the progress update, you can see that the column "Best" gives only the value of the first
+criteria of the best solution found so far. The values of all the criteria of the best solution
+found are displayed when a new solution is found. Likewise, The values of all the criteria of the
+best bound found are displayed when a new bound is found. </p>
+
+<p class="p"> Finally, notice that the gap is computed on the first (i.e., most important in lexicographic
+optimization) non optimal criterion. The log displays the gap and the rank of of the criterion on
+which it is computed. For instance, if the first two criteria are within the optimality tolerance,
+then the gap on the third criterion is displayed as follows: </p>
+
+<pre class="pre codeblock"><code>
+   ( gap is 25.50% @ crit. 3 of 4)
+</code></pre>
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p"> The CP Optimizer search log is meant for visual inspection only, not for mechanized parsing. In
+particular, the log may change from version to version of CP Optimizer in order to improve the
+quality of information displayed in the log. Any code based on the log output may have to be updated
+when a new version of CP Optimizer is released. </p>
+
+</div>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/search_log.html" title="During search, information regarding the progress of the optimizer is displayed to the output channel of the optimizer; this information is called the search log or simply the log.">The search log</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbackabort and CPXcallbackabort" />
+<meta name="abstract" content="Aborts a CPLEX solve from a callback." />
+<meta name="Description" content="Aborts a CPLEX solve from a callback." />
+<meta name="DC.subject" content="CPXcallbackabort, C API Reference Manual, CPXXcallbackabort" />
+<meta name="keywords" content="CPXcallbackabort, C API Reference Manual, CPXXcallbackabort" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="callbacksetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackabort" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXcallbackabort and CPXcallbackabort</title>
+</head>
+<body id="callbackabort"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbackabort</span> and <span class="keyword apiname">CPXcallbackabort</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+    Aborts a CPLEX solve from a callback.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbackabort</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXptr</span><span class="ph sep"> </span><span class="ph var">context</span>
+          <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbackabort</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXptr</span><span class="ph sep"> </span><span class="ph var">context</span>
+          <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      This routine asks CPLEX to abort the ongoing solve at 
+      the next possible point.
+
+    <div class="note warning"><span class="warningtitle">Warning:</span> 
+      For callbacks in the context 
+       <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a>
+      this routine is a "no-op"; that is, the routine does nothing. 
+      A solve cannot be aborted from this context.
+    </div>
+
+
+    <div class="note warning"><span class="warningtitle">Warning:</span> 
+      If this routine is called from a thread that currently executes
+      speculative code, and the current context is not
+      <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a>, 
+      then the request to abort may be ignored.
+      Use <a class="xref" href="setterminate.html" title="This routine enables applications to terminate CPLEX gracefully.">CPXXsetterminate and CPXsetterminate</a> if you want to make sure CPLEX
+      terminates even in that case.
+    </div>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">context</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The callback context as passed into the callback function.</p>
+
+        </dd>
+
+      
+    </dl>
+
+  </section>
+
+
+    
+    
+
+  </div>
+
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked."><code class="ph codeph">CPXXcallbacksetfunc</code>/<code class="ph codeph">CPXcallbacksetfunc</code></a></li>
+<li class="linklist"><a class="link" href="../macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate"><code class="ph codeph">CPX_CALLBACKCONTEXT_CANDIDATE</code></a></li></ul></div>
+</nav>
+</div></body>
+</html>

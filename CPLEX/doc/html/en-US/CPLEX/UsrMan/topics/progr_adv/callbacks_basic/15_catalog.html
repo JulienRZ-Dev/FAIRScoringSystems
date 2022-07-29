@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="What control callbacks do" />
+<meta name="abstract" content="Describes what control callbacks do." />
+<meta name="Description" content="Describes what control callbacks do." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/13_control_cb_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_callbacks.1046130" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/13_control_cb_title_synopsis.html" />
+<title>What control callbacks do</title>
+</head>
+<body id="User_manual.uss_callbacks.1046130"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">What control callbacks do</h1>
+<div class="body"><p class="shortdesc">Describes what control callbacks do.</p>
+
+<p class="p">If you determine that your application needs to seize
+control, intervene in the search, and redirect the optimizer, then
+the following control callbacks are available to do so.</p>
+
+<ul class="ul"><li class="li"><p class="p">The node callback allows you to query
+and optionally overwrite the next node CPLEX will process during a
+branch &amp; cut search.</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::NodeCallbackI</code> 
+in the C++ API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.NodeCallback</code> 
+in the Java API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.NodeCallback</code> 
+in the .NET API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">CPXsetnodecallbackfunc</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">callbacks.NodeCallback</code> 
+in the Python API</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">The solve callback allows you to specify
+and configure the optimizer option to be used for solving the LP at
+each individual node.</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::SolveCallbackI</code> 
+in the C++ API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.SolveCallback</code> 
+in the Java API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.SolveCallback</code> 
+in the .NET API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">CPXsetsolvecallbackfunc</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">callbacks.SolveCallback</code> 
+in the Python API</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">The user cut callback allows you to
+add problem-specific user-defined cuts at each node.</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::UserCutCallbackI</code> 
+in the C++ API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.UserCutCallback</code> 
+in the Java API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.UserCutCallback</code> 
+in the .NET API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">CPXsetusercutcallbackfunc</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">callbacks.UserCutCallback</code> 
+in the Python API</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">The lazy constraint callback allows
+you to add lazy constraints; that is, constraints that are not evaluated
+unless they are violated.</p>
+
+<ul class="ul"><li class="li"><p class="p"><code class="ph codeph">IloCplex::LazyConstraintCallbackI</code> in
+the C++ API</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">IloCplex.LazyConstraintCallback</code> in
+the Java API</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">Cplex.LazyConstraintCallback</code> in
+the .NET API</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">CPXsetlazyconstraintcallbackfunc</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">callbacks.LazyConstraintCallback</code> in
+the Python API</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">The heuristic callback allows you to
+implement a heuristic that tries to generate a new incumbent from
+the solution of the LP relaxation at each node.</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::HeuristicCallbackI</code> 
+in the C++ API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.HeuristicCallback</code> 
+in the Java API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.HeuristicCallback</code> 
+in the .NET API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">CPXsetheuristiccallback</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">callbacks.HeuristicCallback</code> in
+the Python API</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">The branch callback allows you to query
+and optionally overwrite the way CPLEX will branch at each node. </p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::BranchCallbackI</code> 
+in the C++ API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.BranchCallback</code> 
+in the Java API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.BranchCallback</code> 
+in the .NET API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">CPXsetbranchcallbackfunc</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">callbacks.BranchCallback</code> in
+the Python API</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">The incumbent callback allows you to
+check and optionally reject incumbents found by CPLEX during the search.</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::IncumbentCallbackI</code> 
+in the C++ API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.IncumbentCallback</code> 
+in the Java API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.IncumbentCallback</code> 
+in the .NET API</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">CPXsetincumbentcallbackfunc</code> 
+in the Callable Library (C API)</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">callbacks.IncumbentCallback</code> in
+the Python API</p>
+</li>
+</ul>
+
+</li>
+</ul>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/13_control_cb_title_synopsis.html" title="Documents control callbacks.">Control callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Selectors" />
+<meta name="abstract" content="The list of integer variable selectors and integer value selectors." />
+<meta name="Description" content="The list of integer variable selectors and integer value selectors." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<meta name="DC.Relation" scheme="URI" content="040_Types.html#Types_in_search_section/intVarEval" />
+<meta name="DC.Relation" scheme="URI" content="040_Types.html#Types_in_search_section/intValueEval" />
+<meta name="DC.Relation" scheme="URI" content="080_searchPhase.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Selectors" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<title>Selectors</title>
+</head>
+<body id="Selectors"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Selectors</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+The list of integer variable selectors and integer value selectors.
+</p>
+
+
+
+<section class="section" id="Selectors__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarSelector">intVarSelector</a> <strong class="ph b">selectSmallest</strong>(<a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> minNumber, <a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> eval)
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarSelector">intVarSelector</a> <strong class="ph b">selectSmallest</strong>(<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> eval, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> tolerance = 0)
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarSelector">intVarSelector</a> <strong class="ph b">selectLargest</strong>(<a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> minNumber, <a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> eval)
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarSelector">intVarSelector</a> <strong class="ph b">selectLargest</strong>(<a class="xref" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a> eval, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> tolerance = 0)
+<a class="xref" href="040_Types.html#Types_in_search_section__intVarSelector">intVarSelector</a> <strong class="ph b">selectRandomVar</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueSelector">intValueSelector</a> <strong class="ph b">selectSmallest</strong>(<a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> minNumber, <a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> eval)
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueSelector">intValueSelector</a> <strong class="ph b">selectSmallest</strong>(<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> eval, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> tolerance = 0)
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueSelector">intValueSelector</a> <strong class="ph b">selectLargest</strong>(<a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> minNumber, <a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> eval)
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueSelector">intValueSelector</a> <strong class="ph b">selectLargest</strong>(<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> eval, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> tolerance = 0)
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueSelector">intValueSelector</a> <strong class="ph b">selectRandomValue</strong>()
+</code></pre>
+</section>
+
+
+<section class="section" id="Selectors__Integer_variable_selectors"><h2 class="title sectiontitle">Integer variable selectors</h2>
+<dl class="dl">
+  
+    <dt class="dt dlterm" id="Selectors__intVarSelector_selectSmallestfloat_minNumber_intVarEval_eval"><code class="ph codeph">intVarSelector selectSmallest(float minNumber, intVarEval eval)</code></dt>
+
+    <dd class="dd">
+<p class="p"> This selector selects
+at least <code class="ph codeph">minNumber</code> integer variables having the smallest
+evaluation according to the evaluator <code class="ph codeph">eval</code>.
+The parameter <code class="ph codeph">minNumber</code> must be at least 1.
+</p>
+
+<p class="p"> For example, suppose that eight variables (A-H) have evaluations
+(A) 9, (B) 5, (C) 6, (D) 3, (E) 8, (F) 1, (G) 3, (H) 2.  When
+ordered by increasing evaluation, this gives:
+(F) 1, (H) 2, (D) 3, (G) 3, (B) 5, (C) 6, (E) 8, (A) 9.
+If <code class="ph codeph">minNumber</code> is 1, then variable F would be
+selected, if it is 2, then variables F and H would be selected,
+and if it is 3 or 4 then F, H, D and G would be selected.  Note
+that when <code class="ph codeph">minNumber</code> is 3, both D and G are selected
+as they are considered equivalent.
+</p>
+
+<p class="p">
+In addition, it is possible to specify a non-integer value of
+<code class="ph codeph">minNumber</code>.  In this case, at least
+<code class="ph codeph">floor(minNumber)</code> selections are made, with
+probability <code class="ph codeph">minNumber - floor(minNumber)</code> of selecting
+an additional variable.
+</p>
+
+<p class="p">
+It is still possible that this selector can select fewer variables
+than <code class="ph codeph">minNumber</code> if there are less than
+<code class="ph codeph">minNumber</code> variables supplied to it for selection, in
+which case all supplied variables are selected.
+</p>
+</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intVarSelector_selectLargestfloat_minNumber_intVarEval_eval"><code class="ph codeph">intVarSelector selectLargest(float minNumber, intVarEval eval)</code></dt>
+
+    <dd class="dd">
+<p class="p"> This function selects
+at least <code class="ph codeph">minNumber</code> integer variables having the largest
+evaluation according to the evaluator <code class="ph codeph">eval</code>.
+The parameter <code class="ph codeph">minNumber</code> must be at least 1.
+</p>
+
+<p class="p"> For example, suppose that eight variables (A-H) have evaluations
+(A) 5, (B) 8, (C) 3, (D) 9, (E) 2, (F) 8, (G) 1, (H) 7.  When
+ordered by decreasing evaluation, this gives:
+(D) 9, (B) 8, (F) 8, (H) 7, (A) 5, (C) 3, (E) 2, (G) 1.
+If <code class="ph codeph">minNumber</code> is 1, then variable D would be
+selected, if it is 2 or 3, then variables D, B and F would be selected,
+and if it is 4 then D, B, F, and H would be selected.  Note
+that when <code class="ph codeph">minNumber</code> is 2, both B and F are selected
+as they are considered equivalent.
+</p>
+
+<p class="p">
+In addition, it is possible to specify a non-integer value of
+<code class="ph codeph">minNumber</code>.  In this case, at least
+<code class="ph codeph">floor(minNumber)</code> selections are made, with
+probability <code class="ph codeph">minNumber - floor(minNumber)</code> of selecting
+an additional variable.
+</p>
+
+<p class="p">
+It is still possible that this selector can select less variables
+than <code class="ph codeph">minNumber</code> if there are less than
+<code class="ph codeph">minNumber</code> variables supplied to it for selection, in
+which case all supplied variables are selected.
+</p>
+</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intVarSelector_selectSmallestintVarEval_eval_float_tolerance__0"><code class="ph codeph">intVarSelector selectSmallest(intVarEval eval, float tolerance = 0)</code></dt>
+
+    <dd class="dd">
+This selector selects all integer
+variables whose evaluations are in the range <code class="ph codeph">min..min+tolerance</code>, where
+<code class="ph codeph">min</code> is the minimum valuation by <code class="ph codeph">eval</code> over the variables to be
+evaluated.  The parameter <code class="ph codeph">tolerance</code> must be non-negative.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intVarSelector_selectLargestintVarEval_eval_float_tolerance__0"><code class="ph codeph">intVarSelector selectLargest(intVarEval eval, float tolerance = 0)</code></dt>
+
+    <dd class="dd">
+This selector selects all variables whose evaluations are in the range
+<code class="ph codeph">max-tolerance..max</code>, where <code class="ph codeph">max</code> is
+is the maximum valuation by <code class="ph codeph">eval</code> over the variables
+to be evaluated.  The parameter <code class="ph codeph">tolerance</code> must be non-negative.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intVarSelector_selectRandomVar"><code class="ph codeph">intVarSelector selectRandomVar()</code></dt>
+
+    <dd class="dd">
+This selector randomly selects a single variable from those available.</dd>
+
+  
+</dl>
+
+
+</section>
+
+
+<section class="section" id="Selectors__Integer_value_selectors"><h2 class="title sectiontitle">Integer value selectors</h2>
+<dl class="dl">
+  
+    <dt class="dt dlterm" id="Selectors__intValueSelector_selectSmallestfloat_minNumber_intValueEval_eval"><code class="ph codeph">intValueSelector selectSmallest(float minNumber, intValueEval eval)</code></dt>
+
+    <dd class="dd">
+<p class="p"> This selector selects at least <code class="ph codeph">minNumber</code> domain values having the
+smallest evaluation according to the evaluator <code class="ph codeph">eval</code>.
+The parameter <code class="ph codeph">minNumber</code> must be at least 1.
+</p>
+
+<p class="p"> For example, suppose that eight domain values (1-8) have evaluations
+(1) 9, (2) 5, (3) 6, (4) 3, (5) 8, (6) 1, (7) 3, (8) 2.  When
+ordered by increasing evaluation, this gives:
+(6) 1, (8) 2, (4) 3, (7) 3, (2) 5, (3) 6, (5) 8, (1) 9.
+If <code class="ph codeph">minNumber</code> is 1, then value 6 would be
+selected, if it is 2, then values 6 and 8 would be selected,
+and if it is 3 then values 6, 8, 4 and 7 would be selected.  Note
+that when <code class="ph codeph">minNumber</code> is 3, both values 4 and 7 are
+selected as they are considered equivalent.
+</p>
+
+<p class="p">
+In addition, it is possible to specify a non-integer value of
+<code class="ph codeph">minNumber</code>.  In this case, at least
+<code class="ph codeph">floor(minNumber)</code> selections are made, with
+probability <code class="ph codeph">minNumber - floor(minNumber)</code> of selecting
+an additional value.
+</p>
+
+<p class="p">
+It is still possible that this selector can select less
+values than <code class="ph codeph">minNumber</code> if there are less than
+<code class="ph codeph">minNumber</code> values supplied to it for selection, in
+which case all supplied values are selected.
+</p>
+</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intValueSelector_selectSmallestintValueEval_eval_float_tolerance__0"><code class="ph codeph">intValueSelector selectSmallest(intValueEval eval, float tolerance = 0)</code></dt>
+
+    <dd class="dd">
+This selector selects all domain values whose evaluations are in the range
+<code class="ph codeph">min..min+tolerance</code>, where <code class="ph codeph">min</code> is
+is the minimum valuation by <code class="ph codeph">eval</code> over the domain values
+to be evaluated.  The parameter <code class="ph codeph">tolerance</code> must be non-negative.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intValueSelector_selectLargestfloat_minNumber_intValueEval_eval"><code class="ph codeph">intValueSelector selectLargest(float minNumber, intValueEval eval)</code></dt>
+
+    <dd class="dd">
+<p class="p"> This selector selects at least <code class="ph codeph">minNumber</code> values having the largest
+evaluation according to the evaluator <code class="ph codeph">eval</code>.
+The parameter <code class="ph codeph">minNumber</code> must be at least 1.
+</p>
+
+<p class="p"> For example, suppose that eight domain values (1-8) have evaluations
+(1) 5, (2) 8, (3) 3, (4) 9, (5) 2, (6) 8, (7) 1, (8) 7.  When
+ordered by decreasing evaluation, this gives:
+(4) 9, (2) 8, (6) 8, (8) 7, (1) 5, (3) 3, (5) 2, (7) 1.
+If <code class="ph codeph">minNumber</code> is 1, then value 4 would be
+selected, if it is 2 or 3, then values 4,2 and 6 would be selected,
+and if it is 4 then values 4, 2, 6, and 8 would be selected.  Note
+that when <code class="ph codeph">minNumber</code> is 2, both 2 and 6 are selected
+as they are considered equivalent.
+</p>
+
+<p class="p">
+In addition, it is possible to specify a non-integer value of
+<code class="ph codeph">minNumber</code>.  In this case, at least
+<code class="ph codeph">floor(minNumber)</code> selections are made, with
+probability <code class="ph codeph">minNumber - floor(minNumber)</code> of selecting
+an additional value.
+</p>
+
+<p class="p">
+It is still possible that this selector can select fewer domain values
+than <code class="ph codeph">minNumber</code> if there are less than
+<code class="ph codeph">minNumber</code> values supplied to it for selection, in
+which case all supplied values are selected.
+</p>
+</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intValueSelector_selectLargestintValueEval_eval_float_tolerance__0"><code class="ph codeph">intValueSelector selectLargest(intValueEval eval, float tolerance = 0)</code></dt>
+
+    <dd class="dd">
+This selector selects all domain values whose evaluations are in the range
+<code class="ph codeph">max-tolerance..max</code>, where <code class="ph codeph">max</code> is
+is the maximum valuation by <code class="ph codeph">eval</code> over the domain values
+to be evaluated.  The parameter <code class="ph codeph">tolerance</code> must be non-negative.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Selectors__intValueSelector_selectRandomValue"><code class="ph codeph">intValueSelector selectRandomValue()</code></dt>
+
+    <dd class="dd">
+This selector randomly selects a single domain value.</dd>
+
+  
+</dl>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/search.html" title="A CPO file may contain an optional search section which specifies a variable fixing strategy that CP Optimizer should use while searching for solutions. The strategy is described by search phases.">The search section</a></div>
+</div>
+
+<div class="linklist linklist relinfo relconcepts" xml:lang="en-us"><strong>Related concepts</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="080_searchPhase.html" title="The function searchPhase defines an variable fixing strategy.">Function searchPhase</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="040_Types.html#Types_in_search_section__intVarEval">intVarEval</a></li>
+<li class="linklist"><a class="link" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

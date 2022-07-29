@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXmbasewrite and CPXmbasewrite" />
+<meta name="abstract" content="The routine CPXXmbasewrite/CPXmbasewrite writes the most current basis associated with a CPLEX problem object to a file." />
+<meta name="Description" content="The routine CPXXmbasewrite/CPXmbasewrite writes the most current basis associated with a CPLEX problem object to a file." />
+<meta name="DC.subject" content="CPXmbasewrite, C API Reference Manual, CPXXmbasewrite" />
+<meta name="keywords" content="CPXmbasewrite, C API Reference Manual, CPXXmbasewrite" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagewritefiles.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpWrite.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mbasewrite" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagewritefiles.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpWrite.html" />
+<title>CPXXmbasewrite and CPXmbasewrite</title>
+</head>
+<body id="mbasewrite"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXmbasewrite</span> and <span class="keyword apiname">CPXmbasewrite</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXmbasewrite</span>/<span class="keyword apiname">CPXmbasewrite</span></code> writes the most
+current basis associated with a CPLEX problem object to a file.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXmbasewrite</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXmbasewrite</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXmbasewrite</span>/<span class="keyword apiname">CPXmbasewrite</span></code> writes the most
+current basis associated with a CPLEX problem object to a file. The file is
+saved in BAS format which corresponds to the industry standard MPS insert
+format for bases.</p>
+
+
+<p class="p">When <code class="ph codeph"><span class="keyword apiname">CPXXmbasewrite</span>/<span class="keyword apiname">CPXmbasewrite</span></code> is invoked, the current basis is
+written to a file. This routine does not remove the basis from the problem
+object.</p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filename_str</dt>
+
+        <dd class="dd pd">
+          
+          A character string containing the name of the file to which the basis should be written.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXmbasewrite (env, lp, "myprob.bas");</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetMNO.html">M, N, O</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagewritefiles.html">Writing Files in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpBasis.html">Manipulating a basis</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpWrite.html">Writing files</a></div>
+</div>
+</nav></div></body>
+</html>

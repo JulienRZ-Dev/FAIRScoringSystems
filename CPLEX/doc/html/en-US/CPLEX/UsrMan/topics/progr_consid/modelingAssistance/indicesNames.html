@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Special considerations about indices and names in modeling assistance in CPLEX" />
+<meta name="abstract" content="CPLEX can assist you as you develop your model." />
+<meta name="Description" content="CPLEX can assist you as you develop your model." />
+<meta name="DC.subject" content="modeling assistance, indices and, names and" />
+<meta name="keywords" content="modeling assistance, indices and, names and" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="indicesNamesModelingAssistance" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" />
+<title>Special considerations about indices and names in modeling assistance in CPLEX</title>
+</head>
+<body id="indicesNamesModelingAssistance"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Special considerations about indices and names in modeling assistance in CPLEX</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX can assist you as you develop your model.</p>
+
+<p class="p">Some models include explicit names of variables and constraints. Other models do not. A model 
+read from a file in SAV format, for example, can lack such names.</p>
+
+<p class="p">If your model lacks names of variables or names of constraints, the warnings  
+from modeling assistance refer to those variables or constraints by <strong class="ph b">index</strong>. In CPLEX modeling 
+assistance, by convention, indices begin with 0 (zero). </p>
+ 
+<p class="p">Recall that whether indices begin numbering at 0 (zero) or at 1 (one) 
+can vary according to conventions of a programming language or other interface. For example, 
+the Interactive Optimizer numbers indices from 1 (one), whereas the Callable Library (C API),  
+following C programming conventions, numbers indices from 0 (zero). </p>
+ 
+<p class="p">Consequently, when you receive warnings referring to constraints or variables by index, you 
+need to convert the indices if there is such an incongruence between CPLEX modeling assistance 
+(where indexing starts at 0 (zero)) and your interface (if indexing starts at 1 (one)). </p>
+ 
+<p class="p">For example, suppose you are using the Interactive Optimizer (where indexing starts at 1 (one)) 
+to read a SAV file with no names of constraints or variables. Suppose also that you have turned on 
+modeling assistance. If CPLEX modeling assistance issues a warning about a constraint or variable 
+in your model, the warning will refer to that constraint or variable by index. Keep in mind that 
+in modeling assistance, numbering of indices starts at 0 (zero).  Consequently, in this example, 
+you need to add one to the index reported in the modeling assistance warning in order to identify 
+the constraint or variable in terms of the Interactive Optimizer.</p>
+ 
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" title="CPLEX can assist you as you develop your model.">Modeling assistance in CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

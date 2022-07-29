@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="algorithm for continuous quadratic optimization" />
+<meta name="abstract" content="Sets which algorithm to use when the C routine CPXqpopt (or the command optimize in the Interactive Optimizer) is invoked." />
+<meta name="Description" content="Sets which algorithm to use when the C routine CPXqpopt (or the command optimize in the Interactive Optimizer) is invoked." />
+<meta name="DC.subject" content="CPX_PARAM_QPMETHOD, RootAlg, qpmethod" />
+<meta name="keywords" content="CPX_PARAM_QPMETHOD, RootAlg, qpmethod" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196864342693" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>algorithm for continuous quadratic optimization</title>
+</head>
+<body id="languageRefTopic1196864342693"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">algorithm for continuous quadratic optimization</h1>
+ 
+
+
+<div class="body refbody"><p class="shortdesc">Sets which algorithm to use when the C routine <code class="ph codeph">CPXqpopt</code>  (or the command <code class="ph codeph">optimize</code> 
+in the Interactive Optimizer) is invoked.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Algorithm
+for continuous quadratic optimization</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d126614e60">API</th>
+
+<th class="entry nrule" valign="top" id="d126614e63">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d126614e66">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">CPXPARAM_QPMethod</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">CPX_PARAM_QPMETHOD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">IloCplex::Param::RootAlgorithm</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">RootAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">IloCplex.Param.RootAlgorithm</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">RootAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">Cplex.Param.RootAlgorithm</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">RootAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">rootalg </td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">rootalg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">parameters.qpmethod</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">qpmethod</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">qpmethod</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">qpmethod</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d126614e60 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d126614e63 ">1063</td>
+
+<td class="entry nrule" valign="top" headers="d126614e66 ">1063</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p">Sets which algorithm to use when the C routine 
+<a class="xref" href="../../../refcallablelibrary/qpapi/qpopt.html" title="The routineCPXXqpopt/CPXqpopt may be used, at any time after a continuous quadratic program has been created, to find a solution to that problem using one of the CPLEX quadratic optimizers.">CPXXqpopt and CPXqpopt</a> 
+ (or the command <code class="ph codeph">optimize</code> in the Interactive
+Optimizer) is invoked. </p>
+ 
+<p class="p">Currently, the behavior of
+the Automatic setting is that CPLEX invokes the Barrier Optimizer
+for continuous QP models. The Automatic setting may be expanded in
+the future so that CPLEX chooses the algorithm based on additional
+problem characteristics. </p>
+ 
+<p class="p"><strong class="ph b">Tip</strong>: In the presence of a linear programming (LP) <strong class="ph b">callback</strong>, 
+CPLEX does <strong class="ph b">not</strong> invoke concurrent optimization, regardless of the value of 
+this parameter.</p>
+ 
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d126614e232">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d126614e235">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d126614e238">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d126614e232 ">0</td>
+
+<td class="entry" valign="top" headers="d126614e235 "><code class="ph codeph">CPX_ALG_AUTOMATIC</code> </td>
+
+<td class="entry" valign="top" headers="d126614e238 ">Automatic: let CPLEX choose; <strong class="ph b">default</strong> </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d126614e232 ">1</td>
+
+<td class="entry" valign="top" headers="d126614e235 "><code class="ph codeph">CPX_ALG_PRIMAL</code></td>
+
+<td class="entry" valign="top" headers="d126614e238 ">Use the primal simplex optimizer.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d126614e232 ">2</td>
+
+<td class="entry" valign="top" headers="d126614e235 "><code class="ph codeph">CPX_ALG_DUAL</code></td>
+
+<td class="entry" valign="top" headers="d126614e238 ">Use the dual simplex optimizer.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d126614e232 ">3</td>
+
+<td class="entry" valign="top" headers="d126614e235 "><code class="ph codeph">CPX_ALG_NET</code></td>
+
+<td class="entry" valign="top" headers="d126614e238 ">Use the network optimizer.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d126614e232 ">4</td>
+
+<td class="entry" valign="top" headers="d126614e235 "><code class="ph codeph">CPX_ALG_BARRIER</code> </td>
+
+<td class="entry" valign="top" headers="d126614e238 ">Use the barrier optimizer.</td>
+
+</tr>
+
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d126614e232 ">6</td>
+
+<td class="entry" valign="top" headers="d126614e235 "><code class="ph codeph">CPX_ALG_CONCURRENT</code> </td>
+
+<td class="entry" valign="top" headers="d126614e238 ">Use the concurrent optimizer.</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

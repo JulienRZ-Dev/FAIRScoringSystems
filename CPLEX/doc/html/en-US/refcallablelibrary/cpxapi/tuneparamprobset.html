@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXtuneparamprobset and CPXtuneparamprobset" />
+<meta name="abstract" content="The routine CPXXtuneparamprobset/CPXtuneparamprobset tunes the parameters of the CPLEX environment for improved optimizer performance for a set of problems." />
+<meta name="Description" content="The routine CPXXtuneparamprobset/CPXtuneparamprobset tunes the parameters of the CPLEX environment for improved optimizer performance for a set of problems." />
+<meta name="DC.subject" content="CPXtuneparamprobset, C API Reference Manual, CPXXtuneparamprobset" />
+<meta name="keywords" content="CPXtuneparamprobset, C API Reference Manual, CPXXtuneparamprobset" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetTUVWXYZ.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpTuning.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="tuneparamprobset" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetTUVWXYZ.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpTuning.html" />
+<title>CPXXtuneparamprobset and CPXtuneparamprobset</title>
+</head>
+<body id="tuneparamprobset"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXtuneparamprobset</span> and <span class="keyword apiname">CPXtuneparamprobset</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXtuneparamprobset</span>/<span class="keyword apiname">CPXtuneparamprobset</span></code> tunes the parameters of
+the CPLEX environment for improved optimizer performance for a set
+of problems.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXtuneparamprobset</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">filecnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">filename</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">filetype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">intcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">intnum</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">intval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">dblcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">dblnum</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">dblval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">strcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">strnum</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">strval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">tunestat_p</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXtuneparamprobset</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">filecnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">filename</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">filetype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">intcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">intnum</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">intval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">dblcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">dblnum</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">dblval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">strcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">strnum</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">strval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">tunestat_p</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXtuneparamprobset</span>/<span class="keyword apiname">CPXtuneparamprobset</span></code> tunes the parameters of
+the CPLEX environment for improved optimizer performance for a set
+of problems. Tuning is carried out by making a number
+of trial runs with a variety parameter settings.
+Parameters and associated values which should not be
+changed by the tuning process (known as the fixed parameters) can be
+specified as arguments. </p>
+
+
+<p class="p">This routine does not apply to network models, nor to quadratically
+constrained programming problems (QCP).</p>
+
+
+<p class="p">
+After <code class="ph codeph"><span class="keyword apiname">CPXXtuneparamprobset</span>/<span class="keyword apiname">CPXtuneparamprobset</span></code> has finished, the environment will
+contain the combined fixed and tuned parameter settings, which the user
+can query or write to a file.
+</p>
+
+<p class="p"> All callbacks, except the tuning
+callback, will be ignored.
+Tuning will monitor the value set by
+<code class="ph codeph"><span class="keyword apiname">CPXXsetterminate</span>/<span class="keyword apiname">CPXsetterminate</span></code>
+and terminate when this value is set.
+</p>
+
+<p class="p">A few of the parameter settings in
+the environment control the tuning process. They are specified
+in the table below; other parameter settings in the environment
+are ignored.</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><tbody class="tbody">
+<tr class="row"><td class="entry" valign="top">Parameter</td>
+
+<td class="entry" valign="top">Link to documentation</td>
+
+<td class="entry" valign="top">Use</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_TimeLimit</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/TiLim.html" title="Sets the maximum time, in seconds, for a call to an optimizer.">optimizer time limit in seconds</a></td>
+
+<td class="entry" valign="top">Limits the total time spent tuning</td>
+
+</tr>
+
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_DetTimeLimit</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/DetTiLim.html" title="Deterministic time limit">deterministic time limit</a></td>
+
+<td class="entry" valign="top">Limits the total deterministic time spent tuning</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_Tune_TimeLimit</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/TuningTiLim.html" title="Sets a nondeterministic time limit in seconds per model and per test set (that is, suite of models) applicable in tuning.">tuning time limit in seconds</a></td>
+
+<td class="entry" valign="top">Limits the time in seconds of each trial run</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_Tune_DetTimeLimit</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/TuningDetTiLim.html" title="Sets a time limit in deterministic ticks per model and per test set (that is, suite of models) applicable in tuning.">deterministic tuning time limit</a></td>
+
+<td class="entry" valign="top">Limits the time in deterministic ticks of each trial run</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_Tune_Measure</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/TuningMeasure.html" title="Controls the measure for evaluating progress when a suite of models is being tuned.">tuning measure</a></td>
+
+<td class="entry" valign="top">Controls the tuning evaluation measure</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_Tune_Display</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/TuningDisplay.html" title="Specifies the level of information reported by the tuning tool as it works.">tuning information display</a></td>
+
+<td class="entry" valign="top">Controls the level of the tuning display</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPXPARAM_ScreenOutput</code></td>
+
+<td class="entry" valign="top"><a class="xref" href="../../CPLEX/Parameters/topics/SCRIND.html" title="Decides whether or not results are displayed on screen in an application of the C API.">messages to screen switch</a></td>
+
+<td class="entry" valign="top">Controls screen output</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p class="p"> The value <code class="ph codeph">*<span class="keyword parmname">tunestat_p</span></code> is 0 (zero) 
+when tuning has completed
+and nonzero when it has not. The three nonzero statuses are
+<code class="ph codeph">CPX_TUNE_ABORT</code>, which will be set when the
+terminate value passed to <code class="ph codeph"><span class="keyword apiname">CPXXsetterminate</span>/<span class="keyword apiname">CPXsetterminate</span></code> is set,
+<code class="ph codeph">CPX_TUNE_TILIM</code>, which will be set when the time
+limit specified by <code class="ph codeph">CPXPARAM_TimeLimit</code> is reached.
+and <code class="ph codeph">CPX_TUNE_DETTILIM</code>, which will be set when the deterministic time
+limit specified by <code class="ph codeph">CPXPARAM_DetTimeLimit</code> is reached.
+Tuning will set any parameters which have been chosen even when
+tuning is not completed.</p>
+
+
+<pre class="pre codeblock"><code>
+status = CPXtuneparamprobset (env, filecnt, filenames, filetypes,
+		       icnt, inum, ival, dcnt, dnum, dval,
+		       0, NULL, NULL, &amp;tunestat);
+</code></pre>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filecnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of problem files.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filename</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">filecnt</span></code> containing problem file names.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filetype</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">filecnt</span></code> containing problem file types, as documented in <code class="ph codeph"><span class="keyword apiname">CPXXreadcopyprob</span>/<span class="keyword apiname">CPXreadcopyprob</span></code>. May be NULL; then CPLEX discerns file types from the file extensions of the file names.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">intcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of integer parameters to be fixed during tuning. This argument specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">intnum</span></code> and <code class="ph codeph"><span class="keyword parmname">intval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">intnum</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the parameter numbers (unique identifiers) of the integer parameters which remain fixed. May be NULL if <code class="ph codeph"><span class="keyword parmname">intcnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">intval</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the values for the parameters listed in <code class="ph codeph"><span class="keyword parmname">intnum</span></code>. May be NULL if <code class="ph codeph"><span class="keyword parmname">intcnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">dblcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of double parameters to be fixed during tuning. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">dblnum</span></code> and <code class="ph codeph"><span class="keyword parmname">dblval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">dblnum</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the parameter numbers (unique identifiers) of the double parameters which remain fixed. May be NULL if <code class="ph codeph"><span class="keyword parmname">dblcnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">dblval</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the values for the parameters listed in <code class="ph codeph"><span class="keyword parmname">dblnum</span></code>. May be NULL if <code class="ph codeph"><span class="keyword parmname">dblcnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">strcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of string parameters to be fixed during tuning. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">strnum</span></code> and <code class="ph codeph"><span class="keyword parmname">strval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">strnum</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the parameter numbers (unique identifiers) of the integer parameters which remain fixed. May be NULL if <code class="ph codeph"><span class="keyword parmname">strcnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">strval</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the values for the parameters listed in <code class="ph codeph"><span class="keyword parmname">strnum</span></code>. May be NULL if <code class="ph codeph"><span class="keyword parmname">strcnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">tunestat_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer to receive the tuning status.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetTUVWXYZ.html">T, U, V, W, X, Y, Z</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpTuning.html">Tuning applications</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="API string encoding switch" />
+<meta name="abstract" content="API string encoding switch" />
+<meta name="Description" content="API string encoding switch" />
+<meta name="DC.subject" content="CPX_PARAM_APIENCODING, APIEncoding, apiencoding, channel, API encoding parameter, stream" />
+<meta name="keywords" content="CPX_PARAM_APIENCODING, APIEncoding, apiencoding, channel, API encoding parameter, stream" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1300021272643" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>API string encoding switch</title>
+</head>
+<body id="languageRefTopic1300021272643"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">API string encoding switch</h1>
+
+
+ 
+<div class="body refbody"><p class="shortdesc">API string encoding switch</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> <p class="p">API string encoding switch</p>
+ </section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d79671e64">API</th>
+
+<th class="entry nrule" valign="top" id="d79671e67">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d79671e70">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">CPXPARAM_Read_APIEncoding</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">CPX_PARAM_APIENCODING</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">IloCplex::Param::Read::APIEncoding</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">APIEncoding</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">not in this API</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">not in this API</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">not in this API</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">not in this API</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">not in this API</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">not in this API</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">not in this API</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">not in this API</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">not in this component</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">not in this component</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d79671e64 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d79671e67 ">1130</td>
+
+<td class="entry nrule" valign="top" headers="d79671e70 ">1130</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<div class="p">Specifies which encoding (also
+known as the code page) that CPLEX uses to represent strings. 
+ That is, this parameter
+tells CPLEX which characters to expect as input and how to represent
+as output such strings as the name of a model, of a variable, of a
+constraint. If, for example, your application uses an accent
+in the name of a model, an umlaut in the name of a variable, or a
+Chinese character for the name of a constraint, then this parameter
+is of interest to you. 
+<div class="note note"><span class="notetitle">Note:</span> <p class="p">This parameter has no effect on IBM
+CPLEX Optimizer for z/OS,  where only EBCDIC IBM-1047 encoding is
+available.</p>
+ 
+</div>
+ 
+</div>
+ 
+<p class="p paragrouptitle">Which features does this parameter govern?</p>
+ 
+
+<p class="p">Generally, this parameter impacts names, such as the name of a model, 
+the names of variables, the names of constraints, and other modeling elements. 
+Also CPLEX respects this parameter (in the application programming interfaces (APIs) 
+where the parameter is available) when CPLEX provides information (such as a log, 
+a warning, an error message) on an output stream. </p>
+
+
+<p class="p">In the Callable Library
+(<strong class="ph b">C API</strong>), this parameter specifies the encoding in which CPLEX
+passes a string to a function destination added to a <strong class="ph b">channel</strong> by
+means of the routine <code class="ph codeph"><a class="xref" href="../../../refcallablelibrary/cpxapi/presolve.html" title="The routine CPXXpresolve/CPXpresolve performs LP or MIP presolve depending whether a problem object is an LP or a MIP.">CPXaddfuncdest</a></code>.</p>
+
+
+<p class="p">In the <strong class="ph b">C++</strong> <strong class="ph b">API</strong>, this parameter specifies
+the encoding of <strong class="ph b">streams</strong> accessed by the methods <code class="ph codeph">setWarning</code> 
+and <code class="ph codeph">setOut</code>.
+CPLEX also encodes <strong class="ph b">exceptions</strong> according to the value of this
+parameter.</p>
+ 
+
+<p class="p">This parameter is not available in the <strong class="ph b">Python API</strong> where CPLEX
+relies on the native encoding.</p>
+ 
+
+<p class="p">This parameter is not available in the 
+<strong class="ph b">C#.NET API</strong> where CPLEX relies on the native encoding. </p>
+ 
+
+<p class="p">This parameter is not available in the 
+<strong class="ph b">Java API</strong> where CPLEX relies on the native encoding. </p>
+
+
+
+<p class="p">For a brief description of the advantages of <code class="ph codeph">UTF-8</code>, 
+see the topic <a class="xref" href="../../UsrMan/topics/progr_consid/input_output/manageIO_encodings.html" title="Explains special considerations about encoding, also known as code pages.">Selecting an encoding</a> in
+the <em class="ph i">CPLEX User’s Manual</em>. </p>
+ 
+
+<p class="p paragrouptitle">Which values does this parameter accept?</p>
+
+<p class="p">This parameter accepts a <strong class="ph b">string</strong> specifying the user’s choice of
+encoding, such as <samp class="ph msgph">UTF-8</samp>, 
+<samp class="ph msgph">ISO-8859-1</samp>, 
+<samp class="ph msgph">US-ASCII</samp>,
+and so forth.</p>
+ 
+<p class="p">An asterisk (*) is an acceptable value in some situations. 
+This wildcard instructs CPLEX 
+to use the default converter according to the protocols and standards of  
+International Components for Unicode (ICU). In other words, 
+CPLEX calls ICU with a NULL encoding. 
+When ICU is called with a NULL encoding (as in this case), 
+ICU takes the name of the encoding from the terminal 
+where the application started.
+</p>
+
+<p class="p">Other acceptable values of this parameter depend on the API. </p>
+
+<ul class="ul">
+<li class="li">
+<p class="p">In the Callable Library (<strong class="ph b">C API</strong>), this parameter accepts
+any string that is the name of a valid code page supported by CPLEX. 
+For example, <code class="ph codeph">UTF-8</code> is
+a multi-byte encoding that is an acceptable value for this parameter;
+it encompasses the ASCII character set; it does not allow valid characters
+to include a NULL byte. </p>
+ 
+<p class="p">For a complete list of valid strings that are the name of an encoding
+(that is, the name of a code page), consult the web site of a standards
+organization such as:</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><a class="xref" href="http://www.ibm.com/developerworks/library/codepages.html" target="_blank" rel="noopener" title="(Opens in a new tab or window)">A brief introduction to code pages</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="http://site.icu-project.org/home" target="_blank" rel="noopener" title="(Opens in a new tab or window)">ICU: International Components for Unicode</a></p>
+</li>
+
+<li class="li"><p class="p"><a class="xref" href="http://www-01.ibm.com/software/globalization/icu/index.html" target="_blank" rel="noopener" title="(Opens in a new tab or window)">International Components for Unicode at IBM</a></p>
+ </li>
+
+</ul>
+ 
+</li>
+
+<li class="li">
+<p class="p">In the <strong class="ph b">C++ API</strong>, the value of this parameter must be
+the name of an encoding that is a superset of ASCII. For example,
+ASCII is a subset of the encoding or code page <code class="ph codeph">UTF-8</code>,
+so <code class="ph codeph">UTF-8</code> is an acceptable value for this parameter.
+Likewise, ASCII is a subset of <code class="ph codeph">ISO-8859-1</code>, also known
+as <code class="ph codeph">Latin-1</code>, so  <code class="ph codeph">ISO-8859-1</code>  is an
+acceptable value for this parameter. 
+However, the code page <code class="ph codeph">UTF-16</code> is <strong class="ph b">not</strong> acceptable,
+nor is <code class="ph codeph">UTF-32</code> because both allow valid characters
+that contain a NULL byte.</p>
+</li>
+
+</ul>
+
+<p class="p paragrouptitle"> What is the default value of this parameter?</p>
+
+<p class="p">The <strong class="ph b">default</strong> value of this parameter depends on the API.</p>
+
+<ul class="ul"> 
+<li class="li">
+<p class="p">In the <strong class="ph b">C API</strong>, the default value is the string <code class="ph codeph">ISO-8859-1</code> 
+(also known as Latin-1). </p>
+
+</li>
+
+<li class="li">
+<p class="p">In the <strong class="ph b">C++ API</strong>, the default value is the string <code class="ph codeph">ISO-8859-1</code> (also
+known as Latin-1). </p>
+
+</li>
+
+</ul>
+
+<p class="p">The encoding <code class="ph codeph">ISO-8859-1</code> is a superset of
+the familiar ASCII encoding, so it supports many widely used character
+sets. However, this default encoding cannot represent multi-byte character
+sets, such as Chinese, Japanese, Korean, Vietnamese, or Indian characters,
+for example. If you want to represent a character set that requires
+multiple bytes per character, then a better choice for the value of
+this parameter is <code class="ph codeph">UTF-8</code>. </p>
+
+<p class="p">If you change the
+value of this parameter, you must verify that your choice is compatible
+with the <a class="xref" href="FileEncoding.html" title="file encoding switch">file encoding switch</a> 
+(<code class="ph codeph">CPXPARAM_Read_FileEncoding</code>, <code class="ph codeph">FileEncoding</code>).
+In fact, the encoding or code page specified by the API encoding parameter
+must be a subset of the encoding or code page specified by the file
+encoding parameter. For example, if the value of the file encoding
+parameter is  <code class="ph codeph">UTF-8</code>, then <code class="ph codeph">US-ASCII</code> is
+an acceptable value of the API encoding parameter because <code class="ph codeph">US-ASCII</code> is
+a subset of <code class="ph codeph">UTF-8</code>. For examples of the hazards of
+incompatible choices of the encoding parameters, see the topic <a class="xref" href="../../UsrMan/topics/progr_consid/input_output/manageIO_encodings.html" title="Explains special considerations about encoding, also known as code pages.">Selecting an encoding</a> in
+the <em class="ph i">CPLEX User’s Manual</em>.</p>
+
+<p class="p paragrouptitle"> What about errors?</p>
+
+<p class="p">In situations where CPLEX encounters a string,
+such as content in a file, that is not compatible with the specified
+encoding, the behavior is not defined. Because of the incompatibility,
+CPLEX silently converts the string to an inappropriate character of
+the specified encoding, or CPLEX raises the error 1235 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_ENCODING_CONVERSION.html" title="1235 Failed to convert string encoding">CPXERR_ENCODING_CONVERSION</a>.
+For an example of why such unpredictable behavior occurs, see the
+topic <a class="xref" href="../../UsrMan/topics/progr_consid/input_output/manageIO_encodings.html" title="Explains special considerations about encoding, also known as code pages.">Selecting an encoding</a> in
+the <em class="ph i">CPLEX User’s Manual</em>. </p>
+
+<p class="p paragrouptitle">Values</p>
+
+<p class="p">valid string for the name of an encoding (code page) that is a superset
+of ASCII; <strong class="ph b">default</strong>:  <code class="ph codeph">ISO-8859-1</code> or empty string.</p>
+
+<p class="p paragrouptitle">See also</p>
+
+<p class="p"><a class="xref" href="FileEncoding.html" title="file encoding switch">file encoding switch</a></p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

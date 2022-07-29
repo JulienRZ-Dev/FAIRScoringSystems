@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Getting KPIs in the search log" />
+<meta name="abstract" content="Key Performance Indicators (KPIs) can be displayed in the search log." />
+<meta name="Description" content="Key Performance Indicators (KPIs) can be displayed in the search log." />
+<meta name="DC.subject" content="search log, KPIs, search parameter, log information, Key Performance Indicators" />
+<meta name="keywords" content="search log, KPIs, search parameter, log information, Key Performance Indicators" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/search_log.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="searchlogKPIs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/search_log.html" />
+<title>Getting KPIs in the search log</title>
+</head>
+<body id="searchlogKPIs"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Getting KPIs in the search log</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">Key Performance Indicators (KPIs) can be displayed in the search log.</p>
+
+<section class="section" id="searchlogKPIs__section_KPIs"><h2 class="title sectiontitle">Key Performance Indicators</h2>
+
+<p class="p">A Key Performance Indicator (KPI) is any measurable value that you are interested in for
+monitoring your business performance. In fact, it can be anything that you can quantify and write a
+formula for. For example, in a scheduling problem you might minimize the makespan (the date at which
+all tasks are completed), but other values might also be of interest, like the number of jobs not
+completed by their deadline, or the total amount of idle time in the schedule. You can identify such
+expressions in the model by marking them as KPIs. </p>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_definingKPIs"><h2 class="title sectiontitle">Defining KPIs in a model</h2>
+
+<p class="p"> You can now define your own KPIs in your model and their values will be displayed in the CPO
+solution. </p>
+
+<p class="p">KPI values are automatically <strong class="ph b">displayed in the log</strong>. They can also be<strong class="ph b"> queried</strong> after
+the solve or for each solution. In addition, they are<strong class="ph b"> exported</strong> to a CPO file when the model
+is exported.</p>
+
+<p class="p">To define a KPI, you can use the following syntax: <code class="ph codeph">cp.addKPI(&lt;<em class="ph i">formula</em>&gt;,
+"&lt;<em class="ph i">name of your KPI</em>&gt;");</code> See the appropriate page in these release notes for your
+programming language.</p>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_lds_k23_jfb"><h2 class="title sectiontitle">Example</h2>
+
+<p class="p">The <code class="ph codeph">plantlocation</code> example now includes two KPI definitions (mean occupancy and
+minimal occupancy) to illustrate this new KPI feature. The first KPI is the mean occupancy defined
+as the total demand divided by the total capacity of the used plants. The second indicator is the
+minimum plant occupancy defined as the ratio of demand to capacity of the plant where this ratio is
+the smallest. See <code class="ph codeph">plant_location.cpp</code> (C++),<code class="ph codeph"> PlantLocation.java</code>
+(Java) or <code class="ph codeph">PlantLocation.cs</code> (C#) for more information. </p>
+
+<div class="p">The following shows an extract of the log file for this plant location example. As it is running
+the values of the two KPIs are printed in the log with an 'I' representing
+'indicator'.<pre class="pre codeblock"><code>  *         70490     106k  9.18s        2      (gap is 45.44%)
+       I Mean occupancy: 0.9869259; Min occupancy: 0.9270833
+                 70490     120k         31    3   F    29  = _int72
+                 70490     120k         31    5   F    29  = _int72
+                 70490     110k         11    2   F    19  = _int132
+       ! Time = 9.52s, Average fail depth = 49, Memory usage = 16.5 MB
+       ! Current bound is 38456 (gap is 45.44%)
+       !          Best Branches  Non-fixed    W       Branch decision
+                 70490     120k         39    8         5 != _int148
+                 70490     110k         22    4        16 != _int80
+                 70490     110k          8    7        12 != _int94
+       *         70488     113k  9.94s        2      (gap is 45.44%)
+       I Mean occupancy: 0.9869259; Min occupancy: 0.9166666
+                 70488     130k         30    6         8 != _int86
+       ! ----------------------------------------------------------------------------
+       ! Search terminated by limit, 48 solutions found.
+       ! Best objective         : 70488 (gap is 45.44%)
+       ! Best bound             : 38456
+       ! Mean occupancy         : 0.9869259
+       ! Min occupancy          : 0.9166666
+       ! ----------------------------------------------------------------------------
+       ! Number of branches     : 925154
+       ! Number of fails        : 417150
+       ! Total memory usage     : 16.6 MB (16.3 MB CP Optimizer + 0.3 MB Concert)
+       ! Time spent in solve    : 10.00s (10.00s engine + 0.00s extraction)
+       ! Search speed (br. / s) : 92515.4
+       ! ----------------------------------------------------------------------------
+</code></pre>
+</div>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_KPIparam"><h2 class="title sectiontitle"><code class="ph codeph">KPIDisplay</code> Parameter</h2>
+
+<p class="p">You can use the new <code class="ph codeph">KPIDisplay</code> parameter to control how your defined KPIs are
+displayed in the log file. This parameter can take two symbolic values: <code class="ph codeph">SingleLine</code>
+and <code class="ph codeph">MultipleLines</code>, so that you can display your KPIs either on one line or on
+several lines. See <a class="xref" href="../../Parameters/topics/paramcpoptimizer.html#topic_mbz_5w1_ww__KPIDisplay">KPIDisplay</a>
+in <strong class="ph b">Parameters of CP Optimizer</strong> for more information.</p>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_queryKPI"><h2 class="title sectiontitle">Querying KPIs</h2>
+
+<p class="p">For the APIs which manipulate and query KPIs, see the appropriate section of these release notes
+according to the programming language you use.</p>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_KPIexportmodel"><h2 class="title sectiontitle">KPIs in exported models</h2>
+
+<div class="p"> When a model with KPIs is exported as a CPO file, a specific section is added to the CPO file.
+For example, if you export the model from the plant location example, you will see the following
+section:<pre class="pre codeblock"><code> KPIs {
+        "Mean occupancy" = 2944 / (137*IntVar_0 + 122*IntVar_5 + 87*IntVar_9 + 125*IntVar_13 + 120*IntVar_17 ...
+        "Min occupancy" = min([1 + IntVar_1 * 0.0072992700729927005 - IntVar_0, 1 + IntVar_6 * 0.00819672131 ...
+      }</code></pre></div>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_KPIimportfile"><h2 class="title sectiontitle">KPIs in imported files</h2>
+
+<p class="p"> When you read in a file with KPIs (for example,in the CP Optimizer Interactive optimizer),you
+will see the evolution of the KPIs in the log as in the original model.</p>
+
+</section>
+
+<section class="section" id="searchlogKPIs__section_CPOfileformat"><h2 class="title sectiontitle">CPO File format</h2>
+
+<p class="p"> More information on how KPIs are expressed in the CPO File format are given in the <a class="xref" href="../../reffileformatcpo/reffileformatcpo.html"> CP Optimizer File Format Reference
+Manual</a>.</p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/search_log.html" title="During search, information regarding the progress of the optimizer is displayed to the output channel of the optimizer; this information is called the search log or simply the log.">The search log</a></div>
+</div>
+</nav></div></body>
+</html>

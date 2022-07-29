@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Syntax of search section" />
+<meta name="abstract" content="The search section starts by &#34;search {&#34; and ends by &#34;}&#34;. Inside the section it is possible to declare search phases and any other objects necessary for them (i.e. evaluators, selectors etc.). The section can also be empty." />
+<meta name="Description" content="The search section starts by &#34;search {&#34; and ends by &#34;}&#34;. Inside the section it is possible to declare search phases and any other objects necessary for them (i.e. evaluators, selectors etc.). The section can also be empty." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Syntax_of_search_section" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<title>Syntax of search section</title>
+</head>
+<body id="Syntax_of_search_section"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Syntax of search section</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+The search section starts by "<code class="ph codeph">search {</code>" and ends by "<code class="ph codeph">}</code>". Inside the
+section it is possible to declare search phases and any other objects
+necessary for them (<em class="ph i">i.e.</em> evaluators, selectors <em class="ph i">etc.</em>). The
+section can also be empty.
+</p>
+
+
+<section class="section">
+
+<p class="p">
+The following picture summarizes the syntax of the search section:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram31.png" /></div>
+
+<p class="p">
+The statement "<code class="ph codeph">searchPhaseExpression;</code>" adds a search phase into the fixing
+strategy. Note that the order of search phases is important. The syntax of
+<code class="ph codeph">searchPhaseExpression</code> follows the standard expression syntax as described
+<a class="xref" href="../syntax/100_Expressions.html" title="Expressions are formed from variables and constants by using operators and functions and by combining expressions together into arrays (array expressions).">here</a> however type of the expression must be
+<code class="ph codeph"><a class="xref" href="040_Types.html#Types_in_search_section__searchPhase">searchPhase</a></code>.
+</p>
+
+
+<p class="p">
+The statement "<code class="ph codeph">identifier: searchPhaseExpression;</code>" is similar but also assign
+the given identifier as a name to the search phase.
+</p>
+
+
+<p class="p">
+Finally statement "<code class="ph codeph">identifier=expression;</code>" assigns a name to a given
+expression so that it can be used later by that name in the search section.
+</p>
+
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/search.html" title="A CPO file may contain an optional search section which specifies a variable fixing strategy that CP Optimizer should use while searching for solutions. The strategy is described by search phases.">The search section</a></div>
+</div>
+</nav></div></body>
+</html>

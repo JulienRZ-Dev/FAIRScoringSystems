@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ilog.odms.cplex.help.nl2
+Archiver-Version: Plexus Archiver
+Built-By: opladm
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %nlProviderName
+Fragment-Host: ilog.odms.cplex.help
+Bundle-Name: %nlFragmentName
+Bundle-Version: 20.1.0.202012011542
+Bundle-Localization: nl_fragment
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_191
+Eclipse-BundleShape: dir
+
+Name: about.html
+SHA-256-Digest: 0LNxb73WVdSPC1401RWPmfae5yrQgolv/6jeUfOBUBs=
+
+Name: nl_fragment.properties
+SHA-256-Digest: MKLgmRMBE2pZQQ9hmUt0lX9P7snhk8kqAF6imxx2sVM=
+
+Name: plugin_ru.properties
+SHA-256-Digest: djqBo7UMb4Q1PTR6VqylveXXuvNmzmdaYubzFswe118=
+

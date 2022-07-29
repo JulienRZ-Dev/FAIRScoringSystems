@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="SOS1 reformulations" />
+<meta name="abstract" content="Defines whether special ordered sets of type 1 (SOS1) should be reformulated as linear constraints." />
+<meta name="Description" content="Defines whether special ordered sets of type 1 (SOS1) should be reformulated as linear constraints." />
+<meta name="DC.subject" content="special ordered sets of type 1, SOS1 reformulations, CPXPARAM_Preprocessing_SOS1Reform" />
+<meta name="keywords" content="special ordered sets of type 1, SOS1 reformulations, CPXPARAM_Preprocessing_SOS1Reform" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="SOS1Reform" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>SOS1 reformulations</title>
+</head>
+<body id="SOS1Reform"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">SOS1 reformulations</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Defines whether special ordered sets of type 1 (SOS1) should be reformulated as linear
+constraints.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">SOS1 reformulations</p>
+
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d133413e58">API</th>
+
+<th class="entry nrule" valign="top" id="d133413e61">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">CPXPARAM_Preprocessing_SOS1Reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">IloCplex::Param::Preprocessing::SOS1Reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">IloCplex.Param.Preprocessing.SOS1Reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">Cplex.Param.Preprocessing.SOS1Reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">sos1reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">parameters.preprocessing.sos1reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">preprocessing sos1reform</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d133413e58 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d133413e61 ">2230</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">This parameter allows you to control the reformulation of special ordered sets of type 1 (SOS1),
+which can be applied during the solution process of problems containing these sets. Setting the
+value of this parameter to 0 (zero), the default, specifies that the SOS1 should be reformulated as
+linear constraints only if this is deemed to be helpful.</p>
+
+<p class="p">For a definition of special ordered sets, see <a class="xref" href="../../UsrMan/topics/discr_optim/sos/01_SOS_title_synopsis.html" title="Describes special ordered sets (SOSs) in a model as a way to specify integrality conditions.">Using special ordered sets (SOS)</a>. For a more thorough
+discussion on the reformulation of special ordered sets, see <a class="xref" href="../../UsrMan/topics/discr_optim/sos/08_SOS_auto_reforms.html" title="Describes the automatic reformulation of special ordered sets available in CPLEX.">Automatic reformulation of special ordered sets</a>.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d133413e190">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d133413e193">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d133413e190 ">-1</td>
+
+<td class="entry" valign="top" headers="d133413e193 ">No reformulation: CPLEX does not reformulate special ordered sets of type 1 (SOS1) as linear
+constraints</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d133413e190 ">0</td>
+
+<td class="entry" valign="top" headers="d133413e193 ">Automatic: let CPLEX decide; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d133413e190 ">1</td>
+
+<td class="entry" valign="top" headers="d133413e193 ">Logarithmic: CPLEX reformulates special ordered sets of type 1 (SOS1) as linear constraints,
+with a reformulation which is logarithmic in the size of the special ordered sets</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

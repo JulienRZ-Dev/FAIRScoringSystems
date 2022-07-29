@@ -1,0 +1,47 @@
+<!-- Generator: GNU source-highlight 2.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>01: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+02: <b><font color="#007D00">// Licensed Materials - Property of IBM</font></b>
+03: <b><font color="#007D00">//</font></b>
+04: <b><font color="#007D00">// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55</font></b>
+05: <b><font color="#007D00">// Copyright IBM Corporation 1998, 2013. All Rights Reserved.</font></b>
+06: <b><font color="#007D00">//</font></b>
+07: <b><font color="#007D00">// Note to U.S. Government Users Restricted Rights:</font></b>
+08: <b><font color="#007D00">// Use, duplication or disclosure restricted by GSA ADP Schedule</font></b>
+09: <b><font color="#007D00">// Contract with IBM Corp.</font></b>
+10: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+11: 
+12: <b><font color="#007D00">// This OPL uses experimental Javascript support for benders annotations.</font></b>
+13: <b><font color="#007D00">// The model is a toy model just in order to show how to use the annotation api.</font></b>
+14: 
+15: <b><font color="#0000FF">execute</font></b>{
+16:         <b><font color="#0000FF">cplex</font></b>.bendersstrategy = 3;
+17: }
+18: 
+19: int d1 = ...;
+20: int d2 = ...;
+21: 
+22: range R1 = 1..d1;
+23: range R2 = 1..d2;
+24: 
+25: range dim  = 1..d1*d2;
+26: int Costs[i in R2][j in R1] = ...;
+27: 
+28: dvar float X[R2][R1];
+29: 
+30: dvar boolean Y[R1];
+31: 
+32: int bendersPartition[i in R2][j in R1] = i;
+33: int bendersPartition2[i in R2] = i;
+34: 
+35: minimize sum(i in R2, j in R1) Costs[i][j]*X[i][j] + sum(i in R1) Y[i];
+36: subject to{
+37: forall(i <b><font color="EA7D00">in</font></b> R2)
+38:   sum(j <b><font color="EA7D00">in</font></b> R1) X[i][j] ==1;
+39: forall(i <b><font color="EA7D00">in</font></b> R2, j <b><font color="EA7D00">in</font></b> R1)
+40:   X[i][j] - Y[j] &lt;= 0;
+41: }
+42: 
+</tt></pre>

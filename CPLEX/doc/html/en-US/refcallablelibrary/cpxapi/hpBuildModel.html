@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Building a model for a linear program (LP)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/addcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/addrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/cloneprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copylp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copylpwnames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copynettolp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copyobjname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copypnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/createprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcoef.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcolindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcolname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumnz.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getobjname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getobjoffset.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getobjsen.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getprobname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getprobtype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getrhs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getrngval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getrowindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getrowname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getsense.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getslack.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/openCPLEX.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopyprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/tightenbds.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpBuildModel" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<title>Building a model for a linear program (LP)</title>
+</head>
+<body id="hpBuildModel"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Building a model for a linear program (LP)</h1>
+
+<div class="body">
+<p class="p">
+These routines support building a model for continuous optimization, such as linear programming (LP).
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/addcols.html">CPXXaddcols and CPXaddcols</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddcols</span>/<span class="keyword apiname">CPXaddcols</span></code> adds columns to a specified CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/addrows.html">CPXXaddrows and CPXaddrows</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> adds constraints to a specified CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/cloneprob.html">CPXXcloneprob and CPXcloneprob</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcloneprob</span>/<span class="keyword apiname">CPXcloneprob</span></code> can be used to create a new CPLEX problem object and copy all the problem data from an existing problem object to it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copylp.html">CPXXcopylp and CPXcopylp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code> copies data that define an LP problem to a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copylpwnames.html">CPXXcopylpwnames and CPXcopylpwnames</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> copies LP data into a CPLEX problem object in the same way as the routine  <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code>,  but <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> accepts   additional arguments to specify the names of constraints and variables in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copynettolp.html">CPXXcopynettolp and CPXcopynettolp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopynettolp</span>/<span class="keyword apiname">CPXcopynettolp</span></code> copies a network problem stored in a network problem object to a CPLEX problem object (as an LP).   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copyobjname.html">CPXXcopyobjname and CPXcopyobjname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyobjname</span>/<span class="keyword apiname">CPXcopyobjname</span></code> copies a name for the objective function into a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copypnorms.html">CPXXcopypnorms and CPXcopypnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopypnorms</span>/<span class="keyword apiname">CPXcopypnorms</span></code> copies the primal steepest-edge norms to the specified LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/createprob.html">CPXXcreateprob and CPXcreateprob</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code> creates a CPLEX problem object  in the CPLEX environment.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcoef.html">CPXXgetcoef and CPXgetcoef</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcoef</span>/<span class="keyword apiname">CPXgetcoef</span></code> accesses a single constraint matrix coefficient of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcolindex.html">CPXXgetcolindex and CPXgetcolindex</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcolindex</span>/<span class="keyword apiname">CPXgetcolindex</span></code> searches for the index number of the specified column in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcolname.html">CPXXgetcolname and CPXgetcolname</a></strong><br />
+  Accesses a range of column names (or, equivalently, the variable names)  of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcols.html">CPXXgetcols and CPXgetcols</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcols</span>/<span class="keyword apiname">CPXgetcols</span></code> accesses a range of columns of the constraint matrix of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumcols.html">CPXXgetnumcols and CPXgetnumcols</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumcols</span>/<span class="keyword apiname">CPXgetnumcols</span></code> accesses the number of columns in the constraint matrix, or equivalently, the number of variables in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumnz.html">CPXXgetnumnz and CPXgetnumnz</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumnz</span>/<span class="keyword apiname">CPXgetnumnz</span></code> accesses the number of nonzero elements in the constraint matrix of a CPLEX problem object, not including the objective function, quadratic constraints, or the bounds constraints on the variables.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumrows.html">CPXXgetnumrows and CPXgetnumrows</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumrows</span>/<span class="keyword apiname">CPXgetnumrows</span></code> accesses the number of rows in the constraint matrix, not including the objective function, quadratic constraints, or the bounds constraints on the variables.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getobj.html">CPXXgetobj and CPXgetobj</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetobj</span>/<span class="keyword apiname">CPXgetobj</span></code> accesses a range of objective function coefficients of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getobjname.html">CPXXgetobjname and CPXgetobjname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetobjname</span>/<span class="keyword apiname">CPXgetobjname</span></code> accesses the name of the objective row of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getobjoffset.html">CPXXgetobjoffset and CPXgetobjoffset</a></strong><br />
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetobjoffset</span>/<span class="keyword apiname">CPXgetobjoffset</span></code> accesses the objective offset.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getobjsen.html">CPXXgetobjsen and CPXgetobjsen</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetobjsen</span>/<span class="keyword apiname">CPXgetobjsen</span></code> accesses whether the objective function sense of a CPLEX problem object is maximization or minimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getprobname.html">CPXXgetprobname and CPXgetprobname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetprobname</span>/<span class="keyword apiname">CPXgetprobname</span></code> accesses the name of the problem set via the call to <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getprobtype.html">CPXXgetprobtype and CPXgetprobtype</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetprobtype</span>/<span class="keyword apiname">CPXgetprobtype</span></code> accesses the problem type that is currently stored in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getrhs.html">CPXXgetrhs and CPXgetrhs</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetrhs</span>/<span class="keyword apiname">CPXgetrhs</span></code> accesses the righthand side coefficients for a range of constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getrngval.html">CPXXgetrngval and CPXgetrngval</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetrngval</span>/<span class="keyword apiname">CPXgetrngval</span></code> accesses the RHS range coefficients for a set of constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getrowindex.html">CPXXgetrowindex and CPXgetrowindex</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetrowindex</span>/<span class="keyword apiname">CPXgetrowindex</span></code> searches for the index number of the specified row in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getrowname.html">CPXXgetrowname and CPXgetrowname</a></strong><br />
+      Accesses a range of row names       (or, equivalently, the constraint names) of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getrows.html">CPXXgetrows and CPXgetrows</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetrows</span>/<span class="keyword apiname">CPXgetrows</span></code> accesses a range of rows of the constraint matrix, not including the objective function nor the bound constraints on the variables of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getsense.html">CPXXgetsense and CPXgetsense</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsense</span>/<span class="keyword apiname">CPXgetsense</span></code> accesses the sense for a range of constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getslack.html">CPXXgetslack and CPXgetslack</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetslack</span>/<span class="keyword apiname">CPXgetslack</span></code> accesses the slack values for a range of linear constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getub.html">CPXXgetub and CPXgetub</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetub</span>/<span class="keyword apiname">CPXgetub</span></code> accesses a range of upper bounds on the variables of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/newcols.html">CPXXnewcols and CPXnewcols</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewcols</span>/<span class="keyword apiname">CPXnewcols</span></code> adds empty columns to a specified CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/newrows.html">CPXXnewrows and CPXnewrows</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewrows</span>/<span class="keyword apiname">CPXnewrows</span></code> adds empty constraints to a specified CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/openCPLEX.html">CPXXopenCPLEX and CPXopenCPLEX</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code> initializes a CPLEX environment.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/readcopyprob.html">CPXXreadcopyprob and CPXreadcopyprob</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXreadcopyprob</span>/<span class="keyword apiname">CPXreadcopyprob</span></code> reads an MPS, LP, or SAV file into an existing CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/tightenbds.html">CPXXtightenbds and CPXtightenbds</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXtightenbds</span>/<span class="keyword apiname">CPXtightenbds</span></code> changes the upper or lower bounds on a set of variables in a problem.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="data consistency checking and modeling assistance" />
+<meta name="abstract" content="Turns on or off data consistency checking and modeling assistance." />
+<meta name="Description" content="Turns on or off data consistency checking and modeling assistance." />
+<meta name="DC.subject" content="CPX_PARAM_DATACHECK, CPXPARAM_Read_DataCheck, DataCheck parameter, datacheck parameter" />
+<meta name="keywords" content="CPX_PARAM_DATACHECK, CPXPARAM_Read_DataCheck, DataCheck parameter, datacheck parameter" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196781314715" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>data consistency checking and modeling assistance</title>
+</head>
+<body id="languageRefTopic1196781314715"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">data consistency checking and modeling assistance</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Turns on or off data consistency checking and modeling assistance.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">Data consistency checking and modeling assistance switch</p>
+
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d94913e59">API</th>
+
+<th class="entry nrule" valign="top" id="d94913e62">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d94913e65">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">CPXPARAM_Read_DataCheck</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">CPX_PARAM_DATACHECK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">IloCplex::Param::Read::DataCheck</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">DataCheck </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">IloCplex.Param.Read.DataCheck</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">DataCheck </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">Cplex.Param.Read.DataCheck</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">DataCheck </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">datacheck </td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">datacheck</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">parameters.read.datacheck</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">read.datacheck</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">read datacheck</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">read datacheck</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d94913e59 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d94913e62 ">1056</td>
+
+<td class="entry nrule" valign="top" headers="d94913e65 ">1056</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">Decides whether data should be checked for consistency and 
+whether CPLEX should offer modeling assistance. 
+When this parameter is set to 1 (one), the routines <span class="keyword apiname">CPXcopy____</span>, 
+<span class="keyword apiname">CPXread____</span>,
+and <span class="keyword apiname">CPXchg____</span> of the C API perform extensive checking 
+of data in their array arguments, such as checking that indices are 
+within range, that there are no duplicate entries, and that values 
+are valid for the type of data or are valid numbers. This checking 
+is useful for debugging applications. When this checking identifies 
+trouble, you can gather more specific detail by calling one of the 
+routines in <code class="ph codeph">check.c</code>, as described in the 
+<em class="ph i">CPLEX User's Manual</em> in the topic 
+<a class="xref" href="../../UsrMan/topics/APIs/C/26_data_cking.html" title="Describes routines to verify problem data and diagnose bugs in an application of the C API.">Checking and debugging problem data</a>. 
+</p>
+ 
+<p class="p"><strong class="ph b">Note</strong>: For most application programming interfaces (APIs) of CPLEX, 
+the default value of this parameter is 0 (zero); that is, data checking is 
+off by default. However, data checking in the CPLEX Python API is 1 (one), 
+that is, on by default.
+</p>
+ 
+<p class="p">When the value of this parameter is set to level 2, CPX_DATACHECK_ASSIST, CPLEX turns on both
+data consistency checking and modeling assistance. At this level, CPLEX issues warnings at the start
+of the optimization about disproportionate values (too large, too small) in coefficients, bounds,
+and righthand sides (RHS). For all APIs, see the documentation of these warnings in the reference
+manual of the Callable Library (C API) in the topic <a class="xref" href="../../../refcallablelibrary/macros/homepagemodelinfo.html">Modeling information in the CPLEX Callable Library (C API)</a>. For more information, see the
+topic <a class="xref" href="../../UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" title="CPLEX can assist you as you develop your model.">Modeling assistance in CPLEX</a> in the
+<em class="ph i">CPLEX User's Manual</em>.</p>
+ 
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table showing possible integer values, their symbolic value, their Interactive Optimizer options, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d94913e250">int</th>
+
+<th class="entry thleft" align="left" valign="top" id="d94913e253">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d94913e256">Interactive</th>
+
+<th class="entry thleft" align="left" valign="top" id="d94913e259">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d94913e250 ">0</td>
+
+<td class="entry" valign="top" headers="d94913e253 "><code class="ph codeph">CPX_DATACHECK_OFF</code></td>
+
+<td class="entry" valign="top" headers="d94913e256 ">no</td>
+
+<td class="entry" valign="top" headers="d94913e259 ">Data checking off; do not check; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d94913e250 ">1</td>
+
+<td class="entry" valign="top" headers="d94913e253 "><code class="ph codeph">CPX_DATACHECK_WARN</code></td>
+
+<td class="entry" valign="top" headers="d94913e256 ">yes</td>
+
+<td class="entry" valign="top" headers="d94913e259 ">Data checking on; <strong class="ph b">default</strong> in Python API</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d94913e250 ">2</td>
+
+<td class="entry" valign="top" headers="d94913e253 ">CPX_DATACHECK_ASSIST</td>
+
+<td class="entry" valign="top" headers="d94913e256 ">assist</td>
+
+<td class="entry" valign="top" headers="d94913e259 ">Data checking on; modeling assistance on; warnings issued for both</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">See also <a class="xref" href="WarningLimit.html" title="Determines how many times warnings of a specific type will be displayed.">warning limit</a></p>
+ 
+</section>
+ 
+</div>
+ 
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="scalProd" />
+<meta name="abstract" content="Returns the scalar product of two vectors." />
+<meta name="Description" content="Returns the scalar product of two vectors." />
+<meta name="DC.subject" content="scalProd" />
+<meta name="keywords" content="scalProd" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="sum.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="scalProd" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>scalProd</title>
+</head>
+<body id="scalProd"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">scalProd</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns the scalar product of two vectors.
+</p>
+
+
+
+<section class="section" id="scalProd__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">scalProd</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> y)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">scalProd</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> y)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">scalProd</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> y)
+
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">scalProd</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatExprArray">floatExprArray</a> y)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">scalProd</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatExprArray">floatExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> y)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">scalProd</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatExprArray">floatExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatExprArray">floatExprArray</a> y)
+</code></pre>
+</section>
+
+
+<section class="section" id="scalProd__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code>: First input array (vector) to be multiplied.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">y</code>: Second input array (vector) to be multiplied.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="scalProd__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The function <code class="ph codeph"><a class="xref" href="scalProd.html" title="Returns the scalar product of two vectors.">scalProd</a></code> returns an integer or floating-point expression that
+represents the scalar product of two vectors <code class="ph codeph">x</code> and <code class="ph codeph">y</code>. Depending on the
+type of <code class="ph codeph">x</code> and <code class="ph codeph">y</code> the result is either integer or floating-point
+expression.
+</p>
+
+
+<p class="p">
+The versions with constant arrays (<code class="ph codeph"><a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a></code> or <code class="ph codeph"><a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a></code>) are preferred
+because they can be slightly faster.
+</p>
+
+
+</section>
+
+
+<section class="section" id="scalProd__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..9);
+b = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..9);
+c = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..9);
+<strong class="ph b">scalProd</strong>([a, b, c], [100, 10, 1]) == 256;
+</code></pre>
+<p class="p">
+The <code class="ph codeph"><a class="xref" href="scalProd.html" title="Returns the scalar product of two vectors.">scalProd</a></code> expression above is equal to <code class="ph codeph">100*a + 10*b + 1*c</code>. Therefore
+the solution of this model is <code class="ph codeph">a = 2</code>, <code class="ph codeph">b = 5</code> and <code class="ph codeph">c = 6</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="scalProd__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<p class="p">
+Arrays <code class="ph codeph">x</code> and <code class="ph codeph">y</code> must have the same length.
+</p>
+
+
+</section>
+
+
+<section class="section" id="scalProd__Notes"><h2 class="title sectiontitle">Notes</h2>
+<p class="p">
+When <code class="ph codeph">x</code> and <code class="ph codeph">y</code> are empty then the result of <code class="ph codeph"><a class="xref" href="scalProd.html" title="Returns the scalar product of two vectors.">scalProd</a></code> is the constant zero.
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="sum.html" title="Returns the sum of the input.">sum</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

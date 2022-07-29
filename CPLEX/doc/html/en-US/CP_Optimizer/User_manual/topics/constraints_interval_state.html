@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Constraints on state functions" />
+<meta name="abstract" content="The evolution of a state function may be constrained using specialized constraints." />
+<meta name="Description" content="The evolution of a state function may be constrained using specialized constraints." />
+<meta name="DC.subject" content="function, state, constraint, state function" />
+<meta name="keywords" content="function, state, constraint, state function" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/constraints_interval.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1226970460650" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/constraints_interval.html" />
+<title>Constraints on state functions</title>
+</head>
+<body id="descriptiveTopic1226970460650"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Constraints on state functions</h1>
+
+
+
+<div class="body"><p class="shortdesc">The evolution of a state function may be constrained
+using specialized constraints.</p>
+
+<p class="p">A state function is a decision variable whose value is
+a set of non-overlapping intervals over which the function maintains
+a particular non-negative integer state. In between those intervals,
+the state of the function is not defined, typically because of an
+ongoing transition between two states. </p>
+
+
+<p class="p">A set of constraints is available to restrict the evolution
+of a state function. These constraints allow you to specify that:</p>
+
+<ul class="ul">
+<li class="li"><p class="p"> the state of the function must be defined
+and should remain equal to a given state everywhere over a given fixed
+or variable interval.</p>
+</li>
+
+<li class="li"><p class="p">the state of the function must be defined
+and should remain constant (no matter its value) everywhere over a
+given fixed or variable interval.</p>
+</li>
+
+<li class="li"><p class="p"> intervals requiring the state of the function
+to be defined cannot overlap a given fixed or variable interval.</p>
+ </li>
+
+<li class="li"><p class="p">everywhere over a given fixed or variable
+interval, the state of the function, if defined, must remain within
+a given range of states.</p>
+</li>
+
+</ul>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the functions <code class="ph codeph">IloAlwaysIn</code>, <code class="ph codeph">IloAlwaysEqual</code>, <code class="ph codeph">IloAlwaysConstant</code> and <code class="ph codeph">IloAlwaysNoState</code> return
+state constraints.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, the methods <code class="ph codeph">IloCP.alwaysIn</code>, <code class="ph codeph">IloCP.alwaysEqual</code>, <code class="ph codeph">IloCP.alwaysConstant</code> and <code class="ph codeph">IloCP.alwaysNoState</code> return state constraints.</p>
+
+<p class="p">In the <strong class="ph b">C# API</strong> of CP Optimizer, the methods <code class="ph codeph">CP.AlwaysIn</code>, <code class="ph codeph">CP.AlwaysEqual</code>, <code class="ph codeph">CP.AlwaysConstant</code> and <code class="ph codeph">CP.AlwaysNoState</code> return
+state constraints.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/constraints_interval.html" title="CP Optimizer provides specialized expressions and constraints on interval decision variables.">Constraints and expressions on interval decision variables</a></div>
+</div>
+</nav></div></body>
+</html>

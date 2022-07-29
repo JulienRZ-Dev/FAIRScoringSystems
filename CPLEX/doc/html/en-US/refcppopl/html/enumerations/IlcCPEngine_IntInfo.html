@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>IntInfo</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../enumerations/IlcCPEngine_IntInfo.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+                name="ibm-content"></a><h1><a
+            name="enumeration_IntInfo">Enumeration IntInfo</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcp/cpext.h</span></div>
+Integer information for <code>IlcCPEngine</code>.
+        <div
+            class="description"><p>An enumeration for the class <code>IlcCPEngine</code>.</p><p> These values are used by <code>IlcCPEngine::getInfo</code> to
+     obtain local information about the invoking worker as opposed to
+     global information over the whole search process.  For example,
+     <code>IlcCPEngine::getInfo(IlcCPEngine::NumberOfBranches)</code>
+     will return the number of branches executed by this local worker up to
+     the current point in search.</p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfChoicePoints = 1</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of choice points executed
+ so far in the local worker <code>IlcCPEngine</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfFails = 2</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of fails executed
+ so far in the local worker <code>IlcCPEngine</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfBranches = 3</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of branches executed
+ so far in the local worker <code>IlcCPEngine</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfEngineVariables = 6</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> Advanced information. This information represents the total number of ''engine''
+ variables created in the local engine at the current point in search.
+ Instances of
+ <code>IlcIntVar</code>, <code>IlcIntervalVar</code> and
+ <code>IlcSequenceVar</code> are engine variables.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>MemoryUsage = 8</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total memory, in bytes, used
+     by the local <code>IlcCPEngine</code> instance and any
+     of its slave objects. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>WorkerId = 26</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p>CP Optimizer assigns an ID to each local worker when solving
+    in parallel.  This ID can take a value to 0 to the number of
+    worker threads less one.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfEngineConstraints = 2018</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> Advanced information. This information represents the total number of ''engine''
+ constraints created in the local engine at the current point in search.
+ This is largely an internal measurement but can be useful for debugging or understanding
+ memory usage.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>ILC_MAX_IntInfo</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr></table><br /></body>
+</html>

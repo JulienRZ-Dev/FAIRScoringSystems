@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbackexitcutloop and CPXcallbackexitcutloop" />
+<meta name="abstract" content="Instructs CPLEX to exit the cutloop at the current node from a callback in the context CPX_CALLBACKCONTEXT_RELAXATION." />
+<meta name="Description" content="Instructs CPLEX to exit the cutloop at the current node from a callback in the context CPX_CALLBACKCONTEXT_RELAXATION." />
+<meta name="DC.subject" content="CPXcallbackexitcutloop, C API Reference Manual, CPXXcallbackexitcutloop" />
+<meta name="keywords" content="CPXcallbackexitcutloop, C API Reference Manual, CPXXcallbackexitcutloop" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="callbacksetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackrejectcandidate" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXcallbackexitcutloop and CPXcallbackexitcutloop</title>
+</head>
+<body id="callbackrejectcandidate"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbackexitcutloop</span> and <span class="keyword apiname">CPXcallbackexitcutloop</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     Instructs CPLEX to exit the cutloop at the current node from a callback
+     in the context CPX_CALLBACKCONTEXT_RELAXATION.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbackexitcutloop</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbackexitcutloop</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+    <p class="p">
+       This routine instructs CPLEX to exit the cutloop and abort cut separation at the current node.
+       If the routine is invoked, any user cut added in the same invocation of the callback is disregarded.
+    </p>
+
+    <div class="note tip"><span class="tiptitle">Tip:</span> 
+      Calling this routine is valid only if the callback was invoked in the
+      context <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a>.
+      In all other contexts, this routine returns an error.
+    </div>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">context</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The callback context as passed into the 
+              user-written callback function.</p>
+
+        </dd>
+
+      
+    </dl>
+
+  </section>
+
+
+    
+    
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+    
+The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked."><code class="ph codeph">CPXXcallbacksetfunc</code>/<code class="ph codeph">CPXcallbacksetfunc</code></a></li>
+<li class="linklist"><a class="link" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate"><code class="ph codeph">CPX_CALLBACKCONTEXT_RELAXATION</code></a></li></ul></div>
+</nav>
+</div></body>
+</html>

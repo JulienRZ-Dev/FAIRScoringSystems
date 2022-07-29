@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Solving the model: IloCplex" />
+<meta name="abstract" content="The class IloCplex solves a model." />
+<meta name="Description" content="The class IloCplex solves a model." />
+<meta name="DC.subject" content="IloCplex class (C++ API), solving with, model (C++ API), solving with IloCplex (C++ API), creating object (C++ API), algorithm object (C++ API)" />
+<meta name="keywords" content="IloCplex class (C++ API), solving with, model (C++ API), solving with IloCplex (C++ API), creating object (C++ API), algorithm object (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/appliAnatomy_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_cplusStart.999857" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/appliAnatomy_synopsis.html" />
+<title>Solving the model: IloCplex</title>
+</head>
+<body id="Getting_started.uss_cplusStart.999857"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Solving the model: IloCplex</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">The class IloCplex solves a model.</p>
+
+      <p class="p">After the optimization problem has been created in an <code class="ph codeph">IloModel</code> object, 
+it is time to create the <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html">IloCplex</a> 
+object for solving the problem by creating an instance of the class <code class="ph codeph">IloCplex</code>. 
+For example, to create an object named <code class="ph codeph">cplex</code>, write the following line:</p>
+
+      <pre class="pre codeblock"><code>
+IloCplex cplex(env);
+</code></pre>
+      <p class="p">again using the environment <code class="ph codeph">env</code> as
+an argument. The CPLEX object can then be used to extract the model
+to be solved. One way to extract the model is to call <code class="ph codeph">cplex.extract(model)</code>.
+However, experienced Concert users practice a shortcut that performs
+the construction of the <code class="ph codeph">cplex</code> object and
+the extraction of the model in one line:</p>
+
+      <pre class="pre codeblock"><code>
+IloCplex cplex(model);
+</code></pre>
+      <p class="p">This shortcut works because the modeling object <code class="ph codeph">model</code> 
+contains within it the reference to the environment
+named <code class="ph codeph">env</code>.</p>
+
+      <p class="p">After this line, the object <code class="ph codeph">cplex</code> is
+ready to solve the optimization problem defined by <code class="ph codeph">model</code>.
+To solve the model, call:</p>
+
+      <pre class="pre codeblock"><code>
+cplex.solve ();
+</code></pre>
+      <p class="p">This method returns an <code class="ph codeph">IloBool</code> value,
+where <code class="ph codeph">IloTrue</code> indicates that <code class="ph codeph">cplex</code> successfully
+found a feasible (yet not necessarily optimal) solution, and <code class="ph codeph">IloFalse</code> 
+specifies that no solution was found. More
+precise information about the outcome of the last call to the method 
+<a class="xref logicalApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#method_solve">IloCplex::solve</a> 
+can be obtained by calling:</p>
+
+      <pre class="pre codeblock"><code>
+cplex.getStatus ();
+</code></pre>
+      <p class="p">The returned value tells you what CPLEX found out about
+the model: whether it found the optimal solution or only a feasible
+solution, whether it proved the model to be unbounded or infeasible,
+or whether nothing at all has been proved at this point. Even more
+detailed information about the termination of the solve call is available
+through method <a class="xref logicalApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#method_getCplexStatus">IloCplex::getCplexStatus</a>.</p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/appliAnatomy_synopsis.html" title="Concert Technology is a C++ class library, and therefore Concert Technology applications consist of interacting C++ objects. This topic gives a short introduction to the most important classes that are usually found in a complete Concert Technology CPLEX C++ application.">The anatomy of a Concert Technology C++ application</a></div>
+</div>
+</nav></div></body>
+</html>

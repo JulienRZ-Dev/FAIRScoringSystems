@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXrefineconflict and CPXrefineconflict" />
+<meta name="abstract" content="This routine is deprecated. Use CPXXrefineconflictext/CPXrefineconflictext instead." />
+<meta name="Description" content="This routine is deprecated. Use CPXXrefineconflictext/CPXrefineconflictext instead." />
+<meta name="DC.subject" content="CPXrefineconflict, C API Reference Manual, CPXXrefineconflict" />
+<meta name="keywords" content="CPXrefineconflict, C API Reference Manual, CPXXrefineconflict" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<meta name="DC.Relation" scheme="URI" content="refineconflictext.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="refineconflict" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<title>CPXXrefineconflict and CPXrefineconflict</title>
+</head>
+<body id="refineconflict"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXrefineconflict</span> and <span class="keyword apiname">CPXrefineconflict</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> This routine is <strong class="ph b">deprecated</strong>. Use
+<code class="ph codeph"><span class="keyword apiname">CPXXrefineconflictext</span>/<span class="keyword apiname">CPXrefineconflictext</span></code>
+instead. </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXrefineconflict</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">confnumrows_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">confnumcols_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXrefineconflict</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">confnumrows_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">confnumcols_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+    <p class="p"> This routine is <strong class="ph b">deprecated</strong>. Use <a class="xref" href="refineconflictext.html" title="The routine CPXXrefineconflictext/CPXrefineconflictext extends CPXXrefineconflict/CPXrefineconflict to problems with indicator constraints, quadratic constraints (except for explicit second order cone constraints), special ordered sets (SOSs), or piecewise linear constraints and to situations where groups of constraints should be considered as a single constraint.">CPXXrefineconflictext and CPXrefineconflictext</a> instead. </p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by the routine <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">confnumrows_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer where the number of linear constraints in the conflict is returned.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">confnumcols_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer where the number of variable bounds in the conflict is returned.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXrefineconflict (env, lp, NULL, NULL);
+</code></pre>
+
+
+
+
+
+
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetR.html">R</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzesolution.html">Analyzing Solutions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html">Analyzing Infeasibility in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html">Detecting and resolving conflicts with the conflict refiner and feasopt</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="refineconflictext.html" title="The routine CPXXrefineconflictext/CPXrefineconflictext extends CPXXrefineconflict/CPXrefineconflict to problems with indicator constraints, quadratic constraints (except for explicit second order cone constraints), special ordered sets (SOSs), or piecewise linear constraints and to situations where groups of constraints should be considered as a single constraint.">CPXrefineconflictext</a></li></ul></div>
+</nav>
+</div></body>
+</html>

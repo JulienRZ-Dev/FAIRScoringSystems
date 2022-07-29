@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="MIQCP: mixed integer programs with quadratic terms in the constraints" />
+<meta name="abstract" content="Distinguishes types of mixed integer quadratically constrained programs according to quadratic terms in the constraints of the model." />
+<meta name="Description" content="Distinguishes types of mixed integer quadratically constrained programs according to quadratic terms in the constraints of the model." />
+<meta name="DC.subject" content="MIP, problem formulation, Mixed Integer Programming (MIP), definition, Mixed Integer Linear Program (MILP), Mixed Integer Quadratically Constrained Program (MIQCP)" />
+<meta name="keywords" content="MIP, problem formulation, Mixed Integer Programming (MIP), definition, Mixed Integer Linear Program (MILP), Mixed Integer Quadratically Constrained Program (MIQCP)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/mip_quadratic/01_quadratic_mip_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/mip_quadratic/04_featuresMIQCP.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="introNonconvexMIQCPusr" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/mip_quadratic/01_quadratic_mip_title_synopsis.html" />
+<title>MIQCP: mixed integer programs with quadratic terms in the constraints</title>
+</head>
+<body id="introNonconvexMIQCPusr"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">MIQCP: mixed integer programs with quadratic terms in the constraints</h1>
+
+
+<div class="body"><p class="shortdesc">Distinguishes types of mixed integer 
+quadratically constrained programs according to 
+quadratic terms in the constraints of the model.</p>
+
+<p class="p">As introduced in the topic 
+<a class="xref" href="../mip/02_prob_statement.html" title="Defines the kind of problems that the mixed integer optimizer solves.">Stating a MIP problem</a>,
+a mixed integer programming (MIP) problem can contain
+both integer and continuous variables. If the problem contains an
+objective function with no quadratic term, (a <em class="ph i">linear objective)</em>, 
+and all the constraints are linear, then the problem
+is termed a <em class="ph i">Mixed Integer Linear Program</em> (MILP). </p>
+
+<p class="p">If there is a quadratic term in the objective function and
+all the constraints in the model are linear, 
+the problem is termed a <em class="ph i">Mixed Integer Quadratic Program</em> (MIQP). 
+(For more information about solving a MIQP, see the topic 
+<a class="xref" href="02_introMIQP.html" title="Distinguishes types of mixed integer programs according to quadratic terms in the objective function or constraints of the model.">MIQP: mixed integer programs with quadratic terms in the objective function</a>.)
+If the model has any <strong class="ph b">constraints</strong> 
+containing a quadratic term, regardless of the objective function,
+the problem is termed a <em class="ph i">Mixed Integer Quadratically Constrained Program</em> 
+(MIQCP).</p>
+
+<p class="p">
+This topic explores MIQCP further and specifies the features of 
+MIQCP problems that CPLEX solves.
+</p>
+
+
+<p class="p">The topics  
+<a class="xref" href="../../cont_optim/qcp/03_QCP_defn.html" title="Describes the characteristics of a quadratically constrained program.">Characteristics of a quadratically constrained program</a> and 
+<a class="xref" href="../../cont_optim/qcp/04_convexity.html" title="Defines convexity in the context of a quadratically constrained program.">Convexity</a>
+clarify the difference between convex and nonconvex quadratically 
+constrained programs (QCP). 
+That same distinction is relevant to MIQCP problems as well.
+</p>
+
+
+<p class="p">By default, CPLEX can solve a mixed integer quadratically constrained program (MIQCP) 
+satisfying certain conditions on the objective function and on the constraints.
+</p>
+
+<p class="p paragrouptitle">Conditions on the objective function</p>
+
+<ul class="ul">
+<li class="li">The objective function is linear.</li>
+
+<li class="li">Or, the objective function contains quadratic terms and is convex. The observations in 
+<a class="xref" href="../../cont_optim/qp/02_convexity_defn.html" title="Explains how to determine the convexity of a quadratic program.">Distinguishing between convex and nonconvex QPs</a> apply here.
+</li>
+
+<li class="li">Or, the objective function contains only quadratic terms that are the product of binary variables; 
+in this case, the objective function is not necessarily convex.
+</li>
+
+</ul>
+
+<p class="p paragrouptitle">Conditions on the constraints</p>
+
+<p class="p">Each constraint in the MIQCP model must be an <strong class="ph b">inequality</strong>. Furthermore, each of those 
+inequality constraints must satisfy at least one of the following conditions: </p>
+
+<ul class="ul">
+<li class="li">The constraints that contain a quadratic term can be represented as second order 
+cone programs (SOCP). The topics  
+<a class="xref" href="../../cont_optim/qcp/03_QCP_defn.html" title="Describes the characteristics of a quadratically constrained program.">Characteristics of a quadratically constrained program</a> and 
+<a class="xref" href="../../cont_optim/qcp/04_convexity.html" title="Defines convexity in the context of a quadratically constrained program.">Convexity</a> are also relevant here.
+</li>
+
+<li class="li">The quadratic term in a constraint involves only multiplication of binary variables.</li>
+
+</ul>
+
+
+<p class="p">If these assumptions about the objective and about the constraints are not satisfied, 
+CPLEX will return the error 
+<a class="xref" href="../../../../../refcallablelibrary/macros/CPXERR_Q_NOT_POS_DEF.html" title="5002 %s is not convex">CPXERR_Q_NOT_POS_DEF</a>.</p>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/mip_quadratic/04_featuresMIQCP.html">Features of the MIP optimizer for MIQCP</a></strong><br />
+Specifies features of the MIP optimizer that are relevant to  mixed integer quadratically constrained programs (MIQCP).</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/mip_quadratic/01_quadratic_mip_title_synopsis.html" title="Documents the solution of mixed integer programs that include quadratic terms in the objective (MIQP) or among the constraints (MIQCP). That is, CPLEX uses the mixed integer optimizer to solve models in which one or more variables must take integer solution values and in which there can be quadratic terms in the objective function and possibly among the coefficients of the constraints.">Solving mixed integer programming problems with quadratic terms</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXsetusercutcallbackfunc and CPXsetusercutcallbackfunc" />
+<meta name="abstract" content="The routine CPXXsetusercutcallbackfunc/CPXsetusercutcallbackfunc sets and modifies the user-written callback for adding cuts." />
+<meta name="Description" content="The routine CPXXsetusercutcallbackfunc/CPXsetusercutcallbackfunc sets and modifies the user-written callback for adding cuts." />
+<meta name="DC.subject" content="crush, definition, CPXsetusercutcallbackfunc, C API Reference Manual, CPXXsetusercutcallbackfunc" />
+<meta name="keywords" content="crush, definition, CPXsetusercutcallbackfunc, C API Reference Manual, CPXXsetusercutcallbackfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="setusercutcallbackfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXsetusercutcallbackfunc and CPXsetusercutcallbackfunc</title>
+</head>
+<body id="setusercutcallbackfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXsetusercutcallbackfunc</span> and <span class="keyword apiname">CPXsetusercutcallbackfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+ The routine 
+<code class="ph codeph"><span class="keyword apiname">CPXXsetusercutcallbackfunc</span>/<span class="keyword apiname">CPXsetusercutcallbackfunc</span></code> 
+sets and modifies the user-written callback for adding cuts.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXsetusercutcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">cutcallback</span>)(CPXX_CALLBACK_CUT_ARGS)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXsetusercutcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">cutcallback</span>)(CALLBACK_CUT_ARGS)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+     
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetusercutcallbackfunc</span>/<span class="keyword apiname">CPXsetusercutcallbackfunc</span></code> sets and modifies the
+ user-written callback for adding cuts. The user-written callback is called
+ by CPLEX during MIP branch and cut for every node that has an LP
+ optimal solution with objective value below the cutoff and that is
+ also integer infeasible. </p>
+
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+ <p class="p">The callback routine adds globally or locally valid cuts to the LP
+ subproblem. The cut may be for the original problem if the 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>) 
+ is set to <code class="ph codeph">CPX_OFF</code> before the
+ invocation of <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code> 
+ that calls the callback. Otherwise, the cut
+ is for the presolved problem.</p>
+
+
+ <p class="p">Within the user-written cut callback, the routine
+ <code class="ph codeph"><a class="xref" href="getcallbacknodelp.html" title="The routine CPXXgetcallbacknodelp/CPXgetcallbacknodelp returns a pointer to the subproblem at the current node from within a user-written callback."><span class="keyword apiname">CPXXgetcallbacknodelp</span>/<span class="keyword apiname">CPXgetcallbacknodelp</span></a></code> 
+ and other query routines from the
+ Callable Library access information about the subproblem. The routines
+ <code class="ph codeph"><a class="xref" href="getcallbacknodeintfeas.html" title="The routine CPXXgetcallbacknodeintfeas/CPXgetcallbacknodeintfeas retrieves information for each variable about whether or not the variable is integer feasible in the subproblem at the current node."><span class="keyword apiname">CPXXgetcallbacknodeintfeas</span>/<span class="keyword apiname">CPXgetcallbacknodeintfeas</span></a></code> and
+ <code class="ph codeph"><a class="xref" href="getcallbacksosinfo.html" title="The routine CPXXgetcallbacksosinfo/CPXgetcallbacksosinfo accesses information about special ordered sets (SOSs) during MIP optimization from within user-written callbacks."><span class="keyword apiname">CPXXgetcallbacksosinfo</span>/<span class="keyword apiname">CPXgetcallbacksosinfo</span></a></code> examine the status
+ of integer entities.</p>
+
+
+ <p class="p">Within the user-written cut callback, the routine
+ <code class="ph codeph"><a class="xref" href="cutcallbackadd.html" title="The routine CPXXcutcallbackadd/CPXcutcallbackadd adds lazy constraints and globally valid cuts to the current node LP subproblem during MIP branch and cut."><span class="keyword apiname">CPXXcutcallbackadd</span>/<span class="keyword apiname">CPXcutcallbackadd</span></a></code>
+ adds globally valid cuts
+ to the current node LP subproblem during MIP branch and cut.
+ Likewise, the routine
+ <code class="ph codeph"><a class="xref" href="cutcallbackaddlocal.html" title="The routine CPXXcutcallbackaddlocal/CPXcutcallbackaddlocal adds local cuts during MIP branch and cut."><span class="keyword apiname">CPXXcutcallbackaddlocal</span>/<span class="keyword apiname">CPXcutcallbackaddlocal</span></a></code>
+ adds locally valid cuts
+ to the current node LP subproblem during MIP branch and cut.
+ Cuts added to the problem are first put into a cut pool, so
+ they are not present in the subproblem LP until after the user-written cut
+ callback finishes.</p>
+
+
+ <p class="p">Any cuts that are duplicates of cuts already in the subproblem are not
+ added to the subproblem. Otherwise, CPLEX treats the user generated cuts
+ according to the value of the argument <code class="ph codeph"><span class="keyword parmname">purgeable</span></code> in effect
+ when the cuts are added.
+ See the routine <code class="ph codeph"><a class="xref" href="cutcallbackadd.html" title="The routine CPXXcutcallbackadd/CPXcutcallbackadd adds lazy constraints and globally valid cuts to the current node LP subproblem during MIP branch and cut."><span class="keyword apiname">CPXXcutcallbackadd</span>/<span class="keyword apiname">CPXcutcallbackadd</span></a></code>
+ for important details about the argument <code class="ph codeph"><span class="keyword parmname">purgeable</span></code>.</p>
+
+
+ <p class="p">If cuts have been added, the subproblem is re-solved and evaluated, and,
+ if the LP solution is still integer infeasible and not cut off, the cut
+ callback is called again.</p>
+
+
+ <p class="p">If the model has names, user-added cuts have names of the form
+ <code class="ph codeph"><span class="keyword parmname">unumber</span></code> where <code class="ph codeph"><span class="keyword parmname">number</span></code> is a sequence number among
+ all cuts generated.</p>
+
+
+<p class="p"><strong class="ph b">Special considerations</strong></p>
+
+
+<p class="p">When you set the
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a>
+(<code class="ph codeph"><span class="keyword apiname">CPXPARAM_MIP_Strategy_CallbackReducedLP</span></code>)
+ to <code class="ph codeph"><span class="keyword apiname">CPX_OFF</span></code> before you call
+ <a class="xref" href="mipopt.html" title="At any time after a mixed integer program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXmipopt/CPXmipopt may be used to find a solution to that problem.">CPXXmipopt and CPXmipopt</a>
+ (that is, you intend for the user cut callback to apply to the original problem),
+ special considerations arise. In this case, CPLEX has to crush the 
+cuts that you added by means of 
+<a class="xref" href="cutcallbackadd.html" title="The routine CPXXcutcallbackadd/CPXcutcallbackadd adds lazy constraints and globally valid cuts to the current node LP subproblem during MIP branch and cut.">CPXXcutcallbackadd and CPXcutcallbackadd</a>, or  
+<a class="xref" href="cutcallbackaddlocal.html" title="The routine CPXXcutcallbackaddlocal/CPXcutcallbackaddlocal adds local cuts during MIP branch and cut.">CPXXcutcallbackaddlocal and CPXcutcallbackaddlocal</a>. 
+This attempt to crush the cuts can fail due to nonlinear reductions applied 
+in presolve preprocessing. If crushing fails, CPLEX returns the error 
+<a class="xref" href="../macros/CPXERR_PRESLV_CRUSHFORM.html" title="1121 Can't crush solution form">CPXERR_PRESLV_CRUSHFORM</a>
+</p>
+
+<p class="p">To avoid this error condition, and to make sure that CPLEX can crush 
+any cut that you supply, <strong class="ph b">disable nonlinear reductions</strong> by setting the 
+<a class="xref" href="../../CPLEX/Parameters/topics/PreLinear.html" title="Deprecated parameter">linear reduction switch (deprecated)</a> 
+(CPXPARAM_Preprocessing_Linear) to <code class="ph codeph">CPX_OFF</code>. </p>
+ 
+
+<div class="note tip"><span class="tiptitle">Tip:</span> 
+<p class="p"><em class="ph i">Crush</em> means to convert an element of the original problem 
+to an element of the presolved problem.</p>
+
+</div>
+ 
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to the CPLEX environment, as returned by 
+           <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cutcallback</dt>
+
+        <dd class="dd pd">
+          
+            <p class="p">The pointer to the current user-written cut callback.
+            If no callback has been set, the pointer evaluates to 
+            <code class="ph codeph">NULL</code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbhandle</dt>
+
+        <dd class="dd pd">
+          
+            <p class="p">A pointer to user private data.
+            This pointer is passed to the user-written cut callback.</p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXsetusercutcallbackfunc(env, cutcallback, cbhandle);</code></pre>
+
+ <p class="p">See also the example <code class="ph codeph">admipex5.c</code>
+ in the standard distribution of the product.</p>
+
+
+ <p class="p"><strong class="ph b">Callback description</strong></p>
+
+
+ <pre class="pre codeblock"><code>
+ int CPXPUBLIC
+ callback (CPXCENVptr env,
+           void *cbdata,
+           int wherefrom,
+           void *cbhandle,
+           int *useraction_p);
+ </code></pre>
+
+ <p class="p"><strong class="ph b">Callback return value</strong></p>
+
+
+ <p class="p">The callback returns 0 (zero) if successful and nonzero if an error
+ occurs.</p>
+
+
+ <p class="p"><strong class="ph b">Callback arguments</strong></p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">env</span></code></p>
+
+
+ <p class="p">A pointer to the CPLEX environment, as returned by
+ <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">cbdata</span></code></p>
+
+
+ <p class="p">A pointer to pass to functions that obtain 
+callback-specific information, such as 
+the number of integer-infeasible values at 
+the current node, or that take callback-specific 
+action, such as to add a cut in a user cut callback.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">wherefrom</span></code></p>
+
+
+ <p class="p">An integer value reporting where in the optimization this function was
+ called. Its possible values and the corresponding situations are: </p>
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+ <tr class="row"><th class="entry" valign="top" id="d1001458e583">Value</th>
+<th class="entry" valign="top" id="d1001458e585">Symbolic Constant</th>
+
+ <th class="entry" valign="top" id="d1001458e588">Where the callback was called from</th>
+</tr>
+</thead>
+<tbody class="tbody">
+ <tr class="row"><td class="entry" valign="top" headers="d1001458e583 "><code class="ph codeph">106</code></td>
+<td class="entry" valign="top" headers="d1001458e585 "><code class="ph codeph">CPX_CALLBACK_MIP_CUT_LOOP</code></td>
+
+ <td class="entry" valign="top" headers="d1001458e588 ">The callback was called from the cut loop CPLEX executes at each
+ node.</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d1001458e583 "><code class="ph codeph">114</code></td>
+<td class="entry" valign="top" headers="d1001458e585 "><code class="ph codeph">CPX_CALLBACK_MIP_CUT_LAST</code></td>
+
+ <td class="entry" valign="top" headers="d1001458e588 ">cplex gave up generating cuts, but gives one last chance for the
+ user to generate some more. If, as a result, cuts are added to the
+ relaxation CPLEX goes back into the cut loop.</td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">cbhandle</span></code></p>
+
+
+ <p class="p">A pointer to user private data. </p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">useraction_p</span></code></p>
+
+
+ <p class="p">A pointer to an integer specifying the action for CPLEX to take at
+ the completion of the user callback. The table summarizes
+ possible actions. </p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Actions to be taken after a user-written cut callback</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+ <tr class="row"><th class="entry" valign="top" id="d1001458e642">Value</th>
+<th class="entry" valign="top" id="d1001458e644">Symbolic Constant</th>
+<th class="entry" valign="top" id="d1001458e646">Action</th>
+</tr>
+</thead>
+<tbody class="tbody">
+ <tr class="row"><td class="entry" valign="top" headers="d1001458e642 "><code class="ph codeph">0</code></td>
+<td class="entry" valign="top" headers="d1001458e644 "><code class="ph codeph">CPX_CALLBACK_DEFAULT</code></td>
+
+ <td class="entry" valign="top" headers="d1001458e646 ">Use cuts as added</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d1001458e642 "><code class="ph codeph">1</code></td>
+<td class="entry" valign="top" headers="d1001458e644 "><code class="ph codeph">CPX_CALLBACK_FAIL</code></td>
+
+ <td class="entry" valign="top" headers="d1001458e646 ">Exit optimization</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d1001458e642 "><code class="ph codeph">2</code></td>
+<td class="entry" valign="top" headers="d1001458e644 "><code class="ph codeph">CPX_CALLBACK_SET</code></td>
+
+ <td class="entry" valign="top" headers="d1001458e646 ">Use cuts as added</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d1001458e642 "><code class="ph codeph">3</code></td>
+<td class="entry" valign="top" headers="d1001458e644 "><code class="ph codeph">CPX_CALLBACK_ABORT_CUT_LOOP</code></td>
+
+ <td class="entry" valign="top" headers="d1001458e646 ">Exit the cut loop and move on to branching.</td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

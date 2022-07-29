@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Manually setting up linking and running with shared libraries" />
+<meta name="abstract" content="Outlines how to manually set up linking and running with shared libraries on non-Windows platforms." />
+<meta name="Description" content="Outlines how to manually set up linking and running with shared libraries on non-Windows platforms." />
+<meta name="DC.subject" content="shared libraries non-Windows platforms" />
+<meta name="keywords" content="shared libraries non-Windows platforms" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/C/link_non_win_intro.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="linkNonWin_manual" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/C/link_non_win_intro.html" />
+<title>Manually setting up linking and running with shared libraries</title>
+</head>
+<body id="linkNonWin_manual"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Manually setting up linking and running with shared libraries</h1>
+
+
+
+<div class="body"><p class="shortdesc">Outlines how to manually set up linking and running with shared libraries on non-Windows
+platforms.</p>
+
+<section class="section"><h2 class="title sectiontitle">Linking with the shared library</h2>
+
+<p class="p">To statically link a binary with CPLEX, the following command line arguments are used in the link
+step: </p>
+
+<pre class="pre codeblock"><code> -L$COSDIR/cplex/lib/$SYSTEM/$FORMAT -lcplex</code></pre>
+<p class="p">Here we assume that <code class="ph codeph">$COSDIR</code> is the directory into which COS was installed and
+<code class="ph codeph">$SYSTEM/$FORMAT</code> is something such as <code class="ph codeph">x86-64_linux/static_pic</code>,
+which indicates your platform. The <code class="ph codeph">-L</code> option tells the linker where to look for
+CPLEX libraries and the <code class="ph codeph">-l</code> option tells the linker which library to use
+(<code class="ph codeph">libcplex.a</code> in this example).  </p>
+
+<p class="p">For linking with the dynamic library the arguments change to:</p>
+
+<pre class="pre codeblock"><code> -L$COSDIR/cplex/bin/$SYSTEM -lcplex$VERSION</code></pre>
+<p class="p">There are two differences compared to the previous arguments used to link statically:</p>
+
+<ol class="ol">
+<li class="li">The dynamic library is located in the <code class="ph codeph">bin</code> directory instead of the
+<code class="ph codeph">lib</code> directory. The name of the directory does not include the
+<code class="ph codeph">$FORMAT</code> name.</li>
+
+<li class="li">The name of the library contains the current CPLEX version number, such as <code class="ph codeph">1290</code>
+(for CPLEX V.12.9.0).</li>
+
+</ol>
+
+<p class="p">All other options for the linker do not differ between static and dynamic linking.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> Note that the CPLEX shared library has a constructor and a destructor. Executing these during
+load/unload is mandatory or unspecified behavior will result. Usually the dynamic linker will do
+that for you, but be careful not to use any linker options that prevent this.</div>
+
+<p class="p">The name of the dynamic library depends on the operating system. For example, on Linux the
+library is called <code class="ph codeph">libcplex$VERSION.so</code> and on macOS it is called
+<code class="ph codeph">libcplex$VERSION.dylib</code>.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Running a binary that was dynamically linked</h2>
+
+<p class="p">When executing a binary that was dynamically linked against CPLEX, the dynamic linker must load
+the CPLEX dynamic library. To be able to do so, it must be able to find it on disk.</p>
+
+<p class="p">One common way to enable the linker to find the library is to configure the dynamic linker search
+path environment variable. On macOS that variable is called <code class="ph codeph">DYLD_LIBRARY_PATH</code> and
+on most other platforms (including Linux) it is called <code class="ph codeph">LD_LIBRARY_PATH</code>. </p>
+
+<p class="p">The CPLEX dynamic library is located in directory <code class="ph codeph">$COSDIR/cplex/bin/$SYSTEM</code>,
+where <code class="ph codeph">$COSDIR</code> specifies the COS installation directory and <code class="ph codeph">$SYSTEM</code>
+defines your architecture, such as <code class="ph codeph">x86-64_linux</code>. To change the dynamic library
+search path in a bash shell on Linux issue these commands:</p>
+
+<pre class="pre codeblock"><code>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$COSDIR/cplex/bin/$SYSTEM
+export LD_LIBRARY_PTH
+./execute_your_binary</code></pre>
+<div class="note note"><span class="notetitle">Note:</span> Note that many linkers also provide an option to add additional search paths to the binary
+itself. This is useful if you know beforehand where the libraries will be located. These options are
+frequently called <code class="ph codeph">rpath</code> or similar. Check the documentation of your (dynamic)
+linker for further details.</div>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/C/link_non_win_intro.html" title="Outlines how to link with CPLEX shared libraries on non-Windows platforms.">Linking with CPLEX shared libraries on non-Windows platforms</a></div>
+</div>
+</nav></div></body>
+</html>

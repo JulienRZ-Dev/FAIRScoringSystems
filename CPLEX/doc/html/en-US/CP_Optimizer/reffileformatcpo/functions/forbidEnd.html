@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="forbidEnd" />
+<meta name="abstract" content="Forbids an interval variable to end during specified regions." />
+<meta name="Description" content="Forbids an interval variable to end during specified regions." />
+<meta name="DC.subject" content="forbidEnd" />
+<meta name="keywords" content="forbidEnd" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/130_MoreTypes.html#More_types/Type_stepFunction" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="forbidStart.html" />
+<meta name="DC.Relation" scheme="URI" content="forbidExtent.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="forbidEnd" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>forbidEnd</title>
+</head>
+<body id="forbidEnd"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">forbidEnd</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Forbids an interval variable to end during specified regions.
+</p>
+
+
+
+<section class="section" id="forbidEnd__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">forbidEnd</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval, <a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_stepFunction">stepFunction</a> function)
+</code></pre>
+</section>
+
+
+<section class="section" id="forbidEnd__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">interval</code>: interval variable being restricted.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">function</code>: if the <code class="ph codeph">function</code> has value 0 at point <code class="ph codeph">t-1</code> then the interval variable <code class="ph codeph">interval</code> cannot end at <code class="ph codeph">t</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="forbidEnd__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+In the declaration of <a class="xref" href="intervalVar.html" title="Creates a new interval variable."><code class="ph codeph">intervalVar</code></a> it is only possible to specify
+a range of possible end times. This function allows the user to specify more
+precisely when the interval variable can end. In particular, the interval
+variable can end only at point <code class="ph codeph">t</code> such that the function has nonzero value at
+<code class="ph codeph">t-1</code>. When the interval variable is absent then this constraint is
+automatically satisfied (since such interval variable does not't have any start at
+all).
+</p>
+
+
+<p class="p">
+Note the difference between <code class="ph codeph">t</code> (end time of the interval variable) and <code class="ph codeph">t-1</code>
+(the point when the function value is checked). It simplifies the sharing of the
+same function in constraints <code class="ph codeph"><a class="xref" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a></code> and <code class="ph codeph"><a class="xref" href="forbidEnd.html" title="Forbids an interval variable to end during specified regions.">forbidEnd</a></code>. It also allows one to
+use the same function as <code class="ph codeph">intensity</code> parameter of
+<a class="xref" href="intervalVar.html" title="Creates a new interval variable."><code class="ph codeph">intervalVar</code></a>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="forbidEnd__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+Forbid task <code class="ph codeph">interval</code> to end during weekends.
+</p>
+
+
+<pre class="pre codeblock"><code>
+workingDays = <a class="xref" href="stepFunction.html" title="Creates a new step function (a function that remains constant within each of a series of adjacent intervals but changes in value from one interval to the next).">stepFunction</a>((0, 100), (5, 0), (7, 100), (12, 0), (14, 100), (19, 0));
+interval = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(length=4, end=0..21);
+<strong class="ph b">forbidEnd</strong>(interval, workingDays);
+</code></pre>
+<p class="p">
+A possible solution is:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram20.png" /></div>
+
+<p class="p">
+Note that <code class="ph codeph">interval</code> can end at time 12 although the function value at 12 is 0. This
+is because the decisive point is 11 and the function value is 100 there. As the
+result the interval cannot end at times 13 and 14 what indeed corresponds with
+ending during a weekend.
+</p>
+
+
+<p class="p">
+Another similar example when a task is also suspended during weekends can be
+found in <a class="xref" href="stepFunction.html" title="Creates a new step function (a function that remains constant within each of a series of adjacent intervals but changes in value from one interval to the next).">description of <code class="ph codeph">stepFunction</code></a>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="forbidEnd__Notes"><h2 class="title sectiontitle">Notes</h2>
+<ul class="ul">
+  <li class="li">
+    When the interval variable is optional and this constraints eliminates all
+    the remaining possible end times, then then interval variable is set to
+    absent.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">function <code class="ph codeph">intervalVar</code></a></li>
+<li class="linklist"><a class="link" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a></li>
+<li class="linklist"><a class="link" href="forbidExtent.html" title="Forbids an interval variable to overlap with specified regions.">forbidExtent</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/130_MoreTypes.html#More_types__Type_stepFunction">stepFunction</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

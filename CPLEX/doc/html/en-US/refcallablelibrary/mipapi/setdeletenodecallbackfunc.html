@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXsetdeletenodecallbackfunc and CPXsetdeletenodecallbackfunc" />
+<meta name="abstract" content="The routine CPXXsetdeletenodecallbackfunc/CPXsetdeletenodecallbackfunc sets and modifies the user-written callback to be called during MIP optimization when a node is to be deleted." />
+<meta name="Description" content="The routine CPXXsetdeletenodecallbackfunc/CPXsetdeletenodecallbackfunc sets and modifies the user-written callback to be called during MIP optimization when a node is to be deleted." />
+<meta name="DC.subject" content="CPXsetdeletenodecallbackfunc, C API Reference Manual, CPXXsetdeletenodecallbackfunc" />
+<meta name="keywords" content="CPXsetdeletenodecallbackfunc, C API Reference Manual, CPXXsetdeletenodecallbackfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="setdeletenodecallbackfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXsetdeletenodecallbackfunc and CPXsetdeletenodecallbackfunc</title>
+</head>
+<body id="setdeletenodecallbackfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXsetdeletenodecallbackfunc</span> and <span class="keyword apiname">CPXsetdeletenodecallbackfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ 
+
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetdeletenodecallbackfunc</span>/<span class="keyword apiname">CPXsetdeletenodecallbackfunc</span></code> sets and modifies
+ the user-written callback to be called during MIP optimization when a node
+ is to be deleted.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXsetdeletenodecallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">deletecallback</span>)(CPXX_CALLBACK_DELETENODE_ARGS)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXsetdeletenodecallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">deletecallback</span>)(CALLBACK_DELETENODE_ARGS)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetdeletenodecallbackfunc</span>/<span class="keyword apiname">CPXsetdeletenodecallbackfunc</span></code> sets and modifies
+ the user-written callback to be called during MIP optimization when a node
+ is to be deleted. Nodes are deleted in these circumstances: </p>
+
+ <ul class="ul">
+ <li class="li"> when a branch is carried out from that node, or </li>
+
+ <li class="li"> when the node relaxation is infeasible, or </li>
+
+ <li class="li"> when the node relaxation objective value is worse
+ than the cutoff, or</li>
+
+ <li class="li"> <p class="p">when the tree becomes invalid outside of <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code>.
+ This condition can occur if <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code> stops with
+ nodes remaining in the tree; for example, after reaching a
+ limit, such as a time limit or similar limit.
+ If a subsequent operation invalidates the tree, all remaining
+ nodes are discarded, and the callback is called for them. </p>
+</li>
+
+ </ul>
+
+
+ <p class="p">When <code class="ph codeph"><span class="keyword apiname">CPXXsetdeletenodecallbackfunc</span>/<span class="keyword apiname">CPXsetdeletenodecallbackfunc</span></code> is called and
+ changes the callback function or user data, the tree and MIP solution
+ of all LP objects belonging to this
+ environment are discarded to avoid erroneous behavior based on any
+ nodes that potentially continue to exist in such problems and to avoid
+ erroneous behavior based on the previous callback function.
+ </p>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to the CPLEX environment, as returned by 
+           <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">deletecallback</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to a user-written callback to
+           delete user-data when a node is deleted.
+           If the callback is set to <code class="ph codeph">NULL</code>,
+           no callback is called during optimization.</p>
+ 
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbhandle</dt>
+
+        <dd class="dd pd">
+          
+            <p class="p">A pointer to user private data.
+            This pointer is passed to the callback. </p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXsetdeletenodecallbackfunc (env,
+                                        deletenode,
+                                        &amp;nodes);
+ </code></pre>
+
+ <p class="p"><strong class="ph b">Callback description</strong></p>
+
+
+ <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable presentation NoBorder" role="presentation"><col style="width:50%" /><col style="width:50%" /><thead><tr class="sthead"><th style="vertical-align:bottom;text-align:left;" id="d994399e288" class="stentry">CPXX API</th>
+<th style="vertical-align:bottom;text-align:left;" id="d994399e290" class="stentry">CPX API</th>
+</tr>
+</thead><tbody><tr class="strow">
+     <td style="vertical-align:top;" headers="d994399e288" class="stentry"> 
+     <pre class="pre codeblock"><code>
+ int CPXPUBLIC
+ callback (CPXCENVptr env,
+           int wherefrom,
+           void *cbhandle,
+           CPXCNT seqnum,
+           void *handle);
+     </code></pre>
+     </td>
+
+     <td style="vertical-align:top;" headers="d994399e290" class="stentry">
+ <pre class="pre codeblock"><code>
+ int CPXPUBLIC
+ callback (CPXCENVptr env,
+           int wherefrom,
+           void *cbhandle,
+           int seqnum,
+           void *handle);
+ </code></pre>
+     </td>
+
+   </tr>
+</tbody></table>
+
+
+ <p class="p">The call to the delete node callback routine occurs during MIP
+ optimization when a node is to be deleted. </p>
+
+
+ <p class="p">The main purpose of the callback is to provide an opportunity to free any
+ user data associated with the node, thus preventing memory leaks.</p>
+
+
+ <p class="p"><strong class="ph b">Callback return value</strong></p>
+
+
+ <p class="p">The callback returns 0 (zero) if successful and nonzero if an error
+ occurs.</p>
+
+
+ <p class="p"><strong class="ph b">Callback arguments</strong></p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">env</span></code></p>
+
+
+ <p class="p">A pointer to the CPLEX environment, as returned by one of the
+ <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code> routines.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">wherefrom</span></code></p>
+
+
+ <p class="p">An integer value reporting where in the optimization this function was
+ called. It will have the value <code class="ph codeph">CPX_CALLBACK_MIP_DELETENODE</code>.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">cbhandle</span></code></p>
+
+
+ <p class="p">A pointer to user private data.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">seqnum</span></code></p>
+
+
+ <p class="p">The sequence number of the node that is being deleted.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">handle</span></code></p>
+
+
+ <p class="p">A pointer to the user private data that was assigned to the node when it
+ was created with one of the callback branching routines: </p>
+
+ <ul class="ul">
+ <li class="li"><p class="p"><code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchbds</span>/<span class="keyword apiname">CPXbranchcallbackbranchbds</span></code>, or </p>
+</li>
+
+ <li class="li"><p class="p"><code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchconstraints</span>/<span class="keyword apiname">CPXbranchcallbackbranchconstraints</span></code>, or </p>
+</li>
+
+ <li class="li"><p class="p"><code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchgeneral</span>/<span class="keyword apiname">CPXbranchcallbackbranchgeneral</span></code>. </p>
+</li>
+
+ </ul>
+
+
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

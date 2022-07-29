@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Expressions" />
+<meta name="abstract" content="Expressions are constructed from decision variables and expressions." />
+<meta name="Description" content="Expressions are constructed from decision variables and expressions." />
+<meta name="DC.subject" content="expression, IIntExpr interface, IloExpr class, IloExpr class, end method, IloIntExpr class, IloIntExpr interface, IloIntExprArg class, IloNumExpr class, IloNumExpr interface, IloNumExprArg class, INumExpr interface, memory management" />
+<meta name="keywords" content="expression, IIntExpr interface, IloExpr class, IloExpr class, end method, IloIntExpr class, IloIntExpr interface, IloIntExprArg class, IloNumExpr class, IloNumExpr interface, IloNumExprArg class, INumExpr interface, memory management" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/model_vars.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizermodel.1017570" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/model_vars.html" />
+<title>Expressions</title>
+</head>
+<body id="migration.uss_usrcpoptimizermodel.1017570"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Expressions</h1>
+
+
+
+<div class="body"><p class="shortdesc">Expressions are constructed from decision variables
+and expressions.</p>
+
+<p class="p">Decision variables are most often used to build expressions,
+which in turn are used to create the objective and constraints of
+the model. </p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of IBM® ILOG® Concert Technology, expressions are generally represented
+by the class <code class="ph codeph">IloExpr</code> and its subclasses <code class="ph codeph">IloIntExpr</code>, representing integer expressions, and <code class="ph codeph">IloNumExpr</code>, representing numeric (floating-point)
+expressions. Note that the parent classes <code class="ph codeph">IloIntExprArg</code> and <code class="ph codeph">IloNumExprArg</code> are used internally by Concert Technology
+to build expressions. You should not use <code class="ph codeph">IloIntExprArg</code> or <code class="ph codeph">IloNumExprArg</code> directly.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+Concert Technology, expressions are generally represented by the interfaces <code class="ph codeph">IloIntExpr</code>, representing integer expressions, and <code class="ph codeph">IloNumExpr</code>, representing numeric expressions. </p>
+
+<p class="p">In the <strong class="ph b">C# API</strong> of Concert Technology, expressions
+are generally represented by the interfaces  <code class="ph codeph">IIntExpr</code>,
+representing integer expressions, and <code class="ph codeph">INumExpr</code>,
+representing numeric expressions. </p>
+
+<p class="p">An integer expression can be written explicitly; for example,
+using the <strong class="ph b">C++ API</strong>:  </p>
+
+<pre class="pre codeblock"><code>
+      1*x[1] + 2*x[2] + 3*x[3]
+
+</code></pre>
+<p class="p">where <code class="ph codeph">x</code> is assumed to be an
+array of decision variables. Using the <strong class="ph b">Java API</strong>, the same expression could
+be written as:  </p>
+
+<pre class="pre codeblock"><code>
+      cp.sum(cp.sum(cp.prod(1,x[1]),cp.prod(2,x[2])), cp.prod(3,x[3]))
+
+</code></pre>
+<p class="p">Using the <strong class="ph b">C# API</strong>, the same expression
+could be written as:  </p>
+
+<pre class="pre codeblock"><code>
+      cp.Sum(cp.Sum(cp.Prod(1,x[1]),cp.Prod(2,x[2])), cp.Prod(3,x[3]))
+
+</code></pre>
+<p class="p">Expressions can also be created incrementally, with a
+loop; for example using the <strong class="ph b">C++ API</strong>:  </p>
+
+<pre class="pre codeblock"><code>
+  IloIntExpr expr(env);
+  for (int i = 0; i &lt; x.getSize(); ++i)
+    expr += data[i] * x[i];
+
+</code></pre>
+<p class="p">Using the <strong class="ph b">Java API</strong>, the same expression could be written as:
+   </p>
+
+<pre class="pre codeblock"><code>
+      IloIntExpr expr =  cp.constant(0);
+      for (int i = 0; i &lt; x.length; ++i)
+        expr = cp.sum(expr, cp.prod(data[i], x[i]));
+
+</code></pre>
+<p class="p">Using the <strong class="ph b">C# API</strong>, the same expression
+could be written as:    </p>
+
+<pre class="pre codeblock"><code>
+      IIntExpr expr =  cp.Constant(0);
+      for (int i = 0; i &lt; x.Length; ++i)
+        expr = cp.Sum(expr, cp.Prod(data[i], x[i]));
+
+</code></pre>
+<p class="p">In the <strong class="ph b">C++ API</strong>, when you have finished
+using an expression (that is, you created a constraint or objective
+with it) you can delete it by calling its method <code class="ph codeph">end</code>,
+for example:  </p>
+
+<pre class="pre codeblock"><code>
+  expr.end();
+
+</code></pre>
+<p class="p">Many Concert Technology functions return expressions.
+You can build even more complicated expressions by using the Concert
+Technology functions representing absolute value, integer division,
+maximum, minimum and others. For example, <code class="ph codeph">IloAbs(x)
+- IloMax(y,z)</code> is a valid expression representing the difference
+between the absolute value of <code class="ph codeph">x</code> and the
+maximum of <code class="ph codeph">y</code> and <code class="ph codeph">z</code>.
+ </p>
+
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Expression  </p>
+ <p class="p">Values
+may be combined with decision variables and other expressions to form
+expressions. </p>
+ <p class="p">To combine values, variables and other expressions to form
+an expression, you can use, among other functions, the operators: </p>
+<ul class="ul">
+<li class="li"><p class="p">addition (<code class="ph codeph">+</code>), </p>
+ </li>
+
+<li class="li"><p class="p">subtraction (<code class="ph codeph">-</code>),</p>
+ </li>
+
+<li class="li"><p class="p">multiplication (<code class="ph codeph">*</code>),</p>
+ </li>
+
+<li class="li"><p class="p">division (<code class="ph codeph">/</code>), </p>
+ </li>
+
+<li class="li"><p class="p">self-assigned addition (<code class="ph codeph">+=</code>)
+and</p>
+</li>
+
+<li class="li"><p class="p">self-assigned subtraction (<code class="ph codeph">-=</code>).</p>
+ </li>
+
+</ul>
+ </div>
+
+<p class="p">Expressions are discussed in more detail in <a class="xref" href="constraints.html" title="Constraints and expressions are building blocks that can be used to create models in CP Optimizer applications.">Constraints and expressions in CP Optimizer</a>.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/model_vars.html" title="Decision variables represent the unknown information in a problem. Expressions are built using decision variables, constants and other expressions.">Defining decision variables and expressions</a></div>
+</div>
+</nav></div></body>
+</html>

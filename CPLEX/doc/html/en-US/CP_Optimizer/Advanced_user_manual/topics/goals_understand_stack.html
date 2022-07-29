@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Goal stack" />
+<meta name="abstract" content="The goal stack determines the order of execution of the goals." />
+<meta name="Description" content="The goal stack determines the order of execution of the goals." />
+<meta name="DC.subject" content="goal stack" />
+<meta name="keywords" content="goal stack" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/goals_understand.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizergoals.1015084" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/goals_understand.html" />
+<title>Goal stack</title>
+</head>
+<body id="migration.uss_usradvcpoptimizergoals.1015084"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Goal stack</h1>
+<div class="body"><p class="shortdesc">The goal stack determines the order of execution of the
+goals.</p>
+
+<p class="p">The member functions <code class="ph codeph">IloCP::solve</code> and <code class="ph codeph">IloCP::next</code> control
+the execution of goals. The first time one of these member functions
+is called, it creates a stack of goals, called the <em class="ph i">goal stack</em>.    </p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">Goals must be called by <code class="ph codeph">IloCP::solve</code>,
+a <code class="ph codeph">IloCP::startNewSearch</code>/<code class="ph codeph">IloCP::next</code> pair,
+or by other goals. Otherwise, they are not executed.  </p>
+
+</div>
+
+<p class="p">At the Concert Technology level, an instance of an <code class="ph codeph">IloGoal</code> is
+passed as an argument to the member functions <code class="ph codeph">IloCP::solve</code> or <code class="ph codeph">IloCP::startNewSearch</code>.
+The function <code class="ph codeph">IloCP::solve</code> pushes the corresponding
+search layer goal onto the goal stack of the invoking <code class="ph codeph">IloCP</code> optimizer
+object and then executes the subgoal at the top of the stack. The
+function <code class="ph codeph">IloCP::startNewSearch</code> pushes the
+corresponding search layer goal onto the goal stack of the invoking <code class="ph codeph">IloCP</code> optimizer
+object, but does not execute it immediately. The member function <code class="ph codeph">IloCP::next</code> pops
+the goal which is on top of the goal stack, if any, and executes it.
+In both cases, when the current goal execution is finished, the goal
+at the top of the stack is popped and executed. Thus goals are executed
+in the order first in, last out. If the goal stack is empty, the call
+to <code class="ph codeph">solve</code> or <code class="ph codeph">next</code> terminates
+and returns <code class="ph codeph">IloTrue</code>. </p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">For goals composed of conjunctions (subgoals joined with <code class="ph codeph">IlcAnd</code> or <code class="ph codeph">operator&amp;&amp;</code>),
+they subgoals are pushed onto the goal stack starting with the rightmost
+goal in the sequence. </p>
+
+</div>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/goals_understand.html" title="Customizable search goals enable you to write your own search strategy.">Understanding goals</a></div>
+</div>
+</nav></div></body>
+</html>

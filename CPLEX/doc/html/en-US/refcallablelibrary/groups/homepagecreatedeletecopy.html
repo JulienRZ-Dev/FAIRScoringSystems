@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETaddarcs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETaddnodes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETcopybase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETcopynet.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETcreateprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/NETextract.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETfreeprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/cloneprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/completelp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copybase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/copyctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copylp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copylpwnames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copynettolp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copyobjname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/copyorder.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/qpapi/copyqpsep.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/qpapi/copyquad.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/copysos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copystart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/createprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/delmipstarts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/delsetmipstarts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/freeprob.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagecreatedeletecopy" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepagecreatedeletecopy"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines create problems, delete problems, and copy data for CPLEX.
+</p>
+
+<p class="p">
+For routines to modify a problem that your application has already created, 
+see <a class="xref" href="homepagemodifyproblem.html">Modifying Models in the CPLEX Callable Library (C API)</a>
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETaddarcs.html">CPXXNETaddarcs and CPXNETaddarcs</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETaddarcs</span>/<span class="keyword apiname">CPXNETaddarcs</span></code> adds new arcs to the network  stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETaddnodes.html">CPXXNETaddnodes and CPXNETaddnodes</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETaddnodes</span>/<span class="keyword apiname">CPXNETaddnodes</span></code> adds new nodes to the network  stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETcopybase.html">CPXXNETcopybase and CPXNETcopybase</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETcopybase</span>/<span class="keyword apiname">CPXNETcopybase</span></code> can be used to set the network  basis for a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETcopynet.html">CPXXNETcopynet and CPXNETcopynet</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETcopynet</span>/<span class="keyword apiname">CPXNETcopynet</span></code> copies a network to a network  object, overriding any other network saved in the object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETcreateprob.html">CPXXNETcreateprob and CPXNETcreateprob</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETcreateprob</span>/<span class="keyword apiname">CPXNETcreateprob</span></code> constructs a new network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/NETextract.html">CPXXNETextract and CPXNETextract</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXNETextract</span>/<span class="keyword apiname">CPXNETextract</span></code>  finds an embedded network in the LP stored in a CPLEX problem object and copies it as a network to the network problem object, <code class="ph codeph"><span class="keyword parmname">net</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETfreeprob.html">CPXXNETfreeprob and CPXNETfreeprob</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETfreeprob</span>/<span class="keyword apiname">CPXNETfreeprob</span></code> deletes the network problem  object pointed to by <code class="ph codeph"><span class="keyword parmname">net_p</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/cloneprob.html">CPXXcloneprob and CPXcloneprob</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcloneprob</span>/<span class="keyword apiname">CPXcloneprob</span></code> can be used to create a new CPLEX problem object and copy all the problem data from an existing problem object to it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/completelp.html">CPXXcompletelp and CPXcompletelp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcompletelp</span>/<span class="keyword apiname">CPXcompletelp</span></code> instructs CPLEX to flush its modification cache.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copybase.html">CPXXcopybase and CPXcopybase</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybase</span>/<span class="keyword apiname">CPXcopybase</span></code> copies a basis into a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/copyctype.html">CPXXcopyctype and CPXcopyctype</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyctype</span>/<span class="keyword apiname">CPXcopyctype</span></code> can be used to copy variable type  information into a given problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copylp.html">CPXXcopylp and CPXcopylp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code> copies data that define an LP problem to a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copylpwnames.html">CPXXcopylpwnames and CPXcopylpwnames</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> copies LP data into a CPLEX problem object in the same way as the routine  <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code>,  but <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> accepts   additional arguments to specify the names of constraints and variables in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copynettolp.html">CPXXcopynettolp and CPXcopynettolp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopynettolp</span>/<span class="keyword apiname">CPXcopynettolp</span></code> copies a network problem stored in a network problem object to a CPLEX problem object (as an LP).   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copyobjname.html">CPXXcopyobjname and CPXcopyobjname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyobjname</span>/<span class="keyword apiname">CPXcopyobjname</span></code> copies a name for the objective function into a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/copyorder.html">CPXXcopyorder and CPXcopyorder</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyorder</span>/<span class="keyword apiname">CPXcopyorder</span></code> copies a priority order  to a CPLEX problem object of type  <code class="ph codeph">CPXPROB_MILP</code>,  <code class="ph codeph">CPXPROB_MIQP</code>, or  <code class="ph codeph">CPXPROB_MIQCP</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/qpapi/copyqpsep.html">CPXXcopyqpsep and CPXcopyqpsep</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyqpsep</span>/<span class="keyword apiname">CPXcopyqpsep</span></code> is used to copy the  quadratic objective matrix Q for a  separable QP problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/qpapi/copyquad.html">CPXXcopyquad and CPXcopyquad</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyquad</span>/<span class="keyword apiname">CPXcopyquad</span></code> is used to copy a  quadratic objective matrix Q when Q  is not diagonal.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/copysos.html">CPXXcopysos and CPXcopysos</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopysos</span>/<span class="keyword apiname">CPXcopysos</span></code> copies special ordered set  (SOS) information to a problem object of type <code class="ph codeph">CPXPROB_MILP</code>,  <code class="ph codeph">CPXPROB_MIQP</code>, or  <code class="ph codeph">CPXPROB_MIQCP</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copystart.html">CPXXcopystart and CPXcopystart</a></strong><br />
+   This routine provides starting information for use in a subsequent  call to a simplex optimization routine.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/createprob.html">CPXXcreateprob and CPXcreateprob</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code> creates a CPLEX problem object  in the CPLEX environment.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/delmipstarts.html">CPXXdelmipstarts and CPXdelmipstarts</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelmipstarts</span>/<span class="keyword apiname">CPXdelmipstarts</span></code> deletes a range  MIP starts.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/delsetmipstarts.html">CPXXdelsetmipstarts and CPXdelsetmipstarts</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelsetmipstarts</span>/<span class="keyword apiname">CPXdelsetmipstarts</span></code> deletes a set of  MIP starts.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/freeprob.html">CPXXfreeprob and CPXfreeprob</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXfreeprob</span>/<span class="keyword apiname">CPXfreeprob</span></code> removes the specified CPLEX problem object from the CPLEX environment and frees the associated memory used internally by CPLEX.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

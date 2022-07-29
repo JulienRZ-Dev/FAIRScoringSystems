@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="advanced start switch" />
+<meta name="abstract" content="If set to 1 or 2, this parameter specifies that CPLEX should use advanced starting information when it initiates optimization." />
+<meta name="Description" content="If set to 1 or 2, this parameter specifies that CPLEX should use advanced starting information when it initiates optimization." />
+<meta name="DC.subject" content="Advance, CPX_PARAM_ADVIND, AdvInd, start, advanced, advanced start, tree, MIP advanced start, MIP tree, advanced start and, basis and, basis, advanced start and, presolve and, presolve, barrier and, barrier" />
+<meta name="keywords" content="Advance, CPX_PARAM_ADVIND, AdvInd, start, advanced, advanced start, tree, MIP advanced start, MIP tree, advanced start and, basis and, basis, advanced start and, presolve and, presolve, barrier and, barrier" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="upperAdvInd" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>advanced start switch</title>
+</head>
+<body id="upperAdvInd"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">advanced start switch</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">If set to 1 or 2, this parameter specifies that CPLEX should
+use advanced starting information when it initiates optimization. </p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>  <p class="p">Advanced start switch</p>
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d80392e92">API</th>
+
+<th class="entry nrule" valign="top" id="d80392e95">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d80392e98">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">CPXPARAM_Advance </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">CPX_PARAM_ADVIND (int) </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">IloCplex::Param::Advance </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">AdvInd (int) </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">IloCplex.Param.Advance </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">AdvInd (int) </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">Cplex.Param.Advance </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">AdvInd (int) </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">advind</td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">advind</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">parameters.advance </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">advance </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">advance </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">advance </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d80392e92 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d80392e95 ">1001 </td>
+
+<td class="entry nrule" valign="top" headers="d80392e98 ">1001</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>  <p class="p"> If set to 1 or 2, this parameter
+specifies that CPLEX should use advanced starting information when
+optimization is initiated. </p>
+<p class="p">For MIP models, setting 1 (one)
+will cause CPLEX to continue with a partially explored MIP tree if
+one is available. If tree exploration has not yet begun, setting 1
+(one) specifies that CPLEX should use a loaded MIP start, if available.
+Setting 2 retains the current incumbent (if there is one), re-applies
+presolve, and starts a new search from a new root. </p>
+ <p class="p">Setting 2 is useful for continuous linear programs. Consequently, it can be particularly useful
+for solving fixed MILP models, where a start vector but no corresponding basis is available.</p>
+ <p class="p">For continuous models solved with simplex, setting 1 (one) will use the currently loaded basis.
+If a basis is available only for the original, unpresolved model, or if CPLEX has a start vector
+rather than a simplex basis, then the simplex algorithm will proceed on the unpresolved model. With
+setting 2 and a linear program, CPLEX will first perform presolve on the model and on the basic
+solution or start vector, and then proceed with optimization on the presolved problem using the
+primal and dual solutions derived for the presolve problem to construct a corresponding advanced
+basis. For a convex quadratic program, setting 2 is the same as setting 1. </p>
+ <p class="p">For
+continuous models solved with the barrier algorithm, settings 1 or
+2 will continue simplex optimization from the last available barrier
+iterate. </p>
+ <div class="note tip"><span class="tiptitle">Tip:</span>  <p class="p">If you optimize your MIP model,
+then change a tolerance (such as  <a class="xref" href="CutUp.html" title="Sets the upper cutoff tolerance.">upper cutoff</a>,
+ <a class="xref" href="CutLo.html" title="Sets lower cutoff tolerance.">lower cutoff</a>,  <a class="xref" href="EpInt.html" title="Specifies the amount by which an integer variable can be different from an integer and still be considered feasible.">integrality tolerance</a>),
+  and then re-optimize,  the change in tolerance may not be taken
+into account in certain circumstances, depending on characteristics
+of your model and parameter settings.  In order for CPLEX to take
+into  account your change in tolerance, you must restart the second
+optimization from the  beginning. That is, you must set <span class="keyword apiname">CPX_PARAM_ADVIND,
+AdvInd</span> to 0 (zero). </p>
+ </div>
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d80392e272">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d80392e275">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d80392e272 ">0</td>
+
+<td class="entry" valign="top" headers="d80392e275 ">Do not use advanced start information </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d80392e272 ">1</td>
+
+<td class="entry" valign="top" headers="d80392e275 ">Use an advanced basis supplied by the user; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d80392e272 ">2</td>
+
+<td class="entry" valign="top" headers="d80392e275 ">Crush an advanced basis or starting vector supplied by the
+user </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

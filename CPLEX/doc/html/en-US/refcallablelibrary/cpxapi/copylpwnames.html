@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcopylpwnames and CPXcopylpwnames" />
+<meta name="abstract" content="The routine CPXXcopylpwnames/CPXcopylpwnames copies LP data into a CPLEX problem object in the same way as the routine CPXXcopylp/CPXcopylp, but CPXXcopylpwnames/CPXcopylpwnames accepts additional arguments to specify the names of constraints and variables in the CPLEX problem object." />
+<meta name="Description" content="The routine CPXXcopylpwnames/CPXcopylpwnames copies LP data into a CPLEX problem object in the same way as the routine CPXXcopylp/CPXcopylp, but CPXXcopylpwnames/CPXcopylpwnames accepts additional arguments to specify the names of constraints and variables in the CPLEX problem object." />
+<meta name="DC.subject" content="CPXcopylpwnames, C API Reference Manual, CPXXcopylpwnames" />
+<meta name="keywords" content="CPXcopylpwnames, C API Reference Manual, CPXXcopylpwnames" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="copylpwnames" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<title>CPXXcopylpwnames and CPXcopylpwnames</title>
+</head>
+<body id="copylpwnames"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcopylpwnames</span> and <span class="keyword apiname">CPXcopylpwnames</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> copies LP data into a CPLEX
+problem object in the same way as the routine 
+<code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code>, 
+but <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> accepts  
+additional arguments to specify the names of constraints and
+variables in the CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcopylpwnames</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">numcols</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">numrows</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">objsense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">objective</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">matbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">matcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">matind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">matval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">lb</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">ub</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rngval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">colname</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">rowname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcopylpwnames</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">numcols</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">numrows</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">objsense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">objective</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">matbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">matcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">matind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">matval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">lb</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">ub</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rngval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">colname</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">rowname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> copies LP data into a CPLEX
+problem object in the same way as the routine 
+<code class="ph codeph"><a class="xref" href="copylp.html" title="The routine CPXXcopylp/CPXcopylp copies data that define an LP problem to a CPLEX problem object."><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></a></code>, 
+but <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> accepts  
+additional arguments to specify the names of constraints and
+variables in the CPLEX problem object. That is, 
+unlike the routine <code class="ph codeph"><a class="xref" href="copylp.html" title="The routine CPXXcopylp/CPXcopylp copies data that define an LP problem to a CPLEX problem object."><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></a></code>,
+<code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> also copies names.  The arguments to
+<code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> define an objective function, constraint
+matrix, variable bounds, righthand side constraint senses, range
+values, names of constraints, and names of variables. </p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Settings for objsense</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">objsense</span></code></td>
+<td class="entry" valign="top">= <code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">(<code class="ph codeph">CPX_MIN</code>) minimize</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">objsense</span></code></td>
+<td class="entry" valign="top">= <code class="ph codeph">-1</code></td>
+
+<td class="entry" valign="top">(<code class="ph codeph">CPX_MAX</code>) maximize</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Settings for sense</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'L'</code></td>
+
+<td class="entry" valign="top">&lt;= constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'E'</code></td>
+
+<td class="entry" valign="top">= constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'G'</code></td>
+
+<td class="entry" valign="top">&gt;= constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'R'</code></td>
+
+<td class="entry" valign="top">ranged constraint</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+<p class="p">With respect to the arguments
+<code class="ph codeph"><span class="keyword parmname">matbeg</span></code> (beginning of the matrix),
+<code class="ph codeph"><span class="keyword parmname">matcnt</span></code> (count of the matrix),
+<code class="ph codeph"><span class="keyword parmname">matind</span></code> (indices of the matrix), and
+<code class="ph codeph"><span class="keyword parmname">matval</span></code> (values of the matrix),
+CPLEX needs to know only the nonzero coefficients.
+These are grouped by column in the array <code class="ph codeph"><span class="keyword parmname">matval</span></code>.
+The nonzero elements of every column must be stored in sequential
+locations in this array with <code class="ph codeph"><span class="keyword parmname">matbeg</span>[j]</code> containing
+the index of the beginning of column <code class="ph codeph">j</code> and
+<code class="ph codeph"><span class="keyword parmname">matcnt</span>[j]</code> containing the number of entries
+in column <code class="ph codeph">j</code>. The components of <code class="ph codeph"><span class="keyword parmname">matbeg</span></code>
+must be in ascending order. For each k, <code class="ph codeph"><span class="keyword parmname">matind</span>[k]</code>
+specifies the row number of the corresponding coefficient,
+<code class="ph codeph"><span class="keyword parmname">matval</span>[k]</code>.</p>
+
+
+<p class="p">These arrays are accessed as follows. Suppose that CPLEX wants to access
+the entries in some column <code class="ph codeph">j</code>. These are assumed to be given by
+the array entries:</p>
+
+
+<pre class="pre codeblock"><code>
+matval[matbeg[j]],.., matval[matbeg[j]+matcnt[j]-1]
+</code></pre>
+
+<p class="p">The corresponding row indices are:</p>
+
+
+<pre class="pre codeblock"><code>
+matind[matbeg[j]],.., matind[matbeg[j]+matcnt[j]-1]
+</code></pre>
+
+<p class="p">Entries in <code class="ph codeph"><span class="keyword parmname">matind</span></code> are not required to be in row order.
+Duplicate entries in <code class="ph codeph"><span class="keyword parmname">matind</span></code> and <code class="ph codeph"><span class="keyword parmname">matval</span></code> within a
+single column are not allowed. The length of the arrays <code class="ph codeph"><span class="keyword parmname">matbeg</span></code>
+and <code class="ph codeph"><span class="keyword parmname">matind</span></code> should be at least <code class="ph codeph"><span class="keyword parmname">numcols</span></code>. The
+length of arrays <code class="ph codeph"><span class="keyword parmname">matind</span></code> and <code class="ph codeph"><span class="keyword parmname">matval</span></code> should be at
+least <code class="ph codeph"><span class="keyword parmname">matbeg</span>[<span class="keyword parmname">numcols</span>-1]+<span class="keyword parmname">matcnt</span>[<span class="keyword parmname">numcols</span>-1]</code>. </p>
+
+
+<p class="p">The arrays <code class="ph codeph"><span class="keyword parmname">matbeg</span></code> and
+<code class="ph codeph"><span class="keyword parmname">matcnt</span></code> may be NULL if one of
+<code class="ph codeph"><span class="keyword parmname">numcols</span></code> or
+<code class="ph codeph"><span class="keyword parmname">numrows</span></code> is 0 (zero); 
+that is, if one dimension the matrix is 0 (zero) 
+and can not contain any coefficients.
+</p>
+
+
+<p class="p">When you build or modify your problem with this routine,
+you can verify that the results are as you intended
+by calling <code class="ph codeph"><span class="keyword apiname">CPXcheckcopylpwnames</span></code>
+during application development.
+</p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">numcols</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of columns in the constraint matrix, or equivalently, the number of variables in the problem object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">numrows</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of rows in the constraint matrix, not including the objective function or bounds on the variables.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">objsense</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies whether the problem is a minimization or maximization problem. Table 1 shows its possible settings.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">objective</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numcols</span></code> containing the objective function coefficients. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numrows</span></code> containing the righthand side value for each constraint in the constraint matrix. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numrows</span></code> containing the sense of each constraint in the constraint matrix. Table 2 shows the possible settings. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">matbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array that defines the constraint matrix. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">matcnt</dt>
+
+        <dd class="dd pd">
+          
+          An array that defines the constraint matrix. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">matind</dt>
+
+        <dd class="dd pd">
+          
+          An array that defines the constraint matrix. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">matval</dt>
+
+        <dd class="dd pd">
+          
+          An array that defines the constraint matrix. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lb</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numcols</span></code> 
+          containing the lower bound on each of the variables. This argument may be NULL. 
+          Any lower bound that is set to a value less than or equal to that of the constant 
+          <code class="ph codeph">-CPX_INFBOUND</code> is treated as negative infinity. 
+          <code class="ph codeph">CPX_INFBOUND</code> is defined in the header file cplex.h.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">ub</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numcols</span></code> 
+          containing the upper bound on each of the variables. This argument may be NULL. 
+          Any upper bound that is set to a value greater than or equal to that of the constant 
+          <code class="ph codeph">CPX_INFBOUND</code> is treated as infinity. 
+          <code class="ph codeph">CPX_INFBOUND</code> is defined in the header file cplex.h. 
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rngval</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numrows</span></code> containing the range value of each ranged constraint. Ranged rows are those designated by <code class="ph codeph">R</code> in the <code class="ph codeph"><span class="keyword parmname">sense</span></code> array. If the row is not ranged, the <code class="ph codeph"><span class="keyword parmname">rngval</span></code> array entry is ignored. If <code class="ph codeph"><span class="keyword parmname">rngval</span>[i]</code> &gt; 0, then row <code class="ph codeph">i</code> activity is in <code class="ph codeph">[<span class="keyword parmname">rhs</span>[i],<span class="keyword parmname">rhs</span>[i]+<span class="keyword parmname">rngval</span>[i]]</code>, and if <code class="ph codeph"><span class="keyword parmname">rngval</span>[i]</code> &lt;= 0, then row <code class="ph codeph">i</code> activity is in <code class="ph codeph">[<span class="keyword parmname">rhs</span>[i]+<span class="keyword parmname">rngval</span>[i],<span class="keyword parmname">rhs</span>[i]]</code>. This argument may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">colname</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numcols</span></code> containing pointers to character strings. Each string is terminated with the NULL character. These strings represent the names of the matrix columns or, equivalently, the variable names. May be NULL if no names are associated with the variables. If <code class="ph codeph"><span class="keyword parmname">colname</span></code> is not NULL, every variable must be given a name. The addresses in <code class="ph codeph"><span class="keyword parmname">colname</span></code> do not have to be in ascending order.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rowname</dt>
+
+        <dd class="dd pd">
+          
+          An array of length at least <code class="ph codeph"><span class="keyword parmname">numrows</span></code> containing pointers to character strings. Each string is terminated with the NULL character. These strings represent the names of the matrix rows or, equivalently, the constraint names. May be NULL if no names are associated with the constraints. If <code class="ph codeph"><span class="keyword parmname">rowname</span></code> is not NULL, every constraint must be given a name. The addresses in <code class="ph codeph"><span class="keyword parmname">rowname</span></code> do not have to be in ascending order.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXcopylpwnames (env,
+		   lp,
+		   numcols,
+		   numrows,
+		   objsen,
+		   obj,
+		   rhs,
+		   sense,
+		   matbeg,
+		   matcnt,
+		   matind,
+		   matval,
+		   lb,
+		   ub,
+		   rngval,
+		   colname,
+		   rowname);
+</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpBuildModel.html">Building a model for a linear program (LP)</a></div>
+</div>
+</nav></div></body>
+</html>

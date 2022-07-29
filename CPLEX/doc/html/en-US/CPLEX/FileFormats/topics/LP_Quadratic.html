@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Quadratic terms in LP file format" />
+<meta name="abstract" content="CPLEX conforms to these rules about quadratic terms in LP file format." />
+<meta name="Description" content="CPLEX conforms to these rules about quadratic terms in LP file format." />
+<meta name="DC.subject" content="LP file format, quadratic terms, quadratic coefficient, in LP file format, objective function, quadratic coefficient in" />
+<meta name="keywords" content="LP file format, quadratic terms, quadratic coefficient, in LP file format, objective function, quadratic coefficient in" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/FileFormats/topics/LP.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_reference.uss_reffileformatscplex.LP_Quadratic" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/FileFormats/topics/LP.html" />
+<title>Quadratic terms in LP file format</title>
+</head>
+<body id="File_formats_reference.uss_reffileformatscplex.LP_Quadratic"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Quadratic terms in LP file format</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX conforms to these rules about quadratic terms in LP file format.</p>
+
+<p class="p">This rule applies to applications that solve problems with
+quadratic terms in them, that is, quadratic programming problems and
+quadratically constrained programs (QPs and QCPs). Quadratic coefficients
+can appear in the objective function. Quadratic coefficients can also
+appear in constraints under certain conditions. If there are quadratically
+constrained variables in the problem, see also rules about 
+<a class="xref" href="LP_VariableNames.html" title="CPLEX conforms to these rules about variable names in the LP file format.">Variable names in LP file format</a> and 
+<a class="xref" href="LP_Constraints.html" title="CPLEX conforms to these rules for the LP file format.">Constraints in LP file format</a> in this manual, as well as 
+ <a class="xref" href="../../UsrMan/topics/cont_optim/qcp/01_QCP_title_synopsis.html" title="Documents the solution of quadratically constrained programming problems (QCPs), including the special case of second order cone programming problems (SOCPs).">Solving problems with quadratic constraints (QCP)</a> 
+in the <em class="ph i">CPLEX User’s Manual</em>.</p>
+ 
+<p class="p">The algebraic coefficients of the
+function x'Qx are specified inside square brackets<code class="ph codeph"> []</code> .
+The square brackets must be followed by a divide sign followed by
+the number 2. This convention denotes that all coefficients inside
+the square brackets will be divided by 2 in evaluating the quadratic
+terms of the objective function. All quadratic coefficients must appear
+inside square brackets. Multiple square bracket sections may be specified.</p>
+ 
+<p class="p">Inside of the square brackets, two variables are multiplied
+by an asterisk (<code class="ph codeph">*</code>). For example, <code class="ph codeph">[4x*y]</code> indicates that the coefficients of both of
+the off-diagonal terms of Q, corresponding to the variables <code class="ph codeph">x</code>  and <code class="ph codeph">y</code>  in the model
+are 2, since <code class="ph codeph">4x*y</code>  equals <code class="ph codeph">2x*y + 2x*y</code>.
+Each pair of off-diagonal terms of Q is specified only once. CPLEX
+automatically creates both off-diagonal entries of Q. Diagonal terms
+in Q (that is, terms with an exponent of 2) are indicated by the caret
+(<code class="ph codeph">^</code> ) followed by 2. For example, <code class="ph codeph">4x^2</code> indicates that the coefficient of the diagonal
+term of Q corresponding to the variable <code class="ph codeph">x</code> in
+the model is 4.</p>
+<p class="p">For example, this problem</p>
+ 
+<p class="p">Minimize
+a + b + 1/2(a<sup class="ph sup">2</sup> + 4ab +7b<sup class="ph sup">2</sup>)</p>
+ 
+<p class="p">subject to a + b ≥ 10 and a, b ≥ 0</p>
+ 
+<p class="p">in LP format looks like this:  </p>
+ 
+<pre class="pre codeblock"><code>
+Minimize
+obj: a + b + [ a^2 + 4 a * b + 7 b^2 ]/2
+Subject To
+c1: a + b &gt;= 10
+End
+</code></pre> 
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/FileFormats/topics/LP.html" title="CPLEX conforms to these rules for the LP file format.">LP file format: algebraic representation</a></div>
+</div>
+</nav></div></body>
+</html>

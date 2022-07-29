@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="New special ordered set (SOS) algorithmic feature" />
+<meta name="abstract" content="CPLEX 20.1.0 offers an automatic logarithmic reformulation of special ordered sets of type 1 (SOS1) and type 2 (SOS2)." />
+<meta name="Description" content="CPLEX 20.1.0 offers an automatic logarithmic reformulation of special ordered sets of type 1 (SOS1) and type 2 (SOS2)." />
+<meta name="DC.subject" content="SOS, SOS1, SOS2, special ordered sets, CPLEX 20.1.0 release notes" />
+<meta name="keywords" content="SOS, SOS1, SOS2, special ordered sets, CPLEX 20.1.0 release notes" />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPLEXReleaseNotesV201newSOSfeature" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" />
+<title>New special ordered set (SOS) algorithmic feature</title>
+</head>
+<body id="CPLEXReleaseNotesV201newSOSfeature"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">New special ordered set (SOS) algorithmic feature</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX 20.1.0 offers an automatic logarithmic reformulation of special ordered sets of
+type 1 (SOS1) and type 2 (SOS2).</p>
+
+<section class="section"><h2 class="title sectiontitle">New algorithmic feature for SOS1 and SOS2</h2>
+
+<p class="p">CPLEX 20.1.0 offers an automatic logarithmic reformulation of special ordered sets. On problems
+containing special ordered sets of type 1 (SOS1) or type 2 (SOS2), this reformulation can yield a
+huge speed-up in the solution time. The same also applies to problems formulated with piecewise
+linear (PWL) functions, since PWL functions are internally reformulated with special ordered sets of
+type 2 (SOS2).</p>
+
+<p class="p">For more information, see  <a class="xref" href="../../../UsrMan/topics/discr_optim/sos/08_SOS_auto_reforms.html" title="Describes the automatic reformulation of special ordered sets available in CPLEX.">Automatic reformulation of special ordered sets</a> in the <em class="ph i">CPLEX User's
+Manual</em> and the documentation for the two new parameters:</p>
+
+<ul class="ul">
+<li class="li"><a class="xref" href="../../../Parameters/topics/SOS1Reform.html" title="Defines whether special ordered sets of type 1 (SOS1) should be reformulated as linear constraints.">SOS1 reformulations</a>
+(<code class="ph codeph">CPXPARAM_Preprocessing_SOS1Reform</code>)</li>
+
+<li class="li"><a class="xref" href="../../../Parameters/topics/SOS2Reform.html" title="Defines whether special ordered sets of type 2 (SOS2) should be reformulated as linear constraints.">SOS2 reformulations</a>
+(<code class="ph codeph">CPXPARAM_Preprocessing_SOS2Reform</code>)</li>
+
+</ul>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" title="These release notes highlight new features in IBM CPLEX 20.1.0.">New features</a></div>
+</div>
+</nav></div></body>
+</html>

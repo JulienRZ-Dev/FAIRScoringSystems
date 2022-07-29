@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXnewcols and CPXnewcols" />
+<meta name="abstract" content="The routine CPXXnewcols/CPXnewcols adds empty columns to a specified CPLEX problem object." />
+<meta name="Description" content="The routine CPXXnewcols/CPXnewcols adds empty columns to a specified CPLEX problem object." />
+<meta name="DC.subject" content="CPXnewcols, C API Reference Manual, CPXXnewcols" />
+<meta name="keywords" content="CPXnewcols, C API Reference Manual, CPXXnewcols" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="newcols" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<title>CPXXnewcols and CPXnewcols</title>
+</head>
+<body id="newcols"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXnewcols</span> and <span class="keyword apiname">CPXnewcols</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewcols</span>/<span class="keyword apiname">CPXnewcols</span></code> adds empty columns to a specified
+CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXnewcols</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">ccnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">obj</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">lb</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">ub</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">xctype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">colname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXnewcols</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">ccnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">obj</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">lb</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">ub</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">xctype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">colname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewcols</span>/<span class="keyword apiname">CPXnewcols</span></code> adds empty columns to a specified
+CPLEX problem object. This routine may be called any time after a call to
+<code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.</p>
+
+
+<p class="p">For each column, the user can specify the objective coefficient, the
+lower and upper bounds, the variable type, and name of the variable. The
+added columns are indexed to put them at the end of the problem. Thus, if
+<code class="ph codeph"><span class="keyword parmname">ccnt</span></code> columns are added to a problem object already having k
+columns, the new columns have indices <code class="ph codeph">k, k+1</code>, ...
+<code class="ph codeph">k+<span class="keyword parmname">ccnt</span>-1</code>. The constraint coefficients in the new columns are
+zero; the constraint coefficients can be changed with calls to
+<code class="ph codeph"><span class="keyword apiname">CPXXchgcoef</span>/<span class="keyword apiname">CPXchgcoef</span></code>, <code class="ph codeph"><span class="keyword apiname">CPXXchgcoeflist</span>/<span class="keyword apiname">CPXchgcoeflist</span></code>, or
+<code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code>.</p>
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewcols</span>/<span class="keyword apiname">CPXnewcols</span></code> is very similar to the routine
+<code class="ph codeph"><span class="keyword apiname">CPXXnewrows</span>/<span class="keyword apiname">CPXnewrows</span></code>. It can be used to add variables to a problem
+object without specifying the matrix coefficients.</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Types of new variables: values of ctype[j]</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CONTINUOUS</code></td>
+<td class="entry" valign="top"><code class="ph codeph">'C'</code></td>
+
+<td class="entry" valign="top">continuous variable<code class="ph codeph">j</code></td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BINARY</code></td>
+<td class="entry" valign="top"><code class="ph codeph">'B'</code></td>
+
+<td class="entry" valign="top">binary variable <code class="ph codeph">j</code></td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_INTEGER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">'I'</code></td>
+
+<td class="entry" valign="top">general integer variable<code class="ph codeph">j</code></td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_SEMICONT</code></td>
+<td class="entry" valign="top"><code class="ph codeph">'S'</code></td>
+
+<td class="entry" valign="top">semi-continuous variable <code class="ph codeph">j</code></td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_SEMIINT</code></td>
+<td class="entry" valign="top"><code class="ph codeph">'N'</code></td>
+
+<td class="entry" valign="top">semi-integer variable <code class="ph codeph">j</code></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">ccnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of new variables being added to the problem object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">obj</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">ccnt</span></code> containing the objective function coefficients of the new variables. This array may be NULL, in which case the new objective coefficients are all set to 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lb</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">ccnt</span></code> containing the lower bound on each of the new variables. Any lower bound that is set to a value less than or equal to that of the constant <code class="ph codeph">-CPX_INFBOUND</code> is treated as negative infinity. <code class="ph codeph">CPX_INFBOUND</code> is defined in the header file <code class="ph codeph">cplex.h</code>. This array may be NULL, in which case the new lower bounds are all set to 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">ub</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">ccnt</span></code> containing the upper bound on each of the new variables. Any upper bound that is set to a value greater than or equal to that of the constant <code class="ph codeph">CPX_INFBOUND</code> is treated as infinity. <code class="ph codeph">CPX_INFBOUND</code> is defined in the header file <code class="ph codeph">cplex.h</code>. This array may be NULL, in which case the new upper bounds are all set to <code class="ph codeph">CPX_INFBOUND</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">xctype</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">ccnt</span></code> containing the type of each of the new variables. Possible values appear in the table. This array may be NULL, in which case the new variables are created as continuous type. If this array is not NULL, then CPLEX interprets the problem as a MIP; in that case, the routine <code class="ph codeph"><span class="keyword apiname">CPXXlpopt</span>/<span class="keyword apiname">CPXlpopt</span></code> will return the error <code class="ph codeph">CPXERR_NOT_FOR_MIP</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">colname</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">ccnt</span></code> containing pointers to character strings that specify the names of the new variables added to the problem object. May be NULL, in which case the new columns are assigned default names if the columns already resident in the problem object have names; otherwise, no names are associated with the variables. If column names are passed to <code class="ph codeph"><span class="keyword apiname">CPXXnewcols</span>/<span class="keyword apiname">CPXnewcols</span></code> but existing variables have no names assigned, default names are created for the existing variables.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXnewcols (env, lp, ccnt, obj, lb, ub, NULL, NULL);
+</code></pre>
+
+<p class="p">See also the example <code class="ph codeph">lpex8.c</code> in the
+<em class="ph i">CPLEX User's Manual</em> and in the standard distribution.</p>
+
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetMNO.html">M, N, O</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodifyproblem.html">Modifying Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpBuildModel.html">Building a model for a linear program (LP)</a></div>
+</div>
+</nav></div></body>
+</html>

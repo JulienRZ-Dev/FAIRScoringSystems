@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXmultiobjopt and CPXmultiobjopt" />
+<meta name="abstract" content="The routine CPXXmultiobjopt/CPXmultiobjopt performs a multiobjective optimization on a CPLEX problem object." />
+<meta name="Description" content="The routine CPXXmultiobjopt/CPXmultiobjopt performs a multiobjective optimization on a CPLEX problem object." />
+<meta name="DC.subject" content="CPXmultiobjopt, C API Reference Manual, CPXXmultiobjopt" />
+<meta name="keywords" content="CPXmultiobjopt, C API Reference Manual, CPXXmultiobjopt" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemultiobjective.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpMultiobjective.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobjopt" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemultiobjective.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpMultiobjective.html" />
+<title>CPXXmultiobjopt and CPXmultiobjopt</title>
+</head>
+<body id="multiobjopt"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">
+    <span class="keyword apiname">CPXXmultiobjopt</span> and
+    <span class="keyword apiname">CPXmultiobjopt</span>
+  </h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+    The routine
+    <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjopt</span>/<span class="keyword apiname">CPXmultiobjopt</span></code>
+    performs a multiobjective optimization on a CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span>
+        <span class="keyword kwd">CPXXmultiobjopt</span><span class="ph delim">(</span>
+        <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXCPARAMSETptr const *</span><span class="ph sep"> </span><span class="ph var">paramsets</span><span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span>
+        <span class="keyword kwd">CPXXmultiobjopt</span><span class="ph delim">(</span>
+        <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXCPARAMSETptr const *</span><span class="ph sep"> </span><span class="ph var">paramsets</span><span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">The routine
+      <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjopt</span>/<span class="keyword apiname">CPXmultiobjopt</span></code>
+      performs multiobjective optimization. If
+      <code class="ph codeph">paramsets</code> is NULL then all optimizations are
+      performed with the parameter settings currently in the
+      environment. If <code class="ph codeph">paramsets</code> is not NULL then it
+      must be an array of parameter sets of length at least the
+      number of optimizations to be performed (which is the number
+      of different priorities in the objectives). The parameter sets
+      in the <code class="ph codeph">paramsets</code> array are then used
+      one-by-one in the optimizations. 
+      </p>
+
+      <p class="p">For more details on multiobjective optimization in CPLEX, see 
+      <a class="xref" href="../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a> 
+      in the <em class="ph i">CPLEX User's Manual</em> and 
+      <a class="xref" href="../groups/homepagemultiobjective.html">Multiobjective optimization</a> 
+      for related Callable Library functions.
+      </p>
+      
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+      <dl class="dl parml">
+        
+        
+          <dt class="dt pt dlterm">env</dt>
+
+          <dd class="dd pd">
+            
+            <p class="p">A pointer to the CPLEX environment as returned by
+            <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">lp</dt>
+
+          <dd class="dd pd">
+            
+            <p class="p">A pointer to a CPLEX problem object as returned by
+            <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+            </p>
+
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">paramsets</dt>
+
+          <dd class="dd pd">
+            
+            <p class="p">
+              An array of CPXCPARAMSETptr objects with a length
+              at least equal to the number of optimizations to be
+              performed (i.e., the number of unique priorities assigned
+              to the objectives). The i-th optimization will be performed
+              with parameter set <code class="ph codeph">paramsets[i]</code> applied on
+              top of CPLEX's default parameter settings. If
+              <code class="ph codeph">paramsets[i]</code> is NULL then the parameter
+              settings from the current environment will be used for the
+              i-th optimization.
+            </p>
+
+
+            <p class="p">
+              This argument can be NULL in which case every optimization
+              will be performed using the parameter settings from the
+              current environment.
+            </p>
+
+          </dd>
+
+        
+
+      </dl>
+
+    </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+      <pre class="pre codeblock"><code>
+        status = CPXmultiobjopt (env, lp, paramsets);
+      </code></pre>
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetMNO.html">M, N, O</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemultiobjective.html">Multiobjective optimization</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpMultiobjective.html">Multiobjective optimization routines</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Expressions" />
+<meta name="abstract" content="Expressions are formed from variables and constants by using operators and functions and by combining expressions together into arrays (array expressions)." />
+<meta name="Description" content="Expressions are formed from variables and constants by using operators and functions and by combining expressions together into arrays (array expressions)." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Expressions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<title>Expressions</title>
+</head>
+<body id="Expressions"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Expressions</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+Expressions are formed from variables and constants by using operators and
+functions and by combining expressions together into arrays (array
+expressions).
+</p>
+
+
+<section class="section">
+
+<p class="p">
+The following diagram summarizes all kinds of expressions:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram3.png" /></div>
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" title="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them.">CP Optimizer file format syntax</a></div>
+</div>
+</nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" id="Operator_expressions"><h2 class="title topictitle2" id="ariaid-title2">Operator expressions</h2>
+
+<div class="body conbody">
+<p class="p">
+The CPO file format supports a variety of operators.
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram4.png" /></div>
+
+<p class="p">
+The following table summarizes the supported operators. Operator precedence is
+mostly inspired by the C programming language.
+</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;"><tr class="row" style="vertical-align:middle;">
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d388863e71"> Precedence </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d388863e74"> Associativity </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d388863e77"> Operator          </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d388863e80"> Description        </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d388863e83"> Argument(s)                         </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d388863e87"> Result       </th>
+
+  </tr>
+</thead>
+<tbody class="tbody">
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="4" align="center" valign="middle" headers="d388863e71 "> 1          </td>
+
+      <td class="entry tdcenter tdmid" rowspan="4" align="center" valign="middle" headers="d388863e74 "> Right-to-left </td>
+
+      <td class="entry tdcenter tdmid" rowspan="3" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">-</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" rowspan="3" align="center" valign="middle" headers="d388863e80 "> Unary minus        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><strong class="ph b">-</strong><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>               </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><strong class="ph b">-</strong><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>             </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><strong class="ph b">-</strong><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>             </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">!</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Logical not        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><strong class="ph b">!</strong><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>              </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e71 "> 2          </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">^</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Power              </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">^</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="5" align="center" valign="middle" headers="d388863e71 "> 3          </td>
+
+      <td class="entry tdcenter tdmid" rowspan="5" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" rowspan="2" align="center" valign="middle" headers="d388863e77 "> <code class="ph codeph">*</code>               </td>
+
+      <td class="entry tdcenter tdmid" rowspan="2" align="center" valign="middle" headers="d388863e80 "> Multiplication     </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">*</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">*</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">/</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Division           </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">/</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">div</code></strong>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Integral division  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">div</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">%</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Modulo (remainder) </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">%</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="6" align="center" valign="middle" headers="d388863e71 "> 4          </td>
+
+      <td class="entry tdcenter tdmid" rowspan="6" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" rowspan="3" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">+</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" rowspan="3" align="center" valign="middle" headers="d388863e80 "> Addition           </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">+</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">+</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">+</strong> <a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="3" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">-</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" rowspan="3" align="center" valign="middle" headers="d388863e80 "> Subtraction        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">-</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>    </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">-</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">-</strong> <a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>  </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="14" align="center" valign="middle" headers="d388863e71 "> 5          </td>
+
+      <td class="entry tdcenter tdmid" rowspan="14" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">&lt;</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Less               </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&lt;</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">&gt;</code></strong>        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Greater            </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&gt;</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="6" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">&lt;=</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" rowspan="6" align="center" valign="middle" headers="d388863e80 "> Less or equal      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&lt;=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>     </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">&lt;=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">&lt;=</strong> <a class="xref" href="070_Types.html#Numerical_types__uint">uint</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Numerical_types__uint">uint</a> <strong class="ph b">&lt;=</strong> <a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">&lt;=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&lt;=</strong> <a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="6" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">&gt;=</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" rowspan="6" align="center" valign="middle" headers="d388863e80 "> Greater or equal   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&gt;=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>     </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&gt;=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Numerical_types__uint">uint</a> <strong class="ph b">&gt;=</strong> <a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">&gt;=</strong> <a class="xref" href="070_Types.html#Numerical_types__uint">uint</a></code>      </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">&gt;=</strong> <a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">&gt;=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" rowspan="4" align="center" valign="middle" headers="d388863e71 "> 6          </td>
+
+      <td class="entry tdcenter tdmid" rowspan="4" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" rowspan="2" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">==</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" rowspan="2" align="center" valign="middle" headers="d388863e80 "> Equal to           </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">==</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>     </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">==</strong> <a class="xref" href="070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">!=</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Not equal to       </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">!=</strong> <a class="xref" href="070_Types.html#Basic_expression_types__intExpr">intExpr</a></code>     </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">=&gt;</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Logical implies    </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">=&gt;</strong> <a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e71 "> 7          </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">&amp;&amp;</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Logical and        </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">&amp;&amp;</strong> <a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e71 "> 8          </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e74 "> Left-to-right </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e77 "> <strong class="ph b"><code class="ph codeph">||</code></strong>       </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e80 "> Logical or         </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e83 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">||</strong> <a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d388863e87 "> <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>   </td>
+
+    </tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p class="p">
+Note the difference between <code class="ph codeph">==</code> and <code class="ph codeph">=</code> operators:
+The single equals sign <code class="ph codeph">=</code> can be used only in statements 
+<a class="xref" href="090_Statements.html#Statement_identifier__expression"><code class="ph codeph">identifier = expression;</code></a>,
+while a double equal sign <code class="ph codeph">==</code> is an operator that returns a Boolean expression.
+</p>
+
+
+<section class="section" id="Operator_expressions__Example"><h3 class="title sectiontitle">Example</h3>
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+y = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+z = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+expr1 = 2*(x + y);
+expr2 = y % z;
+expr1 + 2 &gt;= expr2;
+</code></pre>
+</section>
+
+
+</div>
+</article>
+
+
+<article class="topic concept nested1" aria-labelledby="ariaid-title3" id="Function_expressions"><h2 class="title topictitle2" id="ariaid-title3">Function expressions</h2>
+
+<div class="body conbody">
+<p class="p">
+There are many built-in functions that return expressions, see the <a class="xref" href="../functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">list of
+functions</a>. The syntax to call a function follows a common standard:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram5.png" /></div>
+
+<p class="p">
+There are a few exceptional functions that require extended syntax, for example
+<code class="ph codeph"><a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a></code> or <code class="ph codeph"><a class="xref" href="110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a></code>. In this case, the syntax is described together with
+the function.
+</p>
+
+
+<section class="section" id="Function_expressions__Example2"><h3 class="title sectiontitle">Example</h3>
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(-10..10); <span class="ph commentemph">// intVar is a function with special syntax</span>
+absx = <a class="xref" href="../functions/abs.html" title="Computes the absolute value of an expression.">abs</a>(x);       <span class="ph commentemph">// abs is a function returning absolute value of x</span>
+</code></pre>
+</section>
+
+
+</div>
+</article>
+
+
+</div></body>
+</html>

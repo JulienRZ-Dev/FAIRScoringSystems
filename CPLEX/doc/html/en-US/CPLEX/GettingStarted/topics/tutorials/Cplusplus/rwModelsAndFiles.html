@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Writing and reading models and files" />
+<meta name="abstract" content="CPLEX supports reading models from files and writing models to files in a C++ application." />
+<meta name="Description" content="CPLEX supports reading models from files and writing models to files in a C++ application." />
+<meta name="DC.subject" content="exportModel method, IloCplex class (C++ API), model to file (C++ API), writing to file (C++ API), extension, IloCplex class (C++ API), reading from file (C++ API), model from file (C++ API), IloCplex class (C++ API)" />
+<meta name="keywords" content="exportModel method, IloCplex class (C++ API), model to file (C++ API), writing to file (C++ API), extension, IloCplex class (C++ API), reading from file (C++ API), model from file (C++ API), IloCplex class (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/cpp_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_cplusStart.1007422" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/cpp_synopsis.html" />
+<title>Writing and reading models and files</title>
+</head>
+<body id="Getting_started.uss_cplusStart.1007422"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Writing and reading models and files</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">CPLEX supports reading models from files and writing
+models to files in a C++ application.</p>
+
+      <p class="p">In example <code class="ph codeph">ilolpex1.cpp</code> , one
+line is still unexplained:</p>
+
+      <pre class="pre codeblock"><code>
+cplex.exportModel ("lpex1.lp");
+</code></pre>
+      <p class="p">This statement causes <code class="ph codeph">cplex</code> to
+write the model it has currently extracted to the file called <code class="ph codeph">lpex1.lp</code> . In this case, the file will be written
+in LP format. (That format is documented in the reference manual<em class="ph i"> CPLEX File Formats</em>.) Other formats supported for writing
+problems to a file are MPS and SAV (also documented in the reference
+manual <em class="ph i">CPLEX File Formats</em>). <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html">IloCplex</a> decides
+which file format to write based on the extension of the file name.</p>
+
+      <p class="p">
+         <code class="ph codeph">IloCplex</code> also supports reading
+of files through one of its <code class="ph codeph">importModel</code> methods.
+A call to <a class="xref logicalApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#method_importModel">importModel</a> causes
+CPLEX to read a problem from the file <code class="ph codeph">file.lp</code> and
+add all the data in it to <code class="ph codeph">model</code> as new objects.
+(Again, MPS and SAV format files are also supported.) In particular,
+CPLEX creates an instance of </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table listing modeling classes with a brief description." class="table NoBorder" rules="none" frame="void" border="0"><span class="desc tabledesc">
+            
+         </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+               <tr class="row">
+                  <th class="entry nrule" valign="top" id="d27613e160">Modeling classes</th>
+
+                  <th class="entry nrule" valign="top" id="d27613e163">Description</th>
+
+               </tr>
+
+            </thead>
+<tbody class="tbody">
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry nrule" valign="top" headers="d27613e160 "><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloObjective.html">IloObjective</a>
+                  </td>
+
+                  <td class="entry nrule" valign="top" headers="d27613e163 "> for the objective function found in <code class="ph codeph">file.lp</code> , </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry nrule" valign="top" headers="d27613e160 "><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloNumVar.html">IloNumVar</a>
+                  </td>
+
+                  <td class="entry nrule" valign="top" headers="d27613e163 "> for each variable found in <code class="ph codeph">file.lp</code> ,
+except </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry nrule" valign="top" headers="d27613e160 "><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloSemiContVar.html">IloSemiContVar</a>
+                  </td>
+
+                  <td class="entry nrule" valign="top" headers="d27613e163 "> for each semi-continuous or semi-integer variable
+found in <code class="ph codeph">file.lp,</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry nrule" valign="top" headers="d27613e160 "><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloRange.html">IloRange</a>
+                  </td>
+
+                  <td class="entry nrule" valign="top" headers="d27613e163 "> for each row found in <code class="ph codeph">file.lp</code> , </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry nrule" valign="top" headers="d27613e160 "><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloSOS1.html">IloSOS1</a>
+                  </td>
+
+                  <td class="entry nrule" valign="top" headers="d27613e163 "> for each SOS of type 1 found in <code class="ph codeph">file.lp</code> ,
+and </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry nrule" valign="top" headers="d27613e160 "><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloSOS2.html">IloSOS2</a>
+                  </td>
+
+                  <td class="entry nrule" valign="top" headers="d27613e163 "> for each SOS of type 2 found in <code class="ph codeph">file.lp</code> . </td>
+
+               </tr>
+
+            </tbody>
+</table>
+</div>
+
+      <p class="p">If you also need access to the modeling objects created
+by <code class="ph codeph">importModel</code> , two additional signatures
+are provided:</p>
+
+      <pre class="pre codeblock"><code>
+void IloCplex::importModel (IloModel&amp; m,
+                           const char* filename,
+                           IloObjective&amp; obj,
+                           IloNumVarArray vars,
+                           IloRangeArray  rngs) const;
+</code></pre>
+      <p class="p">and</p>
+
+      <pre class="pre codeblock"><code>
+void IloCplex::importModel (IloModel&amp; m,
+                           const char* filename,
+                           IloObjective&amp; obj,
+                           IloNumVarArray vars,
+                           IloRangeArray rngs,
+                           IloSOS1Array sos1,
+                           IloSOS2Array sos2) const;
+</code></pre>
+      <p class="p">They provide additional arguments so that the newly created
+modeling objects will be returned to the caller. Example program <code class="ph codeph">ilolpex2.cpp</code> shows how to use the method <code class="ph codeph">importModel</code>.</p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/cpp_synopsis.html" title="This tutorial shows you how to write C++ applications using CPLEX with Concert Technology. In this tutorial you will learn about:">C++ tutorial</a></div>
+</div>
+</nav></div></body>
+</html>

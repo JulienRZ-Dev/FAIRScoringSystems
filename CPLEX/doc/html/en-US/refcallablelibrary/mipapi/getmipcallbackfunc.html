@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetmipcallbackfunc and CPXgetmipcallbackfunc" />
+<meta name="abstract" content="The routine CPXXgetmipcallbackfunc/CPXgetmipcallbackfunc accesses the user-written callback routine to be called in the branch-and-cut tree during the optimization of a mixed integer program." />
+<meta name="Description" content="The routine CPXXgetmipcallbackfunc/CPXgetmipcallbackfunc accesses the user-written callback routine to be called in the branch-and-cut tree during the optimization of a mixed integer program." />
+<meta name="DC.subject" content="CPXgetmipcallbackfunc, C API Reference Manual, CPXXgetmipcallbackfunc" />
+<meta name="keywords" content="CPXgetmipcallbackfunc, C API Reference Manual, CPXXgetmipcallbackfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/getcallbackinfo.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getmipcallbackfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXgetmipcallbackfunc and CPXgetmipcallbackfunc</title>
+</head>
+<body id="getmipcallbackfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetmipcallbackfunc</span> and <span class="keyword apiname">CPXgetmipcallbackfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetmipcallbackfunc</span>/<span class="keyword apiname">CPXgetmipcallbackfunc</span></code> accesses the
+ user-written callback routine to be called in the branch-and-cut tree
+ during the optimization of a mixed integer program.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetmipcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">**</span><span class="ph var">callback_p</span>)(CPXCENVptr, void *, int, void *)<span class="ph delim">,</span>
+          <span class="keyword kwd">void **</span><span class="ph sep"> </span><span class="ph var">cbhandle_p</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetmipcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">**</span><span class="ph var">callback_p</span>)(CPXCENVptr, void *, int, void *)<span class="ph delim">,</span>
+          <span class="keyword kwd">void **</span><span class="ph sep"> </span><span class="ph var">cbhandle_p</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetmipcallbackfunc</span>/<span class="keyword apiname">CPXgetmipcallbackfunc</span></code> accesses the
+ user-written callback routine to be called in the branch-and-cut tree
+ during the optimization of a mixed integer program.</p>
+
+ <p class="p">This routine works in the same way as the routine
+ <a class="xref" href="../cpxapi/getlpcallbackfunc.html" title="Accesses the user-written legacy callback routine to be called after each iteration during the optimization of a continuous problem (LP, QP, or QCP), and also periodically during the CPLEX presolve algorithm.">
+ <code class="ph codeph"><span class="keyword apiname">CPXXgetlpcallbackfunc</span>/<span class="keyword apiname">CPXgetlpcallbackfunc</span></code>. </a> 
+ It enables the user to create a
+ separate callback function to be called during the solution of mixed integer
+ programming problems. The prototype for the callback function is identical
+ to that of <code class="ph codeph"><span class="keyword apiname">CPXXgetlpcallbackfunc</span>/<span class="keyword apiname">CPXgetlpcallbackfunc</span></code>.</p>
+
+
+<p class="p">For documentation of the user-written callback, see <strong class="ph b">Callback Description</strong> 
+in the documentation of
+<a class="xref" href="setmipcallbackfunc.html" title="The routine CPXXsetmipcallbackfunc/CPXsetmipcallbackfunc sets the user-written callback routine to be called in the branch-and-cut tree, including the root node, during the optimization of a mixed integer program and during some cut generation routines.">CPXXsetmipcallbackfunc and CPXsetmipcallbackfunc</a>.
+</p>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to the CPLEX environment as returned
+           by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">callback_p</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">The address of the pointer to the current
+           user-written callback function. If no callback function
+           has been set, the pointer evaluates to
+           <code class="ph codeph">NULL</code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbhandle_p</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">The address of a variable to hold the user's private pointer.</p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+
+ <pre class="pre codeblock"><code>
+ status = CPXgetmipcallbackfunc (env, mycallback, NULL);
+ </code></pre>
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../cpxapi/getcallbackinfo.html" title="The routine CPXXgetcallbackinfo/CPXgetcallbackinfo accesses information about the current optimization process from within a user-written legacy callback function.">CPXgetcallbackinfo</a></li></ul></div>
+</nav>
+</div></body>
+</html>

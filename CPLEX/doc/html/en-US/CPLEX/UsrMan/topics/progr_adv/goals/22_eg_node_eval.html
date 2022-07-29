@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Example: using node evaluators in a node selection strategy" />
+<meta name="abstract" content="Illustrates node evaluators in a node selection strategy." />
+<meta name="Description" content="Illustrates node evaluators in a node selection strategy." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/goals/01_goals_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_goals.1043672" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/goals/01_goals_title_synopsis.html" />
+<title>Example: using node evaluators in a node selection strategy</title>
+</head>
+<body id="User_manual.uss_goals.1043672"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Example: using node evaluators in a node selection strategy</h1>
+<div class="body"><p class="shortdesc">Illustrates node evaluators in a node selection strategy.</p>
+
+<p class="p">The example <code class="ph codeph">ilogoalex3.cpp</code> shows
+how to use node evaluators to implement a node selection strategy
+that chooses the deepest active node in the tree among those nodes
+with a maximal sum of integer infeasibilities. The example <code class="ph codeph">ilogoalex3.cpp</code> can
+be found in the <code class="ph codeph">examples/src</code>  directory
+of your distribution. The equivalent <strong class="ph b">Java</strong> implementation
+can be found in the file <code class="ph codeph">Goalex3.java</code> at
+the same location. Likewise, the <strong class="ph b">C#.NET</strong> example
+is available in <code class="ph codeph">Goalex3.cs</code>.</p>
+
+<p class="p">As this example is an extension of the example <code class="ph codeph">ilogoalex1.cpp</code>,
+this exposition of it concentrates only on their differences. Also,
+the example is discussed only in terms of the C++ implementation;
+the Java implementation has identical structure and design and differs
+only in syntax, as does the .NET as well.</p>
+
+<p class="p">The first difference is the definition of class <code class="ph codeph">DepthEvaluatorI</code> as
+a subclass of <code class="ph codeph">IloCplex::NodeEvaluatorI</code>.
+It implements the methods <code class="ph codeph">evaluate</code> and <code class="ph codeph">duplicateEvaluator</code>.
+The method <code class="ph codeph">evaluate</code> simply returns the
+negative depth value queried for the current node by calling method <code class="ph codeph">getDepth</code>.
+Since CPLEX by default chooses nodes with the lowest evaluation value,
+this evaluator will favor nodes deep in the tree. The method <code class="ph codeph">duplicateEvaluator</code> simply
+returns a copy of the invoking object by calling the (default) copy
+constructor. Along with the class, the function <code class="ph codeph">DepthEvaluator</code> is
+also defined to create an instance of class <code class="ph codeph">DepthEvaluatorI</code> and
+return a handle to it.</p>
+
+<p class="p">Similarly, the class <code class="ph codeph">IISumEvaluatorI</code> and
+function <code class="ph codeph">IISumEvaluator</code> are also defined.
+The <code class="ph codeph">evaluate</code>  method returns the negation
+of the sum of integer infeasibilities of the node being evaluated.
+This number is obtained by calling method <code class="ph codeph">getInfeasibilitySum</code>.
+Thus, this evaluator favors nodes with larger sums of integer infeasibilities.</p>
+
+<p class="p">This example uses the same search strategy as <code class="ph codeph">ilogoalex1.cpp</code>,
+implemented in goal <code class="ph codeph">MyBranchGoal</code>. However,
+it applies first the <code class="ph codeph">IISumEvaluator</code> to
+select nodes with a high integer infeasibility sum; to choose between
+nodes with the same integer infeasibility sum, it applies the <code class="ph codeph">DepthEvaluator</code>.
+Application of the <code class="ph codeph">IISumEvaluator</code> is done
+with: </p>
+
+<pre class="pre codeblock"><code>
+IloCplex::Goal iiSumGoal = IloCplex::Apply(cplex,
+                                           MyBranchGoal(env, var),
+                                           IISumEvaluator());
+</code></pre>
+<p class="p">The goal created by calling <code class="ph codeph">MyBranchGoal</code> is
+merged with the evaluator created by calling <code class="ph codeph">IISumEvaluator</code> in
+a new goal <code class="ph codeph">iiSumGoal</code>. Similarly, the goal <code class="ph codeph">iiSumGoal</code> 
+is merged with the node evaluator created by calling <code class="ph codeph">DepthEvaluator</code> into
+a new goal <code class="ph codeph">depthGoal</code>: </p>
+
+<pre class="pre codeblock"><code>
+IloCplex::Goal depthGoal = IloCplex::Apply(cplex,
+                                           iiSumGoal,
+                                           DepthEvaluator());
+</code></pre>
+<p class="p">Thus, <code class="ph codeph">depthGoal</code> represents
+a goal implementing the branching strategy defined by <code class="ph codeph">MyBranchGoal</code>,
+but using <code class="ph codeph">IISumEvaluator</code> as a primary node
+selection strategy and <code class="ph codeph">DepthEvaluator</code> as
+a secondary node selection strategy for breaking ties. This goal is
+finally used for the branch &amp; cut search by passing
+it to the <code class="ph codeph">solve</code> method.</p>
+
+<p class="p">Node evaluators are only active while the search is controlled
+by goals. That is, if the goal stack becomes empty at a node and CPLEX
+continues searching with its built-in search strategy, that search
+is no longer controlled by any node evaluator. In order to maintain
+control over the node selection strategy while using the CPLEX branch
+strategy, you can use the goal returned by the method <code class="ph codeph">IloCplex::GoalI::BranchAsCplexGoal</code> 
+(<code class="ph codeph">IloCplex.branchAsCplex</code> or <code class="ph codeph">CplexBranchAsCplex</code>).
+A goal that follows the branching performed by the built-in strategy
+of <code class="ph codeph">IloCplex</code> can be easily implemented as: </p>
+
+<pre class="pre codeblock"><code>
+ILOCPLEXGOAL0(DefaultSearchGoal) {
+  if ( !isIntegerFeasible() )
+    return AndGoal(BranchAsCplexGoal(getEnv()), this);
+  return 0;
+}
+</code></pre>
+<p class="p">Notice the test for integer feasibility. Without that
+test, the application would create an endless loop because when an
+integer feasible solution has been found, the goal <code class="ph codeph">BranchAsCplex </code>does
+not change the node at all, and <code class="ph codeph">this</code>  would
+continue to be executed indefinitely.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/goals/01_goals_title_synopsis.html" title="Documents goals and their role in a branch &amp; cut search.">Using goals</a></div>
+</div>
+</nav></div></body>
+</html>

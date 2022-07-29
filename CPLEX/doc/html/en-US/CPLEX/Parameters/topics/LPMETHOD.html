@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="algorithm for continuous linear problems" />
+<meta name="abstract" content="Controls which algorithm is used to solve continuous linear models or to solve the root relaxation of a MIP." />
+<meta name="Description" content="Controls which algorithm is used to solve continuous linear models or to solve the root relaxation of a MIP." />
+<meta name="DC.subject" content="CPX_PARAM_LPMETHOD, CPXPARAM_LPMethod, RootAlg, sifting, root algorithm as, advanced start, root algorithm and, basis, callbacks, root algorithm, callbacks and, concurrent optimization" />
+<meta name="keywords" content="CPX_PARAM_LPMETHOD, CPXPARAM_LPMethod, RootAlg, sifting, root algorithm as, advanced start, root algorithm and, basis, callbacks, root algorithm, callbacks and, concurrent optimization" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196864231332" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>algorithm for continuous linear problems</title>
+</head>
+<body id="languageRefTopic1196864231332"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">algorithm for continuous linear problems</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Controls which algorithm is used to solve continuous linear models
+or to solve the root relaxation of a MIP.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> <p class="p">Solution algorithm for continuous
+problems</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d106884e90">API</th>
+
+<th class="entry nrule" valign="top" id="d106884e93">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d106884e96">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">CPXPARAM_LPMethod</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">CPX_PARAM_LPMETHOD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">IloCplex::Param::RootAlgorithm</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">RootAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">IloCplex.Param.RootAlgorithm</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">RootAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">Cplex.Param.RootAlgorithm</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">RootAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">rootalg </td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">rootalg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">parameters.lpmethod</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">lpmethod</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">lpmethod</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">lpmethod</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d106884e90 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d106884e93 ">1062</td>
+
+<td class="entry nrule" valign="top" headers="d106884e96 ">1062</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">Controls which algorithm CPLEX
+uses to solve continuous linear models (LPs). </p>
+
+<p class="p">In the object-oriented
+APIs (such as C++, Java, or .NET APIs), this parameter, as  <code class="ph codeph">RootAlg</code>,
+also controls which algorithm CPLEX uses to solve the root relaxation
+of a MIP.</p>
+
+<p class="p">In the C API and the Interactive Optimizer, there
+are separate parameters to control LP, QP, and MIP optimizers, depending
+on the problem type. See, for example, <a class="xref" href="QPMETHOD.html" title="Sets which algorithm to use when the C routine CPXqpopt (or the command optimize in the Interactive Optimizer) is invoked.">algorithm for continuous quadratic optimization</a> or 
+<a class="xref" href="STARTALG.html" title="Sets which continuous optimizer will be used to solve the initial relaxation of a MIP.">algorithm for initial MIP relaxation</a>.</p>
+
+<p class="p">In all cases, the <strong class="ph b">default</strong> setting
+is 0 (zero). The default setting means that CPLEX will select the
+algorithm in a way that should give best overall performance.</p>
+
+<p class="p">For specific problem classes, the following details document the automatic
+settings. Note that future versions of CPLEX could adopt different
+strategies. Therefore, if you select any nondefault settings, you
+should review them periodically.</p>
+
+<p class="p">Currently, the behavior of
+the automatic setting is that CPLEX almost always invokes the dual
+simplex algorithm when it is solving an LP model from scratch. When
+it is continuing from an advanced basis, it will check whether the
+basis is primal or dual feasible, and choose the primal or dual simplex
+algorithm accordingly. </p>
+
+<p class="p">If multiple threads have been requested,
+in either deterministic or opportunistic mode, the concurrent optimization
+algorithm is selected by the automatic setting when CPLEX is solving
+a continuous linear programming model (LP) from scratch. </p>
+
+<p class="p">When
+three or more threads are available,  and you select concurrent optimization
+for the value of this parameter,  its behavior depends on whether
+parallel mode is opportunistic or deterministic (default parallel
+mode).  Concurrent optimization in <strong class="ph b">opportunistic</strong> parallel mode
+runs the dual simplex optimizer on one thread,  the primal simplex
+optimizer on a second thread, the parallel barrier optimizer on a
+third thread and on any additional available threads. In contrast,
+concurrent optimization in <strong class="ph b">deterministic</strong> parallel mode runs
+the dual optimizer on one thread and the parallel barrier optimizer
+on any additional available threads.</p>
+ <p class="p">The automatic setting
+may be expanded in the future so that CPLEX chooses the algorithm
+based on additional problem characteristics. </p>
+ 
+<p class="p"><strong class="ph b">Tip</strong>: In the presence of a linear programming (LP) <strong class="ph b">callback</strong>, 
+CPLEX does <strong class="ph b">not</strong> invoke concurrent optimization, regardless of the value of 
+this parameter.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d106884e300">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d106884e303">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d106884e306">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">0</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_AUTOMATIC</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Automatic: let CPLEX choose; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">1</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_PRIMAL</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Primal simplex</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">2</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_DUAL</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Dual simplex</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">3</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_NET</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Network simplex</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">4</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_BARRIER</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Barrier</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">5</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_SIFTING</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Sifting</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d106884e300 ">6</td>
+
+<td class="entry" valign="top" headers="d106884e303 "><code class="ph codeph">CPX_ALG_CONCURRENT</code> </td>
+
+<td class="entry" valign="top" headers="d106884e306 ">Concurrent (Dual, Barrier, and Primal in opportunistic parallel
+mode; Dual and Barrier in deterministic parallel mode)</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+ 
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

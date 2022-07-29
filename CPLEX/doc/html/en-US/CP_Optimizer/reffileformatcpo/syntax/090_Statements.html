@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Statements" />
+<meta name="abstract" content="Statements in a CPO file define the problem to be solved (variables, expressions, constraints and so on)." />
+<meta name="Description" content="Statements in a CPO file define the problem to be solved (variables, expressions, constraints and so on)." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Statements" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<title>Statements</title>
+</head>
+<body id="Statements"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Statements</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+Statements in a CPO file define the problem to be solved (variables, expressions, constraints and so on).
+</p>
+
+
+<section class="section">
+
+<p class="p">
+There are four types of statements, all of them are semicolon terminated:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram2.png" /></div>
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" title="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them.">CP Optimizer file format syntax</a></div>
+</div>
+</nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" id="Statement_identifier__expression"><h2 class="title topictitle2" id="ariaid-title2">Statement "<code class="ph codeph">identifier = expression;</code>"</h2>
+
+<div class="body conbody">
+<p class="p">
+This statement assigns a name to the given expression so that it can be used
+later by that name. The expression can be of any type. It is possible to assign
+a name to constants, compound expressions, and constraints. Note that
+if the expression is a <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> or <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code> then this statement does not
+require the constraint to be true as in the following example:
+</p>
+
+
+<pre class="pre codeblock"><code>
+<span class="ph commentemph">// Declare integer variables x, y a z with domains {0..10}</span>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+y = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+z = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(0..10);
+<span class="ph commentemph">// Name some Boolean expressions, but do not enforce them:</span>
+condition1 = (x &lt; 5);
+condition2 = (y &gt; 10);
+condition3 = (z == 20);
+<span class="ph commentemph">// Require that condition1 or condition2 is true:</span>
+condition1 || condition2;
+<span class="ph commentemph">// Require that condition2 and condition3 take opposite truth values:</span>
+condition2 != condition3;
+</code></pre>
+<p class="p">
+Use statement <code class="ph codeph">identifier = expression;</code> to declare variables and common
+expressions that are going to be used multiple times.
+</p>
+
+
+<p class="p">
+Note that the declaration of a variable as described <a class="xref" href="050_Variables.html" title="In CPO files, the variables are declared by the following statement:">here</a>
+is a special case of the statement <code class="ph codeph">identifier = expression;</code>.
+</p>
+
+
+<section class="section" id="Statement_identifier__expression__Aliasing"><h3 class="title sectiontitle">Aliasing</h3>
+<p class="p">
+If an expression already has a name <code class="ph codeph">name</code> then the statement <code class="ph codeph">identifier =
+name;</code> assigns it a second name. The second name is called an
+<em class="ph i">alias</em>. For example <code class="ph codeph">y</code> is an alias for variable <code class="ph codeph">x</code> in the following
+code:
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+y = x;
+y &gt; 5;
+</code></pre>
+<p class="p">
+CP Optimizer remembers aliases however when exporting the model it prefers not
+to use them (unless they are used as <a class="xref" href="../kpis.html" title="Key Performance Indicators (KPIs) are expressions whose value somehow characterize a solution and its quality. They differ from objective expressions: objective expressions are passed to minimize or maximize and CP Optimizer actively works on improving their value. KPIs are not actively improved in that sense: achieving good values of KPIs is usually a side product of achieving good objective value. For example, objective could be to minimize total duriation of a schedule and KPI could be the total idle time of a bottleneck machine.">KPIs</a>). For example the
+code above, when exported, is rewritten as:
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+x &gt; 5;
+y = x;
+</code></pre>
+</section>
+
+
+</div>
+</article>
+
+
+<article class="topic concept nested1" aria-labelledby="ariaid-title3" id="Statement_constraint"><h2 class="title topictitle2" id="ariaid-title3">Statement "<code class="ph codeph">constraint;</code>"</h2>
+
+<div class="body conbody">
+<p class="p">
+This statement can be used only for expressions of type <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> and
+<code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>. It express a requirement to satisfy the constraint in every
+solution.
+</p>
+
+
+<section class="section" id="Statement_constraint__Example"><h3 class="title sectiontitle">Example</h3>
+<pre class="pre codeblock"><code>
+z == x + y;         <span class="ph commentemph">// Require that z = x + y. Note == instead of =.</span>
+<a class="xref" href="../functions/alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a>([x, y, z]); <span class="ph commentemph">// Require that x!=y, y!=z and x!=z</span>
+</code></pre>
+<p class="p">
+The following code contains an error because <code class="ph codeph">x</code> has type <code class="ph codeph"><a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a></code>:
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..7);
+x;  <span class="ph commentemph">// Error: the expression type is intVar.</span>
+</code></pre>
+</section>
+
+
+</div>
+</article>
+
+
+<article class="topic concept nested1" aria-labelledby="ariaid-title4" id="Statement_identifier_constraint"><h2 class="title topictitle2" id="ariaid-title4">Statement "<code class="ph codeph">identifier: constraint;</code>"</h2>
+
+<div class="body conbody">
+<p class="p">
+This statement also express that the given <code class="ph codeph"><a class="xref" href="070_Types.html#Type_constraint">constraint</a></code> or <code class="ph codeph"><a class="xref" href="070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code> must be satisfied.
+Additionally it also assigns a name to the constraint.
+</p>
+
+
+<section class="section" id="Statement_identifier_constraint__Example2"><h3 class="title sectiontitle">Example</h3>
+<pre class="pre codeblock"><code>
+<span class="ph stringemph">"Max capacity"</span>: x + y + z &lt; 100;
+</code></pre>
+</section>
+
+
+</div>
+</article>
+
+
+<article class="topic concept nested1" aria-labelledby="ariaid-title5" id="Statement_objective"><h2 class="title topictitle2" id="ariaid-title5">Statement "<code class="ph codeph">objective;</code>"</h2>
+
+<div class="body conbody">
+<p class="p">
+This statement gives CP Optimizer a way to compare different solutions. CP
+Optimizer then searches for a solution with the best value(s) according to the
+criteria given in the particular <code class="ph codeph"><a class="xref" href="070_Types.html#Type_objective">objective</a></code>. This statement can be used only once.
+</p>
+
+
+<section class="section" id="Statement_objective__Example3"><h3 class="title sectiontitle">Example</h3>
+<p class="p">
+In the following example we are searching for a solution such that the bigger
+of the values <code class="ph codeph">x</code>, <code class="ph codeph">y</code> is minimal:
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+y = <a class="xref" href="../functions/intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+<a class="xref" href="../functions/minimize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to minimize the value of an expression.">minimize</a>(<a class="xref" href="../functions/max.html" title="Computes the maximum of a pair or array of integer or floating-point expressions.">max</a>(x, y));
+</code></pre>
+</section>
+
+
+</div>
+</article>
+
+
+</div></body>
+</html>

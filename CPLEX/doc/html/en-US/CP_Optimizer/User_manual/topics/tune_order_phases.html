@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Search phases with selectors" />
+<meta name="abstract" content="A selector can be used with a search phase to indicate which variable should be instantiated to which value." />
+<meta name="Description" content="A selector can be used with a search phase to indicate which variable should be instantiated to which value." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/tune_order.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizertune.1016430" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/tune_order.html" />
+<title>Search phases with selectors</title>
+</head>
+<body id="migration.uss_usrcpoptimizertune.1016430"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Search phases with selectors</h1>
+
+
+<div class="body"><p class="shortdesc">A selector can be used with a search phase to
+indicate which variable should be instantiated to which value. </p>
+
+<p class="p">A search phase that instantiates the decision variables
+in the array <code class="ph codeph">x</code> by choosing the variable
+having the smallest domain size and by assigning it to the largest
+value of its domain can be defined like this in the C++ API: </p>
+
+<pre class="pre codeblock"><code>
+  IloSearchPhase phase(env, x, 
+                       IloSelectSmallest(IloDomainSize(env)),
+                       IloSelectLargest(IloValue(env)));
+
+</code></pre>
+<p class="p">A search phase or an array of search phases defined with
+selectors can be given to an instance of the optimizer by invoking
+the method <code class="ph codeph">setSearchPhases</code> before calling <code class="ph codeph">solve</code> or 
+<code class="ph codeph">startNewSearch</code>: </p>
+
+<pre class="pre codeblock"><code>
+    cp.setSearchPhases(phase);
+    cp.solve();
+
+</code></pre>
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/tune_order.html" title="Decision variables and their possible values can be ordered so that the optimizer can fix the key decision variables early in the process.">Ordering variables and values</a></div>
+</div>
+</nav></div></body>
+</html>

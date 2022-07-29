@@ -1,0 +1,10 @@
+dataset_path=data/synthetic.csv
+labels_name=L1,L2,L3
+constraints=s: 10,sp: 0.2
+objectives=a
+lambda_bound=9
+time_limit=3600
+testing_mode=True
+n_folds=5
+sensitive_groups=A1
+sensitive_labels=L1

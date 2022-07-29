@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Reading the model from a file" />
+<meta name="abstract" content="The sample reads a model from a file for extraction later." />
+<meta name="Description" content="The sample reads a model from a file for extraction later." />
+<meta name="DC.subject" content="reading, model from file (C++ API), reading from file (C++ API), IloCplex class (C++ API)" />
+<meta name="keywords" content="reading, model from file (C++ API), reading from file (C++ API), IloCplex class (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/readingFileEG_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_cplusStart.1009080" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/readingFileEG_synopsis.html" />
+<title>Reading the model from a file</title>
+</head>
+<body id="Getting_started.uss_cplusStart.1009080"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Reading the model from a file</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">The sample reads a model from a file for extraction
+later.</p>
+
+      <p class="p">The model is created by reading it from the file specified
+as the first command line argument <code class="ph codeph">argv[1]</code> .
+The method <a class="xref logicalApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#method_importModel">importModel</a> of
+an <code class="ph codeph">IloCplex</code> object reads the model from
+the file but it does not extract the model for solution. That is,
+in this case, the <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html">IloCplex</a> 
+object is used as a model reader rather than an optimizer. Calling <code class="ph codeph">importModel</code> does not extract the model to the invoking <code class="ph codeph">cplex</code> object. Consequently, extraction must be done
+later by a call to <code class="ph codeph">cplex.extract(model)</code>.
+The objects <code class="ph codeph">obj</code> , <code class="ph codeph">var</code> ,
+and <code class="ph codeph">rng</code> are passed to <a class="xref logicalApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#method_importModel">importModel</a>  so
+that later on, when results are queried, the variables will be accessible.</p>
+
+      </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Cplusplus/readingFileEG_synopsis.html" title="The sample ilolpex2.cpp illustrates reading a model from a file in a C++ application.">Reading a problem from a file: example ilolpex2.cpp</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="perturbation constant" />
+<meta name="abstract" content="Sets the amount by which CPLEX perturbs the upper and lower bounds or objective coefficients on the variables when a problem is perturbed in the simplex algorithm." />
+<meta name="Description" content="Sets the amount by which CPLEX perturbs the upper and lower bounds or objective coefficients on the variables when a problem is perturbed in the simplex algorithm." />
+<meta name="DC.subject" content="CPX_PARAM_EPPER, EpPer, simplex perturbation, perturbation constant (simplex), simplex, perturbation constant" />
+<meta name="keywords" content="CPX_PARAM_EPPER, EpPer, simplex perturbation, perturbation constant (simplex), simplex, perturbation constant" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196783587104" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>perturbation constant</title>
+</head>
+<body id="languageRefTopic1196783587104"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">perturbation constant</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets the amount by which CPLEX perturbs the upper and lower
+bounds or objective coefficients on the variables when a problem is
+perturbed in the simplex algorithm.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+<p class="p">Perturbation constant</p>
+
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d99316e62">API</th>
+
+<th class="entry nrule" valign="top" id="d99316e65">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d99316e68">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">CPXPARAM_Simplex_Perturbation_Constant</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">CPX_PARAM_EPPER</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">IloCplex::Param::Simplex::Perturbation::Constant</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">EpPer (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">IloCplex.Param.Simplex.Perturbation.Constant</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">EpPer (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">Cplex.Param.Simplex.Perturbation.Constant</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">EpPer (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">epper </td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">epper</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">parameters.simplex.perturbation.constant</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">simplex.perturbation.constant</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">simplex perturbationlimit no/yes C</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">simplex perturbationlimit no/yes C</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99316e62 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d99316e65 ">1015</td>
+
+<td class="entry nrule" valign="top" headers="d99316e68 ">1015</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">Sets the amount by which CPLEX
+perturbs the upper and lower bounds or objective coefficients on the
+variables when a problem is perturbed in the simplex algorithm. This
+parameter can be set to a smaller value if the default value creates
+too large a change in the problem. </p>
+ 
+<div class="p">In the <strong class="ph b">Interactive Optimizer</strong>,
+the command  <pre class="pre codeblock"><code>set simplex perturbationlimit </code></pre> accepts
+two arguments and actually sets two parameters simultaneously. The
+first argument is a switch or indicator; its value is  yes to
+turn on perturbation or  no to turn off perturbation. See the
+parameter <a class="xref" href="PerInd.html" title="Decides whether to perturb problems.">simplex perturbation switch</a> for more
+detail  about this effect. The second argument is a constant value
+to set an amount of perturbation. </div>
+ 
+<p class="p paragrouptitle">Values</p>
+<p class="p">Any
+positive number greater than or equal to 1e-8; <strong class="ph b">default</strong>: 1e-6.</p>
+ 
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

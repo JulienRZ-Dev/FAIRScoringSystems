@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="algorithm for subproblems of a subMIP of a MIP" />
+<meta name="abstract" content="Sets which optimizer will be used to solve the subproblems of a subMIP of a MIP." />
+<meta name="Description" content="Sets which optimizer will be used to solve the subproblems of a subMIP of a MIP." />
+<meta name="DC.subject" content="CPX_PARAM_SUBMIPSTARTALG, CPXPARAM_MIP_SubMIPSubAlg, mip submip subalg, MIP, subMIP subproblem algorithm, subMIP, sub algorithm for" />
+<meta name="keywords" content="CPX_PARAM_SUBMIPSTARTALG, CPXPARAM_MIP_SubMIPSubAlg, mip submip subalg, MIP, subMIP subproblem algorithm, subMIP, sub algorithm for" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="submipsubalg" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>algorithm for subproblems of a subMIP of a MIP</title>
+</head>
+<body id="submipsubalg"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">algorithm for subproblems of a subMIP of a MIP</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets which optimizer will be used to solve the
+subproblems of a subMIP of a MIP.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Algorithm for subproblems of a subMIP of a MIP</p>
+ 
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d140829e65">API</th>
+
+<th class="entry nrule" valign="top" id="d140829e68">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">CPXPARAM_MIP_SubMIP_SubAlg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">IloCplex::Param::MIP::SubMIP::SubAlg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">IloCplex.Param.MIP.SubMIP.SubAlg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">Cplex.Param.MIP.SubMIP.SubAlg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">submipsubalg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">parameters.mip.submip.subalg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">mip submip subalg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d140829e65 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d140829e68 ">2206</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p">Decides which continuous optimizer
+will be used to solve the subproblems of a subMIP in a MIP, after the initial
+relaxation. </p>
+
+<p class="p">For a definition of <strong class="ph b">subMIP</strong> and for a list of conditions in which 
+CPLEX solves a subMIP, see the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/mip/heuristics/subMIP.html" title="Defines subMIP and documents conditions in which CPLEX solves a subMIP.">What is a subMIP?</a> 
+in the <em class="ph i">CPLEX User's Manual</em>. 
+</p>
+ 
+<div class="p">See the documentation of these other subMIP parameters
+for further instructions that you can impose when CPLEX solves a subMIP:
+<ul class="ul"> 
+<li class="li"><a class="xref" href="SubMIPScale.html" title="Decides how to scale the problem matrix when CPLEX solves a subMIP during MIP optimization.">scale parameter for subMIPs</a></li>
+ 
+<li class="li"><a class="xref" href="SubMIPStartAlg.html" title="Sets which continuous optimizer will be used to solve the initial relaxation of a subMIP of a MIP.">algorithm for initial MIP relaxation of a subMIP of a MIP</a></li>
+ 
+<li class="li"><a class="xref" href="SubMIPNodeLimit.html" title="Limits the number of nodes explored when CPLEX solves a subMIP.">limit on nodes explored when CPLEX solves a subMIP</a></li>
+ 
+</ul>
+
+</div>
+
+<p class="p">The default Automatic setting (0 zero) of this
+parameter currently selects the dual simplex optimizer for subproblem
+solution for MILP and MIQP. The Automatic setting may be expanded
+in the future so that CPLEX chooses the algorithm based on additional
+characteristics of the model. </p>
+ 
+<p class="p">For MILP (integer constraints
+and otherwise continuous variable), all settings are permitted. </p>
+ 
+<p class="p">For MIQP (integer constraints and positive semi-definite quadratic terms
+in objective), setting 3 (Network) is not permitted, and setting 5
+(Sifting) reverts to 0 (Automatic). </p>
+ 
+<p class="p">For MIQCP (integer constraints
+and positive semi-definite quadratic terms among the constraints),
+only the setting 0 (Automatic) is permitted. In other words, 
+given a problem of type MIQCP, and any setting of this parameter 
+other than 0 (Automatic), CPLEX will exit because of the 
+quadratic constraint or quadratic constraints, and CPLEX displays 
+an error message specifying that a mixed 
+integer problem cannot be solved by this setting. </p>
+ 
+<div class="note tip"><span class="tiptitle">Tip:</span> This rarely used parameter is helpful <strong class="ph b">only</strong> in rare "corner" cases 
+where there is clear evidence that the default choice of the continuous optimizer 
+is really inappropriate for the heuristics applied to the problem.
+</div>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d140829e244">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d140829e247">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d140829e250">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d140829e244 ">0</td>
+
+<td class="entry" valign="top" headers="d140829e247 "><code class="ph codeph">CPX_ALG_AUTOMATIC</code> </td>
+
+<td class="entry" valign="top" headers="d140829e250 ">Automatic: let CPLEX choose; <strong class="ph b">default</strong> </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d140829e244 ">1</td>
+
+<td class="entry" valign="top" headers="d140829e247 "><code class="ph codeph">CPX_ALG_PRIMAL</code> </td>
+
+<td class="entry" valign="top" headers="d140829e250 ">Primal Simplex</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d140829e244 ">2</td>
+
+<td class="entry" valign="top" headers="d140829e247 "><code class="ph codeph">CPX_ALG_DUAL</code> </td>
+
+<td class="entry" valign="top" headers="d140829e250 ">Dual Simplex </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d140829e244 ">3</td>
+
+<td class="entry" valign="top" headers="d140829e247 "><code class="ph codeph">CPX_ALG_NET</code> </td>
+
+<td class="entry" valign="top" headers="d140829e250 ">Network Simplex</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d140829e244 ">4</td>
+
+<td class="entry" valign="top" headers="d140829e247 "><code class="ph codeph">CPX_ALG_BARRIER</code> </td>
+
+<td class="entry" valign="top" headers="d140829e250 ">Barrier</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d140829e244 ">5</td>
+
+<td class="entry" valign="top" headers="d140829e247 "><code class="ph codeph">CPX_ALG_SIFTING</code> </td>
+
+<td class="entry" valign="top" headers="d140829e250 ">Sifting</td>
+
+</tr>
+ 
+</tbody>
+</table>
+</div>
+ 
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

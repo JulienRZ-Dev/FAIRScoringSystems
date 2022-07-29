@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXchgbds and CPXchgbds" />
+<meta name="abstract" content="The routine CPXXchgbds/CPXchgbds changes the lower or upper bounds on a set of variables of a problem." />
+<meta name="Description" content="The routine CPXXchgbds/CPXchgbds changes the lower or upper bounds on a set of variables of a problem." />
+<meta name="DC.subject" content="CPXchgbds, C API Reference Manual, CPXXchgbds" />
+<meta name="keywords" content="CPXchgbds, C API Reference Manual, CPXXchgbds" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpModifyModel.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="chgbds" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpModifyModel.html" />
+<title>CPXXchgbds and CPXchgbds</title>
+</head>
+<body id="chgbds"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXchgbds</span> and <span class="keyword apiname">CPXchgbds</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgbds</span>/<span class="keyword apiname">CPXchgbds</span></code> changes the lower or upper
+bounds on a set of variables of a problem.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXchgbds</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">lu</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">bd</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXchgbds</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">lu</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">bd</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgbds</span>/<span class="keyword apiname">CPXchgbds</span></code> changes the lower or upper
+bounds on a set of variables of a problem. Several bounds can be changed at
+once, with each bound specified by the index of the variable with which it
+is associated. The value of a variable can be fixed at one value by setting
+the upper and lower bounds to the same value.</p>
+
+
+<p class="p"><strong class="ph b">Unbounded Variables</strong></p>
+
+
+<p class="p">If a variable lacks a lower bound, then <code class="ph codeph"><span class="keyword apiname">CPXXgetlb</span>/<span class="keyword apiname">CPXgetlb</span></code>
+returns a value less than or equal to <code class="ph codeph">-CPX_INFBOUND</code>.</p>
+
+
+<p class="p">If a variable lacks an upper bound, then <code class="ph codeph"><span class="keyword apiname">CPXXgetub</span>/<span class="keyword apiname">CPXgetub</span></code>
+returns a value greater than or equal to <code class="ph codeph">CPX_INFBOUND</code>.</p>
+
+
+<p class="p">These conventions about unbounded variables should be taken
+into account when you change bounds with <code class="ph codeph"><span class="keyword apiname">CPXXchgbds</span>/<span class="keyword apiname">CPXchgbds</span></code>.</p>
+
+
+<p class="p">CPLEX treats any lower bound that is set to a value
+less than or equal to that of the constant
+<code class="ph codeph">-CPX_INFBOUND</code> as negative infinity.
+Likewise, CPLEX treats any upper bound that is set to a value
+greater than or equal to that of the constant
+<code class="ph codeph">CPX_INFBOUND</code> as infinity.
+The constant <code class="ph codeph">CPX_INFBOUND</code> 
+is declared in the header file <span class="ph filepath">cplexx.h/cplex.h</span>.
+</p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the total number of bounds to be changed, and thus specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">indices</span></code>, <code class="ph codeph"><span class="keyword parmname">lu</span></code>, and <code class="ph codeph"><span class="keyword parmname">bd</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indices</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing the numeric indices of the columns corresponding to the variables for which bounds are to be changed. This argument can be NULL if <code class="ph codeph"><span class="keyword parmname">cnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lu</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing characters that tell whether the corresponding entry in the array <code class="ph codeph"><span class="keyword parmname">bd</span></code> specifies the lower or upper bound on column <code class="ph codeph"><span class="keyword parmname">indices</span>[j]</code>. This argument can be NULL if <code class="ph codeph"><span class="keyword parmname">cnt</span></code> is 0 (zero). Possible values appear in the table.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">bd</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing the new values of the lower or upper bounds of the variables present in <code class="ph codeph"><span class="keyword parmname">indices</span></code>. This argument can be NULL if <code class="ph codeph"><span class="keyword parmname">cnt</span></code> is 0 (zero).
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXchgbds (env, lp, cnt, indices, lu, bd);
+</code></pre>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values of lu denoting lower or upper bound in indices[j]</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">lu</span>[j]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'L'</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">bd</span>[j]</code> is a lower bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">lu</span>[j]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'U'</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">bd</span>[j]</code> is an upper bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">lu</span>[j]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'B'</code></td>
+
+<td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">bd</span>[j]</code> is the lower and upper bound</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodifyproblem.html">Modifying Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpModifyModel.html">Modifying a model for a linear program (LP)</a></div>
+</div>
+</nav></div></body>
+</html>

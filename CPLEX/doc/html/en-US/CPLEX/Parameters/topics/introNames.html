@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Parameter names" />
+<meta name="abstract" content="Names of CPLEX parameters follow the coding conventions of each API." />
+<meta name="Description" content="Names of CPLEX parameters follow the coding conventions of each API." />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/refparameterscplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1197396115758" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/refparameterscplex.html" />
+<title>Parameter names</title>
+</head>
+<body id="descriptiveTopic1197396115758"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Parameter names</h1>
+
+
+<div class="body"><p class="shortdesc">
+Names of CPLEX parameters follow the coding conventions of each API.
+</p>
+
+<p class="p">In the parameter table, each parameter has a name (that
+is, a symbolic constant) to refer to it within an application. </p>
+
+<ul class="ul">
+<li class="li"><p class="p">For the Callable Library (C API), these constants 
+start with <code class="ph codeph">CPXPARAM_</code>; for example, 
+<code class="ph codeph">CPXPARAM_Simplex_Limits_Iterations</code>. They are used as the second argument
+in all parameter routines (except <code class="ph codeph">CPXXsetdefaults</code>,
+which does not require them). 
+</p>
+
+<p class="p"><strong class="ph b">Legacy names</strong></p>
+
+<p class="p">For the C API, these constants are capitalized
+and start with <code class="ph codeph">CPX_PARAM_</code>; for example, <code class="ph codeph">CPX_PARAM_ITLIM</code>. They are used as the second argument
+in all parameter routines (except <code class="ph codeph">CPXsetdefaults</code>,
+which does not require them). 
+</p>
+
+</li>
+
+
+<li class="li">
+<p class="p">
+For C++ applications, the parameters are defined in classes that specify 
+a hierarchy of applicability of the parameter; for example, 
+<code class="ph codeph">IloCplex::Param::Simplex::Limits::Iterations</code>.
+</p>
+
+<p class="p"><strong class="ph b">Legacy names</strong></p>
+
+<p class="p">For C++ applications, the parameters are
+defined in nested enumeration types for Boolean, integer, floating-point,
+and string parameters. The <code class="ph codeph">enum</code>  names use
+mixed (lower and upper) case letters and must be prefixed with the
+class name <code class="ph codeph">IloCplex::</code> for scope. For example, 
+<code class="ph codeph">IloCplex::ItLim</code> is the <code class="ph codeph">IloCplex</code> equivalent
+of <code class="ph codeph">CPX_PARAM_ITLIM</code>.
+</p>
+ </li>
+
+<li class="li">
+<p class="p">
+For Java applications, the parameters are
+defined as final static objects in nested classes that specify 
+a hierarchy of applicability of the parameter; for example, 
+<code class="ph codeph">IloCplex.Param.Simplex.Limits.Iterations</code>.
+</p>
+
+<p class="p"><strong class="ph b">Legacy names</strong></p>
+
+<p class="p">For Java applications, the parameters are
+defined as final static objects in nested classes called <code class="ph codeph">IloCplex.BooleanParam</code>, <code class="ph codeph">IloCplex.IntParam</code>,<code class="ph codeph"> IloCplex.LongParam</code>, <code class="ph codeph">IloCplex.DoubleParam</code>,
+and <code class="ph codeph">IloCplex.StringParam</code> for Boolean, integer,
+long, floating-point, and string parameters, respectively. The parameter
+object names use mixed (lower and upper) case letters and must be
+prefixed with the appropriate class for scope. For example, <code class="ph codeph">IloCplex.IntParam.ItLim</code> is the object representing
+the parameter <code class="ph codeph">CPX_PARAM_ITLIM</code>.</p>
+ </li>
+
+<li class="li">
+<p class="p">For .NET applications, the parameters follow
+the usual conventions for capitalizing attributes and defining scope
+within a <span class="keyword apiname">namespace</span>.
+</p>
+ </li>
+
+<li class="li">
+<p class="p">For Python applications, the names of parameters
+resemble the names in the CPLEX Interactive Optimizer, modified for
+the syntax of a Python application. For example, the command in the
+Interactive Optimizer <span class="keyword cmdname">set mip cuts mcfcut</span> looks
+like this in a Python application:<code class="ph codeph">cplex.parameters.mip.cuts.set(mcfcut)</code>.</p>
+ </li>
+
+</ul>
+
+<p class="p"> The reference page of each parameter documents an integer
+that serves as a reference number or unique identifier for each parameter.
+That integer reference number corresponds to the value that each symbolic
+constant represents, as found in the <code class="ph codeph"> cplex.h  </code> , <code class="ph codeph"> cplexx.h  </code> , and <code class="ph codeph"> cpxconst.h  </code> 
+header files of the Callable Library (C API).</p>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/refparameterscplex.html">Parameters of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

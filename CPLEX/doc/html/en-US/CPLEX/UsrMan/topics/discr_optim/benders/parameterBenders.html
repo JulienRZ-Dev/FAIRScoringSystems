@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Parameter for Benders algorithm" />
+<meta name="abstract" content="Benders strategy parameter specifies how CPLEX applies Benders algorithm to your problem." />
+<meta name="Description" content="Benders strategy parameter specifies how CPLEX applies Benders algorithm to your problem." />
+<meta name="DC.subject" content="Benders algorithm, strategy, parameter, cut-generating linear program (CGLP), Benders strategy" />
+<meta name="keywords" content="Benders algorithm, strategy, parameter, cut-generating linear program (CGLP), Benders strategy" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="parameterBenders" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" />
+<title>Parameter for Benders algorithm</title>
+</head>
+<body id="parameterBenders"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Parameter for Benders algorithm</h1>
+
+
+
+ 
+<div class="body"><p class="shortdesc">Benders strategy parameter specifies how CPLEX applies 
+Benders algorithm to your problem.</p>
+
+<div class="p">The parameter, 
+<a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a>, 
+specifies to CPLEX how you want to apply Benders algorithm as a strategy to solve your model. 
+By <strong class="ph b">default</strong>, if you did not annotate your model to specify a decomposition, CPLEX executes 
+conventional branch and bound. If you annotated your model, CPLEX attempts to refine your decomposition 
+and applies Benders algorithm. 
+With this parameter, you can direct CPLEX to decompose your model and to apply its implementation 
+of Benders algorithm in one of these alternative ways:
+<ul class="ul">
+<li class="li">-1 OFF Execute conventional branch and bound; ignore any Benders annotations. 
+That is, do not use Benders algorithm even if a Benders partition of the current model is present.</li>
+ 
+<li class="li">0 AUTO <strong class="ph b">default</strong> Let CPLEX decide.</li>
+
+<li class="li">1 USER: CPLEX attempts to decompose your model strictly according to your annotations.</li>
+ 
+<li class="li">2 WORKERS: CPLEX decomposes your model by using your annotations as hints and refining the 
+decomposition where it can.
+    <ul class="ul">
+    <li class="li">CPLEX initially decomposes your model according to your annotations.</li>
+ 
+    <li class="li">CPLEX then attempts to refine that decomposition by further decomposing the specified subproblems.</li>
+
+    </ul>
+
+    This approach can be useful if you annotate certain variables to go into master, 
+    and all others to go into a single subproblem, which CPLEX can then decompose further for you.
+</li>
+ 
+<li class="li">3 FULL: CPLEX automatically decomposes your model, ignoring any annotations you may have supplied. 
+    <ul class="ul">
+    <li class="li">CPLEX puts all integer variables into the master. </li>
+ 
+    <li class="li">CPLEX puts all continuous variables into a subproblem. </li>
+ 
+    <li class="li">CPLEX further decomposes that subproblem, if possible.</li>
+
+    </ul>
+
+</li>
+
+</ul>
+
+</div>
+ 
+<p class="p">If you want CPLEX to apply a Benders strategy as it solves your problem, but you 
+do not specify <code class="ph codeph">cpxBendersPartition</code> annotations yourself, see the topic 
+<a class="xref" href="defaultDecomp.html" title="CPLEX implements a default Benders decomposition in certain situations.">Benders decomposition: CPLEX default</a> for an explanation of default CPLEX 
+decomposition.</p>
+ 
+
+<p class="p"><strong class="ph b">Algorithm for workers</strong></p>
+ 
+
+<p class="p">The parameter, 
+<a class="xref" href="../../../../Parameters/topics/WorkerAlgorithm.html" title="This parameter specifies which algorithm CPLEX should apply to solve subproblems of a Benders decomposition.">Benders worker algorithm</a>,
+lets you choose which algorithm CPLEX applies to solve the workers (that is, the subproblems) of 
+your decomposed Benders model.
+</p>
+
+
+<p class="p"><strong class="ph b">Tolerances for Benders algorithm</strong></p>
+ 
+
+<div class="p">In addition to the <a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+parameter, CPLEX also offers two other parameters to control tolerances specific to the Benders algorithm. 
+See the documentation of these parameters in the <em class="ph i">CPLEX Parameters Reference Manual</em> for more detail: 
+<ul class="ul"> 
+<li class="li"><a class="xref" href="../../../../Parameters/topics/BendersFeasCutTol.html" title="This parameter specifies a tolerance for the feasibility of cuts when CPLEX solves a model decomposed according to Benders algorithm.">Benders feasibility cut tolerance</a></li>
+ 
+<li class="li"><a class="xref" href="../../../../Parameters/topics/BendersOptCutTol.html" title="This parameter specifies a tolerance for the optimality of cuts when CPLEX solves a model decomposed according to Benders algorithm.">Benders optimality cut tolerance</a></li>
+ 
+</ul>
+ 
+</div>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" title="CPLEX implements Benders algorithm.">Benders algorithm</a></div>
+</div>
+</nav></div></body>
+</html>

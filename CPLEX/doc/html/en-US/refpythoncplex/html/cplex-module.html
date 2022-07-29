@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;cplex
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package cplex</h1><p class="nomargin-top"></p>
+<p>The CPLEX Python API.</p>
+<p>This package contains classes for accessing CPLEX from the Python
+programming language. The most important class defined by this package
+is the <a href="cplex.Cplex-class.html" class="link">Cplex</a> class, which provides methods for creating, modifying,
+querying, or solving an optimization problem, and for querying aspects of
+a solution.</p>
+<p>The <a href="cplex.exceptions-module.html" class="link">exceptions</a> module defines the exception classes that are raised
+during abnormal operation by the CPLEX Python API.</p>
+<p>The <a href="cplex.callbacks-module.html" class="link">callbacks</a> module defines callback classes that can be used to alter
+the behavior of the algorithms used by CPLEX.</p>
+<p>The constant <a href="cplex-module.html#infinity" class="link">infinity</a>, defined in the cplex package, should be used to
+set infinite upper and lower bounds.</p>
+<p>The classes <a href="cplex._internal._matrices.SparsePair-class.html" class="link">SparsePair</a> and <a href="cplex._internal._matrices.SparseTriple-class.html" class="link">SparseTriple</a> are used as input and output
+classes for sparse vector and sparse matrix output, respectively. See
+the documentation for individual methods for details about the usage
+of these classes.</p>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        20.1.0.0
+      </p>
+</div><!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Submodules</span></td>
+</tr>
+  <tr><td class="summary">
+  <ul class="nomargin">
+    <li class="private"> <strong class="uidlink"><a href="cplex._internal-module.html" onclick="show_private();">cplex._internal</a></strong>
+    <ul class="private">
+    <li> <strong class="uidlink"><a href="cplex._internal._anno-module.html">cplex._internal._anno</a></strong>: <em class="summary">Annotation API</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._baseinterface-module.html">cplex._internal._baseinterface</a></strong>: <em class="summary">Base-interface of the CPLEX API</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._callbackinfoenum-module.html">cplex._internal._callbackinfoenum</a></strong>: <em class="summary">A module for the CallbackInfo class.</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._constants-module.html">cplex._internal._constants</a></strong>: <em class="summary">Constants from the CPLEX C Callable Library</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._constantsenum-module.html">cplex._internal._constantsenum</a></strong>: <em class="summary">Enum constants from the CPLEX C Callable Library</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._matrices-module.html">cplex._internal._matrices</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._multiobj-module.html">cplex._internal._multiobj</a></strong>: <em class="summary">Multi-Objective API</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._multiobjsoln-module.html">cplex._internal._multiobjsoln</a></strong>: <em class="summary">Multi-Objective Solution API</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._parameter_classes-module.html">cplex._internal._parameter_classes</a></strong>: <em class="summary">Parameters for the CPLEX Python API.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="cplex._internal._parameter_hierarchy-module.html" onclick="show_private();">cplex._internal._parameter_hierarchy</a></strong>: <em class="summary">Parameter hierarchy for the CPLEX Python API.</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._parameters_auto-module.html">cplex._internal._parameters_auto</a></strong>: <em class="summary">Parameter information for the CPLEX Python API.</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._procedural-module.html">cplex._internal._procedural</a></strong>: <em class="summary">Wrapper functions for the CPLEX C Callable Library</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._pwl-module.html">cplex._internal._pwl</a></strong>: <em class="summary">Piecewise Linear API</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._pycplex-module.html">cplex._internal._pycplex</a></strong>    </li>
+    <li class="private"> <strong class="uidlink"><a href="cplex._internal._pycplex_platform-module.html">cplex._internal._pycplex_platform</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._solutionstrategyenum-module.html">cplex._internal._solutionstrategyenum</a></strong>: <em class="summary">A module for the SolutionStrategy class.</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex._internal._subinterfaces-module.html">cplex._internal._subinterfaces</a></strong>: <em class="summary">Sub-interfaces of the CPLEX API.</em>    </li>
+    </ul>
+    </li>
+    <li class="private"> <strong class="uidlink"><a href="cplex.aborter-module.html" onclick="show_private();">cplex.aborter</a></strong>: <em class="summary">Aborter API</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex.callbacks-module.html">cplex.callbacks</a></strong>: <em class="summary">Callback classes for the CPLEX Python API.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="cplex.constant_class-module.html" onclick="show_private();">cplex.constant_class</a></strong>: <em class="summary">A base class for classes that contain groups of constants.</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex.exceptions-module.html">cplex.exceptions</a></strong>: <em class="summary">Error codes and Exceptions raised by the CPLEX Python API.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="cplex.exceptions.error_codes-module.html">cplex.exceptions.error_codes</a></strong>: <em class="summary">Error codes returned by the Callable Library.</em>    </li>
+    <li> <strong class="uidlink"><a href="cplex.exceptions.errors-module.html">cplex.exceptions.errors</a></strong>: <em class="summary">Exceptions raised by the CPLEX Python API.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="cplex.model_info-module.html">cplex.model_info</a></strong>: <em class="summary">Modeling information IDs returned by the Callable Library.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="cplex.paramset-module.html" onclick="show_private();">cplex.paramset</a></strong>: <em class="summary">ParameterSet API</em>    </li>
+  </ul></td></tr>
+</table>
+
+<br />
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Classes</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cplex.aborter.Aborter-class.html" class="summary-name">Aborter</a><br />
+      Gracefully terminates the solve and tuning methods of CPLEX.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cplex._internal._matrices.SparsePair-class.html" class="summary-name">SparsePair</a><br />
+      A class for storing sparse vector data.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cplex._internal._matrices.SparseTriple-class.html" class="summary-name">SparseTriple</a><br />
+      A class for storing sparse matrix data.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cplex.paramset.ParameterSet-class.html" class="summary-name">ParameterSet</a><br />
+      A parameter set object for use with multi-objective optimization.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cplex.Stats-class.html" class="summary-name">Stats</a><br />
+      A class whose data members reflect statistics about a CPLEX
+problem.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cplex.Cplex-class.html" class="summary-name">Cplex</a><br />
+      A class encapsulating a CPLEX Problem.
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="infinity"></a><span class="summary-name">infinity</span> = <code title="1e+20">1e+20</code><br />
+      See CPX_INFBOUND in the C API.
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

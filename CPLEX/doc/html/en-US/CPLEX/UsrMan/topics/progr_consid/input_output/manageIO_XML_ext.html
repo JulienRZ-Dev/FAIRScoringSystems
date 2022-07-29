@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using Concert XML extensions" />
+<meta name="abstract" content="Describes facilities for serialization of models and solutions." />
+<meta name="Description" content="Describes facilities for serialization of models and solutions." />
+<meta name="DC.subject" content="serializing, model, XML representation of, solution, XML, Concert Technology and, serializing model, solution" />
+<meta name="keywords" content="serializing, model, XML representation of, solution, XML, Concert Technology and, serializing model, solution" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_manageIO.1040754" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_synopsis.html" />
+<title>Using Concert XML extensions</title>
+</head>
+<body id="User_manual.uss_manageIO.1040754"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Using Concert XML extensions</h1>
+<div class="body"><p class="shortdesc">Describes facilities for serialization of models and
+solutions.</p>
+
+<p class="p">Concert Technology for C++ users offers a suite of classes
+for serializing CPLEX models (that is, instances of <code class="ph codeph">IloModel</code> )
+and solutions (that is, instances of <code class="ph codeph">IloSolution</code> )
+through XML. The <em class="ph i">CPLEX C++ API Reference
+Manual</em> documents the XML serialization API in the
+group <code class="ph codeph">optim.concert.xml</code>. That group includes
+these classes:</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloXmlContext</code> 
+allows you to serialize an instance of <code class="ph codeph">IloModel</code> 
+or <code class="ph codeph">IloSolution</code> . This class offers methods
+for reading and writing a model, a solution, or both a model and a
+solution together. There are examples of how to use this class in
+the reference manual.</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloXmlInfo</code> 
+offers methods that enable you to validate the XML serialization of
+elements, such as numeric arrays, integer arrays, variables, and other
+extractables from your model or solution. </p>
+
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloXmlReader</code> 
+creates a reader in an environment (that is, in an instance of <code class="ph codeph">IloEnv</code> ).
+This class offers methods to check runtime type information (RTTI),
+to recognize hierarchic relations between objects, and to access attributes
+of objects in your model or solution.</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloXmlWriter</code> 
+creates a writer in an environment (that is, in an instance of <code class="ph codeph">IloEnv</code> ).
+This class offers methods to access elements and to convert their
+types as needed in order to serialize elements of your model or solution.</p>
+
+</li>
+</ul>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">There is a fundamental difference between writing an
+XML file of a model and writing an LP/MPS/SAV file of the same extracted
+model. If the model contains piecewise linear elements (PWL), or other
+nonlinear features, the XML file will represent the model as such.
+In contrast, the LP/MPS/SAV file will represent only the transformed
+model. That transformed model obscures these nonlinear features because
+of the automatic transformation that took place.  </p>
+
+</div>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_synopsis.html" title="Describes input to and output from CPLEX.">Managing input and output</a></div>
+</div>
+</nav></div></body>
+</html>

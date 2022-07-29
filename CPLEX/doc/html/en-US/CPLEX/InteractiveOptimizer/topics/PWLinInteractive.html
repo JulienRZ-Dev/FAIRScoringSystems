@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Piecewise linear (PWL) in the Interactive Optimizer" />
+<meta name="abstract" content="The Interactive Optimizer supports piecewise linear (PWL) expressions." />
+<meta name="Description" content="The Interactive Optimizer supports piecewise linear (PWL) expressions." />
+<meta name="DC.subject" content="Interactive Optimizer, piecewise linear (PWL), piecewise linear" />
+<meta name="keywords" content="Interactive Optimizer, piecewise linear (PWL), piecewise linear" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/interactiveoptimizercommands.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Interactive_optimizer_piecewiselinear" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/interactiveoptimizercommands.html" />
+<title>Piecewise linear (PWL) in the Interactive Optimizer</title>
+</head>
+<body id="Interactive_optimizer_piecewiselinear"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Piecewise linear (PWL) in the Interactive Optimizer</h1>
+ 
+ 
+
+<div class="body"><p class="shortdesc">The Interactive Optimizer supports piecewise linear (PWL) expressions. </p>
+ 
+<p class="p">The Interactive Optimizer supports piecewise linear (PWL) constraints in the usual ways 
+that it supports other constraints of your model. Whether you read your model from a 
+formatted file (such as LP or MPS, for example), or from a binary SAV file, or whether you enter your 
+model with the <span class="keyword apiname">add</span> command, you must declare the breakpoints of any 
+piecewise linear constraints in increasing order of their x-coordinates, so that CPLEX 
+can manipulate them as you intend.
+</p>
+ 
+<section class="section"><h2 class="title sectiontitle">Enter</h2> 
+ 
+<p class="p">As you enter your model, you can type your piecewise linear constraint 
+(as you type other constraints of your model), 
+and then press Enter from the keyboard.</p>
+
+</section>
+ 
+
+<section class="section"><h2 class="title sectiontitle">Add</h2> 
+ 
+<p class="p">After you have entered a model in the Interactive Optimizer, 
+you can also use the <span class="keyword apiname">add</span> command (as you 
+would to add other constraints to your model).</p>
+
+</section>
+ 
+
+<section class="section"><h2 class="title sectiontitle">Read</h2> 
+ 
+<p class="p">If you enter your model by reading a formatted file with the 
+<span class="keyword apiname">read</span> command, you can take advantage of the PWL 
+section of the LP or MPS file formats. For syntax of the PWL section 
+in the LP file format, see 
+<a class="xref" href="../../FileFormats/topics/LP_PWL.html" title="CPLEX conforms to these rules about piecewise linear (PWL) constraints in LP file format.">Piecewise linear (PWL) constraints in LP file format</a>. 
+Likewise, for syntax of the PWL section in the MPS file format, see 
+<a class="xref" href="../../FileFormats/topics/MPS_ext_PWL.html" title="CPLEX extensions of MPS file format support piecewise linear (PWL) constraints.">Piecewise linear (PWL) constraints in MPS files</a>. 
+</p>
+
+</section>
+
+
+
+</div>
+ 
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/interactiveoptimizercommands.html">Interactive Optimizer of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

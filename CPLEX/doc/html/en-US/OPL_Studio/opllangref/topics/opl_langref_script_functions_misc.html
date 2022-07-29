@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Miscellaneous functions" />
+<meta name="abstract" content="Provides a reference of miscellaneous functions in IBM ILOG Script." />
+<meta name="Description" content="Provides a reference of miscellaneous functions in IBM ILOG Script." />
+<meta name="DC.subject" content="script functions, miscellaneous, functions in ILOG Script, includeScript function, loadFile function, stop function, eval function, fail function" />
+<meta name="keywords" content="script functions, miscellaneous, functions in ILOG Script, includeScript function, loadFile function, stop function, eval function, fail function" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_values.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1010406" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values.html" />
+<title>Miscellaneous functions</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1010406"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Miscellaneous functions</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a reference of miscellaneous functions in IBM
+ILOG Script.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists miscellaneous functions and describes their effect." id="usropllangref.uss_langref_scriptValues.1010406__usropllangref.uss_langref_scriptValues.1010409" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Miscellaneous functions</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d482347e63">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d482347e66">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d482347e63 ">stop()</td>
+
+<td class="entry" valign="top" headers="d482347e66 ">Stops the execution of the program at the current statement
+and, if the debugger is enabled, enters debug mode. </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d482347e63 "><p class="p"><code class="ph codeph">write</code> (<em class="ph i">arg1</em>, ..., <em class="ph i">argn</em>)</p>
+<p class="p"></p>
+<p class="p"><code class="ph codeph">writeln</code> (<em class="ph i">arg1</em>,
+..., <em class="ph i">argn</em>)</p>
+</td>
+
+<td class="entry" valign="top" headers="d482347e66 ">Converts the arguments to strings and prints them to the current debug output. The
+implementation depends on the application in which IBM ILOG Script is embedded. The function
+<code class="ph codeph">writeln</code> prints a newline at the end of the output, while <code class="ph codeph">write</code>
+does not. <a class="xref" href="#usropllangref.uss_langref_scriptValues.1010406__noteWriteLine">See the note on <span class="keyword apiname">writeLine</span> in this topic</a>.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d482347e63 ">loadFile(<em class="ph i">string</em>)</td>
+
+<td class="entry" valign="top" headers="d482347e66 ">Loads the script file whose path is <code class="ph codeph">string</code>.
+The path can be either absolute or relative. If this path does not
+designate an existing file, the file is looked up using a method that
+depends on the application in which the script is embedded. Typically,
+a file with the name <code class="ph codeph">string</code> is searched for in a
+list of directories specified in the application setup.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d482347e63 ">includeScript(<em class="ph i">string</em>)<p class="p"></p>
+<p class="p">For use
+in OPL.</p>
+</td>
+
+<td class="entry" valign="top" headers="d482347e66 ">Loads the script file whose path is <code class="ph codeph">string</code>.
+The path can be either absolute or relative. If this path does not
+designate an existing file, the file is looked up using a method that
+depends on the application in which the script is embedded. Typically,
+a file with the name <code class="ph codeph">string</code> is searched for in a
+list of directories specified in the application setup.<p class="p">The effect
+of this function is the same as for <code class="ph codeph">loadFile</code>. In
+OPL, you have to use <code class="ph codeph">includeScript</code>, as the function <code class="ph codeph">loadFile</code> does
+not recognize OPL objects, such as <code class="ph codeph">thisOplModel</code>.</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d482347e63 ">eval(<em class="ph i">string</em>) </td>
+
+<td class="entry" valign="top" headers="d482347e66 "><p class="p">Executes <code class="ph codeph">string</code> as a program, and returns
+the value of the last evaluated expression. The program in <code class="ph codeph">string</code> can
+use all the features of the language, except that it cannot define
+functions; in other words, the function statement is not allowed in <code class="ph codeph">string</code>.</p>
+<p class="p">Examples:</p>
+<p class="p">eval("2*3")
+-&gt; 6</p>
+<p class="p"> </p>
+eval("var i=0; for (var j=0; j&lt;100; j++) i=i+j;
+i") -&gt; 4950   n=25; eval("Math.sqrt(n)") -&gt; 5   eval("function
+foo(x) { return x+1 }") -&gt; error </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d482347e63 ">fail()</td>
+
+<td class="entry" valign="top" headers="d482347e66 "><p class="p">Stops the execution of the scripting block at the current
+statement, reports an error, and goes on.</p>
+<p class="p">Example:</p>
+<p class="p">execute
+b1 { writeln("A"); fail(); writeln("B"); }  execute b2 {writeln("C");
+}</p>
+<p class="p">gives</p>
+<p class="p">A C</p>
+<p class="p">as the output</p>
+<p class="p">and reports an error
+line 4</p>
+<p class="p">Scripting runtime error: fail() called.</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="note note" id="usropllangref.uss_langref_scriptValues.1010406__noteWriteLine"><span class="notetitle">Note:</span> IBM ILOG Script is implemented based on JavaScript ECMA-262 2nd edition.
+JavaScript only knows Numbers; it does not have a real notion of integers and floats. Numbers are 64
+bits, whereas integers are 32 bits. All computations are done on Numbers so are 64bits. When calling
+<span class="keyword apiname">toString</span> on Numbers, JavaScript will have to handle the case of integers and so
+will behave on the display as 32bit for them. <div class="p"><span class="keyword apiname">Writeln</span> is implemented as follows:<ul class="ul">
+<li class="li">If the number is nan, it will return "NaN"</li>
+
+<li class="li">If the number is infinity =&gt; "Infinity"</li>
+
+<li class="li">If the number is 0.0 =&gt; "0"</li>
+
+<li class="li">If the number has the value of an integer, then the string is the same as if it were printed
+using <code class="ph codeph">sprintf("%d")</code>. If the integer has an absolute value bigger than 2147483647,
+then it is replaced by +2147483647 or -2147483647 before printing. Note that this also applies to
+integers that are specified as floating point numbers, like, for example, 1e75.</li>
+
+<li class="li">If the number is a fractional number, then the display format depends on the absolute value of
+the number. If the absolute value is in [1e-6, 1e10], then the number is displayed with 9 decimal
+digits. Otherwise, it is printed in scientific format.</li>
+
+</ul>
+Any 0 at the end will be erased, so a string representing a floating point number should not
+end in zero.</div>
+<p class="p">The precision setting of OPL can only control printing performed by OPL:
+<span class="keyword apiname">writeln</span> of objects, <span class="keyword apiname">printInternalData</span>,
+<span class="keyword apiname">printExternalData</span>. There is no precision control for <span class="keyword apiname">writeln</span>
+of
+primitives.</p>
+<pre class="pre codeblock"><code>execute{
+writeln(0);
+writeln(0.0);
+writeln(0.567);
+writeln(-0.567);
+writeln(-20.0);
+writeln(-20);
+writeln(-5.123456786742);
+writeln(-200000000000);
+writeln(-200000000000.5);
+writeln(0.000002340);
+}
+
+will output
+
+0
+0
+0.567
+-0.567
+-20
+-20
+-5.123456787
+-2147483648
+-2.000000000e+11
+2.340000000e-06
+&gt;&gt;</code></pre></div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values.html" title="Presents the built-in values and functions of the IBM ILOG Script language for OPL: numbers, strings, Booleans, arrays, objects, dates, the null and undefined values, functions.">Built-in values and functions</a></div>
+</div>
+</nav></div></body>
+</html>

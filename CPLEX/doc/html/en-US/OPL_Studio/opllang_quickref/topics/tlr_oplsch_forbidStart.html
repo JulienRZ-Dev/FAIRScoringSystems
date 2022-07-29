@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="forbidStart" />
+<meta name="abstract" content="OPL constraint (scheduling) to limit the start of an interval variable." />
+<meta name="Description" content="OPL constraint (scheduling) to limit the start of an interval variable." />
+<meta name="DC.subject" content="forbidStart, interval constraint, interval, forbidStart constraint" />
+<meta name="keywords" content="forbidStart, interval constraint, interval, forbidStart constraint" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_forbidExtent.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_forbidEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_interval.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_stepFunc.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Ulv1snwj" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>forbidStart</title>
+</head>
+<body id="Ulv1snwj"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">forbidStart</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL constraint (scheduling) to limit the start of an interval
+variable.</p>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:50%" /><col style="width:50%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d444650e39" class="stentry">context</th>
+
+<th style="vertical-align:bottom;text-align:left;" id="d444650e42" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d444650e39" class="stentry">Model files (.mod)</td>
+
+<td style="vertical-align:top;" headers="d444650e42" class="stentry">
+<pre class="pre msgblock">boolean</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+forbidStart(a, F);
+
+Where:
+
+dvar interval a;
+stepFunction F;
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">This constraint is used to indicate
+that a given interval variable cannot start at a particular date.
+Let <em class="ph i">a</em> denote a fixed interval and <em class="ph i">F</em> an integer stepwise
+function. The constraint <em class="ph i">forbidStart(a, F)</em>, states that whenever
+the interval is present, it cannot start at a value <em class="ph i">t</em> where <em class="ph i">F(t)
+= 0</em>.</p>
+<div class="note note"><span class="notetitle">Note:</span> This constraint cannot be used in a meta-constraint.</div>
+</section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><p class="p">The following constraint will prevent interval variable <em class="ph i">a</em> to start in any interval [7i, 7i
++ 5) for <strong class="ph b">i</strong> in [0, 51]:</p>
+<pre class="pre msgblock">stepFunction F = stepwise(i in 0..51, p in 0..1) {
+    100*p -&gt; (7*i)+(5*p) ; 0 };
+dvar interval a size 14;
+constraints {
+   forbidStart(a, F);
+};</pre>
+</div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_oplsch_forbidExtent.html" title="OPL constraint (scheduling) to affect the extent of an interval variable.">forbidExtent</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_forbidEnd.html" title="OPL constraint (scheduling) to limit the end of an interval variable.">forbidEnd</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_interval.html" title="OPL keyword (CP, scheduling) for interval variables.">interval</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_stepFunc.html" title="OPL keyword to create a stepwise linear function">stepFunction</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

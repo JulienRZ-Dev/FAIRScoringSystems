@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using engine extensions" />
+<meta name="abstract" content="Before a model is solved, the optimizer engine extracts the modeling objects into engine objects. These engine objects contain the necessary elements for the optimization." />
+<meta name="Description" content="Before a model is solved, the optimizer engine extracts the modeling objects into engine objects. These engine objects contain the necessary elements for the optimization." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/advcpoptimizer.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_overview.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_when.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="HYVcfy1u" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/advcpoptimizer.html" />
+<title>Using engine extensions</title>
+</head>
+<body id="HYVcfy1u"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Using engine extensions</h1>
+<p class="shortdesc">Before a model is solved, the optimizer engine extracts
+the modeling objects into engine objects. These engine objects contain
+the necessary elements for the optimization.</p>
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_overview.html">Overview</a></strong><br />
+Engine extensions provide flexibility for writing custom constraints and custom constructive search.</li>
+<li class="link ulchildlink"><strong><a href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_when.html">When to use engine extensions</a></strong><br />
+Engine extensions should be used only after determining that the predefined constraints and search strategies do not fit your needs.</li>
+<li class="link ulchildlink"><strong><a href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html">Model extraction</a></strong><br />
+CP Optimizer does not work directly on the objects in the model. Instead it creates  engine objects corresponding to the different modeling objects of the model, and performs propagation and search on these engine objects. This can be ignored for a normal use of CP Optimizer, but for a more advanced use, which needs the  engine extensions API, a little bit more have to be known.</li>
+<li class="link ulchildlink"><strong><a href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html">Engine extension API classes</a></strong><br />
+When using the engine extensions API of CP Optimizer, you will need to use the internal engine object classes instead of only the modeling classes. These internal classes are prefixed with <code class="ph codeph">Ilc</code>.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/advcpoptimizer.html">CP Optimizer Extensions User’s Manual</a></div>
+</div>
+</nav></div></body>
+</html>

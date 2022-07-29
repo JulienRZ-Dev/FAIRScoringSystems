@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Operators" />
+<meta name="abstract" content="Presents OPL and IBM ILOG Script operators and their order of precedence." />
+<meta name="Description" content="Presents OPL and IBM ILOG Script operators and their order of precedence." />
+<meta name="DC.subject" content="operators, precedence order of operators, OPL operators, order of precedence, Script operators, order of precedence" />
+<meta name="keywords" content="operators, precedence order of operators, OPL operators, order of precedence, Script operators, order of precedence" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_operators_and_syntax_top.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="DZMPAjZ4" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_operators_and_syntax_top.html" />
+<title>Operators</title>
+</head>
+<body id="DZMPAjZ4"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Operators</h1>
+
+
+
+<div class="body"><p class="shortdesc">Presents OPL and IBM ILOG Script operators and their order
+of precedence.</p>
+
+
+<p class="p">Traditional relational operators <code class="ph codeph">==</code>, <code class="ph codeph">!=</code>, <code class="ph codeph">&gt;=</code>, <code class="ph codeph">&gt;</code>, <code class="ph codeph">&lt;,</code> and <code class="ph codeph">&lt;=</code> are
+used with:</p>
+
+<ul class="ul">
+<li class="li"><p class="p">integer expressions to construct integer relations</p>
+</li>
+
+<li class="li"><p class="p">float expressions to construct float relations</p>
+</li>
+
+<li class="li"><p class="p">string expressions to construct string relations.</p>
+</li>
+
+</ul>
+
+
+<p class="p">Relations can be combined by using the traditional logical operators:</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><code class="ph codeph">!</code> (negation)</p>
+ </li>
+
+<li class="li"><p class="p"><code class="ph codeph">||</code> (disjunction)</p>
+ </li>
+
+<li class="li"><p class="p"><code class="ph codeph">&amp;&amp;</code> (conjunction)</p>
+</li>
+
+</ul>
+
+<section class="section" id="DZMPAjZ4__oplhelp.opl_operators.1008357"><h2 class="title sectiontitle">OPL operators</h2><p class="p">The
+OPL operators are listed here in a decreasing order of precedence.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists the operators by class in decreasing order of precedence." class="table ShadedHead" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry thleft" align="left" valign="top" id="d411429e118">Class</th>
+
+<th class="entry thleft" align="left" valign="top" id="d411429e121">Operator</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Aggregate </td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">all</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Binary<sup class="ph sup">1</sup></td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">^</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Aggregate</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">prod inter</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Binary</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">* / div % mod inter</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Aggregate</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">sum max min union</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Unary</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">+ - !</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Binary</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">+ - union diff symdiff</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Range</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">..</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Membership</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><p class="p"><code class="ph codeph">in</code></p>
+<p class="p"><code class="ph codeph">not in</code></p>
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Relational</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">== &lt;= &gt;= &lt; &gt; != (&lt;=.&lt;=) (&gt;=.&gt;=)</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Logical</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">&amp;&amp; and</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Logical</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">|| or</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Logical</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">=&gt;</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" align="left" valign="top" headers="d411429e118 ">Ternary</td>
+
+<td class="entry tdleft" align="left" valign="top" headers="d411429e121 "><code class="ph codeph">?:</code></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry tdleft" colspan="2" align="left" valign="top" headers="d411429e118 d411429e121 "><sup class="ph sup">1</sup> <code class="ph codeph">^</code> means
+power in OPL and bitwise xor in Script</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p paragrouptitle">Example</p>
+<pre class="pre codeblock"><code>range r=1..2;
+
+int x[r]=[2,3];
+
+// The priority of sum is greater than the priority of +
+int s=sum(i in r) x[i] + 1;
+
+execute
+{
+ writeln("s = ",s);  
+}
+</code></pre><p class="p paragrouptitle">Result</p>
+<pre class="pre codeblock"><code>s = 6</code></pre></section>
+
+<section class="section" id="DZMPAjZ4__bzgRMFGq"><h2 class="title sectiontitle">Script operators</h2><p class="p">The IBM ILOG
+Script operators are listed here in a decreasing order of precedence.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table that lists IBM ILOG Script operators and the operation performed in decreasing order of precedence." id="DZMPAjZ4__usropllangref.uss_langref_scriptStructure.1020463" class="table ShadedHead" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d411429e319">Precedence</th>
+
+<th class="entry thleft" align="left" valign="top" id="d411429e322">Operators</th>
+
+<th class="entry thleft" align="left" valign="top" id="d411429e325">Operation performed</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">1</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">[] . new</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 "> </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">2</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">() [] .</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">function call</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">3</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">++ --</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">postfix increment, postfix decrement</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" rowspan="3" valign="top" headers="d411429e319 ">4</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">delete void typeof</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 "><p class="p">delete, undefined return, return type</p>
+<p class="p"></p>
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">++ -- + -</code></td>
+
+<td class="entry" valign="top" headers="d411429e325 ">prefix increment, prefix decrement, unary plus, unary minus</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">~ !</code></td>
+
+<td class="entry" valign="top" headers="d411429e325 ">bitwise not, logical not</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">5</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">* / %</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">multiplication, division, remainder</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">6</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">+ -</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">addition, subtraction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">7</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">&lt;&lt; &gt;&gt; &gt;&gt;&gt;</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">bitwise left shift, signed right shift, unsigned right shift</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" rowspan="3" valign="top" headers="d411429e319 ">8</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">&lt; &lt;= &gt; &gt;=</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">less than, less than or equal to, greater than, greater than
+or equal to</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">instanceof</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">call HasInstance method</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e322 ">in</td>
+
+<td class="entry" valign="top" headers="d411429e325 ">call HasProperty method</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">9</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">== != === !==</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">is equal, is not equal, is strictly equal, is strictly not
+equal</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">10</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">&amp;</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">bitwise and</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">11<sup class="ph sup">1</sup></td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">^</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">bitwise xor</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">12</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">|</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">bitwise or</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">13</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">&amp;&amp;</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">logical and</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">14</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">||</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">logical or</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">15</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">?:</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">conditional expression</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" rowspan="2" valign="top" headers="d411429e319 ">16</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">=</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">Assignment</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">*= /= %= += -= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;=
+^= |=</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">Assignment with ... </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d411429e319 ">17</td>
+
+<td class="entry" valign="top" headers="d411429e322 "><code class="ph codeph">,</code> </td>
+
+<td class="entry" valign="top" headers="d411429e325 ">Sequential evaluation</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" colspan="3" valign="top" headers="d411429e319 d411429e322 d411429e325 "><sup class="ph sup">1</sup> <code class="ph codeph">^</code> means
+power in OPL and bitwise xor in Script</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_operators_and_syntax_top.html" title="Provides the operators for OPL and IBM ILOG Script, and the grammar for OPL and data files.">OPL Operators and OPL Syntax</a></div>
+</div>
+</nav></div></body>
+</html>

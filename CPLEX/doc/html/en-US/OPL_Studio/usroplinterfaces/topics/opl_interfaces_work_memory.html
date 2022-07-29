@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Memory management" />
+<meta name="abstract" content="Provides recommendations to manage memory in Concert applications." />
+<meta name="Description" content="Provides recommendations to manage memory in Concert applications." />
+<meta name="DC.subject" content="memory allocation and management, end method, IloEnv class, IloOplModel class" />
+<meta name="keywords" content="memory allocation and management, end method, IloEnv class, IloOplModel class" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplinterfaces/topics/opl_interfaces_work.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllib.uss_lib_opl.1010487" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplinterfaces/topics/opl_interfaces_work.html" />
+<title>Memory management</title>
+</head>
+<body id="usropllib.uss_lib_opl.1010487"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Memory management</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides recommendations to manage memory in Concert applications.</p>
+
+<p class="p">The recommended way to manage memory in Concert applications is
+to use the method <span class="keyword apiname">IloEnv.end</span> to clear all the memory
+currently in use.</p>
+
+<p class="p">If you need more control on the memory used by your OPL objects, <span class="keyword apiname">IloOplModel</span> objects
+offer the method <span class="keyword apiname">end</span>.</p>
+
+<p class="p">In the default case, after an OPL model instance has been ended,
+all its Concert objects that correspond to data elements are still
+available. After the method <code class="ph codeph">end</code>, no objects remain.
+The following table summarizes the availability of Concert objects
+accessed through OPL elements.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four column table that lists the OPL elements providing access to Concert objects, their definitions, whether they are available after the end method, and whether they are available after the postProcess method." id="usropllib.uss_lib_opl.1010487__usropllib.uss_lib_opl.1018430" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Availability of Concert objects</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d599116e88">OPL Element</th>
+
+<th class="entry thleft" align="left" valign="top" id="d599116e91">Definition</th>
+
+<th class="entry thleft" align="left" valign="top" id="d599116e94">Available after end()</th>
+
+<th class="entry thleft" align="left" valign="top" id="d599116e97">Available after second postProcess()</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d599116e88 ">external data</td>
+
+<td class="entry" valign="top" headers="d599116e91 ">elements read from a data source</td>
+
+<td class="entry" valign="top" headers="d599116e94 ">no</td>
+
+<td class="entry" valign="top" headers="d599116e97 ">yes</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d599116e88 ">internal data</td>
+
+<td class="entry" valign="top" headers="d599116e91 ">elements initialized inside the .mod file</td>
+
+<td class="entry" valign="top" headers="d599116e94 ">no</td>
+
+<td class="entry" valign="top" headers="d599116e97 ">yes</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d599116e88 ">dvar array solution value</td>
+
+<td class="entry" valign="top" headers="d599116e91 ">An array with values of decision variables for the current
+solution, available by calling the method asIntMap() or asNumMap()
+for a dvar array element</td>
+
+<td class="entry" valign="top" headers="d599116e94 ">no</td>
+
+<td class="entry" valign="top" headers="d599116e97 ">no</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d599116e88 ">postprocessing</td>
+
+<td class="entry" valign="top" headers="d599116e91 ">All elements declared for postprocessing</td>
+
+<td class="entry" valign="top" headers="d599116e94 ">no</td>
+
+<td class="entry" valign="top" headers="d599116e97 ">no</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p">When the <code class="ph codeph">postProcess</code> method is called multiple
+times, as when processing intermediate feasible solutions, the second
+call ends the objects created for the first call.</p>
+
+<p class="p">See these two stock-cutting examples:</p>
+
+<p class="p"><a class="xref" href="../../../examples/html/opl/cutstock/cutstock_main.mod.html"><span class="ph filepath">&lt;Install_dir&gt;\opl\examples\opl\cutstock\cutstock_main.mod</span></a></p>
+
+<p class="p"><a class="xref" href="../../../examples/html/opl/cutstock/cutstock_int_main.mod.html"><span class="ph filepath">&lt;Install_dir&gt;\opl\examples\opl\cutstock\cutstock_int_main.mod</span></a></p>
+
+<p class="p">where <span class="ph filepath">&lt;Install_dir&gt;</span> is your installation
+directory.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplinterfaces/topics/opl_interfaces_work.html" title="Explains in more general terms how to work with the OPL C++, Java and .NET Interfaces. This section is also illustrated by code samples for each language.">Working with OPL interfaces</a></div>
+</div>
+</nav></div></body>
+</html>

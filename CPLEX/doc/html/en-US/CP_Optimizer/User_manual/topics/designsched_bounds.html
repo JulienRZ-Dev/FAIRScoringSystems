@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Specifying interval bounds" />
+<meta name="abstract" content="Though there are various methods for restricting bounds on interval variables, specifying the bounds in the declaration of the interval variable is recommended." />
+<meta name="Description" content="Though there are various methods for restricting bounds on interval variables, specifying the bounds in the declaration of the interval variable is recommended." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/designsched.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="DuvKST68" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/designsched.html" />
+<title>Specifying interval bounds</title>
+</head>
+<body id="DuvKST68"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Specifying interval bounds</h1>
+<div class="body"><p class="shortdesc">Though there are various methods for restricting bounds
+on interval variables, specifying the bounds in the declaration of
+the interval variable is recommended.</p>
+
+<p class="p">If you have to specify a minimal start time, a maximal
+end time or a range of possible values for the size of an interval,
+it is recommended specify these values in the declaration of the interval
+itself rather than through expressions <code class="ph codeph">IloStartOf</code>, <code class="ph codeph">IloEndOf</code>,
+and <code class="ph codeph">IloSizeOf</code>.  </p>
+
+<p class="p">Specifying the values at the time of declaration avoids
+difficulties related to the optionality of intervals variables. For
+instance, the following code segments are not equivalent:</p>
+
+<pre class="pre codeblock"><code>IloIntervalVar a(env, 10, 20, IloTrue);
+</code></pre>
+<p class="p">and</p>
+
+<pre class="pre codeblock"><code>IloIntervalVar a(env);
+a.setOptional();
+m.add(IloSizeOf(a) &gt;= 10);
+m.add(IloSizeOf(a) &lt;= 20);
+</code></pre>
+<p class="p">The first sample specifies a range for the size of the
+interval variable if the interval is present. In particular, the model
+will be consistent even if <code class="ph codeph">a</code> is absent.
+The second sample will be inconsistent if <code class="ph codeph">a</code> is
+absent because the default value of <code class="ph codeph">IloStartOf(a)</code> will
+be 0 if <code class="ph codeph">a</code> is absent. An equivalent model
+would be something like:</p>
+
+<pre class="pre codeblock"><code>IloIntervalVar a(env);
+a.setOptional();
+m.add(IloSizeOf(a,10) &gt;= 10);
+m.add(IloSizeOf(a,0) &lt;= 20);
+</code></pre>
+<p class="p">Additionally, specifying the range at the declaration
+of the interval is more effective in the optimizer. </p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/designsched.html" title="Although developing scheduling models for CP Optimizer can be straightforward, there are some principles that you should consider while working on a model.">Designing scheduling models</a></div>
+</div>
+</nav></div></body>
+</html>

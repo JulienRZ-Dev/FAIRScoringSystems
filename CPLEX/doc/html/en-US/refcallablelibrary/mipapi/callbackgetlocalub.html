@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbackgetlocalub and CPXcallbackgetlocalub" />
+<meta name="abstract" content="The routine CPXXcallbackgetlocalub/CPXcallbackgetlocalub retrieves the upper bound values for the subproblem at the current node during MIP optimization from within a user-written callback." />
+<meta name="Description" content="The routine CPXXcallbackgetlocalub/CPXcallbackgetlocalub retrieves the upper bound values for the subproblem at the current node during MIP optimization from within a user-written callback." />
+<meta name="DC.subject" content="CPXcallbackgetlocalub, C API Reference Manual, CPXXcallbackgetlocalub" />
+<meta name="keywords" content="CPXcallbackgetlocalub, C API Reference Manual, CPXXcallbackgetlocalub" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="callbackgetlocallb.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackgetlocalub" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXcallbackgetlocalub and CPXcallbackgetlocalub</title>
+</head>
+<body id="callbackgetlocalub"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbackgetlocalub</span> and <span class="keyword apiname">CPXcallbackgetlocalub</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetlocalub</span>/<span class="keyword apiname">CPXcallbackgetlocalub</span></code>
+ retrieves the upper bound values for the subproblem at the current node
+ during MIP optimization from within a user-written callback.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbackgetlocalub</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">ub</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">end</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbackgetlocalub</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXTptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">ub</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">end</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+      <p class="p">
+        The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetlocalub</span>/<span class="keyword apiname">CPXcallbackgetlocalub</span></code>
+        retrieves the upper bound values for the subproblem at the current node
+        during MIP optimization from within a user-written callback.
+      </p>
+
+      <div class="p">
+         The routine can only be invoked if the current node is available.
+         Precisely, the routine can only be invoked in the contexts:
+         <ul class="ul">
+            <li class="li">
+               <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a>,
+            </li>
+
+            <li class="li">
+               <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a>,
+            </li>
+
+            <li class="li">
+               <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a>,
+               but only if the candidate solution comes from an integer feasible node
+               (that is, the routine <a class="xref" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a> invoked
+               with <code class="ph codeph">CPXCALLBACKINFO_CANDIDATE_SOURCE</code> returns the value <code class="ph codeph">CPX_LAZYCONSTRAINTCALLBACK_NODE</code>).
+            </li>
+
+         </ul>
+
+      </div>
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">context</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The callback context as passed into the callback function.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">ub</dt>
+
+        <dd class="dd pd">
+          
+          An array to receive the values of the upper bound values. This array must be of length at least (<code class="ph codeph"><span class="keyword parmname">end</span>-<span class="keyword parmname">begin</span>+1</code>). If successful, <code class="ph codeph"><span class="keyword parmname">ub</span>[0]</code> through <code class="ph codeph"><span class="keyword parmname">ub</span>[<span class="keyword parmname">end</span>-<span class="keyword parmname">begin</span>]</code> contain the upper bound values for the current subproblem.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">begin</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the beginning of the range of upper bounds to be returned.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">end</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the end of the range of upper bounds to be returned.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXcallbackgetlocalub (context, ub, 0, cols-1);
+ </code></pre>
+
+    </section>
+
+  </div>
+
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="callbackgetlocallb.html" title="The routine CPXXcallbackgetlocallb/CPXcallbackgetlocallb retrieves the lower bound values for the subproblem at the current node during MIP optimization from within a user-written callback."><code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetlocallb</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXcallbackgetlocallb</span></code></a></li></ul></div>
+</nav>
+</div></body>
+</html>

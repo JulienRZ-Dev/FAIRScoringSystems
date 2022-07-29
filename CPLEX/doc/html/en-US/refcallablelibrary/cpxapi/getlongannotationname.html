@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetlongannotationname and CPXgetlongannotationname" />
+<meta name="abstract" content="The routine CPXXgetlongannotationname/CPXgetlongannotationname accesses the name of the long valued annotation with the specified index in a CPLEX problem object." />
+<meta name="Description" content="The routine CPXXgetlongannotationname/CPXgetlongannotationname accesses the name of the long valued annotation with the specified index in a CPLEX problem object." />
+<meta name="DC.subject" content="CPXgetlongannotationname, C API Reference Manual, CPXXgetlongannotationname" />
+<meta name="keywords" content="CPXgetlongannotationname, C API Reference Manual, CPXXgetlongannotationname" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getlongannotationname" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<title>CPXXgetlongannotationname and CPXgetlongannotationname</title>
+</head>
+<body id="getlongannotationname"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetlongannotationname</span> and <span class="keyword apiname">CPXgetlongannotationname</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine
+<code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotationname</span>/<span class="keyword apiname">CPXgetlongannotationname</span></code> accesses the name of
+the long valued annotation with the specified index in a CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetlongannotationname</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">idx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char *</span><span class="ph sep"> </span><span class="ph var">buf_str</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXSIZE</span><span class="ph sep"> </span><span class="ph var">bufspace</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXSIZE *</span><span class="ph sep"> </span><span class="ph var">surplus_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetlongannotationname</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">idx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char *</span><span class="ph sep"> </span><span class="ph var">buf_str</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">bufspace</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">surplus_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine
+<code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotationname</span>/<span class="keyword apiname">CPXgetlongannotationname</span></code> accesses the name of
+the long valued annotation with the specified index in a CPLEX problem object.</p>
+
+
+<div class="note note"><span class="notetitle">Note:</span> 
+If the routine returns <code class="ph codeph">CPXERR_NEGATIVE_SURPLUS</code>, then
+the value in <code class="ph codeph">*<span class="keyword parmname">surplus_p</span></code>
+is negative and specifies the difference between the memory
+provided and the memory required (in bytes).
+</div>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">idx</dt>
+
+        <dd class="dd pd">
+          
+          A integer value indicating index of the long valued annotation for which to return the name.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">buf_str</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a buffer of size <code class="ph codeph"><span class="keyword parmname">bufspace</span></code>. May be NULL if <code class="ph codeph"><span class="keyword parmname">bufspace</span></code> is 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">bufspace</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the length of the array <code class="ph codeph"><span class="keyword parmname">buf_str</span></code>. May be 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">surplus_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer to contain the difference between
+          <code class="ph codeph"><span class="keyword parmname">bufspace</span></code> and the amount of memory
+          required to store the objective row name. A nonnegative value of
+          <code class="ph codeph"><span class="keyword parmname">surplus_p</span></code> specifies that the
+          length of the array <code class="ph codeph"><span class="keyword parmname">buf_str</span></code> was
+          sufficient. A negative value specifies that the length of the array
+          was insufficient and that the routine could not complete its task. In
+          this case,
+          <code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotationname</span>/<span class="keyword apiname">CPXgetlongannotationname</span></code> returns the value <code class="ph codeph">CPXERR_NEGATIVE_SURPLUS</code>, and the negative value of <code class="ph codeph"><span class="keyword parmname">surplus_p</span></code> specifies an upper limit on the amount of insufficient space in the array <code class="ph codeph"><span class="keyword parmname">buf_str</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      <p class="p">The routine returns 0 (zero) if successful and nonzero if an error occurs. The value <code class="ph codeph">CPXERR_NEGATIVE_SURPLUS</code>
+specifies that insufficient space was available in the <code class="ph codeph"><span class="keyword parmname">buf_str</span></code>
+array to hold the objective name. </p>
+
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXgetlongannotationname (env, lp, 0, annotationname, lenname, &amp;surplus);
+</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageannotations.html">Annotating Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

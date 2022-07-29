@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex.model_info</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        Module&nbsp;model_info
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex.model_info-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module model_info</h1><p class="nomargin-top"></p>
+<p>Modeling information IDs returned by the Callable Library.</p>
+<p>This module defines symbolic names for the integer modeling information
+IDs returned by the Callable Library. The names to which the modeling
+information IDs are assigned are the same names used in the Callable
+Library, all of which begin with CPXMI. The modeling information IDs are
+accessible through the modeling assistance callback. These symbolic names
+can be used to test if a particular modeling issue has been detected.</p>
+<p>See <a href="cplex.Cplex-class.html#set_modeling_assistance_callback" class="link">Cplex.set_modeling_assistance_callback</a>.</p>
+
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_BIGM_COEF"></a><span class="summary-name">CPXMI_BIGM_COEF</span> = <code title="1040">1040</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_BIGM_COEF.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_BIGM_COEF</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_BIGM_TO_IND"></a><span class="summary-name">CPXMI_BIGM_TO_IND</span> = <code title="1041">1041</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_BIGM_TO_IND.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_BIGM_TO_IND</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_BIGM_VARBOUND"></a><span class="summary-name">CPXMI_BIGM_VARBOUND</span> = <code title="1042">1042</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_BIGM_VARBOUND.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_BIGM_VARBOUND</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_CANCEL_TOL"></a><span class="summary-name">CPXMI_CANCEL_TOL</span> = <code title="1045">1045</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_CANCEL_TOL.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_CANCEL_TOL</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_EPGAP_LARGE"></a><span class="summary-name">CPXMI_EPGAP_LARGE</span> = <code title="1038">1038</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_EPGAP_LARGE.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_EPGAP_LARGE</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_EPGAP_OBJOFFSET"></a><span class="summary-name">CPXMI_EPGAP_OBJOFFSET</span> = <code title="1037">1037</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_EPGAP_OBJOFFSET.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_EPGAP_OBJOFFSET</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_FEAS_TOL"></a><span class="summary-name">CPXMI_FEAS_TOL</span> = <code title="1043">1043</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_FEAS_TOL.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_FEAS_TOL</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_FRACTION_SCALING"></a><span class="summary-name">CPXMI_FRACTION_SCALING</span> = <code title="1047">1047</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_FRACTION_SCALING.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_FRACTION_SCALING</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_IND_NZ_LARGE_NUM"></a><span class="summary-name">CPXMI_IND_NZ_LARGE_NUM</span> = <code title="1019">1019</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_IND_NZ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_IND_NZ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_IND_NZ_SMALL_NUM"></a><span class="summary-name">CPXMI_IND_NZ_SMALL_NUM</span> = <code title="1020">1020</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_IND_NZ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_IND_NZ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_IND_RHS_LARGE_NUM"></a><span class="summary-name">CPXMI_IND_RHS_LARGE_NUM</span> = <code title="1021">1021</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_IND_RHS_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_IND_RHS_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_IND_RHS_SMALL_NUM"></a><span class="summary-name">CPXMI_IND_RHS_SMALL_NUM</span> = <code title="1022">1022</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_IND_RHS_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_IND_RHS_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_KAPPA_ILLPOSED"></a><span class="summary-name">CPXMI_KAPPA_ILLPOSED</span> = <code title="1035">1035</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_KAPPA_ILLPOSED.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_KAPPA_ILLPOSED</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_KAPPA_SUSPICIOUS"></a><span class="summary-name">CPXMI_KAPPA_SUSPICIOUS</span> = <code title="1033">1033</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_KAPPA_SUSPICIOUS.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_KAPPA_SUSPICIOUS</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_KAPPA_UNSTABLE"></a><span class="summary-name">CPXMI_KAPPA_UNSTABLE</span> = <code title="1034">1034</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_KAPPA_UNSTABLE.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_KAPPA_UNSTABLE</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_LB_LARGE_NUM"></a><span class="summary-name">CPXMI_LB_LARGE_NUM</span> = <code title="1003">1003</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_LB_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_LB_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_LB_SMALL_NUM"></a><span class="summary-name">CPXMI_LB_SMALL_NUM</span> = <code title="1004">1004</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_LB_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_LB_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_LC_NZ_LARGE_NUM"></a><span class="summary-name">CPXMI_LC_NZ_LARGE_NUM</span> = <code title="1023">1023</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_LC_NZ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_LC_NZ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_LC_NZ_SMALL_NUM"></a><span class="summary-name">CPXMI_LC_NZ_SMALL_NUM</span> = <code title="1024">1024</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_LC_NZ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_LC_NZ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_LC_RHS_LARGE_NUM"></a><span class="summary-name">CPXMI_LC_RHS_LARGE_NUM</span> = <code title="1025">1025</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_LC_RHS_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_LC_RHS_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_LC_RHS_SMALL_NUM"></a><span class="summary-name">CPXMI_LC_RHS_SMALL_NUM</span> = <code title="1026">1026</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_LC_RHS_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_LC_RHS_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_MULTIOBJ_COEFFS"></a><span class="summary-name">CPXMI_MULTIOBJ_COEFFS</span> = <code title="1062">1062</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_COEFFS.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_MULTIOBJ_COEFFS</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_MULTIOBJ_LARGE_NUM"></a><span class="summary-name">CPXMI_MULTIOBJ_LARGE_NUM</span> = <code title="1058">1058</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_MULTIOBJ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_MULTIOBJ_MIX"></a><span class="summary-name">CPXMI_MULTIOBJ_MIX</span> = <code title="1063">1063</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_MIX.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_MULTIOBJ_MIX</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_MULTIOBJ_OPT_TOL"></a><span class="summary-name">CPXMI_MULTIOBJ_OPT_TOL</span> = <code title="1060">1060</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_OPT_TOL.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_MULTIOBJ_OPT_TOL</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_MULTIOBJ_SMALL_NUM"></a><span class="summary-name">CPXMI_MULTIOBJ_SMALL_NUM</span> = <code title="1059">1059</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_MULTIOBJ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_NZ_LARGE_NUM"></a><span class="summary-name">CPXMI_NZ_LARGE_NUM</span> = <code title="1009">1009</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_NZ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_NZ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_NZ_SMALL_NUM"></a><span class="summary-name">CPXMI_NZ_SMALL_NUM</span> = <code title="1010">1010</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_NZ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_NZ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_OBJ_LARGE_NUM"></a><span class="summary-name">CPXMI_OBJ_LARGE_NUM</span> = <code title="1001">1001</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_OBJ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_OBJ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_OBJ_SMALL_NUM"></a><span class="summary-name">CPXMI_OBJ_SMALL_NUM</span> = <code title="1002">1002</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_OBJ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_OBJ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_OPT_TOL"></a><span class="summary-name">CPXMI_OPT_TOL</span> = <code title="1044">1044</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_OPT_TOL.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_OPT_TOL</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_PWL_SLOPE_LARGE_NUM"></a><span class="summary-name">CPXMI_PWL_SLOPE_LARGE_NUM</span> = <code title="1064">1064</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_PWL_SLOPE_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_PWL_SLOPE_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_PWL_SLOPE_SMALL_NUM"></a><span class="summary-name">CPXMI_PWL_SLOPE_SMALL_NUM</span> = <code title="1065">1065</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_PWL_SLOPE_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_PWL_SLOPE_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QC_LINNZ_LARGE_NUM"></a><span class="summary-name">CPXMI_QC_LINNZ_LARGE_NUM</span> = <code title="1015">1015</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QC_LINNZ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QC_LINNZ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QC_LINNZ_SMALL_NUM"></a><span class="summary-name">CPXMI_QC_LINNZ_SMALL_NUM</span> = <code title="1016">1016</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QC_LINNZ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QC_LINNZ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QC_QNZ_LARGE_NUM"></a><span class="summary-name">CPXMI_QC_QNZ_LARGE_NUM</span> = <code title="1017">1017</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QC_QNZ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QC_QNZ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QC_QNZ_SMALL_NUM"></a><span class="summary-name">CPXMI_QC_QNZ_SMALL_NUM</span> = <code title="1018">1018</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QC_QNZ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QC_QNZ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QC_RHS_LARGE_NUM"></a><span class="summary-name">CPXMI_QC_RHS_LARGE_NUM</span> = <code title="1013">1013</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QC_RHS_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QC_RHS_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QC_RHS_SMALL_NUM"></a><span class="summary-name">CPXMI_QC_RHS_SMALL_NUM</span> = <code title="1014">1014</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QC_RHS_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QC_RHS_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QOBJ_LARGE_NUM"></a><span class="summary-name">CPXMI_QOBJ_LARGE_NUM</span> = <code title="1011">1011</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QOBJ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QOBJ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QOBJ_SMALL_NUM"></a><span class="summary-name">CPXMI_QOBJ_SMALL_NUM</span> = <code title="1012">1012</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QOBJ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QOBJ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_QOPT_TOL"></a><span class="summary-name">CPXMI_QOPT_TOL</span> = <code title="1046">1046</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_QOPT_TOL.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_QOPT_TOL</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_RHS_LARGE_NUM"></a><span class="summary-name">CPXMI_RHS_LARGE_NUM</span> = <code title="1007">1007</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_RHS_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_RHS_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_RHS_SMALL_NUM"></a><span class="summary-name">CPXMI_RHS_SMALL_NUM</span> = <code title="1008">1008</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_RHS_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_RHS_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_COL"></a><span class="summary-name">CPXMI_SAMECOEFF_COL</span> = <code title="1050">1050</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_COL.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_COL</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_IND"></a><span class="summary-name">CPXMI_SAMECOEFF_IND</span> = <code title="1051">1051</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_IND.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_IND</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_LAZY"></a><span class="summary-name">CPXMI_SAMECOEFF_LAZY</span> = <code title="1054">1054</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_LAZY.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_LAZY</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_MULTIOBJ"></a><span class="summary-name">CPXMI_SAMECOEFF_MULTIOBJ</span> = <code title="1061">1061</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_MULTIOBJ.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_MULTIOBJ</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_OBJ"></a><span class="summary-name">CPXMI_SAMECOEFF_OBJ</span> = <code title="1057">1057</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_OBJ.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_OBJ</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_QLIN"></a><span class="summary-name">CPXMI_SAMECOEFF_QLIN</span> = <code title="1052">1052</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_QLIN.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_QLIN</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_QUAD"></a><span class="summary-name">CPXMI_SAMECOEFF_QUAD</span> = <code title="1053">1053</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_QUAD.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_QUAD</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_RHS"></a><span class="summary-name">CPXMI_SAMECOEFF_RHS</span> = <code title="1056">1056</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_RHS.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_RHS</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_ROW"></a><span class="summary-name">CPXMI_SAMECOEFF_ROW</span> = <code title="1049">1049</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_ROW.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_ROW</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SAMECOEFF_UCUT"></a><span class="summary-name">CPXMI_SAMECOEFF_UCUT</span> = <code title="1055">1055</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_UCUT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SAMECOEFF_UCUT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SINGLE_PRECISION"></a><span class="summary-name">CPXMI_SINGLE_PRECISION</span> = <code title="1036">1036</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SINGLE_PRECISION.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SINGLE_PRECISION</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_SYMMETRY_BREAKING_INEQ"></a><span class="summary-name">CPXMI_SYMMETRY_BREAKING_INEQ</span> = <code title="1039">1039</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_SYMMETRY_BREAKING_INEQ.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_SYMMETRY_BREAKING_INEQ</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_UB_LARGE_NUM"></a><span class="summary-name">CPXMI_UB_LARGE_NUM</span> = <code title="1005">1005</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_UB_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_UB_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_UB_SMALL_NUM"></a><span class="summary-name">CPXMI_UB_SMALL_NUM</span> = <code title="1006">1006</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_UB_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_UB_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_UC_NZ_LARGE_NUM"></a><span class="summary-name">CPXMI_UC_NZ_LARGE_NUM</span> = <code title="1027">1027</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_UC_NZ_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_UC_NZ_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_UC_NZ_SMALL_NUM"></a><span class="summary-name">CPXMI_UC_NZ_SMALL_NUM</span> = <code title="1028">1028</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_UC_NZ_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_UC_NZ_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_UC_RHS_LARGE_NUM"></a><span class="summary-name">CPXMI_UC_RHS_LARGE_NUM</span> = <code title="1029">1029</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_UC_RHS_LARGE_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_UC_RHS_LARGE_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_UC_RHS_SMALL_NUM"></a><span class="summary-name">CPXMI_UC_RHS_SMALL_NUM</span> = <code title="1030">1030</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_UC_RHS_SMALL_NUM.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_UC_RHS_SMALL_NUM</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CPXMI_WIDE_COEFF_RANGE"></a><span class="summary-name">CPXMI_WIDE_COEFF_RANGE</span> = <code title="1048">1048</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPXMI_WIDE_COEFF_RANGE.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXMI_WIDE_COEFF_RANGE</span></tt></a> in the C API.
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

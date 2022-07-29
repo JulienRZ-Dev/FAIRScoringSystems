@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="solution pool replacement strategy" />
+<meta name="abstract" content="Designates the strategy for replacing a solution in the solution pool when the solution pool has reached its capacity." />
+<meta name="Description" content="Designates the strategy for replacing a solution in the solution pool when the solution pool has reached its capacity." />
+<meta name="DC.subject" content="CPX_PARAM_SOLNPOOLREPLACE, CPXPARAM_MIP_Pool_Replace, SolnPoolReplace, mip pool replace, solution pool, replacement strategy" />
+<meta name="keywords" content="CPX_PARAM_SOLNPOOLREPLACE, CPXPARAM_MIP_Pool_Replace, SolnPoolReplace, mip pool replace, solution pool, replacement strategy" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196868615170" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>solution pool replacement strategy</title>
+</head>
+<body id="languageRefTopic1196868615170"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">solution pool replacement strategy</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Designates the strategy for replacing a solution
+in the solution pool when the solution pool has reached its capacity.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Solution
+pool replacement strategy</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d138266e62">API</th>
+
+<th class="entry nrule" valign="top" id="d138266e65">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d138266e68">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">CPXPARAM_MIP_Pool_Replace</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">CPX_PARAM_SOLNPOOLREPLACE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">IloCplex::Param::MIP::Pool::Replace</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">SolnPoolReplace (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">IloCplex.Param.MIP.Pool.Replace</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">SolnPoolReplace (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">Cplex.Param.MIP.Pool.Replace</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">SolnPoolReplace (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">solnpoolreplace </td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">solnpoolreplace</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">parameters.mip.pool.replace</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">mip.pool.replace</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">mip pool replace</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">mip pool replace</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d138266e62 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d138266e65 ">2104</td>
+
+<td class="entry nrule" valign="top" headers="d138266e68 ">2104</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Designates
+the strategy for replacing a solution in the solution pool when the
+solution pool has reached its capacity. </p>
+<p class="p">The value
+0 (<code class="ph codeph">CPX_SOLNPOOL_FIFO</code> ) replaces solutions
+according to a first-in, first-out policy. The value 1 (<code class="ph codeph">CPX_SOLNPOOL_OBJ</code> )
+keeps the solutions with the best objective values. The value 2 (<code class="ph codeph">CPX_SOLNPOOL_DIV</code> ) 
+replaces solutions in order to build a set of diverse solutions. 
+When the value is 2, CPLEX considers only variables of the type binary or integer 
+(not continuous variables) to calculate diversity in the replacement strategy.
+</p>
+
+<p class="p">If the solutions
+you obtain are too similar to each other, try setting <code class="ph codeph">SolnPoolReplace</code> 
+to 2. </p>
+<p class="p">The replacement strategy applies only to the
+subset of solutions created in the current call of MIP optimization
+or populate. Solutions already in the pool are not affected by the
+replacement strategy. They will not be replaced, even if they satisfy
+the criterion of the replacement strategy.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d138266e221">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d138266e224">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d138266e227">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d138266e221 ">0</td>
+
+<td class="entry" valign="top" headers="d138266e224 "><code class="ph codeph">CPX_SOLNPOOL_FIFO</code> </td>
+
+<td class="entry" valign="top" headers="d138266e227 ">Replace the first solution (oldest) by the most recent
+solution; first in, first out; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d138266e221 ">1</td>
+
+<td class="entry" valign="top" headers="d138266e224 "><code class="ph codeph">CPX_SOLNPOOL_OBJ</code> </td>
+
+<td class="entry" valign="top" headers="d138266e227 ">Replace the solution which has the worst objective</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d138266e221 ">2</td>
+
+<td class="entry" valign="top" headers="d138266e224 "><code class="ph codeph">CPX_SOLNPOOL_DIV</code> </td>
+
+<td class="entry" valign="top" headers="d138266e227 ">Replace solutions in order to build a set of diverse
+solutions</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Ending objects" />
+<meta name="abstract" content="Discusses the use of the end method to terminate script objects that are no longer necessary." />
+<meta name="Description" content="Discusses the use of the end method to terminate script objects that are no longer necessary." />
+<meta name="DC.subject" content="memory allocation and management, ending objects, mainEndEnabled setting, ending objects, ending, IloOplModel, end method" />
+<meta name="keywords" content="memory allocation and management, ending objects, mainEndEnabled setting, ending objects, ending, IloOplModel, end method" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_column_steps.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangtut.uss_langtut_modeldecomp.1017612" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_column_steps.html" />
+<title>Ending objects</title>
+</head>
+<body id="usropllangtut.uss_langtut_modeldecomp.1017612"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Ending objects</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Discusses the use of the <code class="ph codeph">end</code> method to
+terminate script objects that are no longer necessary.</p>
+
+      <p class="p">The <code class="ph codeph">cutstock_main</code> example shows how to end script
+elements. Although memory leaks are not so much of a concern in this
+small example, it is good practice to use the <code class="ph codeph">end</code> method
+of the class <code class="ph codeph">IloOplModel</code> to systematically terminate
+objects that are no longer necessary. See <code class="ph codeph">IloOplModel.</code>
+         <a class="xref logicalApiLink" href="../../../refjsopl/html/IloOplModel.html#end">end</a> in the <em class="ph i">IBM
+ILOG Script Reference Manual</em> for details.</p>
+
+      <p class="p">The <code class="ph codeph">end</code> method is set to <code class="ph codeph">true</code> by
+default in the CPLEX Studio IDE. This is handled by the script method <code class="ph codeph">mainEndEnabled</code>.</p>
+
+      <pre class="pre codeblock"><code>thisOplModel.settings.mainEndEnabled = true;</code></pre>
+      <p class="p">When this setting is enabled (= <code class="ph codeph">true</code>), you must
+ensure that memory is properly managed by your script. Faulty memory
+management, such as attempting to use an object after it has been
+deleted, may result in crashes.</p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_column_steps.html" title="Goes into more detail on each step of the procedure summary.">Detailed steps</a></div>
+</div>
+</nav></div></body>
+</html>

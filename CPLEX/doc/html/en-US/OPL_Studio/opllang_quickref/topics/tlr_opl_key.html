@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="key" />
+<meta name="abstract" content="OPL keyword for tuple declaration" />
+<meta name="Description" content="OPL keyword for tuple declaration" />
+<meta name="DC.subject" content="tuples, keys in declaration, key, OPL keyword" />
+<meta name="keywords" content="tuples, keys in declaration, key, OPL keyword" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_tuple.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_with.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="ktS623t3" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<title>key</title>
+</head>
+<body id="ktS623t3"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">key</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL keyword for tuple declaration</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL keyword
+for access to data organized in tuples.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d426510e40" class="stentry">context</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d426510e40" class="stentry">Model files (.mod)</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+TupleComponent: Type VariableDeclarator ';'
+                | "key" Type VariableDeclarator ';'
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">The <code class="ph codeph">key</code> keyword used in declarations of tuples enables
+you to access data organized in tuples using a set of unique identifiers.
+See <a class="xref" href="../../opllangref/topics/opl_langref_datatypes_tuples.html#usropllangref.uss_langref_datatypes.1055644__usropllangref.uss_langref_datatypes.1057626">Keys in tuple declarations</a> in the <em class="ph i">Language Reference Manual</em>.</p>
+</section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><p class="p">In the
+following example, the <code class="ph codeph">nurse</code> tuple is declared
+with the key <code class="ph codeph">name</code> of type <code class="ph codeph">string</code>.</p>
+<pre class="pre codeblock"><code>tuple nurse {
+  key string name;
+  int seniority;
+  int qualification;
+  int payRate;
+}
+</code></pre><p class="p">In this second
+example, a nonsingleton set of keys is used to declare the <code class="ph codeph">shift</code> tuple.</p>
+<pre class="pre codeblock"><code>
+tuple shift {
+   key string departmentName;
+   key string day;
+   key int startTime;
+   key int endTime;
+   int minRequirement;
+   int maxRequirement;   
+}
+</code></pre></div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" title="Description, syntax, and example for each individual OPL keyword..">OPL keywords</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_opl_tuple.html" title="OPL keyword to cluster data">tuple</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_with.html" title="OPL keyword for membership">with</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Building your own custom database connection type" />
+<meta name="abstract" content="Explains how to build a custom database connection type" />
+<meta name="Description" content="Explains how to build a custom database connection type" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_db_support.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref_db_support_custom" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_db_support.html" />
+<title>Building your own custom database connection type</title>
+</head>
+<body id="usropllangref_db_support_custom"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Building your own custom database connection type</h1>
+
+
+<div class="body"><p class="shortdesc">Explains how to build a custom database connection type</p>
+
+<p class="p">In order to create your own database connection, you have to create a shared library (also called
+<code class="ph codeph">dll</code> on some platforms) that provides the connection and can be loaded at runtime.
+As soon as OPL encounters a statement such as:</p>
+
+<pre class="pre codeblock"><code>
+ MYOWNConnection conn(...)</code></pre>
+<p class="p">OPL looks for a shared library called <code class="ph codeph">opltabMYOWN&lt;version&gt;</code>, where
+<code class="ph codeph">&lt;version&gt;</code> is the CPLEX Optimization Studio version without separators, such as
+2010 for version 20.1.0.  On Linux this is, for example, a file called
+<code class="ph codeph">libopltabMYOWN2010.so</code>, on Windows it is <code class="ph codeph">opltabMYOWN2010.dll</code>, and
+so on. In that library, OPL looks for a function <code class="ph codeph">MYOWNconstruct</code>.</p>
+
+<p class="p">You can find the API for implementing your own table data source handler in
+<code class="ph codeph">&lt;Install_dir&gt;/opl/include/ilopl/data/iloopltabledatasource.h</code>. Note that such a
+handler does not require being backed up by a database. The only requirement is that the data is
+presented in a table-like view.</p>
+
+<p class="p">You can see examples of table data handlers in the files
+<code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl_interfaces/libopltab*.c</code>. You can start from one
+of these examples and adapt to your needs.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_db_support.html" title="Defines OPL database support, including exchanging data with databases, reading to and writing from databases, and creating your own custom database connection.">Database support</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXdellongannotations and CPXdellongannotations" />
+<meta name="abstract" content="The routine CPXXdellongannotations/CPXdellongannotations deletes a range of long valued annotations." />
+<meta name="Description" content="The routine CPXXdellongannotations/CPXdellongannotations deletes a range of long valued annotations." />
+<meta name="DC.subject" content="CPXdellongannotations, C API Reference Manual, CPXXdellongannotations" />
+<meta name="keywords" content="CPXdellongannotations, C API Reference Manual, CPXXdellongannotations" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetD.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="dellongannotations" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetD.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<title>CPXXdellongannotations and CPXdellongannotations</title>
+</head>
+<body id="dellongannotations"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXdellongannotations</span> and
+  <span class="keyword apiname">CPXdellongannotations</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine
+<code class="ph codeph"><span class="keyword apiname">CPXXdellongannotations</span>/<span class="keyword apiname">CPXdellongannotations</span></code>
+deletes a range of long valued annotations.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXdellongannotations</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">end</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXdellongannotations</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">end</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine
+<code class="ph codeph"><span class="keyword apiname">CPXXdellongannotations</span>/<span class="keyword apiname">CPXdellongannotations</span></code>
+deletes a range of long valued annotations. The range is specified using a lower and
+upper index that represent the first and last annotation to be deleted, respectively.
+The indices of the annotation tags following those deleted
+are decreased by the number of deleted annotations.</p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">begin</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the numeric index of the first annotation tag to be deleted.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">end</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the numeric index of the last annotation tag to be deleted.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXdellongannotations (env, lp, 0, 10);
+</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetD.html">D</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageannotations.html">Annotating Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

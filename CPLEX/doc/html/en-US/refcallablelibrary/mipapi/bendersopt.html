@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXbendersopt and CPXbendersopt" />
+<meta name="abstract" content="At any time after a mixed integer program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXbendersopt/CPXbendersopt may be used to find a solution to that problem using a Benders decomposition algorithm." />
+<meta name="Description" content="At any time after a mixed integer program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXbendersopt/CPXbendersopt may be used to find a solution to that problem using a Benders decomposition algorithm." />
+<meta name="DC.subject" content="CPXbendersopt, C API Reference Manual, CPXXbendersopt" />
+<meta name="keywords" content="CPXbendersopt, C API Reference Manual, CPXXbendersopt" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetB.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebenders.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPsolve.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/getstat.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/solninfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/solution.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/getobjval.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mipopt" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetB.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebenders.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPsolve.html" />
+<title>CPXXbendersopt and CPXbendersopt</title>
+</head>
+<body id="mipopt"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXbendersopt</span> and <span class="keyword apiname">CPXbendersopt</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+
+
+
+ At any time after a mixed integer program has been created by a call to
+ <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>, the routine <code class="ph codeph"><span class="keyword apiname">CPXXbendersopt</span>/<span class="keyword apiname">CPXbendersopt</span></code> may be used
+ to find a solution to that problem using a Benders decomposition algorithm.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXbendersopt</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXbendersopt</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+
+ <p class="p">At any time after a mixed integer program has been created by a call to
+ <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>, the routine <code class="ph codeph"><span class="keyword apiname">CPXXbendersopt</span>/<span class="keyword apiname">CPXbendersopt</span></code> may be used
+ to find a solution to that problem using a Benders decomposition algorithm.</p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+
+ <pre class="pre codeblock"><code>
+ status = CPXbendersopt (env, lp);
+ </code></pre>
+
+
+ <p class="p">
+ Examples of errors include exhausting available
+ memory (<code class="ph codeph">CPXERR_NO_MEMORY</code>) or encountering invalid data
+ in the CPLEX problem object (<code class="ph codeph">CPXERR_NO_PROBLEM</code>).
+ </p>
+
+ <p class="p">
+ Another possible error is the
+ inability to solve a subproblem satisfactorily, as reported
+ by <code class="ph codeph">CPXERR_SUBPROB_SOLVE</code>.
+ The solution status of the subproblem optimization can be obtained with the
+ routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsubstat</span>/<span class="keyword apiname">CPXgetsubstat</span></code>.</p>
+
+ <p class="p">
+ Exceeding a user-specified CPLEX limit is not considered an error.
+ Proving the problem infeasible or unbounded is not considered an error.
+ </p>
+
+ <p class="p">
+ Note that a zero return value does not necessarily mean that a
+ solution exists. Use the query routines <code class="ph codeph"><span class="keyword apiname">CPXXsolninfo</span>/<span class="keyword apiname">CPXsolninfo</span></code>,
+ <code class="ph codeph"><span class="keyword apiname">CPXXgetstat</span>/<span class="keyword apiname">CPXgetstat</span></code>, <code class="ph codeph"><span class="keyword apiname">CPXXsolution</span>/<span class="keyword apiname">CPXsolution</span></code> and the special
+ mixed integer solution routines to obtain
+ further information about the status of the optimization.
+ </p>
+
+
+  </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetB.html">B</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebenders.html">Benders Algorithm and Decompositions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPsolve.html">Solving a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../cpxapi/getstat.html" title="The routine CPXXgetstat/CPXgetstat accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization, after CPXXfeasopt/CPXfeasopt and its extensions, after CPXXrefineconflict/CPXrefineconflict and its extensions.">CPXgetstat</a></li>
+<li class="linklist"><a class="link" href="../cpxapi/solninfo.html">CPXsolninfo</a></li>
+<li class="linklist"><a class="link" href="../cpxapi/solution.html" title="The routine CPXXsolution/CPXsolution accesses the solution values produced by all the optimization routines except the routine CPXXNETprimopt/CPXNETprimopt.">CPXsolution</a></li>
+<li class="linklist"><a class="link" href="../cpxapi/getobjval.html" title="The routine CPXXgetobjval/CPXgetobjval accesses the solution objective value.">CPXgetobjval</a></li></ul></div>
+</nav>
+</div></body>
+</html>

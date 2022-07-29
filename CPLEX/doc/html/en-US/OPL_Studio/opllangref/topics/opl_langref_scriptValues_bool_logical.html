@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Logical operators" />
+<meta name="abstract" content="Provides a reference of logical operators." />
+<meta name="Description" content="Provides a reference of logical operators." />
+<meta name="DC.subject" content="logical operators, operators, logical" />
+<meta name="keywords" content="logical operators, operators, logical" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_booleans.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1009854" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_booleans.html" />
+<title>Logical operators</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1009854"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Logical operators</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a reference of logical operators.</p>
+
+<p class="p">The following Boolean operators are available. </p>
+
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p"><strong class="ph b">For C/C++ programmers:</strong> These operators are the same
+as in C and C++. </p>
+ </div>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that describes the syntax and effects of logical operators in OPL." id="usropllangref.uss_langref_scriptValues.1009854__usropllangref.uss_langref_scriptValues.1009859" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Logical operators</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d476603e59">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d476603e62">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d476603e59 "> ! <em class="ph i">boolean</em></td>
+
+<td class="entry" valign="top" headers="d476603e62 "><p class="p">Logical negation.</p>
+<p class="p">Examples:</p>
+<p class="p">! true  –&gt; false</p>
+<p class="p">!
+false –&gt; true</p>
+     </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d476603e59 "><em class="ph i">exp1</em> &amp;&amp; <em class="ph i">exp2</em></td>
+
+<td class="entry" valign="top" headers="d476603e62 "><p class="p">Logical AND. Returns <code class="ph codeph">true</code> if both Boolean
+expressions <code class="ph codeph">exp1</code> and <code class="ph codeph">exp2</code> are true.
+Otherwise, returns <code class="ph codeph">false</code>. </p>
+<p class="p">If <code class="ph codeph">exp1</code> is <code class="ph codeph">false</code>,
+this expression immediately returns <code class="ph codeph">false</code> without
+evaluating <code class="ph codeph">exp2</code>, so any side effects of <code class="ph codeph">exp2</code> are
+not taken into account.</p>
+<p class="p">Examples:</p>
+<p class="p">true &amp;&amp; true
+–&gt; true</p>
+<p class="p">true &amp;&amp; false –&gt; false</p>
+<p class="p">false &amp;&amp;
+whatever –&gt; false (whatever is not evaluated)</p>
+ </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d476603e59 "><em class="ph i">exp1</em> || <em class="ph i">exp2</em></td>
+
+<td class="entry" valign="top" headers="d476603e62 "><p class="p">Logical OR. Returns <code class="ph codeph">true</code> if either Boolean
+expression <code class="ph codeph">exp1</code> or <code class="ph codeph">exp2</code> (or both)
+is <code class="ph codeph">true</code>. Otherwise, returns <code class="ph codeph">false</code>.</p>
+<p class="p">If <code class="ph codeph">exp1</code> is <code class="ph codeph">true</code>,
+this expression immediately returns <code class="ph codeph">true</code> without
+evaluating <code class="ph codeph">exp2,</code> so any side effects of <code class="ph codeph">exp2</code> are
+not taken into account.</p>
+<p class="p">Examples:</p>
+<p class="p">false || true –&gt;
+true</p>
+<p class="p">false || false –&gt; false</p>
+<p class="p">true || whatever –&gt;
+true (whatever is not evaluated)</p>
+  </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d476603e59 "><em class="ph i">condition</em> ? <em class="ph i">exp1</em> : <em class="ph i">exp2</em></td>
+
+<td class="entry" valign="top" headers="d476603e62 "><p class="p">If <code class="ph codeph">condition</code> is <code class="ph codeph">true,</code> this
+expression returns <code class="ph codeph">exp1</code> ; otherwise, it returns <code class="ph codeph">exp2</code>.</p>
+<p class="p">When <code class="ph codeph">condition</code> is <code class="ph codeph">true</code>,
+the expression <code class="ph codeph">exp2</code> is not evaluated, so any side
+effects it may contain are not taken into account. Similarly, when <code class="ph codeph">condition</code> is <code class="ph codeph">false</code>, <code class="ph codeph">exp1</code> is
+not evaluated.</p>
+<p class="p">Examples:</p>
+<p class="p">true ? 3.14 : whatever –&gt;
+3.14</p>
+<p class="p">false ? whatever : "Hello"  –&gt; "Hello"</p>
+   </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_scriptValues_booleans.html" title="Boolean representation and functions.">IBM ILOG Script Booleans</a></div>
+</div>
+</nav></div></body>
+</html>

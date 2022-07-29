@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="sameSequence" />
+<meta name="abstract" content="A binary constraint on a pair of sequence variables. The constraint states that the relative position of related interval variables is the same in both sequences, seq1 and seq2." />
+<meta name="Description" content="A binary constraint on a pair of sequence variables. The constraint states that the relative position of related interval variables is the same in both sequences, seq1 and seq2." />
+<meta name="DC.subject" content="sameSequence, binary constraint on a pair of sequence variables, constraint on a pair of sequence variables, sameSequence constraint, scheduling, sameSequence OPL function, transition based scheduling, sameSequence" />
+<meta name="keywords" content="sameSequence, binary constraint on a pair of sequence variables, constraint on a pair of sequence variables, sameSequence constraint, scheduling, sameSequence OPL function, transition based scheduling, sameSequence" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_interval.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_sequence.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_sameCommonSubsequence.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="sameSequence" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>sameSequence</title>
+</head>
+<body id="sameSequence"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">sameSequence</h1>
+
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">A binary constraint on a pair of sequence variables. The
+constraint states that the relative position of related interval variables
+is the same in both sequences, seq1 and seq2.</p>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:50%" /><col style="width:50%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d449011e46" class="stentry">context</th>
+
+<th style="vertical-align:bottom;text-align:left;" id="d449011e49" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d449011e46" class="stentry">Model files (.mod) - Not allowed in a CPLEX constraint block.</td>
+
+<td style="vertical-align:top;" headers="d449011e49" class="stentry">Boolean (1 if the constraint is true, 0 otherwise)</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>dvar sequence seq1 in ...;
+dvar sequence seq2 in ...;
+dvar interval a1[...] ...; // Reordering of the interval variables of seq1
+dvar interval a2[...] ...; // Reordering of the interval variables of seq2
+
+constraints {
+  sameSequence(seq1, seq2, a1, a2); // relates a1[i] to a2[i]
+  sameSequence(seq1, seq2); // intervals are related according to their order in the definition of the sequences
+}
+</code></pre></section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">This function creates a same-sequence
+constraint between sequence variables <code class="ph codeph">seq1</code> and <code class="ph codeph">seq2</code>.
+Sequence variables <code class="ph codeph">seq1</code> and <code class="ph codeph">seq2</code> should
+be of the same size. The mapping between interval variables of the
+two sequences is specified by arrays <code class="ph codeph">a1</code> and <code class="ph codeph">a2</code>.
+Arrays <code class="ph codeph">a1</code> and <code class="ph codeph">a2</code> should be of the
+same size.  The constraint states that the two sequences <code class="ph codeph">seq1</code> and <code class="ph codeph">seq2</code> are
+identical modulo a mapping between intervals <code class="ph codeph">a1[i]</code> and <code class="ph codeph">a2[i]</code>.
+ By default, the name of the constraint is the empty string, but you
+can specify a name of your own choice.<code class="ph codeph">sameSequence</code> is
+a stronger constraint than <a class="xref" href="tlr_oplsch_sameCommonSubsequence.html" title="A binary constraint on a pair of sequence variables. The constraint states that the relative position of some related subsets of interval variables is the same in both sequences, seq1 and seq2.">sameCommonSubsequence</a>.</p>
+<div class="note note"><span class="notetitle">Note:</span> This
+constraint cannot be used in a meta-constraint.</div>
+</section>
+
+<div class="example"><h2 class="title sectiontitle">Examples</h2><p class="p">Two examples of use-cases where
+these constraints are useful:</p>
+<ol class="ol">
+<li class="li"><p class="p"><strong class="ph b">First in/first out and no-bypass constraints</strong></p>
+<p class="p">In
+some physical systems like trains on a single line railway or items
+on a conveyor belt, bypassing is not possible and items must enter
+and exit a given section of the system in the same order. If entering
+and exiting the sections or the junctions of the system is modeled
+by two related interval variables, those constraints can be modeled
+by <code class="ph codeph">sameSequence</code> constraints (or <code class="ph codeph">sameCommonSubsequence</code> constraints
+if the items do not follow the same path) on the sequences of entering
+and exiting intervals. A classical example of such a constraint is
+the permutation flow-shop scheduling problem.</p>
+</li>
+
+<li class="li"><p class="p"><strong class="ph b">Scenario-Based approaches for scheduling with uncertainties</strong></p>
+<p class="p">In
+presence of uncertainties (for instance, uncertain activity durations)
+one may be interested in building sequences of activities on unary
+resources that optimize some robustness or statistical criterion (for
+instance the expected makespan). A scenario is a sub-model that defines
+a particular realization of the uncertainties in the environment.
+As one must find robust sequences that optimize a criterion over all
+scenarios, the different sequences of a given unary resource across
+all scenarios are linked with <code class="ph codeph">sameSequence</code> constraints.</p>
+</li>
+
+</ol>
+<p class="p">Provided in the distribution is an example that illustrates
+the use of same-sequence constraints for modeling the permutation
+flow-shop scheduling problem.</p>
+<p class="p">The following examples are provided
+in the distribution to illustrate the use of <code class="ph codeph">sameSequence</code> constraints
+for modeling scheduling problems.</p>
+<p class="p"><code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl/sched_pflowshop/sched_pflowshop.mod</code></p>
+<p class="p"><code class="ph codeph">&lt;Install_dir&gt;/opl/examples/opl/sched_stochastic_jobshop/sched_stochastic_jobshop.mod</code></p>
+</div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_oplsch_interval.html" title="OPL keyword (CP, scheduling) for interval variables.">interval</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_sequence.html" title="OPL keyword (CP, scheduling) to define a sequence of interval variables.">sequence</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_sameCommonSubsequence.html" title="A binary constraint on a pair of sequence variables. The constraint states that the relative position of some related subsets of interval variables is the same in both sequences, seq1 and seq2.">sameCommonSubsequence</a></li></ul></div>
+</nav>
+</div></body>
+</html>

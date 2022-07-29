@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="The cutting stock problem" />
+<meta name="abstract" content="Describes the example and tells you where to find the files." />
+<meta name="Description" content="Describes the example and tells you where to find the files." />
+<meta name="DC.subject" content="column generation, step-by-step process, model decomposition, cutting stock problem, sub-model, master model, description, tutorials, cutting stock, integer programming, models" />
+<meta name="keywords" content="column generation, step-by-step process, model decomposition, cutting stock problem, sub-model, master model, description, tutorials, cutting stock, integer programming, models" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_column.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1197899870602" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_column.html" />
+<title>The cutting stock problem</title>
+</head>
+<body id="descriptiveTopic1197899870602"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">The cutting stock problem</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes the example and tells you where to find the files.</p>
+
+<section class="section" id="descriptiveTopic1197899870602__XT9dFT4V"><h2 class="title sectiontitle">What you are going to do</h2><p class="p">In this tutorial, you are going to solve the cutting stock problem, described in  <a class="xref" href="../../usroplexamples/topics/opl_mp_examples_cutstock.html#usroplsamples.uss_opl_langsamples.1011676" title="Describes examples that involve cutting larger-sized objects such as sheets, rolls, or boards, into smaller ones to meet a demand.">Cutting stock problems</a> in the <em class="ph i">Examples</em> manual. Here is a summary:</p>
+<p class="p">The problem consists of cutting large wooden boards into small shelves to meet customer
+                demands while minimizing the number of boards used. A given instance
+                specifies the length of the boards, the length of the shelves, and the
+                demand for each shelf type. These variables are expressed as integers; the
+                problem is therefore an integer programming problem.</p>
+<p class="p">In
+the context of column generation, the two models lend themselves to
+interpretation:</p>
+<ul class="ul">
+<li class="li"><p class="p">The sub-model is used to find possible new patterns (that is, ways of cutting the
+                        items).</p>
+ </li>
+
+<li class="li"><p class="p">The master model is used to decide how many of each of the already existing patterns
+                        have to be cut.</p>
+ </li>
+
+</ul>
+<p class="p">The whole process involves solving the master and the sub-problem iteratively. At each
+                iteration, a new cutting pattern is added, then the master problem is
+                solved again from this new pattern. As there is more freedom in the way
+                the boards are cut, a better solution may be found. The sub-model uses a
+                reduced-cost objective so that only the patterns that could improve the
+                total cost are generated.</p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p">Although this reduced-cost objective is explained by the simplex theory, it is not
+                    necessary to fully understand this theory to follow how the cutting
+                    stock example works.</p>
+ </div>
+</section>
+
+<section class="section" id="descriptiveTopic1197899870602__section1320247240409"><h2 class="title sectiontitle">Where to find the files</h2><p class="p">You will work with the files listed in the following table to solve a column generation problem.
+You can find them at the following location:</p>
+<p class="p"><span class="ph filepath">&lt;Install_dir&gt;\opl\examples\opl\cutstock</span>
+            </p>
+<p class="p">where <code class="ph codeph">&lt;Install_dir&gt;</code> is your installation directory.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists files for the cutting stock example and provides a short description of each." id="descriptiveTopic1197899870602__usropllangtut.uss_langtut_modeldecomp.1020547" class="table NoBorder" rules="none" frame="void" border="0"><span class="desc tabledesc">
+                    
+                    
+                </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d506537e138">File</th>
+
+<th class="entry nrule" valign="top" id="d506537e141">Description</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock.mod</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">A main problem formulation with a fixed number of
+                                patterns, which is the master model. This problem is then
+                                used by column generation models.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock.dat</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">The initial data for the master model.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock_change.mod</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">An alternative formulation of a fixed number of
+                                patterns.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock_change.dat</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">The data for the alternative formulation.</td>
+
+                        </tr>
+
+                        <tr class="row" style="vertical-align:top;">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock_main.mod</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">A flow-control scripting example based on column
+                                generation that solves the full relaxed problem. Instead
+                                of using a separate <code class="ph codeph">.dat</code> file for the
+                                sub-model, the data used by the sub-model is created with
+                                the class <samp class="ph systemoutput">IloOplDataElements</samp>,
+                                which is initialized with data from the main
+                                model.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock_int_main.mod</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">A flow-control scripting example based on column
+                                generation that solves the full integer problem.</td>
+
+                        </tr>
+
+                        <tr class="row" style="vertical-align:top;">
+                            <td class="entry nrule" valign="top" headers="d506537e138 "><span class="ph filepath">cutstock-sub.mod</span></td>
+
+                            <td class="entry nrule" valign="top" headers="d506537e141 ">The definition of the sub-model.</td>
+
+                        </tr>
+
+                    </tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_fc_column.html" title="Shows how to use flow control and multiple searches to create more complex flow control scripts that involve several model definitions.">Tutorial: Flow control and column generation</a></div>
+</div>
+</nav></div></body>
+</html>

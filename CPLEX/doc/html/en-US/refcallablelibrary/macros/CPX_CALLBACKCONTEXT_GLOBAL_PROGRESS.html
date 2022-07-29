@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS" />
+<meta name="abstract" content="Generic callback at global progress" />
+<meta name="Description" content="Generic callback at global progress" />
+<meta name="DC.subject" content="CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS, C API Reference Manual" />
+<meta name="keywords" content="CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepageCallbackContext.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepageCallbackContext.html" />
+<title>CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</title>
+</head>
+<body id="CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</span></h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Generic callback at global progress</p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</span><span class="ph sep"> </span>0x0010
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">
+        CPLEX invokes the generic callback in this context when it has made
+        global progress, that is, when new information has been committed to the
+        global solution structures. You can query 
+        the current globally valid information about the solution process 
+        with the routines 
+        <a class="xref" href="../cpxapi/callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a>,
+        <a class="xref" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a>,
+        <a class="xref" href="../cpxapi/callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a>, and
+        <a class="xref" href="../cpxapi/callbackgetincumbent.html" title="Gets the incumbent solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.">CPXXcallbackgetincumbent and CPXcallbackgetincumbent</a>.
+      </p>
+
+      <div class="p">
+        The constant is used in two different ways:
+        <ul class="ul">
+          <li class="li">As a value passed into the generic callback function to specify 
+              in which context the generic callback is invoked.</li>
+
+          <li class="li">Bitwise ORed into the <span class="keyword parmname">where</span> argument of the
+              <a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a> routine 
+              to specify in which situations CPLEX should invoke the generic
+              callback.</li>
+
+        </ul>
+
+      </div>
+
+        <div class="note warning"><span class="warningtitle">Warning:</span> 
+          <p class="p">
+            When the generic callback is invoked in this context, then CPLEX
+            holds a global lock on the solution structures. For deterministic
+            parallel optimization, this lock is even deterministic.
+          </p>
+
+          <p class="p">
+            Since this context is handled while holding a lock, you should avoid
+            lengthy operations in the callback.
+          </p>
+
+        </div>
+
+    </section>
+
+  
+  <section class="section"><h2 class="title sectiontitle">See also</h2> 
+  
+      <ul class="ul">
+      <li class="li"><a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a></li>
+
+      <li class="li"><a class="xref" href="CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" title="Generic callback at thread-local progress">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetincumbent.html" title="Gets the incumbent solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.">CPXXcallbackgetincumbent and CPXcallbackgetincumbent</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a></li>
+ 
+      </ul>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepageCallbackContext.html">Callback context</a></div>
+</div>
+</nav></div></body>
+</html>

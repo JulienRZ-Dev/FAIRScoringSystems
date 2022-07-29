@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/homepageCrefman.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpModifyModel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolve.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolutionPool.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPresolve.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpMultiobjective.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpUtil.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpParameters.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpParamset.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpTuning.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpIO.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpWrite.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagecpxapi" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/homepageCrefman.html" />
+<title>Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</title>
+</head>
+<body id="homepagecpxapi"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</h1>
+
+<div class="body">
+<p class="p">
+These routines support applications that solve linear programs by means of the 
+CPLEX simplex dual and primal optimizers. 
+</p>
+
+<p class="p">These reference pages also document general utilities for an optimization application.</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpBuildModel.html">Building a model for a linear program (LP)</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/groups/homepageannotations.html">Annotating Models in the CPLEX Callable Library (C API)</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpModifyModel.html">Modifying a model for a linear program (LP)</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpPWL.html">Piecewise linearity (PWL) in models in the CPLEX Callable Library (C API)</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpSolve.html">Solving a linear program</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpSolution.html">Accessing a solution</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpSolutionPool.html">Managing the solution pool</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpBasis.html">Manipulating a basis</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpPresolve.html">Managing presolve (LP or MIP)</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpMultiobjective.html">Multiobjective optimization routines</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpRefineConflict.html">Detecting and resolving conflicts with the conflict refiner and feasopt</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpUtil.html">Utilities for portable applications</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpParameters.html">Using parameters of CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpParamset.html">Using parameter sets</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpTuning.html">Tuning applications</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpIO.html">Input, output, and communication channels</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/hpWrite.html">Writing files</a></strong><br />
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/homepageCrefman.html">CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

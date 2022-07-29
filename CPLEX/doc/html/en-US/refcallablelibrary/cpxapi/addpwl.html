@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXaddpwl and CPXaddpwl" />
+<meta name="abstract" content="The routine CPXXaddpwl/CPXaddpwl adds a piecewise linear constraint to the specified CPLEX problem object." />
+<meta name="Description" content="The routine CPXXaddpwl/CPXaddpwl adds a piecewise linear constraint to the specified CPLEX problem object." />
+<meta name="DC.subject" content="CPXaddpwl, C API Reference Manual, CPXXaddpwl" />
+<meta name="keywords" content="CPXaddpwl, C API Reference Manual, CPXXaddpwl" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="addpwl" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<title>CPXXaddpwl and CPXaddpwl</title>
+</head>
+<body id="addpwl"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXaddpwl</span> and <span class="keyword apiname">CPXaddpwl</span></h1>
+
+
+  
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">
+    The routine
+    <code class="ph codeph"><span class="keyword apiname">CPXXaddpwl</span>/<span class="keyword apiname">CPXaddpwl</span></code>
+    adds a piecewise linear constraint to the specified CPLEX
+    problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span>
+	<span class="keyword kwd">CPXXaddpwl</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+	  <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">vary</span><span class="ph delim">,</span>
+	  <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">varx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">preslope</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">postslope</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">nbreaks</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">breakx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">breaky</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">pwlname</span><span class="ph delim">)</span>
+	</span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span>
+	<span class="keyword kwd">CPXaddpwl</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+	  <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">vary</span><span class="ph delim">,</span>
+	  <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">varx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">preslope</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">postslope</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nbreaks</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">breakx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">breaky</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">pwlname</span><span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+       
+      <p class="p">The routine
+      <code class="ph codeph"><span class="keyword apiname">CPXXaddpwl</span>/<span class="keyword apiname">CPXaddpwl</span></code>
+      adds a piecewise linear (PWL) constraint to the specified
+      CPLEX problem object. A PWL constraint defines a piecewise
+      linear relationship between two variables: y=pwl(x). 
+      </p>
+
+      <p class="p">You declare a 
+      PWL constraint  by specifying the index of the
+      'y' and 'x' variables involved and by providing the
+      breakpoints of the PWL function (specified by the
+      (breakx[i],breaky[i]) coordinate pairs). </p>
+
+      <p class="p">Before the first
+      segment of the PWL function, there is a half-line; its
+      slope is specified by preslope. </p>
+ 
+      <p class="p">After the last segment of the
+      the PWL function, there is a half-line; its slope is
+      specified by postslope. </p>
+
+      <p class="p">Note that bounds on vary and/or varx may render
+      preslope and/or postslope meaningless (the half line simply
+      may not exist). Even in that case preslope and postslope must
+      be specified, but they can be set to any value. </p>
+ 
+      <p class="p">Two consecutive breakpoints may have
+      the same x-coordinate. In such cases, there is a discontinuity
+      in the PWL function. Three consecutive breakpoints may <strong class="ph b">not</strong>
+      have the same x-coordinate.</p>
+ 
+      <p class="p">CPLEX rejects the declaration of a PWL function that lacks 
+      a breakpoint and reports that PWL function as ill-defined with 
+      the error <code class="ph codeph">CPXERR_ILL_DEFINED_PWL</code>.</p>
+ 
+      <p class="p">For more general information about piecewise-linear (PWL) constraints, see the topic 
+<a class="xref" href="../../CPLEX/UsrMan/topics/discr_optim/pwl/01_pwl_title_synopsis.html" title="Demonstrates the use of piecewise linear functions to solve a transportation problem.">Using piecewise linear functions in optimization: a transport example</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.
+ </p>
+
+    </section>
+ 
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+	  A pointer to the CPLEX environment as returned by
+	  <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by
+          <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">vary</dt>
+
+        <dd class="dd pd">
+          
+	  The index of the 'y' variable of the PWL constraint in the lp problem object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">varx</dt>
+
+        <dd class="dd pd">
+          
+	  The index of the 'x' variable of the PWL constraint in the lp problem object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">preslope</dt>
+
+        <dd class="dd pd">
+          
+	  The preslope of the PWL function.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">postslope</dt>
+
+        <dd class="dd pd">
+          
+	  The postslope of the PWL function.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nbreaks</dt>
+
+        <dd class="dd pd">
+          
+	  The number of breakpoints in the PWL function.          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">breakx</dt>
+
+        <dd class="dd pd">
+          
+	  The x coordinates of the breakpoints of the PWL function.          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">breaky</dt>
+
+        <dd class="dd pd">
+          
+	  The y coordinates of the breakpoints of the PWL function.          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">pwlname</dt>
+
+        <dd class="dd pd">
+          
+	  The name of the PWL constraint.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetA.html">A</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpPWL.html">Piecewise linearity (PWL) in models in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

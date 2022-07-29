@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Multiobjective optimization in MPS files" />
+<meta name="abstract" content="CPLEX extends MPS file format to support multiobjective optimization." />
+<meta name="Description" content="CPLEX extends MPS file format to support multiobjective optimization." />
+<meta name="DC.subject" content="multiobjective optimization, MPS, MPS file format" />
+<meta name="keywords" content="multiobjective optimization, MPS, MPS file format" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/FileFormats/topics/MPS_ext_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="MPS_ext_MultiObj" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/FileFormats/topics/MPS_ext_synopsis.html" />
+<title>Multiobjective optimization in MPS files</title>
+</head>
+<body id="MPS_ext_MultiObj"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Multiobjective optimization in MPS files</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX extends MPS file format to support multiobjective optimization.</p>
+
+<p class="p">Objective are still defined in the ROW section using N marker and four numbers are given to
+specify priority, weight, absolute tolerance, and relative tolerance: </p>
+
+<pre class="pre codeblock"><code>
+N  OBJ1 2 1 0 0
+N  OBJ2 1 1 0 0</code></pre>
+<div class="note note"><span class="notetitle">Note:</span> In MPS file format for multiobjective problems, all four attributes must be specified.</div>
+
+<p class="p">For more information, see <a class="xref" href="../../UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a> in the <em class="ph i">CPLEX User’s
+Manual</em>.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/FileFormats/topics/MPS_ext_synopsis.html" title="CPLEX extends the MPS standard in several ways.">Special records in MPS files: CPLEX extensions</a></div>
+</div>
+</nav></div></body>
+</html>

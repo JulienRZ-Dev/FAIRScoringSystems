@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Constraints on cumul function expressions" />
+<meta name="abstract" content="Cumul functions can be constrained to evaluate within a certain range of values for a fixed interval or an interval variable." />
+<meta name="Description" content="Cumul functions can be constrained to evaluate within a certain range of values for a fixed interval or an interval variable." />
+<meta name="DC.subject" content="constraint, cumul function expression" />
+<meta name="keywords" content="constraint, cumul function expression" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/constraints_interval_cumul.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1226970611290" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/constraints_interval_cumul.html" />
+<title>Constraints on cumul function expressions</title>
+</head>
+<body id="descriptiveTopic1226970611290"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Constraints on cumul function expressions</h1>
+
+
+
+<div class="body"><p class="shortdesc">Cumul functions can be constrained to evaluate
+within a certain range of values for a fixed interval or an interval
+variable.</p>
+
+<p class="p">Cumul functions can be constrained to evaluate within
+a certain range of values for a fixed interval or an interval variable.
+A simple less than or equal constraint on inequality constraint on
+a cumul function states that the domain of values of the cumul function
+cannot exceed the given value anywhere along the temporal axis. An
+“always equal” range constraint on a cumul function states that the
+cumul expression function must evaluate to a given value everywhere
+on a fixed interval or from the start to end of a given interval variable.
+An “always in” range constraint on a cumul function states that the
+domain of the cumul expression function must evaluate to within a
+certain range at each point within a fixed interval or from the start
+to end of a given interval variable.</p>
+
+<p class="p">Range constraints on cumul functions cannot be used in
+logical constraints of CP Optimizer, because any logical constraint
+involving interval variables must be captured via the presence Boolean
+value on the interval handled by the presence constraint. </p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the functions <code class="ph codeph">IloAlwaysIn</code>, <code class="ph codeph">IloAlwaysEqual</code>, <code class="ph codeph">operator&lt;=</code> and <code class="ph codeph">operator&gt;=</code> return
+range constraints on cumul functions.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, the methods <code class="ph codeph">IloCP.alwaysIn</code>, <code class="ph codeph">IloCP.alwaysEqual</code>, <code class="ph codeph">IloCP.le</code> and <code class="ph codeph">IloCP.ge</code> return range constraints on cumul functions.</p>
+
+<p class="p">In the <strong class="ph b">C# API</strong> of CP Optimizer, the methods <code class="ph codeph">CP.AlwaysIn</code>, <code class="ph codeph">CP.AlwaysEqual</code>, <code class="ph codeph">CP.Le</code> and <code class="ph codeph">CP.Ge</code> return
+range constraints on cumul functions.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/constraints_interval_cumul.html" title="Cumulative usage of renewable resources can be represented by cumulative function expressions.">Constraints and expressions on cumulative (cumul) function expressions</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Mining" />
+<meta name="abstract" content="Describes examples of libraries that involve mining problems such as mine planning and opencast mining." />
+<meta name="Description" content="Describes examples of libraries that involve mining problems such as mine planning and opencast mining." />
+<meta name="DC.subject" content="models, mining, mining, sample models" />
+<meta name="keywords" content="models, mining, mining, sample models" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplexamples/topics/opl_modlib.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplsamples.uss_opl_modlib.1019997" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplexamples/topics/opl_modlib.html" />
+<title>Mining</title>
+</head>
+<body id="usroplsamples.uss_opl_modlib.1019997"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Mining</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes examples of libraries that involve mining problems
+such as mine planning and opencast mining.</p>
+
+
+<ul class="ul">
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_mining.html#usroplsamples.uss_opl_modlib.1019997__usroplsamples.uss_opl_modlib.1020012">Mine planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_mining.html#usroplsamples.uss_opl_modlib.1019997__usroplsamples.uss_opl_modlib.1020049">Opencast mining</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_mining.html#usroplsamples.uss_opl_modlib.1019997__section1205855527942">Well mining</a></p>
+</li>
+
+</ul>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019997__usroplsamples.uss_opl_modlib.1020012"><h2 class="title sectiontitle">Mine planning</h2><p class="p">This
+model describes problem 7 from <em class="ph i">Model Building in Mathematical Programming</em>, by H.P. Williams.
+The objective is to decide which mines should be operated each year and how much they should
+produce.</p>
+<p class="p">The characteristics of the mine planning example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Mining</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Integer Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Mining, Planning</li>
+
+<li class="li">Works with the Preview Edition: Yes</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/MiningPlan</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/MiningPlan/miningPlan.mod.html">miningPlan.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019997__usroplsamples.uss_opl_modlib.1020049"><h2 class="title sectiontitle">Opencast mining</h2><p class="p">This model describes the
+opencast mining problem from <em class="ph i">Model Building in Mathematical Programming</em>g, by H.P. Williams.
+The basic problem is to mine within a soil for metals. The mining is done in levels in an upturned
+pyramid. The blocks that can be mined overlap each other partially, level to level. Blocks on one
+level must be mined before the blocks on the level below.</p>
+<p class="p">This problem is modeled by assigning
+an (x,y) center to each block, where each block is 2 units wide. A block overlaps if its corners are
+the center of the block below. The bottom level is centered at (0,0). The level above has 4 blocks,
+centered 1 unit from the origin. The next level has 9 blocks, centered at the origin, and 2 units
+from the origin, etc.</p>
+<p class="p">Each block has a purity level that corresponds to the expected revenue,
+but there is a cost for digging down deeper. The model uses the variables <code class="ph codeph">extract[]</code>
+to represent whether each block is mined, and the variables <code class="ph codeph">xyz[]</code> are auxiliary to
+provide an interesting visualization.</p>
+<p class="p">The characteristics of the opencast mining example are
+the following:</p>
+<ul class="ul">
+<li class="li">Industry: Mining</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Integer Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Mining, opencast</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/Opencast</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Opencast/Opencast.mod.html">Opencast.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019997__section1205855527942"><h2 class="title sectiontitle">Well mining</h2><p class="p">Wells are composed of various pay sands. Each pay sand has a depth and each
+well has a production rate. In order to "enter" a new pay sand, a workover is required. The duration
+of the workover depends on the composition of the pay sand that follows. The objective is sequencing
+the operations and the workover operations in order to minimize the whole completion time.</p>
+<p class="p">The
+characteristics of the well mining example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Mining</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: CP Scheduling</li>
+
+<li class="li">Complexity: Intermediate</li>
+
+<li class="li">Keywords: Mining, well</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/sched_wells</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/sched_wells/sched_wells.mod.html">sched_wells.mod</a></li>
+
+</ul>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplexamples/topics/opl_modlib.html" title="The OPL model library is a collection of OPL models that describe known problems in the academic and industrial fields.">OPL model library</a></div>
+</div>
+</nav></div></body>
+</html>

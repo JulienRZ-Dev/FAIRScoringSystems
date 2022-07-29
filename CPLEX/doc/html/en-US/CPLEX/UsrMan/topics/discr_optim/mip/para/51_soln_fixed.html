@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Working with the fixed MIP problem" />
+<meta name="abstract" content="Documents working with a fixed MIP." />
+<meta name="Description" content="Documents working with a fixed MIP." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/para/51_soln.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="solnfixed" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/para/51_soln.html" />
+<title>Working with the fixed MIP problem</title>
+</head>
+<body id="solnfixed"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Working with the fixed MIP problem</h1>
+
+
+<div class="body"><p class="shortdesc">Documents working with a fixed MIP.</p>
+
+<p class="p">Integer variables often represent major structural decisions in
+a model, and many continuous variables of the model can be related
+to these major decisions. With that observation in mind, if you take
+the integer variable solution values as given, then you can obtain
+useful post-solution information that applies only to the continuous
+variables, in the usual way. This observation about the information
+available only for continuous variables in a MIP is the idea behind
+the so-called "<strong class="ph b">fixed MIP</strong>" problem. The fixed MIP is a form
+of the MIP problem where as many as possible of the discrete variables 
+are fixed at values corresponding to a MIP solution; that is, the discrete
+variables are fixed in the sense of "set at a given value." Thus a fixed
+MIP is a continuous problem that is not strictly a relaxation of the
+MIP, but rather a restriction to its continuous part.</p>
+ 
+
+<section class="section"><h2 class="title sectiontitle">What does CPLEX fix?</h2> 
+ 
+<p class="p">CPLEX typically constructs a fixed MIP problem from the current 
+model and a solution. To do so, CPLEX sets as many variables as 
+possible to the value of that variable in that solution such that 
+the resulting remaining model is continuous.  In particular, that 
+convention means the following fixes occur:</p>
+ 
+<ul class="ul">
+<li class="li">CPLEX fixes all Boolean variables at their solution value and relaxes the variable to continuous.</li>
+ 
+
+<li class="li">CPLEX fixes all integer variables at their solution value and relaxes the variable to continuous.</li>
+ 
+
+<li class="li">CPLEX fixes all semi-integer variables at their solution value and relaxes the variable to continuous.</li>
+ 
+
+<li class="li">If a semi-continuous variable has a solution value of 0 (zero), then CPLEX fixes 
+the semi-continuous variable to that value; otherwise, the semi-continuous variable is relaxed to continuous 
+with the semi-continuous lower bound as the lower bound of the relaxed continuous variable.</li>
+ 
+
+ <li class="li">In a special ordered set of type 1 (SOS1) consisting of N members, CPLEX fixes N-1 of the variables in 
+ the SOS1 to the solution value. Only the variable with the value most different from 
+ 0 (zero) remains unfixed.  CPLEX discards the SOS1. </li>
+ 
+ 
+ <li class="li">In a special ordered set of type 2 (SOS2) consisting of N members, CPLEX fixes N-2 of the variables 
+ to the solution value.  Only two consecutive variables with values most different from 
+ 0 (zero) are left unfixed. CPLEX discards the SOS2. 
+ </li>
+ 
+ 
+ <li class="li">If the lefthand side (lhs) of an indicator constraint is satisfied by the solution, CPLEX installs the 
+ righthand side (rhs) as a constraint. In any case, CPLEX discards the indicator constraints.
+ </li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Accessing dual information in a fixed MIP problem</h2> 
+ 
+<p class="p">If you wish to access dual information in such a problem, first
+optimize your MILP problem to create the fixed MILP problem; then
+re-optimize it, like this:</p>
+
+<ul class="ul">
+<li class="li"><p class="p">In <strong class="ph b">Concert Technology</strong>, call the method <code class="ph codeph">solveFixed</code> .
+(There is no explicit problem type in Concert Technology, so there
+is no need to change the problem type as in other components.)</p>
+ </li>
+ 
+
+<li class="li"><p class="p">In the <strong class="ph b">Callable Library (C API)</strong>, call the routine <code class="ph codeph">CPXchgprobtype</code> 
+with the argument <code class="ph codeph">CPXPROB_FIXEDMILP</code>  as the problem
+type and then call <code class="ph codeph">CPXlpopt</code> .</p>
+ </li>
+ 
+
+<li class="li"><p class="p">In the <strong class="ph b">Interactive Optimizer</strong>, use these commands to
+change the problem type and re-optimize:</p>
+ 
+    <ul class="ul">
+    <li class="li"><p class="p"> <code class="ph codeph">change problem fixed_milp</code> </p>
+</li>
+ 
+    <li class="li"><p class="p"> <code class="ph codeph">optimize</code> </p>
+</li>
+
+    </ul>
+ 
+</li>
+ 
+
+</ul>
+
+<p class="p">As explained in <a class="xref" href="49_mipStarts.html#User_manual.uss_solveMIP.638620__section1219740389375">Managing a MIP start with the advanced start switch</a>,
+setting 2 of the <a class="xref" href="../../../../../Parameters/topics/AdvInd.html" title="If set to 1 or 2, this parameter specifies that CPLEX should use advanced starting information when it initiates optimization.">advanced start switch</a> (<code class="ph codeph">AdvInd</code> in
+Concert Technology; <code class="ph codeph">CPX_PARAM_ADVIND</code> in the Callable
+Library) can be particularly useful for solving fixed MIP models,
+where a start vector but no corresponding basis is available. </p>
+ 
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/para/51_soln.html" title="Describes access to the solution of a MIP optimization.">Using the MIP solution</a></div>
+</div>
+</nav></div></body>
+</html>

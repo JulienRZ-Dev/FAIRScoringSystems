@@ -1,0 +1,146 @@
+<!-- Generator: GNU source-highlight 2.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>001: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+002: <b><font color="#007D00">// Licensed Materials - Property of IBM</font></b>
+003: <b><font color="#007D00">//</font></b>
+004: <b><font color="#007D00">// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55</font></b>
+005: <b><font color="#007D00">// Copyright IBM Corporation 1998, 2013. All Rights Reserved.</font></b>
+006: <b><font color="#007D00">//</font></b>
+007: <b><font color="#007D00">// Note to U.S. Government Users Restricted Rights:</font></b>
+008: <b><font color="#007D00">// Use, duplication or disclosure restricted by GSA ADP Schedule</font></b>
+009: <b><font color="#007D00">// Contract with IBM Corp.</font></b>
+010: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+011: <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">CPLEX</font></b>;
+012: 
+013: <b><font color="#007D00">/// -- DATA ---</font></b>
+014: <b><font color="#007D00">///</font></b>
+015: <b><font color="#007D00">/// The number of teams in a division.</font></b>
+016: <b><font color="#0000FF">int</font></b> nbTeamsInDivision = ...;
+017: <b><font color="#0000FF">execute</font></b>{
+018:   writeln(<b><font color="#8A2BE2">"We will use "</font></b> + nbTeamsInDivision + <b><font color="#8A2BE2">" teams from each of the divisions."</font></b>)
+019: }
+020: 
+021: /// The number of games to play in and out of the division.
+022: int nbIntraDivisional = ...;
+023: int nbInterDivisional = ...;
+024: 
+025: int maxTeamsInDivision = ...;
+026: assert nbTeamsInDivision &lt;= maxTeamsInDivision; // Limited data
+027: 
+028: {string} teamDiv1 = ...;
+029: {string} teamDiv2 = ...;
+030: 
+031: assert card(teamDiv1) &gt;= nbTeamsInDivision;
+032: assert card(teamDiv2) &gt;= nbTeamsInDivision;
+033: ///
+034: /// -- END DATA ---
+035: 
+036: /// There are two divisions.
+037: int nbTeams = 2 * nbTeamsInDivision;
+038: range Teams = 1..nbTeams;
+039: 
+040: /// Calculate the number of weeks necessary.
+041: int nbWeeks = (nbTeamsInDivision-1) * nbIntraDivisional 
+042:               + nbTeamsInDivision * nbInterDivisional;
+043: range Weeks = 1..nbWeeks;
+044: execute{
+045:   writeln(nbWeeks + <b><font color="#8A2BE2">" games, "</font></b> + (nbTeamsInDivision-1) * nbIntraDivisional + 
+046:           <b><font color="#8A2BE2">" intradivisional, "</font></b> + nbTeamsInDivision * nbInterDivisional + <b><font color="#8A2BE2">" interdivisional."</font></b>)
+047: }
+048: 
+049: /// Season is split into two halves.
+050: range FirstHalfWeeks = 1..ftoi(floor(nbWeeks/2));
+051: int nbFirstHalfGames = ftoi(floor(nbWeeks/3));
+052: 
+053: /// All possible matches (pairings) and whether of not each is intradivisional.
+054: tuple Match {
+055:   <b><font color="#0000FF">int</font></b> team1;
+056:   <b><font color="#0000FF">int</font></b> team2;
+057:   <b><font color="#0000FF">int</font></b> isDivisional;
+058: };
+059: {Match} Matches = {&lt;t1,t2, 
+060:                      (( t2 &lt;= nbTeamsInDivision || t1 &gt; nbTeamsInDivision) ? 1 : 0)&gt;
+061:                    | t1,t2 <b><font color="EA7D00">in</font></b> Teams : t1 &lt; t2};
+062: 
+063: 
+064: /// Number of games to play between pairs depends on 
+065: /// whether the pairing is intradivisional or not.
+066: int nbPlay[m in Matches] = m.isDivisional==1 ? nbIntraDivisional : nbInterDivisional;
+067: 
+068: // Boolean decision variables : 1 if match m is played in week w, 0 otherwise.
+069: dvar boolean plays[Matches][Weeks];
+070: 
+071: ///
+072: /// Map unique team id to team name for formatted solution. 
+073: tuple teamMapping{
+074:   key <b><font color="#0000FF">int</font></b> id;
+075:   string name; 
+076: };
+077: {teamMapping} teamLeague = {&lt;t, item(teamDiv1,t)&gt; | t <b><font color="EA7D00">in</font></b> 1..nbTeamsInDivision} union 
+078:                            {&lt;t+nbTeamsInDivision, item(teamDiv2,t)&gt; 
+079:                              | t <b><font color="EA7D00">in</font></b> 1..nbTeamsInDivision};
+080: 
+081: /// The goal is for intradivisional games to be played late in the schedule.
+082: /// Only intradivisional pairings contribute to the overall gain.
+083: int Gain[w in Weeks] = w * w;
+084: 
+085: // If an intradivisional pair plays in week w, Gain[w] is added to the objective.
+086: maximize sum (m in Matches, w in Weeks) m.isDivisional * Gain[w] * plays[m][w];
+087: 
+088: subject to {
+089: 
+090:   <b><font color="#007D00">// Each pair of teams must play the correct number of games.  </font></b>
+091:   forall (m <b><font color="EA7D00">in</font></b> Matches)
+092:         correctNumberOfGames:
+093:         sum(w <b><font color="EA7D00">in</font></b> Weeks) plays[m][w] == nbPlay[m];
+094: 
+095:   <b><font color="#007D00">// Each team must play exactly once in a week.         </font></b>
+096:   forall (w <b><font color="EA7D00">in</font></b> Weeks, t <b><font color="EA7D00">in</font></b> Teams)
+097:     playsExactlyOnce:
+098:     sum(m <b><font color="EA7D00">in</font></b> Matches : (m.team1 == t || m.team2 == t)) plays[m][w] == 1;
+099: 
+100:   <b><font color="#007D00">// Games between the same teams cannot be on successive weeks.</font></b>
+101:   forall (w <b><font color="EA7D00">in</font></b> Weeks, m <b><font color="EA7D00">in</font></b> Matches) 
+102:     cannotPlayAgain:
+103:     <b><font color="EA7D00">if</font></b> ( w &lt; nbWeeks ) plays[m][w] + plays[m][w+1] &lt;= 1;
+104: 
+105:   <b><font color="#007D00">// Some intradivisional games should be in the first half.    </font></b>
+106:   forall (t <b><font color="EA7D00">in</font></b> Teams)
+107:     inDivisionFirstHalf:
+108:     sum(w <b><font color="EA7D00">in</font></b> FirstHalfWeeks, m <b><font color="EA7D00">in</font></b> Matches : (((m.team1 == t || m.team2 == t) 
+109:                                              &amp;&amp; m.isDivisional == 1 )))
+110:               plays[m][w] &gt;= nbFirstHalfGames;
+111: }
+112: 
+113: /// Postprocess to output a formatted solution.
+114: tuple Solution {
+115:   <b><font color="#0000FF">int</font></b>    week;
+116:   <b><font color="#0000FF">int</font></b>    isDivisional;
+117:   string team1;
+118:   string team2;
+119: };
+120: sorted {Solution} solution = {&lt;w, m.isDivisional, 
+121:                                item(teamLeague, &lt;m.team1&gt;).name, 
+122:                                item(teamLeague, &lt;m.team2&gt;).name&gt;
+123:                               | m <b><font color="EA7D00">in</font></b> Matches, w <b><font color="EA7D00">in</font></b> Weeks : plays[m][w] == 1};
+124: 
+125: execute DEBUG {
+126:   <b><font color="EA7D00">var</font></b> week = 0;
+127:   writeln(<b><font color="#8A2BE2">"Intradivisional games are marked with a *"</font></b>);
+128:   <b><font color="EA7D00">for</font></b> (<b><font color="EA7D00">var</font></b> s <b><font color="EA7D00">in</font></b> solution) {
+129:     <b><font color="EA7D00">if</font></b> (s.week != week) {
+130:       week = s.week;
+131:       writeln(<b><font color="#8A2BE2">"================================"</font></b>);
+132:       writeln(<b><font color="#8A2BE2">"On week "</font></b> + week);
+133:     }                   
+134:     <b><font color="EA7D00">if</font></b> ( s.isDivisional ) {             
+135:       writeln(<b><font color="#8A2BE2">" *"</font></b> + s.team1 + <b><font color="#8A2BE2">" will meet the "</font></b> + s.team2);
+136:     }                       
+137:     <b><font color="EA7D00">else</font></b> {
+138:       writeln(<b><font color="#8A2BE2">"  "</font></b> + s.team1 + <b><font color="#8A2BE2">" will meet the "</font></b> + s.team2)                 
+139:     }
+140:   }
+141: }
+</tt></pre>

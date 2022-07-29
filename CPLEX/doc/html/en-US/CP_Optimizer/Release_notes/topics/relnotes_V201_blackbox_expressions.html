@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="CP Optimizer black-box expressions" />
+<meta name="abstract" content="Provides a more detailed overview of CP Optimizer black-box expressions." />
+<meta name="Description" content="Provides a more detailed overview of CP Optimizer black-box expressions." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="relnotes_V201_blackbox_expressions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" />
+<title>CP Optimizer black-box expressions</title>
+</head>
+<body id="relnotes_V201_blackbox_expressions"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">CP Optimizer black-box expressions </h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a more detailed overview of CP Optimizer black-box expressions.</p>
+
+<section class="section"><h2 class="title sectiontitle">Overview</h2>
+
+<div class="p">A black-box expression is a numerical expression for which the closed form is not known or cannot
+be formulated using the classical expressions available with CP Optimizer. A black-box expression is
+specified by using a C++ function that evaluates the expression at given points. Black-box
+expressions are defined using macros <code class="ph codeph">ILOBLACKBOXn</code> where <code class="ph codeph">n</code> is the
+number of arguments of the
+black-box:<pre class="pre codeblock"><code>
+ILOBLACKBOXn(function_name, type_1, arg_1, type_2, arg_2, ..., type_n, arg_n) { 
+  CODE 
+}</code></pre>
+For example: <pre class="pre codeblock"><code>
+ILOBLACKBOX2(f, IloIntVar, x, IloIntVar, y) { 
+  CODE 
+}</code></pre>defines
+a black-box expression <code class="ph codeph">f(x,y)</code> whose signature in the model is:
+<pre class="pre codeblock"><code>IloNumExpr f(IloEnv env, IloIntVar x, IloIntVar y);</code></pre><div class="note note"><span class="notetitle">Note:</span> Black-box
+expressions are numerical expressions (<code class="ph codeph">IloNumExpr</code>). </div>
+</div>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Scope</h2>
+
+<p class="p">The scope of the black-box expression is the set of CP Optimizer variables or expressions given
+in the arguments of the macro. During search, the CP Optimizer engine can call a user-defined
+black-box evaluation function as soon as all the variables and expressions in its scope are fixed.
+The following types of variables or expressions (and corresponding arrays) are automatically
+recognized as belonging to the scope of the expression:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">IloIntVar</code> and <code class="ph codeph">IloIntVarArray</code></li>
+
+<li class="li"><code class="ph codeph">IloIntExpr</code> and <code class="ph codeph">IloIntExprArray</code></li>
+
+<li class="li"><code class="ph codeph">IloNumExpr</code> and <code class="ph codeph">IloNumExprArray</code></li>
+
+<li class="li"><code class="ph codeph">IloIntervalVar</code> and <code class="ph codeph">IloIntervalVarArray</code></li>
+
+<li class="li"><code class="ph codeph">IloIntervalSequenceVar</code> and <code class="ph codeph">IloIntervalSequenceVarArray</code></li>
+
+</ul>
+
+<div class="p">Additionally, any variable belonging to an n-dimensional array defined by the macro
+<code class="ph codeph">IloArray</code> on the above types is also automatically recognized as belonging to the
+scope of the expression. For example:
+<pre class="pre codeblock"><code>IloArray&lt;IloArray&lt;IloIntExprArray&gt;&gt;</code></pre>
+</div>
+
+<p class="p">Note that other types of arguments can be passed to the black-box macro, for example, any
+user-defined structure or pointers that could be useful for evaluating the function. These
+non-recognized arguments will not be considered as being part of the scope of the expression.</p>
+
+<div class="p">For example, the black-box expression below defines an expression with as arguments a
+user-defined structure <code class="ph codeph">s</code>, <code class="ph codeph">x</code> an array of numerical expressions, and
+<code class="ph codeph">y</code> an array of interval variables. Its scope is <code class="ph codeph">x</code> and
+<code class="ph codeph">y</code>.
+<pre class="pre codeblock"><code>
+ILOBLACKBOX3(f, MyStructure*, s, IloNumExprArray, x, IloIntervalVarArray, y) { 
+  CODE
+}</code></pre></div>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Scope adjustment </h2>
+
+<p class="p">If needed, the automatically detected scope of the black-box expression can be adjusted;
+additional variables or expressions can be added or removed, using the following member functions of
+class <code class="ph codeph">IloBackBox</code>. This may be useful in case the variables of the scope are
+specified with structures other than Concert arrays.</p>
+
+<pre class="pre codeblock"><code>
+  void add(IloIntVar x);
+  void add(IloIntExpr x);
+  void add(IloNumExpr x);
+  void add(IloIntervalVar x);
+  void add(IloIntervalSequenceVar x);
+  void remove(IloIntVar x);
+  void remove(IloIntExpr x);
+  void remove(IloNumExpr x);
+  void remove(IloIntervalVar x);
+  void remove(IloIntervalSequenceVar x);</code></pre>
+<p class="p">For example:</p>
+
+<pre class="pre codeblock"><code>
+  class MyStruct {
+  public:
+    MyStruct(IloIntVar x, IloIntVar y);
+    IloIntVar getX() const;
+    IloIntVar getY() const;
+    ...
+  }
+
+  ILOBLACKBOX1(f, MyStruct*, s) {
+    IloInt vx = getValue(s-&gt;getX());
+    IloInt vy = getValue(s-&gt;getY());
+    IloNum val = ...;
+    returnValue(val);
+  }</code></pre>
+<p class="p">Then in the model formulation:</p>
+
+<pre class="pre codeblock"><code>
+  IloEnv env;
+  IloIntVar x,y ...;
+  MyStruct* s = new (env) MyStruct(x,y); 
+  IloBlackbox bb = f(env, s); // Variables x and y are not automatically recognized as scope variables
+  bb.add(x); // Manually add variable x in scope
+  bb.add(y); // Manually add variable y in scope
+  model.add(IloMinimize(env, bb));</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle"><strong class="ph b">Use of black-box expressions in the model </strong></h2>
+
+<div class="p">A black-box expression can be used in the same way as classical numerical expressions in the
+model. In particular, the black-box expressions can be used as follows: <ul class="ul">
+<li class="li">Mixed with other expressions (classical or black-box expressions): <ul class="ul">
+<li class="li"><code class="ph codeph">f(env,x,y)*IloLog(x)</code></li>
+
+</ul>
+</li>
+
+<li class="li">Used in or as part of the objective function: <ul class="ul">
+<li class="li"><code class="ph codeph">IloMinimize(env, f(env,x,y))</code></li>
+
+<li class="li"><code class="ph codeph">IloMinimize(env, IloStaticLex(env, f(env,x,y)*IloLog(x), x*y))</code></li>
+
+</ul>
+</li>
+
+<li class="li">Used in constraints: <ul class="ul">
+<li class="li"><code class="ph codeph">model.add(x+y&lt;=f(env,x,y))</code></li>
+
+<li class="li"><code class="ph codeph">model.add(f(env,x,y)==1)</code></li>
+
+</ul>
+</li>
+
+<li class="li">Used in the scope of other black-box expressions: <ul class="ul">
+<li class="li"><code class="ph codeph">f(env, g(env,x,y), 2*IloLog(f(env,x,z)))</code></li>
+
+</ul>
+</li>
+
+<li class="li">Used as a KPI or part of a KPI: <ul class="ul">
+<li class="li"><code class="ph codeph">cp.addKPI(IloLog(f(env,x,y)), "logf")</code></li>
+
+</ul>
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle"><strong class="ph b">Principal functions accessible in expression evaluation code </strong></h2>
+
+<p class="p"><strong class="ph b">Accessors </strong></p>
+
+<p class="p">The following functions are available to access the current value of the variables and
+expressions in the scope of the black-box: </p>
+
+<pre class="pre codeblock"><code>
+IloInt  getValue  (IloIntVar x)      const;
+IloInt  getValue  (IloIntExpr x)     const;
+IloNum  getValue  (IloNumExpr x)     const;
+IloBool isPresent (IloIntervalVar x) const;
+IloBool isAbsent  (IloIntervalVar x) const;
+IloInt  getStart  (IloIntervalVar x) const;
+IloInt  getEnd    (IloIntervalVar x) const;
+IloInt  getSize   (IloIntervalVar x) const;
+IloIntervalVar getFirst(IloIntervalSequenceVar s) const;
+IloIntervalVar getLast (IloIntervalSequenceVar s) const;
+IloIntervalVar getNext (IloIntervalSequenceVar s, IloIntervalVar x) const;
+IloIntervalVar getPrev (IloIntervalSequenceVar s, IloIntervalVar x) const;</code></pre>
+<p class="p"><strong class="ph b">Returned value </strong></p>
+
+<p class="p">The computed value can be returned by calling: </p>
+
+<pre class="pre codeblock"><code>void returnValue(IloNum val);</code></pre>
+<p class="p">Here is a full example of black-box expression definition: </p>
+
+<pre class="pre codeblock"><code>
+IloNum PI = 3.14159265358979323846;
+
+ILOBLACKBOX2(f, IloNumExpr, x, IloNumExpr, y) {
+  // f(x,y) = cos4πx + cos4πy + 5(x+y) + 2
+  IloNum vx = getValue(x);
+  IloNum vy = getValue(y);
+  IloNum v = cos(4*PI*vx) + cos(4*PI*vy) + 5*(vx+vy) + 2;
+  returnValue(v);
+}</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Undefined points</h2>
+
+<p class="p">Black-box expressions do not need to be defined on the complete Cartesian product of their
+variables' domain. If the expression is not defined for a particular combination of values, the
+evaluation code may just omit to return any value. Implicitly, this means that this combination of
+values is not allowed in any feasible solution. For example:</p>
+
+<pre class="pre codeblock"><code>
+ILOBLACKBOX2(g, IloIntVar, x, IloIntVar, y) {
+  // g(x,y) = sqrt( (x+y-5)/(x-y) )
+  IloNum vx = getValue(x);
+  IloNum vy = getValue(y);
+  if (vx!=vy) {
+    IloNum val = (vx+vy-5)/(vx-vy);
+    if (0&lt;=val) {
+      returnValue(sqrt(val));
+    }
+  }
+  // Outside of the definition domain of g(x,y) no value is returned
+}</code></pre>
+<div class="p">Note that this has the same side effect as for classical expressions. For
+example:<pre class="pre codeblock"><code>model.add(IloIfThen(env, x!=y, 0&lt;=g(env,x,y)))</code></pre> will still remove
+all solutions such that <code class="ph codeph">x==y</code>. </div>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Returning multiple values </h2>
+
+<p class="p">It is sometimes useful for the black-box function to return a vector of values rather than a
+single value.</p>
+
+<p class="p">For example, consider a black-box function that performs some simulations using uncertain data.
+In this case, it may be interesting to return different descriptive statistics (such as mean,
+standard deviation, and so on), computed in the same evaluation of the black-box, to be used in the
+model formulation. </p>
+
+<p class="p">The object returned when creating a black-box is, in fact, an object, subclass of
+<code class="ph codeph">IloBlackBox</code>, that is more complex than just a numerical expression
+(<code class="ph codeph">IloNumExpr</code>). It can be thought of as an array of such expressions whose size is
+the size of the returned vector of values. </p>
+
+<p class="p">Individual expressions can be retrieved by using the <code class="ph codeph">operator[]</code> on the Concert
+black-box object. </p>
+
+<p class="p">The following function is available in the black-box evaluation code to return the
+<code class="ph codeph">i</code><sup class="ph sup">th</sup> component of the returned vector: </p>
+
+<pre class="pre codeblock"><code>void returnValue(IloInt i, IloNum val);</code></pre>
+<p class="p">For example, here is the template of a black-box that would compute some descriptive statistics
+(mean, standard deviation) as a pair, after performing a simulation based on the decision variables
+<code class="ph codeph">x</code>: </p>
+
+<pre class="pre codeblock"><code>
+#define AVRGE 0
+#define STDEV 1
+
+ILOBLACKBOX1(simulation, IloIntVarArray, x) {
+  IloNum avrge, stdev;
+  // Compute descriptive statistics based on values of decision variables getValue(x[i])
+  // ...
+  returnValue(AVRGE, avrge);
+  returnValue(STDEV, stdev);
+}</code></pre>
+<p class="p">Then in the model formulation: </p>
+
+<pre class="pre codeblock"><code>
+IloIntVarArray x(env);
+// ...
+IloBlackbox stats = simulation(env,x);
+IloNumExpr avrge = stats[AVRGE];
+IloNumExpr stdev = stats[STDEV];</code></pre>
+<p class="p">By default, when a single value is returned, the black-box can be transparently thought of as a
+single numerical expression: </p>
+
+<ul class="ul">
+<li class="li">there is an automatic cast from an <code class="ph codeph">IloBlackbox</code>
+<code class="ph codeph">f</code> to an <code class="ph codeph">IloNumExpr</code> as <code class="ph codeph">f[0]</code></li>
+
+<li class="li">in black-box evaluation code, function <code class="ph codeph">returnValue(val)</code> is just a shortcut for
+<code class="ph codeph">returnValue(0,val)</code></li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Other useful functions accessible in expression evaluation code </h2>
+
+<p class="p"><strong class="ph b">Current expression bounds </strong></p>
+
+<p class="p">The current bounds on the returned (<code class="ph codeph">i</code><sup class="ph sup">th</sup>) black-box expression are
+accessible from within the black-box evaluation code using the functions: </p>
+
+<pre class="pre codeblock"><code>
+IloNum getLB(IloInt i =0);
+IloNum getUB(IloInt i =0);</code></pre>
+<p class="p">These bounds can be used to speed up the evaluation (for example, if it becomes clear that the
+computed value will fall out of these bounds).</p>
+
+<p class="p"><strong class="ph b">Parallelism and critical sections </strong></p>
+
+<p class="p">The code evaluating black-box expressions is called by the different parallel workers solving the
+problem. In case the computation has some side effects, for example, on a user-defined structure
+(global structure, or a structure passed as an argument to the macro), it may be useful to protect
+some part of the code from concurrent access by the workers. Critical sections of the evaluation
+code can be protected by using the following functions:</p>
+
+<pre class="pre codeblock"><code>
+void lock();
+void unlock();</code></pre>
+<p class="p"><strong class="ph b">Embedded random generator </strong></p>
+
+<p class="p">A particularly common case of evaluation code that is not multi-worker safe is when using a
+common random generator, for example:</p>
+
+<pre class="pre codeblock"><code>
+ILOBLACKBOX2(f, IloRandom, rnd, IloIntVarArray, x) {
+  lock();
+  rnd.reSeed(0); // Ensure determinism of blackbox evaluation
+  IloInt nsamples;
+  IloNum val;
+  for (IloInt s=0; s&lt;=nsamples; ++s) {
+    // ... sampling code, using rnd
+    IloNum u = rnd.getFloat();
+    IloInt v = rnd.getInt(100);
+    // ...
+  }
+  unlock();
+  returnValue(val);
+}</code></pre>
+<p class="p">In the absence of the <code class="ph codeph">lock()/unlock()</code>, the random generator (that is common to
+all workers) would be accessed concurrently, resulting in unexpected behavior. </p>
+
+<p class="p">As this case is expected to be common, a specific random generator that ensures multi-worker
+safeness is available through the functions:</p>
+
+<pre class="pre codeblock"><code>
+void reSeed(IloInt seed);
+IloNum getFloat();
+IloInt getInt(IloInt n);</code></pre>
+<p class="p">So the above code can be rewritten in a simpler way that supports parallel evaluation, as
+follows:</p>
+
+<pre class="pre codeblock"><code>
+ILOBLACKBOX1(f, IloIntVarArray, x) {
+  reSeed(0); // Embedded function
+  IloInt nsamples;
+  IloNum val;
+  for (IloInt s=0; s&lt;=nsamples; ++s) {
+    // ... sampling code, using rnd
+    IloNum u = getFloat();  // Embedded function
+    IloInt v = getInt(100); // Embedded function
+    // ...
+  }
+  returnValue(val);
+}</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Memory allocation in black-box evaluation code</h2>
+
+<p class="p">It can sometimes be useful to allocate memory for function evaluation; for instance, if the
+black-box evaluation code needs a particular temporary structure, such as an array of integers for
+computing the evaluation.</p>
+
+<p class="p">There are three different ways to implement this:</p>
+
+<ol class="ol">
+<li class="li">You can use a unique array passed as an argument to the Concert
+object:<pre class="pre codeblock"><code>
+ILOBLACKBOX2(f, IloIntVarArray, x, IloInt*, tmp) {
+  lock();
+  // Note that here, the array tmp is shared between all workers, so the
+  // code needs to be protected by lock()/unlock()
+  ...
+  unlock();
+}
+
+IloIntVarArray x(env, n) ...;
+IloInt* tmp = new (env) IloInt[x.getSize()];
+IloNumExpr f(env,x,tmp);</code></pre>The
+drawback is that the evaluation code does not support parallel evaluation by multiple workers and is
+required to be protected by <code class="ph codeph">lock()/unlock()</code>.</li>
+
+<li class="li">You can use a temporary array that is created and deleted at each function
+evaluation:<pre class="pre codeblock"><code>
+ILOBLACKBOX1(f, IloIntVarArray, x) {
+  IloInt* tmp = new IloInt[x.getSize()];
+  // Array is created/delete at each evaluation
+  ...
+  delete [] tmp;
+}
+
+IloIntVarArray x(env, n) ...;
+IloNumExpr f(env,x);</code></pre>The
+drawback is that the structure is created and deleted at each function evaluation by the
+worker.</li>
+
+<li class="li">You can use a local memory allocator provided by current invoking class
+<code class="ph codeph">IlcBlackbox</code>:
+<pre class="pre codeblock"><code>
+ILOBLACKBOX2(f, IloIntVarArray, x, IloInt*, tmp) {
+  if (NULL==tmp) {
+    // Construction of the temporary array at first function evaluation.
+    // In blackbox evaluation code, 'this' is a pointer to a class IlcBlackbox 
+    // that provides a memory allocation facility.
+    tmp = new (this) IloInt[x.getSize()];
+  }
+  ...
+  // The structure is allocated on an allocator belonging to the worker that performs the evaluation and 
+  // that will automatically delete it when the engine is ended or re-extracts a new model.
+}
+
+IloIntVarArray x(env, n) ...;
+IloNumExpr f(env,x,NULL);</code></pre>In
+this third implementation, the structure is created only once, during the first evaluation of the
+black-box function by the worker, and then the following evaluations reuse the allocated structure.
+The allocated memory is released when the engine is ended or when a new model is re-extracted.</li>
+
+</ol>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" title="These release notes highlight improvements and new features of CP Optimizer in IBM ILOG CPLEX Optimization Studio 20.1.0.">Release notes for CP Optimizer 20.1.0</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="The KPIs section" />
+<meta name="abstract" content="Key Performance Indicators (KPIs) are expressions whose value somehow characterize a solution and its quality. They differ from objective expressions: objective expressions are passed to minimize or maximize and CP Optimizer actively works on improving their value. KPIs are not actively improved in that sense: achieving good values of KPIs is usually a side product of achieving good objective value. For example, objective could be to minimize total duriation of a schedule and KPI could be the total idle time of a bottleneck machine." />
+<meta name="Description" content="Key Performance Indicators (KPIs) are expressions whose value somehow characterize a solution and its quality. They differ from objective expressions: objective expressions are passed to minimize or maximize and CP Optimizer actively works on improving their value. KPIs are not actively improved in that sense: achieving good values of KPIs is usually a side product of achieving good objective value. For example, objective could be to minimize total duriation of a schedule and KPI could be the total idle time of a bottleneck machine." />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="The_KPIs_section" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html" />
+<title>The KPIs section</title>
+</head>
+<body id="The_KPIs_section"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">The KPIs section</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+Key Performance Indicators (KPIs) are expressions whose value somehow
+characterize a solution and its quality. They differ from objective
+expressions: objective expressions are passed to <code class="ph codeph"><a class="xref" href="functions/minimize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to minimize the value of an expression.">minimize</a></code> or <code class="ph codeph"><a class="xref" href="functions/maximize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to maximize the value of an expression.">maximize</a></code> and
+CP Optimizer actively works on improving their value. KPIs are not actively
+improved in that sense: achieving good values of KPIs is usually a side product
+of achieving good objective value. For example, objective could be to minimize
+total duriation of a schedule and KPI could be the total idle time of a
+bottleneck machine.
+</p>
+
+
+<section class="section">
+
+<p class="p">
+Every time CP Optimizer finds a solution it prints its KPI values in the log
+just after the objective value. For this reason all KPIs must have unique names.
+Evaluation of a KPI can also fail (e.g. division by zero) then its value is NaN.
+</p>
+
+
+<p class="p">
+In cpo file format KPIs are specified in section <code class="ph codeph">KPIs</code> that simply lists
+names of the existing expressions or defines new ones.
+</p>
+
+
+</section>
+
+
+<section class="section" id="The_KPIs_section__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+duration = ...
+cost = ...
+sumTaskLengths = ...
+
+<span class="ph commentemph">// Objective:</span>
+<a class="xref" href="functions/minimize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to minimize the value of an expression.">minimize</a>(5*duration + 3*cost);
+
+KPIs {
+  duration;
+  cost;
+  idleTime = duration - sumTaskLengths;
+}
+</code></pre>
+<p class="p">
+The code above specifies three KPIs: <code class="ph codeph">duration</code>, <code class="ph codeph">cost</code> and <code class="ph codeph">idleTime</code>
+where <code class="ph codeph">duration</code> and <code class="ph codeph">cost</code> already existed before (but they were not KPIs)
+and <code class="ph codeph">idleTime</code> is a new expression.
+</p>
+
+
+</section>
+
+
+<section class="section" id="The_KPIs_section__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+
+<div class="imageleft"><img class="image syntaxdiagram" src="diagrams/diagram39.png" /></div>
+
+<p class="p">
+Any expression defined in section KPIs could be also used outside the section.
+KPIs could be only numeric expressions (types <code class="ph codeph"><a class="xref" href="syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a></code>, <code class="ph codeph"><a class="xref" href="syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a></code> or
+<code class="ph codeph"><a class="xref" href="syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>). If a KPI is specified using an alias (see
+<a class="xref" href="syntax/090_Statements.html#Statement_identifier__expression__Aliasing">aliasing</a>)
+then alias name is printed in the log.
+</p>
+
+
+<p class="p">
+Multiple KPIs sections are allowed, KPIs from multiple sections are simply
+combined together.
+</p>
+
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html">CP Optimizer File Format Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

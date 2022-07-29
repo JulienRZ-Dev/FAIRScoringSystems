@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Optimizing Network Flow Models in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETaddarcs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETaddnodes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETbasewrite.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgarcname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgarcnodes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgbds.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgnodename.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgobjsen.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETchgsupply.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETcopybase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETcopynet.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETcreateprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETdelarcs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETdelnodes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETdelset.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/NETextract.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETfreeprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetarcindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetarcname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetarcnodes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetbase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetdj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetitcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetlb.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetnodearcs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetnodeindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetnodename.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetnumarcs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetnumnodes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetobjsen.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetobjval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetphase1cnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetpi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetprobname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetslack.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetstat.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetsupply.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETgetx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETprimopt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETreadcopybase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETreadcopyprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETsolninfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETsolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/NETwriteprob.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagenetwork" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Optimizing Network Flow Models in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepagenetwork"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Optimizing Network Flow Models in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines optimize a network flow model.
+</p>
+
+<p class="p">
+If part of your problem is structured as a network, 
+then you may want to consider calling the CPLEX Network Optimizer. 
+This optimizer may have a positive impact on performance. 
+There are two alternative ways of calling the network optimizer: 
+</p>
+
+<ul class="ul">
+<li class="li">
+If your problem is an LP where a large part is a network structure, 
+you can call the network optimizer for the populated LP object. 
+</li>
+
+<li class="li">
+If your entire problem consists of a network flow, 
+you should consider creating a network object 
+instead of an LP object. Then populate it, and 
+solve it with the network optimizer. 
+This alternative generally yields the best performance 
+because it does not incur the overhead of LP data structures. 
+This option is available only for the CPLEX Callable Library (C API). 
+</li>
+
+</ul>
+
+<p class="p">
+For more about formulating a problem in this way 
+and applying the network optimizer in your application, 
+see this topic 
+<a class="xref" href="../../CPLEX/UsrMan/topics/cont_optim/network/01_title_synopsis.html" title="Documents the CPLEX network optimizer.">Solving network-flow problems</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.  
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETaddarcs.html">CPXXNETaddarcs and CPXNETaddarcs</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETaddarcs</span>/<span class="keyword apiname">CPXNETaddarcs</span></code> adds new arcs to the network  stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETaddnodes.html">CPXXNETaddnodes and CPXNETaddnodes</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETaddnodes</span>/<span class="keyword apiname">CPXNETaddnodes</span></code> adds new nodes to the network  stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETbasewrite.html">CPXXNETbasewrite and CPXNETbasewrite</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETbasewrite</span>/<span class="keyword apiname">CPXNETbasewrite</span></code> writes the current basis  stored in a network problem object to a file in BAS format.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgarcname.html">CPXXNETchgarcname and CPXNETchgarcname</a></strong><br />
+             This routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgarcname</span>/<span class="keyword apiname">CPXNETchgarcname</span></code> changes the names of a set  of arcs in the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgarcnodes.html">CPXXNETchgarcnodes and CPXNETchgarcnodes</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgarcnodes</span>/<span class="keyword apiname">CPXNETchgarcnodes</span></code> changes the nodes  associated with a set of arcs in the network stored in a network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgbds.html">CPXXNETchgbds and CPXNETchgbds</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgbds</span>/<span class="keyword apiname">CPXNETchgbds</span></code> is used to change the upper,  lower, or both bounds on the flow for a set of arcs in the network stored in  a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgname.html">CPXXNETchgname and CPXNETchgname</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgname</span>/<span class="keyword apiname">CPXNETchgname</span></code> changes the name of a node or an  arc in the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgnodename.html">CPXXNETchgnodename and CPXNETchgnodename</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgnodename</span>/<span class="keyword apiname">CPXNETchgnodename</span></code> changes the names of a set  of nodes in the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgobj.html">CPXXNETchgobj and CPXNETchgobj</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgobj</span>/<span class="keyword apiname">CPXNETchgobj</span></code> is used to change the objective  values for a set of arcs in the network stored in a network problem  object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgobjsen.html">CPXXNETchgobjsen and CPXNETchgobjsen</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgobjsen</span>/<span class="keyword apiname">CPXNETchgobjsen</span></code> is used to change the sense of  the network problem to a minimization or maximization problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETchgsupply.html">CPXXNETchgsupply and CPXNETchgsupply</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETchgsupply</span>/<span class="keyword apiname">CPXNETchgsupply</span></code> is used to change supply  values for a set of nodes in the network stored in a network problem  object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETcopybase.html">CPXXNETcopybase and CPXNETcopybase</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETcopybase</span>/<span class="keyword apiname">CPXNETcopybase</span></code> can be used to set the network  basis for a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETcopynet.html">CPXXNETcopynet and CPXNETcopynet</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETcopynet</span>/<span class="keyword apiname">CPXNETcopynet</span></code> copies a network to a network  object, overriding any other network saved in the object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETcreateprob.html">CPXXNETcreateprob and CPXNETcreateprob</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETcreateprob</span>/<span class="keyword apiname">CPXNETcreateprob</span></code> constructs a new network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETdelarcs.html">CPXXNETdelarcs and CPXNETdelarcs</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETdelarcs</span>/<span class="keyword apiname">CPXNETdelarcs</span></code> is used to remove a range of  arcs from the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETdelnodes.html">CPXXNETdelnodes and CPXNETdelnodes</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETdelnodes</span>/<span class="keyword apiname">CPXNETdelnodes</span></code> is used to remove a range of  nodes from the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETdelset.html">CPXXNETdelset and CPXNETdelset</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETdelset</span>/<span class="keyword apiname">CPXNETdelset</span></code> is used to delete a set of nodes  and arcs from the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/NETextract.html">CPXXNETextract and CPXNETextract</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXNETextract</span>/<span class="keyword apiname">CPXNETextract</span></code>  finds an embedded network in the LP stored in a CPLEX problem object and copies it as a network to the network problem object, <code class="ph codeph"><span class="keyword parmname">net</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETfreeprob.html">CPXXNETfreeprob and CPXNETfreeprob</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETfreeprob</span>/<span class="keyword apiname">CPXNETfreeprob</span></code> deletes the network problem  object pointed to by <code class="ph codeph"><span class="keyword parmname">net_p</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetarcindex.html">CPXXNETgetarcindex and CPXNETgetarcindex</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetarcindex</span>/<span class="keyword apiname">CPXNETgetarcindex</span></code> returns the index of the  specified arc (in the network stored in a network problem object) in the  integer pointed to by <code class="ph codeph"><span class="keyword parmname">index_p</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetarcname.html">CPXXNETgetarcname and CPXNETgetarcname</a></strong><br />
+  Accesses the names of a range of arcs in a network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetarcnodes.html">CPXXNETgetarcnodes and CPXNETgetarcnodes</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetarcnodes</span>/<span class="keyword apiname">CPXNETgetarcnodes</span></code> is used to access the  from-nodes and to-nodes for a range of arcs in  the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetbase.html">CPXXNETgetbase and CPXNETgetbase</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetbase</span>/<span class="keyword apiname">CPXNETgetbase</span></code> is used to access the network  basis for a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetdj.html">CPXXNETgetdj and CPXNETgetdj</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetdj</span>/<span class="keyword apiname">CPXNETgetdj</span></code> is used to access reduced costs  for a range of arcs of the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetitcnt.html">CPXXNETgetitcnt and CPXNETgetitcnt</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetitcnt</span>/<span class="keyword apiname">CPXNETgetitcnt</span></code> accesses the total number of  network simplex iterations for the most recent call to  <code class="ph codeph"><span class="keyword apiname">CPXXNETprimopt</span>/<span class="keyword apiname">CPXNETprimopt</span></code>, for a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetlb.html">CPXXNETgetlb and CPXNETgetlb</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetlb</span>/<span class="keyword apiname">CPXNETgetlb</span></code> is used to access the lower  capacity bounds for a range of arcs of the network stored in a network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetnodearcs.html">CPXXNETgetnodearcs and CPXNETgetnodearcs</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetnodearcs</span>/<span class="keyword apiname">CPXNETgetnodearcs</span></code> is used to access the arc  indices incident to a range of nodes in the network stored in a network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetnodeindex.html">CPXXNETgetnodeindex and CPXNETgetnodeindex</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetnodeindex</span>/<span class="keyword apiname">CPXNETgetnodeindex</span></code> returns the index of the  specified node (in the network stored in a network problem object) in the  integer pointed to by <code class="ph codeph"><span class="keyword parmname">index_p</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetnodename.html">CPXXNETgetnodename and CPXNETgetnodename</a></strong><br />
+   Accesses the names of a range of nodes in a network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetnumarcs.html">CPXXNETgetnumarcs and CPXNETgetnumarcs</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetnumarcs</span>/<span class="keyword apiname">CPXNETgetnumarcs</span></code> is used to access the number  of arcs in a network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetnumnodes.html">CPXXNETgetnumnodes and CPXNETgetnumnodes</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetnumnodes</span>/<span class="keyword apiname">CPXNETgetnumnodes</span></code> is used to access the number  of nodes in a network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetobj.html">CPXXNETgetobj and CPXNETgetobj</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetobj</span>/<span class="keyword apiname">CPXNETgetobj</span></code> is used to access the objective  function values for a range of arcs in the network stored in a network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetobjsen.html">CPXXNETgetobjsen and CPXNETgetobjsen</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetobjsen</span>/<span class="keyword apiname">CPXNETgetobjsen</span></code> returns the sense of the  objective function (i.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetobjval.html">CPXXNETgetobjval and CPXNETgetobjval</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetobjval</span>/<span class="keyword apiname">CPXNETgetobjval</span></code> returns the objective value of  the solution stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetphase1cnt.html">CPXXNETgetphase1cnt and CPXNETgetphase1cnt</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetphase1cnt</span>/<span class="keyword apiname">CPXNETgetphase1cnt</span></code> returns the number of phase  1 network simplex iterations for the most recent call to  <code class="ph codeph"><span class="keyword apiname">CPXXNETprimopt</span>/<span class="keyword apiname">CPXNETprimopt</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetpi.html">CPXXNETgetpi and CPXNETgetpi</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetpi</span>/<span class="keyword apiname">CPXNETgetpi</span></code> is used to access dual values for  a range of nodes in the network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetprobname.html">CPXXNETgetprobname and CPXNETgetprobname</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetprobname</span>/<span class="keyword apiname">CPXNETgetprobname</span></code> is used to access the name  of the problem stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetslack.html">CPXXNETgetslack and CPXNETgetslack</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetslack</span>/<span class="keyword apiname">CPXNETgetslack</span></code> is used to access slack values  or, equivalently, violations of supplies/demands for a range of nodes in the  network stored in a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetstat.html">CPXXNETgetstat and CPXNETgetstat</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetstat</span>/<span class="keyword apiname">CPXNETgetstat</span></code> returns the solution status for  a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetsupply.html">CPXXNETgetsupply and CPXNETgetsupply</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetsupply</span>/<span class="keyword apiname">CPXNETgetsupply</span></code> is used to obtain supply  values for a range of nodes in the network stored in a CPLEX network problem  object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetub.html">CPXXNETgetub and CPXNETgetub</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetub</span>/<span class="keyword apiname">CPXNETgetub</span></code> is used to access the upper  capacity bounds for a range of arcs in the network stored in a network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETgetx.html">CPXXNETgetx and CPXNETgetx</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETgetx</span>/<span class="keyword apiname">CPXNETgetx</span></code> is used to access solution values  or, equivalently, flow values for a range of arcs stored in a network  problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETprimopt.html">CPXXNETprimopt and CPXNETprimopt</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETprimopt</span>/<span class="keyword apiname">CPXNETprimopt</span></code> can be called after a network  problem has been copied to a network problem object, to find a solution to  that problem using the primal network simplex method.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETreadcopybase.html">CPXXNETreadcopybase and CPXNETreadcopybase</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETreadcopybase</span>/<span class="keyword apiname">CPXNETreadcopybase</span></code> reads a basis file in  <code class="ph codeph"><span class="keyword apiname">BAS</span></code> format and copies the basis to a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETreadcopyprob.html">CPXXNETreadcopyprob and CPXNETreadcopyprob</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETreadcopyprob</span>/<span class="keyword apiname">CPXNETreadcopyprob</span></code> reads a network, in the  CPLEX <code class="ph codeph"><span class="keyword parmname">.net</span></code> or DIMACS <code class="ph codeph"><span class="keyword parmname">.min</span></code> format, from a file and  copies it to a network problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETsolninfo.html">CPXXNETsolninfo and CPXNETsolninfo</a></strong><br />
+             The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETsolninfo</span>/<span class="keyword apiname">CPXNETsolninfo</span></code> is used to access solution  information computed by the most recent call to <code class="ph codeph"><span class="keyword apiname">CPXXNETprimopt</span>/<span class="keyword apiname">CPXNETprimopt</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETsolution.html">CPXXNETsolution and CPXNETsolution</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETsolution</span>/<span class="keyword apiname">CPXNETsolution</span></code> accesses solution values for a  network problem object computed by the most recent call to  <code class="ph codeph"><span class="keyword apiname">CPXXNETprimopt</span>/<span class="keyword apiname">CPXNETprimopt</span></code> for that object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/netapi/NETwriteprob.html">CPXXNETwriteprob and CPXNETwriteprob</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETwriteprob</span>/<span class="keyword apiname">CPXNETwriteprob</span></code> writes the network stored in a  network problem object to a file.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

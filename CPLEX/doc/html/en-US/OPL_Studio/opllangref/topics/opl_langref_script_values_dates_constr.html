@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Date constructor" />
+<meta name="abstract" content="Explains the different forms of the date constructor." />
+<meta name="Description" content="Explains the different forms of the date constructor." />
+<meta name="DC.subject" content="dates in IBM ILOG Script, constructor, constructors, for IBM ILOG Script dates" />
+<meta name="keywords" content="dates in IBM ILOG Script, constructor, constructors, for IBM ILOG Script dates" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_dates.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1010162" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_dates.html" />
+<title>Date constructor</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1010162"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Date constructor</h1>
+
+
+
+<div class="body"><p class="shortdesc">Explains the different forms of the date constructor.</p>
+
+<p class="p">The date constructor has four distinct forms. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that describes the syntax and effects of date constructors in IBM ILOG Script." id="usropllangref.uss_langref_scriptValues.1010162__usropllangref.uss_langref_scriptValues.1010165" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Date constructor</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d487780e54">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d487780e57">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d487780e54 "> new Date()</td>
+
+<td class="entry" valign="top" headers="d487780e57 "> Returns the date representing the current time. </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d487780e54 ">new Date(<em class="ph i">milliseconds</em>)</td>
+
+<td class="entry" valign="top" headers="d487780e57 "><p class="p">Returns the date representing 00:00:00 UTC, January 1, 1970,
+plus <code class="ph codeph">milliseconds</code> milliseconds. The argument can
+be negative, to express a date before 1970. If the argument cannot
+be converted to a number, the third constructor syntax is used. </p>
+<p class="p">Examples:</p>
+<p class="p"><code class="ph codeph">new
+Date(0) -&gt;</code> a date representing 00:00:00 UTC, January 1,
+1970. </p>
+<p class="p"><code class="ph codeph">new Date(1000*60*60*24*20) -&gt;</code> a date
+representing twenty days after 00:00:00 UTC, January 1, 1970.</p>
+<p class="p"><code class="ph codeph">new
+Date(-1000*60*60*24*20) -&gt;</code> a date representing twenty
+days before 00:00:00 UTC, January 1, 1970.</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d487780e54 ">new Date(<em class="ph i">string</em>)</td>
+
+<td class="entry" valign="top" headers="d487780e57 "><p class="p">Returns the date described by <code class="ph codeph">string,</code> which
+must have the form:</p>
+<p class="p">month/day/year hour:minute:second msecond </p>
+<p class="p">The
+date expressed in <code class="ph codeph">string</code> is taken in local time.</p>
+<p class="p">Example:</p>
+<p class="p"><code class="ph codeph">new
+Date("12/25/1932 14:35:12 820")</code></p>
+<p class="p">A date representing
+December 25th, 1932, at 2:35 PM plus 12 seconds and 820 milliseconds,
+local time.</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d487780e54 "><p class="p">new Date(<em class="ph i">year</em>,</p>
+<p class="p">         <em class="ph i">month</em>,</p>
+<p class="p"> 
+       [ , <em class="ph i">day</em></p>
+<p class="p">         [ , <em class="ph i">hours</em></p>
+<p class="p">     
+   [ , <em class="ph i">minutes</em></p>
+<p class="p">         [ , <em class="ph i">seconds</em></p>
+<p class="p">   
+     [ , <em class="ph i">mseconds</em> ]]]]])  </p>
+</td>
+
+<td class="entry" valign="top" headers="d487780e57 "><p class="p">Returns a new date representing the given year, month, day,
+and so on, taken in local time. The arguments are:</p>
+<p class="p"><em class="ph i">year</em>:
+any integer. </p>
+<p class="p"><em class="ph i">month</em>: range 0-11 (where 0=January, 1=February,
+and so on)</p>
+<p class="p"><em class="ph i">day</em>: range 1-31, default 1</p>
+<p class="p"><em class="ph i">hours</em>:
+range 0-23, default 0</p>
+<p class="p"><em class="ph i">minutes</em>: range 0-59, default 0</p>
+<p class="p"><em class="ph i">seconds</em>:
+range 0-59, default 0</p>
+<p class="p"><em class="ph i">mseconds</em>: range 0-999, defaults
+to 0</p>
+<p class="p">Examples:</p>
+<p class="p"><code class="ph codeph">new Date(1932, 11, 25, 14, 35,
+12, 820)</code></p>
+<p class="p">A date representing December 25th, 1932, at
+2:35 PM plus 12 seconds and 820 milliseconds, local time.</p>
+<p class="p"><code class="ph codeph">new
+Date(1932, 11, 25)</code> </p>
+<p class="p">A date representing December 25th,
+1932, at 00:00, local time.</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_dates.html" title="Date representation and functions">Dates</a></div>
+</div>
+</nav></div></body>
+</html>

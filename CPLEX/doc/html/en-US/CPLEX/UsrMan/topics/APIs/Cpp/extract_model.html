@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Extracting a model" />
+<meta name="abstract" content="Describes the method that extracts a model for an algorithm in the C++ API." />
+<meta name="Description" content="Describes the method that extracts a model for an algorithm in the C++ API." />
+<meta name="DC.subject" content="model, extracting (C++ API)" />
+<meta name="keywords" content="model, extracting (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/solving_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cplusIloCplex.106632" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/solving_synopsis.html" />
+<title>Extracting a model</title>
+</head>
+<body id="User_manual.uss_cplusIloCplex.106632"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Extracting a model</h1>
+
+
+<div class="body"><p class="shortdesc">Describes the method that extracts a model for an algorithm in the C++ API.</p>
+
+<p class="p">This manual defines only one optimization model and uses
+only one instance of <span class="keyword apiname">IloCplex</span>  
+at a time to solve the model. Consequently, this manual talks 
+about these as the model and the <code class="ph codeph">cplex</code> object.
+However, in Concert Technology, an arbitrary
+number of models and algorithm-objects can be created. The <code class="ph codeph">cplex</code> object
+can be created by the constructor: </p>
+
+<pre class="pre codeblock"><code> 
+IloCplex cplex(env);
+</code></pre> 
+
+<p class="p">To use CPLEX to solve the model, the model must first be
+extracted to <code class="ph codeph">cplex</code>  by a call like this: </p>
+
+<pre class="pre codeblock"><code>
+cplex.extract(model);
+</code></pre>
+<p class="p">This method copies the data from the model into the appropriate
+efficient data structures, which CPLEX uses for solving the problem.
+It does so by extracting each of the modeling objects added to the
+model and each of the objects referenced by them. For every extracted
+modeling object, corresponding data structures are created internally
+in the <code class="ph codeph">cplex</code> object. For readers familiar
+with the sparse matrix representation used internally by CPLEX, a
+variable becomes a column and a constraint becomes a row. As discussed
+later, these data structures are synchronized with the modeling objects
+even if the modeling objects are modified. </p>
+
+<p class="p">If you consider a variable to be part of your model,
+even though it is not (initially) used in any constraint, you should
+add this variable explicitly to the model. This practice makes sure
+that the variable will be extracted. This practice may also be important
+if you query solution information for the variable, since solution
+information is available only for modeling objects that are known
+to CPLEX because they have been extracted from a model. </p>
+
+<p class="p">If you feel uncertain about whether or not an object
+will be extracted, you can add it to the model to be sure. Even if
+an object is added multiple times, it will be extracted only once
+and thus will not slow the solution process down. </p>
+
+<p class="p">Since the sequence of creating the <code class="ph codeph">cplex</code> object
+and extracting the model to it is such a common one, 
+<span class="keyword apiname">IloCplex</span> provides the shortcut: </p>
+
+<pre class="pre codeblock"><code>
+IloCplex cplex(model);
+</code></pre>
+
+<p class="p">This shortcut is completely equivalent to separate calls
+and makes sure that the environment used for the <code class="ph codeph">cplex</code> object
+will be the same as that used for the model when it is extracted,
+as required by Concert Technology. The shortcut uses the environment
+from the model to construct the <code class="ph codeph">cplex</code> object
+before extraction.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/solving_synopsis.html" title="Describes facilities for solving a model in the C++ API.">Solving the model</a></div>
+</div>
+</nav></div></body>
+</html>

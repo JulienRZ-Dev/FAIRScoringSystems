@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Model" />
+<meta name="abstract" content="Once the house building with workers problem has been described using natural language, you then use Concert Technology classes to model the constraint programming problem." />
+<meta name="Description" content="Once the house building with workers problem has been described using natural language, you then use Concert Technology classes to model the constraint programming problem." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Getting_started/topics/schedseq.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_gscpoptimizerschedseq.114936" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Getting_started/topics/schedseq.html" />
+<title>Model</title>
+</head>
+<body id="migration.uss_gscpoptimizerschedseq.114936"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Model</h1>
+
+
+<div class="body"><p class="shortdesc">Once the house building with workers problem has
+been described using natural language, you then use Concert Technology
+classes to model the constraint programming problem.</p>
+
+<p class="p">After you have written a description of your problem,
+you can use IBM® ILOG® Concert Technology
+classes to model it.</p>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154969"><h2 class="title sectiontitle">Step 2: Open the example file</h2><p class="p">Open the
+example file <code class="ph codeph">&lt;Install_dir&gt;/cpoptimizer/examples/tutorial/cpp/sched_sequence_partial.cpp</code> in
+your development environment. This file is a program that is only
+partially completed. You will enter the missing code in each step
+in this lesson. At the end, you will have completed the program code,
+and you can compile and run the program.</p>
+<p class="p">In
+this lesson, you include the header file <code class="ph codeph">&lt;ilcp/cp.h&gt;</code>.
+To catch exceptions that may be thrown, you use a <code class="ph codeph">try/catch</code> block.
+The code for creating the environment and model and for printing out
+the solution found by the CP Optimizer engine is provided.</p>
+<p class="p">In addition, the data related to the tasks, such as the tasks
+(<code class="ph codeph">Tasks</code>), the number of tasks (<code class="ph codeph">NbTasks</code>),
+the names of the tasks (<code class="ph codeph">TaskNames</code>) and sizes
+of the tasks (<code class="ph codeph">TaskDurations</code>), are provided.</p>
+<p class="p">After you create an environment and a model, you need to
+define the decision variables and add the constraints and objective
+to the model. Since the requirements for each of the five houses are
+similar, you use a function, <code class="ph codeph">MakeHouse</code>,
+to create the decision variables, constraints and costs associated
+with a house. The information about individual houses that must be
+shared with the main function includes the cost expression and the
+set of tasks associated with each worker. This set of tasks is needed
+in order to create the constraints for each worker that involve tasks
+of different houses. In order to display the results of the optimization,
+it is also useful to maintain an array of all the interval variables. </p>
+<p class="p">To access this global information, you create objects to
+be updated in the <code class="ph codeph">MakeHouse</code> function. An
+array of task interval variables, <code class="ph codeph">allTasks</code>,
+stores all the interval variables that are created. The overall cost
+is represented by a numerical expression called <code class="ph codeph">cost</code>.
+For the worker Joe, you create two arrays to be filled by the <code class="ph codeph">MakeHouse</code> function: <code class="ph codeph">joeTasks</code>,
+an array of interval variables, and <code class="ph codeph">joeLocations</code>,
+an array of integers. These two corresponding arrays are indexed the
+same, so that for each index <code class="ph codeph">i</code>, <code class="ph codeph">joeTasks[i]</code> is performed at <code class="ph codeph">joeLocation[i]</code>.
+A similar pair of arrays are created for the worker Jim. These four
+arrays are passed to the <code class="ph codeph">MakeHouse</code> function
+which adds elements to these arrays as the interval variables and
+constraints are created</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154958"><h2 class="title sectiontitle">Step 3: Declare the objects needed for MakeHouse</h2><p class="p">Add the following code after the comment <code class="ph codeph">//Declare
+the objects needed for MakeHouse</code>  </p>
+<pre class="pre codeblock"><code>
+    IloNumExpr cost(env);
+    IloIntervalVarArray allTasks(env);
+    IloIntervalVarArray joeTasks(env);
+    IloIntervalVarArray jimTasks(env);
+    IloIntArray joeLocations(env);
+    IloIntArray jimLocations(env);
+
+</code></pre><p class="p">You pass the model, the cost expression, the
+array of all tasks, the arrays <code class="ph codeph">joeTasks</code>, <code class="ph codeph">jimTasks</code>, <code class="ph codeph">joeLocations</code> and <code class="ph codeph">jimLocations</code>, the identifier of the current house,
+the earliest date the house can be started, the preferred due date
+of the house and the cost per day of completing the house late as
+arguments to the <code class="ph codeph">MakeHouse</code> function.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154945"><h2 class="title sectiontitle">Step 4: Create the MakeHouse function</h2><p class="p">Add
+the following code after the comment <code class="ph codeph">//Create the
+MakeHouse function</code> </p>
+<pre class="pre codeblock"><code>
+void MakeHouse(IloModel model,
+      IloNumExpr cost,
+      IloIntervalVarArray allTasks,
+      IloIntervalVarArray joeTasks,
+      IloIntervalVarArray jimTasks,
+      IloIntArray joeLocations,
+      IloIntArray jimLocations,
+      IloInt loc,
+      IloInt rd,
+      IloInt dd,
+      IloNum weight) {
+
+</code></pre><p class="p">Each house has a list of <code class="ph codeph">NbTasks</code> that
+must be scheduled. Task <code class="ph codeph">i</code>, where <code class="ph codeph">i</code> is in <code class="ph codeph">0..NbTasks-1</code>,
+has a size of <code class="ph codeph">TaskDurations[i]</code> and the name <code class="ph codeph">TaskNames[i]</code>.   Using these, you build an array <code class="ph codeph">tasks</code> of interval variables. As you create each
+interval variable, you also add it to the array <code class="ph codeph">allTasks</code> that
+will be used to display the solution once the schedule has been determined. </p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154934"><h2 class="title sectiontitle">Step 5: Create the interval variables</h2><p class="p"> Add the following code
+after the comment <code class="ph codeph">//Create the interval variables</code> </p>
+<pre class="pre codeblock"><code>
+  char name[128];
+  
+  IloIntervalVarArray tasks(env, NbTasks);
+  for (IloInt i=0; i&lt;NbTasks; ++i) {
+    sprintf(name, "H%ld-%s", loc, TaskNames[i]);
+    tasks[i] = IloIntervalVar(env, TaskDurations[i], name);
+    allTasks.add(tasks[i]);
+  }
+
+</code></pre><p class="p">To model the cost associated with the length
+of time it takes to build a single house, you create an interval variable
+that starts at the start of the first task of the house and ends at
+the end of the last task. This interval variable must <em class="ph i">span</em> the
+tasks.    </p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Span constraint </p>
+ <p class="p">With the specialized constraint <code class="ph codeph">IloSpan</code>,
+you can create a constraint that specifies that one interval variable
+must exactly cover a set of interval variables.  </p>
+ <p class="p">In
+other words, the spanning interval <code class="ph codeph">a</code> is
+present in the solution if and only if at least one of the spanned
+interval variables is present and, in this case, the spanning interval
+variable starts at the start of the interval variable scheduled earliest
+in the set and ends at the end of the interval variable scheduled
+latest in the set. </p>
+ </div>
+<p class="p"> The first argument passed
+to the constructor of the class <code class="ph codeph">IloSpan</code> is
+the environment. The second argument is the interval variable that
+will be constrained to cover the set of interval variables. The third
+argument is the array of interval variables that are to be covered.
+The final argument is an optional name used for debug and trace purposes.
+Here is a constructor:  </p>
+<pre class="pre codeblock"><code>
+  IloSpan (const IloEnv env, 
+           const IloIntervalVar a, 
+           const IloIntervalVarArray bs, 
+           const char *name =0);
+
+</code></pre><p class="p">You create an interval variable called <code class="ph codeph">house</code> and constrain the variable to cover the array
+of tasks, <code class="ph codeph">tasks</code>.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154923"><h2 class="title sectiontitle">Step 6: Add the house interval variable and span constraint</h2><p class="p">Add the following code after the comment <code class="ph codeph">//Add
+the house interval variable and span constraint</code> </p>
+<pre class="pre codeblock"><code>
+  sprintf(name, "H%ld", loc);
+  IloIntervalVar house(env, name);
+  model.add(IloSpan(env, house, tasks));
+
+</code></pre><p class="p">The tasks of the house building project have
+precedence constraints that are added to the model. Moreover, each
+house has an earliest starting date which can be modeled with a <em class="ph i">time bound modifier</em>.    </p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Interval variable modifier </p>
+ <p class="p">Properties
+of interval variables can be modified.</p>
+ <p class="p"> Time bound
+modifiers are used to limit the possible values that may be assigned
+to the start, length, size, or end of an interval variable. These
+modifiers include <code class="ph codeph">setStartMin</code>, <code class="ph codeph">setStartMax</code>, <code class="ph codeph">setEndMin</code>, <code class="ph codeph">setEndMax</code>, <code class="ph codeph">setLengthMin</code>, <code class="ph codeph">setLengthMax</code>.,<code class="ph codeph"> setSizeMin</code> and <code class="ph codeph">setSizeMax</code>. For example, if <code class="ph codeph">a</code> denotes
+an interval variable and <code class="ph codeph">val</code> is a number,
+then: </p>
+ <ul class="ul">
+<li class="li"><p class="p"><code class="ph codeph">a.setStartMin(val)</code> constrains
+that <code class="ph codeph">a</code> must not start before <code class="ph codeph">val</code> or <code class="ph codeph">a</code> is not present in the solution. It imposes the
+inequality <code class="ph codeph">startTime(a) &gt;= val</code>.</p>
+</li>
+
+</ul>
+ <p class="p">Other modifiers of interval variables include <code class="ph codeph">setPresent</code>, <code class="ph codeph">setAbsent</code> and <code class="ph codeph">setOptional</code> which indicate whether or not an interval
+variable must be present. </p>
+ </div>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154912"><h2 class="title sectiontitle">Step 7: Add the precedence and time bound constraints</h2><p class="p">Add the following code after the comment <code class="ph codeph">//Add
+the precendence and time bound constraints</code> </p>
+<pre class="pre codeblock"><code>
+  house.setStartMin(rd);
+  model.add(IloEndBeforeStart(env, tasks[masonry],   tasks[carpentry]));
+  model.add(IloEndBeforeStart(env, tasks[masonry],   tasks[plumbing]));
+  model.add(IloEndBeforeStart(env, tasks[masonry],   tasks[ceiling]));
+  model.add(IloEndBeforeStart(env, tasks[carpentry], tasks[roofing]));
+  model.add(IloEndBeforeStart(env, tasks[ceiling],   tasks[painting]));
+  model.add(IloEndBeforeStart(env, tasks[roofing],   tasks[windows]));
+  model.add(IloEndBeforeStart(env, tasks[roofing],   tasks[facade]));
+  model.add(IloEndBeforeStart(env, tasks[plumbing],  tasks[facade]));
+  model.add(IloEndBeforeStart(env, tasks[roofing],   tasks[garden]));
+  model.add(IloEndBeforeStart(env, tasks[plumbing],  tasks[garden]));
+  model.add(IloEndBeforeStart(env, tasks[windows],   tasks[moving]));
+  model.add(IloEndBeforeStart(env, tasks[facade],    tasks[moving]));
+  model.add(IloEndBeforeStart(env, tasks[garden],    tasks[moving]));
+  model.add(IloEndBeforeStart(env, tasks[painting],  tasks[moving]));
+
+</code></pre><p class="p">Each of the tasks requires a particular worker.
+As a worker can perform only one task at a time, it is necessary to
+know all of the tasks that a worker must perform and then constrain
+that these intervals not overlap. Also, as there are transition times
+between houses that must be taken into account, it is necessary to
+know where each task is to be performed. To create the no overlap
+and transition time constraints in the main function, you add the
+appropriate tasks to the arrays <code class="ph codeph">joeTasks</code> and <code class="ph codeph">jimTasks</code>. To indicate at which house the task is
+performed, whenever a task is added to a worker’s task array, a location
+is added to that worker’s location array. Thus the two corresponding
+arrays are indexed the same, so that for each index <code class="ph codeph">i</code>, <code class="ph codeph">joeTasks[i]</code> is performed at <code class="ph codeph">joeLocation[i]</code>. </p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154901"><h2 class="title sectiontitle">Step 8: Add the tasks to workers</h2><p class="p">Add the following code after the comment <code class="ph codeph">//Add the tasks to workers</code> </p>
+<pre class="pre codeblock"><code>
+  joeTasks.add(tasks[masonry]);
+  joeLocations.add(loc);
+  joeTasks.add(tasks[carpentry]);
+  joeLocations.add(loc);
+  jimTasks.add(tasks[plumbing]);
+  jimLocations.add(loc);
+  jimTasks.add(tasks[ceiling]);
+  jimLocations.add(loc);
+  joeTasks.add(tasks[roofing]);
+  joeLocations.add(loc);
+  jimTasks.add(tasks[painting]);
+  jimLocations.add(loc);
+  jimTasks.add(tasks[windows]);
+  jimLocations.add(loc);
+  joeTasks.add(tasks[facade]);
+  joeLocations.add(loc);
+  joeTasks.add(tasks[garden]);
+  joeLocations.add(loc);
+  jimTasks.add(tasks[moving]);
+  jimLocations.add(loc);
+
+</code></pre><p class="p">To model the cost of building the house, you
+create a function that uses the function <code class="ph codeph">IloEndOf</code> to
+model the cost associated with a task being completed later than its
+preferred latest end date.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154888"><h2 class="title sectiontitle">Step 9: Add the tardiness cost function</h2><p class="p">Add
+the following code after the comment <code class="ph codeph">//Add the tardiness
+cost function</code> </p>
+<pre class="pre codeblock"><code>
+IloNumExpr TardinessCost(IloIntervalVar task, IloInt dd, IloNum weight) {
+  IloEnv env = task.getEnv();
+  return weight * IloMax(0, IloEndOf(task)-dd);
+}
+
+</code></pre><p class="p">This cost function returns an expression that
+models the tardiness cost for the end date of the house interval variable.
+The cost for building a house is the sum of the tardiness cost and
+the number of days it takes from start to finish building the house.
+To model the cost of the length of time it takes to build the house,
+you use the function <code class="ph codeph">IloLengthOf</code>, which
+returns an expression representing the length of an interval variable.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154875"><h2 class="title sectiontitle">Step 10: Add the cost expression</h2><p class="p">Add the
+following code after the comment <code class="ph codeph">//Add the cost expression</code> </p>
+<pre class="pre codeblock"><code>
+  cost += TardinessCost(house, dd, weight);
+  cost += IloLengthOf(house);
+
+</code></pre><p class="p">This completes the <code class="ph codeph">MakeHouse</code> function.
+In the main function, you now call the <code class="ph codeph">MakeHouse</code> function,
+once for each house. At each call, the cost expression is incremented
+by the cost associated with that house and additional elements are
+appended to the arrays <code class="ph codeph">allTasks</code>, <code class="ph codeph">joeTasks</code>, <code class="ph codeph">jimTasks</code>, <code class="ph codeph">joeLocations</code> and <code class="ph codeph">jimLocations</code>. </p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154864"><h2 class="title sectiontitle">Step 11: Create the houses</h2><p class="p">Add the following code after the comment <code class="ph codeph">//Create
+the houses</code> </p>
+<pre class="pre codeblock"><code>
+    MakeHouse(model, cost, allTasks, joeTasks, jimTasks, joeLocations, 
+      jimLocations, 0, 0,   120, 100.0);
+    MakeHouse(model, cost, allTasks, joeTasks, jimTasks, joeLocations, 
+      jimLocations, 1, 0,   212, 100.0);
+    MakeHouse(model, cost, allTasks, joeTasks, jimTasks, joeLocations, 
+      jimLocations, 2, 151, 304, 100.0);
+    MakeHouse(model, cost, allTasks, joeTasks, jimTasks, joeLocations, 
+      jimLocations, 3, 59,  181, 200.0);
+    MakeHouse(model, cost, allTasks, joeTasks, jimTasks, joeLocations, 
+      jimLocations, 4, 243, 425, 100.0);
+
+</code></pre><p class="p">You now model the transition times associated
+with the workers transferring between houses.    </p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Transition time object </p>
+ <p class="p">The
+class <code class="ph codeph">IloTransitionDistance</code> in IBM ILOG Concert Technology lets you build a table of transition
+times to apply to a sequence of non-overlapping interval variables.
+An instance of this class is a table of non-negative numbers, indexed
+by an integer interval variable type associated with each interval
+variable. </p>
+ <p class="p">Given an interval variable <code class="ph codeph">a1</code> that
+precedes (not necessarily directly) an interval variable <code class="ph codeph">a2</code> in a sequence of non-overlapping interval variables,
+the transition time between <code class="ph codeph">a1</code> and <code class="ph codeph">a2</code> is an amount of time that must elapse between
+the end of <code class="ph codeph">a1</code> and the beginning of <code class="ph codeph">a2</code>.  </p>
+ </div>
+<p class="p">The first argument
+passed to the constructor of the class <code class="ph codeph">IloTransitionDistance</code> is
+the environment. The second argument is the number of transition types.
+The final argument is an optional name used for debug and trace purposes.
+Here is a constructor:  </p>
+<pre class="pre codeblock"><code>
+   IloTransitionDistance(const IloEnv env, 
+                         IloInt size, 
+                         const char* name = 0);
+
+</code></pre><p class="p">In this problem, there are five houses, thus
+the number of types of interval variables is also five. The transition
+time from one house to another is the absolute difference of the associated
+house identifiers.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154853"><h2 class="title sectiontitle">Step 12: Create the transition times</h2><p class="p">Add the following code after
+the comment <code class="ph codeph">//Create the transition times</code> </p>
+<pre class="pre codeblock"><code>
+    IloTransitionDistance tt(env, 5);
+    for (i=0; i&lt;5; ++i) 
+      for (j=0; j&lt;5; ++j)
+        tt.setValue(i, j, IloAbs(i-j));
+
+</code></pre><p class="p">To add the constraints that Jim and Joe can
+only perform one task at a time and must respect transition times,
+you create a sequence variable that represents the order in which
+the workers perform the tasks. Note that the sequence variable does
+not force the tasks to not overlap or the order of tasks; in a future
+step you create a constraint that enforces these relations on the
+sequence of interval variables.     </p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Interval sequence decision variable </p>
+ <p class="p">Using
+the class <code class="ph codeph">IloIntervalSequenceVar</code> in Concert
+Technology, you can create a variable that represents a sequence of
+interval variables. The sequence can contain a subset of the variables
+or be empty. In a solution, the sequence will represent a total order
+over all the intervals in the set that are present in the solution.</p>
+ <p class="p">The assigned order of interval variables in the sequence
+does not necessarily determine their relative positions in time in
+the schedule. </p>
+ </div>
+<p class="p">The first argument passed to
+the constructor of the class <code class="ph codeph">IloIntervalSequenceVar</code> is
+always the environment. The second argument is the array of interval
+variables to be sequenced. The third argument is the array of integer
+types of the interval variables in the second argument. The final
+argument is an optional name used for debug and trace purposes. Here
+is a constructor:  </p>
+<pre class="pre codeblock"><code>
+  IloIntervalSequenceVar(const IloEnv env, 
+                         const IloIntervalVarArray a, 
+                         const IloIntArray types, 
+                         const char* name=0);
+
+</code></pre><p class="p">You create interval sequence variables for
+Jim and Joe, using the arrays of their tasks and task locations as
+the arguments.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154842"><h2 class="title sectiontitle">Step 13: Create the sequence variables</h2><p class="p">Add the following
+code after the comment <code class="ph codeph">//Create the sequence variables</code> </p>
+<pre class="pre codeblock"><code>
+    IloIntervalSequenceVar joe(env, joeTasks, joeLocations, "Joe");
+    IloIntervalSequenceVar jim(env, jimTasks, jimLocations, "Jim");
+
+</code></pre><p class="p">Now that you have created the sequence variables,
+you must constrain each sequence such that the interval variables
+do not overlap in the solution, that the transition times are respected
+and that the sequence represents the relations of the interval variables
+in time. To do this, you use the specialized constraint <code class="ph codeph">IloNoOverlap</code>.
+   </p>
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">No overlap constraint </p>
+ <p class="p">Using the class <code class="ph codeph">IloNoOverlap</code> in
+Concert Technology, you can constrain that an interval sequence variable
+defines a chain of non-overlapping intervals that are present in the
+solution. If a transition matrix is specified, it defines the minimal
+time that must elapse between two intervals in the chain.</p>
+ <p class="p">Note that intervals which are not present in the solution
+are automatically removed from the sequence. </p>
+ </div>
+<p class="p">In
+this case, the first argument passed to the constructor of the class <code class="ph codeph">IloNoOverlap</code> is the environment. The second argument
+is the sequence of interval variables. The third argument is the transition
+object. The final argument is an optional name used for debug and
+trace purposes. Here is a constructor:  </p>
+<pre class="pre codeblock"><code>
+  IloNoOverlap(const IloEnv env,
+               const IloIntervalSequenceVar seq,
+               const IloTransitionDistance ttime =0,
+               const char* name=0);
+
+</code></pre><p class="p">You add one no overlap constraint for the
+sequence interval variable for each worker.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154829"><h2 class="title sectiontitle">Step 14: Add the no overlap constraints</h2><p class="p">Add
+the following code after the comment <code class="ph codeph">//Add the no
+overlap constraints</code> </p>
+<pre class="pre codeblock"><code>
+    model.add(IloNoOverlap(env, joe, tt));
+    model.add(IloNoOverlap(env, jim, tt));
+
+</code></pre><p class="p">The objective of this problem is to minimize
+the cost as represented by the cost expression.</p>
+</section>
+
+<section class="section" id="migration.uss_gscpoptimizerschedseq.114936__migration.uss_gscpoptimizerschedseq.154816"><h2 class="title sectiontitle">Step 15: Add the objective</h2><p class="p">Add the following
+code after the comment <code class="ph codeph">//Add the objective</code> </p>
+<pre class="pre codeblock"><code>
+    model.add(IloMinimize(env, cost));
+
+</code></pre></section>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Getting_started/topics/schedseq.html" title="In this lesson, you will learn how to find a solution to a house building with workers problem using CP Optimizer and the three-stage method.">Using no overlap constraints on interval variables: house building with workers</a></div>
+</div>
+</nav></div></body>
+</html>

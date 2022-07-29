@@ -1,0 +1,1299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>IloCPEngine</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../classes/IloCPEngine.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Class IloCPEngine</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+                class="definition-file">ilcp/cpext.h</span></div><div><img
+                src="IloCPEngine.png" border="0"
+                usemap="#svg_map_IloCPEngine"
+                    alt="Map of IloCPEngine"><map
+                        name="svg_map_IloCPEngine"><area
+                        href="../classes/IloCPEngine.html" shape="rect"
+                        alt="IloCPEngine"
+                        coords="10.0,37.640625,75.0,55.28125" /><area
+                        href="../classes/IloCPEngine.html" shape="rect"
+                        alt="IloCPEngine"
+                        coords="10.0,37.640625,75.0,55.28125" /><area
+                        href="../classes/IlcCPEngine.html" shape="rect"
+                        alt="IlcCPEngine"
+            coords="52.5,10.0,117.5,27.640625" /></map></img></div>
+An instance of this class represents a search engine for
+ CP Optimizer.
+    <div
+                        class="description"><p>This class adds functionality to <code><a
+                        href="../classes/IlcCPEngine.html">IlcCPEngine</a></code>
+ in order to access Ilc-level objects, particularly variables from Concert
+ technology objects such as <code><a
+                        href="../classes/IloIntVar.html">IloIntVar</a></code> and
+ <code><a
+            href="../classes/IloIntervalVar.html">IloIntervalVar</a></code>.</p><p>Most member functions in this class contain <code>assert</code>
+ statements. For an explanation of the macro <code>NDEBUG</code> (a way to
+ turn on or turn off these <code>assert</code> statements), see the concept
+ Assert and NDEBUG.</p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../classes/IlcCPEngine.html">IlcCPEngine</a>, <a
+                href="../classes/IloIntVarEvalI.html">IloIntVarEvalI</a>, <a
+                href="../classes/IloIntValueEvalI.html">IloIntValueEvalI</a>, <a
+                href="../classes/IloIntVarChooserI.html">IloIntVarChooserI</a>, <a
+            href="../classes/IloIntValueChooserI.html">IloIntValueChooserI</a></p><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Method Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public IloCPEngine::PrintIntervalVarDomains</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_domain">domain</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public IloCPEngine::PrintNumVarDomains</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_domain">domain</a>(const <a
+                    href="../classes/IloIntVarArray.html">IloIntVarArray</a> vars) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public IloCPEngine::PrintNumVarDomains</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_domain">domain</a>(const <a
+                    href="../classes/IloNumVar.html">IloNumVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcCumulElementVar.html">IlcCumulElementVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getCumulElement">getCumulElement</a>(const <a
+                    href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getDomainSize">getDomainSize</a>(const <a
+                    href="../classes/IloIntVar.html">IloIntVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getDomainSize">getDomainSize</a>(const <a
+                    href="../classes/IloNumVar.html">IloNumVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getEnd">getEnd</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getEndMax">getEndMax</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getEndMin">getEndMin</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getFirst">getFirst</a>(const <a
+                    href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> seq) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcFloatArray.html">IlcFloatArray</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getFloatArray">getFloatArray</a>(const <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> arg) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getHeightAtEnd">getHeightAtEnd</a>(const <a
+                            href="../classes/IloIntervalVar.html">IloIntervalVar</a> var, const <a
+                    href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getHeightAtStart">getHeightAtStart</a>(const <a
+                            href="../classes/IloIntervalVar.html">IloIntervalVar</a> var, const <a
+                    href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcIntArray.html">IlcIntArray</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getIntArray">getIntArray</a>(const <a
+                    href="../classes/IloIntArray.html">IloIntArray</a> arg) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcIntervalVar.html">IlcIntervalVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getInterval">getInterval</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcIntervalSequenceVar.html">IlcIntervalSequenceVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getIntervalSequence">getIntervalSequence</a>(const <a
+                    href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> s) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcIntTupleSet.html">IlcIntTupleSet</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getIntTupleSet">getIntTupleSet</a>(const <a
+                    href="../classes/IloIntTupleSet.html">IloIntTupleSet</a> ts) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcIntVar.html">IlcIntVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getIntVar">getIntVar</a>(const <a
+                    href="../classes/IloNumVar.html">IloNumVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IlcIntVarArray.html">IlcIntVarArray</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getIntVarArray">getIntVarArray</a>(const <a
+                    href="../classes/IloIntVarArray.html">IloIntVarArray</a> vars) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getLast">getLast</a>(const <a
+                    href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> seq) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getLength">getLength</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getLengthMax">getLengthMax</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getLengthMin">getLengthMin</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloCP.html">IloCP</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/IloCPEngine.html#method_getMasterCP">getMasterCP</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getMax">getMax</a>(const <a
+                    href="../classes/IloIntVar.html">IloIntVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getMin">getMin</a>(const <a
+                    href="../classes/IloIntVar.html">IloIntVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getNext">getNext</a>(const <a
+                            href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> seq, const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getNumberOfSegments">getNumberOfSegments</a>(const <a
+                    href="../classes/IloStateFunction.html">IloStateFunction</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getNumberOfSegments">getNumberOfSegments</a>(const <a
+                    href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getPrev">getPrev</a>(const <a
+                            href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> seq, const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSegmentEnd">getSegmentEnd</a>(const <a
+                            href="../classes/IloStateFunction.html">IloStateFunction</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> s) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSegmentEnd">getSegmentEnd</a>(const <a
+                            href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> i) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSegmentStart">getSegmentStart</a>(const <a
+                            href="../classes/IloStateFunction.html">IloStateFunction</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> s) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSegmentStart">getSegmentStart</a>(const <a
+                            href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> i) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSegmentValue">getSegmentValue</a>(const <a
+                            href="../classes/IloStateFunction.html">IloStateFunction</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> s) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSegmentValue">getSegmentValue</a>(const <a
+                            href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> i) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSize">getSize</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSizeMax">getSizeMax</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getSizeMin">getSizeMin</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getStart">getStart</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getStartMax">getStartMax</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getStartMin">getStartMin</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getValue">getValue</a>(const <a
+                            href="../classes/IloStateFunction.html">IloStateFunction</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> t) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getValue">getValue</a>(const <a
+                            href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f, <a
+                    href="../typedefs/IloInt.html">IloInt</a> t) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloInt.html">IloInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_getValue">getValue</a>(const <a
+                    href="../classes/IloIntVar.html">IloIntVar</a> v) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public </code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_IloCPEngine">IloCPEngine</a>(const <a
+                        href="../classes/IlcCPEngine.html">IlcCPEngine</a> &amp; engine)</code><p
+                                class="tmargin1">
+Create an instance of <code>IloCPEngine</code> from one of
+        of type <code><a
+                    href="../classes/IlcCPEngine.html">IlcCPEngine</a></code>.
+        </p></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isAbsent">isAbsent</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isExtracted">isExtracted</a>(const <a
+                    href="../classes/IloExtractable.html">IloExtractable</a> ext) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isFixed">isFixed</a>(const <a
+                    href="../classes/IloStateFunction.html">IloStateFunction</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isFixed">isFixed</a>(const <a
+                    href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> f) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isFixed">isFixed</a>(const <a
+                    href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> seq) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isFixed">isFixed</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isFixed">isFixed</a>(const <a
+                    href="../classes/IloNumVar.html">IloNumVar</a> var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isInDomain">isInDomain</a>(const <a
+                            href="../classes/IloIntVar.html">IloIntVar</a> var, <a
+                    href="../typedefs/IloInt.html">IloInt</a> value) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_isPresent">isPresent</a>(const <a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a> a) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloCPEngine_IntVarIterator.html">IloCPEngine::IntVarIterator</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_iterator">iterator</a>(const <a
+                    href="../classes/IloIntVar.html">IloIntVar</a> var)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCPEngine.html#method_restore">restore</a>(const <a
+            href="../classes/IloSolution.html">IloSolution</a> solution) const</code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                            colspan="1">Inherited Methods from <code><a
+                    href="../classes/IlcCPEngine.html">IlcCPEngine</a></code></th></tr><tr><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_add">add</a>, <a
+                            href="../classes/IlcCPEngine.html#method_addReversibleAction">addReversibleAction</a>, <a
+                            href="../classes/IlcCPEngine.html#method_exitSearch">exitSearch</a>, <a
+                            href="../classes/IlcCPEngine.html#method_fail">fail</a>, <a
+                            href="../classes/IlcCPEngine.html#method_getHeap">getHeap</a>, <a
+                            href="../classes/IlcCPEngine.html#method_getInfo">getInfo</a>, <a
+                            href="../classes/IlcCPEngine.html#method_getInfo">getInfo</a>, <a
+                            href="../classes/IlcCPEngine.html#method_getRandomInt">getRandomInt</a>, <a
+                            href="../classes/IlcCPEngine.html#method_getRandomNum">getRandomNum</a>, <a
+                            href="../classes/IlcCPEngine.html#method_out">out</a>, <a
+            href="../classes/IlcCPEngine.html#method_solve">solve</a></code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                        colspan="2">Inner Class</th></tr><tr><td><a
+            href="../classes/IloCPEngine_IntVarIterator.html">IloCPEngine::IntVarIterator</a></td><td>
+The class for iterating over the current
+     domain of an integer variable.
+        </td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Method Detail</th></tr></table><h3><a
+            name="method_IloCPEngine">IloCPEngine</a></h3><div
+                class="prototype">public  <span
+                class="function-name">IloCPEngine</span>(const <a
+                href="../classes/IlcCPEngine.html">IlcCPEngine</a> &amp; <span
+                class="parameter-name">engine</span>)</div>
+Create an instance of <code>IloCPEngine</code> from one of
+        of type <code><a
+            href="../classes/IlcCPEngine.html">IlcCPEngine</a></code>.
+        <div
+                class="description"><p>This constructor can be useful to have accesses to services such as
+    <code>IloCPEngine::getIntVar(IloIntVar)</code> which is not
+    available on <code>IlcCPEngine</code> as it does not know
+    about Concert Technology objects.</p></div><hr /><h3><a
+            name="method_domain">domain</a></h3><div
+                class="prototype">public IloCPEngine::PrintIntervalVarDomains <span
+                class="function-name">domain</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the undocumented class
+ <code>IloCPEngine::PrintIntervalVarDomains</code> which can be
+ inserted into a stream to print the current domain of interval
+ variable <code>a</code> as maintained by the invoking instance
+ of <code>IloCPEngine</code>.  Here is an example of its use:</p><pre
+                class="sample">
+  cp.out() &lt;&lt; cp.domain(a) &lt;&lt; std::endl;
+  </pre></div><hr /><h3><a
+            name="method_domain">domain</a></h3><div
+                class="prototype">public IloCPEngine::PrintNumVarDomains <span
+                class="function-name">domain</span>(const <a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> <span
+            class="parameter-name">vars</span>) const</div><div
+                class="description"><p> This member function returns the undocumented class
+     <code>IloCPEngine::PrintNumVarDomains</code> which can be
+     inserted into a stream to print the current
+     domains of <code>vars</code> as maintained by the
+     invoking instance of <code>IloCPEngine</code>.  Here is
+     an example of its use:</p><pre
+                class="sample">
+       cp.out() &lt;&lt; cp.domain(vars) &lt;&lt; std::endl;
+     </pre></div><hr /><h3><a
+            name="method_domain">domain</a></h3><div
+                class="prototype">public IloCPEngine::PrintNumVarDomains <span
+                class="function-name">domain</span>(const <a
+                href="../classes/IloNumVar.html">IloNumVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p> This member function returns the undocumented class
+     <code>IloCPEngine::PrintNumVarDomains</code> which can be
+     inserted into a stream to print the current
+     domain of <code>var</code> as maintained by the
+     invoking instance of <code>IloCPEngine</code>.  Here is
+     an example of its use:</p><pre
+                class="sample">
+       cp.out() &lt;&lt; cp.domain(var) &lt;&lt; std::endl;
+     </pre></div><hr /><h3><a
+            name="method_getCumulElement">getCumulElement</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcCumulElementVar.html">IlcCumulElementVar</a> <span
+                class="function-name">getCumulElement</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+            class="parameter-name">f</span>) const</div><div
+                        class="description"><p>This member function returns the optimizer engine cumul element
+ variable corresponding to
+ the modeling variable <code>f</code>. A cumul element function
+ variable is an instance of <code>IloCumulFunctionExpr</code>
+ built by the shape functions <code><a
+                        href="../functions/IloPulse.html">IloPulse</a></code>,
+ <code><a
+                        href="../functions/IloStepAtStart.html">IloStepAtStart</a></code> or
+ <code><a
+                        href="../functions/IloStepAtEnd.html">IloStepAtEnd</a></code> with an
+ instance of <code><a
+                    href="../classes/IloIntervalVar.html">IloIntervalVar</a></code> as first argument.</p><p>For more information on the scheduling search API, see the concept
+ <a
+            href="../sched_search_api.html">Search API for scheduling in CP Optimizer</a>. </p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a>, <a
+                href="../classes/IlcCumulElementVar.html">IlcCumulElementVar</a></p><hr /><h3><a
+            name="method_getDomainSize">getDomainSize</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getDomainSize</span>(const <a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p>
+ This member function returns the size of the domain of variable
+ <code>var</code> as maintained in the invoking instance of
+ <code>IloCPEngine</code>.
+ </p></div><hr /><h3><a
+            name="method_getDomainSize">getDomainSize</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getDomainSize</span>(const <a
+                href="../classes/IloNumVar.html">IloNumVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p>
+ This member function returns the size of the domain of variable
+ <code>var</code> as maintained in the invoking instance of
+ <code>IloCPEngine</code>.  An assertion is violated if <code>var</code>
+ is not of integral type.
+ </p></div><hr /><h3><a
+            name="method_getEnd">getEnd</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getEnd</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function returns the current value of the end of
+ interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>. An assertion is violated if <code>a</code>
+ is not fixed.</p></div><hr /><h3><a
+            name="method_getEndMax">getEndMax</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getEndMax</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the maximum value for the end of
+ interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getEndMin">getEndMin</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getEndMin</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the minimum value for the end of
+ interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getFirst">getFirst</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="function-name">getFirst</span>(const <a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+            class="parameter-name">seq</span>) const</div><div
+                class="description"><p>This member function assumes that interval sequence variable
+ <code>seq</code> is fixed. It returns the interval variable at
+ the first position in the sequence. The returned interval
+ variable is necessarily present. If all interval variables of the
+ sequence are absent, it returns an empty handle.  An assertion is
+ violated if the sequence <code>seq</code> is not fixed. </p><p>This function can be used to print the total order
+ corresponding to the sequence value as illustrated by the
+ following code sample.</p><pre
+                    class="sample">
+  for(IloIntervalVar a = cp.getFirst(seq); a.getImpl()!=0; a = cp.getNext(seq, a))
+     cp.out() &lt;&lt; cp.domain(a) &lt;&lt; std::endl;
+ </pre><p>For more information on interval sequence variables see the
+ concept
+ <a
+                href="../interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getFloatArray">getFloatArray</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcFloatArray.html">IlcFloatArray</a> <span
+                class="function-name">getFloatArray</span>(const <a
+                href="../classes/IloNumArray.html">IloNumArray</a> <span
+            class="parameter-name">arg</span>) const</div><div
+                class="description"><p>This member function returns the optimizer engine floating-point array corresponding to
+ the modeling array <code>arg</code>.</p></div><hr /><h3><a
+            name="method_getHeightAtEnd">getHeightAtEnd</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getHeightAtEnd</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="parameter-name">var</span>, const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+            class="parameter-name">f</span>) const</div><div
+                    class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the total contribution of the interval
+ variable <code>var</code> to the cumul function expression<code>f</code>
+ at the end time of <code>var</code>. Note that contribution of absent
+ interval variable is always zero.</p><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getHeightAtStart">getHeightAtStart</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getHeightAtStart</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="parameter-name">var</span>, const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+            class="parameter-name">f</span>) const</div><div
+                    class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the total contribution of the interval
+ variable <code>var</code> to the cumul function expression<code>f</code>
+ at the start time of <code>var</code>. Note that contribution of absent
+ interval variable is always zero.</p><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getIntArray">getIntArray</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcIntArray.html">IlcIntArray</a> <span
+                class="function-name">getIntArray</span>(const <a
+                href="../classes/IloIntArray.html">IloIntArray</a> <span
+            class="parameter-name">arg</span>) const</div><div
+                class="description"><p>This member function returns the optimizer engine integer array corresponding to
+ the modeling array <code>arg</code>.</p></div><hr /><h3><a
+            name="method_getInterval">getInterval</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcIntervalVar.html">IlcIntervalVar</a> <span
+                class="function-name">getInterval</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This member function returns the optimizer engine interval
+ variable corresponding to the modeling variable <code>var</code>.</p><p>For more information on the search API for scheduling, see the concept
+ <a
+            href="../sched_search_api.html">Search API for scheduling in CP Optimizer</a>.
+ </p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../classes/IlcIntervalVar.html">IlcIntervalVar</a>, <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a></p><hr /><h3><a
+            name="method_getIntervalSequence">getIntervalSequence</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcIntervalSequenceVar.html">IlcIntervalSequenceVar</a> <span
+                class="function-name">getIntervalSequence</span>(const <a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+            class="parameter-name">s</span>) const</div><div
+                    class="description"><p>This member function returns the optimizer engine interval
+ variable corresponding to
+ the modeling variable <code>var</code>.</p><p>For more information on the scheduling search API, see the concept
+ <a
+            href="../sched_search_api.html">Search API for scheduling in CP Optimizer</a>. </p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a>, <a
+                href="../classes/IlcIntervalSequenceVar.html">IlcIntervalSequenceVar</a></p><hr /><h3><a
+            name="method_getIntTupleSet">getIntTupleSet</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcIntTupleSet.html">IlcIntTupleSet</a> <span
+                class="function-name">getIntTupleSet</span>(const <a
+                href="../classes/IloIntTupleSet.html">IloIntTupleSet</a> <span
+            class="parameter-name">ts</span>) const</div><div
+                class="description"><p> This function returns the optimizer engine tuple set
+     corresponding to the modeling tuple set <code>ts</code>.
+ </p></div><hr /><h3><a
+            name="method_getIntVar">getIntVar</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcIntVar.html">IlcIntVar</a> <span
+                class="function-name">getIntVar</span>(const <a
+                href="../classes/IloNumVar.html">IloNumVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p>This member function returns the optimizer engine integer variable corresponding to
+ the modeling variable <code>var</code>.</p></div><hr /><h3><a
+            name="method_getIntVarArray">getIntVarArray</a></h3><div
+                class="prototype">public <a
+                href="../classes/IlcIntVarArray.html">IlcIntVarArray</a> <span
+                class="function-name">getIntVarArray</span>(const <a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> <span
+            class="parameter-name">vars</span>) const</div><div
+                class="description"><p>This member function returns the optimizer engine integer variable array corresponding to
+ the modeling variable array <code>vars</code>.</p></div><hr /><h3><a
+            name="method_getLast">getLast</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="function-name">getLast</span>(const <a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+            class="parameter-name">seq</span>) const</div><div
+                class="description"><p>This member function assumes that interval sequence variable
+ <code>seq</code> is fixed. It returns the interval variable at
+ the last position in the sequence. The returned interval
+ variable is necessarily present. If all interval variables of the
+ sequence are absent, it returns an empty handle.  An assertion is
+ violated if the sequence <code>seq</code> is not fixed.</p><p>This function can be used to print the reverse total order
+ corresponding to the sequence value as illustrated by the
+ following code sample.</p><pre
+                    class="sample">
+  for(IloIntervalVar a = cp.getLast(seq); a.getImpl()!=0; a = cp.getPrev(seq, a))
+     cp.out() &lt;&lt; cp.domain(a) &lt;&lt; std::endl;
+ </pre><p>For more information on interval sequence variables see the
+ concept
+ <a
+                href="../interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getLength">getLength</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getLength</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function returns the current value of the length
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>. An assertion is violated if <code>a</code> is
+ not fixed.</p></div><hr /><h3><a
+            name="method_getLengthMax">getLengthMax</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getLengthMax</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the maximum value for the length
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getLengthMin">getLengthMin</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getLengthMin</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the minimum value for the length
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getMasterCP">getMasterCP</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloCP.html">IloCP</a> <span
+            class="function-name">getMasterCP</span>() const</div><div
+                class="description"><p>Retrieves the master <code>IloCP</code> object which controls
+    the invoking <code>IloCPEngine</code> object.</p></div><hr /><h3><a
+            name="method_getMax">getMax</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getMax</span>(const <a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p>
+ This member function returns the maximum value of the variable
+ <code>var</code> in the invoking instance of <code>IloCPEngine</code>.
+ </p></div><hr /><h3><a
+            name="method_getMin">getMin</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getMin</span>(const <a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p>
+ This member function returns the minimum value of the variable
+ <code>var</code> in the invoking instance of <code>IloCPEngine</code>.
+ </p></div><hr /><h3><a
+            name="method_getNext">getNext</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="function-name">getNext</span>(const <a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+                class="parameter-name">seq</span>, const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function assumes that interval sequence variable
+ <code>seq</code> is fixed. It returns the interval variable that
+ immediately follows interval <code>a</code> in the sequence. The
+ returned interval variable is necessarily present.  An assertion
+ is violated if <code>a</code> is absent or is not an interval
+ variable of sequence <code>seq</code> and if the sequence is not
+ fixed. If <code>a</code> is at the last position of the sequence,
+ the function returns an empty handle.</p><p>This function can be used to print the total order
+ corresponding to the sequence value as illustrated by the
+ following code sample.</p><pre
+                    class="sample">
+  for(IloIntervalVar a = cp.getFirst(seq); a.getImpl()!=0; a = cp.getNext(seq, a))
+     cp.out() &lt;&lt; cp.domain(a) &lt;&lt; std::endl;
+ </pre><p>For more information on interval sequence variables see the
+ concept
+ <a
+                href="../interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getNumberOfSegments">getNumberOfSegments</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getNumberOfSegments</span>(const <a
+                href="../classes/IloStateFunction.html">IloStateFunction</a> <span
+            class="parameter-name">f</span>) const</div><div
+                class="description"><p>This member function assumes that state function
+ <code>f</code> is fixed. It returns the number of segments of the
+ corresponding stepwise function. A segment is an
+ interval <code>[start, end)</code> on which the value of
+ <code>f</code> is constant. If the state function is not defined,
+ the value is <code>IloCP::NoState</code>; otherwise the value is a non-negative
+ integer. An assertion is violated if state
+ function <code>f</code> is not fixed. </p><p>This function can be used to print the content of a state
+ function as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on state function see the
+ concept
+ <a
+                href="../state_functions.html">State functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getNumberOfSegments">getNumberOfSegments</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getNumberOfSegments</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+            class="parameter-name">f</span>) const</div><div
+                class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the number of segments of the
+ corresponding stepwise non-negative function. A segment is an
+ interval <code>[start, end)</code> on which the value of
+ <code>f</code> is constant. An assertion is violated if cumul
+ function expression <code>f</code> is not fixed. </p><p>This function can be used to print the content of a cumul
+ function expression as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getPrev">getPrev</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+                class="function-name">getPrev</span>(const <a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+                class="parameter-name">seq</span>, const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function assumes that interval sequence variable
+ <code>seq</code> is fixed. It returns the interval variable that
+ immediately precedes interval <code>a</code> in the sequence. The
+ returned interval variable is necessarily present.  An assertion
+ is violated if <code>a</code> is absent or is not an interval
+ variable of sequence <code>seq</code> and if the sequence is not
+ fixed. If <code>a</code> is at the first position of the sequence,
+ the function returns an empty handle.</p><p>This function can be used to print the reverse total order
+ corresponding to the sequence value as illustrated by the
+ following code sample.</p><pre
+                    class="sample">
+  for(IloIntervalVar a = cp.getLast(seq); a.getImpl()!=0; a = cp.getPrev(seq, a))
+     cp.out() &lt;&lt; cp.domain(a) &lt;&lt; std::endl;
+ </pre><p>For more information on interval sequence variables see the
+ concept
+ <a
+                href="../interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSegmentEnd">getSegmentEnd</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSegmentEnd</span>(const <a
+                href="../classes/IloStateFunction.html">IloStateFunction</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">s</span>) const</div><div
+                class="description"><p>This member function assumes that state function
+ <code>f</code> is fixed. It returns the end of the
+ <code>i</code>th segment of the
+ corresponding stepwise function. A segment is an
+ interval <code>[start, end)</code> on which the value of
+ <code>f</code> is constant. If the state function is not defined,
+ the value is <code>IloCP::NoState</code>; otherwise the value is a non-negative
+ integer. An assertion is violated if state
+ function <code>f</code> is not fixed. </p><p>This function can be used to print the content of a state
+ function as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on state function see the
+ concept
+ <a
+                href="../state_functions.html">State functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSegmentEnd">getSegmentEnd</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSegmentEnd</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">i</span>) const</div><div
+                class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the end of the
+ <code>i</code>th segment of the corresponding stepwise
+ non-negative function. A segment is an interval <code>[start,
+ end)</code> on which the value of <code>f</code> is constant. If
+ <code>n</code> is the number of segments of the function
+ segments are indexed starting from <code>0</code> so index
+ <code>i</code> should belong to the range <code>[0,n)</code>.  An
+ assertion is violated if cumul function expression <code>f</code>
+ is not fixed or if <code>i</code> is not a valid segment
+ index. </p><p>This function can be used to print the content of a cumul
+ function expression as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSegmentStart">getSegmentStart</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSegmentStart</span>(const <a
+                href="../classes/IloStateFunction.html">IloStateFunction</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">s</span>) const</div><div
+                class="description"><p>This member function assumes that state function
+ <code>f</code> is fixed. It returns the start of the
+ <code>i</code>th segment of the
+ corresponding stepwise function. A segment is an
+ interval <code>[start, end)</code> on which the value of
+ <code>f</code> is constant. If the state function is not defined,
+ the value is <code>IloCP::NoState</code>; otherwise the value is a non-negative
+ integer. An assertion is violated if state
+ function <code>f</code> is not fixed. </p><p>This function can be used to print the content of a state
+ function as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on function see the
+ concept
+ <a
+                href="../state_functions.html">State functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSegmentStart">getSegmentStart</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSegmentStart</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">i</span>) const</div><div
+                class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the start of the
+ <code>i</code>th segment of the corresponding stepwise
+ non-negative function. A segment is an interval <code>[start,
+ end)</code> on which the value of <code>f</code> is constant. If
+ <code>n</code> is the number of segments of the function
+ segments are indexed starting from <code>0</code> so index
+ <code>i</code> should belong to the range <code>[0,n)</code>.  An
+ assertion is violated if cumul function expression <code>f</code>
+ is not fixed or if <code>i</code> is not a valid segment
+ index. </p><p>This function can be used to print the content of a cumul
+ function expression as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSegmentValue">getSegmentValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSegmentValue</span>(const <a
+                href="../classes/IloStateFunction.html">IloStateFunction</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">s</span>) const</div><div
+                class="description"><p>This member function assumes that state function
+ <code>f</code> is fixed. It returns the value of the
+ <code>i</code>th segment of the
+ corresponding stepwise function. A segment is an
+ interval <code>[start, end)</code> on which the value of
+ <code>f</code> is constant. If the state function is not defined,
+ the value is <code>IloCP::NoState</code>; otherwise the returned value is a non-negative
+ integer. An assertion is violated if state
+ function <code>f</code> is not fixed. </p><p>This function can be used to print the content of a state
+ function as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on state function see the
+ concept
+ <a
+                href="../state_functions.html">State functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSegmentValue">getSegmentValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSegmentValue</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">i</span>) const</div><div
+                class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the value of the
+ <code>i</code>th segment of the corresponding stepwise
+ non-negative function. A segment is an interval <code>[start,
+ end)</code> on which the value of <code>f</code> is constant. If
+ <code>n</code> is the number of segments of the function
+ segments are indexed starting from <code>0</code> so index
+ <code>i</code> should belong to the range <code>[0,n)</code>.  An
+ assertion is violated if cumul function expression <code>f</code>
+ is not fixed or if <code>i</code> is not a valid segment
+ index. </p><p>This function can be used to print the content of a cumul
+ function expression as illustrated by the following code
+ sample.</p><pre
+                    class="sample">
+  for (IloInt i=0; i &lt; cp.getNumberOfSegments(f); ++i)
+    cp.out() &lt;&lt; &quot;[&quot;  &lt;&lt; cp.getSegmentStart(f, i)
+             &lt;&lt; &quot;,&quot;  &lt;&lt; cp.getSegmentEnd(f, i)
+             &lt;&lt; &quot;):&quot; &lt;&lt; cp.getSegmentValue(f, i)
+             &lt;&lt; std::endl;
+ </pre><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getSize">getSize</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSize</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function returns the current value of the size of
+ interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>. An assertion is violated if <code>a</code>
+ is not fixed.</p></div><hr /><h3><a
+            name="method_getSizeMax">getSizeMax</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSizeMax</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the maximum value for the size
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getSizeMin">getSizeMin</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getSizeMin</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the minimum value for the size
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getStart">getStart</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getStart</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function returns the current value of the start of
+ interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>. An assertion is violated if <code>a</code>
+ is not fixed.</p></div><hr /><h3><a
+            name="method_getStartMax">getStartMax</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getStartMax</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the maximum value for the start
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getStartMin">getStartMin</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getStartMin</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function returns the minimum value for the start
+ of interval variable <code>a</code> in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_getValue">getValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getValue</span>(const <a
+                href="../classes/IloStateFunction.html">IloStateFunction</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">t</span>) const</div><div
+                    class="description"><p>This member function assumes that state function
+ <code>f</code> is fixed. It returns the value of the
+ corresponding stepwise non-negative function at point
+ <code>t</code>.  If the state function is not defined,
+ the value is <code>IloCP::NoState</code>; otherwise the returned value is a non-negative
+ integer. An assertion is violated if state function
+ <code>f</code> is not fixed or if <code>t</code> does
+ not belong to the interval <code>[IloIntervalMin,
+ IloIntervalMax)</code>. </p><p>For more information on state function see the
+ concept
+ <a
+                href="../state_functions.html">State functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getValue">getValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getValue</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+                class="parameter-name">f</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">t</span>) const</div><div
+                    class="description"><p>This member function assumes that cumul function expression
+ <code>f</code> is fixed. It returns the value of the
+ corresponding stepwise non-negative function at point
+ <code>t</code>.  An assertion is violated if cumul function
+ expression <code>f</code> is not fixed or if <code>t</code> does
+ not belong to the interval <code>[IloIntervalMin,
+ IloIntervalMax)</code>. </p><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_getValue">getValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+                class="function-name">getValue</span>(const <a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">v</span>) const</div><div
+                class="description"><p>
+ This member function returns the current value of the variable
+ <code>v</code> in the invoking instance of <code>IloCPEngine</code>.
+ An assertion is violated if <code>v</code> is not fixed to a value.
+ </p></div><hr /><h3><a
+            name="method_isAbsent">isAbsent</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isAbsent</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function returns <code>IloTrue</code> if and only if interval
+ variable <code>a</code> is absent in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_isExtracted">isExtracted</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isExtracted</span>(const <a
+                href="../classes/IloExtractable.html">IloExtractable</a> <span
+            class="parameter-name">ext</span>) const</div><div
+                class="description"><p>This member function checks whether an extractable <code>ext</code> has been
+ extracted.</p></div><hr /><h3><a
+            name="method_isFixed">isFixed</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isFixed</span>(const <a
+                href="../classes/IloStateFunction.html">IloStateFunction</a> <span
+            class="parameter-name">f</span>) const</div><div
+                    class="description"><p> This member function indicates if the state function
+ <code>f</code> takes on a particular value as
+ maintained by the invoking <code>IloCPEngine</code> instance. A state
+ function <code>f</code> is said to be fixed if it
+ defines a fixed value <code>f(t)</code> for all <code>t</code> in
+ <code>[IloIntervalMin,IloIntervalMax)</code>. When fixed, a state
+ function is a stepwise function. If the state function is not defined,
+ the value is <code>IloCP::NoState</code>; otherwise the value is a non-negative
+ integer. </p><p>For more information on state functions see the
+ concept
+ <a
+                href="../state_functions.html">State functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_isFixed">isFixed</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isFixed</span>(const <a
+                href="../classes/IloCumulFunctionExpr.html">IloCumulFunctionExpr</a> <span
+            class="parameter-name">f</span>) const</div><div
+                    class="description"><p> This member function indicates if the cumul function
+ expression <code>f</code> takes on a particular value as
+ maintained by the invoking <code>IloCPEngine</code> instance. A cumul
+ function expression <code>f</code> is said to be fixed if it
+ defines a fixed value <code>f(t)</code> for all <code>t in
+ [IloIntervalMin,IloIntervalMax)</code>. When fixed, a cumul
+ function expression is a stepwise non-negative function. </p><p>For more information on cumul function expressions see the
+ concept
+ <a
+                href="../cumul_functions.html">Cumul functions in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_isFixed">isFixed</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isFixed</span>(const <a
+                href="../classes/IloIntervalSequenceVar.html">IloIntervalSequenceVar</a> <span
+            class="parameter-name">seq</span>) const</div><div
+                    class="description"><p> This member function indicates if the domain of the interval
+ sequence variable <code>seq</code> takes on a particular value as
+ maintained by the invoking <code>IloCPEngine</code> instance. An
+ interval sequence variable is said to be fixed if and only if all
+ the interval variables of the sequence are either absent or
+ ordered.</p><p>For more information on interval sequence variables see the
+ concept
+ <a
+                href="../interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.</p></div><hr /><h3><a
+            name="method_isFixed">isFixed</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isFixed</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p> This member function indicates if the domain of
+ <code>a</code> takes on a particular value as maintained by the
+ invoking <code>IloCPEngine</code> instance. An interval variable is
+ said to be fixed if and only if it is either absent or present
+ with fixed start, end and size value.</p></div><hr /><h3><a
+            name="method_isFixed">isFixed</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isFixed</span>(const <a
+                href="../classes/IloNumVar.html">IloNumVar</a> <span
+            class="parameter-name">var</span>) const</div><div
+                class="description"><p>
+ This member function indicates if the domain of <code>var</code>
+ takes on a particular value as maintained by the invoking
+ <code>IloCPEngine</code> instance.
+ </p></div><hr /><h3><a
+            name="method_isInDomain">isInDomain</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isInDomain</span>(const <a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+                class="parameter-name">var</span>, <a
+                href="../typedefs/IloInt.html">IloInt</a> <span
+            class="parameter-name">value</span>) const</div><div
+                class="description"><p>
+ This member function indicates whether <code>value</code> is
+ contained in the current domain of <code>var</code> as maintained
+ by the invoking <code>IloCPEngine</code> instance.
+ </p></div><hr /><h3><a
+            name="method_isPresent">isPresent</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">isPresent</span>(const <a
+                href="../classes/IloIntervalVar.html">IloIntervalVar</a> <span
+            class="parameter-name">a</span>) const</div><div
+                class="description"><p>This member function returns <code>IloTrue</code> if and only if interval
+ variable <code>a</code> is present in the invoking instance of
+ <code>IloCPEngine</code>.</p></div><hr /><h3><a
+            name="method_iterator">iterator</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloCPEngine_IntVarIterator.html">IloCPEngine::IntVarIterator</a> <span
+                class="function-name">iterator</span>(const <a
+                href="../classes/IloIntVar.html">IloIntVar</a> <span
+            class="parameter-name">var</span>)</div><div
+                class="description"><p> This member function returns an iterator to iterate over
+     the domain of <code>var</code>, as maintained by the
+     invoking CP optimizer.  It is equivalent to:
+     <code>IloCPEngine::IntVarIterator(this, var)</code>.
+ </p></div><hr /><h3><a
+            name="method_restore">restore</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+                class="function-name">restore</span>(const <a
+                href="../classes/IloSolution.html">IloSolution</a> <span
+            class="parameter-name">solution</span>) const</div><div class="description"><p>
+ This member function uses the invoking CP optimizer to instantiate the
+ variables in <code>solution</code> with their saved values. The value
+ of any objective added to the solution is not restored.
+ If the solution does not violate any constraints of the model extracted
+ by the invoking CP optimizer, then <code>IloTrue</code> is returned and
+ the state of the constraint variables in the CP optimizer reflect those
+ stored in <code>solution</code>.  Otherwise the CP optimizer's state
+ remains unchanged and <code>IloFalse</code> is returned.
+ </p></div><hr /></body>
+</html>

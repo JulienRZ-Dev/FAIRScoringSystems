@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="New parameters in CPLEX" />
+<meta name="abstract" content="These release notes highlight new parameters in IBM CPLEX 20.1.0" />
+<meta name="Description" content="These release notes highlight new parameters in IBM CPLEX 20.1.0" />
+<meta name="DC.subject" content="parameter, CPLEX 20.1.0 release notes" />
+<meta name="keywords" content="parameter, CPLEX 20.1.0 release notes" />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPLEXReleaseNotesV201newParameters" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" />
+<title>New parameters in CPLEX</title>
+</head>
+<body id="CPLEXReleaseNotesV201newParameters"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">New parameters in CPLEX </h1>
+
+
+
+<div class="body"><p class="shortdesc">These release notes highlight new parameters in IBM CPLEX 20.1.0 </p>
+
+<section class="section"><h2 class="title sectiontitle">New choice added to MIP emphasis switch parameter</h2>
+
+<p class="p">A new choice has been added to the  parameter <a class="xref" href="../../../Parameters/topics/MIPEmphasis.html" title="Controls trade-offs between speed, feasibility, optimality, and moving bounds in MIP.">MIP emphasis switch</a>, <code class="ph codeph">CPXPARAM_Emphasis_MIP</code>.
+(Please note that, prior to CPLEX V12.6.0, this parameter was named
+<code class="ph codeph">CPX_PARAM_MIPEMPHASIS</code>.)</p>
+
+<p class="p">This new choice, 5 (<code class="ph codeph">MIPEmphasisHeuristic</code> in Concert Technology or, in the
+Callable Library, <code class="ph codeph">CPX_MIPEMPHASIS_HEURISTIC</code>), works exclusively at finding high
+quality feasible solutions as early as possible. A best bound is also computed, but almost no effort
+is put into  proving optimality. This setting works even harder than choice 4,
+(<code class="ph codeph">CPX_MIPEMPHASIS_HIDDENFEAS</code>), on finding high quality solutions, and relies on a
+very aggressive usage of many primal heuristics. Therefore, it can be useful for cases where even
+choice 4 has difficulty finding solutions of acceptable quality within the required computing
+time.</p>
+
+<p class="p">For more information, see <a class="xref" href="../../../UsrMan/topics/discr_optim/mip/usage/10_emph_feas.html" title="Describes the context of the MIP emphasis parameter.">Emphasizing feasibility and optimality</a>. </p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">New parameter to set presolve reformulations</h2>
+
+<p class="p">The new parameter <a class="xref" href="../../../Parameters/topics/Reformulations.html" title="Decides which reformulations occur during preprocessing.">reformulations</a>,
+<code class="ph codeph">CPXPARAM_Preprocessing_Reformulations</code>, allows you to set presolve
+reformulations.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">New parameter node cuts switch</h2>
+
+<p class="p">The new parameter <a class="xref" href="../../../Parameters/topics/NodeCutsSwitch.html" title="Decides whether or not cutting planes are separated at the nodes of the branch-and-bound tree.">node cuts switch</a>,
+<code class="ph codeph">CPXPARAM_MIP_Cuts_Nodecuts</code>, allows you to decide whether or not cutting planes are
+separated at the nodes of the branch-and-bound tree.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">New parameters for special ordered sets</h2>
+
+<p class="p">CPLEX 20.1.0 implements an automatic logarithmic reformulation of special ordered sets of type 1
+(SOS1) and type 2 (SOS2):</p>
+
+<ul class="ul">
+<li class="li"><a class="xref" href="../../../Parameters/topics/SOS1Reform.html" title="Defines whether special ordered sets of type 1 (SOS1) should be reformulated as linear constraints.">SOS1 reformulations</a>,
+<code class="ph codeph">CPXPARAM_Preprocessing_SOS1Reform</code></li>
+
+<li class="li"><a class="xref" href="../../../Parameters/topics/SOS2Reform.html" title="Defines whether special ordered sets of type 2 (SOS2) should be reformulated as linear constraints.">SOS2 reformulations</a>,
+<code class="ph codeph">CPXPARAM_Preprocessing_SOS2Reform</code></li>
+
+</ul>
+
+<p class="p">For more information, see  <a class="xref" href="../../../UsrMan/topics/discr_optim/sos/08_SOS_auto_reforms.html" title="Describes the automatic reformulation of special ordered sets available in CPLEX.">Automatic reformulation of special ordered sets</a> in the <em class="ph i">CPLEX User's
+Manual</em>.</p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" title="These release notes highlight new features in IBM CPLEX 20.1.0.">New features</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Annotations for Java API users" />
+<meta name="abstract" content="CPLEX offers support for annotations in the Java API." />
+<meta name="Description" content="CPLEX offers support for annotations in the Java API." />
+<meta name="DC.subject" content="annotations, Java API, Benders algorithm" />
+<meta name="keywords" content="annotations, Java API, Benders algorithm" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="annotationsJava" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<title>Annotations for Java API users</title>
+</head>
+<body id="annotationsJava"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Annotations for Java API users</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX offers support for annotations in the Java API.</p>
+ 
+<p class="p">Also in the Java API, CPLEX offers features to support annotation of your model. 
+These classes support annotations:</p>
+ 
+<ul class="ul"> 
+<li class="li"><span class="keyword apiname">IloCplex.Annotation</span></li>
+ 
+<li class="li"><span class="keyword apiname">IloCplex.LongAnnotation</span></li>
+ 
+</ul>
+ 
+
+<p class="p">These methods of <span class="keyword apiname">IloCplex</span> support annotations:</p>
+ 
+<ul class="ul">
+<li class="li"><span class="keyword apiname">newLongAnnotation(String name)</span></li>
+ 
+<li class="li"><span class="keyword apiname">newLongAnnotation(String name, long defval)</span></li>
+ 
+<li class="li"><span class="keyword apiname">findLongAnnotation(String name)</span></li>
+ 
+<li class="li"><span class="keyword apiname">findLongAnnotation(int num)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getAnnotationName(LongAnnotation annotation)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getNumLongAnnotations()</span></li>
+ 
+<li class="li"><span class="keyword apiname">delAnnotation(LongAnnotation annotation)</span></li>
+ 
+<li class="li"><span class="keyword apiname">hasLongAnnotation(String name)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getDefaultValue (LongAnnotation annotation)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getAnnotation (LongAnnotation annotation, IloNumVar var)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getAnnotation (LongAnnotation annotation, IloIntVar var)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getAnnotation (LongAnnotation annotation, IloObjective obj)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getAnnotation (LongAnnotation annotation, IloConstraint con)</span></li>
+ 
+<li class="li"><span class="keyword apiname">getAnnotation (LongAnnotation annotation, IloAddable[] items)</span></li>
+ 
+<li class="li"><span class="keyword apiname">setAnnotation(LongAnnotation annotation, IloNumVar var, long value)</span></li>
+ 
+<li class="li"><span class="keyword apiname">setAnnotation(LongAnnotation annotation, IloObjective obj, long value)</span></li>
+ 
+<li class="li"><span class="keyword apiname">setAnnotation(LongAnnotation annotation, IloConstraint con, long value)</span></li>
+ 
+<li class="li"><span class="keyword apiname">setAnnotation(LongAnnotation annotation, IloAddable[] items, long[] values)</span></li>
+ 
+<li class="li"><span class="keyword apiname">writeAnnotations(String filename)</span></li>
+ 
+<li class="li"><span class="keyword apiname">readAnnotations(String filename)</span></li>
+ 
+<li class="li"><span class="keyword apiname">writeBendersAnnotation(String filename)</span></li>
+ 
+</ul>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" title="Annotation of a model specifies to CPLEX how to decompose your model.">Annotating a model for CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

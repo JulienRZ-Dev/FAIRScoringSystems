@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "main.py", line 279, in <module>
+    test(dataset_path, labels_name, constraints, objectives,
+  File "main.py", line 178, in test
+    accuracy_train.append(get_accuracy(x_train, y_train, l_lists))                      # Get the train accuracy of the scoring system
+  File "/pfcalcul/work/jrouzot/fairscoringsystems/utils/evaluate.py", line 61, in get_accuracy
+    accuracy = accuracy_score(y, y_pred)
+  File "/pfcalcul/work/jrouzot/python38/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 211, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/pfcalcul/work/jrouzot/python38/lib/python3.8/site-packages/sklearn/metrics/_classification.py", line 84, in _check_targets
+    check_consistent_length(y_true, y_pred)
+  File "/pfcalcul/work/jrouzot/python38/lib/python3.8/site-packages/sklearn/utils/validation.py", line 332, in check_consistent_length
+    raise ValueError(
+ValueError: Found input variables with inconsistent numbers of samples: [5057, 0]

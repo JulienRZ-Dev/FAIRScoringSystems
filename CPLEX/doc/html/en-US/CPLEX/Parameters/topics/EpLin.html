@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="epsilon (degree of tolerance) used in linearization" />
+<meta name="abstract" content="Sets the epsilon (degree of tolerance) used in linearization." />
+<meta name="Description" content="Sets the epsilon (degree of tolerance) used in linearization." />
+<meta name="DC.subject" content="EpLin, tolerance, linearization" />
+<meta name="keywords" content="EpLin, tolerance, linearization" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196782415476" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>epsilon (degree of tolerance) used in linearization</title>
+</head>
+<body id="languageRefTopic1196782415476"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">epsilon (degree of tolerance) used in linearization</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets the epsilon (degree of tolerance) used in linearization.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Epsilon used in linearization</p>
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d98422e50">API</th>
+
+<th class="entry nrule" valign="top" id="d98422e53">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d98422e56">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">CPXPARAM_MIP_Tolerances_Linearization</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 "> </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">IloCplex::Param::MIP::Tolerances::Linearization</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 ">EpLin (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">IloCplex.Param.MIP.Tolerances.Linearization</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 ">EpLin (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">Cplex.Param.MIP.Tolerances.Linearization</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 ">EpLin (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">eplin</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 "> </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">parameters.mip.tolerances.linearization</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 "> </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">mip tolerances linearization</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 "> </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d98422e50 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d98422e53 ">2068</td>
+
+<td class="entry nrule" valign="top" headers="d98422e56 ">2068</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">Sets the epsilon (degree of tolerance) used in linearization. </p>
+
+<p class="p">This parameter controls how strict inequalities are managed during linearization. In other words,
+it provides an epsilon for deciding when two values are not equal during linearization. For example,
+when x is a numeric variable (that is, an instance of <code class="ph codeph">IloNumVar</code> ), </p>
+
+
+<p class="p"><code class="ph codeph">x &lt; a </code>
+</p>
+
+<p class="p">becomes </p>
+
+<p class="p"><code class="ph codeph">x &lt;= a-eplin</code> . </p>
+
+<p class="p">Similarly,<code class="ph codeph"> x!=a</code>
+</p>
+
+<p class="p">becomes </p>
+
+<p class="p"><code class="ph codeph">{(x &lt; a) || (x &gt; a)} </code>
+</p>
+
+<p class="p">which is linearized automatically for you in the object-oriented APIs as </p>
+
+<p class="p"><code class="ph codeph">{( x &lt;= a-eplin) || (x &gt;= a+eplin)}</code> . </p>
+
+<p class="p">Exercise caution in changing this parameter from its default value: the smaller the epsilon, the
+more numerically unstable the model will tend to become. If you are not getting an expected solution
+for an object-oriented model that uses linearization, it might be that this solution is cut off
+because of the relatively high <code class="ph codeph">EpLin</code> value. In such a case, carefully try reducing
+it. </p>
+
+<p class="p">This parameter is also used, for example, to linearize indicator constraints of type
+<code class="ph codeph">CPX_INDICATOR_ONLYIF</code> and <code class="ph codeph">CPX_INDICATOR_IFANDONLYIF</code>. See, for
+example, <a class="xref" href="../../../refcallablelibrary/mipapi/addindconstraints.html" title="Adds a set of indicator constraints to the specified problem object.">CPXXaddindconstraints and CPXaddindconstraints</a>.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Values</h2><p class="p">Any positive value greater than zero; <strong class="ph b">default</strong>: 1e-3.</p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

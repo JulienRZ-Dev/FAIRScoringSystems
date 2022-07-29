@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Simple value selection" />
+<meta name="abstract" content="To chose the value at which you fix a decision variable, you evaluate the values with an evaluator." />
+<meta name="Description" content="To chose the value at which you fix a decision variable, you evaluate the values with an evaluator." />
+<meta name="DC.subject" content="evaluator, value, IloIntValueEval class" />
+<meta name="keywords" content="evaluator, value, IloIntValueEval class" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/tune_order.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizertune.1014597" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/tune_order.html" />
+<title>Simple value selection</title>
+</head>
+<body id="migration.uss_usrcpoptimizertune.1014597"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Simple value selection</h1>
+
+
+
+<div class="body"><p class="shortdesc">To chose the value at which you fix a decision
+variable, you evaluate the values with an evaluator. </p>
+
+<p class="p">As with decision variables, values are evaluated with
+an evaluator. </p>
+
+<p class="p">In the C++ API, a value evaluator is an instance of <code class="ph codeph">IloIntValueEval</code>. This class implements the function: </p>
+
+<pre class="pre codeblock"><code>
+  IloNum IloIntValueEvalI::eval(IloCPEngine cp, IloIntVar x, IloInt v)
+</code></pre>
+<p class="p">that returns the evaluation of assigning the value <code class="ph codeph">v</code> to the variable <code class="ph codeph">x</code>. </p>
+
+<p class="p">Several predefined value evaluators exist in CP Optimizer.
+For instance, the evaluator returned by the C++ API function call <code class="ph codeph">IloValue(env)</code> returns the value itself. Another
+example is the evaluator returned by <code class="ph codeph">IloExplicitValueEval(env,
+valueArray, evalArray)</code> that returns the evaluation <code class="ph codeph">evalArray[i]</code> when evaluating <code class="ph codeph">valueArray[i]</code>.</p>
+
+<p class="p">In order to select a value with an evaluator, an instance
+of a value selector needs to be created with the evaluator as argument.
+Here are two functions in the C++ API that can create such selectors: </p>
+
+<pre class="pre codeblock"><code>
+  IloValueSelector IloSelectSmallest(IloIntValueEval e);
+  IloValueSelector IloSelectLargest(IloIntValueEval e);
+</code></pre>
+<p class="p">The selector created by <code class="ph codeph">IloSelectLargest(IloValue(env))</code> will
+select the largest value in the domain of the selected variable. The
+selector returned by <code class="ph codeph">IloSelectRandomValue(env)</code> chooses
+a value randomly. This selector is useful for breaking ties.</p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, you use
+the classes <code class="ph codeph">IloIntValueEval</code> and  <code class="ph codeph">IloValueSelector</code> and the functions <code class="ph codeph">IloValue</code>, <code class="ph codeph">IloExplicitValueEval</code>,<code class="ph codeph"> IloSelectLargest</code> and<code class="ph codeph"> IloSelectRandomValue</code>.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, you use the interfaces <code class="ph codeph">IloIntValueEval</code> and
+ <code class="ph codeph">IloValueSelector</code> and the methods <code class="ph codeph">IloCP.value</code>, <code class="ph codeph">IloCP.explicitValueEval</code>,<code class="ph codeph"> IloCP.selectLargest</code> and<code class="ph codeph"> IloCP.selectRandomValue</code>.</p>
+
+<p class="p">In the <strong class="ph b">C# API</strong> of CP Optimizer, you use
+the interfaces <code class="ph codeph">IIntValueEval</code> and  <code class="ph codeph">IValueSelector</code> and the methods <code class="ph codeph">CP.Value</code>, <code class="ph codeph">CP.ExplicitValueEval</code>,<code class="ph codeph"> CP.SelectLargest</code> and<code class="ph codeph"> CP.SelectRandomValue</code>.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/tune_order.html" title="Decision variables and their possible values can be ordered so that the optimizer can fix the key decision variables early in the process.">Ordering variables and values</a></div>
+</div>
+</nav></div></body>
+</html>

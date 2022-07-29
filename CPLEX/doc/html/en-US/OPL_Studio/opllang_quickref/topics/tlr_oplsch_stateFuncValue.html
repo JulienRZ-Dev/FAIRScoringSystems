@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="stateFunctionValue" />
+<meta name="abstract" content="OPL function (scheduling) to return the value of a state function." />
+<meta name="Description" content="OPL function (scheduling) to return the value of a state function." />
+<meta name="DC.subject" content="stateFunctionValue, OPL function (scheduling)" />
+<meta name="keywords" content="stateFunctionValue, OPL function (scheduling)" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_stateFunc.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_segmentValue.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_heightAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplsch_heightAtEnd.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hx3hHkdx" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>stateFunctionValue</title>
+</head>
+<body id="hx3hHkdx"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">stateFunctionValue</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL function (scheduling) to return the value
+of a state function.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL function
+(scheduling) to return the value of a state function.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:50%" /><col style="width:50%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d452954e36" class="stentry">context</th>
+
+<th style="vertical-align:bottom;text-align:left;" id="d452954e39" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d452954e36" class="stentry">Model files (.mod) — postprocessing.</td>
+
+<td style="vertical-align:top;" headers="d452954e39" class="stentry">
+<pre class="pre msgblock">int</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">stateFunctionValue(f, i);
+
+Where:
+
+int i;
+stateFunction f;</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">This
+function returns the value of state function <em class="ph i">f</em> at
+time <em class="ph i">t</em> in the solution. This function is available
+when a solution exists.</p>
+</section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><p class="p">A basic program
+using <em class="ph i">stateFunctionValue</em> with <em class="ph i">stateFunction</em>:</p>
+<pre class="pre msgblock">using CP;
+
+dvar interval it;
+stateFunction c;
+
+subject to
+
+{
+alwaysEqual(c,it,5);
+ startOf(it)==2;
+ endOf(it)==4;
+}
+
+int v[i in 0..5]=stateFunctionValue(c,i);
+execute
+{
+  writeln(v);
+}
+
+assert forall(i in 2..3) v[i]==5;</pre>
+</div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_oplsch_stateFunc.html" title="OPL keyword (CP, scheduling) to create a state function.">stateFunction</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_segmentValue.html" title="OPL function (scheduling) to return the value of a segment of a cumulative or state function.">segmentValue</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_heightAtStart.html" title="OPL expression (scheduling) used with a cumulative function">heightAtStart</a></li>
+<li class="linklist"><a class="link" href="tlr_oplsch_heightAtEnd.html" title="OPL expression (scheduling) used with a cumulative function">heightAtEnd</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

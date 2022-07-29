@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXNETaddarcs and CPXNETaddarcs" />
+<meta name="abstract" content="The routine CPXXNETaddarcs/CPXNETaddarcs adds new arcs to the network stored in a network problem object." />
+<meta name="Description" content="The routine CPXXNETaddarcs/CPXNETaddarcs adds new arcs to the network stored in a network problem object." />
+<meta name="DC.subject" content="CPXNETaddarcs, C API Reference Manual, CPXXNETaddarcs" />
+<meta name="keywords" content="CPXNETaddarcs, C API Reference Manual, CPXXNETaddarcs" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagenetwork.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/netapi/homepagenetapi.html" />
+<meta name="DC.Relation" scheme="URI" content="NETgetnumnodes.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="NETaddarcs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagenetwork.html" />
+<link rel="Start" href="../../refcallablelibrary/netapi/homepagenetapi.html" />
+<title>CPXXNETaddarcs and CPXNETaddarcs</title>
+</head>
+<body id="NETaddarcs"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXNETaddarcs</span> and <span class="keyword apiname">CPXNETaddarcs</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETaddarcs</span>/<span class="keyword apiname">CPXNETaddarcs</span></code> adds new arcs to the network
+ stored in a network problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXNETaddarcs</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNETptr</span><span class="ph sep"> </span><span class="ph var">net</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">narcs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">fromnode</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">tonode</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">low</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">up</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">obj</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">anames</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXNETaddarcs</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNETptr</span><span class="ph sep"> </span><span class="ph var">net</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">narcs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">fromnode</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">tonode</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">low</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">up</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">obj</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">anames</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+ 
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXNETaddarcs</span>/<span class="keyword apiname">CPXNETaddarcs</span></code> adds new arcs to the network
+ stored in a network problem object.</p>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">net</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX network problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXNETcreateprob</span>/<span class="keyword apiname">CPXNETcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">narcs</dt>
+
+        <dd class="dd pd">
+          
+          Number of arcs to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">fromnode</dt>
+
+        <dd class="dd pd">
+          
+          Array of indices of the from-node for the arcs to be added. All the indices must be greater than or equal to 0. If a node index is greater than or equal to the number of nodes currently in the network (see <code class="ph codeph"><span class="keyword apiname">CPXXNETgetnumnodes</span>/<span class="keyword apiname">CPXNETgetnumnodes</span></code>) new nodes are created implicitly with default supply values 0. The size of the <code class="ph codeph"><span class="keyword parmname">fromnode</span></code> array must be at least <code class="ph codeph"><span class="keyword parmname">narcs</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">tonode</dt>
+
+        <dd class="dd pd">
+          
+          Array of indices of the to-node for the arcs to be added. All the indices must be greater than or equal to 0. If a node index is greater than or equal to the number of nodes currently in the network (see <code class="ph codeph"><span class="keyword apiname">CPXXNETgetnumnodes</span>/<span class="keyword apiname">CPXNETgetnumnodes</span></code>) new nodes are created implicitly with default supply values 0. The size of the <code class="ph codeph"><span class="keyword parmname">tonode</span></code> array must be at least <code class="ph codeph"><span class="keyword parmname">narcs</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">low</dt>
+
+        <dd class="dd pd">
+          
+          Pointer to an array of lower bounds on the flow through added arcs. If NULL is passed, all lower bounds default to 0 (zero). Otherwise, the size of the array must be at least <code class="ph codeph"><span class="keyword parmname">narcs</span></code>. Values less than or equal to <code class="ph codeph">-CPX_INFBOUND</code> are considered as negative infinity.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">up</dt>
+
+        <dd class="dd pd">
+          
+          Pointer to an array of upper bounds on the flow of added arcs. If NULL is passed, all upper bounds default to <code class="ph codeph">CPX_INFBOUND</code>. Otherwise, the size of the array must be at least <code class="ph codeph"><span class="keyword parmname">narcs</span></code>. Values greater than or equal to <code class="ph codeph">CPX_INFBOUND</code> are considered as infinity.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">obj</dt>
+
+        <dd class="dd pd">
+          
+          Pointer to an array of objective values for the added arcs. If NULL is passed, all objective values default to 0. Otherwise, the size of the array must be at least <code class="ph codeph"><span class="keyword parmname">narcs</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">anames</dt>
+
+        <dd class="dd pd">
+          
+          Pointer to an array of names for added arcs. If NULL is passed and the existing arcs have names, default names are assigned to the added arcs. If NULL is passed and the existing arcs have no names, the new arcs are assigned no names. Otherwise, the size of the array must be at least <code class="ph codeph"><span class="keyword parmname">narcs</span></code> and every name in the array must be a string terminating in 0. If the existing arcs have no names and <code class="ph codeph"><span class="keyword parmname">anames</span></code> is not NULL, default names are assigned to the existing arcs.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) on success and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+
+ <pre class="pre codeblock"><code>
+ status = CPXNETaddarcs (env, net, narcs, fromnode, tonode, NULL,
+                         NULL, obj, NULL);</code></pre>
+
+
+ 
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagenetwork.html">Optimizing Network Flow Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/netapi/homepagenetapi.html">Network Models in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="NETgetnumnodes.html" title="The routine CPXXNETgetnumnodes/CPXNETgetnumnodes is used to access the number of nodes in a network stored in a network problem object.">CPXNETgetnumnodes</a></li></ul></div>
+</nav>
+</div></body>
+</html>

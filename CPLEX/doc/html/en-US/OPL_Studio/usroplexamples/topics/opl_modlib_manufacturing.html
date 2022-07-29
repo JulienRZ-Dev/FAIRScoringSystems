@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Manufacturing" />
+<meta name="abstract" content="Describes examples of libraries that involve manufacturing problems such as blending, planning, and steel production." />
+<meta name="Description" content="Describes examples of libraries that involve manufacturing problems such as blending, planning, and steel production." />
+<meta name="DC.subject" content="models, manufacturing, manufacturing, sample models, linear programming, linear programming, complexity levels of examples, basic, complexity levels, auto manufacture, sample models, car manufacture planning, sample models, factory planning, sample models, constraint programming, scheduling, complexity levels of examples, intermediate, complexity levels, assembling computers, in production-planning problem, production, planning, examples, wood cutting problem, sched_wood problem, sched_wood problem example" />
+<meta name="keywords" content="models, manufacturing, manufacturing, sample models, linear programming, linear programming, complexity levels of examples, basic, complexity levels, auto manufacture, sample models, car manufacture planning, sample models, factory planning, sample models, constraint programming, scheduling, complexity levels of examples, intermediate, complexity levels, assembling computers, in production-planning problem, production, planning, examples, wood cutting problem, sched_wood problem, sched_wood problem example" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplsamples.uss_opl_modlib.1019425" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<title>Manufacturing</title>
+</head>
+<body id="usroplsamples.uss_opl_modlib.1019425"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Manufacturing</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes examples of libraries that involve manufacturing
+problems such as blending, planning, and steel production.</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016632__usroplsamples.uss_opl_modlib.1016771">Blending I</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016632__usroplsamples.uss_opl_modlib.1016789">Blending II</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1025473">Economic planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1019740">Factory planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1019805">Factory planning I</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1016838">Factory planning II</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1016606">Farm planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#section1205855387312">Flow-shop scheduling</a></p>
+</li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1031132">Assembly scheduling</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1016871">Production planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1030661">Food manufacturing 1</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1030701">Food manufacturing 2</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1016616">Refinery planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1016957">Steel production</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#section1205855439329">Multi-machine assignment scheduling problem</a></p>
+</li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_modlib_manufacturing.html#section1205869500479">Wood cutting problem</a></p>
+</li>
+
+</ul>
+
+</div>
+
+<article class="topic nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" id="usroplsamples.uss_opl_modlib.1016632">
+<h2 class="title topictitle2" id="ariaid-title2">Blending</h2>
+
+<div class="body">
+<section class="section" id="usroplsamples.uss_opl_modlib.1016632__usroplsamples.uss_opl_modlib.1016771"><h3 class="title sectiontitle">Blending
+I</h3><p class="p">This model describes the
+food manufacture 1 problem from <em class="ph i">Model Building in Mathematical Programming</em>, by H.P. Williams
+(<a class="xref" href="https://www.amazon.com/Model-Building-Mathematical-Programming-4th/dp/0471997889/ref=mt_paperback?_encoding=UTF8&amp;me=" target="_blank" rel="noopener" title="(Opens in a new tab or window)">Model Building in Mathematical Programming on Amazon</a>). This is
+a multiperiod blending problem.</p>
+<p class="p">The characteristics of the blending 1 example are the
+following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Model</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Blending, Manufacturing, Food, Multiperiod</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/BlendingMultiPeriod</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/BlendingMultiPeriod/blending1.mod.html">blending1.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016632__usroplsamples.uss_opl_modlib.1016789"><h3 class="title sectiontitle">Blending
+II</h3><p class="p">The Food Manufacture 2
+problem from <em class="ph i">Model Building in Mathematical Programming</em>, by H.P. Williams. This model adds
+conditions to the original food manufacturing problem to transform it into a mixed integer
+programming problem.</p>
+<p class="p">The characteristics of the blending 2 example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Model</li>
+
+<li class="li">Technique: Mixed Integer Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Blending, Manufacturing, Food, MIP</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/BlendingMultiPeriod</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/BlendingMultiPeriod/blending2.mod.html">blending2.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016632__usroplsamples.uss_opl_modlib.1025518"><h3 class="title sectiontitle">See Also</h3><p class="p"> <a class="xref" href="../../opllanguser/topics/opl_languser_app_areas_LP_blend.html" title="Presents the problem of calculating different blends of gasoline according to specific quality criteria.">A blending problem</a> in
+the <em class="ph i">Language User’s Manual</em>.</p>
+</section>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" id="usroplsamples.uss_opl_modlib.1025473">
+<h2 class="title topictitle2" id="ariaid-title3">Economic planning</h2>
+
+
+<div class="body">
+<p class="p">An economic planning model from <em class="ph i">Model Building in Mathematical
+Programming</em> by H.P. Williams. This model investigates different
+possible growth patterns for the economy over the next years. Try
+different objectives by setting <code class="ph codeph">obj1</code>, <code class="ph codeph">obj2</code> and <code class="ph codeph">obj3</code>.</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><code class="ph codeph">obj1</code>: maximizes capacity in year 5</p>
+</li>
+
+<li class="li"><p class="p"><code class="ph codeph">obj2</code>: maximizes output in years 4 and 5, ignores
+exogenous demand</p>
+ </li>
+
+<li class="li"><p class="p"><code class="ph codeph">obj3</code>: maximizes manpower, ignores the manpower
+constraint </p>
+ </li>
+
+</ul>
+
+<p class="p">The characteristics of the economic planning example are the following:</p>
+
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Model</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Economy, growth</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/EconPlanning</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/EconPlanning/econPlanning.mod.html">econPlanning.mod</a></li>
+
+</ul>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title4" xml:lang="en-us" id="usroplsamples.uss_opl_modlib.1019740">
+<h2 class="title topictitle2" id="ariaid-title4">Factory planning</h2>
+
+
+<div class="body">
+<section class="section" id="usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1028732"><h3 class="title sectiontitle">Car</h3><p class="p">In this model cars in production are
+placed on an assembly line moving through various units that install options such as air
+conditioning and radios. The assembly line can thus be viewed as composed of slots and each car must
+be allocated to a single slot. The cars cannot be allocated arbitrarily, since the production units
+have limited capacity and the options must be added to the cars as the assembly line is moving in
+front of the unit. Two projects are given, with two different data sets. </p>
+<p class="p">The characteristics
+of the car example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Model</li>
+
+<li class="li">Technique: Constraint Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Manufacturing, Auto</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/Car</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Car/car.mod.html">car.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1019805"><h3 class="title sectiontitle">Factory planning
+I</h3><p class="p">This model describes problem 3 from
+<em class="ph i">Model Building in Mathematical Programming</em>, by H.P. Williams. This is a multiperiod product
+mix. The objective is to find the optimal mix of products to manufacture, given production
+capacities and marketing limitations. </p>
+<p class="p">The characteristics of the factory planning 1 example
+are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Multiperiod, mix</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/FactPlan</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/FactPlan/factoryPlanning1.mod.html">factoryPlanning1.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1016838"><h3 class="title sectiontitle">Factory planning
+II</h3><p class="p">This model describes the second factory
+planning model from <em class="ph i">Model Building in Mathematical Programming</em> by H.P. Williams. The
+objective is to find the optimal mix of products to manufacture, given production capacities and
+marketing limitations. However, instead of taking the schedule given in <a class="xref" href="opl_modlib_manufacturing.html#usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1019805">Factory planning I</a>, the model also enables to find the best schedule for taking each machine down for maintenance.
+</p>
+<p class="p">The characteristics of the factory planning 2 example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Integer Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Factory Planning</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/FactPlan</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/FactPlan/factoryPlanning2.mod.html">factoryPlanning2.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1025544"><h3 class="title sectiontitle">See also</h3><p class="p"> <a class="xref" href="../../opllanguser/topics/opl_languser_app_areas_LP_multi.html" title="Extends the production planning problem to several production periods.">A multi-period production planning problem</a> in
+the <em class="ph i">Language User’s Manual</em>.</p>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1019740__usroplsamples.uss_opl_modlib.1016606"><h3 class="title sectiontitle">Farm planning</h3><p class="p">This is Problem 8 from <em class="ph i">Model
+Building in Mathematical Programming</em> by H.P. Williams. This model calculates how the farmer
+should operate over the next five years to maximize profit. </p>
+<p class="p">The characteristics of the farm
+planning example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Farm Planning, Farming, Agriculture</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/FarmPlanning</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/FarmPlanning/farmPlanning.mod.html">farmPlanning.mod</a></li>
+
+</ul>
+</section>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title5" xml:lang="en-us" id="section1205855387312">
+<h2 class="title topictitle2" id="ariaid-title5">Flow-shop scheduling</h2>
+
+
+<div class="body">
+<p class="p">This model involves flowshop scheduling for a computer assembly
+plant. The plant is equipped to assemble three models of computers.
+Assembly consists of placing components, such as CPUs and modems,
+into the appropriate computers.</p>
+
+<p class="p">The characteristics of the flow-shop scheduling example are the following:</p>
+
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: CP Scheduling</li>
+
+<li class="li">Complexity: Intermediate</li>
+
+<li class="li">Keywords: Scheduling</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/sched_flowshop2</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/sched_flowshop2/sched_flowshop2.mod.html">sched_flowshop2.mod</a></li>
+
+</ul>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title6" xml:lang="en-us" id="usroplsamples.uss_opl_modlib.1016611">
+<h2 class="title topictitle2" id="ariaid-title6">Production planning</h2>
+
+
+<div class="body">
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1031132"><h3 class="title sectiontitle">Assembly
+scheduling</h3><p class="p">This model is to determine the order of
+a set of custom computers to be processed on an assembly line. Once the order is assigned, it is
+kept from start to finish. The custom computers have different lists of components to be contained
+in them, which are given in the array <code class="ph codeph">computer</code> . The ordering of the computers is
+constrained by the following assembly rules for each component:</p>
+<ul class="ul">
+<li class="li">
+<p class="p">There must be a minimum number of computers in a row that need this component
+(<code class="ph codeph">minSeq</code> );</p>
+
+</li>
+
+<li class="li">
+<p class="p">There is a upper bound on the number of computers in a row that can have that component; and</p>
+
+</li>
+
+<li class="li">
+<p class="p">Each component also has a list of illegal followers (<code class="ph codeph">illegalFollowers</code> ) so that
+the next computer cannot contain a component which appears in the illegal followers list for this
+component. These restrictions may be due to set-up times, bottlenecks, etc. </p>
+
+</li>
+
+</ul>
+<p class="p">The characteristics of the assembly scheduling example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Model</li>
+
+<li class="li">Technique: Constraint Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Assembly, Manufacturing, Computers</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/AssemblySequencing</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/AssemblySequencing/sequence.mod.html">sequence.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1016871"><h3 class="title sectiontitle">Production
+planning</h3><p class="p">This model describes production
+planning for a computer assembly plant. The plant is equipped to assemble three models of computers,
+called MultimediaBusiness, MultimediaHome, and BasicHome. Assembly consists of placing components,
+such as CPUs and modems, into the appropriate computers. The model shows two steps:</p>
+<ol class="ol">
+<li class="li">
+<p class="p">Decide the total number of each type of computer to build and from where to acquire the necessary
+components. </p>
+
+</li>
+
+<li class="li">
+<p class="p">Once the number of computers to build is decided, decide how many to build, sell, and hold in
+inventory in each period.</p>
+
+</li>
+
+</ol>
+<p class="p">For each type of computer, there is a minimum and maximum demand per period. The total
+demands can be calculated for each computer type as sums of the demands of that computer type over
+all the periods. There is also a plant capacity that limits the total number of computers that can
+be built in any given period.</p>
+<p class="p">The array <code class="ph codeph">computers</code> tells, among other things,
+which types of components go in which types of computers. The components can be bought from external
+suppliers or can be manufactured in house. The price of a component is a piecewise linear function
+that depends on the number of components ordered. The prices and suppliers for each component are
+detailed in the array <code class="ph codeph">components</code> .</p>
+<p class="p">The objective in the first step is to
+maximize net profit while satisfying the demand constraints. The cost of building the computers is
+based on the cost of purchasing (or manufacturing) the components, and each computer type has a
+selling price which is considered to be gross profit.</p>
+<p class="p">Once the optimal solution to the first
+model is found, the number of computers of each type to be built is known. The second step of the
+model is used to determine how many of each computer type to build in each period. For a given
+computer type, the sum of the number built over the periods must match the quantity computed in the
+first step. Moreover, the number of computers of a particular type built in a period must be no
+higher than the maximum allowed to be built in a period. The number of computers to be sold must
+fall within the maximum and minimum demand for that computer type for the given period. For each
+period, the number of units held over from the previous period plus the number of units built in the
+current period minus the number of units sold in the period must equal the number of units held over
+to the next period. The number of computers held over in inventory must fall below the given maximum
+inventory size.</p>
+<p class="p">The objective in the second step is to find a feasible solution. </p>
+<p class="p">The
+characteristics of the production planning example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Script</li>
+
+<li class="li">Technique: Integer Programming, Decomposition</li>
+
+<li class="li">Complexity: Intermediate</li>
+
+<li class="li">Keywords: Production Planning, Piecewise Objective</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/ProdPlan</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Prodplan/totalprod.mod.html">totalprod.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1025556"><h3 class="title sectiontitle">See Also</h3><p class="p"> <a class="xref" href="../../opllanguser/topics/opl_languser_app_areas_LP_prod.html" title="Uses again the model production.mod.">A production problem</a> in
+the <em class="ph i">Language User’s Manual</em>.</p>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1030661"><h3 class="title sectiontitle">Food manufacturing
+1</h3><p class="p">This model describes the Food
+Manufacturing model from <em class="ph i">Model Building in Mathematical Programming</em>, by H.P. Williams.
+</p>
+<p class="p">The characteristics of the food manufacturing 1 example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Multiperiod, mix</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/FoodManufacture1</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/FoodManufacture1/foodmanufact1.mod.html">foodmanufact1.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1030701"><h3 class="title sectiontitle">Food manufacturing
+2</h3><p class="p">This model describes the second Food
+Manufacturing model from <em class="ph i">Model Building in Mathematical Programming</em> by H.P. Williams.
+</p>
+<p class="p">The characteristics of the food manufacturing 2 example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Integer Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Factory Planning</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/FoodManufacture2</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/foodmanufact/foodmanufact.mod.html">foodmanufact.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1016616"><h3 class="title sectiontitle">Refinery planning</h3><p class="p">This model describes problem 6 from
+<em class="ph i">Model Building in Mathematical Programming</em> by H.P. Williams.</p>
+<p class="p">The characteristics of the
+refinery planning example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Refinery</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/Refinery</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Refinery/refinery.mod.html">refinery.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1016957"><h3 class="title sectiontitle">Steel production</h3><p class="p">This is a production and inventory model with backlogging.
+It helps a plant manager to schedule production and inventories for multiple products over time when
+facing limited resources such as labor, materials, and machine capacities in each period. The
+objective is to minimize the total cost of production, inventory, and backlogging. The model can
+handle goals such as reducing the backlogs at the end and reaching the target inventory
+levels.</p>
+<p class="p">Features:</p>
+<ul class="ul">
+<li class="li">
+<p class="p">Bills of materials are considered.</p>
+
+</li>
+
+<li class="li">
+<p class="p">The unit cost of production, inventory, and backlogging can change over time.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Backorders are allowed.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Bounds on the ending backorder levels can be enforced.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Target ending inventory levels can be specified.</p>
+
+</li>
+
+</ul>
+<p class="p">The characteristics of the steel production example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Integer Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Production, Steel</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/PortfoliSteelprod</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Steelprod/steelprod.mod.html">steelprod.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016611__usroplsamples.uss_opl_modlib.1025567"><h3 class="title sectiontitle">See Also</h3><p class="p">the
+ <code class="ph codeph">xsteelSheet</code> project.</p>
+</section>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title7" xml:lang="en-us" id="section1205855439329">
+<h2 class="title topictitle2" id="ariaid-title7">Multi-machine assignment scheduling problem</h2>
+
+
+<div class="body">
+<p class="p">In this model there are <code class="ph codeph">n</code> tasks and <code class="ph codeph">m</code> dissimilar
+machines. Any task can be processed on any machine. The processing
+cost and the processing time of task <code class="ph codeph">i</code> on machine <code class="ph codeph">j</code> are <code class="ph codeph">cij</code> and <code class="ph codeph">pij</code>,
+respectively. Processing of task <code class="ph codeph">i</code> can only begin
+after the release date <code class="ph codeph">ri</code>, and must be completed
+at the latest by the due date <code class="ph codeph">di</code>. The problem is
+to carry out all the tasks at the least possible cost.</p>
+
+<p class="p">The characteristics of the multi-machine assignment scheduling example are the following:</p>
+
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: CP Scheduling</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Manufacturing, scheduling</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/sched_mmasp</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/sched_mmasp/sched_mmasp.mod.html">sched_mmasp.mod</a></li>
+
+</ul>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title8" xml:lang="en-us" id="section1205869500479">
+<h2 class="title topictitle2" id="ariaid-title8">Wood cutting problem</h2>
+
+
+<div class="body">
+<p class="p">A wood factory machine cuts stands (processed portions of log)
+into chips. Each stand has a certain length, diameter, and specie.
+The machine can cut a limited number of stands at a time with some
+restriction on the sum of the diameters that it can accept. Only one
+species can be processed simultaneously. Finally, each stand has fixed
+delivery dates and a processing status being either <code class="ph codeph">standard</code> or <code class="ph codeph">rush</code>.
+Any delay on rush stand will cost a penalty. The objective is to minimize
+the total cost of operating and delay while meeting the system constraints.</p>
+
+<p class="p">The characteristics of the wood cutting example are the following:</p>
+
+<ul class="ul">
+<li class="li">Industry: Manufacturing</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: CP Scheduling</li>
+
+<li class="li">Complexity: Intermediate</li>
+
+<li class="li">Keywords: Manufacturing, scheduling</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/sched_wood</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/sched_wood/sched_wood.mod.html">sched_wood.mod</a></li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+</div></body>
+</html>

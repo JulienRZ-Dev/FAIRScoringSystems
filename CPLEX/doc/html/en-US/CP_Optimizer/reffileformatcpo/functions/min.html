@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="min" />
+<meta name="abstract" content="Computes the minimum of a pair or array of integer or floating-point expressions." />
+<meta name="Description" content="Computes the minimum of a pair or array of integer or floating-point expressions." />
+<meta name="DC.subject" content="min" />
+<meta name="keywords" content="min" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="max.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="min" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>min</title>
+</head>
+<body id="min"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">min</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Computes the minimum of a pair or array of integer or floating-point expressions.
+</p>
+
+
+
+<section class="section" id="min__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">min</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatExprArray">floatExprArray</a> a)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">min</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> x, <a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> y)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">min</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> a)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">min</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> x, <a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> y)
+</code></pre>
+</section>
+
+
+<section class="section" id="min__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">a</code>: An array of integer or floating-point expressions from which the minimum is to be computed.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">x</code>: First integer or floating-point expressions from which the minimum is to be computed.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">y</code>: Second integer or floating-point expressions from which the minimum is to be computed.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="min__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The <code class="ph codeph"><a class="xref" href="min.html" title="Computes the minimum of a pair or array of integer or floating-point expressions.">min</a></code> function returns an expression which has the same value as the
+minimum of the supplied arguments.  The return type corresponds to the
+type of arguments supplied.
+</p>
+
+
+</section>
+
+
+<section class="section" id="min__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+m = <strong class="ph b">min</strong>(<a class="xref" href="max.html" title="Computes the maximum of a pair or array of integer or floating-point expressions.">max</a>(a,b), <a class="xref" href="max.html" title="Computes the maximum of a pair or array of integer or floating-point expressions.">max</a>(<strong class="ph b">min</strong>(a, b), c))
+</code></pre>
+<p class="p">
+This computes the median <code class="ph codeph">m</code> of three expressions <code class="ph codeph">a</code>, <code class="ph codeph">b</code>, and <code class="ph codeph">c</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="min__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    If the <code class="ph codeph">a</code> array has no elements, the <code class="ph codeph"><a class="xref" href="min.html" title="Computes the minimum of a pair or array of integer or floating-point expressions.">min</a></code> function returns positive infinity.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="max.html" title="Computes the maximum of a pair or array of integer or floating-point expressions.">max</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

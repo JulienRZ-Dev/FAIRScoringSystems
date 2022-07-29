@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcheckcopyctype and CPXcheckcopyctype" />
+<meta name="abstract" content="Checks the data about the type of variables copied in a model." />
+<meta name="Description" content="Checks the data about the type of variables copied in a model." />
+<meta name="DC.subject" content="CPXXcheckcopyctype, C API Reference Manual, CPXcheckcopyctype" />
+<meta name="keywords" content="CPXXcheckcopyctype, C API Reference Manual, CPXcheckcopyctype" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/homepagedatacheck.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="checkcopyctype" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/datacheck/homepagedatacheck.html" />
+<title>CPXXcheckcopyctype and CPXcheckcopyctype</title>
+</head>
+<body id="checkcopyctype"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">
+    <span class="keyword apiname">CPXXcheckcopyctype</span> and <span class="keyword apiname">CPXcheckcopyctype</span>
+  </h1>
+ 
+  
+  
+  <div class="body refbody"><p class="shortdesc">
+Checks the data about the type of variables copied in a model.
+  </p>
+
+
+<section class="section"><h2 class="title sectiontitle">Signature</h2></section>
+
+    <section class="section refsyn">
+    <pre class="pre codeblock"><code>
+CPXCHECKLIBAPI
+int CPXPUBLIC CPXXcheckcopyctype (CPXCENVptr env, 
+                                  CPXCLPptr lp, 
+                            const char *xctype);
+    </code></pre>
+    <pre class="pre codeblock"><code>
+CPXCHECKLIBAPI
+int CPXPUBLIC CPXcheckcopyctype (CPXCENVptr env, 
+                                 CPXCLPptr lp, 
+                           const char *xctype);
+    </code></pre>
+    </section>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p"> 
+This routine validates the arguments of the corresponding routine 
+<a class="xref" href="../mipapi/copyctype.html" title="The routine CPXXcopyctype/CPXcopyctype can be used to copy variable type information into a given problem.">CPXXcopyctype and CPXcopyctype</a>.
+Specifically, when <a class="xref" href="../mipapi/copyctype.html" title="The routine CPXXcopyctype/CPXcopyctype can be used to copy variable type information into a given problem.">CPXXcopyctype and CPXcopyctype</a> copies 
+information about variable types in a given model, this routine 
+checks that copied data.
+The source code of this data checking routine 
+is in the file <code class="ph codeph">check.c</code>, provided 
+as part of the product.  </p>
+
+<p class="p">To call this routine, you must compile 
+and link <code class="ph codeph">check.c</code> with your program 
+as you compile and link with the CPLEX Callable Library.
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Arguments</h2>
+
+<p class="p">The arguments of this routine are the same as those of 
+<a class="xref" href="../mipapi/copyctype.html" title="The routine CPXXcopyctype/CPXcopyctype can be used to copy variable type information into a given problem.">CPXXcopyctype and CPXcopyctype</a>.
+The second argument, <code class="ph codeph">lp</code>, is technically 
+a pointer to a <strong class="ph b">constant</strong> LP object 
+of type <code class="ph codeph">CPXCLPptr</code> rather than type <code class="ph codeph">CPXLPptr</code>, 
+because this routine does not modify the problem. 
+For most user applications, this distinction is unimportant. 
+</p>
+
+</section>
+ 
+    <table cellpadding="4" cellspacing="0" border="1" class="simpletable properties simpletableborder" summary="Each row in this table describes a property; each property can have a type, value, and description."><col style="width:50%" /><col style="width:50%" /><tr class="sthead prophead">
+<th style="vertical-align:bottom;text-align:left;" id="d811527e140" class="stentry propvaluehd">Name</th>
+<th style="vertical-align:bottom;text-align:left;" id="d811527e142" class="stentry propdeschd">Description</th>
+</tr><tbody><tr class="strow property">
+<td style="vertical-align:top;" headers="d811527e140" class="stentry propvalue">env</td>
+<td style="vertical-align:top;" headers="d811527e142" class="stentry propdesc">
+          
+
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d811527e140" class="stentry propvalue">lp</td>
+<td style="vertical-align:top;" headers="d811527e142" class="stentry propdesc">
+          
+
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d811527e140" class="stentry propvalue">xctype</td>
+<td style="vertical-align:top;" headers="d811527e142" class="stentry propdesc">
+          
+
+          An array of length <code class="ph codeph"><span class="keyword apiname">CPXgetnumcols(env,lp)</span></code> containing the type of each column in the constraint matrix. Possible values appear in Table 1.
+        </td>
+</tr>
+</tbody></table>
+
+<section class="section"><h2 class="title sectiontitle">Return</h2>
+
+<p class="p"> 
+The routine returns nonzero if it detects an error in the data; 
+it returns zero if it does not detect any data errors.
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Example</h2>
+   
+    <pre class="pre codeblock"><code>
+ status = CPXXcheckcopyctype (env, lp, ctype);
+    </code></pre>
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/datacheck/homepagedatacheck.html">Data checking in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

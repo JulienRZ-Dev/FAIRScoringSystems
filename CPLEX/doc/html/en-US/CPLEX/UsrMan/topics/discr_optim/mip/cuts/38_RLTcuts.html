@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Reformulation Linearization Technique (RLT) cuts" />
+<meta name="abstract" content="Defines a Reformulation Linearization Technique (RLT) cut." />
+<meta name="Description" content="Defines a Reformulation Linearization Technique (RLT) cut." />
+<meta name="DC.subject" content="cut, Reformulation Linearization Technique (RLT) definition, cuts, Reformulation Linearization Technique (RLT) cuts, definition, quadratic program (QP), nonconvex, Mixed Integer Quadratic Program (MIQP), bibliography" />
+<meta name="keywords" content="cut, Reformulation Linearization Technique (RLT) definition, cuts, Reformulation Linearization Technique (RLT) cuts, definition, quadratic program (QP), nonconvex, Mixed Integer Quadratic Program (MIQP), bibliography" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/26_cuts_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual_RLTcuts_defn" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/26_cuts_title_synopsis.html" />
+<title>Reformulation Linearization Technique (RLT) cuts</title>
+</head>
+<body id="User_manual_RLTcuts_defn"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Reformulation Linearization Technique (RLT) cuts</h1>
+
+
+
+<div class="body"><p class="shortdesc">Defines a Reformulation Linearization Technique (RLT) cut.</p>
+
+<p class="p">
+Reformulation Linearization Technique cuts, also known as RLT cuts, 
+exploit a cutting plane technique to solve certain <strong class="ph b">nonconvex</strong> 
+continuous quadratic programs (QP)  or 
+mixed integer quadratic programs (MIQP) to <strong class="ph b">global optimality</strong>. 
+</p>
+
+<p class="p">
+Consider a conventional linearization of a possibly nonconvex QP:
+</p>
+
+<div class="image"><img class="image" src="../../../../images/standardFormQ.jpg" alt="x transpose time Q times x equals the pair Q, Y" /></div>
+<div class="p">where 
+<div class="image"><img class="image" src="../../../../images/YasXtimesXtranspose.jpg" alt="Y equals x times x transpose" /></div>.
+</div>
+
+<div class="p">As the first step in applying the reformulation linearization technique 
+to this nonconvex model, multiply each valid constraint by a different variable.
+That is, consider a valid constraint, such as: 
+<div class="image"><img class="image" src="../../../../images/typicalValidConstraint.jpg" alt="the sum of coefficient a sub j times variable x sub j less than or equal to b" /></div> 
+Now consider another variable, such as: 
+<div class="image"><img class="image" src="../../../../images/anotherVariable.jpg" alt="the variable x sub i is greater than or equal to zero" /></div>
+Now consider their product. This step produces: 
+<div class="image"><img class="image" src="../../../../images/validConstraintMultipliedByAnotherVar.jpg" alt="the sum of terms a sub j multiplied by x sub j multiplied by x sub i is less than or equal to b times x sub i" /></div>
+</div>
+
+<div class="p">Next, use the relaxation variables 
+<div class="image"><img class="image" src="../../../../images/relaxationVariablesY.jpg" alt="Y sub i and j equals x sub i times x sub j" /></div> 
+to linearize that product: 
+<div class="image"><img class="image" src="../../../../images/linearizedForm.jpg" alt="the sum of terms a sub j multiplied by Y sub i and j is less than or equal to b times x sub i" /></div>
+</div>
+
+<p class="p">The result is a cut. Moreover, 
+this technique also works for equations with free variables.
+</p>
+
+<p class="p">For more detail about this subject, see the book 
+<strong class="ph b">A Reformulation-Linearization Technique for Solving Discrete and Continuous Nonconvex Problems</strong> 
+by Hanif D. Sherali and W. P. Adams, published in 1999 by Springer. 
+For a discussion of mixed integer quadratic programs (MIQP) generally, see the 
+<a class="xref" href="http://www.orsj.or.jp/ramp/2014/paper/4-3.pdf" target="_blank" rel="noopener" title="(Opens a PDF file)">article</a> 
+by Christian Bliek, Pierre Bonami, and Andrea Lodi, "Solving Mixed-Integer Quadratic Programming
+problems with IBM-CPLEX: a progress report" published in the <strong class="ph b">Proceedings of the Twenty-Sixth 
+RAMP Symposium</strong> of the Research Association of Mathematical Programming, held in Tokyo in 2014.
+</p>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/cuts/26_cuts_title_synopsis.html" title="Describes types of cuts available in the MIP optimizer as performance features.">Cuts</a></div>
+</div>
+</nav></div></body>
+</html>

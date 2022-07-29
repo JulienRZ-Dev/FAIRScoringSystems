@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Managing Parameters in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getchgparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getparamhiername.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getintparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getparamname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getparamnum.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getparamtype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getstrparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/infodblparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/infointparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/infolongparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/infostrparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopyparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setdblparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setdefaults.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setintparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlongparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setstrparam.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writeparam.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagemanageparameters" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Managing Parameters in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepagemanageparameters"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Managing Parameters in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines manage parameters of CPLEX.
+</p>
+
+<p class="p">
+For documentation of each parameter, see 
+<a class="xref" href="../../CPLEX/homepages/refparameterscplex.html">Parameters of CPLEX</a>.
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getchgparam.html">CPXXgetchgparam and CPXgetchgparam</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetchgparam</span>/<span class="keyword apiname">CPXgetchgparam</span></code> returns an array of parameter numbers (unique identifiers) for parameters which are not set at their default values.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdblparam.html">CPXXgetdblparam and CPXgetdblparam</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXgetdblparam</span>/<span class="keyword apiname">CPXgetdblparam</span></code>  obtains the current value of a CPLEX parameter of type  <code class="ph codeph">double</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getparamhiername.html">CPXXgetparamhiername and CPXgetparamhiername</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetparamhiername</span>/<span class="keyword apiname">CPXgetparamhiername</span></code> returns the hierarchy     name of a CPLEX parameter, given the symbolic constant (or reference number) for it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getintparam.html">CPXXgetintparam and CPXgetintparam</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetintparam</span>/<span class="keyword apiname">CPXgetintparam</span></code> obtains the current value of a CPLEX parameter of type CPXINT.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getlongparam.html">CPXXgetlongparam and CPXgetlongparam</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetlongparam</span>/<span class="keyword apiname">CPXgetlongparam</span></code> obtains the current value of a CPLEX parameter of type <code class="ph codeph">CPXLONG</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getparamname.html">CPXXgetparamname and CPXgetparamname</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetparamname</span>/<span class="keyword apiname">CPXgetparamname</span></code> returns the legacy     name of a CPLEX parameter, given the symbolic constant (or reference number) for it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getparamnum.html">CPXXgetparamnum and CPXgetparamnum</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetparamnum</span>/<span class="keyword apiname">CPXgetparamnum</span></code> returns the reference number of a CPLEX parameter, given a character string containing the name for it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getparamtype.html">CPXXgetparamtype and CPXgetparamtype</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetparamtype</span>/<span class="keyword apiname">CPXgetparamtype</span></code> returns the type of a CPLEX parameter, given the symbolic constant or reference number for it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getstrparam.html">CPXXgetstrparam and CPXgetstrparam</a></strong><br />
+   The routine   <code class="ph codeph"><span class="keyword apiname">CPXXgetstrparam</span>/<span class="keyword apiname">CPXgetstrparam</span></code>   obtains the current value of a CPLEX string parameter.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/infodblparam.html">CPXXinfodblparam and CPXinfodblparam</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXinfodblparam</span>/<span class="keyword apiname">CPXinfodblparam</span></code> obtains the default, minimum, and maximum values of a CPLEX parameter of type <code class="ph codeph">double</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/infointparam.html">CPXXinfointparam and CPXinfointparam</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXinfointparam</span>/<span class="keyword apiname">CPXinfointparam</span></code>  obtains the default, minimum, and maximum values of a CPLEX parameter of type <code class="ph codeph">CPXINT</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/infolongparam.html">CPXXinfolongparam and CPXinfolongparam</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXinfolongparam</span>/<span class="keyword apiname">CPXinfolongparam</span></code>   obtains the default, minimum, and maximum values of a CPLEX parameter of type CPXLONG.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/infostrparam.html">CPXXinfostrparam and CPXinfostrparam</a></strong><br />
+   The routine     <code class="ph codeph"><span class="keyword apiname">CPXXinfostrparam</span>/<span class="keyword apiname">CPXinfostrparam</span></code>     obtains the default value of a CPLEX string parameter.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/readcopyparam.html">CPXXreadcopyparam and CPXreadcopyparam</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXreadcopyparam</span>/<span class="keyword apiname">CPXreadcopyparam</span></code> reads parameter names and settings from the file specified by <code class="ph codeph"><span class="keyword parmname">filename_str</span></code> and copies them into CPLEX.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setdblparam.html">CPXXsetdblparam and CPXsetdblparam</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXsetdblparam</span>/<span class="keyword apiname">CPXsetdblparam</span></code>  sets the value of a CPLEX parameter of type  <code class="ph codeph">double</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setdefaults.html">CPXXsetdefaults and CPXsetdefaults</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetdefaults</span>/<span class="keyword apiname">CPXsetdefaults</span></code> resets all CPLEX parameters and settings to default values (with the exception of the log file).   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setintparam.html">CPXXsetintparam and CPXsetintparam</a></strong><br />
+    The routine   <code class="ph codeph"><span class="keyword apiname">CPXXsetintparam</span>/<span class="keyword apiname">CPXsetintparam</span></code>   sets the value of a CPLEX parameter of type CPXINT.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setlongparam.html">CPXXsetlongparam and CPXsetlongparam</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetlongparam</span>/<span class="keyword apiname">CPXsetlongparam</span></code> sets the value of a CPLEX parameter of type CPXLONG.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setstrparam.html">CPXXsetstrparam and CPXsetstrparam</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetstrparam</span>/<span class="keyword apiname">CPXsetstrparam</span></code> sets the value of a CPLEX string parameter.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/writeparam.html">CPXXwriteparam and CPXwriteparam</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXwriteparam</span>/<span class="keyword apiname">CPXwriteparam</span></code> writes the name and current setting of CPLEX parameters that are not at their default setting in the environment specified by <code class="ph codeph"><span class="keyword parmname">env</span></code>.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

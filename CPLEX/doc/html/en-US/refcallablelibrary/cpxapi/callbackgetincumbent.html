@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbackgetincumbent and CPXcallbackgetincumbent" />
+<meta name="abstract" content="Gets the incumbent solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita." />
+<meta name="Description" content="Gets the incumbent solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita." />
+<meta name="DC.subject" content="CPXcallbackgetincumbent, C API Reference Manual, CPXXcallbackgetincumbent" />
+<meta name="keywords" content="CPXcallbackgetincumbent, C API Reference Manual, CPXXcallbackgetincumbent" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="callbacksetfunc.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackgetincumbent" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXcallbackgetincumbent and CPXcallbackgetincumbent</title>
+</head>
+<body id="callbackgetincumbent"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbackgetincumbent</span> and <span class="keyword apiname">CPXcallbackgetincumbent</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+    Gets the incumbent solution and its objective value for callback invocations
+    in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbackgetincumbent</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph oper">*</span><span class="ph var">x</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">end</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph oper">*</span><span class="ph var">obj_p</span><span class="ph delim">,</span>
+          <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbackgetincumbent</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCALLBACKCONTEXptr</span><span class="ph sep"> </span><span class="ph var">context</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph oper">*</span><span class="ph var">x</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">end</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph oper">*</span><span class="ph var">obj_p</span><span class="ph delim">,</span>
+          <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">
+        This routine queries the current incumbent solution.
+      </p>
+
+      <div class="note tip"><span class="tiptitle">Tip:</span> 
+        Depending on the context in which the callback was invoked, 
+        the queried incumbent is globally valid 
+        (<a class="xref" href="../macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a>)
+        or valid only in the calling thread (all other contexts).
+      </div>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">context</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">The callback context as passed into the user-written callback function.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">x</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Buffer to store the values queried. The buffer must have size at
+             least 1+<code class="ph codeph">end</code>-<code class="ph codeph">end</code>.
+             The buffer can be <code class="ph codeph">NULL</code> if <code class="ph codeph">begin</code>
+             and <code class="ph codeph">end</code> specify an empty range.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">begin</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">First column (inclusive) to query from the incumbent solution.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">end</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Last column (inclusive) to query from the incumbent solution.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">obj_p</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Buffer to store the objective value of the incumbent solution.
+             This buffer can be <code class="ph codeph">NULL</code>.
+             If there is no incumbent solution, then a very large value will
+             be returned in this buffer.
+          </p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      <p class="p">The routine returns 0 (zero) if successful and nonzero if an error occurs.</p>
+
+
+    </section>
+
+  </div>
+
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked."><code class="ph codeph">CPXXcallbacksetfunc</code>/<code class="ph codeph">CPXcallbacksetfunc</code></a></li></ul></div>
+</nav>
+</div></body>
+</html>

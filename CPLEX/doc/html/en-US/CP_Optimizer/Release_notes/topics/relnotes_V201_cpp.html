@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="C++ users" />
+<meta name="abstract" content="Provides details of new features and changes for C++ users." />
+<meta name="Description" content="Provides details of new features and changes for C++ users." />
+<meta name="DC.subject" content="C++" />
+<meta name="keywords" content="C++" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="cpp.v201" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" />
+<title>C++ users</title>
+</head>
+<body id="cpp.v201"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">C++ users</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides details of new features and changes for C++ users.</p>
+
+<section class="section"><h2 class="title sectiontitle">New macros <code class="ph codeph">ILOBLACKBOX</code></h2>
+
+<p class="p">New macros <code class="ph codeph">ILOBLACKBOX</code> in header file <code class="ph codeph">ilcp/cpext.h</code>:</p>
+
+<pre class="pre codeblock"><code>
+ILOBLACKBOX0(bbfunc)
+ILOBLACKBOX1(bbfunc, bbtype1, bbvar1)
+ILOBLACKBOX2(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2)
+ILOBLACKBOX3(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3)
+ILOBLACKBOX4(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3, bbtype4, bbvar4)
+ILOBLACKBOX5(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3, bbtype4, bbvar4, bbtype5, bbvar5)
+ILOBLACKBOX6(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3, bbtype4, bbvar4, bbtype5, bbvar5, bbtype6, bbvar6)</code></pre>
+</section>
+
+<p class="p">A black-box expression is a numerical expression for which the closed form is not known or cannot
+be formulated using CP Optimizer's classical expressions. A black-box expression is specified by
+providing a C++ code that evaluates the expression at given points. This function is called by the
+engine during the resolution.</p>
+
+<p class="p">This macro defines a black-box expression named <code class="ph codeph">bbfunc</code> with <em class="ph i">n</em> arguments.
+When <em class="ph i">n</em> is greater than zero, the types and names of the black-box function arguments must be
+supplied as arguments to the macro. Each argument is defined by its type
+<code class="ph codeph">bbtype</code><em class="ph i">n</em> and a name <code class="ph codeph">bbvar</code><em class="ph i">n</em>.</p>
+
+<p class="p">Here is an example of a black-box expression <code class="ph codeph">f</code>:</p>
+
+<pre class="pre codeblock"><code>
+IloNum PI = 3.14159265358979323846;
+
+ILOBLACKBOX2(f, IloNumExpr, x, IloNumExpr, y) {
+  // f(x,y) = cos(4.pi.x) + cos(4.pi.y) + 5(x+y) + 2
+  IloNum vx = getValue(x);
+  IloNum vy = getValue(y);
+  IloNum v = cos(4*PI*vx) + cos(4*PI*vy) + 5*(vx+vy) + 2;
+  returnValue(v);
+}</code></pre>
+<p class="p">An instance of this black-box expression can be created in the model with the following
+signature, and used as an <code class="ph codeph">IloNumExpr</code>:</p>
+
+<pre class="pre codeblock"><code>
+IloBlackbox f(IloEnv env, IloNumExpr x, IloNumExpr y);</code></pre>
+<p class="p">For example, here is a small complete model using the above black-box expression:</p>
+
+<pre class="pre codeblock"><code>
+IloEnv env;
+IloModel model(env);
+IloIntVar x(env, 0, 100, "x");
+IloIntVar y(env, 0, 100, "y");
+model.add(x &lt;= y); // Symmetry breaking as f(x,y)=f(y,x)
+IloNumExpr obj = f(env, x/100.0, y/100.0);
+model.add(5*(x+y) &lt;= 100*(1+obj)); // Lower-bounding expression
+model.add(IloMinimize(env, obj));
+IloCP cp(model);
+cp.solve();
+env.end();</code></pre>
+<p class="p">Once defined with the macro <code class="ph codeph">ILOBLACKBOX</code>, a black-box expression can be used in
+the same way as classical numerical expressions in the model. In particular, it can be mixed with
+other expressions (classical or black-box expressions), used as part of the objective function, used
+in constraints, used in the scope of other black-box expressions, and used as KPI or part of a
+KPI.</p>
+
+<p class="p">The following functions are available inside the evaluation code to access the current values of
+variables/expressions in the scope of the black-box:</p>
+
+<pre class="pre codeblock"><code>
+IloInt  getValue  (IloIntVar x)      const;
+IloInt  getValue  (IloIntExpr x)     const;
+IloNum  getValue  (IloNumExpr x)     const;
+IloBool isPresent (IloIntervalVar x) const;
+IloBool isAbsent  (IloIntervalVar x) const;
+IloInt  getStart  (IloIntervalVar x) const;
+IloInt  getEnd    (IloIntervalVar x) const;
+IloInt  getSize   (IloIntervalVar x) const;
+IloIntervalVar getFirst(IloIntervalSequenceVar s) const;
+IloIntervalVar getLast (IloIntervalSequenceVar s) const;
+IloIntervalVar getNext (IloIntervalSequenceVar s, IloIntervalVar x) const;
+IloIntervalVar getPrev (IloIntervalSequenceVar s, IloIntervalVar x) const;</code></pre>
+<p class="p">Black-box expressions can return a single value or multiple values through the following
+functions: </p>
+
+<pre class="pre codeblock"><code>
+void returnValue(IloNum val); // Return value of a single value function
+void returnValue(IloInt i, IloNum val); // Return ith element of a multiple value function</code></pre>
+<p class="p">When the black-box expression returns a vector of values, each component of the vector can be
+accessed with the <code class="ph codeph">operator[]</code> on <code class="ph codeph">IloBlackbox</code>:</p>
+
+<pre class="pre codeblock"><code>
+ IloNumExpr IloBlackbox::operator[](IloInt i);</code></pre>
+<p class="p">In the simpler case of a single value, the class <code class="ph codeph">IloBlackbox</code> can directly be
+used as an <code class="ph codeph">IloNumExpr</code>.</p>
+
+<section class="section"><h2 class="title sectiontitle">New class <code class="ph codeph">IloBlackbox</code></h2>
+
+<p class="p">The new class <code class="ph codeph">IloBlackbox</code> in header file <code class="ph codeph">ilcp/cpext.h</code> is the
+handle class created by the macros <code class="ph codeph">ILOBLACKBOX</code>. It represents a black-box
+expression in the model. An instance of this class is similar to an <code class="ph codeph">IloNumExpr</code> or
+an array of <code class="ph codeph">IloNumExpr</code> representing the value(s) of a black-box expression.</p>
+
+<p class="p">Here are the member functions in the <code class="ph codeph">IloBlackbox</code> class:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">public void add(IloIntervalSequenceVar x)</code> The scope of a black-box expression
+is the set of variables or expressions used to compute the value(s) of the black-box. The scope is
+computed automatically from the arguments of the black-box function. This member function adds
+variable <code class="ph codeph">x</code> to the scope of the invoking black-box expression if it was not already
+in the scope.</li>
+
+<li class="li"><code class="ph codeph">public void add(IloIntervalVar x)</code> The scope of a black-box expression is the
+set of variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function adds variable
+<code class="ph codeph">x</code> to the scope of the invoking black-box expression if it was not already in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public void add(IloNumExpr x)</code> The scope of a black-box expression is the set of
+variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function adds expression
+<code class="ph codeph">x</code> to the scope of the invoking black-box expression if it was not already in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public void add(IloIntExpr x) </code> The scope of a black-box expression is the set
+of variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function adds expression
+<code class="ph codeph">x</code> to the scope of the invoking black-box expression if it was not already in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public void add(IloIntVar x)</code> The scope of a black-box expression is the set of
+variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function adds variable
+<code class="ph codeph">x</code> to the scope of the invoking black-box expression if it was not already in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public IloInt getArity() const</code> This member function returns the arity of the
+black-box expression that is, the number of variables and expressions in its scope.</li>
+
+<li class="li"><code class="ph codeph">public const char * getFunctionName() const</code> This member function returns the
+name of the black-box expression that was used in the macro.</li>
+
+<li class="li"><code class="ph codeph">public operator IloNumExpr()</code> This automatic type conversion operator returns
+the numerical expression that represents the value of the invoking black-box expression in case of a
+single-value black-box. Any instance of <code class="ph codeph">IloBlackbox</code> can be used as a regular
+numerical expression <code class="ph codeph">IloNumExpr</code> in the Concert model. In case of a multi-valued
+black-box expression, this numerical expression will represent the first component of the returned
+vector of values.</li>
+
+<li class="li"><code class="ph codeph">public IloNumExpr operator[](IloInt i)</code> This member function returns the
+numerical expression that represents the value of the <code class="ph codeph">i</code><sup class="ph sup">th</sup> component of
+the vector of values computed by the invoking black-box expression.</li>
+
+<li class="li"><code class="ph codeph">public void remove(IloIntervalSequenceVar x)</code> The scope of a black-box
+expression is the set of variables or expressions used to compute the value(s) of the black-box. The
+scope is computed automatically from the arguments of the black-box function. This member function
+removes variable <code class="ph codeph">x</code> from the scope of the invoking black-box expression if it was
+contained in the scope.</li>
+
+<li class="li"><code class="ph codeph">public void remove(IloIntervalVar x)</code> The scope of a black-box expression is the
+set of variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function removes variable
+<code class="ph codeph">x</code> from the scope of the invoking black-box expression if it was contained in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public void remove(IloNumExpr x)</code> The scope of a black-box expression is the set
+of variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function removes expression
+<code class="ph codeph">x</code> from the scope of the invoking black-box expression if it was contained in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public void remove(IloIntExpr x)</code> The scope of a black-box expression is the set
+of variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function removes expression
+<code class="ph codeph">x</code> from the scope of the invoking black-box expression if it was contained in the
+scope.</li>
+
+<li class="li"><code class="ph codeph">public void remove(IloIntVar x)</code> The scope of a black-box expression is the set
+of variables or expressions used to compute the value(s) of the black-box. The scope is computed
+automatically from the arguments of the black-box function. This member function removes variable
+<code class="ph codeph">x</code> from the scope of the invoking black-box expression if it was contained in the
+scope.</li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Defining the <code class="ph codeph">IL_STD</code> macro when compiling Concert C++ applications no longer
+required</h2>
+
+<p class="p">Previous versions of CP Optimizer required you to compile Concert C++ applications with
+<code class="ph codeph">-DIL_STD</code>. This is no longer required.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Deprecated <strong class="ph b">IloAlwaysEqual</strong> functions</h2>
+
+<p class="p">The following <strong class="ph b">IloAlwaysEqual</strong> functions have been <strong class="ph b">deprecated</strong> in CP Optimizer 20.1.0
+and will be removed in a future release: </p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">public IloConstraint IloAlwaysEqual(const IloEnv env, const IloCumulFunctionExpr f,
+IloInt start, IloInt end, IloInt v)</code></li>
+
+<li class="li"><code class="ph codeph">public IloConstraint IloAlwaysEqual(const IloEnv env, const IloCumulFunctionExpr f,
+const IloIntervalVar a, IloInt v)</code></li>
+
+</ul>
+
+<p class="p">Instead use the following <strong class="ph b">IloAlwaysIn</strong> functions: </p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">public IloConstraint IloAlwaysIn(const IloEnv env, const IloCumulFunctionExpr f, IloInt
+start, IloInt end, IloInt vmin, IloInt vmax)</code></li>
+
+<li class="li"><code class="ph codeph">public IloConstraint IloAlwaysIn(const IloEnv env, const IloCumulFunctionExpr f, const
+IloIntervalVar a, IloInt vmin, IloInt vmax)</code></li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Deprecated <code class="ph codeph">IloSynchronize</code> class</h2>
+
+<p class="p">The class <code class="ph codeph">IloSynchronize</code> has been <strong class="ph b">deprecated</strong> in CP Optimizer 20.1.0 and
+will be removed in a future release.  </p>
+
+<p class="p">Instead, use a set of <code class="ph codeph">IloStartAtStart</code> and <code class="ph codeph">IloStartAtEnd</code>
+constraints between the master interval variables and the other interval variables. If the
+<code class="ph codeph">IloSynchronize</code> constraint is meant to formulate the selection of a subset of
+intervals, consider using the <code class="ph codeph">IloAlternative</code> constraint instead (with unit,
+multiple or variable cardinality).</p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" title="These release notes highlight improvements and new features of CP Optimizer in IBM ILOG CPLEX Optimization Studio 20.1.0.">Release notes for CP Optimizer 20.1.0</a></div>
+</div>
+</nav></div></body>
+</html>

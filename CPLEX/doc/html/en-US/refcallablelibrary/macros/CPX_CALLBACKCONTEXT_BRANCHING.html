@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPX_CALLBACKCONTEXT_BRANCHING" />
+<meta name="abstract" content="Generic callback at branching" />
+<meta name="Description" content="Generic callback at branching" />
+<meta name="DC.subject" content="CPX_CALLBACKCONTEXT_BRANCHING, C API Reference Manual" />
+<meta name="keywords" content="CPX_CALLBACKCONTEXT_BRANCHING, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepageCallbackContext.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPX_CALLBACKCONTEXT_BRANCHING" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepageCallbackContext.html" />
+<title>CPX_CALLBACKCONTEXT_BRANCHING</title>
+</head>
+<body id="CPX_CALLBACKCONTEXT_BRANCHING"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPX_CALLBACKCONTEXT_BRANCHING</span></h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Generic callback at branching</p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPX_CALLBACKCONTEXT_BRANCHING</span><span class="ph sep"> </span>0x0080
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">
+        CPLEX invokes the generic callback in this context when it is done
+        processing a node and has to decide how to branch. This gives
+        the user the possibility either to specify a custom branching decision,
+        or to let CPLEX branch according to the selected branching strategy.
+      </p>
+
+      <div class="p">
+        You can use the constant <code class="ph codeph">CPX_CALLBACKCONTEXT_BRANCHING</code> in
+        two different ways:
+        <ul class="ul">
+          <li class="li">As a value passed into the generic callback function to specify
+              in which context the generic callback is invoked.</li>
+
+          <li class="li">As a bit-wise OR with the <span class="keyword parmname">where</span> argument of the routine
+              <a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a>
+              to specify in which situations CPLEX should invoke the generic
+              callback.</li>
+
+        </ul>
+
+      </div>
+
+      <p class="p">
+         User branching decisions are always specified in terms of the
+         original model and possibly have to be crushed to the presolved model.
+         (This crushing happens internally in CPLEX.) To guarantee that user
+         branching decisions can be crushed, certain types of nonlinear
+         presolve reductions have to be disabled. Consequently, CPLEX
+         automatically disables those nonlinear presolve reductions
+         if the user asks for the callback to be invoked in this context.
+      </p>
+ 
+      <p class="p">
+         CPLEX invokes the callback in this context before deciding how to branch.
+         To specify a custom branching decision the user can create one or two
+         children nodes with <a class="xref" href="../cpxapi/callbackmakebranch.html" title="The routine CPXXcallbackmakebranch/CPXcallbackmakebranch defines the branching constraints that define a branch from the current node in the MIP search tree, from the context ***. The branch can include both variable bound changes and additional linear constraints.">CPXXcallbackmakebranch and CPXcallbackmakebranch</a>.
+         Alternatively, the user can simply instruct CPLEX to prune the current
+         node with <a class="xref" href="../cpxapi/callbackprunenode.html" title="Instructs CPLEX to prune the current node of the search tree from a callback in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.">CPXXcallbackprunenode and CPXcallbackprunenode</a>.
+
+         If the routine <a class="xref" href="../cpxapi/callbackprunenode.html" title="Instructs CPLEX to prune the current node of the search tree from a callback in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.">CPXXcallbackprunenode and CPXcallbackprunenode</a> is invoked,
+         any child node created with <a class="xref" href="../cpxapi/callbackmakebranch.html" title="The routine CPXXcallbackmakebranch/CPXcallbackmakebranch defines the branching constraints that define a branch from the current node in the MIP search tree, from the context ***. The branch can include both variable bound changes and additional linear constraints.">CPXXcallbackmakebranch and CPXcallbackmakebranch</a>
+         in the same invocation of the callback is disregarded.
+         
+         If the routines <a class="xref" href="../cpxapi/callbackprunenode.html" title="Instructs CPLEX to prune the current node of the search tree from a callback in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.">CPXXcallbackprunenode and CPXcallbackprunenode</a> and
+         <a class="xref" href="../cpxapi/callbackmakebranch.html" title="The routine CPXXcallbackmakebranch/CPXcallbackmakebranch defines the branching constraints that define a branch from the current node in the MIP search tree, from the context ***. The branch can include both variable bound changes and additional linear constraints.">CPXXcallbackmakebranch and CPXcallbackmakebranch</a> are not invoked (i.e., if
+         the user does not specify any branching), then CPLEX will branch according
+         to the selected branching strategy.
+      </p>
+
+      <p class="p">
+         The solution of the continuous relaxation of the current tree node
+         can be queried with <a class="xref" href="../cpxapi/callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a>.
+         However, when the callback is invoked in this context, the continuous
+         relaxation of the node may not be solved to optimality for various reasons
+         (for example an iteration limit, an infeasible status, etc.).
+         In order to deal with this situation, the routine
+         <a class="xref" href="../cpxapi/callbackgetrelaxationstatus.html" title="Get the solution status for the current node relaxation.">CPXXcallbackgetrelaxationstatus and CPXcallbackgetrelaxationstatus</a> allows to query
+         the solution status of the node relaxation, and can be used to force solving
+         the current node relaxation in case the optimal solution is not available.
+         The user should call <a class="xref" href="../cpxapi/callbackgetrelaxationstatus.html" title="Get the solution status for the current node relaxation.">CPXXcallbackgetrelaxationstatus and CPXcallbackgetrelaxationstatus</a>
+         before querying the actual solution with
+         <a class="xref" href="../cpxapi/callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a>.
+      </p>
+
+      <div class="note important"><span class="importanttitle">Important:</span> 
+        All information queried from a callback in this context is local to the thread.
+      </div>
+
+    </section>
+
+
+    <section class="section">
+      A typical flow of control within this context looks like this (error
+      checking omitted):
+      <pre class="pre codeblock"><code>
+int callback(CPXCALLBACKCONTEXTptr context, CPXLONG contextid, void *cbhandle) {
+   if ( contextid == CPX_CALLBACKCONTEXT_BRANCHING ) {
+      /* Check the status of the continuous relaxation. */
+      int statind;
+      CPXXcallbackgetrelaxationstatus(context, &amp;statind, 0);
+      if ( statind == CPX_STAT_OPTIMAL        ||
+           statind == CPX_STAT_OPTIMAL_INFEAS   ) {
+         /* Continuous relaxation is solved to optimality. Get the current
+          * x-vector and the objective value and create custom branches.
+          */
+         double *x = ...;
+         double obj;
+         CPXXcallbackgetrelaxationpoint(context, x, 0, nvars - 1, &amp;obj);
+         if ( ... ) {
+            /* We decided to cut off the current node. */
+            CPXXcallbackrelaxationprunenode(context);
+         }
+         else {
+            /* We want to branch. */
+            CPXCNT child1, child2;
+            CPXXcallbackmakebranch(context, ..., obj, &amp;child1);
+            CPXXcallbackmakebranch(context, ..., obj, &amp;child2);
+         }
+      }
+      else {
+         /* The continuous relaxation was not solved to optimality.
+          * There may be a problem and some special handling may be required.
+          */
+         ...
+      }
+   }
+}
+      </code></pre>
+    </section>
+
+
+      <section class="section"><h2 class="title sectiontitle">Incompatibility with Benders algorithm</h2>
+    
+    <p class="p">This context is incompatible with
+    <a class="xref" href="../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" title="CPLEX implements Benders algorithm.">Benders algorithm</a>.
+    </p>
+
+    </section>
+
+
+  <section class="section"><h2 class="title sectiontitle">See also</h2>
+      
+      <ul class="ul">
+      <li class="li"><a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetrelaxationstatus.html" title="Get the solution status for the current node relaxation.">CPXXcallbackgetrelaxationstatus and CPXcallbackgetrelaxationstatus</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackmakebranch.html" title="The routine CPXXcallbackmakebranch/CPXcallbackmakebranch defines the branching constraints that define a branch from the current node in the MIP search tree, from the context ***. The branch can include both variable bound changes and additional linear constraints.">CPXXcallbackmakebranch and CPXcallbackmakebranch</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackprunenode.html" title="Instructs CPLEX to prune the current node of the search tree from a callback in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.">CPXXcallbackprunenode and CPXcallbackprunenode</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a></li>
+
+      <li class="li"><a class="xref" href="../mipapi/callbackgetlocallb.html" title="The routine CPXXcallbackgetlocallb/CPXcallbackgetlocallb retrieves the lower bound values for the subproblem at the current node during MIP optimization from within a user-written callback.">CPXXcallbackgetlocallb and CPXcallbackgetlocallb</a></li>
+
+      <li class="li"><a class="xref" href="../mipapi/callbackgetlocalub.html" title="The routine CPXXcallbackgetlocalub/CPXcallbackgetlocalub retrieves the upper bound values for the subproblem at the current node during MIP optimization from within a user-written callback.">CPXXcallbackgetlocalub and CPXcallbackgetlocalub</a></li>
+
+     </ul>
+
+ </section>
+
+ </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepageCallbackContext.html">Callback context</a></div>
+</div>
+</nav></div></body>
+</html>

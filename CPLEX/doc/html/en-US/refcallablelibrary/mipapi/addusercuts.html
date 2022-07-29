@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXaddusercuts and CPXaddusercuts" />
+<meta name="abstract" content="The routine CPXXaddusercuts/CPXaddusercuts adds constraints to the list of constraints that CPLEX can add to the LP subproblem of a MIP optimization if they are violated by the LP relaxation solution." />
+<meta name="Description" content="The routine CPXXaddusercuts/CPXaddusercuts adds constraints to the list of constraints that CPLEX can add to the LP subproblem of a MIP optimization if they are violated by the LP relaxation solution." />
+<meta name="DC.subject" content="CPXaddusercuts, C API Reference Manual, CPXXaddusercuts" />
+<meta name="keywords" content="CPXaddusercuts, C API Reference Manual, CPXXaddusercuts" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPmodel.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="addusercuts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPmodel.html" />
+<title>CPXXaddusercuts and CPXaddusercuts</title>
+</head>
+<body id="addusercuts"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXaddusercuts</span> and <span class="keyword apiname">CPXaddusercuts</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code> adds constraints to
+ the list of constraints that CPLEX can add to the LP subproblem of a MIP
+ optimization if they are violated by the LP relaxation solution.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXaddusercuts</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">rowname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXaddusercuts</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">rowname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code> adds constraints to
+ the list of constraints that CPLEX can add to the LP subproblem of a MIP
+ optimization if they are violated by the LP relaxation solution. The
+ constraints are added to those specified in prior calls to
+ <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code>. </p>
+
+
+ <p class="p">The constraints must be cuts that are implied by the constraint matrix.
+ </p>
+
+
+ <p class="p">If the value of the CPLEX 
+<a class="xref" href="../../CPLEX/Parameters/topics/PreLinear.html" title="Deprecated parameter">linear reduction switch (deprecated)</a> 
+(<code class="ph codeph">CPXPARAM_Preprocessing_Linear</code>) 
+ is <code class="ph codeph">CPX_ON</code> (that is, 1 (one), its default value),
+ then presolve can discard certain
+ user-specified cuts during preprocessing. To make sure that all your
+ user-specified cuts are taken into account and that none of them are
+ discarded during preprocessing, you must set the value of
+ <code class="ph codeph">CPXPARAM_Preprocessing_Linear</code> to 
+ <code class="ph codeph">CPX_OFF</code>, that is, 0 (zero). </p>
+
+
+ <p class="p">Use <code class="ph codeph"><span class="keyword apiname">CPXXfreeusercuts</span>/<span class="keyword apiname">CPXfreeusercuts</span></code> to clear the list of cuts.</p>
+
+
+ <p class="p">The arguments of <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code> are similar to those of
+ <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code>, with the exception that new columns may not be
+ specified, so there are no <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> and <code class="ph codeph"><span class="keyword parmname">rowname</span></code>
+ arguments. Furthermore, unlike <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code>,
+ <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code> does not accept a <code class="ph codeph">NULL</code> pointer for the
+ array of righthand side values or senses. Nor does it accept ranged
+ rows as user cuts. Acceptable values of the array <code class="ph codeph"><span class="keyword parmname">sense</span></code>
+ appear in the table.</p>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of new rows to be added to the constraint matrix.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nzcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of nonzero constraint coefficients to be added to the constraint matrix. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> containing the righthand side term for each constraint to be added to the CPLEX problem object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> containing the sense of each constraint to be added to the CPLEX problem object. Possible values of this argument appear in the table.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array used with <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> to define the rows to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatind</dt>
+
+        <dd class="dd pd">
+          
+          An array used with <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> to define the rows to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatval</dt>
+
+        <dd class="dd pd">
+          
+          An array used with <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> to define the rows to be added. The format is similar to the format used to describe the constraint matrix in the routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code> (see description of <code class="ph codeph">matbeg</code>, <code class="ph codeph">matcnt</code>, <code class="ph codeph">matind</code>, and <code class="ph codeph">matval</code> in that routine), but the nonzero coefficients are grouped by row instead of column in the array <code class="ph codeph"><span class="keyword parmname">rmatval</span></code>. The nonzero elements of every row must be stored in sequential locations in this array from position <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i]</code> to <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i+1]-1</code> (or from <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i]</code> to <code class="ph codeph"><span class="keyword parmname">nzcnt</span>-1</code> if <code class="ph codeph">i=<span class="keyword parmname">rcnt</span>-1</code>). Each entry, <code class="ph codeph"><span class="keyword parmname">rmatind</span>[i]</code>, specifies the column index of the corresponding coefficient, <code class="ph codeph"><span class="keyword parmname">rmatval</span>[i]</code>. Unlike<code class="ph codeph"><span class="keyword apiname">CPXcopylp</span></code>, all rows must be contiguous, and <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[0]</code> must be 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rowname</dt>
+
+        <dd class="dd pd">
+          
+          An array containing pointers to character strings that represent the names of the user cuts. Can be <code class="ph codeph">NULL</code>, in which case the new user cuts are assigned default names if the user cuts already resident in the CPLEX problem object have names; otherwise, no names are associated with the user cuts. If row names are passed to <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code> but existing user cuts have no names assigned, default names are created for them.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXaddusercuts (env, lp, cutcnt, cutnzcnt, cutrhs,
+                          cutsense, cutbeg, cutind, cutval, NULL);
+ </code></pre>
+
+ <p class="p">See also <code class="ph codeph">admipex4.c</code> in the standard distribution.</p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values of sense</span></caption><colgroup></colgroup><tbody class="tbody">
+ 
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'L'</code></td>
+
+ <td class="entry" valign="top">&lt;= constraint</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'E'</code></td>
+
+ <td class="entry" valign="top">= constraint</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top"> <code class="ph codeph">'G'</code></td>
+
+ <td class="entry" valign="top">&gt;= constraint</td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+
+
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetA.html">A</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPmodel.html">Building a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

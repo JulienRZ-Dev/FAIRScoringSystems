@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>IntInfo</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../enumerations/IloCP_IntInfo.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+                name="ibm-content"></a><h1><a
+            name="enumeration_IntInfo">Enumeration IntInfo</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcp/cp.h</span></div>
+Integer information for <code>IloCP</code>.
+        <div
+            class="description"><p>An enumeration for the class <code>IloCP</code>.</p><p>Integer information.</p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfChoicePoints = 1</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of choice points executed
+ in the last solve of the <code>IloCP</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfFails = 2</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of fails executed
+ in the last solve of the <code>IloCP</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfBranches = 3</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of branches executed
+ in the last solve of the <code>IloCP</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfVariables = 4</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of variables that
+ have been extracted from the model to the <code>IloCP</code>
+ instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfAuxiliaryVariables = 5</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of auxiliary variables
+ that have been added by the engine in the <code>IloCP</code>
+ instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfEngineVariables = 6</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> Advanced information. This information represents the total number of
+ ''engine'' variables created before search begins.  Instances of
+ <code>IlcIntVar</code>, <code>IlcIntervalVar</code> and
+ <code>IlcSequenceVar</code> are engine variables.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfConstraints = 7</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the number of constraints
+ in the <code>IloCP</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>MemoryUsage = 8</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total memory, in bytes, used
+ globally by the <code>IloCP</code> instance and any of its
+ slave objects</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfConstraintsAggregated = 9</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the number of constraints aggregated
+     by presolve. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfConstraintsGenerated = 10</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the number of constraints generated
+ from the constraints aggregated by presolve. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>FailStatus = 11</code></td><td
+                    valign="top" align="left"><span
+                        class="deprecated-summary"><strong>Deprecated:</strong><em>
+Since V12.8.0.
+          </em></span><div
+                                    valign="top"><p> This information gives the <em>fail status</em> of the invoking
+     <code>IloCP</code> instance.  
+     Its use has been deprecated since V12.8.0. After a call to
+     <code>IloCP::solve</code> or <code>IloCP::next</code>,
+     you can interrogate the fail status, which can be one of the
+     following values:</p><ul>
+<li><code>IloCP::SearchHasNotFailed</code> indicates that the search
+        has not failed. </li><li><code>IloCP::SearchHasFailedNormally</code> indicates
+        that the search has failed because it has searched the
+        entire search space. </li><li><code>IloCP::SearchStoppedByLimit</code> indicates that the
+        search was stopped by a limit, such as a time limit (see
+        <code>IloCP::TimeLimit</code>) or a fail limit (see
+        <code>IloCP::FailLimit</code>).</li><li><code>IloCP::SearchStoppedByLabel</code> indicates
+        that the search was stopped via a <em>fail label</em>
+        which did not exist on any choice point (advanced use).</li><li><code>IloCP::SearchStoppedByExit</code> indicates
+        that the search was exited using
+        <code>IlcCPEngine::exitSearch</code>.</li><li><code>IloCP::SearchStoppedByAbort</code> indicates
+        that the search was stopped by calling
+        <code>IloCP::abortSearch</code></li><li><code>IloCP::UnknownFailureStatus</code> indicates
+        that the search failed for some other reason.</li>
+</ul><p> Note that during search (for example in the execution of a custom
+     <code><a
+                    href="../classes/IlcGoal.html">IlcGoal</a></code>, the status is always
+     <code>IloCP::SearchHasNotFailed</code>.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfIntegerVariables = 12</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total number of integer variables
+     (instances of <code>IloIntVar</code>) extracted from the model.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfIntervalVariables = 13</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total number of interval variables
+     (instances of <code>IloIntervalVar</code>)
+     extracted from the model.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfSequenceVariables = 14</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total number of sequence variables
+     (instances of <code>IloIntervalSequenceVar</code>)
+     extracted from the model.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfSolutions = 15</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total number of solutions found
+     since the last call to <code>startNewSearch</code> or since
+     <code>solve</code> was called.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>EffectiveWorkers = 16</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents number of workers used for search. The
+ value is determined in the following way:</p><ol>
+<li> If the search did not start yet or the number of workers has been
+      changed since the previous solve completed, then:
+   <ol>
+<li> If the Workers parameter is set to anything other than
+        <code>Auto</code> then this value is returned.</li><li> Otherwise it returns number of CPU cores available on the
+        machine.</li>
+</ol></li><li> During or after the search it returns the effective number of
+      workers used during the search.</li>
+</ol></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfCriteria = 23</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total number of objective criteria
+     extracted from the model.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>SearchStatus = 29</code></td><td
+                    valign="top" align="left"><div
+                                    valign="top"><p> This information gives the <em>search status</em> of the invoking
+     <code>IloCP</code> instance.  Before or after a call to
+     <code>IloCP::solve</code> 
+     or <code>IloCP::startNewSearch</code>,
+     or <code>IloCP::next</code>,
+     or <code>IloCP::endSearch</code>,
+     you can interrogate the search status, which can be one of the
+     following values:</p><ul>
+<li><code>IloCP::SearchNotStarted</code> indicates that the search
+        has not yet started.</li><li><code>IloCP::SearchOngoing</code> indicates
+        that the search is ongoing. This is the case when called between
+        <code>IloCP::startNewSearch</code> 
+        and <code>IloCP::endSearch</code>
+        functions calls of from inside a <code>IloCP::solve</code> 
+        call. </li><li><code>IloCP::SearchCompleted</code> indicates that the
+        search has terminated.  For a decision problem (without an objective),
+        this means that the search has either found a solution or proved that
+        none exists.  For an optimization problem, this means that the search
+        has either found a solution which it has proved optimal (within optimality
+        tolerances), or proved that no solution exists. </li><li><code>IloCP::SearchStopped</code> indicates that the
+        search was stopped because of a limit, a <em>fail label</em>
+        which did not exist on any choice point (advanced use), a call to 
+        <code>IlcCPEngine::exitSearch</code>, a call to
+        <code>IloCP::abortSearch</code>, or for another
+        reason.  More information on the cause is available using the information  
+        <code>IloCP::SearchStopCause</code></li>
+</ul><p> Note that during search (for example in the execution of a custom
+     <code><a
+                    href="../classes/IlcGoal.html">IlcGoal</a></code>, the status is always
+     <code>IloCP::SearchOngoing</code>.
+ </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>SearchStopCause = 30</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information gives the cause of the search stopping prematurely (before
+     an optimality or feasibility proof was delivered) by the invoking
+     <code>IloCP</code> instance when the <code>IloCP::SearchStatus</code>
+     information value is <code>IloCP::SearchStopped</code>.
+     It can take one of the following values:</p><ul>
+<li><code>IloCP::SearchStoppedByLimit</code> indicates that the
+        search terminated because of a limit, such as a time limit (see
+        <code>IloCP::TimeLimit</code>) or a fail limit (see
+        <code>IloCP::FailLimit</code>).</li><li><code>IloCP::SearchStoppedByExit</code> indicates
+        that the search terminated because of a call to 
+        <code>IlcCPEngine::exitSearch</code>.</li><li><code>IloCP::SearchStoppedByAbort</code> indicates
+        that the search terminated because of a call to
+        <code>IloCP::abortSearch</code></li><li><code>IloCP::SearchStoppedByUnknownCause</code> indicates
+        that the search terminated for some other reason.</li>
+</ul></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfEngineConstraints = 2018</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> Advanced information. This information represents the total number of
+ ''engine'' constraints created before search begins.  This is largely 
+ an internal measurement but can be useful for debugging or understanding
+ memory usage.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfModelVariables = 2029</code></td><td
+                    valign="top" align="left"><span
+                        class="deprecated-summary"><strong>Deprecated:</strong><em>
+Since V12.8.0, replaced by NumberOfVariables.
+          </em></span><div
+                    valign="top"><p> This information is the number of variables that
+ have been extracted from the model to the <code>IloCP</code>
+ instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>ILC_MAX_IntInfo</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr></table><br /></body>
+</html>

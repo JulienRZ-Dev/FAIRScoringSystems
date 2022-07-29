@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Overview" />
+<meta name="abstract" content="CP Optimizer uses constructive search strategies to find a solution to a constraint programming problem. While the built-in algorithm will generally be sufficient, it may be helpful for you to know about the other algorithms in the case that you need to tune the optimizer." />
+<meta name="Description" content="CP Optimizer uses constructive search strategies to find a solution to a constraint programming problem. While the built-in algorithm will generally be sufficient, it may be helpful for you to know about the other algorithms in the case that you need to tune the optimizer." />
+<meta name="DC.subject" content="IloCP class, constructor, search strategy" />
+<meta name="keywords" content="IloCP class, constructor, search strategy" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/search_search.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="tgio7c7l" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/search_search.html" />
+<title>Overview</title>
+</head>
+<body id="tgio7c7l"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Overview</h1>
+
+
+
+<div class="body"><p class="shortdesc">CP Optimizer uses constructive search strategies
+to find a solution to a constraint programming problem. While the
+built-in algorithm will generally be sufficient, it may be helpful
+for you to know about the other algorithms in the case that you need
+to tune the optimizer.</p>
+
+<p class="p">CP Optimizer provides a number of search strategies for
+you to use. While the built-in algorithm will generally be sufficient,
+it may be helpful for you to know about the other algorithms in the
+case that you need to tune the optimizer.</p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, you use
+the class <code class="ph codeph">IloCP</code>, which is a subclass of <code class="ph codeph">IloAlgorithm</code>, to execute and control the search.
+The constructor for <code class="ph codeph">IloCP</code> takes an <code class="ph codeph">IloModel</code> as its argument. As with the environment,
+once you are finished with the optimizer, you call the method <code class="ph codeph">IloCP::end</code> to reclaim the memory used by the optimizer.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, you use the class <code class="ph codeph">IloCP</code> to
+execute and control the search.</p>
+
+<p class="p">Likewise, in the <strong class="ph b">C# API</strong> of CP Optimizer,
+you use the class <code class="ph codeph">CP</code> to execute and control
+the search to find a solution to a problem expressed in a model.  </p>
+
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">CP optimizer  </p>
+ <p class="p">The class <code class="ph codeph">IloCP</code> in the C++ API
+and the Java API and the class <code class="ph codeph">CP</code> in the C# API can be used to employ different
+algorithms for solving problems modeled with Concert Technology modeling
+classes. </p>
+ <p class="p">An object of this class is sometimes referred
+to as the optimizer. </p>
+ </div>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/search_search.html" title="CP Optimizer uses constructive search strategies to find a solution to a constraint programming problem.">Searching for solutions</a></div>
+</div>
+</nav></div></body>
+</html>

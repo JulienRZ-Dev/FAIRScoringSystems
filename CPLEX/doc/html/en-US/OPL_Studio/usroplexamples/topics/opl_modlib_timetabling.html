@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Time tabling" />
+<meta name="abstract" content="Describes examples of libraries that involve timetabling problems such as basketball game scheduling, manpower planning, and staff assignment." />
+<meta name="Description" content="Describes examples of libraries that involve timetabling problems such as basketball game scheduling, manpower planning, and staff assignment." />
+<meta name="DC.subject" content="models, time tabling, time tabling, sample models" />
+<meta name="keywords" content="models, time tabling, time tabling, sample models" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplexamples/topics/opl_modlib.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplsamples.uss_opl_modlib.1016667" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplexamples/topics/opl_modlib.html" />
+<title>Time tabling</title>
+</head>
+<body id="usroplsamples.uss_opl_modlib.1016667"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Time tabling</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes examples of libraries that involve timetabling
+problems such as basketball game scheduling, manpower planning, and
+staff assignment.</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><a class="xref" href="#usroplsamples.uss_opl_modlib.1016667__section1326724853663">Basketball scheduling</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="#usroplsamples.uss_opl_modlib.1016667__section1326724865226">Manpower planning</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="#usroplsamples.uss_opl_modlib.1016667__section1326724874242">Staff assignment</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="#usroplsamples.uss_opl_modlib.1016667__section1326724882757">Task scheduling</a></p>
+</li>
+
+</ul>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016667__section1326724853663"><h2 class="title sectiontitle">Basketball scheduling</h2><p class="p">This is an example using
+constraint programming to schedule the ACC basketball conference. The original model is described by
+G.L. Nemhauser and M.A. Trick, <em class="ph i">Scheduling a Major College Basketball Conference</em>, Operations
+Research, 46: 1-8 (1998). Martin Henz created an alternate formulation using constraint programming
+in M. Henz, <em class="ph i">Scheduling a Major College Basketball Conference - Revisited</em>, Operations
+Research, 49: 163-168 (2001). The example has been adapted for OPL.</p>
+<div class="note note"><span class="notetitle">Note:</span> This example is not
+supported if you are running CPLEX Studio Preview Edition.</div>
+<p class="p">The characteristics of the
+basketball scheduling example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Time tabling</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Constraint Programming</li>
+
+<li class="li">Complexity: Intermediate</li>
+
+<li class="li">Keywords: Scheduling, Team assignment, Sports</li>
+
+<li class="li">Works with the Preview Edition: No</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/BasketballScheduling</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/BasketballScheduling/basketballscheduling.mod.html">basketballscheduling.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016667__section1326724865226"><h2 class="title sectiontitle">Manpower planning</h2><p class="p">This model from <em class="ph i">Model Building in Mathematical Programming</em>, by H.P.
+Williams, finds a plan for recruiting, training, staffing, overtime, and redundancy declaration, in
+order to meet the staffing requirements for a facility over the next years. The objective is to
+minimize redundancy, but also reduce costs. This model assumes that all staffing changes are taken
+into account on the first of the year. </p>
+<p class="p">The characteristics of the manpower planning example
+are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Time tabling</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Linear Programming</li>
+
+<li class="li">Complexity: Basic</li>
+
+<li class="li">Keywords: Staffing, Staff Planning</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/Manpower</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Manpower/manpower.mod.html">manpower.mod</a></li>
+
+</ul>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016667__section1326724874242"><h2 class="title sectiontitle">Staff assignment</h2><p class="p">A fast-food franchise runs from
+8 a.m. to 8 p.m. on Monday to Friday. Each working day is divided into three 4-hour shifts:</p>
+<ul class="ul">
+<li class="li">
+<p class="p">Breakfast: 8 a.m. - 12 noon</p>
+
+</li>
+
+<li class="li">
+<p class="p">Lunch: 12 noon - 4 p.m.</p>
+
+</li>
+
+<li class="li">
+<p class="p">Dinner: 4 p.m. - 8 p.m.</p>
+
+</li>
+
+</ul>
+<p class="p">Each shift demands three types of personnel: cook, cashier, and cleaner. Each of its
+personnel is capable of performing a subset of these tasks. Some people may not be available on
+certain days. If scheduled, each person works 8 hours a day (2 shifts in this case), and prefers the
+shifts to be consecutive. Also, if the person works on a night shift, he or she prefers not to work
+on the morning shift the next day.</p>
+<p class="p">The objective is to find a balanced assignment of workers
+to shifts that minimizes the total number of unfilled slots.</p>
+<p class="p">The characteristics of the staff
+assignment example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Time tabling</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: Integer Programming</li>
+
+<li class="li">Complexity: Intermediate</li>
+
+<li class="li">Keywords: Staffing, Staff assignment, retail, fast food</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/Staffing</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/Staffing/staffing.mod.html">staffing.mod</a></li>
+
+</ul>
+<p class="p">See also the nurse scheduling problem, <a class="xref" href="../../usroplide/topics/opl_ide_relax.html" title="Uses the nurses example to demonstrate how the IDE detects conflicts and searches for relaxations in OPL models that appear infeasible after execution.">Relaxing infeasible models</a>, in the <em class="ph i">IDE User’s
+Manual</em>.</p>
+</section>
+
+<section class="section" id="usroplsamples.uss_opl_modlib.1016667__section1326724882757"><h2 class="title sectiontitle">Task scheduling</h2><p class="p">This example involves assigning
+dates and workers to tasks. The model takes a list of service requests, and based on their request
+type, creates the necessary tasks and dependencies. The objective is to assign dates and resources
+and meet the due dates within the slack provided by the user.</p>
+<p class="p">The characteristics of the task
+scheduling example are the following:</p>
+<ul class="ul">
+<li class="li">Industry: Time tabling</li>
+
+<li class="li">Feature: OPL Project</li>
+
+<li class="li">Technique: CP Scheduling</li>
+
+<li class="li">Complexity: Advanced</li>
+
+<li class="li">Keywords: Scheduling, worker assignment</li>
+
+<li class="li">Project Location: <span class="ph filepath">examples/opl/models/sched_tasks</span></li>
+
+<li class="li">Model Name: <a class="xref" href="../../../examples/html/opl/models/sched_tasks/sched_tasks.mod.html">sched_tasks.mod</a></li>
+
+</ul>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplexamples/topics/opl_modlib.html" title="The OPL model library is a collection of OPL models that describe known problems in the academic and industrial fields.">OPL model library</a></div>
+</div>
+</nav></div></body>
+</html>

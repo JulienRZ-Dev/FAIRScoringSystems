@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Integer and float expressions" />
+<meta name="abstract" content="Describes the use of constants, data, decision variables, and operators within OPL expressions." />
+<meta name="Description" content="Describes the use of constants, data, decision variables, and operators within OPL expressions." />
+<meta name="DC.subject" content="integer expressions, expressions, integer, abs, OPL function, keywords, maxint, maxint, OPL keyword, overflow, and integer expressions, functions, float, floats, functions in OPL, expression, infinity, infinity, OPL keyword, conditional expressions, for float and integers, count, OPL function, counting" />
+<meta name="keywords" content="integer expressions, expressions, integer, abs, OPL function, keywords, maxint, maxint, OPL keyword, overflow, and integer expressions, functions, float, floats, functions in OPL, expression, infinity, infinity, OPL keyword, conditional expressions, for float and integers, count, OPL function, counting" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_expressRelations.1008186" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" />
+<title>Integer and float expressions</title>
+</head>
+<body id="usropllangref.uss_langref_expressRelations.1008186"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Integer and float expressions</h1>
+
+
+
+<div class="body conbody"><div class="abstract"><span class="shortdesc">Describes the use of constants,
+data, decision variables, and operators within OPL expressions.</span>
+ </div>
+
+<section class="section"><h2 class="title sectiontitle">Integer expressions</h2><p class="p">Integer
+expressions are constructed from integer constants, integer data,
+integer decision variables, and the traditional integer operators
+such as +, -, *, div, mod (or %). The operator <code class="ph codeph">div</code> represents
+the integer division (for example, <code class="ph codeph">8 div 3 == 2</code>)
+and the operator <code class="ph codeph">mod</code> or <code class="ph codeph">%</code> represents
+the integer remainder. OPL also supports the function <code class="ph codeph">abs</code>,
+which returns the absolute value of its argument, and the built-in
+constant <code class="ph codeph">maxint</code>, which represents the largest
+integer representable in OPL.</p>
+<p class="p">Note that expressions
+involving large integers may produce an overflow. In the following
+example for int, an overflow is detected.</p>
+<pre class="pre codeblock"><code>int a=maxint+2;
+float b=infinity+2;
+
+execute
+{
+   writeln(a);
+   writeln(b);
+}
+</code></pre><p class="p">The Problems tab in the IDE displays the error
+messages.</p>
+<img class="image" src="../images/overflow_errorr.jpg" alt="Screen capture of overflow errors in IDE" /><p class="p">Most int expressions (such as % or
+div) are not available for constraints defined in CPLEX models, but
+are available for CP models. See also <a class="xref" href="opl_langref_constraints_types_inCP.html" title="Lists the types of constraints and expressions available in OPL for constraint programming models. See the OPL Language Quick Reference and the CP Optimizer User’s Manual for further details.">Constraints available in constraint programming</a>.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Float expressions</h2><p class="p">Float
+expressions are constructed from floats, float data and variables,
+as well as operators such as +, -, /, *. In addition, OPL contains
+a float constant <code class="ph codeph">infinity</code> to represent ∞
+and a variety of float functions, depicted in <em class="ph i">OPL functions</em> in
+the <em class="ph i">Language Quick Reference</em>.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Conditional expressions</h2><p class="p">Conditional expressions are expressed like this:</p>
+<pre class="pre codeblock"><code>
+(condition)?thenExpr : elseExpr
+</code></pre><p class="p">where <code class="ph codeph">condition</code> is
+a ground condition with no decision variable. If <code class="ph codeph">condition</code> is
+true, the condition evaluates to <code class="ph codeph">thenExpr</code> ;
+otherwise, it evaluates to <code class="ph codeph">elseExpr</code>.</p>
+<p class="p paragrouptitle">Examples</p>
+<pre class="pre codeblock"><code>int value = ...; 
+int signValue = (value&gt;0) ? 1 : (value&lt;0) ? -1 : 0;
+int absValue = (value&gt;=0) ? value : -value;
+</code></pre><p class="p">See the numeric functions in <a class="xref" href="../../opllang_quickref/topics/opl_quickref_functions_summary.html" title="Provides the syntax and short description of each OPL function, with a link to the corresponding full description.">Summary table of OPL functions</a> in the Language Quick Reference.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Counting expressions</h2><p class="p">Among integer expressions, there are also some combinatorial
+expressions. For example, you can use the <code class="ph codeph">count</code> function
+to count the number of times a particular value appears in an array
+of decision variables. You can use such an expression in modeling
+constraints only if the modeling constraints are part of a model that
+is solved by the CP Optimizer engine (that is, starting with the <code class="ph codeph">using CP;</code> statement).</p>
+<p class="p">The constraint</p>
+<pre class="pre codeblock"><code>
+count(x, 2) == 3;
+</code></pre><p class="p">states that in the array of variables <code class="ph codeph">x</code>, exactly three variables take the value 2.</p>
+<p class="p">For more information, see <a class="xref" href="../../opllang_quickref/topics/tlr_oplf_count.html" title="OPL function to count variables of a certain value.">count</a> in the Language Quick
+Reference.</p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" title="Describes data and decision variable identifiers, integer and float expressions, aggregate operators, piecewise-linear functions (continuous and discontinuous), set expressions, and Boolean expressions.">Expressions</a></div>
+</div>
+</nav></div></body>
+</html>

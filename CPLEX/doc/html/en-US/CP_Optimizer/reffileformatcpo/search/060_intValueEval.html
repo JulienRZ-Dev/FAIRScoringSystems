@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Integer value evaluators" />
+<meta name="abstract" content="The list of integer value evaluators." />
+<meta name="Description" content="The list of integer value evaluators." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<meta name="DC.Relation" scheme="URI" content="040_Types.html#Types_in_search_section/intValueEval" />
+<meta name="DC.Relation" scheme="URI" content="040_Types.html#Types_in_search_section/intValueSelector" />
+<meta name="DC.Relation" scheme="URI" content="080_searchPhase.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Integer_value_evaluators" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/search.html" />
+<title>Integer value evaluators</title>
+</head>
+<body id="Integer_value_evaluators"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Integer value evaluators</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+The list of integer value evaluators.
+</p>
+
+
+
+<section class="section" id="Integer_value_evaluators__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> <strong class="ph b">value</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> <strong class="ph b">valueImpact</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> <strong class="ph b">valueSuccessRate</strong>()
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> <strong class="ph b">valueIndex</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> valueArray, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> defaultEval = -1)
+<a class="xref" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a> <strong class="ph b">explicitValueEval</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> valueArray, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> evalArray, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> defaultEval = 0)
+</code></pre>
+</section>
+
+
+<section class="section" id="Integer_value_evaluators__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+Each of the above functions creates an integer value evaluator.
+</p>
+
+
+<dl class="dl">
+  
+    <dt class="dt dlterm" id="Integer_value_evaluators__value"><code class="ph codeph">value()</code></dt>
+
+    <dd class="dd">
+The evaluation is the value itself. This is useful to define fixing
+strategies that choose the smallest or the largest value in a domain.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_value_evaluators__valueImpact"><code class="ph codeph">valueImpact()</code></dt>
+
+    <dd class="dd">
+The evaluation is the average reduction of the search space observed so far
+when fixing the selected variable to the evaluated value. The greater
+the evaluation, the more space reduction this fixing achieves. In
+general it is a good strategy to prefer a value having the smallest impact.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_value_evaluators__valueSuccessRate"><code class="ph codeph">valueSuccessRate()</code></dt>
+
+    <dd class="dd">
+The evaluation is the success rate of fixing the selected variable
+to the evaluated value.  Assuming the selected variable has been fixed to
+the evaluated value <code class="ph codeph">n</code> times so far and this has resulted in <code class="ph codeph">f</code> failures,
+the success rate is <code class="ph codeph">(n-f)/n</code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_value_evaluators__valueIndexintArray_valueEval_float_defaultEval__1"><code class="ph codeph">valueIndex(intArray valueEval, float defaultEval = -1)</code></dt>
+
+    <dd class="dd">
+The evaluation is the index of the value in the array
+<code class="ph codeph">valueArray</code>. That is, the evaluation of <code class="ph codeph">valueArray[i]</code> is <code class="ph codeph">i</code>. If the value
+does not appear in the array, <code class="ph codeph">defaultEval</code> is the evaluation.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Integer_value_evaluators__explicitValueEvalintArray_valueArray_floatArray_evalArray_float_defaultEval__0"><code class="ph codeph">explicitValueEval(intArray valueArray, floatArray evalArray, float defaultEval = 0)</code></dt>
+
+    <dd class="dd">
+The evaluations of elements of <code class="ph codeph">valueArray</code> are explicitly defined in the array
+of integer values <code class="ph codeph">evalArray</code>; that is, the evaluation of <code class="ph codeph">valueArray[i]</code> is
+<code class="ph codeph">evalArray[i]</code>. The arrays <code class="ph codeph">valueArray</code> and <code class="ph codeph">evalArray</code> must have the same
+size. The evaluation of a value that does not appear in <code class="ph codeph">valueArray</code> is given
+by <code class="ph codeph">defaultEval</code>.</dd>
+
+  
+</dl>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/search.html" title="A CPO file may contain an optional search section which specifies a variable fixing strategy that CP Optimizer should use while searching for solutions. The strategy is described by search phases.">The search section</a></div>
+</div>
+
+<div class="linklist linklist relinfo relconcepts" xml:lang="en-us"><strong>Related concepts</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="080_searchPhase.html" title="The function searchPhase defines an variable fixing strategy.">Function searchPhase</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="040_Types.html#Types_in_search_section__intValueEval">intValueEval</a></li>
+<li class="linklist"><a class="link" href="040_Types.html#Types_in_search_section__intValueSelector">intValueSelector</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

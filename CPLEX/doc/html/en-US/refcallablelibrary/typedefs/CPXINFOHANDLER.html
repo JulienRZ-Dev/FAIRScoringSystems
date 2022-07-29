@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXINFOHANDLER" />
+<meta name="abstract" content="Prototype for functions to handle information messages on a client." />
+<meta name="Description" content="Prototype for functions to handle information messages on a client." />
+<meta name="DC.subject" content="CPXINFOHANDLER, C API Reference Manual" />
+<meta name="keywords" content="CPXINFOHANDLER, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/typedefs/homepagetypedefs.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPXINFOHANDLER" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/typedefs/homepagetypedefs.html" />
+<title>CPXINFOHANDLER</title>
+</head>
+<body id="CPXINFOHANDLER"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">CPXINFOHANDLER</h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Prototype for functions to handle information messages on a client.</p>
+
+    <section class="section refsyn"><span class="ph synph">
+<span class="keyword kwd">typedef</span><span class="ph sep"> </span><span class="keyword kwd">void</span><span class="ph delim">(</span><span class="keyword kwd">CPXPUBLIC</span><span class="ph sep"> </span><span class="ph var">CPXINFOHANDLER</span><span class="ph delim">)</span><span class="ph delim">(</span>
+  <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+  <span class="keyword kwd">CPXINFOTYPE</span><span class="ph sep"> </span><span class="ph var">type</span><span class="ph delim">,</span>
+  <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">tag</span><span class="ph delim">,</span>
+  <span class="keyword kwd">CPXLONG</span><span class="ph sep"> </span><span class="ph var">elems</span><span class="ph delim">,</span>
+  <span class="keyword kwd">void</span><span class="ph sep"> </span><span class="keyword kwd">const</span><span class="ph oper">*</span><span class="ph var">data</span><span class="ph delim">,</span>
+  <span class="keyword kwd">void</span><span class="ph sep"> </span><span class="ph oper">*</span><span class="ph var">handle</span>
+<span class="ph delim">)</span>
+    </span></section>
+
+
+    
+    
+    
+
+  <section class="section">
+Handlers of this type are registered by a call to
+<code class="ph codeph">CPXsetinfohandler</code>. Registered handlers of this type 
+are invoked whenever an information message (triggered by 
+<code class="ph codeph">CPXsendinfo</code>) arrives from the remote end.
+Information handlers are <strong class="ph b">not</strong> allowed to modify any of the data
+pointed to by the argument <code class="ph codeph">data</code>.
+  </section>
+
+    <table cellpadding="4" cellspacing="0" border="1" class="simpletable properties simpletableborder" summary="Each row in this table describes a property; each property can have a type, value, and description."><col style="width:50%" /><col style="width:50%" /><tr class="sthead prophead">
+<th style="vertical-align:bottom;text-align:left;" id="d1050466e137" class="stentry propvaluehd">Name</th>
+<th style="vertical-align:bottom;text-align:left;" id="d1050466e139" class="stentry propdeschd">Description</th>
+</tr><tbody><tr class="strow property">
+<td style="vertical-align:top;" headers="d1050466e137" class="stentry propvalue">env</td>
+<td style="vertical-align:top;" headers="d1050466e139" class="stentry propdesc">
+          The environment to which the information was sent.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1050466e137" class="stentry propvalue">type</td>
+<td style="vertical-align:top;" headers="d1050466e139" class="stentry propdesc">
+          The type of information (determines the type of data to which
+          the argument <code class="ph codeph">data</code> points).
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1050466e137" class="stentry propvalue">tag</td>
+<td style="vertical-align:top;" headers="d1050466e139" class="stentry propdesc">
+          The tag that was specified when CPXsendinfo was called.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1050466e137" class="stentry propvalue">data</td>
+<td style="vertical-align:top;" headers="d1050466e139" class="stentry propdesc">
+          The data for the info message; the actual type depends on the
+          argument <code class="ph codeph">type</code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d1050466e137" class="stentry propvalue">handle</td>
+<td style="vertical-align:top;" headers="d1050466e139" class="stentry propdesc">
+          User handle.
+        </td>
+</tr>
+</tbody></table>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/typedefs/homepagetypedefs.html">Type definitions in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="boolean" />
+<meta name="abstract" content="OPL keyword." />
+<meta name="Description" content="OPL keyword." />
+<meta name="DC.subject" content="decision variables, domain shortcut, shortcuts, domain shortcuts, boolean, OPL and IBM ILOG Script keyword" />
+<meta name="keywords" content="decision variables, domain shortcut, shortcuts, domain shortcuts, boolean, OPL and IBM ILOG Script keyword" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_float.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_floatplus.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_int.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_intplus.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_opl_string.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="zGnStPlP" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<title>boolean</title>
+</head>
+<body id="zGnStPlP"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">boolean</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL keyword.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL keyword.
+A domain shortcut. Also a reserved word in IBM ILOG Script.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d421784e45" class="stentry">context</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d421784e45" class="stentry">Model files (.mod)</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+LiteralType: "int"
+           | "float"
+           | "boolean"
+           | "int+"
+           | "float+"
+           | "string"
+           | "range"
+           | "range" "float"
+           | "constraint"
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">This
+keyword, which is a domain shortcut, is used only with decision variables
+(<code class="ph codeph">dvar</code>). <code class="ph codeph">float+</code> and <code class="ph codeph">int+</code> are also domain shortcuts for <code class="ph codeph">dvar</code>.</p>
+<pre class="pre codeblock"><code>
+dvar boolean x;
+</code></pre><p class="p">is the same as</p>
+<pre class="pre codeblock"><code>
+dvar int x in 0..1;
+</code></pre></section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>dvar boolean weightInKnapsack1; // Is the object1 in the knapsack ?
+dvar boolean weightInKnapsack2;
+dvar boolean weightInKnapsack3;
+
+int maxWeight=10; // The total weight should be less than maxWeight
+
+int weight1=3;
+int weight2=9;
+int weight3=2;
+
+// Let us try to take as many objects as we can
+maximize (weightInKnapsack1+weightInKnapsack2+weightInKnapsack3);
+
+subject to
+{
+   
+   weightInKnapsack1*weight1+
+   weightInKnapsack2*weight2+
+   weightInKnapsack3*weight3&lt;=maxWeight;
+}
+</code></pre></div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" title="Description, syntax, and example for each individual OPL keyword..">OPL keywords</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_opl_float.html" title="OPL keyword for floats.">float</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_floatplus.html" title="Domain shortcut for decision variables.">float+</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_int.html" title="OPL keyword for integers.">int</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_intplus.html" title="Domain shortcut for decision variables.">int+</a></li>
+<li class="linklist"><a class="link" href="tlr_opl_string.html" title="OPL keyword for strings">string</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="relaxation for FeasOpt" />
+<meta name="abstract" content="Controls the amount of relaxation for the routine CPXfeasopt in the C API or for the method feasOpt in the object-oriented APIs." />
+<meta name="Description" content="Controls the amount of relaxation for the routine CPXfeasopt in the C API or for the method feasOpt in the object-oriented APIs." />
+<meta name="DC.subject" content="CPX_PARAM_EPRELAX, EpRelax, feasopt tolerance, tolerance, FeasOpt relaxation, termination criterion, FeasOpt Phase I, FeasOpt, lower objective limit, gap, FeasOpt and" />
+<meta name="keywords" content="CPX_PARAM_EPRELAX, EpRelax, feasopt tolerance, tolerance, FeasOpt relaxation, termination criterion, FeasOpt Phase I, FeasOpt, lower objective limit, gap, FeasOpt and" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196784622351" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>relaxation for FeasOpt</title>
+</head>
+<body id="languageRefTopic1196784622351"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">relaxation for FeasOpt</h1>
+ 
+
+
+<div class="body refbody"><p class="shortdesc">Controls the amount of relaxation for the routine <code class="ph codeph">CPXfeasopt</code>  in the C API or for the method <code class="ph codeph">feasOpt</code>  in the object-oriented APIs.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Relaxation
+for <code class="ph codeph">feasOpt</code></p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d99875e88">API</th>
+
+<th class="entry nrule" valign="top" id="d99875e91">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d99875e94">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">CPXPARAM_Feasopt_Tolerance</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">CPX_PARAM_EPRELAX</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">IloCplex::Param::Feasopt::Tolerance</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">EpRelax (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">IloCplex.Param.Feasopt.Tolerance</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">EpRelax (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">Cplex.Param.Feasopt.Tolerance</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">EpRelax (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">eprelax </td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">eprelax</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">parameters.feasopt.tolerance</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">feasopt.tolerance</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">feasopt tolerance</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">feasopt tolerance</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d99875e88 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d99875e91 ">2073</td>
+
+<td class="entry nrule" valign="top" headers="d99875e94 ">2073</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+<p class="p">Controls
+the amount of relaxation for the routine <code class="ph codeph">CPXfeasopt</code> 
+in the C API or for the method <code class="ph codeph">feasOpt</code> 
+in the object-oriented APIs. </p>
+<p class="p">In the case of a MIP,
+it serves the purpose of the absolute gap for the <code class="ph codeph">feasOpt</code> 
+model in Phase I (the phase to minimize relaxation). </p>
+<p class="p">Using
+this parameter, you can implement other stopping criteria as well.
+To do so, first call <code class="ph codeph">feasOpt</code>  with the stopping
+criteria that you prefer; then set this parameter to the resulting
+objective of the Phase I model; unset the other stopping criteria,
+and call <code class="ph codeph">feasOpt</code>  again. Since the solution
+from the first call already matches this parameter, Phase I will terminate
+immediately in this second call to <code class="ph codeph">feasOpt</code>,
+and Phase II will start. </p>
+<p class="p">In the case of an LP, this
+parameter controls the lower objective limit for Phase I of <code class="ph codeph">feasOpt</code>  and is thus relevant only when the primal
+optimizer is in use. </p>
+ 
+ 
+<p class="p paragrouptitle">Values</p>
+ 
+<p class="p">Any nonnegative
+value; <strong class="ph b">default</strong>: 1e-6.</p>
+ 
+ 
+ 
+<p class="p paragrouptitle">See also</p>
+ 
+<p class="p"><a class="xref" href="ObjLLim.html" title="Sets a lower limit on the value of the objective function in the simplex algorithms.">lower objective value limit</a></p>
+ 
+ 
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

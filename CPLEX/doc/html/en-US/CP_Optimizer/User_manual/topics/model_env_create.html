@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Creating the environment" />
+<meta name="abstract" content="The environment, which handles communication channels and memory management, must be created before the modeling objects are created." />
+<meta name="Description" content="The environment, which handles communication channels and memory management, must be created before the modeling objects are created." />
+<meta name="DC.subject" content="environment, IloEnv class, memory management" />
+<meta name="keywords" content="environment, IloEnv class, memory management" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/model_env.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="kEsKfj2a" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/model_env.html" />
+<title>Creating the environment</title>
+</head>
+<body id="kEsKfj2a"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Creating the environment</h1>
+
+
+
+<div class="body"><p class="shortdesc">The environment, which handles communication channels
+and memory management, must be created before the modeling objects
+are created.</p>
+
+<p class="p">The first step in an IBM® ILOG® Concert
+Technology application using the C++ API is to create the environment,
+an instance of the class <code class="ph codeph">IloEnv</code>. </p>
+
+<p class="p">The environment manages internal modeling issues; it handles
+output, memory management for modeling objects and termination of
+search algorithms. In the Microsoft .NET
+Framework languages and Java™ APIs,
+issues regarding the environment are handled internally.</p>
+
+<p class="p">Normally an application needs only one environment, but
+you can create as many environments as you want. Typically, the environment
+is created early in the main part of an application, like this:  
+ </p>
+
+<pre class="pre codeblock"><code>
+  IloEnv env;
+
+</code></pre>
+<p class="p">In the <strong class="ph b">C++ API</strong>, every Concert Technology
+model and every optimizer object must belong to an environment. In
+programming terms, when you construct a model, you must pass one instance
+of <code class="ph codeph">IloEnv</code> as an argument to that constructor.</p>
+
+<p class="p">In the <strong class="ph b">Java API</strong>,
+the Concert Technology functions for creating modeling objects are
+defined in the interface <code class="ph codeph">IloModeler</code> and
+implemented in the class <code class="ph codeph">IloCP</code>.</p>
+
+<p class="p">Likewise, in the <strong class="ph b">C# API</strong>, the functions
+for creating modeling objects are defined in the interface <code class="ph codeph">IModeler</code>, and the class <code class="ph codeph">CP</code> inherits
+them.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/model_env.html" title="The environment manages internal modeling issues.">Using the environment</a></div>
+</div>
+</nav></div></body>
+</html>

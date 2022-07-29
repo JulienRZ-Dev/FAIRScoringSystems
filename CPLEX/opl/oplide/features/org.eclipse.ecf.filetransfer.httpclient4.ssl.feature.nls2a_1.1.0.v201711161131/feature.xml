@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls2a" label="ECF Httpclient4 Filetransfer SSL Provider" provider-name="Eclipse.org - ECF" version="1.1.0.v201711161131">
+
+   <description url="http://www.eclipse.org/ecf">
+      This feature provides the SSL support for the Apache HttpComponents/HttpClient4-based FileTransfer provider used by the Eclipse platform to support P2 filetransfer.
+   </description>
+
+   <copyright>%copyright</copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.ecf.filetransfer.ssl.feature.nls2a" match="compatible" version="1.0"></import>
+   </requires>
+
+   <plugin fragment="true" id="org.eclipse.ecf.provider.filetransfer.httpclient4.ssl.nl2a" unpack="false" version="1.1.0.v201711161131"></plugin>
+
+</feature>

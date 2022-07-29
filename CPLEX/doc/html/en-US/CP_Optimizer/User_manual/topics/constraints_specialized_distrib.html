@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Distribution constraint" />
+<meta name="abstract" content="The distribution constraint is a specialized constraint which counts the number of occurrences of several values among the decision variables in an array of decision variables." />
+<meta name="Description" content="The distribution constraint is a specialized constraint which counts the number of occurrences of several values among the decision variables in an array of decision variables." />
+<meta name="DC.subject" content="constraint, distribution, distribution constraint" />
+<meta name="keywords" content="constraint, distribution, distribution constraint" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizerconstraints.1020449" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" />
+<title>Distribution constraint</title>
+</head>
+<body id="migration.uss_usrcpoptimizerconstraints.1020449"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Distribution constraint</h1>
+
+
+
+<div class="body"><p class="shortdesc">The distribution constraint is a specialized constraint
+which counts the number of occurrences of several values among the
+decision variables in an array of decision variables.</p>
+
+<p class="p">A distribution constraint is a counting constraint used
+to count the number of occurrences of several values among the constrained
+variables in an array of constrained variables. You can also use an
+instance of this class to force the constrained variables of an array
+to assume values in such a way that only a limited number of the constrained
+variables assume each value.</p>
+
+<p class="p">To understand what a distribution constraint can do, consider
+an array of decision variables, called <code class="ph codeph">vars</code>.
+Given an array of integers <code class="ph codeph">values</code> of length <code class="ph codeph">n</code> called <code class="ph codeph">values</code> and an
+array of the same length of decision variables called <code class="ph codeph">cards</code>.
+The <code class="ph codeph">i</code>-th element of the array <code class="ph codeph">cards</code> represents
+the number of times the <code class="ph codeph">i</code>-th element of <code class="ph codeph">values</code> appears in the array of decision variables <code class="ph codeph">vars</code>.</p>
+
+<p class="p">When an instance of this class is created by a constructor
+with no “values” argument), then the array of values that are being
+counted must be an array of consecutive integers starting with 0 (zero).
+In that case, for each <code class="ph codeph">i</code>, the <code class="ph codeph">i</code>-th
+element of <code class="ph codeph">cards</code> is equal to the number
+of occurrences of <code class="ph codeph">i</code> in the array <code class="ph codeph">vars</code>. </p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the class <code class="ph codeph">IloDistribute</code> represents distribution constraints.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, the method <code class="ph codeph">IloCP.distribute </code>represents
+distribution constraints.</p>
+
+<p class="p">Likewise, in the <strong class="ph b">C# API</strong> of CP Optimizer,
+the method <code class="ph codeph">CP.Distribute </code>represents distribution
+constraints.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" title="Specialized constraints on integer decision variables are designed and implemented to reduce domains of variables efficiently during a search.">Specialized constraints on integer decision variables</a></div>
+</div>
+</nav></div></body>
+</html>

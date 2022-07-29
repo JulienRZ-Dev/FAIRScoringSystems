@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="stepFunction" />
+<meta name="abstract" content="Creates a new step function (a function that remains constant within each of a series of adjacent intervals but changes in value from one interval to the next)." />
+<meta name="Description" content="Creates a new step function (a function that remains constant within each of a series of adjacent intervals but changes in value from one interval to the next)." />
+<meta name="DC.subject" content="stepFunction" />
+<meta name="keywords" content="stepFunction" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="forbidStart.html" />
+<meta name="DC.Relation" scheme="URI" content="forbidEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="forbidExtent.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="stepFunction" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>stepFunction</title>
+</head>
+<body id="stepFunction"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">stepFunction</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Creates a new step function (a function that remains constant within each of a
+series of adjacent intervals but changes in value from one interval to the next).
+</p>
+
+
+
+<section class="section" id="stepFunction__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram14.png" /></div>
+
+</section>
+
+
+<section class="section" id="stepFunction__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<p class="p">
+Comma separated list of pairs <code class="ph codeph">(start, <a class="xref" href="../search/060_intValueEval.html" title="The list of integer value evaluators.">value</a>)</code> sorted by <code class="ph codeph">start</code>. Each pair
+corresponds with an interval where the function is constant (a step of the
+function). The function has constant value <code class="ph codeph"><a class="xref" href="../search/060_intValueEval.html" title="The list of integer value evaluators.">value</a></code> from <code class="ph codeph">start</code> until the next
+step. Parameter <code class="ph codeph">start</code> is <code class="ph codeph"><a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a></code> (allowed range <code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a>..<a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a></code>),
+parameter <code class="ph codeph"><a class="xref" href="../search/060_intValueEval.html" title="The list of integer value evaluators.">value</a></code> is <code class="ph codeph"><a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a></code> (allowed range <code class="ph codeph">0..<a class="xref" href="../syntax/040_Constants.html#Constants__intmax">intmax</a></code>).
+</p>
+
+
+<p class="p">
+To simplify code generation, a trailing comma at the end of non-empty list is
+allowed.
+</p>
+
+
+</section>
+
+
+<section class="section" id="stepFunction__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The function <code class="ph codeph"><a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_stepFunction">stepFunction</a></code> creates a new function with the specified steps. Each
+step starts at the specified <code class="ph codeph">start</code> time and ends just before the <code class="ph codeph">start</code> of the
+next step.
+</p>
+
+
+<p class="p">
+The function is always defined on interval <code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a>..<a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a></code>. If the
+first step does not start at <code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a></code> then the function is 0 from
+<code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a></code> until the <code class="ph codeph">start</code> of the first step. The last step ends at
+<code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a></code>, that is, the function is defined for <code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a></code>.
+</p>
+
+
+<p class="p">
+Use <code class="ph codeph"><a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_stepFunction">stepFunction</a></code> to express intensity of a work during <code class="ph codeph"><a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a></code>, or to
+forbid <code class="ph codeph"><a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a></code> to start/stop or extent certain intervals using constraints
+<code class="ph codeph"><a class="xref" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a></code>, <code class="ph codeph"><a class="xref" href="forbidEnd.html" title="Forbids an interval variable to end during specified regions.">forbidEnd</a></code> and <code class="ph codeph"><a class="xref" href="forbidExtent.html" title="Forbids an interval variable to overlap with specified regions.">forbidExtent</a></code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="stepFunction__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The following two functions are equivalent because the function is always zero
+from <code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a></code> until the first step:
+</p>
+
+
+<pre class="pre codeblock"><code>
+function = <strong class="ph b">stepFunction</strong>((<a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a>, 0), (3, 100), (10, 60), (15, 80));
+g = <strong class="ph b">stepFunction</strong>(                  (3, 100), (10, 60), (15, 80));
+</code></pre>
+<p class="p">
+Here is a graph of the both functions:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram15.png" /></div>
+
+</section>
+
+
+<section class="section" id="stepFunction__Example2"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The following function represents working days during three weeks. Its value is
+0 during weekends and 100 during working days.
+</p>
+
+
+<pre class="pre codeblock"><code>
+workingDays = <strong class="ph b">stepFunction</strong>((0, 100), (5, 0), (7, 100), (12, 0), (14, 100), (19, 0));
+</code></pre>
+<p class="p">
+Here is graphical representation of the function:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram16.png" /></div>
+
+<p class="p">
+Such function can be used as intensity to express that a task takes (for
+example) 5 days however weekends do not count:
+</p>
+
+
+<pre class="pre codeblock"><code>
+d = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5, end=0..21, intensity=workingDays);
+</code></pre>
+<p class="p">
+Possible solution then can be that the work starts on Thursday and ends on
+Wednesday next week:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram17.png" /></div>
+
+<p class="p">
+However another possible solution is that the work starts (suspended) on Sunday
+and ends on next Sunday (again suspended):
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram18.png" /></div>
+
+<p class="p">
+Such a solution is usually not desired. In this case it is also necessary to
+forbid the interval to start or end during a weekend using constraints
+<code class="ph codeph"><a class="xref" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a></code> and <code class="ph codeph"><a class="xref" href="forbidEnd.html" title="Forbids an interval variable to end during specified regions.">forbidEnd</a></code>:
+</p>
+
+
+<pre class="pre codeblock"><code>
+<a class="xref" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a>(d, workingDays);
+<a class="xref" href="forbidEnd.html" title="Forbids an interval variable to end during specified regions.">forbidEnd</a>(d, workingDays);
+</code></pre>
+</section>
+
+
+<section class="section" id="stepFunction__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    The segments must be sorted in ascending order by <code class="ph codeph">start</code>.
+  </li>
+
+  <li class="li">
+    Two segments with the same <code class="ph codeph">start</code> value are not allowed.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="stepFunction__Notes"><h2 class="title sectiontitle">Notes</h2>
+<ul class="ul">
+  <li class="li">
+    When no step is specified then the function has value 0 over the whole range
+    <code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmin">intervalmin</a>..<a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a></code>.
+  </li>
+
+  <li class="li">
+    If the function is used as an intensity of an interval variable then its
+    value must be within range <code class="ph codeph">0..granularity</code> (<code class="ph codeph">granularity</code> is 100 by
+    default).
+  </li>
+
+  <li class="li">
+    There is no expression to actually evaluate the step function. The step
+    function is meant to be passed as an argument to constraints <code class="ph codeph"><a class="xref" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a></code>,
+    <code class="ph codeph"><a class="xref" href="forbidEnd.html" title="Forbids an interval variable to end during specified regions.">forbidEnd</a></code>, <code class="ph codeph"><a class="xref" href="forbidExtent.html" title="Forbids an interval variable to overlap with specified regions.">forbidExtent</a></code> or as an intensity argument to
+    <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">function {intervalVar}</a>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">function <code class="ph codeph">intervalVar</code></a></li>
+<li class="linklist"><a class="link" href="forbidStart.html" title="Forbids an interval variable to start during specified regions.">forbidStart</a></li>
+<li class="linklist"><a class="link" href="forbidEnd.html" title="Forbids an interval variable to end during specified regions.">forbidEnd</a></li>
+<li class="linklist"><a class="link" href="forbidExtent.html" title="Forbids an interval variable to overlap with specified regions.">forbidExtent</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

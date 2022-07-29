@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="presenceOf" />
+<meta name="abstract" content="Returns the presence status of specified interval variable." />
+<meta name="Description" content="Returns the presence status of specified interval variable." />
+<meta name="DC.subject" content="presenceOf" />
+<meta name="keywords" content="presenceOf" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="startEval.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="startOf.html" />
+<meta name="DC.Relation" scheme="URI" content="endOf.html" />
+<meta name="DC.Relation" scheme="URI" content="lengthOf.html" />
+<meta name="DC.Relation" scheme="URI" content="sizeOf.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="presenceOf" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>presenceOf</title>
+</head>
+<body id="presenceOf"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">presenceOf</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns the presence status of specified interval variable.
+</p>
+
+
+
+<section class="section" id="presenceOf__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">presenceOf</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval)
+</code></pre>
+</section>
+
+
+<section class="section" id="presenceOf__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">interval</code>: interval variable.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="presenceOf__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns the Boolean expression that represents the presence status of
+the interval variable <code class="ph codeph">interval</code>. If <code class="ph codeph">interval</code> is present then the value of the expression
+is 1; if <code class="ph codeph">interval</code> is absent then the value is 0.
+</p>
+
+
+<p class="p">
+Use <code class="ph codeph"><a class="xref" href="presenceOf.html" title="Returns the presence status of specified interval variable.">presenceOf</a></code> to express logical relationships between interval variables.
+Note that the most effective are binary relations such as
+<code class="ph codeph"><strong class="ph b">presenceOf</strong>(x)=&gt;<strong class="ph b">presenceOf</strong>(y)</code> because CP Optimizer is able to take them into
+account during propagation of other constraints such as <code class="ph codeph"><a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a></code> or <code class="ph codeph"><a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a></code>.
+</p>
+
+
+<p class="p">
+The function <code class="ph codeph"><a class="xref" href="presenceOf.html" title="Returns the presence status of specified interval variable.">presenceOf</a></code> can be also used to compute cost associated with
+execution/non-execution of an interval.
+</p>
+
+
+</section>
+
+
+<section class="section" id="presenceOf__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+Task <code class="ph codeph">x</code> can be performed in two different modes; the modes are modeled by
+interval variables <code class="ph codeph">x1</code> and <code class="ph codeph">x2</code>. Mode <code class="ph codeph">x1</code> is slow but does not require
+anything, mode <code class="ph codeph">x2</code> is fast but requires a <code class="ph codeph">setup</code> to be done first.
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>();
+x1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=50);
+x2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=7);
+setup = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=5);
+<a class="xref" href="alternative.html" title="Creates an alternative constraint between interval variables.">alternative</a>(x, [x1, x2]);
+<strong class="ph b">presenceOf</strong>(x2) =&gt; <strong class="ph b">presenceOf</strong>(setup);
+<a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(setup, x2);
+</code></pre>
+</section>
+
+
+<section class="section" id="presenceOf__Example2"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+There is an overloaded machine: it cannot perform all the desired tasks <code class="ph codeph">a</code>, <code class="ph codeph">b</code>,
+<code class="ph codeph">c</code> and <code class="ph codeph">d</code>. Each of those tasks has an associated profit (integer constant).
+Perform as many tasks as possible in order to maximize to total profit.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=10, end=0..17);
+b = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=7, end=0..17);
+c = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=2, end=0..17);
+d = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=4, end=0..17);
+<a class="xref" href="maximize.html" title="A function to specify an optimization problem. It asks CP Optimizer to seek to maximize the value of an expression.">maximize</a>(scalprod([20, 9, 5, 5], [<strong class="ph b">presenceOf</strong>(a), <strong class="ph b">presenceOf</strong>(b), <strong class="ph b">presenceOf</strong>(c), <strong class="ph b">presenceOf</strong>(d)]));
+<a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a>([a, b, c, d]);
+</code></pre>
+<p class="p">
+The optimal solution is to keep unperformed only the task <code class="ph codeph">b</code> and perform tasks
+<code class="ph codeph">a</code>, <code class="ph codeph">c</code> and <code class="ph codeph">d</code>. The profit is 30.
+</p>
+
+
+</section>
+
+
+<section class="section" id="presenceOf__Example3"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+In the following example there is a task <code class="ph codeph">a</code> that requires work for 12 time units.
+The work can be split into up-to three parts <code class="ph codeph">a1</code>, <code class="ph codeph">a2</code> and <code class="ph codeph">a3</code>. If all the
+work is done in <code class="ph codeph">a1</code> then <code class="ph codeph">a2</code> and <code class="ph codeph">a3</code> will be absent. Similarly <code class="ph codeph">a3</code> can be
+absent if all the work is done in <code class="ph codeph">a1</code> and <code class="ph codeph">a2</code>. However <code class="ph codeph">a2</code> cannot be absent
+if <code class="ph codeph">a3</code> is present.
+</p>
+
+
+<pre class="pre codeblock"><code>
+<span class="ph commentemph">// Master task a:</span>
+a = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>();
+<span class="ph commentemph">// Task a can be split into up to 3 parts a1, a2, a3.</span>
+<span class="ph commentemph">// The first part is mandatory, but a2 and a3 are optional.</span>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(length=1..12);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=1..12);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, length=1..12);
+<span class="ph commentemph">// The total length of the parts must be 12:</span>
+<a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(a1) + <a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(a2) + <a class="xref" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a>(a3) == 12;
+<span class="ph commentemph">// The parts are chronologically ordered, the minimum delay between parts is 1:</span>
+<a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(a1, a2, 1);
+<a class="xref" href="endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(a2, a3, 1);
+<span class="ph commentemph">// If there is the 3rd part then there must be also the 2nd:</span>
+<strong class="ph b">presenceOf</strong>(a3) =&gt; <strong class="ph b">presenceOf</strong>(a2);
+<span class="ph commentemph">// Interval var a covers exactly the parts a1, a2, a3.</span>
+<a class="xref" href="span.html" title="Creates a span constraint between interval variables.">span</a>(a, [a1, a2, a3]);
+</code></pre>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="startEval.html" title="Evaluates segmentedFunction at the start of an interval variable.">startEval</a></li>
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li>
+<li class="linklist"><a class="link" href="startOf.html" title="Returns the start of a specified interval variable.">startOf</a></li>
+<li class="linklist"><a class="link" href="endOf.html" title="Returns the end of specified interval variable.">endOf</a></li>
+<li class="linklist"><a class="link" href="lengthOf.html" title="Returns the length of specified interval variable.">lengthOf</a></li>
+<li class="linklist"><a class="link" href="sizeOf.html" title="Returns the size of a specified interval variable.">sizeOf</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

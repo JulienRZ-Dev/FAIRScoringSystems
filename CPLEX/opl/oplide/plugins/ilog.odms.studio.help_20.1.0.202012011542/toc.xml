@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toc label="IBM ILOG CPLEX Optimization Studio 20.1.0 documentation" topic="Optimization_Studio/topics/COS_home.html" >
+
+
+<topic   label="Legal terms" href="Optimization_Studio/topics/legalterms.html">
+<topic label="Copyright notice" href="Copyright/topics/td_copyright.html"></topic>
+<topic label="IBM ILOG CPLEX Optimization Studio considerations for GDPR readiness" href="Optimization_Studio/topics/COS-Analytics-GDPR.html"></topic></topic>
+
+<topic   label="Orientation Guide" href="Optimization_Studio/orientation_guide/topics/orientation_intro.html">
+<topic label="Completely new to CPLEX Optimization Studio?" href="Optimization_Studio/orientation_guide/topics/new_to_cos.html">
+<topic label="Who this document is for" href="Optimization_Studio/orientation_guide/topics/intended_audience.html"></topic>
+<topic label="Brief overview of CPLEX Optimization Studio" href="Optimization_Studio/orientation_guide/topics/overview_cos.html"></topic>
+<topic label="Analyzing a simple OPL model" href="Optimization_Studio/orientation_guide/topics/analyze_model.html"></topic>
+<topic label="First steps with the IDE" href="Optimization_Studio/orientation_guide/topics/firststeps_ide.html"></topic>
+<topic label="Running a model in the IDE" href="Optimization_Studio/orientation_guide/topics/run_model.html"></topic></topic>
+<topic label="Discovering CPLEX Optimization Studio" href="Optimization_Studio/orientation_guide/topics/discovering_cos.html"></topic>
+<topic label="Becoming familiar with CPLEX Optimization Studio" href="Optimization_Studio/orientation_guide/topics/familiar_with_cos.html"></topic>
+<topic label="Advanced features" href="Optimization_Studio/orientation_guide/topics/advanced_features.html"></topic></topic>
+<topic   href="Optimization_Studio/topics/COS_relnotes_intro.html" label="Introducing IBM ILOG CPLEX Optimization Studio 20.1.0">
+<topic href="Optimization_Studio/topics/COS_intro_features.html" label="Introduction"></topic>
+<topic label="Release notes for IDE and OPL 20.1.0" href="OPL_Studio/oplrelnotes/topics/opl_relnotes_V201_home.html">
+<topic label="New database support in OPL" href="OPL_Studio/oplrelnotes/topics/opl_relnotes_V201_DBsupport.html"></topic>
+<topic label="Changes to Watson Machine Learning (WML) connector " href="OPL_Studio/oplrelnotes/topics/opl_relnotes_V201.html"></topic>
+<topic label="Other new features in OPL" href="OPL_Studio/oplrelnotes/topics/opl_relnotes_V201_interfaces.html"></topic></topic>
+<topic href="DOcplex/topics/DOcplex_relnotes.html"  label="Release notes for DOcplex Python API"></topic>
+<topic label="Release notes for CPLEX 20.1.0 " href="CPLEX/ReleaseNotes/topics/releasenotes201/home.html">
+
+<topic label="New features" href="CPLEX/ReleaseNotes/topics/releasenotes201/new.html">
+
+<topic label="New special ordered set (SOS) algorithmic feature" href="CPLEX/ReleaseNotes/topics/releasenotes201/newSOSfeature.html"></topic>
+<topic label="New parameters in CPLEX " href="CPLEX/ReleaseNotes/topics/releasenotes201/newParameters.html"></topic>
+<topic label="Current callback configuration now displayed before optimization " href="CPLEX/ReleaseNotes/topics/releasenotes201/newCallbackConfigDisplay.html"/>
+<topic label="New error codes " href="CPLEX/ReleaseNotes/topics/releasenotes201/newErrorCodes.html"/>
+<topic label="New features in the Callable Library (C API)" href="CPLEX/ReleaseNotes/topics/releasenotes201/newCapi.html"></topic>
+<topic label="New features in the C++ API" href="CPLEX/ReleaseNotes/topics/releasenotes201/newCplusplusAPI.html"></topic>
+<topic label="New features in the Java API" href="CPLEX/ReleaseNotes/topics/releasenotes201/newJavaAPI.html"></topic>
+<topic label="New features in the C#/.NET API " href="CPLEX/ReleaseNotes/topics/releasenotes201/newDotNetAPI.html"></topic>
+<topic label="New features in the Python API" href="CPLEX/ReleaseNotes/topics/releasenotes201/newPythonAPI.html"></topic></topic>
+<topic label="Conversion notes" href="CPLEX/ReleaseNotes/topics/releasenotes201/convert.html"></topic>
+<topic label="Deprecated features" href="CPLEX/ReleaseNotes/topics/releasenotes201/deprecated.html"></topic>
+<topic label="Removed features" href="CPLEX/ReleaseNotes/topics/releasenotes201/removed.html"></topic></topic>
+<topic label="Release notes for CP Optimizer 20.1.0" href="CP_Optimizer/Release_notes/topics/relnotes_V201.html">
+
+<topic label="New CP Optimizer black-box optimization feature" href="CP_Optimizer/Release_notes/topics/relnotes_V201_blackbox.html"></topic>
+<topic label="CP Optimizer black-box expressions " href="CP_Optimizer/Release_notes/topics/relnotes_V201_blackbox_expressions.html"></topic>
+<topic label="New constraint to sort in strict lexicographic order" href="CP_Optimizer/Release_notes/topics/relnotes_V201_strictLex.html"/>
+<topic label="C++ users" href="CP_Optimizer/Release_notes/topics/relnotes_V201_cpp.html"></topic>
+<topic label="Java users" href="CP_Optimizer/Release_notes/topics/relnotes_V201_java.html"></topic>
+<topic label="C#/.NET users" href="CP_Optimizer/Release_notes/topics/relnotes_V201_cSharp.html"></topic>
+<topic label="DOcplex Python for CP Optimizer users" href="CP_Optimizer/Release_notes/topics/relnotes_V201_python.html"></topic></topic>
+<topic href="Optimization_Studio/topics/COS_previous_relnotes.html" label="Previous release notes"></topic>
+<topic href="Optimization_Studio/topics/COS_license_metrics.html" label="License metrics"></topic>
+<topic href="Optimization_Studio/topics/COS_cluster_edition.html" label="Cluster edition entitlements"></topic>
+<topic label="Installing CPLEX Optimization Studio" href="Optimization_Studio/topics/COS_installing.html"></topic>
+<topic label="Installing in another language" href="Optimization_Studio/topics/COS_installinginanotherlanguage.html"></topic>
+<topic href="Optimization_Studio/topics/td_silent_install.html" label="Silent installation of CPLEX Optimization Studio"></topic>
+<topic href="Optimization_Studio/topics/td_uninstall.html" label="Uninstalling CPLEX Optimization Studio"></topic>
+<topic href="Optimization_Studio/topics/COS_infocenter_accessibility.html" label="Accessibility in the online IBM Knowledge Center documentation"></topic>
+<topic href="Optimization_Studio/topics/COS_accessibility.html" label="CPLEX Optimization Studio accessibility"></topic>
+</topic>
+</toc>

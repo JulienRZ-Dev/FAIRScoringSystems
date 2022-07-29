@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Multiobjective optimization" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumobjs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjchgattribs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetcntinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetdblinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetdiminfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetintinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetlonginfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetnumsolves.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetobjval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetobjvalbypriority.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjopt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjsetobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setnumobjs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_BARITCNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_BESTOBJVAL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_BLEND.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_DEGCNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_DETTIME.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_DEXCH.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_DPUSH.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_ERROR.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_ITCNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_METHOD.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_NODECNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_NODELEFTCNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_OBJVAL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_PEXCH.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_PHASE1CNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_PPUSH.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_PRIORITY.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_SIFTITCNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_SIFTPHASE1CNT.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_STATUS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_MULTIOBJ_TIME.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_NO_ABSTOL_CHANGE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_NO_OFFSET_CHANGE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_NO_PRIORITY_CHANGE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_NO_RELTOL_CHANGE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_NO_WEIGHT_CHANGE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_INFEASIBLE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_INForUNBD.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_NON_OPTIMAL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_OPTIMAL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_STOPPED.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_UNBOUNDED.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXERR_BAD_MULTIOBJ_ATTR.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXERR_MULTIOBJ_SUBPROB_SOLVE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXERR_NO_OBJ_NAME.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXERR_NOT_FOR_MULTIOBJ.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_COEFFS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_LARGE_NUM.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_MIX.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_OPT_TOL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_SMALL_NUM.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_MULTIOBJ.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagemultiobjective" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Multiobjective optimization</title>
+</head>
+<body id="homepagemultiobjective"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Multiobjective optimization </h1>
+
+<div class="body">
+<p class="p"> These macros, routines, and error codes enable you to implement multiobjective optimization. </p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumobjs.html">CPXXgetnumobjs and CPXgetnumobjs</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXgetnumobjs</span>/<span class="keyword apiname">CPXgetnumobjs</span></code>     returns the number of objectives in the problem instance.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjchgattribs.html">CPXXmultiobjchgattribs and CPXmultiobjchgattribs</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjchgattribs</span>/<span class="keyword apiname">CPXmultiobjchgattribs</span></code>     changes the name, the weight, priority, absolute and relative     tolerance attributes of an objective in the multiobjective     description of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetcntinfo.html">CPXXmultiobjgetcntinfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetcntinfo</span></code> accesses integer-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetdblinfo.html">CPXXmultiobjgetdblinfo and CPXmultiobjgetdblinfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetdblinfo</span>/<span class="keyword apiname">CPXmultiobjgetdblinfo</span></code> accesses double-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetdiminfo.html">CPXXmultiobjgetdiminfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetdiminfo</span></code> accesses integer-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetindex.html">CPXXmultiobjgetindex and CPXmultiobjgetindex</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetindex</span>/<span class="keyword apiname">CPXmultiobjgetindex</span></code>     searches for the index number of the specified objective in a CPLEX     problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetintinfo.html">CPXXmultiobjgetintinfo and CPXmultiobjgetintinfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetintinfo</span>/<span class="keyword apiname">CPXmultiobjgetintinfo</span></code> accesses integer-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetlonginfo.html">CPXXmultiobjgetlonginfo and CPXmultiobjgetlonginfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetlonginfo</span>/<span class="keyword apiname">CPXmultiobjgetlonginfo</span></code> accesses long-valued information  about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetname.html">CPXXmultiobjgetname and CPXmultiobjgetname</a></strong><br />
+     Accesses the name of the specified objective of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetnumsolves.html">CPXXmultiobjgetnumsolves and CPXmultiobjgetnumsolves</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetnumsolves</span>/<span class="keyword apiname">CPXmultiobjgetnumsolves</span></code>     accesses the specified objective of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetobj.html">CPXXmultiobjgetobj and CPXmultiobjgetobj</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetobj</span>/<span class="keyword apiname">CPXmultiobjgetobj</span></code>     accesses the specified objective of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetobjval.html">CPXXmultiobjgetobjval and CPXmultiobjgetobjval</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetobjval</span>/<span class="keyword apiname">CPXmultiobjgetobjval</span></code>     accesses the value of objective with index n after multiobjective     optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetobjvalbypriority.html">CPXXmultiobjgetobjvalbypriority and CPXmultiobjgetobjvalbypriority</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetobjvalbypriority</span>/<span class="keyword apiname">CPXmultiobjgetobjvalbypriority</span></code>     accesses the blended objective value for the specified priority     after multiobjective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjopt.html">CPXXmultiobjopt and CPXmultiobjopt</a></strong><br />
+      The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjopt</span>/<span class="keyword apiname">CPXmultiobjopt</span></code>     performs a multiobjective optimization on a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjsetobj.html">CPXXmultiobjsetobj and CPXmultiobjsetobj</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjsetobj</span>/<span class="keyword apiname">CPXmultiobjsetobj</span></code>     sets the specified objective of the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setnumobjs.html">CPXXsetnumobjs and CPXsetnumobjs</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXsetnumobjs</span>/<span class="keyword apiname">CPXsetnumobjs</span></code>     sets the number of objectives in the problem instance.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_BARITCNT.html">CPX_MULTIOBJ_BARITCNT</a></strong><br />
+Concert Technology enum: MultiobjBarItcnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_BESTOBJVAL.html">CPX_MULTIOBJ_BESTOBJVAL</a></strong><br />
+Concert Technology enum: MultiobjBestobjval</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_BLEND.html">CPX_MULTIOBJ_BLEND</a></strong><br />
+Concert Technology enum: MultiobjBlend</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DEGCNT.html">CPX_MULTIOBJ_DEGCNT</a></strong><br />
+Concert Technology enum: MultiobjDegCnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DETTIME.html">CPX_MULTIOBJ_DETTIME</a></strong><br />
+Concert Technology enum: MultiobjDetTime</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DEXCH.html">CPX_MULTIOBJ_DEXCH</a></strong><br />
+Concert Technology enum: MultiobjDExch</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DPUSH.html">CPX_MULTIOBJ_DPUSH</a></strong><br />
+Concert Technology enum: MultiobjDPush</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_ERROR.html">CPX_MULTIOBJ_ERROR</a></strong><br />
+Concert Technology enum: MultiobjError</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_ITCNT.html">CPX_MULTIOBJ_ITCNT</a></strong><br />
+Concert Technology enum: MultiobjItcnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_METHOD.html">CPX_MULTIOBJ_METHOD</a></strong><br />
+Concert Technology enum: MultiobjMethod</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_NODECNT.html">CPX_MULTIOBJ_NODECNT</a></strong><br />
+Concert Technology enum: MultiobjNodecnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_NODELEFTCNT.html">CPX_MULTIOBJ_NODELEFTCNT</a></strong><br />
+Concert Technology enum: MultiobjNodeleftcnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_OBJVAL.html">CPX_MULTIOBJ_OBJVAL</a></strong><br />
+Concert Technology enum: MultiobjObjval</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PEXCH.html">CPX_MULTIOBJ_PEXCH</a></strong><br />
+Concert Technology enum: MultiobjPExch</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PHASE1CNT.html">CPX_MULTIOBJ_PHASE1CNT</a></strong><br />
+Concert Technology enum: MultiobjPhase1cnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PPUSH.html">CPX_MULTIOBJ_PPUSH</a></strong><br />
+Concert Technology enum: MultiobjPPush</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PRIORITY.html">CPX_MULTIOBJ_PRIORITY</a></strong><br />
+Concert Technology enum: MultiobjPriority</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_SIFTITCNT.html">CPX_MULTIOBJ_SIFTITCNT</a></strong><br />
+Concert Technology enum: MultiobjSiftItcnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_SIFTPHASE1CNT.html">CPX_MULTIOBJ_SIFTPHASE1CNT</a></strong><br />
+Concert Technology enum: MultiobjSiftPhase1cnt</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_STATUS.html">CPX_MULTIOBJ_STATUS</a></strong><br />
+Concert Technology enum: MultiobjStatus</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_MULTIOBJ_TIME.html">CPX_MULTIOBJ_TIME</a></strong><br />
+Concert Technology enum: MultiobjTime</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_NO_ABSTOL_CHANGE.html">CPX_NO_ABSTOL_CHANGE</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_NO_OFFSET_CHANGE.html">CPX_NO_OFFSET_CHANGE</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_NO_PRIORITY_CHANGE.html">CPX_NO_PRIORITY_CHANGE</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_NO_RELTOL_CHANGE.html">CPX_NO_RELTOL_CHANGE</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_NO_WEIGHT_CHANGE.html">CPX_NO_WEIGHT_CHANGE</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_INFEASIBLE.html">CPX_STAT_MULTIOBJ_INFEASIBLE</a></strong><br />
+302 (Multiobj only) enum: MultiobjInfeasible</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_INForUNBD.html">CPX_STAT_MULTIOBJ_INForUNBD</a></strong><br />
+303 (Multiobj only) enum: MultiobjInfOrUnbd</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_NON_OPTIMAL.html">CPX_STAT_MULTIOBJ_NON_OPTIMAL</a></strong><br />
+305 (Multiobj only) enum: MultiobjNonOptimal</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_OPTIMAL.html">CPX_STAT_MULTIOBJ_OPTIMAL</a></strong><br />
+301 (Multiobj only) enum: MultiobjOptimal</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_STOPPED.html">CPX_STAT_MULTIOBJ_STOPPED</a></strong><br />
+306 (Multiobj only) enum: MultiobjStopped</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_STAT_MULTIOBJ_UNBOUNDED.html">CPX_STAT_MULTIOBJ_UNBOUNDED</a></strong><br />
+304 (Multiobj only) enum: MultiobjUnbounded</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXERR_BAD_MULTIOBJ_ATTR.html">CPXERR_BAD_MULTIOBJ_ATTR</a></strong><br />
+1488 Line %lld: Illegal attribute description for multi-objective: %s</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXERR_MULTIOBJ_SUBPROB_SOLVE.html">CPXERR_MULTIOBJ_SUBPROB_SOLVE</a></strong><br />
+1300 Failure to solve multi-objective subproblem</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXERR_NO_OBJ_NAME.html">CPXERR_NO_OBJ_NAME</a></strong><br />
+1489 Line %lld: No objective name</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXERR_NOT_FOR_MULTIOBJ.html">CPXERR_NOT_FOR_MULTIOBJ</a></strong><br />
+1070 Not available for multiobjective problems </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_COEFFS.html">CPXMI_MULTIOBJ_COEFFS</a></strong><br />
+1062 Detected objective coefficients that may be suited for multiobjective optimization</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_LARGE_NUM.html">CPXMI_MULTIOBJ_LARGE_NUM</a></strong><br />
+1058 Detected objective coefficient &gt;= CPX_INFBOUND at %s, %s</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_MIX.html">CPXMI_MULTIOBJ_MIX</a></strong><br />
+1063 Detected a mix of positive and negative objective coefficients</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_OPT_TOL.html">CPXMI_MULTIOBJ_OPT_TOL</a></strong><br />
+1060 Detected objective coefficient &lt;= the value of CPX_PARAM_EPOPT at %s, %s</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMI_MULTIOBJ_SMALL_NUM.html">CPXMI_MULTIOBJ_SMALL_NUM</a></strong><br />
+1059 Detected objective coefficient &lt;= CPX_MINBOUND at %s, %s</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPXMI_SAMECOEFF_MULTIOBJ.html">CPXMI_SAMECOEFF_MULTIOBJ</a></strong><br />
+1061 %s has almost equal coefficients for %s and %s</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

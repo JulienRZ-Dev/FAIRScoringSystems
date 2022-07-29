@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Modeling assistance in CPLEX" />
+<meta name="abstract" content="CPLEX can assist you as you develop your model." />
+<meta name="Description" content="CPLEX can assist you as you develop your model." />
+<meta name="DC.subject" content="modeling assistance, datacheck parameter, numeric difficulties, numerical instability, ill conditioning, modeling assistance and" />
+<meta name="keywords" content="modeling assistance, datacheck parameter, numeric difficulties, numerical instability, ill conditioning, modeling assistance and" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/symbols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/samecoefficients.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/kappaModelingAsst.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/warningsModelingAsst.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/indicesNames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/callbackModelingAsst.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="introModelingAssistance" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" />
+<title>Modeling assistance in CPLEX</title>
+</head>
+<body id="introModelingAssistance"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Modeling assistance in CPLEX</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX can assist you as you develop your model.</p>
+
+<p class="p">CPLEX offers assistance to help you to identify and to eliminate troublesome elements from your
+model. Turn on modeling assistance by setting the <a class="xref" href="../../../../Parameters/topics/DataCheck.html" title="Turns on or off data consistency checking and modeling assistance.">data consistency checking and modeling assistance</a> parameter to the value CPX_DATACHECK_ASSIST
+(2). After this data-checking parameter is turned on at this level, CPLEX modeling assistance prints
+warnings (in the warning log or on the warning channel, depending on your settings for messages).
+The warnings are about potential problems in your model. The warnings from modeling assistance can
+help you identify sources of numerical difficulty, instability, or ill-conditioning in your model.
+For example, modeling assistance will report bounds, coefficients, and righthand side (RHS) values
+that are inappropriately large or small. The number of warnings shown can be controlled with the
+<a class="xref" href="../../../../Parameters/topics/WarningLimit.html" title="Determines how many times warnings of a specific type will be displayed.">warning limit</a>
+parameter.</p>
+ 
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/symbols.html">Symbols of modeling assistance</a></strong><br />
+Modeling assistance uses these symbols to report problematic situations in your model.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/samecoefficients.html">Same coefficients reported by modeling assistance in CPLEX</a></strong><br />
+CPLEX can assist you as you develop your model by reporting coefficients of the same or  very nearly the same value to identify sources of numerical difficulty.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/kappaModelingAsst.html">Kappa and modeling assistance in CPLEX</a></strong><br />
+CPLEX can assist you as you develop your model by reporting kappa, the condition number of your model.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/warningsModelingAsst.html">Warnings from modeling assistance in CPLEX</a></strong><br />
+CPLEX can assist you as you develop your model with its warnings.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/indicesNames.html">Special considerations about indices and names in modeling assistance in CPLEX</a></strong><br />
+CPLEX can assist you as you develop your model.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/callbackModelingAsst.html">Modeling assistance callback</a></strong><br />
+The modeling assistance callback allows the user to intercept information coming from modeling assistance.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" title="This part of the manual documents concepts that are valid as you develop an application, regardless of the programming language that you choose. It highlights software engineering practices implemented in IBM ILOG CPLEX, practices that will enable you to develop effective applications to exploit it efficiently.">Programming considerations</a></div>
+</div>
+</nav></div></body>
+</html>

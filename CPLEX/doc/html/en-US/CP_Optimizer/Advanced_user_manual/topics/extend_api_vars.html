@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Variables and expressions" />
+<meta name="abstract" content="Engine decision variables and expressions are used in the search." />
+<meta name="Description" content="Engine decision variables and expressions are used in the search." />
+<meta name="DC.subject" content="extractable, decision variable, IlcIntVar class" />
+<meta name="keywords" content="extractable, decision variable, IlcIntVar class" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizerextend.1010476" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" />
+<title>Variables and expressions</title>
+</head>
+<body id="migration.uss_usradvcpoptimizerextend.1010476"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Variables and expressions</h1>
+<div class="body"><p class="shortdesc">Engine decision variables and expressions are used in
+the search.</p>
+
+<section class="section"><h2 class="title sectiontitle">Creation of engine variables</h2>
+<p class="p">When the model is extracted to an instance of <code class="ph codeph">IloCP</code>, generally an instance of
+<code class="ph codeph">IlcIntVar</code> is automatically created for each <code class="ph codeph">IloIntVar</code> in the
+model. If no <code class="ph codeph">IloExtractable</code> uses the decision variable, it will not be extracted
+unless you explicitly add it to the model. </p>
+
+<div class="p">
+The second way of introducing search decision variables in CP Optimizer is to
+create them directly. Here is one constructor to do so:
+<pre class="pre codeblock"><code>
+   IlcIntVar(IlcCPEngine cp, IlcInt min, IlcInt max, char* name=0);
+</code></pre>
+</div>
+<p class="p">
+The constructor declares an engine variable that can take a value between
+min and max (its lower and upper boundaries). In other words, the lower and upper
+boundaries define the domain of the search decision variable that is being
+constructed. The character string name is displayed whenever the variable is
+printed. It is an optional argument.
+This constructor is intended to be used for creation of search decision variables
+inside instances of other computation objects. It should not be used to declare
+variables that are part of the problem statement in the modeling layer. That should
+be done with the constructor for <code class="ph codeph">IloIntVar</code>. 
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Accessing engine variables</h2>
+<p class="p">Once an <code class="ph codeph">IloIntVar</code> is extracted, you can access
+the <code class="ph codeph">IlcIntVar</code> from the modeling object <code class="ph codeph">IloIntVar</code> 
+via the <code class="ph codeph">IloCPEngine</code>.
+</p>
+
+<p class="p">
+The <code class="ph codeph">IloCPEngine</code> of the worker under consideration is available in different contexts. 
+A constraint, a demon, and a goal provide the function 
+<code class="ph codeph">getCPEngine()</code> to get an instance of 
+<code class="ph codeph">IloCPEngine</code>. 
+A macro for goal or constraint extraction has an 
+<code class="ph codeph">IloCPEngine</code> available as parameter.
+</p>
+
+<p class="p">The following code returns the <code class="ph codeph">IlcIntVar</code> from
+an <code class="ph codeph">IloIntVar x</code>: </p>
+
+<pre class="pre codeblock"><code>
+    IloIntVar x;
+    ...
+    IloCPEngine cp = getCPEngine();
+    IlcIntVar cpx = cp.getIntVar(x);
+
+</code></pre>
+
+<p class="p">
+And now, let us see a complete example for accessing the engine variable during 
+the search process:
+</p>
+
+<pre class="pre codeblock"><code>
+   ILCGOAL1(MyInst, IlcIntVar, var) {
+      if (var.isFixed()) return 0;
+      IlcInt v = var.getMin();
+      return IlcOr(var == v, IlcAnd(var != v, this));
+   }
+
+   ILCGOAL1(MyGen, IlcIntVarArray, x) {
+      IloCPEngine cp = getCPEngine();
+      IlcInt choice = IlcChooseMinSizeInt(x);
+      if (choice &lt; 0) return 0;
+      return IlcAnd(MyInst(cp, x[choice]), this);
+   }
+
+   ILOCPGOALWRAPPER1(MyGoal, cp, IloIntVarArray, x) {
+      return MyGen(cp, cp.getIntVarArray(x)); // cp is of type IloCPEngine here
+   }
+
+   IloEnv env;
+   IloIntVarArray x(env, 10, 0, 1);
+   IloModel mdl(env);
+   mdl.add(x);
+   IloCP cp(mdl);
+   cp.solve(MyGoal(env, x));
+   cout &lt;&lt; cp.domain(x) &lt;&lt; endl;
+</code></pre>
+
+<p class="p">
+This example is a code for defining a custom goal, which will be 
+defined later in this document. The point here is to focus on the access
+to the <code class="ph codeph">IlcIntVarArray</code> object corresponding to an 
+<code class="ph codeph">IloIntVarArray</code> given a worker. 
+This is done in the goal <code class="ph codeph">MyGoal</code> defined by the macro 
+<code class="ph codeph">ILOCPGOALWRAPPER1</code>.
+</p>
+<p class="p"> When <code class="ph codeph">IloCP::solve(MyGoal(env, x))</code> is called, it creates different workers, each
+one having its own <code class="ph codeph">IloCPEngine</code>. Each worker executes the code corresponding to
+<code class="ph codeph">MyGoal</code>, which consists only of mapping the model variables to the engine variables
+and creating the <code class="ph codeph">IlcGoal</code> (engine goals) on the engine variables. The
+<code class="ph codeph">cp</code> parameter of the macro <code class="ph codeph">ILOCPGOALWRAPPER1</code> is automatically set
+by the solver to the <code class="ph codeph">IloCPEngine</code> of the worker under consideration (Warning: it is
+not the master <code class="ph codeph">IloCP</code> object defined in the main function). The mapping from
+<code class="ph codeph">IloIntVarArray</code> to <code class="ph codeph">IlcIntVarArray</code> is done simply by calling
+<code class="ph codeph">cp.getIntVarArray(x)</code>. </p>
+</section>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" title="When using the engine extensions API of CP Optimizer, you will need to use the internal engine object classes instead of only the modeling classes. These internal classes are prefixed with Ilc.">Engine extension API classes</a></div>
+</div>
+</nav></div></body>
+</html>

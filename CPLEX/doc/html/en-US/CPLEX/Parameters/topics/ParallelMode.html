@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="parallel mode switch" />
+<meta name="abstract" content="Sets the parallel optimization mode. Possible modes are automatic, deterministic, and opportunistic." />
+<meta name="Description" content="Sets the parallel optimization mode. Possible modes are automatic, deterministic, and opportunistic." />
+<meta name="DC.subject" content="CPX_PARAM_PARALLELMODE, ParallelMode, parallelism, optimization mode, deterministic, definition, opportunistic" />
+<meta name="keywords" content="CPX_PARAM_PARALLELMODE, ParallelMode, parallelism, optimization mode, deterministic, definition, opportunistic" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196790544973" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>parallel mode switch</title>
+</head>
+<body id="languageRefTopic1196790544973"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">parallel mode switch</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets the parallel optimization mode. Possible modes are
+automatic, deterministic, and opportunistic.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Parallel mode switch</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d119812e67">API</th>
+
+<th class="entry nrule" valign="top" id="d119812e70">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d119812e73">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">CPXPARAM_Parallel</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">CPX_PARAM_PARALLELMODE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">IloCplex::Param::Parallel</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">ParallelMode (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">IloCplex.Param.Parallel</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">ParallelMode (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">Cplex.Param.Parallel</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">ParallelMode (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">parallelmode </td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">parallelmode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">parameters.parallel</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">parallel</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">parallel</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">parallel</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d119812e67 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d119812e70 ">1109</td>
+
+<td class="entry nrule" valign="top" headers="d119812e73 ">1109</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Sets the parallel optimization
+mode. Possible modes are automatic, deterministic, and opportunistic. </p>
+<p class="p">In
+this context, <em class="ph i">deterministic </em>means that multiple runs with the
+same model at the same parameter settings on the same platform will
+reproduce the same solution path and results. In contrast, <em class="ph i">opportunistic </em>implies
+that even slight differences in timing among threads or in the order
+in which tasks are executed in different threads may produce a different
+solution path and consequently different timings or different solution
+vectors during optimization executed in parallel threads. In multithreaded
+applications, the opportunistic setting entails less synchronization
+between threads and consequently may provide better performance.</p>
+<p class="p">By
+default, CPLEX applies as much parallelism as possible while still
+achieving deterministic results. That is, when you run the same model
+twice on the same platform with the same parameter settings, you will
+see the same solution and optimization run. This condition is referred
+to as the <em class="ph i">deterministic</em> mode.</p>
+<p class="p">More opportunities to exploit
+parallelism are available if you do not require determinism. In other
+words, CPLEX can find more possibilities for parallelism if you do
+not require an invariant, repeatable solution path and precisely the
+same solution vector. To use all available parallelism, you need to
+select the <em class="ph i">opportunistic</em> parallel mode. In this mode, CPLEX
+will use all opportunities for parallelism in order to achieve best
+performance.</p>
+<p class="p">However, in opportunistic mode, the actual optimization
+may differ from run to run, including the solution time itself and
+the path traveled in the search.</p>
+ <p class="p paragrouptitle">Deterministic
+and sequential optimization</p>
+ <p class="p">Parallel MIP optimization can be
+opportunistic or deterministic.</p>
+ <p class="p">Parallel barrier optimization
+is only deterministic.</p>
+ 
+<p class="p">Concurrent optimization can be opportunistic
+or deterministic. In either mode, when six or more threads are available, 
+concurrent optimization launches primal simplex, dual simplex, and 
+barrier optimizers by default. If ten threads are available to CPLEX, 
+concurrent optimization launches primal simplex, dual simplex, 
+barrier, and sifting (if sifting is applicable to the current 
+type of problem).
+</p>
+
+<div class="note tip"><span class="tiptitle">Tip:</span> 
+This parallel mode parameter also applies to <strong class="ph b">distributed</strong> parallel 
+MIP optimization. That is, you can instruct CPLEX to execute 
+distributed parallel MIP optimization either opportunistically or 
+deterministically.
+</div>
+ 
+<p class="p paragrouptitle">Callbacks and MIP optimization</p>
+ <p class="p">If legacy or generic callbacks are used for solving a MIP, in a parallel MIP optimization the
+order in which the callbacks are executed from different threads can be non-deterministic, even in
+deterministic parallel mode. It is then your responsibility to make sure that your callbacks do not
+perform operations that could lead to opportunistic behavior and are implemented in a thread-safe
+way.</p>
+
+<p class="p">For a description of legacy callbacks see <a class="xref" href="../../UsrMan/topics/progr_adv/callbacks_basic/01_cb_title_synopsis.html" title="Introduces legacy optimization callbacks.">Using legacy optimization callbacks</a> and <a class="xref" href="../../UsrMan/topics/progr_adv/callbacks_adv/01_adv_callbacks_title_synopsis.html" title="Documents the legacy advanced MIP control interface.">Advanced MIP control interface (legacy)</a> in the
+<em class="ph i">CPLEX User’s Manual</em>.</p>
+
+<p class="p"> For a description of generic callbacks, see the topic <a class="xref" href="../../UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a> in the <em class="ph i">CPLEX User’s
+Manual</em>. </p>
+<p class="p paragrouptitle">Determinism versus opportunism</p>
+<p class="p">This parameter also allows you to turn off this default
+setting by choosing value -1 (minus one). Cases where you might wish
+to turn off deterministic search include situations where you want
+to take advantage of possibly faster performance of opportunistic
+parallel MIP optimization in multiple threads after you have confirmed
+that deterministic parallel MIP optimization produced the results
+you expected. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table showing possible values, their symbolic name (C API), their symbolic name (C++, Java, .NET APIs), and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d119812e292">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d119812e295"><p class="p">Symbolic Constant </p>
+<p class="p">Callable Library</p>
+</th>
+
+<th class="entry thleft" align="left" valign="top" id="d119812e301"><p class="p">Symbolic Constant</p>
+<p class="p">Concert Technology</p>
+</th>
+
+<th class="entry thleft" align="left" valign="top" id="d119812e307">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d119812e292 ">-1</td>
+
+<td class="entry" valign="top" headers="d119812e295 "><code class="ph codeph">CPX_PARALLEL_OPPORTUNISTIC</code> </td>
+
+<td class="entry" valign="top" headers="d119812e301 "><code class="ph codeph">Opportunistic</code> </td>
+
+<td class="entry" valign="top" headers="d119812e307 ">Enable opportunistic parallel search mode</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d119812e292 ">0</td>
+
+<td class="entry" valign="top" headers="d119812e295 "><code class="ph codeph">CPX_PARALLEL_AUTO</code> </td>
+
+<td class="entry" valign="top" headers="d119812e301 "><code class="ph codeph">AutoParallel</code> </td>
+
+<td class="entry" valign="top" headers="d119812e307 ">Automatic: let CPLEX decide whether to invoke deterministic
+or opportunistic search; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d119812e292 ">1</td>
+
+<td class="entry" valign="top" headers="d119812e295 "><code class="ph codeph">CPX_PARALLEL_DETERMINISTIC</code> </td>
+
+<td class="entry" valign="top" headers="d119812e301 "><code class="ph codeph">Deterministic</code> </td>
+
+<td class="entry" valign="top" headers="d119812e307 ">Enable deterministic parallel search mode</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p"> </p>
+<p class="p">See also: <a class="xref" href="Threads.html" title="Sets the default number of parallel threads that will be invoked by any CPLEX parallel optimizer.">global thread count</a>: <code class="ph codeph">CPX_PARAM_THREADS</code>, <code class="ph codeph">Threads</code></p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

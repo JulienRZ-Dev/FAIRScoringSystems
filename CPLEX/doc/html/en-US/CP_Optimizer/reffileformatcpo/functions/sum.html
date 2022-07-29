@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="sum" />
+<meta name="abstract" content="Returns the sum of the input." />
+<meta name="Description" content="Returns the sum of the input." />
+<meta name="DC.subject" content="sum" />
+<meta name="keywords" content="sum" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="sum" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>sum</title>
+</head>
+<body id="sum"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">sum</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns the sum of the input.
+</p>
+
+
+
+<section class="section" id="sum__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">sum</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatExprArray">floatExprArray</a> x)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">sum</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x)
+<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> <strong class="ph b">sum</strong>(cumulExprArray x)
+</code></pre>
+</section>
+
+
+<section class="section" id="sum__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code>: an array of expressions (integer, floating-point or cumulative).
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="sum__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The function <code class="ph codeph"><a class="xref" href="sum.html" title="Returns the sum of the input.">sum</a></code> computes the sum of <code class="ph codeph">x</code>. Depending on the type of <code class="ph codeph">x</code> the
+result is an integer expression, floating-point expression or cumulative epression.
+</p>
+
+
+</section>
+
+
+<section class="section" id="sum__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+b = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+c = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+c == <strong class="ph b">sum</strong>([a,b]);
+</code></pre>
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+</nav></div></body>
+</html>

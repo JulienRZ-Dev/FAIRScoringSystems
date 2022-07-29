@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Generic callbacks" />
+<meta name="abstract" content="Generic callbacks are compatible with recent innovations in CPLEX." />
+<meta name="Description" content="Generic callbacks are compatible with recent innovations in CPLEX." />
+<meta name="DC.subject" content="callback, introduction" />
+<meta name="keywords" content="callback, introduction" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/partAdvProg_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/defnCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/whatToDoCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/contextCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/pathInvarianceCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/multiThreadingCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="introCallback" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/partAdvProg_title_synopsis.html" />
+<title>Generic callbacks</title>
+</head>
+<body id="introCallback"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Generic callbacks </h1>
+
+ 
+ 
+<div class="body"><p class="shortdesc">Generic callbacks are compatible with recent innovations in CPLEX. 
+</p>
+ 
+<p class="p">First, contrast legacy callbacks, 
+such as informational callbacks, query callbacks, or control callbacks 
+(already familiar in CPLEX) with the more recent implementation 
+of generic callbacks.  Legacy callbacks were designed when CPLEX was a branch-and-bound or 
+branch-and-cut solver. Consequently, those legacy callbacks were designed 
+to monitor and control a branch-and-bound or branch-and-cut search. This design implies
+that those legacy callbacks assume a branch-and-bound or branch-and-cut <strong class="ph b">context</strong> 
+throughout their
+invocation.  For example,  such legacy callbacks usually assume a
+ "current node" context. This assumption is one of the reasons that 
+the legacy callbacks are incompatible with dynamic search.
+</p>
+
+<p class="p">Over time, CPLEX has evolved and now executes more sophisticated strategies than 
+straightforward branch-and-bound or branch-and-cut, although that strategy is still at the 
+core of the solver. Dynamic search and other features have been added to CPLEX 
+to solve models faster.
+The generic callback is compatible with all these new features
+since it does not assume a strictly branch-and-bound or branch-and-cut perspective in 
+the solution process. It only assumes a generic search for an
+optimal solution. As a consequence, it does not allow user control of the
+the branch-and-bound or branch-and-cut process in as much detail as the
+legacy callbacks do. Such low-level control, however, is not usually required.
+The degree of control offered by the generic callback is more high level, 
+yet frequently that degree of control is all that is needed.
+</p>
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/defnCallbacks.html">What is a generic callback?</a></strong><br />
+Generic callbacks supercede legacy callbacks, such as informational callbacks, query callbacks, or control callbacks.  </li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/whatToDoCallbacks.html">What can you do with a generic callback?</a></strong><br />
+Generic callbacks are flexible and multi-purpose. </li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/contextCallbacks.html">What is a context for a generic callback?</a></strong><br />
+Generic callbacks are invoked within a context. </li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/pathInvarianceCallbacks.html">Path invariance and generic callbacks</a></strong><br />
+An empty generic callback produces the same solution path as no generic callback.  </li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/multiThreadingCallbacks.html">Multithreading and generic callbacks</a></strong><br />
+Generic callbacks demand certain considerations when used in a multithreaded application.  </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/partAdvProg_title_synopsis.html" title="This part documents advanced programming techniques for users of IBM ILOG CPLEX. It shows you how to apply query routines to gather information while CPLEX is working. It demonstrates how to redirect the search with goals or callbacks. This part also covers user-defined cuts and pools of lazy constraints. It documents the advanced MIP control interface and the advanced aspects of preprocessing: presolve and aggregation. It also introduces special considerations about parallel programming with CPLEX. This part of the manual assumes that you are already familiar with earlier parts of the manual.">Advanced programming techniques</a></div>
+</div>
+</nav></div></body>
+</html>

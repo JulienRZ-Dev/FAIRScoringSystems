@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="distribute" />
+<meta name="abstract" content="Calculates and/or constrains the distribution of values taken by an array of integer expressions." />
+<meta name="Description" content="Calculates and/or constrains the distribution of values taken by an array of integer expressions." />
+<meta name="DC.subject" content="distribute" />
+<meta name="keywords" content="distribute" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="count.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="distribute" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>distribute</title>
+</head>
+<body id="distribute"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">distribute</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Calculates and/or constrains the distribution of values taken by an array
+of integer expressions.
+</p>
+
+
+
+<section class="section" id="distribute__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">distribute</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> counts, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> values, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> exprs)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">distribute</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> counts, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> exprs)
+</code></pre>
+</section>
+
+
+<section class="section" id="distribute__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">counts</code>: an array of integer expressions representing, for each element of <code class="ph codeph">values</code>, its cardinality in <code class="ph codeph">exprs</code>.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">values</code>: an integer array containing values to count.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">exprs</code>: an array of integer expressions for which value
+    occurrences must be counted.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="distribute__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The <code class="ph codeph"><a class="xref" href="distribute.html" title="Calculates and/or constrains the distribution of values taken by an array of integer expressions.">distribute</a></code> constraint is used to count the number of occurrences of
+several values in an array of constrained expressions. You can also
+use <code class="ph codeph"><a class="xref" href="distribute.html" title="Calculates and/or constrains the distribution of values taken by an array of integer expressions.">distribute</a></code> to force a set of constrained expressions to assume
+values in such a way that only a limited number of the constrained
+expressions can assume each value.
+</p>
+
+
+<p class="p">
+More precisely, for any index <code class="ph codeph">i</code> of <code class="ph codeph">counts</code>, <code class="ph codeph">counts[i]</code> is equal to
+the number of expressions in <code class="ph codeph">exprs</code> who have value of <code class="ph codeph">values[i]</code>.
+When using the signature which has <code class="ph codeph">values</code> missing, then the values
+counted are assumed to be a set spanning from 0 up to the size of the
+<code class="ph codeph">counts</code> array, less one.
+</p>
+
+
+</section>
+
+
+<section class="section" id="distribute__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+For example, if we have five cars to paint in three available colors,
+let's say we will number 1, 2, and 3, and will refer to the color of
+car <code class="ph codeph">i</code> using the integer variable <code class="ph codeph">color[i]</code>.
+Let's further assume that no more than 3 cars can be painted
+using color 1, exactly 3 cars must be painted using color 2, and at most one
+car can be painted using color 3.  We can represent our problem with
+<code class="ph codeph"><a class="xref" href="distribute.html" title="Calculates and/or constrains the distribution of values taken by an array of integer expressions.">distribute</a></code> like this:
+</p>
+
+
+<pre class="pre codeblock"><code>
+availableColors = [1, 2, 3];
+counts = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(3,3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0,1)];
+color = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3)];
+<strong class="ph b">distribute</strong>(counts, availableColors, color);
+</code></pre>
+<p class="p">
+It is also possible to use multiple <code class="ph codeph"><a class="xref" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a></code> constraints in place of
+<code class="ph codeph"><a class="xref" href="distribute.html" title="Calculates and/or constrains the distribution of values taken by an array of integer expressions.">distribute</a></code>.  The above example would have the following form if <code class="ph codeph"><a class="xref" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a></code>
+were used:
+</p>
+
+
+<pre class="pre codeblock"><code>
+color = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3)];
+<a class="xref" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a>(color, 1) &lt;= 3;
+<a class="xref" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a>(color, 2) == 3;
+<a class="xref" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a>(color, 3) &lt;= 1;
+</code></pre>
+<p class="p">
+CP Optimizer's presolve facility will <code class="ph codeph">aggregate</code> these <code class="ph codeph"><a class="xref" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a></code> constraints
+to a single <code class="ph codeph"><a class="xref" href="distribute.html" title="Calculates and/or constrains the distribution of values taken by an array of integer expressions.">distribute</a></code> constraint for improved efficiency.
+</p>
+
+
+</section>
+
+
+<section class="section" id="distribute__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    The arrays <code class="ph codeph">counts</code> and <code class="ph codeph">values</code> must be the same length.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

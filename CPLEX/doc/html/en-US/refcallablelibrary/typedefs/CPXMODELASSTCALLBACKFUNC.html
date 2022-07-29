@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXMODELASSTCALLBACKFUNC" />
+<meta name="abstract" content="Prototype for modeling assistance callback functions" />
+<meta name="Description" content="Prototype for modeling assistance callback functions" />
+<meta name="DC.subject" content="CPXMODELASSTCALLBACKFUNC, C API Reference Manual" />
+<meta name="keywords" content="CPXMODELASSTCALLBACKFUNC, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodelasstcallback.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/typedefs/homepagetypedefs.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPXMODELASSTCALLBACKFUNC" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodelasstcallback.html" />
+<link rel="Start" href="../../refcallablelibrary/typedefs/homepagetypedefs.html" />
+<title>CPXMODELASSTCALLBACKFUNC</title>
+</head>
+<body id="CPXMODELASSTCALLBACKFUNC"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXMODELASSTCALLBACKFUNC</span></h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Prototype for modeling assistance callback functions</p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">typedef</span><span class="ph sep"> </span><span class="keyword kwd">int</span><span class="ph sep"> </span><span class="keyword kwd">CPXPUBLIC</span><span class="ph sep"> </span><span class="keyword kwd">CPXMODELASSTCALLBACKFUNC</span><span class="ph delim">(</span>
+        <span class="keyword kwd">int</span><span class="ph sep"> </span>issueid<span class="ph delim">,</span>
+        <span class="keyword kwd">const char *</span><span class="ph sep"> </span>message<span class="ph delim">,</span>
+        <span class="keyword kwd">void *</span><span class="ph sep"> </span>userhandle
+      <span class="ph delim">)</span>
+    </span></section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">issueid</dt>
+
+        <dd class="dd pd">
+          <p class="p">
+            The modeling assistance issue ID. See
+            <a class="xref" href="../macros/Model_Info_codes.html" title="This numerically sorted list of CPLEX modeling information codes links to the reference documentation of each code.">Modeling information codes by number in the CPLEX Callable Library (C API)</a>.
+          </p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">message</dt>
+
+        <dd class="dd pd">
+          <p class="p">
+            The modeling assistance warning message.
+          </p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">userhandle</dt>
+
+        <dd class="dd pd">
+          <p class="p">
+            The <span class="keyword parmname">userhandle</span> argument that was passed to
+            <a class="xref" href="../cpxapi/modelasstcallbacksetfunc.html" title="Sets the modeling assistance callback function.">CPXXmodelasstcallbacksetfunc and CPXmodelasstcallbacksetfunc</a> when the
+            callback was registered.
+          </p>
+
+        </dd>
+
+      
+    </dl>
+
+  </section>
+
+
+  <section class="section"><h2 class="title sectiontitle">Return</h2>
+    
+    <p class="p">
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+      Any value different from zero will result in an ungraceful exit of CPLEX
+      (usually with <a class="xref" href="../macros/CPXERR_CALLBACK.html" title="1006 Error during callback">CPXERR_CALLBACK</a>). Note that
+      the actual value returned is not propagated up the call stack. The only
+      thing that CPLEX checks is whether the returned value is zero or not.
+    </p>
+
+    <p class="p">
+      Do not use a non-zero return value to stop optimization in case there is
+      no error. Use <a class="xref" href="../cpxapi/setterminate.html" title="This routine enables applications to terminate CPLEX gracefully.">CPXXsetterminate and CPXsetterminate</a> for that
+      purpose.
+    </p>
+
+  </section>
+
+
+  <section class="section"><h2 class="title sectiontitle">See also</h2>
+  
+       
+      <ul class="ul"> 
+      <li class="li"><a class="xref" href="../macros/Model_Info_codes.html" title="This numerically sorted list of CPLEX modeling information codes links to the reference documentation of each code.">Modeling information codes by number in the CPLEX Callable Library (C API)</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/modelasstcallbacksetfunc.html" title="Sets the modeling assistance callback function.">CPXXmodelasstcallbacksetfunc and CPXmodelasstcallbacksetfunc</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/setterminate.html" title="This routine enables applications to terminate CPLEX gracefully.">CPXXsetterminate and CPXsetterminate</a></li>
+
+      <li class="li"><a class="xref" href="../macros/CPXERR_CALLBACK.html" title="1006 Error during callback">CPXERR_CALLBACK</a></li>
+
+     </ul>
+
+  </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodelasstcallback.html">Modeling assistance callback</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/typedefs/homepagetypedefs.html">Type definitions in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

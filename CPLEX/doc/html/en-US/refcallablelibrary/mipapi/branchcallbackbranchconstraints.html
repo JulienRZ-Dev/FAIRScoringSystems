@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXbranchcallbackbranchconstraints and CPXbranchcallbackbranchconstraints" />
+<meta name="abstract" content="The routine CPXXbranchcallbackbranchconstraints/CPXbranchcallbackbranchconstraints specifies the branches to be taken from the current node when the branch is specified by adding one or more constraints to the node problem." />
+<meta name="Description" content="The routine CPXXbranchcallbackbranchconstraints/CPXbranchcallbackbranchconstraints specifies the branches to be taken from the current node when the branch is specified by adding one or more constraints to the node problem." />
+<meta name="DC.subject" content="CPXbranchcallbackbranchconstraints, C API Reference Manual, CPXXbranchcallbackbranchconstraints" />
+<meta name="keywords" content="CPXbranchcallbackbranchconstraints, C API Reference Manual, CPXXbranchcallbackbranchconstraints" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetB.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="branchcallbackbranchconstraints" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetB.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXbranchcallbackbranchconstraints and CPXbranchcallbackbranchconstraints</title>
+</head>
+<body id="branchcallbackbranchconstraints"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXbranchcallbackbranchconstraints</span> and <span class="keyword apiname">CPXbranchcallbackbranchconstraints</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchconstraints</span>/<span class="keyword apiname">CPXbranchcallbackbranchconstraints</span></code> specifies
+ the branches to be taken from the current node when the branch is specified
+ by adding one or more constraints to the node problem.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXbranchcallbackbranchconstraints</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">nodeest</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">userhandle</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCNT *</span><span class="ph sep"> </span><span class="ph var">seqnum_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXbranchcallbackbranchconstraints</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">nodeest</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">userhandle</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">seqnum_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchconstraints</span>/<span class="keyword apiname">CPXbranchcallbackbranchconstraints</span></code> specifies
+ the branches to be taken from the current node when the branch is specified
+ by adding one or more constraints to the node problem. It can be called only
+ from within a user-written branch callback function.</p>
+
+
+ <p class="p">Constraints are in terms of the original problem if the 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>)  
+is set to <code class="ph codeph">CPX_OFF</code> before the
+ call to <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code> that calls the callback. Otherwise,
+ constraints are in terms of the presolved problem.</p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values of sense[i]</span></caption><colgroup></colgroup><tbody class="tbody">
+ 
+ <tr class="row">
+ <td class="entry" valign="top">L
+ </td>
+
+ <td class="entry" valign="top">less than or equal to constraint
+ </td>
+
+ </tr>
+
+ <tr class="row">
+ <td class="entry" valign="top">E
+ </td>
+
+ <td class="entry" valign="top">equal to constraint
+ </td>
+
+ </tr>
+
+ <tr class="row">
+ <td class="entry" valign="top">G
+ </td>
+
+ <td class="entry" valign="top">greater than or equal to constraint
+ </td>
+
+ </tr>
+
+ </tbody>
+</table>
+</div>
+
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbdata</dt>
+
+        <dd class="dd pd">
+          
+          A pointer passed to the user-written callback. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">cbdata</span></code> passed to the user-written callback.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">wherefrom</dt>
+
+        <dd class="dd pd">
+          
+          An integer value that reports where the user-written callback was called from. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> passed to the user-written callback.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of constraints for the branch.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nzcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of nonzero constraint coefficients for the branch. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> containing the righthand side term for each constraint for the branch.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> containing the sense of each constraint to be added for the branch. Values of the sense appear in Table 1.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> defines the constraints for the branch.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatind</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> defines the constraints for the branch.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatval</dt>
+
+        <dd class="dd pd">
+          
+          An array that with <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> defines the constraints for the branch. The format is similar to the format used to describe the constraint matrix in the routine <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code>. Every row must be stored in sequential locations in this array from position<code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i]</code> to <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i+1]-1</code> (or from <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i]</code> to <code class="ph codeph"><span class="keyword parmname">nzcnt</span>-1</code> if <code class="ph codeph">i=<span class="keyword parmname">rcnt</span>-1</code>). Each entry, <code class="ph codeph"><span class="keyword parmname">rmatind</span>[i]</code>, specifies the column index of the corresponding coefficient, <code class="ph codeph"><span class="keyword parmname">rmatval</span>[i]</code>. All rows must be contiguous, and <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[0]</code> must be <code class="ph codeph">0</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nodeest</dt>
+
+        <dd class="dd pd">
+          
+          A double that specifies the value of the node estimate for the 
+          node to be created with this branch. The node estimate is used 
+          to select nodes from the branch-and-cut tree with certain values 
+          of the parameter to control 
+          <a class="xref" href="../../CPLEX/Parameters/topics/NodeSel.html" title="Used to set the rule for selecting the next node to process when backtracking.">MIP node selection strategy</a> 
+          (<code class="ph codeph">CPXPARAM_MIP_Strategy_NodeSelect</code>). 
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">userhandle</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to user private data that should be associated with the node created by this branch. Can be <code class="ph codeph">NULL</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">seqnum_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer that, on return, will contain the sequence number that CPLEX has assigned to the node created from this branch. The sequence number may be used to select this node in later calls to the node callback.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetB.html">B</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Annotations for Python API users" />
+<meta name="abstract" content="CPLEX supports annotations for Benders decomposition in the Python API." />
+<meta name="Description" content="CPLEX supports annotations for Benders decomposition in the Python API." />
+<meta name="DC.subject" content="Python API, annotations, Benders decomposition" />
+<meta name="keywords" content="Python API, annotations, Benders decomposition" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="annotationsPython" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<title>Annotations for Python API users</title>
+</head>
+<body id="annotationsPython"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Annotations for Python API users</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX supports annotations for Benders decomposition in the Python API.</p>
+
+
+<div class="p">These classes support annotations in the Python API of CPLEX: 
+<ul class="ul"> 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">AnnotationObjectType</span></code></li>
+
+<li class="li"><code class="ph codeph"><span class="keyword apiname">AnnotationInterface</span></code></li>
+
+</ul>
+
+</div>
+
+<div class="p">There are also methods for adding, accessing, and modifying annotations of a model. 
+<ul class="ul"> 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.add</span></code> adds a new annotation to a model. </li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.delete</span></code> deletes the annotation from an
+element of a model.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.get_names</span></code> returns the names of a set
+of annotations.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.get_num</span></code> returns the number of
+annotations of a model.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.get_types</span></code> returns the type of a set
+of annotations.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.get_default_values</span></code> returns the
+default value of a set of annotations.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.set_values</span></code> sets annotations for a
+specified object type.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.long_annotations.get_values</span></code> returns the annotations
+for a specified object type.</li>
+ 
+
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.add</span></code> adds a new annotation to a
+model. </li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.delete</span></code> deletes the annotation from
+an element of a model.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.get_names</span></code> returns the names of a
+set of annotations.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.get_num</span></code> returns the number of
+annotations of a model.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.get_types</span></code> returns the type of a set
+of annotations.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.get_default_values</span></code> returns the
+default value of a set of annotations.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.set_values</span></code> sets annotations for a
+specified object type.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.double_annotations.get_values</span></code> returns the annotations
+for a specified object type.</li>
+ 
+
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.read_annotations</span></code> reads annotations from a file.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.write_annotations</span></code> writes annotations to a file.</li>
+ 
+<li class="li"><code class="ph codeph"><span class="keyword apiname">Cplex.write_benders_annotation</span></code> writes to a file any
+annotations that CPLEX automatically generated.</li>
+
+</ul>
+
+</div>
+
+<p class="p"> For detailed documentation and examples of methods in these classes, see the entries for these
+classes in the reference manual of the Python API of CPLEX, and see also doc strings in
+<code class="ph codeph"><em class="ph i">&lt;Install_dir&gt;</em>/cplex/python/3.7/<em class="ph i">&lt;your_platform&gt;</em>/cplex/_internal/_anno.py</code>
+or
+<code class="ph codeph"><em class="ph i">&lt;Install_dir&gt;</em>/cplex/python/3.8/<em class="ph i">&lt;your_platform&gt;</em>/cplex/_internal/_anno.py</code>,
+where <code class="ph codeph"><em class="ph i">&lt;your_platform&gt;</em></code> is a platform-specific directory, such as
+<code class="ph codeph">x64_win64</code>.</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" title="Annotation of a model specifies to CPLEX how to decompose your model.">Annotating a model for CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

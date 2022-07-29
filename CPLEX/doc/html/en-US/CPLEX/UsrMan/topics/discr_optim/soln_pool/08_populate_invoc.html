@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Invoking the populate procedure" />
+<meta name="abstract" content="Describes how to invoke the populate procedure of the solution pool." />
+<meta name="Description" content="Describes how to invoke the populate procedure of the solution pool." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/06_populate_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solnpool.1050181" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/06_populate_title_synopsis.html" />
+<title>Invoking the populate procedure</title>
+</head>
+<body id="User_manual.uss_solnpool.1050181"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Invoking the populate procedure</h1>
+<div class="body"><p class="shortdesc">Describes how to invoke the populate procedure of the
+solution pool.</p>
+
+<p class="p">The populate procedure is available in all application
+programming interfaces (APIs) of CPLEX.</p>
+
+<ul class="ul"><li class="li"><p class="p">In Concert Technology, you invoke this
+procedure by means of the method:</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloCplex::populate</code> 
+in the C++ API.</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloCplex.populate</code> 
+in the Java API.</p>
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">Cplex.Populate</code> 
+in the .NET API.</p>
+</li>
+</ul>
+
+</li>
+<li class="li"><p class="p">In the Callable Library (C API), you
+invoke this procedure by means of the routine <code class="ph codeph">CPXpopulate</code>.</p>
+
+</li>
+<li class="li"><p class="p">In the Interactive Optimizer, you invoke
+this procedure by means of the command <code class="ph codeph">populate</code>.</p>
+
+</li>
+</ul>
+
+<p class="p">For examples of populating the solution pool in an application,
+see <em class="ph i">yourCPLEXhome</em><code class="ph codeph">/examples/src/populate.c</code> and <code class="ph codeph">ilopopulate.cpp</code> as
+well as <code class="ph codeph">Populate.java</code> and <code class="ph codeph">Populate.cs</code>.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/06_populate_title_synopsis.html" title="Explains populate, the fundamental procedure of the solution pool.">Populating the solution pool</a></div>
+</div>
+</nav></div></body>
+</html>

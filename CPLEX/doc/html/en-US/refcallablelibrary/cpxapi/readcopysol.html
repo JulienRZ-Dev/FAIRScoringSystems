@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXreadcopysol and CPXreadcopysol" />
+<meta name="abstract" content="This function is deprecated. Use CPXXreadcopystartinfo/CPXreadcopystartinfo instead." />
+<meta name="Description" content="This function is deprecated. Use CPXXreadcopystartinfo/CPXreadcopystartinfo instead." />
+<meta name="DC.subject" content="CPXreadcopysol, C API Reference Manual, CPXXreadcopysol" />
+<meta name="keywords" content="CPXreadcopysol, C API Reference Manual, CPXXreadcopysol" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagereadfiles.html" />
+<meta name="DC.Relation" scheme="URI" content="readcopystartinfo.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="readcopysol" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagereadfiles.html" />
+<title>CPXXreadcopysol and CPXreadcopysol</title>
+</head>
+<body id="readcopysol"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXreadcopysol</span> and <span class="keyword apiname">CPXreadcopysol</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> This function is <strong class="ph b">deprecated</strong>. Use
+<code class="ph codeph"><span class="keyword apiname">CPXXreadcopystartinfo</span>/<span class="keyword apiname">CPXreadcopystartinfo</span></code>
+instead. </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXreadcopysol</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXreadcopysol</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+    <p class="p">
+      This function is <strong class="ph b">deprecated</strong>. Use <a class="xref" href="readcopystartinfo.html" title="The routine CPXXreadcopystartinfo/CPXreadcopystartinfo reads start information from a SOL format file, and copies that basis or solution into a CPLEX problem object.">CPXXreadcopystartinfo and CPXreadcopystartinfo</a> instead.
+    </p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filename_str</dt>
+
+        <dd class="dd pd">
+          
+          The name of the file from which the solution information should be read.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXreadcopysol (env, lp, "myprob.sol");</code></pre>
+
+
+
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetR.html">R</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagereadfiles.html">Reading Files in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="readcopystartinfo.html" title="The routine CPXXreadcopystartinfo/CPXreadcopystartinfo reads start information from a SOL format file, and copies that basis or solution into a CPLEX problem object.">CPXreadcopystartinfo</a></li></ul></div>
+</nav>
+</div></body>
+</html>

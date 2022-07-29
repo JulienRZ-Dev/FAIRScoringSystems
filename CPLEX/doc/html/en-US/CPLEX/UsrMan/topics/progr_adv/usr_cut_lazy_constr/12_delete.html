@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Deleting user cuts and lazy constraints" />
+<meta name="abstract" content="Describes routines and methods to delete pools of user cuts or lazy constraints." />
+<meta name="Description" content="Describes routines and methods to delete pools of user cuts or lazy constraints." />
+<meta name="DC.subject" content="lazy constraint, pool" />
+<meta name="keywords" content="lazy constraint, pool" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/usr_cut_lazy_constr/01_uc_lc_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cbAndLcPools.1016653" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/usr_cut_lazy_constr/01_uc_lc_title_synopsis.html" />
+<title>Deleting user cuts and lazy constraints</title>
+</head>
+<body id="User_manual.uss_cbAndLcPools.1016653"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Deleting user cuts and lazy constraints</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Describes routines and methods to delete pools of user
+cuts or lazy constraints.</p>
+
+      <p class="p">In the <strong class="ph b">Callable Library</strong>, the pools of user cut and lazy
+constraint are cleared by the routines <code class="ph codeph">
+            <a class="xref" href="../../../../../refcallablelibrary/mipapi/freeusercuts.html" title="The routine CPXXfreeusercuts/CPXfreeusercuts clears the list of user cuts that have been previously specified through calls to CPXXaddusercuts/CPXaddusercuts.">CPXfreeusercuts</a>
+         </code> and <code class="ph codeph">
+            <a class="xref" href="../../../../../refcallablelibrary/mipapi/freelazyconstraints.html" title="The routine CPXXfreelazyconstraints/CPXfreelazyconstraints clears the list of lazy constraints that have been previously specified through calls to CPXXaddlazyconstraints/CPXaddlazyconstraints.">CPXfreelazyconstraints</a>
+         </code>.
+Clearing the pools does not change the MIP solution. </p>
+
+      <p class="p">The <strong class="ph b">Concert Technology</strong> methods are <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#clearUserCuts">clearUserCuts</a> and <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#clearLazyConstraints">clearLazyConstraints</a>. </p>
+
+      <p class="p">Clearing a pool means that the user cuts and lazy constraints in
+the pool are removed and are <strong class="ph b">not</strong> applied the next time MIP
+optimization is called, and that the solution to the MIP (if one exists)
+is still available. Although any existing solution is still feasible,
+it may no longer be optimal because of this change in the constraints. </p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/usr_cut_lazy_constr/01_uc_lc_title_synopsis.html" title="Documents pools of user-defined cuts and lazy constraints.">User-cut and lazy-constraint pools</a></div>
+</div>
+</nav></div></body>
+</html>

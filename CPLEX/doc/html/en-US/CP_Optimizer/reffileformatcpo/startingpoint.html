@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="The startingPoint section" />
+<meta name="abstract" content="The optional section startingPoint specifies a (possibly partial) solution that could be used by CP Optimizer to start the search." />
+<meta name="Description" content="The optional section startingPoint specifies a (possibly partial) solution that could be used by CP Optimizer to start the search." />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="The_startingPoint_section" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html" />
+<title>The startingPoint section</title>
+</head>
+<body id="The_startingPoint_section"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">The startingPoint section</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+The optional section <code class="ph codeph">startingPoint</code> specifies a (possibly partial) solution
+that could be used by CP Optimizer to start the search.
+</p>
+
+
+<section class="section">
+
+<p class="p">
+For more information about starting point see <a class="xref" href="../../refcppcpoptimizer/html/startpoint.html">Starting point in CP Optimizer</a>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="The_startingPoint_section__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+y = <a class="xref" href="functions/intVar.html" title="Creates a new integer variable.">intVar</a>(1..10);
+x + y &lt; 12;
+itv = <a class="xref" href="functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional, end=0..100, size=1..5);
+<a class="xref" href="functions/startOf.html" title="Returns the start of a specified interval variable.">startOf</a>(itv, 10) == x;
+<a class="xref" href="functions/endOf.html" title="Returns the end of specified interval variable.">endOf</a>(itv, 1) == y;
+
+startingPoint {
+  x = <a class="xref" href="functions/intVar.html" title="Creates a new integer variable.">intVar</a>(3);
+  itv = <a class="xref" href="functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(present, size=4..10);
+}
+</code></pre>
+<p class="p">
+Notice that the starting point in the example above does not specify values for all
+variables (variable <code class="ph codeph">y</code> is missing). Also for interval variable <code class="ph codeph">itv</code>, the
+starting point does not specify an exact start time and end time, instead it only
+further restricts its domain. Considering the constraints in the model and the
+starting point, CP Optimizer produces the following first solution:
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = 3;
+y = 7;
+itv = (present, start=3, end=7, size=4);
+</code></pre>
+</section>
+
+
+<section class="section" id="The_startingPoint_section__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+
+<div class="imageleft"><img class="image syntaxdiagram" src="diagrams/diagram35.png" /></div>
+
+<p class="p">
+The starting point is specified as a collection of assignments in the form
+<code class="ph codeph">variableName = valueSpecifiation;</code>. The syntax of <code class="ph codeph">valueSpecification</code>
+depends on the type of the variable, but in general it is <code class="ph codeph">variableType(...)</code>.
+There are also shortcuts. In particular, the <code class="ph codeph">variableType</code> is optional and
+as are the brackets sometimes. The starting point above could be written as:
+</p>
+
+
+<pre class="pre codeblock"><code>
+startingPoint {
+  x = 3;
+  itv = (present, size=4..10);
+}
+</code></pre>
+<p class="p">
+The section <code class="ph codeph">startingPoint</code> can appear anywhere in the file, but it cannot
+appear more than once. All the variables used in the starting point must be
+declared already and cannot be used in the starting point more than once.
+</p>
+
+
+</section>
+
+
+<section class="section" id="The_startingPoint_section__Specifying_a_value_for_intVar"><h2 class="title sectiontitle">Specifying a value for <code class="ph codeph"><a class="xref" href="functions/intVar.html" title="Creates a new integer variable.">intVar</a></code></h2>
+<p class="p">
+The starting point can assign a single value to an integer variable (<code class="ph codeph">x = 1</code>) or a
+range (<code class="ph codeph">x=1..5</code>). The syntax is:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="diagrams/diagram36.png" /></div>
+
+</section>
+
+
+<section class="section" id="The_startingPoint_section__Specifying_a_value_for_intervalVar"><h2 class="title sectiontitle">Specifying a value for <code class="ph codeph"><a class="xref" href="syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a></code></h2>
+<p class="p">
+For an interval variable, the starting point can specify its presence status
+(<code class="ph codeph">present</code>, <code class="ph codeph">absent</code>, or <code class="ph codeph">optional</code>) and value or range for its <code class="ph codeph">start</code>,
+<code class="ph codeph">end</code>, <code class="ph codeph">length</code> and <code class="ph codeph">size</code>. The keyword <code class="ph codeph">intervalVar</code> is optional, and the brackets
+can be omitted only for absent intervals.
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="diagrams/diagram37.png" /></div>
+
+</section>
+
+
+<section class="section" id="The_startingPoint_section__Example2"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional);
+b = <a class="xref" href="functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(optional);
+<a class="xref" href="functions/endBeforeStart.html" title="Constrains minimum delay between the end of one interval variable and start of another one.">endBeforeStart</a>(a, b);
+
+startingPoint {
+  a = (present, start=0, end=10);
+  b = absent;
+}
+</code></pre>
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html">CP Optimizer File Format Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="element" />
+<meta name="abstract" content="This function returns an element of a given array indexed by an integer expression for use in a constraint or another expression." />
+<meta name="Description" content="This function returns an element of a given array indexed by an integer expression for use in a constraint or another expression." />
+<meta name="DC.subject" content="element" />
+<meta name="keywords" content="element" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/070_Types.html#Basic_expression_types/intExpr" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/floatArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="element" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>element</title>
+</head>
+<body id="element"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">element</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+This function returns an element of a given array indexed by an
+integer expression for use in a constraint or another expression.
+</p>
+
+
+
+<section class="section" id="element__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">element</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> subscript, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> array)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">element</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> subscript, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> array)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">element</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> subscript, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> array)
+</code></pre>
+</section>
+
+
+<section class="section" id="element__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">subscript</code>: an integer expression used to subscript the array
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">array</code>: an array in which an element will be selected using <code class="ph codeph">subscript</code>
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="element__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns an expression for use in a constraint or other
+expression. The semantics of this expression are: when <code class="ph codeph">subscript</code>
+takes the value <code class="ph codeph">i</code>, then the value of the expression is equal to
+<code class="ph codeph">array[i]</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="element__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+In the following example, the element constraint is used to determine the index, in an array of 3 variables, constrained to assume different values, of the variable whose value is <code class="ph codeph">1</code>.
+</p>
+
+
+<pre class="pre codeblock"><code>
+vars = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3),<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3)];
+index = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..2);
+<a class="xref" href="alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a>(vars);
+<strong class="ph b">element</strong>(index,vars) == 1;
+</code></pre>
+</section>
+
+
+<section class="section" id="element__Notes"><h2 class="title sectiontitle">Notes</h2>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a></li>
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

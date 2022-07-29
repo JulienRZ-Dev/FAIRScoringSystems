@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Example lpex6.c" />
+<meta name="abstract" content="Shows an example of starting from an advanced basis in the C API." />
+<meta name="Description" content="Shows an example of starting from an advanced basis in the C API." />
+<meta name="DC.subject" content="CPXcopybase routine, CPXopenCPLEX routine, example lpex6.c, CPXsetintparam routine, CPX_PARAM_SCRIND, example lpex6.c, CPXcreateprob routine, CPXfreeprob routine, CPXcloseCPLEX routine, CPX_PARAM_DEPIND, barrier, solution, quality" />
+<meta name="keywords" content="CPXcopybase routine, CPXopenCPLEX routine, example lpex6.c, CPXsetintparam routine, CPX_PARAM_SCRIND, example lpex6.c, CPXcreateprob routine, CPXfreeprob routine, CPXcloseCPLEX routine, CPX_PARAM_DEPIND, barrier, solution, quality" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/27_eg_basis_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveLP.652810" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/27_eg_basis_title_synopsis.html" />
+<title>Example lpex6.c</title>
+</head>
+<body id="User_manual.uss_solveLP.652810"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Example lpex6.c</h1>
+
+
+
+<div class="body"><p class="shortdesc">Shows an example of starting from an advanced basis in
+the C API.</p>
+
+<p class="p">The example, <code class="ph codeph">lpex6.c</code>, resembles one you may have
+studied in the <em class="ph i">Getting Started</em> manual, <code class="ph codeph">lpex1.c</code>.
+This example differs from that one in these ways:</p>
+
+<ul class="ul">
+<li class="li"><p class="p">In the <code class="ph codeph">main</code> routine, the arrays <code class="ph codeph">cstat</code> and <code class="ph codeph">rstat</code> set
+the status of the initial basis.</p>
+</li>
+
+<li class="li"><p class="p">After the problem data has been copied into the problem object,
+the basis is copied by a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/copybase.html" title="The routine CPXXcopybase/CPXcopybase copies a basis into a CPLEX problem object.">CPXcopybase</a></code> .</p>
+</li>
+
+<li class="li"><p class="p">After the problem has been optimized, the iteration count is
+printed. For the given data and basis, the basis is optimal, so no
+iterations are required to optimize the problem.</p>
+ </li>
+
+</ul>
+
+<p class="p">The application begins with declarations of arrays to store the
+solution of the problem. Then, before it calls any other CPLEX routine,
+the application invokes the Callable Library routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code> to
+initialize the CPLEX environment. After the environment has been initialized,
+the application calls other Callable Library routines, such as <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/setintparam.html" title="The routine CPXXsetintparam/CPXsetintparam sets the value of a CPLEX parameter of type CPXINT.">CPXsetintparam</a></code> with
+the argument <code class="ph codeph">CPX_PARAM_SCRIND</code> to direct output to
+the screen and most importantly, <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/createprob.html" title="The routine CPXXcreateprob/CPXcreateprob creates a CPLEX problem object in the CPLEX environment.">CPXcreateprob</a></code> to
+create the problem object. The routine <code class="ph codeph">populatebycolumn</code> builds
+the problem object, and as noted earlier, <code class="ph codeph">CPXcopybase</code> copies
+the advanced starting basis.</p>
+
+<p class="p">Before the application ends, it calls <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/freeprob.html" title="The routine CPXXfreeprob/CPXfreeprob removes the specified CPLEX problem object from the CPLEX environment and frees the associated memory used internally by CPLEX.">CPXfreeprob</a></code> to
+free space allocated to the problem object and <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/closeCPLEX.html" title="This routine frees all of the data structures associated with CPLEX.">CPXcloseCPLEX</a></code> to
+free the environment.</p>
+
+<p class="p">The complete program <code class="ph codeph">lpex6.c</code> appears online in
+the standard distribution at <em class="ph i">yourCPLEXinstallation</em> <code class="ph codeph">/examples/src.</code> </p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/27_eg_basis_title_synopsis.html" title="Shows examples of starting from an advanced basis for LP optimization.">Examples: using a starting basis in LP optimization</a></div>
+</div>
+</nav></div></body>
+</html>

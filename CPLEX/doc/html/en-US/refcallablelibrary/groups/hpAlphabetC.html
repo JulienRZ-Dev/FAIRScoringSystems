@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="C" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallable.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackabort.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackaddusercuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackcandidateispoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackcandidateisray.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackexitcutloop.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetcandidatepoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetcandidateray.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetincumbent.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetinfodbl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetinfoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetinfolong.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbackgetlocallb.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbackgetlocalub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbackgetgloballb.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbackgetglobalub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetrelaxationpoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetrelaxationstatus.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackmakebranch.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackpostheursoln.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackprunenode.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackrejectcandidate.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackrejectcandidatelocal.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbacksetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbacksetnodeuserhandle.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbacksetuserhandle.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkaddcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkaddqconstr.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkaddrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkchgcoeflist.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopyctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopylp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopylpwnames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopynet.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopyqpsep.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopyquad.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopysos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/checkdfeas.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/checkpfeas.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/checksoln.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkvals.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgbds.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgcoef.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgcoeflist.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgcolname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/chgctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/chgmipstarts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgobjoffset.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgobjsen.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgprobname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgprobtype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgprobtypesolnpool.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/qpapi/chgqpcoef.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgrhs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgrngval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgrowname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgsense.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/cleanup.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/cloneprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/closeCPLEX.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/clpwrite.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/completelp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copybase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copybasednorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copydnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/copyctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copylp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copylpwnames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copynettolp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copyobjname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/copyorder.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copypnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copyprotected.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/qpapi/copyqpsep.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/qpapi/copyquad.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/copysos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copystart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/createprob.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/crushform.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/crushpi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/crushx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/cutcallbackadd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/cutcallbackaddlocal.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpAlphabetC" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallable.html" />
+<title>C</title>
+</head>
+<body id="hpAlphabetC"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">C</h1>
+
+<div class="body">
+<p class="p">
+</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackabort.html">CPXXcallbackabort and CPXcallbackabort</a></strong><br />
+      Aborts a CPLEX solve from a callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackaddusercuts.html">CPXXcallbackaddusercuts and CPXcallbackaddusercuts</a></strong><br />
+      Add user cuts from <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackcandidateispoint.html">CPXXcallbackcandidateispoint and CPXcallbackcandidateispoint</a></strong><br />
+      Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE     was invoked for a candidate feasible point.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackcandidateisray.html">CPXXcallbackcandidateisray and CPXcallbackcandidateisray</a></strong><br />
+      Tests whether a callback in the context     CPX_CALLBACKCONTEXT_CANDIDATE     was invoked for an unbounded relaxation.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackexitcutloop.html">CPXXcallbackexitcutloop and CPXcallbackexitcutloop</a></strong><br />
+      Instructs CPLEX to exit the cutloop at the current node from a callback      in the context CPX_CALLBACKCONTEXT_RELAXATION.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetcandidatepoint.html">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a></strong><br />
+      Gets the candidate solution and its objective value for callback invocations     in the context CPX_CALLBACKCONTEXT_CANDIDATE.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetcandidateray.html">CPXXcallbackgetcandidateray and CPXcallbackgetcandidateray</a></strong><br />
+      Gets the unbounded ray for callback invocations     in the context CPX_CALLBACKCONTEXT_CANDIDATE.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetfunc.html">CPXXcallbackgetfunc and CPXcallbackgetfunc</a></strong><br />
+      Get the currently installed generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetincumbent.html">CPXXcallbackgetincumbent and CPXcallbackgetincumbent</a></strong><br />
+      Gets the incumbent solution and its objective value for callback invocations     in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetinfodbl.html">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a></strong><br />
+    Accesses information of type double from a generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetinfoint.html">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></strong><br />
+   Accesses information of type integer from a generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetinfolong.html">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a></strong><br />
+   Accesses information of type long from a generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbackgetlocallb.html">CPXXcallbackgetlocallb and CPXcallbackgetlocallb</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetlocallb</span>/<span class="keyword apiname">CPXcallbackgetlocallb</span></code>  retrieves the lower bound values for the subproblem at the current node  during MIP optimization from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbackgetlocalub.html">CPXXcallbackgetlocalub and CPXcallbackgetlocalub</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetlocalub</span>/<span class="keyword apiname">CPXcallbackgetlocalub</span></code>  retrieves the upper bound values for the subproblem at the current node  during MIP optimization from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbackgetgloballb.html">CPXXcallbackgetgloballb and CPXcallbackgetgloballb</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetgloballb</span>/<span class="keyword apiname">CPXcallbackgetgloballb</span></code>  retrieves the best known globally valid lower bound values during MIP  optimization from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbackgetglobalub.html">CPXXcallbackgetglobalub and CPXcallbackgetglobalub</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackgetglobalub</span>/<span class="keyword apiname">CPXcallbackgetglobalub</span></code>  retrieves the best known globally valid upper bound values during MIP  optimization from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetrelaxationpoint.html">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a></strong><br />
+     Get the solution to the current node relaxation and its objective value for     callback invocations with <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></code>     or <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetrelaxationstatus.html">CPXXcallbackgetrelaxationstatus and CPXcallbackgetrelaxationstatus</a></strong><br />
+     Get the solution status for the current node relaxation.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackmakebranch.html">CPXXcallbackmakebranch and CPXcallbackmakebranch</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackmakebranch</span>/<span class="keyword apiname">CPXcallbackmakebranch</span></code>     defines the branching constraints that define a branch from the current node     in the MIP search tree, from the context <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></code>.     The branch can include both variable bound changes and additional linear constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackpostheursoln.html">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a></strong><br />
+     Posts a feasible solution to CPLEX.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackprunenode.html">CPXXcallbackprunenode and CPXcallbackprunenode</a></strong><br />
+      Instructs CPLEX to prune the current node of the search tree from a callback      in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackrejectcandidate.html">CPXXcallbackrejectcandidate and CPXcallbackrejectcandidate</a></strong><br />
+      Rejects a candidate solution or an unbounded direction from a callback       in the context CPX_CALLBACKCONTEXT_CANDIDATE and       potentially specifies additional constraints that cut off the solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackrejectcandidatelocal.html">CPXXcallbackrejectcandidatelocal and CPXcallbackrejectcandidatelocal</a></strong><br />
+      Rejects a candidate solution or an unbounded direction from a callback       in the context CPX_CALLBACKCONTEXT_CANDIDATE and       specifies additional constraints that cut off the solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbacksetfunc.html">CPXXcallbacksetfunc and CPXcallbacksetfunc</a></strong><br />
+      Sets the generic callback function and specifies in which contexts it will be     invoked.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbacksetnodeuserhandle.html">CPXXcallbacksetnodeuserhandle and CPXcallbacksetnodeuserhandle</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbacksetnodeuserhandle</span>/<span class="keyword apiname">CPXcallbacksetnodeuserhandle</span></code> sets the user  handle for the node specified by <code class="ph codeph"><span class="keyword parmname">nodeindex</span></code> and optionally  returns the old user handle stored at that node.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbacksetuserhandle.html">CPXXcallbacksetuserhandle and CPXcallbacksetuserhandle</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbacksetuserhandle</span>/<span class="keyword apiname">CPXcallbacksetuserhandle</span></code> sets the user handle  at the current node and optionally returns the old user handle stored at  the current node.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkaddcols.html">CPXXcheckaddcols and CPXcheckaddcols</a></strong><br />
+ Checks data when columns are added to a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkaddqconstr.html">CPXXcheckaddqconstr and CPXcheckaddqconstr</a></strong><br />
+ Checks data when a constraint containing a quadratic term is added to a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkaddrows.html">CPXXcheckaddrows and CPXcheckaddrows</a></strong><br />
+ Checks data when rows are added to a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkchgcoeflist.html">CPXXcheckchgcoeflist and CPXcheckchgcoeflist</a></strong><br />
+ Checks data when the list of coefficients in a model changes.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopyctype.html">CPXXcheckcopyctype and CPXcheckcopyctype</a></strong><br />
+ Checks the data about the type of variables copied in a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopylp.html">CPXXcheckcopylp and CPXcheckcopylp</a></strong><br />
+ Checks the data copied by <span class="keyword apiname">CPXXcopylp/CPXcopylp</span>.    </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopylpwnames.html">CPXXcheckcopylpwnames and CPXcheckcopylpwnames</a></strong><br />
+ Checks data copied by <span class="keyword apiname">CPXXcopylpwnames/CPXcopylpwnames</span>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopynet.html">CPXXNETcheckcopynet and CPXNETcheckcopynet</a></strong><br />
+ Checks data copied to a network object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopyqpsep.html">CPXXcheckcopyqpsep and CPXcheckcopyqpsep</a></strong><br />
+ Checks the data when the quadratic objective matrix Q for a  separable QP problem is copied.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopyquad.html">CPXXcheckcopyquad and CPXcheckcopyquad</a></strong><br />
+ Checks data when a quadratic objective matrix Q is not diagonal.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopysos.html">CPXXcheckcopysos and CPXcheckcopysos</a></strong><br />
+ Checks data copied for a special ordered set (SOS) in a problem object of type  MILP, MIQP, or MIQCP.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/checkdfeas.html">CPXXcheckdfeas and CPXcheckdfeas</a></strong><br />
+        </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/checkpfeas.html">CPXXcheckpfeas and CPXcheckpfeas</a></strong><br />
+        </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/checksoln.html">CPXXchecksoln and CPXchecksoln</a></strong><br />
+        </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkvals.html">CPXXcheckvals and CPXcheckvals</a></strong><br />
+ Checks data by comparing an array of indices and an array of values for errors.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgbds.html">CPXXchgbds and CPXchgbds</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgbds</span>/<span class="keyword apiname">CPXchgbds</span></code> changes the lower or upper bounds on a set of variables of a problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgcoef.html">CPXXchgcoef and CPXchgcoef</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgcoef</span>/<span class="keyword apiname">CPXchgcoef</span></code> changes a single coefficient in the constraint matrix, linear objective coefficients, righthand side, or ranges of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgcoeflist.html">CPXXchgcoeflist and CPXchgcoeflist</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgcoeflist</span>/<span class="keyword apiname">CPXchgcoeflist</span></code> changes a list of matrix coefficients of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgcolname.html">CPXXchgcolname and CPXchgcolname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgcolname</span>/<span class="keyword apiname">CPXchgcolname</span></code> changes the names of variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/chgctype.html">CPXXchgctype and CPXchgctype</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgctype</span>/<span class="keyword apiname">CPXchgctype</span></code> changes the types of a  set of variables of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/chgmipstarts.html">CPXXchgmipstarts and CPXchgmipstarts</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgmipstarts</span>/<span class="keyword apiname">CPXchgmipstarts</span></code> modifies  or extends multiple MIP starts.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgname.html">CPXXchgname and CPXchgname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgname</span>/<span class="keyword apiname">CPXchgname</span></code> changes the name of a constraint or the name of a variable in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgobj.html">CPXXchgobj and CPXchgobj</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgobj</span>/<span class="keyword apiname">CPXchgobj</span></code> changes the linear objective coefficients of a set of variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgobjoffset.html">CPXXchgobjoffset and CPXchgobjoffset</a></strong><br />
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgobjoffset</span>/<span class="keyword apiname">CPXchgobjoffset</span></code> changes the constant offset of the objective function for a problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgobjsen.html">CPXXchgobjsen and CPXchgobjsen</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgobjsen</span>/<span class="keyword apiname">CPXchgobjsen</span></code> changes the sense of the optimization for a problem, to maximization or minimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgprobname.html">CPXXchgprobname and CPXchgprobname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgprobname</span>/<span class="keyword apiname">CPXchgprobname</span></code> changes the name of the current problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgprobtype.html">CPXXchgprobtype and CPXchgprobtype</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgprobtype</span>/<span class="keyword apiname">CPXchgprobtype</span></code> changes the current problem to a related problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgprobtypesolnpool.html">CPXXchgprobtypesolnpool and CPXchgprobtypesolnpool</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgprobtypesolnpool</span>/<span class="keyword apiname">CPXchgprobtypesolnpool</span></code> changes the current problem, if it is a mixed integer problem, to a related fixed problem using a solution from the solution pool.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/qpapi/chgqpcoef.html">CPXXchgqpcoef and CPXchgqpcoef</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgqpcoef</span>/<span class="keyword apiname">CPXchgqpcoef</span></code> changes the coefficient in the  quadratic objective of a quadratic problem (QP) corresponding to the variable  pair <code class="ph codeph">(<span class="keyword apiname">i,j</span>)</code> to the value <code class="ph codeph"><span class="keyword parmname">newvalue</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgrhs.html">CPXXchgrhs and CPXchgrhs</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgrhs</span>/<span class="keyword apiname">CPXchgrhs</span></code> changes the righthand side coefficients of a set of linear constraints in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgrngval.html">CPXXchgrngval and CPXchgrngval</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgrngval</span>/<span class="keyword apiname">CPXchgrngval</span></code> changes the range coefficients of a set of linear constraints in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgrowname.html">CPXXchgrowname and CPXchgrowname</a></strong><br />
+         This routine changes the names of linear constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgsense.html">CPXXchgsense and CPXchgsense</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgsense</span>/<span class="keyword apiname">CPXchgsense</span></code> changes the sense of a set of linear constraints of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/cleanup.html">CPXXcleanup and CPXcleanup</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcleanup</span>/<span class="keyword apiname">CPXcleanup</span></code> changes to zero any problem coefficients that are smaller in magnitude than the tolerance specified in the argument <code class="ph codeph"><span class="keyword parmname">eps</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/cloneprob.html">CPXXcloneprob and CPXcloneprob</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcloneprob</span>/<span class="keyword apiname">CPXcloneprob</span></code> can be used to create a new CPLEX problem object and copy all the problem data from an existing problem object to it.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/closeCPLEX.html">CPXXcloseCPLEX and CPXcloseCPLEX</a></strong><br />
+         This routine frees all of the data structures associated with CPLEX.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/clpwrite.html">CPXXclpwrite and CPXclpwrite</a></strong><br />
+         After <code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span>/<span class="keyword apiname">CPXrefineconflict</span></code> or <code class="ph codeph"><span class="keyword apiname">CPXXrefineconflictext</span>/<span class="keyword apiname">CPXrefineconflictext</span></code> has been invoked on an infeasible problem to identify a minimal set of constraints that are in conflict, this routine will write an LP format file containing the identified conflict.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/completelp.html">CPXXcompletelp and CPXcompletelp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcompletelp</span>/<span class="keyword apiname">CPXcompletelp</span></code> instructs CPLEX to flush its modification cache.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copybase.html">CPXXcopybase and CPXcopybase</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybase</span>/<span class="keyword apiname">CPXcopybase</span></code> copies a basis into a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copybasednorms.html">CPXXcopybasednorms and CPXcopybasednorms</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybasednorms</span>/<span class="keyword apiname">CPXcopybasednorms</span></code> works in conjunction with the routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbasednorms</span>/<span class="keyword apiname">CPXgetbasednorms</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copydnorms.html">CPXXcopydnorms and CPXcopydnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopydnorms</span>/<span class="keyword apiname">CPXcopydnorms</span></code> copies the dual steepest-edge norms to the specified LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/copyctype.html">CPXXcopyctype and CPXcopyctype</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyctype</span>/<span class="keyword apiname">CPXcopyctype</span></code> can be used to copy variable type  information into a given problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copylp.html">CPXXcopylp and CPXcopylp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code> copies data that define an LP problem to a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copylpwnames.html">CPXXcopylpwnames and CPXcopylpwnames</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> copies LP data into a CPLEX problem object in the same way as the routine  <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code>,  but <code class="ph codeph"><span class="keyword apiname">CPXXcopylpwnames</span>/<span class="keyword apiname">CPXcopylpwnames</span></code> accepts   additional arguments to specify the names of constraints and variables in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copynettolp.html">CPXXcopynettolp and CPXcopynettolp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopynettolp</span>/<span class="keyword apiname">CPXcopynettolp</span></code> copies a network problem stored in a network problem object to a CPLEX problem object (as an LP).   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copyobjname.html">CPXXcopyobjname and CPXcopyobjname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyobjname</span>/<span class="keyword apiname">CPXcopyobjname</span></code> copies a name for the objective function into a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/copyorder.html">CPXXcopyorder and CPXcopyorder</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyorder</span>/<span class="keyword apiname">CPXcopyorder</span></code> copies a priority order  to a CPLEX problem object of type  <code class="ph codeph">CPXPROB_MILP</code>,  <code class="ph codeph">CPXPROB_MIQP</code>, or  <code class="ph codeph">CPXPROB_MIQCP</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copypnorms.html">CPXXcopypnorms and CPXcopypnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopypnorms</span>/<span class="keyword apiname">CPXcopypnorms</span></code> copies the primal steepest-edge norms to the specified LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copyprotected.html">CPXXcopyprotected and CPXcopyprotected</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyprotected</span>/<span class="keyword apiname">CPXcopyprotected</span></code> specifies a set of variables that should not be substituted out of the problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/qpapi/copyqpsep.html">CPXXcopyqpsep and CPXcopyqpsep</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyqpsep</span>/<span class="keyword apiname">CPXcopyqpsep</span></code> is used to copy the  quadratic objective matrix Q for a  separable QP problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/qpapi/copyquad.html">CPXXcopyquad and CPXcopyquad</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyquad</span>/<span class="keyword apiname">CPXcopyquad</span></code> is used to copy a  quadratic objective matrix Q when Q  is not diagonal.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/copysos.html">CPXXcopysos and CPXcopysos</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopysos</span>/<span class="keyword apiname">CPXcopysos</span></code> copies special ordered set  (SOS) information to a problem object of type <code class="ph codeph">CPXPROB_MILP</code>,  <code class="ph codeph">CPXPROB_MIQP</code>, or  <code class="ph codeph">CPXPROB_MIQCP</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copystart.html">CPXXcopystart and CPXcopystart</a></strong><br />
+   This routine provides starting information for use in a subsequent  call to a simplex optimization routine.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/createprob.html">CPXXcreateprob and CPXcreateprob</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code> creates a CPLEX problem object  in the CPLEX environment.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/crushform.html">CPXXcrushform and CPXcrushform</a></strong><br />
+          The routine<code class="ph codeph"><span class="keyword apiname">CPXcrushform</span></code> crushes a linear formula of the original problem to a linear formula of the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/crushpi.html">CPXXcrushpi and CPXcrushpi</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcrushpi</span>/<span class="keyword apiname">CPXcrushpi</span></code> crushes a dual solution for the original problem to a dual solution for the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/crushx.html">CPXXcrushx and CPXcrushx</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcrushx</span>/<span class="keyword apiname">CPXcrushx</span></code> crushes a solution for the original problem to a solution for the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/cutcallbackadd.html">CPXXcutcallbackadd and CPXcutcallbackadd</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXcutcallbackadd</span>/<span class="keyword apiname">CPXcutcallbackadd</span></code> adds lazy constraints  and globally valid cuts to the  current node LP subproblem during MIP branch and cut.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/cutcallbackaddlocal.html">CPXXcutcallbackaddlocal and CPXcutcallbackaddlocal</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXcutcallbackaddlocal</span>/<span class="keyword apiname">CPXcutcallbackaddlocal</span></code> adds local cuts during  MIP branch and cut.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallable.html">Alphabetic list of routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

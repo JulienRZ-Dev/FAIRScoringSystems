@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXERR_NOT_FOR_BENDERS" />
+<meta name="abstract" content="2004 problem not compatible with Benders" />
+<meta name="Description" content="2004 problem not compatible with Benders" />
+<meta name="DC.subject" content="CPXERR_NOT_FOR_BENDERS, C API Reference Manual" />
+<meta name="keywords" content="CPXERR_NOT_FOR_BENDERS, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepageerrorcodes.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPXERR_NOT_FOR_BENDERS" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepageerrorcodes.html" />
+<title>CPXERR_NOT_FOR_BENDERS</title>
+</head>
+<body id="CPXERR_NOT_FOR_BENDERS"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">CPXERR_NOT_FOR_BENDERS</h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">2004 problem not compatible with Benders</p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPXERR_NOT_FOR_BENDERS</span><span class="ph sep"> </span>2004
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section">
+
+ Benders algorithm is incompatible with the problem at hand.
+ <div class="p">
+ Check the problem at hand for one or more of the following features
+ that are incompatible with Benders algorithm:
+ <ul class="ul">
+    <li class="li">ranged constraints</li>
+
+    <li class="li">multiple objectives</li>
+
+    <li class="li">semi-continuous variables</li>
+
+    <li class="li">semi-integer variables</li>
+
+    <li class="li">global constraints</li>
+
+    <li class="li">indicator constraints</li>
+
+    <li class="li">special order sets (SOS)</li>
+
+    <li class="li">quadratic terms in the objective (QP)</li>
+
+    <li class="li">quadratic terms among the constraints (QCP)</li>
+
+    <li class="li">lazy constraints</li>
+
+    <li class="li">control callbacks</li>
+
+ </ul>
+
+For more about each of those features, see its topic in the <em class="ph i">CPLEX User's Manual</em>.
+ </div>
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepageerrorcodes.html">Error Code Symbols in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

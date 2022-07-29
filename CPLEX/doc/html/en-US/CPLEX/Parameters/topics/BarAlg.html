@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="barrier algorithm" />
+<meta name="abstract" content="The default setting 0 uses the &#34;infeasibility - estimate start&#34; algorithm (setting 1) when solving subproblems in a MIP problem, and the standard barrier algorithm (setting 3) in other cases." />
+<meta name="Description" content="The default setting 0 uses the &#34;infeasibility - estimate start&#34; algorithm (setting 1) when solving subproblems in a MIP problem, and the standard barrier algorithm (setting 3) in other cases." />
+<meta name="DC.subject" content="CPX_PARAM_BARALG, BarAlg, barrier algorithm" />
+<meta name="keywords" content="CPX_PARAM_BARALG, BarAlg, barrier algorithm" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196681231904" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>barrier algorithm</title>
+</head>
+<body id="languageRefTopic1196681231904"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">barrier algorithm</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">The default setting 0 uses the "infeasibility
+- estimate start" algorithm (setting 1) when solving subproblems in
+a MIP problem, and the standard barrier algorithm (setting 3) in other
+cases.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">Barrier algorithm</p>
+
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d82806e57">API</th>
+
+<th class="entry nrule" valign="top" id="d82806e60">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d82806e63">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">CPXPARAM Barrier Algorithm</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">CPX_PARAM_BARALG</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">IloCplex::Param::Barrier::Algorithm</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">BarAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">IloCplex.Param.Barrier.Algorithm</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">BarAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">Cplex.Param.Barrier.Algorithm</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">BarAlg (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">baralg </td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">baralg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">parameters.barrier.algorithm</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">barrier.algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">barrier algorithm</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">barrier algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d82806e57 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d82806e60 ">3007</td>
+
+<td class="entry nrule" valign="top" headers="d82806e63 ">3007</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+<p class="p">The default setting 0 uses the "infeasibility - estimate start" algorithm
+(setting 1) when solving subproblems in a MIP problem, and the standard
+barrier algorithm (setting 3) in other cases. The standard barrier
+algorithm is almost always fastest. However, on problems that are
+primal or dual infeasible (common for MIP subproblems), the standard
+algorithm may not work as well as the alternatives. The two alternative
+algorithms (settings 1 and 2) may eliminate numerical difficulties
+related to infeasibility, but are generally slower. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><span class="desc tabledesc">
+
+</span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d82806e193">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d82806e196">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d82806e193 ">0</td>
+
+<td class="entry" valign="top" headers="d82806e196 "><strong class="ph b">Default</strong> setting</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d82806e193 ">1</td>
+
+<td class="entry" valign="top" headers="d82806e196 ">Infeasibility-estimate start </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d82806e193 ">2</td>
+
+<td class="entry" valign="top" headers="d82806e196 ">Infeasibility-constant start </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d82806e193 ">3</td>
+
+<td class="entry" valign="top" headers="d82806e196 ">Standard barrier</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p"> </p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

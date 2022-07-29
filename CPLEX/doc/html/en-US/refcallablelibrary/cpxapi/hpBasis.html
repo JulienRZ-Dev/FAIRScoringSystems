@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Manipulating a basis" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvacol.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvarow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvcol.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvrow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/btran.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copybase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copybasednorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copydnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copyprotected.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/ftran.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbasednorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbhead.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getijrow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/killdnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/killpnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/mbasewrite.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/mdleave.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/NETextract.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/pivot.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/pivotin.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/pivotout.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopybase.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpBasis" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<title>Manipulating a basis</title>
+</head>
+<body id="hpBasis"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Manipulating a basis
+</h1>
+
+<div class="body">
+<p class="p">
+These routines manipulate a basis of a problem.
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvacol.html">CPXXbinvacol and CPXbinvacol</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvacol</span>/<span class="keyword apiname">CPXbinvacol</span></code> computes the representation of the j-th column in terms of the basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvarow.html">CPXXbinvarow and CPXbinvarow</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvarow</span>/<span class="keyword apiname">CPXbinvarow</span></code> computes the i-th row of <strong class="ph b">BinvA</strong> where <strong class="ph b">Binv</strong> represents the inverse of the matrix B and juxtaposition specifies matrix multiplication.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvcol.html">CPXXbinvcol and CPXbinvcol</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvcol</span>/<span class="keyword apiname">CPXbinvcol</span></code> computes the j-th column of the basis inverse.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvrow.html">CPXXbinvrow and CPXbinvrow</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvrow</span>/<span class="keyword apiname">CPXbinvrow</span></code> computes the i-th row of the basis inverse.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/btran.html">CPXXbtran and CPXbtran</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbtran</span>/<span class="keyword apiname">CPXbtran</span></code> solves xTB = yT and puts the answer in y.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copybase.html">CPXXcopybase and CPXcopybase</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybase</span>/<span class="keyword apiname">CPXcopybase</span></code> copies a basis into a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copybasednorms.html">CPXXcopybasednorms and CPXcopybasednorms</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybasednorms</span>/<span class="keyword apiname">CPXcopybasednorms</span></code> works in conjunction with the routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbasednorms</span>/<span class="keyword apiname">CPXgetbasednorms</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copydnorms.html">CPXXcopydnorms and CPXcopydnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopydnorms</span>/<span class="keyword apiname">CPXcopydnorms</span></code> copies the dual steepest-edge norms to the specified LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copyprotected.html">CPXXcopyprotected and CPXcopyprotected</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyprotected</span>/<span class="keyword apiname">CPXcopyprotected</span></code> specifies a set of variables that should not be substituted out of the problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/ftran.html">CPXXftran and CPXftran</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXftran</span>/<span class="keyword apiname">CPXftran</span></code> solves By = x and puts the answer in the vector x, where B is the basis matrix.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbase.html">CPXXgetbase and CPXgetbase</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbase</span>/<span class="keyword apiname">CPXgetbase</span></code> accesses the basis resident in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbasednorms.html">CPXXgetbasednorms and CPXgetbasednorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbasednorms</span>/<span class="keyword apiname">CPXgetbasednorms</span></code> works in conjunction with the routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybasednorms</span>/<span class="keyword apiname">CPXcopybasednorms</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbhead.html">CPXXgetbhead and CPXgetbhead</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbhead</span>/<span class="keyword apiname">CPXgetbhead</span></code> returns the basis header; it gives the negative value minus one of all row indices of slacks.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdnorms.html">CPXXgetdnorms and CPXgetdnorms</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdnorms</span>/<span class="keyword apiname">CPXgetdnorms</span></code> accesses the norms from the dual steepest edge.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getijrow.html">CPXXgetijrow and CPXgetijrow</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetijrow</span>/<span class="keyword apiname">CPXgetijrow</span></code> returns the index of a specific basic variable as its position in the basis header.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/killdnorms.html">CPXXkilldnorms and CPXkilldnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXkilldnorms</span>/<span class="keyword apiname">CPXkilldnorms</span></code> deletes any dual steepest-edge norms that have been retained relative to an active basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/killpnorms.html">CPXXkillpnorms and CPXkillpnorms</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXkillpnorms</span>/<span class="keyword apiname">CPXkillpnorms</span></code>  deletes any primal steepest-edge norms that have been retained relative to an active basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/mbasewrite.html">CPXXmbasewrite and CPXmbasewrite</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmbasewrite</span>/<span class="keyword apiname">CPXmbasewrite</span></code> writes the most current basis associated with a CPLEX problem object to a file.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/mdleave.html">CPXXmdleave and CPXmdleave</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXmdleave</span>/<span class="keyword apiname">CPXmdleave</span></code> assumes that there is a resident optimal simplex basis, and a resident LU-factorization associated with this basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/NETextract.html">CPXXNETextract and CPXNETextract</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXNETextract</span>/<span class="keyword apiname">CPXNETextract</span></code>  finds an embedded network in the LP stored in a CPLEX problem object and copies it as a network to the network problem object, <code class="ph codeph"><span class="keyword parmname">net</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/pivot.html">CPXXpivot and CPXpivot</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivot</span>/<span class="keyword apiname">CPXpivot</span></code> performs a basis change where variable <code class="ph codeph"><span class="keyword parmname">jenter</span></code> replaces variable <code class="ph codeph"><span class="keyword parmname">jleave</span></code> in the basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/pivotin.html">CPXXpivotin and CPXpivotin</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivotin</span>/<span class="keyword apiname">CPXpivotin</span></code> forcibly pivots slacks that appear on a list of inequality rows into the basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/pivotout.html">CPXXpivotout and CPXpivotout</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivotout</span>/<span class="keyword apiname">CPXpivotout</span></code> pivots a list of fixed variables out of the resident basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/readcopybase.html">CPXXreadcopybase and CPXreadcopybase</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXreadcopybase</span>/<span class="keyword apiname">CPXreadcopybase</span></code> reads a basis from a BAS file, and copies that basis into a CPLEX problem object.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

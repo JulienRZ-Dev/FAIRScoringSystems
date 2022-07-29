@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Cluster edition entitlements" />
+<meta name="DC.Relation" scheme="URI" content="../../Optimization_Studio/topics/COS_relnotes_intro.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_mfs_ckz_yfb" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../Optimization_Studio/topics/COS_relnotes_intro.html" />
+<title>Cluster edition entitlements</title>
+</head>
+<body id="topic_mfs_ckz_yfb"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Cluster edition entitlements</h1>
+
+<div class="body">
+<p class="p">The cluster edition is a deployment metric for CPLEX Optimization Studio. It consists of double
+entitlements per "establishment" and per "process". The user must have entitlement to at least 1
+unit of each to be able to use it. </p>
+
+<p class="p">For each entitlement the standard License Information document gives a definition what it covers
+exactly here <a class="xref" href="http://www-03.ibm.com/software/sla/sladb.nsf/lilookup/B20CF4DC70727624852581F6004ACF91?OpenDocument" target="_blank" rel="noopener" title="(Opens in a new tab or window)">License Information documents</a>. </p>
+
+<p class="p">How to relate the "process" metric to technical measurement can be established as follows: </p>
+
+<div class="p">
+<ul class="ul">
+<li class="li">
+<p class="p">In the CPLEX engine the user can set the <em class="ph i">thread parameter</em> for each solve which determines
+how much resources the solve will require from the system (hardware/OS/VM). X process entitlement
+allows the user to set the thread parameter to X.</p>
+
+</li>
+
+<li class="li">
+<p class="p">In the CP Optimizer engine the user can set the so-called worker parameter for each solve which
+determines how much resources the solve will require from the system (hardware/OS/VM). X process
+entitlement allows the user to set the worker parameter to X. The number of thread/worker
+entitlements can be distributed among solves, i.e. having X number of threads/workers allows the
+user to run one solve with X threads/workers or X solves with 1 thread/worker each or anything in
+between as long as the sum of the total number of threads/workers does not exceed X.</p>
+
+<p class="p">This distribution of threads/workers can happen among different establishment entitlements, i.e.
+the sum of the total amount of threads/workers across all the separate clusters covered by separate
+establishment entitlements can not exceed the purchased entitlement of threads/workers.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../Optimization_Studio/topics/COS_relnotes_intro.html" title="Contains the release notes for IBM ILOG CPLEX Optimization Studio 20.1.0 and release notes for previous versions of the product features.">Introducing IBM ILOG CPLEX Optimization Studio 20.1.0</a></div>
+</div>
+</nav></div></body>
+</html>

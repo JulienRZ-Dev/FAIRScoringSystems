@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "main.py", line 289, in <module>
+    test(dataset_path, labels_name, constraints, objectives,
+  File "main.py", line 179, in test
+    l_lists, fold_execution_time, fold_gap, fold_objective = get_scoring_systems(                       # Run CPLEX to compute the scoring systems
+  File "/pfcalcul/work/jrouzot/fairscoringsystems/fairscoringsystems.py", line 263, in get_scoring_systems
+    objective = sol.get_objective_value()
+AttributeError: 'NoneType' object has no attribute 'get_objective_value'

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.rcp.nls2" label="%featureName" plugin="org.eclipse.rcp" provider-name="%providerName" version="4.7.2.v201711161131">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>%copyright</copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes id="org.eclipse.e4.rcp.nls2" version="1.6.2.v201711161131"></includes>
+
+   <plugin fragment="true" id="org.eclipse.help.nl2" unpack="false" version="3.8.1.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.ui.nl2" unpack="false" version="3.109.0.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.ui.workbench.nl2" unpack="false" version="3.110.1.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.update.configurator.nl2" unpack="false" version="3.3.400.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.rcp.nl2" unpack="false" version="4.7.2.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.ui.cocoa.nl2" os="macosx" unpack="false" version="1.1.100.v201711161131" ws="cocoa"></plugin>
+
+</feature>

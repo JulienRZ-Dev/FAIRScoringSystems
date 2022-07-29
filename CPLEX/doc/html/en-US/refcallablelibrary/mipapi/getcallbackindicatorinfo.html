@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetcallbackindicatorinfo and CPXgetcallbackindicatorinfo" />
+<meta name="abstract" content="The routine CPXXgetcallbackindicatorinfo/CPXgetcallbackindicatorinfo accesses information about the indicator constraints of the presolved problem during MIP callbacks." />
+<meta name="Description" content="The routine CPXXgetcallbackindicatorinfo/CPXgetcallbackindicatorinfo accesses information about the indicator constraints of the presolved problem during MIP callbacks." />
+<meta name="DC.subject" content="CPXgetcallbackindicatorinfo, C API Reference Manual, CPXXgetcallbackindicatorinfo" />
+<meta name="keywords" content="CPXgetcallbackindicatorinfo, C API Reference Manual, CPXXgetcallbackindicatorinfo" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getcallbackindicatorinfo" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXgetcallbackindicatorinfo and CPXgetcallbackindicatorinfo</title>
+</head>
+<body id="getcallbackindicatorinfo"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetcallbackindicatorinfo</span> and <span class="keyword apiname">CPXgetcallbackindicatorinfo</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackindicatorinfo</span>/<span class="keyword apiname">CPXgetcallbackindicatorinfo</span></code> accesses
+ information about the indicator constraints of the presolved problem
+ during MIP callbacks.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetcallbackindicatorinfo</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">iindex</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">whichinfo</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">result_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetcallbackindicatorinfo</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">iindex</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">whichinfo</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">result_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackindicatorinfo</span>/<span class="keyword apiname">CPXgetcallbackindicatorinfo</span></code> accesses
+ information about the indicator constraints of the presolved problem
+ during MIP callbacks. When indicator constraints are present, CPLEX
+ creates a presolved problem with indicator constraints in canonical form,
+ regardless of the presolve settings.
+ </p>
+
+ <pre class="pre codeblock"><code>
+ Canonical Form
+ (implying variable = { 0 | 1 }) IMPLIES (implied variable) R rhs
+ </code></pre>
+ <p class="p">In that canonical form, rhs stands for righthand side and
+ R stands for one of these relations:
+ </p>
+
+ <ul class="ul">
+ <li class="li">less than or equal to</li>
+
+ <li class="li">greater than or equal to</li>
+
+ <li class="li">equal to</li>
+
+ </ul>
+
+ <p class="p">In the original problem, you may have indicator constraints in which
+ the implied constraint has two or more variables.
+ In contrast, in the canonical form, the implied constraint can
+ have only one variable; moreover, its coefficient in the constraint must
+ be 1 (one). For example, CPLEX transforms the indicator constraint
+ </p>
+
+ <pre class="pre codeblock"><code>
+ x = 0 -&gt; 3y + z &lt;= 0
+ </code></pre>
+
+ <p class="p">into canonical form by introducing an implied variable
+ <code class="ph codeph"><span class="keyword parmname">w</span></code>, like this:
+ </p>
+
+ <pre class="pre codeblock"><code>
+ w = 3y + z
+ x = 0 -&gt; w &lt;= 0
+ </code></pre>
+
+ <p class="p">The argument <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code> can assume one of the
+ following values in a call to <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackindicatorinfo</span>/<span class="keyword apiname">CPXgetcallbackindicatorinfo</span></code>:</p>
+
+ <ul class="ul">
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_NUM</code>
+ returns the number of indicator constraints.
+ </li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_IMPLYING_VAR</code>
+ returns the index of the implying variable of the
+ <code class="ph codeph"><span class="keyword parmname">iindex</span></code>-th indicator constraint.
+ If the 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a>
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>) 
+ is off (that is, set to <code class="ph codeph">CPX_OFF</code>),
+ the index is in terms of the original
+ problem, and if the index = -1,
+ then the variable has been created by presolve. Otherwise,
+ the index is in terms of the presolved problem.
+ </li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_IMPLIED_VAR</code>
+ returns the index of the implied variable of the
+ <code class="ph codeph"><span class="keyword parmname">iindex</span></code>-th indicator constraint.
+ If the 
+ <a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a>
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>)
+is set to <code class="ph codeph">CPX_OFF</code>,
+ the index is in terms of the original
+ problem, and if the index = -1,
+ then the variable has been created by presolve.
+ Otherwise, the index is in terms of the presolved problem.
+ </li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_SENSE</code>
+ returns the sense of the <code class="ph codeph"><span class="keyword parmname">iindex</span></code>-th indicator constraint.
+ </li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_COMPL</code>
+ returns 0 (zero) if the <code class="ph codeph"><span class="keyword parmname">iindex</span></code>-th indicator
+ constraint is <strong class="ph b">not</strong> complemented, and 1 (one)
+ otherwise.
+ </li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_RHS</code>
+ returns the righthand side of the <code class="ph codeph"><span class="keyword parmname">iindex</span></code>-th
+ indicator constraint.
+ </li>
+
+ <li class="li"><code class="ph codeph">CPX_CALLBACK_INFO_IC_IS_FEASIBLE</code>
+ returns 1 (one) if the implying variable is not
+ 0 (zero) or 1 (one), or if the <code class="ph codeph"><span class="keyword parmname">iindex</span></code>-th
+ indicator constraint is satisfied at the current node;
+ otherwise, it returns 0 (zero).
+ </li>
+
+ </ul>
+
+
+    <div class="note important"><span class="importanttitle">Important:</span>  
+    <p class="p">Any routine that queries the current LP solution can yield invalid
+    data when <code class="ph codeph"><span class="keyword apiname">wherefrom==CPX_CALLBACK_MIP</span></code> because in that case, 
+    the MIP callback is called before the LP relaxation of the current node 
+    is solved.
+    </p>
+
+    </div>
+ 
+      
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbdata</dt>
+
+        <dd class="dd pd">
+          
+          The pointer passed to the user-written callback. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">cbdata</span></code> passed to the user-written callback.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">wherefrom</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">An integer value that reports where the user-written callback was called from. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> passed to the user-written callback.</p>
+ 
+<p class="p">Do not call this routine with 
+<code class="ph codeph"><span class="keyword apiname">wherefrom==CPX_CALLBACK_MIP_DELETENODE</span></code>.
+Do not call this routine with 
+<code class="ph codeph"><span class="keyword apiname">wherefrom==CPX_CALLBACK_MIP_NODE</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">iindex</dt>
+
+        <dd class="dd pd">
+          
+          An integer, the index of the indicator constraint.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">whichinfo</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying one of the symbolic values that tell what kind of information to access.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">result_p</dt>
+
+        <dd class="dd pd">
+          
+          A generic pointer to a variable of type <code class="ph codeph">double</code> or <code class="ph codeph">int</code>, representing the value returned by <code class="ph codeph"><span class="keyword parmname">whichinfo</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

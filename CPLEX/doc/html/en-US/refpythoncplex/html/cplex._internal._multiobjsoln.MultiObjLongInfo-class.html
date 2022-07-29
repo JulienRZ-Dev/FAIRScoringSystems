@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex._internal._multiobjsoln.MultiObjLongInfo</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        <a href="cplex._internal-module.html" onclick="show_private();">Package&nbsp;_internal</a> ::
+        <a href="cplex._internal._multiobjsoln-module.html">Module&nbsp;_multiobjsoln</a> ::
+        Class&nbsp;MultiObjLongInfo
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex._internal._multiobjsoln.MultiObjLongInfo-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MultiObjLongInfo</h1><p class="nomargin-top"></p>
+<center>
+<center>  <map id="class_hierarchy_for_multiobjlo" name="class_hierarchy_for_multiobjlo">
+<area shape="rect" id="node1" href="cplex._internal._multiobjsoln.MultiObjLongInfo-class.html" title="MultiObjLongInfo" alt="" coords="43,61,164,88"/>
+<area shape="rect" id="node2" href="cplex.constant_class.ConstantClass-class.html" title="constant_class.ConstantClass" alt="" coords="4,5,203,32"/>
+</map>
+  <img src="class_hierarchy_for_multiobjlo.gif" alt='' usemap="#class_hierarchy_for_multiobjlo" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Types of long integer information that can be queried for
+multi-objective optimization.</p>
+<p>This class contains the types of solution information of type float
+that can be retreived from the solution of a sub-problem solved
+during multi-objective optimization.</p>
+<p>This information can be querried for each priority level with method
+<a href="cplex._internal._multiobjsoln.MultiObjSolnInterface-class.html#get_info" class="link">MultiObjSolnInterface.get_info</a>.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cplex.constant_class.ConstantClass-class.html">constant_class.ConstantClass</a></code></b>:
+      <code><a href="cplex.constant_class.ConstantClass-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="cplex.constant_class.ConstantClass-class.html#__init__">__init__</a></code>,
+      <code><a href="cplex.constant_class.ConstantClass-class.html#__iter__">__iter__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Class Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_barrier_iterations"></a><span class="summary-name">num_barrier_iterations</span> = <code title="4">4</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_BARITCNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_BARITCNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_sifting_iterations"></a><span class="summary-name">num_sifting_iterations</span> = <code title="5">5</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_SIFTITCNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_SIFTITCNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_sifting_phase1_iterations"></a><span class="summary-name">num_sifting_phase1_iterations</span> = <code title="6">6</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_SIFTPHASE1CNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_SIFTPHASE1CNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_degenerate_iterations"></a><span class="summary-name">num_degenerate_iterations</span> = <code title="7">7</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DEGCNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_DEGCNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_iterations"></a><span class="summary-name">num_iterations</span> = <code title="8">8</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_ITCNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_ITCNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_phase1_iterations"></a><span class="summary-name">num_phase1_iterations</span> = <code title="9">9</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PHASE1CNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_PHASE1CNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_primal_pushes"></a><span class="summary-name">num_primal_pushes</span> = <code title="10">10</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PPUSH.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_PPUSH</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_primal_exchanges"></a><span class="summary-name">num_primal_exchanges</span> = <code title="11">11</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_PEXCH.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_PEXCH</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_dual_pushes"></a><span class="summary-name">num_dual_pushes</span> = <code title="12">12</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DPUSH.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_DPUSH</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_dual_exchanges"></a><span class="summary-name">num_dual_exchanges</span> = <code title="13">13</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_DEXCH.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_DEXCH</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_nodes"></a><span class="summary-name">num_nodes</span> = <code title="16">16</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_NODECNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_NODECNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="num_nodes_left"></a><span class="summary-name">num_nodes_left</span> = <code title="19">19</code><br />
+      See <a class="rst-reference external" href="../../refcallablelibrary/macros/CPX_MULTIOBJ_NODELEFTCNT.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPX_MULTIOBJ_NODELEFTCNT</span></tt></a> in the C API.
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

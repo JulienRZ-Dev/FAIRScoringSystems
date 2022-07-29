@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex.paramset.ParameterSet</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        <a href="cplex.paramset-module.html" onclick="show_private();">Module&nbsp;paramset</a> ::
+        Class&nbsp;ParameterSet
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex.paramset.ParameterSet-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ParameterSet</h1><p class="nomargin-top"></p>
+<p>A parameter set object for use with multi-objective optimization.</p>
+<p>A parameter set consists of key-value pairs where the key is a CPLEX
+parameter ID (e.g., CPX_PARAM_ADVIND) and the value is the associated
+parameter value.</p>
+<p>When adding, getting, or deleting items from a parameter set the
+param argument can be either a Parameter object (e.g,
+Cplex.parameters.advance) or an integer ID (e.g., CPX_PARAM_ADVIND
+(1001)).</p>
+<p>For more details see the section on multi-objective optimization in
+the CPLEX User's Manual.</p>
+<p>See <a href="cplex.Cplex-class.html#create_parameter_set" class="link">Cplex.create_parameter_set</a> and <a href="cplex.Cplex-class.html#copy_parameter_set" class="link">Cplex.copy_parameter_set</a>.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance, c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(ps)
+<span class="py-output">1</span></pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">env</span>)</span><br />
+      Constructor of the ParameterSet class.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#end" class="summary-sig-name">end</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Releases the ParameterSet object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#__del__" class="summary-sig-name">__del__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Destructor of the ParameterSet class.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#__enter__" class="summary-sig-name">__enter__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Enter the runtime context related to this object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#__exit__" class="summary-sig-name">__exit__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">exc_type</span>,
+        <span class="summary-sig-arg">exc_value</span>,
+        <span class="summary-sig-arg">traceback</span>)</span><br />
+      Exit the runtime context.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#add" class="summary-sig-name">add</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">param</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Add a parameter ID and value to a parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#get" class="summary-sig-name">get</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">param</span>)</span><br />
+      Gets a parameter value.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#get_ids" class="summary-sig-name">get_ids</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Gets the parameter IDs contained in a parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">param</span>)</span><br />
+      Deletes a parameter from a parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#clear" class="summary-sig-name">clear</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clears all items from the parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#__len__" class="summary-sig-name">__len__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return the number of items in the parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#read" class="summary-sig-name">read</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Reads parameter names and settings from the file specified by
+filename and copies them into the parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.paramset.ParameterSet-class.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Writes a parameter file that contains the parameters in the
+parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Method Details</span></td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">env</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Constructor of the ParameterSet class.</p>
+<p>This class is not meant to be instantiated directly nor used
+externally.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="end"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">end</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Releases the ParameterSet object.</p>
+<p>Frees all data structures associated with a ParameterSet. After
+a call of the method end(), the invoking object can no longer be
+used. Attempts to use them subsequently raise a ValueError.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.end()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__del__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__del__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Destructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Destructor of the ParameterSet class.</p>
+<p>When a ParameterSet object is destoyed, the end() method is
+called.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">del</span> ps</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__enter__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__enter__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enter the runtime context related to this object.</p>
+<p>The with statement will bind this method's return value to the
+target specified in the as clause of the statement, if any.</p>
+<p>ParameterSet objects return themselves.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>with c.create_parameter_set():
+<span class="py-more">... </span>    <span class="py-keyword">pass</span>  <span class="py-comment"># do something here</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__exit__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__exit__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">exc_type</span>,
+        <span class="sig-arg">exc_value</span>,
+        <span class="sig-arg">traceback</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Exit the runtime context.</p>
+<p>When we exit the with block, the end() method is called.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="add"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">param</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Add a parameter ID and value to a parameter set.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">param</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets a parameter value.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>val = ps.get(c.parameters.advance)
+<span class="py-prompt">&gt;&gt;&gt; </span>val == c.parameters.advance.values.none
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_ids"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_ids</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the parameter IDs contained in a parameter set.</p>
+<p>Returns an iterator containing the parameter IDs in a parameter
+set.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>list(ps.get_ids())
+<span class="py-output">[1001]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="delete"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">param</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Deletes a parameter from a parameter set.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(ps)
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>ps.delete(c.parameters.advance)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(ps)
+<span class="py-output">0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="clear"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">clear</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Clears all items from the parameter set.</p>
+<p>Example Usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.clear()
+<span class="py-prompt">&gt;&gt;&gt; </span>len(ps)
+<span class="py-output">0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__len__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__len__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Length operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the number of items in the parameter set.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>len(ps)
+<span class="py-output">0</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads parameter names and settings from the file specified by
+filename and copies them into the parameter set.</p>
+<p>Note that the content of the parameter set is not cleared out
+before the parameters in the file are copied into the parameter
+set. The parameters are read from the file one by one and are
+added to the parameter set, or, if the parameter was already
+present in the set, then its value is updated.</p>
+<p>This routine reads and copies files in the PRM format, as created
+by Cplex.parameters.write. The PRM format is documented in the
+CPLEX File Formats Reference Manual.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.parameters.advance.set(c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.parameters.write_file(<span class="py-string">'example.prm'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.read(<span class="py-string">'example.prm'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>value = ps.get(c.parameters.advance)
+<span class="py-prompt">&gt;&gt;&gt; </span>value == c.parameters.advance.values.none
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a parameter file that contains the parameters in the
+parameter set.</p>
+<p>This routine writes a file in a format suitable for reading by
+ParameterSet.read or by Cplex.parameters.read.</p>
+<p>The file is written in the PRM format which is documented in the
+CPLEX File Formats Reference Manual.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.write(<span class="py-string">'example.prm'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.parameters.read_file(<span class="py-string">'example.prm'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>value = c.parameters.advance.get()
+<span class="py-prompt">&gt;&gt;&gt; </span>value == c.parameters.advance.values.none
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

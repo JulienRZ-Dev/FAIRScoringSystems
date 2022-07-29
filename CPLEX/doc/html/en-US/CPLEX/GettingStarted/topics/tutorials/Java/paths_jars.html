@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Paths and JARs" />
+<meta name="abstract" content="Your Java classpath is important to CPLEX in Java applications." />
+<meta name="Description" content="Your Java classpath is important to CPLEX in Java applications." />
+<meta name="DC.subject" content="cplex.jar (location), class library (Java API), classpath (Java API), command line option, Java Virtual Machine (JVM)" />
+<meta name="keywords" content="cplex.jar (location), class library (Java API), classpath (Java API), command line option, Java Virtual Machine (JVM)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/Java/start_Java.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="qSD6HdFZ" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Java/start_Java.html" />
+<title>Paths and JARs</title>
+</head>
+<body id="qSD6HdFZ"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Paths and JARs</h1>
+
+
+
+<div class="body"><p class="shortdesc">Your Java classpath is important to CPLEX in Java
+applications.</p>
+
+<p class="p">When compiling a Java application that uses Concert Technology,
+you need to inform the Java compiler where to find the file <code class="ph codeph">cplex.jar</code> containing the CPLEX Concert Technology
+class library. To do this, you add the <code class="ph codeph">cplex.jar</code> file
+to your classpath. This is most easily done by passing the command-line
+option to the Java compiler <code class="ph codeph">javac</code>, like
+this:</p>
+
+<p class="p"><code class="ph codeph">–classpath </code><em class="ph i">path_to_</em><code class="ph codeph">cplex.jar</code></p>
+
+<p class="p">If you need to include other Java class libraries, you
+should add the corresponding <code class="ph codeph">jar</code> files to
+the classpath as well. Ordinarily, you should also include the current
+directory (<code class="ph codeph">.</code>) to be part of the Java classpath.</p>
+
+<p class="p">At execution time, the same classpath setting is needed.
+Additionally, since CPLEX is implemented via JNI, you need to instruct
+the Java Virtual Machine (JVM) where to find the shared library (or
+dynamic link library) containing the native code to be called from
+Java. You indicate this location with the command line option: </p>
+
+<p class="p"><code class="ph codeph">-Djava.library.path=</code><em class="ph i">path_to_shared_library</em></p>
+
+<p class="p">to the <code class="ph codeph">java</code> command. Note that,
+unlike the <code class="ph codeph">cplex.jar</code> file, the shared library
+is system-dependent; thus the exact path name of the location for the
+library to be used may differ depending on the platform you are using.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/Java/start_Java.html" title="When you compile CPLEX in a Java application, you need to specify the location of the CPLEX JAR in the classpath.">Compiling CPLEX in Concert Technology Java applications</a></div>
+</div>
+</nav></div></body>
+</html>

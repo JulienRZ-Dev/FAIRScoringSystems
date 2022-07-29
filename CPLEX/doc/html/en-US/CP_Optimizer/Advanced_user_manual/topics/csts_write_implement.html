@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Implementation classes and handles" />
+<meta name="abstract" content="A handle class contains an object that is a pointer to an instance of the corresponding implementation class." />
+<meta name="Description" content="A handle class contains an object that is a pointer to an instance of the corresponding implementation class." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/csts_write.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizercsts.1010828" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/csts_write.html" />
+<title>Implementation classes and handles</title>
+</head>
+<body id="migration.uss_usradvcpoptimizercsts.1010828"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Implementation classes and handles</h1>
+<div class="body"><p class="shortdesc">A handle class contains an object that is a pointer to
+an instance of the corresponding implementation class.</p>
+
+<p class="p">For a predefined CP Optimizer class, <code class="ph codeph">IlcConstraintI</code>,
+implementing an object with its own data members and virtual functions,
+CP Optimizer defines the handle class <code class="ph codeph">IlcConstraint</code>.
+Essentially, such a handle class contains objects that are simply
+pointers to instances of the corresponding implementation class <code class="ph codeph">IlcConstraintI</code>.
+When you extend CP Optimizer by defining a new implementation class,
+you must also define a function that returns a handle. </p>
+
+<p class="p">This rule applies particularly to the definition of new
+classes of constraints. Handles for constraints are instances of the
+class <code class="ph codeph">IlcConstraint</code>. This class provides
+an instance of an implementation class, or more precisely, <code class="ph codeph">IlcConstraintI*</code>.
+You must define a function that returns a handle, and the minimal
+service that the handle provides is to manage the memory allocation
+of instances in your implementation class. The form that it generally
+takes looks like this:  </p>
+
+<pre class="pre codeblock"><code>
+IlcConstraint MyConstraint( /* arguments for the constraint */){
+        // get the optimizer from a variable
+        return new (cp.getHeap()) MyConstraintI(cp, /* ...args... */);
+}
+</code></pre>
+<p class="p">The body of that function builds an instance of <code class="ph codeph">MyConstraintI</code> by
+calling the constructor and allocates a place on the CP Optimizer
+heap by calling the overloaded operator, <code class="ph codeph">new (cp.getHeap()
+... )</code>. When you use this CP Optimizer <code class="ph codeph">new</code>,
+you get an efficient allocator that automatically manages how memory
+is recovered in case of backtracking. </p>
+
+<p class="p">In the example, <em class="ph i">x !=
+y</em>, you write a function <code class="ph codeph">DiffConstraint</code> which
+creates the constraint. Here's the code for it:  </p>
+
+<pre class="pre codeblock"><code>
+IlcConstraint DiffConstraint(IlcIntExp x, IlcIntExp y){
+    IlcCPEngine cp = x.getCPEngine();
+    return new (cp.getHeap()) DiffConstraintI(cp, x, y);
+}
+
+</code></pre>
+<p class="p">That definition, of course, has two parts: the implementation
+and the handle. To use this new constraint within the search, you
+simply write: </p>
+
+<pre class="pre codeblock"><code>
+   cp.add(DiffConstraint(x, y));
+</code></pre>
+<p class="p">This statement informs CP Optimizer to take the constraint
+into account within such mechanisms as propagation, backtracking and
+so forth. In general, it can be said that a call to <code class="ph codeph">DiffConstraint</code> as
+written builds an instance of <code class="ph codeph">DiffConstraintI</code> and
+returns a handle for that object (in other words, an encapsulation
+of the object) to post by means of the <code class="ph codeph">post</code> member
+function. The instance of the implementation class is connected to
+the value events of the two decision variables. Every time these variables
+are fixed, the <code class="ph codeph">propagate</code> member function
+is executed. </p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/csts_write.html" title="A custom constraint can be written using engine extensions.">Writing your own constraint</a></div>
+</div>
+</nav></div></body>
+</html>

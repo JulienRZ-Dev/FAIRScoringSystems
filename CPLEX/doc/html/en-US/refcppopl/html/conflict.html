@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="cppdoc.css" />
+<title>Conflict Refiner in CPLEX</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="overview.html">Overview</a></td><td>Group</td><td><a
+                        class="navigation-item"
+                        href="tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="index.html"
+                target="_top">FRAMES</a> <a href="conflict.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><div class="section"><a
+                    name="17"><div
+                class="section-title1">Conflict Refiner in CPLEX</div>
+</a><div
+                    align="right"><a
+                    href="column-wisemodeling.html">PREVIOUS</a> <a
+                href="conflictrefiner.html">NEXT</a></div><table
+                class="summary" border="1" cellpadding="3"
+                cellspacing="0" width="100%" /><div
+                class="section-body"><p>
+Given an infeasible model, the conflict refiner can identify 
+conflicting constraints and bounds within the model 
+to help you identify the causes of the infeasibility. 
+In this context, a conflict is a subset of the constraints 
+and bounds of the model which are mutually contradictory. 
+The conflict refiner first examines the full infeasible 
+model to identify portions of the conflict that it can remove. 
+By this process of refinement, the conflict refiner arrives 
+at a minimal conflict. A minimal conflict is usually smaller 
+than the full infeasible model and thus makes infeasibility 
+analysis easier. To invoke the conflict refiner,  call the 
+method <code>IloCplex::refineConflict</code>. 
+</p><p>
+If a model happens to include multiple independent causes of infeasibility, 
+then it may be necessary for the user to repair one such cause 
+and then repeat the diagnosis with further conflict analysis.
+</p><p>
+A conflict does not provide information about the magnitude of change 
+in data values needed to achieve feasibility. 
+The techniques that CPLEX uses to refine a conflict 
+include or remove constraints or bounds in trial conflicts; 
+the techniques do not vary the data in constraints nor in bounds. 
+To gain insight about changes in bounds on variables and constraints, 
+consider the FeasOpt feature. 
+</p><p>
+Also consider FeasOpt for an approach to automatic repair of infeasibility.
+</p><p>
+In some ways a conflict resembles an irreducibly inconsistent set (IIS). Detection of an IIS among the constraints of a model is a standard methodology in the published literature. Both the CPLEX conflict refiner and the IIS methodology attempt to identify an infeasible subproblem of a provably infeasible model.
+</p><p>However, a conflict is more general than an IIS. The IIS methodology is applicable only to continuous LP models, (including those obtained from a continuous QP by removing the quadratic objective terms). In contrast, the conflict refiner is capable of doing its work on all continuous and discrete problem types that CPLEX supports, except for those with explicit second order cone constraints.</p><p>
+Also, you can specify one or more groups of constraints for a conflict; a group will either be present together in the conflict, or else will not be part of it at all. 
+</p><p>
+See the method 
+<code>IloCplex::refineConflictExt</code> 
+for more about groups.
+</p><p>
+You can also assign a numeric preference to a constraint or to groups of constraints. In the case of an infeasible model that has more than one possible conflict, the preferences you assign will guide the tool toward detecting the conflict you want. Preferences allow you to specify aspects of the model that may otherwise be difficult to encode.
+</p><p>
+While the conflict refiner usually will deliver a smaller set of constraints to consider than using the IIS methodology will, the methods are different enough that the reverse can sometimes be true. In general, the conflict refiner can be thought of as usually doing everything the IIS methodology can, and often more. In fact, you might think of the conflict refiner as an extension and generalization of the IIS methodology.
+</p></div><div
+                    align="right"><a
+                    href="column-wisemodeling.html">PREVIOUS</a> <a href="conflictrefiner.html">NEXT</a></div></div></body>
+</html>

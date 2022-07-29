@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Modifying a model for a linear program (LP)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgbds.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgcoef.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgcoeflist.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgcolname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgobjoffset.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgobjsen.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgprobname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgprobtype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgprobtypesolnpool.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgrhs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgrngval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgrowname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/chgsense.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/cleanup.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/completelp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delnames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delsetcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/delsetrows.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpModifyModel" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<title>Modifying a model for a linear program (LP)</title>
+</head>
+<body id="hpModifyModel"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Modifying a model for a linear program (LP)</h1>
+
+<div class="body">
+<p class="p">
+These routines support modifying a model for continuous optimization, such as linear programming (LP).
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgbds.html">CPXXchgbds and CPXchgbds</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgbds</span>/<span class="keyword apiname">CPXchgbds</span></code> changes the lower or upper bounds on a set of variables of a problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgcoef.html">CPXXchgcoef and CPXchgcoef</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgcoef</span>/<span class="keyword apiname">CPXchgcoef</span></code> changes a single coefficient in the constraint matrix, linear objective coefficients, righthand side, or ranges of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgcoeflist.html">CPXXchgcoeflist and CPXchgcoeflist</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgcoeflist</span>/<span class="keyword apiname">CPXchgcoeflist</span></code> changes a list of matrix coefficients of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgcolname.html">CPXXchgcolname and CPXchgcolname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgcolname</span>/<span class="keyword apiname">CPXchgcolname</span></code> changes the names of variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgname.html">CPXXchgname and CPXchgname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgname</span>/<span class="keyword apiname">CPXchgname</span></code> changes the name of a constraint or the name of a variable in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgobj.html">CPXXchgobj and CPXchgobj</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgobj</span>/<span class="keyword apiname">CPXchgobj</span></code> changes the linear objective coefficients of a set of variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgobjoffset.html">CPXXchgobjoffset and CPXchgobjoffset</a></strong><br />
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgobjoffset</span>/<span class="keyword apiname">CPXchgobjoffset</span></code> changes the constant offset of the objective function for a problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgobjsen.html">CPXXchgobjsen and CPXchgobjsen</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgobjsen</span>/<span class="keyword apiname">CPXchgobjsen</span></code> changes the sense of the optimization for a problem, to maximization or minimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgprobname.html">CPXXchgprobname and CPXchgprobname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgprobname</span>/<span class="keyword apiname">CPXchgprobname</span></code> changes the name of the current problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgprobtype.html">CPXXchgprobtype and CPXchgprobtype</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgprobtype</span>/<span class="keyword apiname">CPXchgprobtype</span></code> changes the current problem to a related problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgprobtypesolnpool.html">CPXXchgprobtypesolnpool and CPXchgprobtypesolnpool</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgprobtypesolnpool</span>/<span class="keyword apiname">CPXchgprobtypesolnpool</span></code> changes the current problem, if it is a mixed integer problem, to a related fixed problem using a solution from the solution pool.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgrhs.html">CPXXchgrhs and CPXchgrhs</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgrhs</span>/<span class="keyword apiname">CPXchgrhs</span></code> changes the righthand side coefficients of a set of linear constraints in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgrngval.html">CPXXchgrngval and CPXchgrngval</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgrngval</span>/<span class="keyword apiname">CPXchgrngval</span></code> changes the range coefficients of a set of linear constraints in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgrowname.html">CPXXchgrowname and CPXchgrowname</a></strong><br />
+         This routine changes the names of linear constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/chgsense.html">CPXXchgsense and CPXchgsense</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgsense</span>/<span class="keyword apiname">CPXchgsense</span></code> changes the sense of a set of linear constraints of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/cleanup.html">CPXXcleanup and CPXcleanup</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcleanup</span>/<span class="keyword apiname">CPXcleanup</span></code> changes to zero any problem coefficients that are smaller in magnitude than the tolerance specified in the argument <code class="ph codeph"><span class="keyword parmname">eps</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/completelp.html">CPXXcompletelp and CPXcompletelp</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXcompletelp</span>/<span class="keyword apiname">CPXcompletelp</span></code> instructs CPLEX to flush its modification cache.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delcols.html">CPXXdelcols and CPXdelcols</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelcols</span>/<span class="keyword apiname">CPXdelcols</span></code> deletes all the columns in a specified range.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delnames.html">CPXXdelnames and CPXdelnames</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelnames</span>/<span class="keyword apiname">CPXdelnames</span></code> removes all names that have been previously assigned to model entities, such as rows, columns, quadratic constraints, special ordered sets (SOSs), or indicator constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delrows.html">CPXXdelrows and CPXdelrows</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelrows</span>/<span class="keyword apiname">CPXdelrows</span></code> deletes a range of rows.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delsetcols.html">CPXXdelsetcols and CPXdelsetcols</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelsetcols</span>/<span class="keyword apiname">CPXdelsetcols</span></code> deletes a set of columns from a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/delsetrows.html">CPXXdelsetrows and CPXdelsetrows</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdelsetrows</span>/<span class="keyword apiname">CPXdelsetrows</span></code> deletes a set of rows.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

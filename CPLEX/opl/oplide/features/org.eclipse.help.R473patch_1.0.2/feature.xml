@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.help.R473patch"
+      label="%featureName"
+      version="1.0.2"
+      provider-name="%providerName"
+      image="eclipse_update_120.jpg">
+   <install-handler/>
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.help" version="2.2.103.v20180301-0715" patch="true"/>
+   </requires>
+
+   <plugin id="org.eclipse.jetty.continuation"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.jetty.http"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.jetty.io"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.jetty.security"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.jetty.server"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.jetty.servlet"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.jetty.util"
+         download-size="0"
+         install-size="0"
+         version="9.4.17.v20190418"
+         unpack="false" />
+
+   <plugin id="org.eclipse.help.base"
+         download-size="0"
+         install-size="0"
+         version="4.2.154.v20190710-0807"
+         unpack="false" />
+</feature>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="GZ" />
+<meta name="abstract" content="CPLEX supports the GZ file format." />
+<meta name="Description" content="CPLEX supports the GZ file format." />
+<meta name="DC.subject" content="GZ file format, file formats, GZ, compressed file format" />
+<meta name="keywords" content="GZ file format, file formats, GZ, compressed file format" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/FileFormats/topics/compressed_files.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="file_formats_GZ" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/FileFormats/topics/compressed_files.html" />
+<title>GZ</title>
+</head>
+<body id="file_formats_GZ"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">GZ</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX supports the GZ file format.</p>
+
+<p class="p"><strong class="ph b">GZ</strong> is not a file format specific to CPLEX. Rather, this file extension indicates that a
+file (possibly in one of the formats that CPLEX reads) has been compressed by <code class="ph codeph">gzip</code>,
+the GNU zip program. This file extension is meaningful to CPLEX only when concatenated with a file
+extension that is known to CPLEX (such as LP, MPS, or other formats described here). In such a case,
+CPLEX can automatically uncompress a gzipped file and then read data from a file in one of the
+formats briefly described here. For example, CPLEX can read a file such as
+<code class="ph codeph">model.lp.gz</code>, uncompress it, and read the uncompressed data in LP format. </p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/FileFormats/topics/compressed_files.html" title="CPLEX recognizes and supports these compressed file formats.">Compressed file formats</a></div>
+</div>
+</nav></div></body>
+</html>

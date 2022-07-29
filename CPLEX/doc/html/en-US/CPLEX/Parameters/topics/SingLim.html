@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="simplex singularity repair limit" />
+<meta name="abstract" content="Restricts the number of times CPLEX attempts to repair the basis when singularities are encountered during the simplex algorithm." />
+<meta name="Description" content="Restricts the number of times CPLEX attempts to repair the basis when singularities are encountered during the simplex algorithm." />
+<meta name="DC.subject" content="CPX_PARAM_SINGLIM, CPXPARAM_Simplex_Limits_Singularity, SingLim, simplex limits singularity, simplex limit, repairs of singularities, basis, singularity repairs and, singularity" />
+<meta name="keywords" content="CPX_PARAM_SINGLIM, CPXPARAM_Simplex_Limits_Singularity, SingLim, simplex limits singularity, simplex limit, repairs of singularities, basis, singularity repairs and, singularity" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196867314340" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>simplex singularity repair limit</title>
+</head>
+<body id="languageRefTopic1196867314340"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">simplex singularity repair limit</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Restricts the number of times CPLEX attempts to
+repair the basis when singularities are encountered during the simplex
+algorithm.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Simplex
+singularity repair limit</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d136526e71">API</th>
+
+<th class="entry nrule" valign="top" id="d136526e74">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d136526e77">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">CPXPARAM_Simplex_Limits_Singularity</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">CPX_PARAM_SINGLIM</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">IloCplex::Param::Simplex::Limits::Singularity</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">SingLim (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">IloCplex.Param.Simplex.Limits.Singularity</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">SingLim (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">Cplex.Param.Simplex.Limits.Singularity</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">SingLim (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">singlim </td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">singlim</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">parameters.simplex.limits.singularity</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">simplex.limits.singularity</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">simplex limits singularity</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">simplex limits singularity</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d136526e71 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d136526e74 ">1037</td>
+
+<td class="entry nrule" valign="top" headers="d136526e77 ">1037</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Restricts
+the number of times CPLEX attempts to repair the basis when singularities
+are encountered during the simplex algorithm. When this limit is exceeded,
+CPLEX replaces the current basis with the best factorable basis that
+has been found. </p>
+<p class="p paragrouptitle">Values</p>
+<p class="p">Any nonnegative
+integer; <strong class="ph b">default</strong>: 10.</p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

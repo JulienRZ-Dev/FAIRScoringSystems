@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="API for Benders algorithm" />
+<meta name="abstract" content="CPLEX implements Benders algorithm in all its application programming interfaces (API)." />
+<meta name="Description" content="CPLEX implements Benders algorithm in all its application programming interfaces (API)." />
+<meta name="DC.subject" content="Benders algorithm, application programming interface (API), cut-generating linear program (CGLP), Benders algorithm APIs" />
+<meta name="keywords" content="Benders algorithm, application programming interface (API), cut-generating linear program (CGLP), Benders algorithm APIs" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apiBenders" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" />
+<title>API for Benders algorithm</title>
+</head>
+<body id="apiBenders"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">API for Benders algorithm</h1>
+
+
+
+ 
+<div class="body"><p class="shortdesc">CPLEX implements Benders algorithm in all its application programming interfaces (API).</p>
+ 
+<p class="p">CPLEX offers an application programming interface for Benders algorithm, 
+a cut-generating linear program (CGLP) in C, C++, Java, .NET, and Python. 
+The Interactive Optimizer also supports Benders algorithm.</p>
+
+<section class="section"><h2 class="title sectiontitle">Callable Library (C API) for Benders</h2> 
+ 
+<p class="p">The routine <a class="xref" href="../../../../../refcallablelibrary/mipapi/bendersopt.html" title="At any time after a mixed integer program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXbendersopt/CPXbendersopt may be used to find a solution to that problem using a Benders decomposition algorithm.">CPXXbendersopt and CPXbendersopt</a> implements Benders algorithm in CPLEX
+as a means to solve a linear program (LP) or mixed integer program (MIP) as a decomposed model
+consisting of master and workers defined by a partition of the original model. </p>
+
+<p class="p">Corresponding asynchronous, join, and multicast routines enable your applications to apply
+Benders algorithm to solve a decomposition of master and workers in parallel. See <a class="xref" href="../../../../../refcallablelibrary/groups/homepagebenders.html">Benders Algorithm and Decompositions in the CPLEX Callable Library (C API)</a> in
+the <em class="ph i">Callable Library (C API) Reference Manual</em> for documentation of these routines. </p>
+
+
+<div class="p">Symbolic constants in the Callable Library (C API) support the parameter 
+<a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a>. See the documentation 
+of that parameter in the <em class="ph i">CPLEX Parameters Reference Manual</em> for more detail about the effect 
+of these symbolic constants: 
+<ul class="ul"> 
+<li class="li"><span class="keyword apiname">CPX_BENDERSSTRATEGY_OFF</span></li>
+ 
+<li class="li"><span class="keyword apiname">CPX_BENDERSSTRATEGY_AUTO</span></li>
+ 
+<li class="li"><span class="keyword apiname">CPX_BENDERSSTRATEGY_USER</span></li>
+ 
+<li class="li"><span class="keyword apiname">CPX_BENDERSSTRATEGY_WORKERS</span></li>
+ 
+<li class="li"><span class="keyword apiname">CPX_BENDERSSTRATEGY_FULL</span></li>
+ 
+</ul>
+
+</div>
+
+</section>
+ 
+
+<section class="section"><h2 class="title sectiontitle">C++ API for Benders</h2> 
+ 
+<p class="p">To use Benders features of CPLEX in your C++ application, optionally annotate your model; then 
+set the parameter <a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+accordingly, and invoke optimization with <span class="keyword apiname">IloCplex::solve</span>.</p>
+ 
+
+<div class="p">The enumeration <span class="keyword apiname">BendersStrategyType</span> includes the following values to 
+support your choice of Benders strategy in your C++ Application:
+<ul class="ul"> 
+<li class="li"><span class="keyword apiname">BendersOff</span></li>
+ 
+<li class="li"><span class="keyword apiname">BendersAuto</span></li>
+ 
+<li class="li"><span class="keyword apiname">BendersUser</span></li>
+ 
+<li class="li"><span class="keyword apiname">BendersWorkers</span></li>
+ 
+<li class="li"><span class="keyword apiname">BendersFull</span></li>
+ 
+</ul>
+ 
+See the documentation of the parameter 
+<a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+for more detail about the effect of those values.
+</div>
+ 
+</section>
+ 
+
+<section class="section"><h2 class="title sectiontitle">Java API for Benders</h2> 
+ 
+<p class="p">To use Benders features in your Java application, optionally annotate your model; then 
+set the parameter <a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+accordingly, and invoke optimization with <span class="keyword apiname">IloCplex.solve</span>.</p>
+ 
+
+<div class="p">The class <span class="keyword apiname">BendersStrategy</span> includes the following values to 
+support your choice of Benders strategy in your Java Application:
+<ul class="ul"> 
+<li class="li"><span class="keyword apiname">Off</span></li>
+ 
+<li class="li"><span class="keyword apiname">Auto</span></li>
+ 
+<li class="li"><span class="keyword apiname">User</span></li>
+ 
+<li class="li"><span class="keyword apiname">Workers</span></li>
+ 
+<li class="li"><span class="keyword apiname">Full</span></li>
+ 
+</ul>
+ 
+Use those values to set the Benders strategy parameter. 
+See the documentation of the parameter 
+<a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+for more detail about the effect of those values.
+</div>
+ 
+</section>
+ 
+
+<section class="section"><h2 class="title sectiontitle">.NET API for Benders</h2> 
+ 
+<p class="p">To use Benders features in your .NET application, optionally annotate your model; then 
+set the parameter <a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+accordingly, and invoke optimization with <span class="keyword apiname">Cplex.Solve</span>.</p>
+ 
+</section>
+ 
+
+<section class="section"><h2 class="title sectiontitle">Python API for Benders</h2> 
+ 
+<p class="p">To use Benders features in your Python application, optionally annotate your model; then 
+set the parameter <a class="xref" href="../../../../Parameters/topics/BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+accordingly, and invoke optimization with <span class="keyword apiname">cplex.solve</span>.</p>
+
+</section>
+
+ 
+<section class="section"><h2 class="title sectiontitle">Interactive Optimizer commands for Benders</h2> 
+
+<div class="p">In the <strong class="ph b">Interactive Optimizer</strong>, follow these steps: 
+       <ol class="ol">
+       <li class="li">Read in your model as usual. Optionally, read your annotations 
+       from a formatted <code class="ph codeph">.ann</code> file.(For more about ANN files, see 
+<a class="xref" href="../../../../FileFormats/topics/ANN.html" title="CPLEX supports ANN file format for annotating modeling elements.">ANN: annotations for modeling elements</a>  
+in the reference manual <em class="ph i">File formats supported by CPLEX</em>.)   
+       </li>
+ 
+       <li class="li">By means of the Benders strategy parameter, specify the Benders strategy that you prefer. 
+           For example, if you supply annotations for CPLEX to use, type the command:
+           <pre class="pre codeblock"><code>set benders strategy 2</code></pre> 
+           or if you reply on CPLEX to decompose your model, type the command:
+           <pre class="pre codeblock"><code>set benders strategy 3</code></pre>
+       </li>
+
+       <li class="li">Invoke the usual optimization command.</li>
+
+       </ol>
+ 
+</div>
+ 
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" title="CPLEX implements Benders algorithm.">Benders algorithm</a></div>
+</div>
+</nav></div></body>
+</html>

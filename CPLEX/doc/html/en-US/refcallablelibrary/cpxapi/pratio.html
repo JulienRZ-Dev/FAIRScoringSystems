@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXpratio and CPXpratio" />
+<meta name="abstract" content="" />
+<meta name="Description" content="" />
+<meta name="DC.subject" content="CPXpratio, C API Reference Manual, CPXXpratio" />
+<meta name="keywords" content="CPXpratio, C API Reference Manual, CPXXpratio" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetPQ.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="pratio" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetPQ.html" />
+<title>CPXXpratio and CPXpratio</title>
+</head>
+<body id="pratio"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXpratio</span> and <span class="keyword apiname">CPXpratio</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+    
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXpratio</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">downratio</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">upratio</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">downleave</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">upleave</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">downleavestatus</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">upleavestatus</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">downstatus</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">upstatus</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXpratio</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">downratio</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">upratio</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">downleave</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">upleave</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">downleavestatus</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">upleavestatus</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">downstatus</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">upstatus</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indices</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cnt</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">downratio</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">upratio</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">downleave</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">upleave</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">downleavestatus</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">upleavestatus</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">downstatus</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">upstatus</dt>
+
+        <dd class="dd pd">
+          
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetPQ.html">P, Q</a></div>
+</div>
+</nav></div></body>
+</html>

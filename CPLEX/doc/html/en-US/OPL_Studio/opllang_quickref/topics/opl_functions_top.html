@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="OPL functions" />
+<meta name="abstract" content="Description, syntax, and example for each individual OPL function." />
+<meta name="Description" content="Description, syntax, and example for each individual OPL function." />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_quickref_TOP.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_quickref_functions_summary.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_inferiorOrEqual.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_abs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_alldifferent.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_allmindistance.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_allowedAssignments.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alternative.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysConstant.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysEqual.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysIn.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysNoState.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_append.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_asSet.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_before.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_card.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ceil.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_count.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_cumulFuncValue.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_distToInt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_dual.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_element.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endAtEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endBeforeEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endBeforeStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endEval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endOf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endOfNext.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endOfPrev.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_exp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_first.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_first.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_floatValue.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_floor.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_forbiddenAssignments.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_forbidEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_forbidExtent.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_forbidStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_frac.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ftoi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_heightAtEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_heightAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_intValue.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_inverse.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_isomorphism.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_item.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_last.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_last.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_length.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthEval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthOf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthOfNext.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthOfPrev.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_lex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_lg.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ln.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_log.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_matchAt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_maxl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_minl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_next.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_nextc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_noOverlap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_numSegments.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ord.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_overlapLength.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_pack.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_pow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_presenceOf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_prev.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_prev.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_prevc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_pulse.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_rand.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_reducedCost.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_round.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sameCommonSubsequence.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sameSequence.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_segmentEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_segmentStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_segmentValue.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_sgn.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeEval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeOf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeOfNext.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeOfPrev.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_slack.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_span.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_sqrt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_srand.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_standardDeviation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startAtEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startBeforeEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startBeforeStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startEval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startOf.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startOfNext.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startOfPrev.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_stateFuncValue.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_staticLex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_staticLexFull.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_step.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_stepAtEnd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_stepAtStart.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_strictlex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_strong.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_synchronize.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_trunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_typeOfNext.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_typeOfPrev.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="NQ78t2Qw" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_quickref_TOP.html" />
+<title>OPL functions</title>
+</head>
+<body id="NQ78t2Qw"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">OPL functions</h1>
+<p class="shortdesc">Description, syntax, and example for each individual
+OPL function.</p>
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/opl_quickref_functions_summary.html">Summary table of OPL functions</a></strong><br />
+Provides the syntax and short description of each OPL function, with a link to the corresponding full description.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_inferiorOrEqual.html">&lt;= (scheduling)</a></strong><br />
+OPL (scheduling) constraint used on a cumulative function.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_abs.html">abs</a></strong><br />
+OPL function for the absolute value</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_alldifferent.html">allDifferent</a></strong><br />
+OPL function to constrain all integer variables in an array to have different values.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_allmindistance.html">allMinDistance</a></strong><br />
+OPL function to constrain all int dvar to minimum value differences</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_allowedAssignments.html">allowedAssignments</a></strong><br />
+OPL function for legal value combinations</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alternative.html">alternative</a></strong><br />
+OPL constraint (scheduling) used to create an exclusive alternative interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysConstant.html">alwaysConstant</a></strong><br />
+OPL constraint (scheduling) used on a state function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysEqual.html">alwaysEqual</a></strong><br />
+OPL constraint (scheduling) used on a state function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysIn.html">alwaysIn</a></strong><br />
+OPL constraint (scheduling) used on a cumulative function or a state function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_alwaysNoState.html">alwaysNoState</a></strong><br />
+OPL constraint (scheduling) used on a state function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_append.html">append</a></strong><br />
+OPL function to produce new arrays of integers, integer variables, or interval variables through concatenation</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_asSet.html">asSet</a></strong><br />
+OPL function to convert a range to a set</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_before.html">before</a></strong><br />
+OPL function (scheduling) to sequence interval variables</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_card.html">card</a></strong><br />
+OPL function for the cardinality</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ceil.html">ceil</a></strong><br />
+OPL function to return the smallest integer greater than or equal to a value.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_count.html">count</a></strong><br />
+OPL function to count variables of a certain value.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_cumulFuncValue.html">cumulFunctionValue</a></strong><br />
+OPL function (scheduling) to return the value of a cumulative function.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_distToInt.html">distToInt</a></strong><br />
+OPL function to return the distance from a value to the nearest integer</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_dual.html">dual</a></strong><br />
+Obtains dual values from constraints.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_element.html">element</a></strong><br />
+OPL function to return an indexed element</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endAtEnd.html">endAtEnd</a></strong><br />
+OPL constraint (scheduling) to restrict relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endAtStart.html">endAtStart</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endBeforeEnd.html">endBeforeEnd</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endBeforeStart.html">endBeforeStart</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endEval.html">endEval</a></strong><br />
+OPL numerical expression (scheduling) used to evaluate a piecewise linear function at the end of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endOf.html">endOf</a></strong><br />
+OPL integer expression (scheduling) to access the end time of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endOfNext.html">endOfNext</a></strong><br />
+An OPL function (scheduling) that returns the end of the next interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_endOfPrev.html">endOfPrev</a></strong><br />
+An OPL function (scheduling) that returns the end of the previous interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_exp.html">exp</a></strong><br />
+OPL <q class="q">exponent</q> function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_first.html">first</a></strong><br />
+OPL function to return the first element in a set.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_first.html">first (scheduling)</a></strong><br />
+OPL function (scheduling) to sequence interval variables</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_floatValue.html">floatValue</a></strong><br />
+OPL function to convert a string to a float</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_floor.html">floor</a></strong><br />
+OPL function to return the largest integer smaller than or equal to a value</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_forbiddenAssignments.html">forbiddenAssignments</a></strong><br />
+OPL function for illegal value combinations</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_forbidEnd.html">forbidEnd</a></strong><br />
+OPL constraint (scheduling) to limit the end of an interval variable.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_forbidExtent.html">forbidExtent</a></strong><br />
+OPL constraint (scheduling) to affect the extent of an interval variable.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_forbidStart.html">forbidStart</a></strong><br />
+OPL constraint (scheduling) to limit the start of an interval variable.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_frac.html">frac</a></strong><br />
+OPL function for the fractional part</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ftoi.html">ftoi</a></strong><br />
+OPL function to convert a float to an integer</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_heightAtEnd.html">heightAtEnd</a></strong><br />
+OPL expression (scheduling) used with a cumulative function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_heightAtStart.html">heightAtStart</a></strong><br />
+OPL expression (scheduling) used with a cumulative function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_intValue.html">intValue</a></strong><br />
+OPL function to convert a string to an integer</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_inverse.html">inverse</a></strong><br />
+OPL function to compute the inverse of values of arrays of integer decision variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_isomorphism.html">isomorphism</a></strong><br />
+OPL (scheduling) constraint used to model a one-to-one correspondence between the intervals present in two arrays.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_item.html">item</a></strong><br />
+OPL function to access  the n-th item of a set or a tuple from a tuple set.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_last.html">last</a></strong><br />
+OPL function to return the last element in a set.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_last.html">last (scheduling)</a></strong><br />
+OPL function (scheduling) to sequence interval variables</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_length.html">length</a></strong><br />
+OPL function to return the number of characters of a string</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthEval.html">lengthEval</a></strong><br />
+OPL numerical expression (scheduling) used to evaluate a piecewise linear function on the length of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthOf.html">lengthOf</a></strong><br />
+OPL integer expression (scheduling) to access the length of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthOfNext.html">lengthOfNext</a></strong><br />
+An OPL function (scheduling) that returns the length of the next interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_lengthOfPrev.html">lengthOfPrev</a></strong><br />
+An OPL function (scheduling) that returns the length of the previous interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_lex.html">lex</a></strong><br />
+OPL function to sort in lexicographic order</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_lg.html">lg</a></strong><br />
+OPL function for the base–2 log</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ln.html">ln</a></strong><br />
+OPL function for the natural log</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_log.html">log</a></strong><br />
+OPL function for the base–10 logarithm</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_matchAt.html">matchAt</a></strong><br />
+OPL function to get the first position of a substring</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_maxl.html">maxl</a></strong><br />
+OPL function to return the maximal value</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_minl.html">minl</a></strong><br />
+OPL function to return the minimal value</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_next.html">next</a></strong><br />
+OPL function to return the successor to an element</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_nextc.html">nextc</a></strong><br />
+A circular version of the function <code class="ph codeph">next</code></li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_noOverlap.html">noOverlap</a></strong><br />
+OPL constraint (scheduling) used to prevent intervals in a sequence from overlapping and (optionally) to enforce a minimal distance between consecutive intervals.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_numSegments.html">numberOfSegments</a></strong><br />
+OPL function (scheduling) to return the number of segments of a cumulative or state function in the solution.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_ord.html">ord</a></strong><br />
+OPL function to return the position of an element</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_overlapLength.html">overlapLength</a></strong><br />
+OPL function (CP, scheduling) to return the length of the overlap of two interval variables, or an interval variable and a constant interval.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_pack.html">pack</a></strong><br />
+OPL function. A constraint to maintain the load of a set of containers</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_pow.html">pow</a></strong><br />
+OPL “power” function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_presenceOf.html">presenceOf</a></strong><br />
+OPL constraint (scheduling) used to enforce the presence of intervals</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_prev.html">prev</a></strong><br />
+OPL function to return the predecessor to an element</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_prev.html">prev (scheduling)</a></strong><br />
+OPL function (scheduling) to sequence interval variables</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_prevc.html">prevc</a></strong><br />
+A circular version of the function <code class="ph codeph">prev</code></li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_pulse.html">pulse</a></strong><br />
+OPL expression (scheduling) of a cumulative function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_rand.html">rand</a></strong><br />
+OPL function to return a pseudorandom integer</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_reducedCost.html">reducedCost</a></strong><br />
+OPL function to obtain the reduced cost values from decision variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_round.html">round</a></strong><br />
+OPL function to return the nearest integer</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sameCommonSubsequence.html">sameCommonSubsequence</a></strong><br />
+A binary constraint on a pair of sequence variables. The constraint states that the relative position of some related subsets of interval variables is the same in both sequences, seq1 and seq2.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sameSequence.html">sameSequence</a></strong><br />
+A binary constraint on a pair of sequence variables. The constraint states that the relative position of related interval variables is the same in both sequences, seq1 and seq2.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_segmentEnd.html">segmentEnd</a></strong><br />
+OPL function (scheduling) to return the end of the indexed segment of a cumulative function or a state function in the solution.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_segmentStart.html">segmentStart</a></strong><br />
+OPL function (scheduling) to return the start of a segment of a cumulative or state function.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_segmentValue.html">segmentValue</a></strong><br />
+OPL function (scheduling) to return the value of a segment of a cumulative or state function.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_sgn.html">sgn</a></strong><br />
+OPL function for the sign of expressions</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeEval.html">sizeEval</a></strong><br />
+OPL numerical expression (scheduling) used to evaluate a piecewise linear function on the size of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeOf.html">sizeOf</a></strong><br />
+OPL integer expression (scheduling) to access the size of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeOfNext.html">sizeOfNext</a></strong><br />
+An OPL function (scheduling) that returns the size of the next interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_sizeOfPrev.html">sizeOfPrev</a></strong><br />
+An OPL function (scheduling) that returns the size of the previous interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_slack.html">slack</a></strong><br />
+Obtains slack values from constraints.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_span.html">span</a></strong><br />
+OPL constraint (scheduling) used to span intervals</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_sqrt.html">sqrt</a></strong><br />
+OPL <q class="q">square root</q> function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_srand.html">srand</a></strong><br />
+OPL function for a generator of pseudo random numbers</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_standardDeviation.html">standardDeviation</a></strong><br />
+OPL function to return the standard deviation of an array</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startAtEnd.html">startAtEnd</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startAtStart.html">startAtStart</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startBeforeEnd.html">startBeforeEnd</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startBeforeStart.html">startBeforeStart</a></strong><br />
+OPL constraint (scheduling) to restrict the relative positions of interval variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startEval.html">startEval</a></strong><br />
+OPL numerical expression (scheduling) used to evaluate a piecewise linear function at the start of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startOf.html">startOf</a></strong><br />
+OPL integer expression (scheduling) to access the start time of an interval</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startOfNext.html">startOfNext</a></strong><br />
+An OPL function (scheduling) that returns the start of the next interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_startOfPrev.html">startOfPrev</a></strong><br />
+An OPL function (scheduling) that returns the start of the previous interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_stateFuncValue.html">stateFunctionValue</a></strong><br />
+OPL function (scheduling) to return the value of a state function.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_staticLex.html">staticLex</a></strong><br />
+OPL function for use in CPLEX or CP Optimizer models with a multi-criteria objective.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_staticLexFull.html">staticLexFull</a></strong><br />
+OPL function for use in CPLEX models with a multi-criteria objective.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_step.html">step</a></strong><br />
+OPL expression (scheduling) of a cumulative function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_stepAtEnd.html">stepAtEnd</a></strong><br />
+OPL expression (scheduling) of a cumulative function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_stepAtStart.html">stepAtStart</a></strong><br />
+OPL expression (scheduling) of a cumulative function</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_strictlex.html">strictLex</a></strong><br />
+OPL function to sort in strict lexicographic order</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_strong.html">strong</a></strong><br />
+For constraint programming: gives a strengthening indication on a set of variables.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_synchronize.html">synchronize</a></strong><br />
+OPL constraint (scheduling) used to synchronize the start and end of intervals.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplf_trunc.html">trunc</a></strong><br />
+OPL function to return the integer part</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_typeOfNext.html">typeOfNext</a></strong><br />
+An OPL function (scheduling) that returns the type of the next interval in a given sequence.</li>
+<li class="link ulchildlink"><strong><a href="../../../OPL_Studio/opllang_quickref/topics/tlr_oplsch_typeOfPrev.html">typeOfPrev</a></strong><br />
+An OPL function (scheduling) that returns the type of the previous interval in a given sequence.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_quickref_TOP.html" title="This manual provides descriptions of individual keywords and functions, as well as operators and grammar for OPL and IBM ILOG Script for OPL.">Language Quick Reference</a></div>
+</div>
+</nav></div></body>
+</html>

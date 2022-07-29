@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Data and decision variable identifiers" />
+<meta name="abstract" content="Describes the use of identifiers within OPL expressions." />
+<meta name="Description" content="Describes the use of identifiers within OPL expressions." />
+<meta name="DC.subject" content="identifiers, for data and variables" />
+<meta name="keywords" content="identifiers, for data and variables" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_expressRelations.1008109" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" />
+<title>Data and decision variable identifiers</title>
+</head>
+<body id="usropllangref.uss_langref_expressRelations.1008109"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Data and decision variable identifiers</h1>
+<div class="body conbody"><div class="abstract"><p class="shortdesc">Describes the use of identifiers within OPL expressions.</p>
+
+<p class="p"> </p>
+
+</div>
+<p class="p">Since data and decision variable identifiers are the
+basic components of expressions, we will review briefly here how they
+are used to build expressions. If <code class="ph codeph">r</code> is
+a tuple with a field <code class="ph codeph">capacity</code> of type <code class="ph codeph">T</code>,
+then <code class="ph codeph">r.capacity</code> is an expression of type <code class="ph codeph">T</code>.
+If <code class="ph codeph">a</code> is an <em class="ph i">n</em>-dimensional
+array of type <code class="ph codeph">T</code>, <code class="ph codeph">a[e</code> <code class="ph codeph">1</code> <code class="ph codeph">]...[e</code> <em class="ph i">n</em><code class="ph codeph">]</code> is
+an expression of type <code class="ph codeph">T</code>, provided that <code class="ph codeph">e</code> <em class="ph i">i</em> is well-typed. For instance, the
+excerpt </p>
+<pre class="pre codeblock"><code>
+int limit[routes] = ...; 
+dvar int transp[r in routes] in 0..limit[r]; 
+</code></pre><p class="p">contains an expression <code class="ph codeph">limit[r]</code> of
+type integer. Indices of arrays can be complex expressions. For instance,
+the excerpt </p>
+<pre class="pre codeblock"><code>int nbFlights = ...; 
+range Flight = 1..nbFlights; 
+{string} Employee = ...; 
+dvar int crew[Flight][Employee] in 0..1; 
+constraints { 
+    
+    forall(e in Employee) 
+       forall(i in 1..nbFlights - 2) 
+          crew[i][e] + crew[i+1][e] + crew[i+2][e] &gt;= 1; 
+} </code></pre><p class="p">contains an integer expression <code class="ph codeph">crew[i+1][e]</code> whose
+first index is itself an integer expression. </p>
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" title="Describes data and decision variable identifiers, integer and float expressions, aggregate operators, piecewise-linear functions (continuous and discontinuous), set expressions, and Boolean expressions.">Expressions</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Date functions" />
+<meta name="abstract" content="Provides a reference of date functions." />
+<meta name="Description" content="Provides a reference of date functions." />
+<meta name="DC.subject" content="dates in IBM ILOG Script, functions, for dates" />
+<meta name="keywords" content="dates in IBM ILOG Script, functions, for dates" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_dates.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1010298" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_dates.html" />
+<title>Date functions</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1010298"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Date functions</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a reference of date functions.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that describes the syntax and effects of date functions in IBM ILOG Script." id="usropllangref.uss_langref_scriptValues.1010298__usropllangref.uss_langref_scriptValues.1010301" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Date functions</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d488155e50">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d488155e53">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d488155e50 ">Date.UTC(<em class="ph i">year, month, [ , day [ , hours [ , minutes [ ,
+seconds [ , mseconds ]]]]]</em>) </td>
+
+<td class="entry" valign="top" headers="d488155e53 "><p class="p">Returns a number representing the given date taken in UTC.
+The arguments are:</p>
+<p class="p"><em class="ph i">year</em>: any integer</p>
+<p class="p"><em class="ph i">month</em>:
+range 0-11, where 0 = January, 1 = February, and so on </p>
+<p class="p"><em class="ph i">day</em>:
+ range 1-31, default 1</p>
+<p class="p"><em class="ph i">hours</em>: range 0-23, default 0</p>
+<p class="p"><em class="ph i">minutes</em>:
+range 0-59, default 0</p>
+<p class="p"><em class="ph i">seconds</em>: range 0-59, default 0</p>
+<p class="p"><em class="ph i">mseconds</em>:
+range 0-999, default 0</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d488155e50 ">Date.parse(<em class="ph i">string</em>) </td>
+
+<td class="entry" valign="top" headers="d488155e53 ">Same as <code class="ph codeph">new Date(string)</code>, but the result is
+returned as a number rather than as a <code class="ph codeph">date</code> object. </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_dates.html" title="Date representation and functions">Dates</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetray and CPXgetray" />
+<meta name="abstract" content="The routine CPXXgetray/CPXgetray finds an unbounded direction (also known as a ray) for a linear program where the CPLEX simplex optimizer concludes that the LP is unbounded (solution status CPX_STAT_UNBOUNDED)." />
+<meta name="Description" content="The routine CPXXgetray/CPXgetray finds an unbounded direction (also known as a ray) for a linear program where the CPLEX simplex optimizer concludes that the LP is unbounded (solution status CPX_STAT_UNBOUNDED)." />
+<meta name="DC.subject" content="CPXgetray, C API Reference Manual, CPXXgetray" />
+<meta name="keywords" content="CPXgetray, C API Reference Manual, CPXXgetray" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getray" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<title>CPXXgetray and CPXgetray</title>
+</head>
+<body id="getray"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetray</span> and <span class="keyword apiname">CPXgetray</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetray</span>/<span class="keyword apiname">CPXgetray</span></code> finds an unbounded
+direction (also known as a ray) for a linear program where the CPLEX
+simplex optimizer concludes that the LP is unbounded (solution status
+<code class="ph codeph">CPX_STAT_UNBOUNDED</code>).
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetray</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">z</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetray</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">z</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+<div class="note warning"><span class="warningtitle">Warning:</span> 
+<p class="p">This is an advanced routine.
+Advanced routines typically demand a thorough understanding
+of the algorithms used by CPLEX. Thus they incur a higher risk of
+incorrect behavior in your application, behavior that can be difficult
+to debug. Therefore, the team encourages you to consider carefully whether
+you can accomplish the same task by means of other Callable Library
+routines instead.
+</p>
+
+</div>
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetray</span>/<span class="keyword apiname">CPXgetray</span></code> finds an unbounded
+direction (also known as a ray) for a linear program where the CPLEX
+simplex optimizer concludes that the LP is unbounded (solution status
+<code class="ph codeph">CPX_STAT_UNBOUNDED</code>). An error is returned,
+<code class="ph codeph">CPXERR_NOT_UNBOUNDED</code>, if this case does not hold.</p>
+
+
+<p class="p">
+  The routine will return an error of
+  <a class="xref" href="../macros/CPXERR_BAD_METHOD.html" title="1292 Invalid choice of optimization method"><code class="ph codeph">CPXERR_BAD_METHOD</code></a>
+  if the algorithm used to obtain the unbounded status was not a simplex
+  optimizer.
+</p>
+
+
+<p class="p">As an illustration, consider a linear program of the form:</p>
+
+<pre class="pre codeblock"><code>
+Minimize c'x
+Subject to Ax = b
+x &gt;= 0
+</code></pre>
+
+<p class="p">where ' specifies the transpose. </p>
+
+
+<p class="p">If the CPLEX simplex algorithm completes optimization with a
+solution status of <code class="ph codeph">CPX_STAT_UNBOUNDED</code>, the vector <code class="ph codeph"><span class="keyword parmname">z</span></code>
+returned by <code class="ph codeph"><span class="keyword apiname">CPXXgetray</span>/<span class="keyword apiname">CPXgetray</span></code> satisfies the following
+program (if computations could be carried out in exact arithmetic):</p>
+
+
+<pre class="pre codeblock"><code>
+c'z &lt; 0
+Az = 0
+z &gt;= 0
+</code></pre>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX LP problem object, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">z</dt>
+
+        <dd class="dd pd">
+          
+          The array where the unbounded direction is returned. This array must be at least as large as the number of columns in the problem object.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXgetray (env, lp, z);
+</code></pre> 
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpSolution.html">Accessing a solution</a></div>
+</div>
+</nav></div></body>
+</html>

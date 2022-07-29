@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcopysos and CPXcopysos" />
+<meta name="abstract" content="The routine CPXXcopysos/CPXcopysos copies special ordered set (SOS) information to a problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP." />
+<meta name="Description" content="The routine CPXXcopysos/CPXcopysos copies special ordered set (SOS) information to a problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP." />
+<meta name="DC.subject" content="CPXcopysos, C API Reference Manual, CPXXcopysos" />
+<meta name="keywords" content="CPXcopysos, C API Reference Manual, CPXXcopysos" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemanagesos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPmodifymodel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPsos.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="copysos" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemanagesos.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPmodifymodel.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPsos.html" />
+<title>CPXXcopysos and CPXcopysos</title>
+</head>
+<body id="copysos"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcopysos</span> and <span class="keyword apiname">CPXcopysos</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopysos</span>/<span class="keyword apiname">CPXcopysos</span></code> copies special ordered set
+ (SOS) information to a problem object of type <code class="ph codeph">CPXPROB_MILP</code>,
+ <code class="ph codeph">CPXPROB_MIQP</code>, or
+ <code class="ph codeph">CPXPROB_MIQCP</code>.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcopysos</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">numsos</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">numsosnz</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sostype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">sosbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">sosind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">soswt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">sosname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcopysos</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">numsos</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">numsosnz</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sostype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">sosbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">sosind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">soswt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">sosname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopysos</span>/<span class="keyword apiname">CPXcopysos</span></code> copies special ordered set
+ (SOS) information to a problem object of type <code class="ph codeph">CPXPROB_MILP</code>,
+ <code class="ph codeph">CPXPROB_MIQP</code>, or
+ <code class="ph codeph">CPXPROB_MIQCP</code>.</p>
+
+
+ <p class="p">When you build or modify your problem with this routine,
+ you can verify that the results are as you intended
+ by calling <code class="ph codeph"><span class="keyword apiname">CPXcheckcopysos</span></code>
+ during application development.
+ </p>
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Table 1: Settings for sostype</span></caption><colgroup></colgroup><tbody class="tbody">
+ 
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword apiname">CPX_TYPE_SOS1</span></code></td>
+<td class="entry" valign="top">'1'</td>
+<td class="entry" valign="top">Type 1</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword apiname">CPX_TYPE_SOS2</span></code></td>
+<td class="entry" valign="top">'2'</td>
+<td class="entry" valign="top">Type 2</td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">numsos</dt>
+
+        <dd class="dd pd">
+          
+          The number of SOS sets. If <code class="ph codeph"><span class="keyword parmname">numsos</span></code> is equal to zero, <code class="ph codeph"><span class="keyword apiname">CPXXcopysos</span>/<span class="keyword apiname">CPXcopysos</span></code> removes all the SOSs from the LP object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">numsosnz</dt>
+
+        <dd class="dd pd">
+          
+          The total number of members in all sets. <code class="ph codeph"><span class="keyword apiname">CPXXcopysos</span>/<span class="keyword apiname">CPXcopysos</span></code> with <code class="ph codeph"><span class="keyword parmname">numsosnz</span></code> equal to zero removes all the SOSs from the LP object.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sostype</dt>
+
+        <dd class="dd pd">
+          
+          An array containing SOS type information for the sets. <code class="ph codeph"><span class="keyword parmname">sostype</span>[i]</code> specifies the SOS type of set <code class="ph codeph">i</code>, according tot the settings in Table 1. The length of this array must be at least <code class="ph codeph"><span class="keyword parmname">numsos</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sosbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array stating beginning indices as explained in <code class="ph codeph"><span class="keyword parmname">soswt</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sosind</dt>
+
+        <dd class="dd pd">
+          
+          An array stating indices as explained in <code class="ph codeph"><span class="keyword parmname">soswt</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">soswt</dt>
+
+        <dd class="dd pd">
+          
+          Arrays declaring the indices and weights for the sets. For every set, the indices and weights must be stored in sequential locations in <code class="ph codeph"><span class="keyword parmname">sosind</span></code> and <code class="ph codeph"><span class="keyword parmname">soswt</span></code>, respectively, with <code class="ph codeph"><span class="keyword parmname">sosbeg</span>[j]</code> containing the index of the beginning of set <code class="ph codeph">j</code>. The weights must be unique in their array. For <code class="ph codeph"><span class="keyword apiname">j &lt; numsos</span>-1</code> the indices of set <code class="ph codeph">j</code> must be stored in <code class="ph codeph"><span class="keyword parmname">sosind</span>[<span class="keyword parmname">sosbeg</span>[j]]<span class="keyword apiname">,</span></code> <code class="ph codeph"><span class="keyword apiname">..., sosind</span>[<span class="keyword parmname">sosbeg</span>[j+1]-1]</code> and the weights in <code class="ph codeph"><span class="keyword parmname">soswt</span>[<span class="keyword parmname">sosbeg</span>[j]<span class="keyword apiname">,</span></code> <code class="ph codeph"><span class="keyword apiname">..., soswt</span>[<span class="keyword parmname">sosbeg</span>[j+1]-1]</code>. For the last set,<code class="ph codeph">j = <span class="keyword parmname">numsos</span>-1</code>, the indices must be stored in<code class="ph codeph"><span class="keyword parmname">sosind</span>[<span class="keyword parmname">sosbeg</span>[<span class="keyword parmname">numsos</span>-1]]<span class="keyword apiname">,</span></code> <code class="ph codeph"><span class="keyword apiname">..., sosind</span>[<span class="keyword parmname">numsosnz</span>-1]</code> and the corresponding weights in <code class="ph codeph"><span class="keyword parmname">soswt</span>[<span class="keyword parmname">sosbeg</span>[<span class="keyword parmname">numsos</span>-1]]<span class="keyword apiname"> ..., soswt</span>[<span class="keyword parmname">numsosnz</span>-1]</code>. Hence, <code class="ph codeph"><span class="keyword parmname">sosbeg</span></code> must be of length at least <code class="ph codeph"><span class="keyword parmname">numsos</span></code>, while <code class="ph codeph"><span class="keyword parmname">sosind</span></code> and <code class="ph codeph"><span class="keyword parmname">soswt</span></code> must be of length at least <code class="ph codeph"><span class="keyword parmname">numsosnz</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sosname</dt>
+
+        <dd class="dd pd">
+          
+          An array containing pointers to character strings that represent the names of the SOSs. Can be <code class="ph codeph">NULL</code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXcopysos (env, lp, numsos, numsosnz, sostype, sosbeg,
+                      sosind, soswt, NULL);
+ </code></pre>
+
+
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemanagesos.html">Managing Special Ordered Sets (SOS) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPmodifymodel.html">Modifying a discrete model</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPsos.html">Using special ordered sets (SOS) in a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

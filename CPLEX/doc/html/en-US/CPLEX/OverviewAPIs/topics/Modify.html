@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Modifying problems" />
+<meta name="abstract" content="These problem modification routines change a problem object after it has been created." />
+<meta name="Description" content="These problem modification routines change a problem object after it has been created." />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/apioverviewcplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1199469269574" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/apioverviewcplex.html" />
+<title>Modifying problems</title>
+</head>
+<body id="descriptiveTopic1199469269574"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Modifying problems</h1>
+
+   
+   <div class="body"><p class="shortdesc">These problem modification routines change a problem object
+after it has been created.</p>
+
+      <p class="p">Problem modification routines change a problem object after it
+has been created.</p>
+
+      <p class="p">Modifications that can be made include:</p>
+
+      <ul class="ul"><li class="li">
+            <p class="p">adding rows and columns to the constraint matrix,</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">deleting rows and columns from the constraint matrix,</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">changing the sense of the objective function,</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">changing the value of coefficients in the constraint matrix,</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">changing an objective or righthand side coefficient,</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">changing the bounds on a variable,</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">changing the sense of a constraint, and</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">changing names of rows or columns.</p>
+
+         </li>
+
+      </ul>
+
+      <p class="p">When you are modifying multiple existing objects in
+the object-oriented APIs (C++, Java, C#.NET), you have a choice between
+modifying each object individually in a sequence of operations  (such
+as in a loop)  or making accumulated changes simultaneously in a single
+operation (for example, on an array of modeling objects). Generally,
+the single operation is <strong class="ph b">more efficient</strong> than a sequence of operations. </p>
+
+      <p class="p">For example, in the C++ API, it is possible to change
+the lower bounds on a set of variables through a sequence of invocations
+of the method <span class="keyword apiname">IloNumVar::setLB</span>; however, it is <strong class="ph b">more
+efficient</strong> to accumulate the variables in an array (an instance
+of <span class="keyword apiname">IloNumVarArray</span>) and then to apply the method <span class="keyword apiname">IloNumVarArray::setBounds</span> simultaneously
+to all the variables in that array. The same observation about efficiency
+applies to objects of other classes derived from the base class <span class="keyword apiname">IloExtractable</span>,
+such classes as <span class="keyword apiname">IloRange</span>, <span class="keyword apiname">IloSOS1</span>,
+ <span class="keyword apiname">IloSOS2</span>, and <span class="keyword apiname">IloSemiContVar</span>.
+ </p>
+
+      <div class="note note"><span class="notetitle">Note:</span> <p class="p">Names of classes, methods, and symbolic constants
+in the C#.NET API correspond very closely to those in the Java API
+with these systematic exceptions:</p>
+
+         <ul class="ul">
+            <li class="li">
+               <p class="p">In the Java API, the names of classes begin with the prefix <span class="keyword apiname">Ilo</span>,
+whereas in C#.NET they do not.</p>
+
+            </li>
+
+            <li class="li">
+               <p class="p">In the Java API, the names of methods conventionally begin
+with a lowercase letter, for example, <code class="ph codeph">addCols</code>, whereas
+in the C#.NET API, the names of methods conventionally begin with
+an uppercase (that is, capital) letter, for example, <code class="ph codeph">AddCols</code> according
+to Microsoft practice. </p>
+
+            </li>
+
+         </ul>
+
+      </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table; the first column lists tasks; the second column offers a link to the reference documentation to accomplish the task in the Java API; the third column offers a link to the reference documentation to accomplish the task in the C++ API; the fourth column offers a link to the reference documentation to accomplish the task in the Callable Library (C API)." class="table ShadedHead" rules="all" frame="border" border="1"><span class="desc tabledesc">
+            
+         </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+               <tr class="row">
+                  <th class="entry thleft" align="left" valign="top" id="d63271e169">Purpose</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d63271e172">Java API</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d63271e175">C++ API</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d63271e178">C API</th>
+
+               </tr>
+
+            </thead>
+<tbody class="tbody">
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds a single variable</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Create <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html">IloNumVar</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloIntVar.html">IloIntVar</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSemiContVar.html">IloSemiContVar</a> objects or use <span class="keyword apiname">IloLPMatrix.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloLPMatrix.html#addColumn(ilog.concert.IloNumVar)">addColumn</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Create <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html">IloNumVar</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloIntVar.html">IloIntVar</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSemiContVar.html">IloSemiContVar</a> objects</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/addcols.html" title="The routine CPXXaddcols/CPXaddcols adds columns to a specified CPLEX problem object.">CPXXaddcols and CPXaddcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds multiple variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Use <span class="keyword apiname">IloModeler.numVarArray(int, double, double,
+ilog.concert.IloNumVarArrayType)</span>, <span class="keyword apiname">IloModeler.intVarArray(int, int,
+int)</span>,  <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSemiContVar.html">IloSemiContVar</a> or use <span class="keyword apiname">IloLPMatrix.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloLPMatrix.html#addCols(ilog.concert.IloNumVar[])">addCols</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Create <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVarArray.html">IloNumVarArray</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloIntVarArray.html">IloIntVarArray</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSemiContVarArray.html">IloSemiContVarArray</a> objects</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/addcols.html" title="The routine CPXXaddcols/CPXaddcols adds columns to a specified CPLEX problem object.">CPXXaddcols and CPXaddcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds a single variable without matrix coefficients</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Create <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html">IloNumVar</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloIntVar.html">IloIntVar</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSemiContVar.html">IloSemiContVar</a> objects or use <span class="keyword apiname">IloLPMatrix.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloLPMatrix.html#addColumn(ilog.concert.IloNumVar)">addColumn</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Create <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html">IloNumVar</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloIntVar.html">IloIntVar</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSemiContVar.html">IloSemiContVar</a> objects</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/newcols.html" title="The routine CPXXnewcols/CPXnewcols adds empty columns to a specified CPLEX problem object.">CPXXnewcols and CPXnewcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds multiple variables without matrix coefficients</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Use <span class="keyword apiname">IloModeler.numVarArray(int, double, double,
+ilog.concert.IloNumVarType)</span>, <span class="keyword apiname">IloModeler.intVarArray(int, int, int)</span>,
+<span class="keyword apiname">IloMPModeler.semiContVarArray(int, double, double, ilog.concert.IloNumVarType)</span>,
+or use <span class="keyword apiname">IloLPMatrix.addCols(ilog.concert.IloNumVar[])</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Create <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVarArray.html">IloNumVarArray</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloIntVarArray.html">IloIntVarArray</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSemiContVarArray.html">IloSemiContVarArray</a> objects</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/newcols.html" title="The routine CPXXnewcols/CPXnewcols adds empty columns to a specified CPLEX problem object.">CPXXnewcols and CPXnewcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds constraints</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.add(ilog.concert.IloAddable)</span> or
+<span class="keyword apiname">IloMPModeler.addRange(double, double)</span>, or <span class="keyword apiname">IloModeler.addLe(double,
+ilog.concert.IloNumExpr)</span> or <span class="keyword apiname">IloModeler.addGe(double,
+ilog.concert.IloNumExpr)</span>, or <span class="keyword apiname">IloModeler.addEq(double,
+ilog.concert.IloNumExpr)</span>, or <span class="keyword apiname">IloLPMatrix.addRows(double[], double[], int[][],
+double[][])</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloModel::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloModel.html#method_add">add</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXXaddrows and CPXaddrows</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds constraints without matrix coefficients</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.add(ilog.concert.IloAddable)</span> or
+<span class="keyword apiname">IloMPModeler.addRange(double, double)</span>, or <span class="keyword apiname">Ilomodeler.addLe(double,
+ilog.concert.IloNumExpr)</span>,s or <span class="keyword apiname">IloModeler.addGe(double,
+ilog.concert.IloNumExpr)</span>, or <span class="keyword apiname">IloModeler.addEq(double,
+ilog.concert.IloNumExpr)</span>, or <span class="keyword apiname">IloLPMatrix.addRows(double[], double[], int[][],
+double[][])</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloModel::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloModel.html#method_add">add</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/newrows.html" title="The routine CPXXnewrows/CPXnewrows adds empty constraints to a specified CPLEX problem object.">CPXXnewrows and CPXnewrows</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes a single constraint</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.remove(ilog.concert.IloAddable)</span>,(<span class="keyword apiname">IloAddable</span>)
+or <span class="keyword apiname">IloCplexModeler.delete(IloCopyable)</span>,(<span class="keyword apiname">IloCopyable</span>), or
+<span class="keyword apiname">IloLPMatrix.removeRow(int)</span>.</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a> or <span class="keyword apiname">IloModel::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloModel.html#method_remove">remove</a>
+                     <code class="ph codeph">(const</code>
+                     <span class="keyword apiname">IloExtractable</span>
+                     <code class="ph codeph">)</code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delcols.html" title="The routine CPXXdelcols/CPXdelcols deletes all the columns in a specified range.">CPXXdelcols and CPXdelcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes a range of constraints</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.remove(ilog.concert.IloAddable[])</span>, or
+<span class="keyword apiname">IloCplexModeler.delete(IloCopyable[], int, int)</span>, or
+<span class="keyword apiname">IloLPMatrix.removeRows(int[])</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a> or <span class="keyword apiname">IloModel::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloModel.html#method_remove">remove</a>(const <span class="keyword apiname">IloExtractableArray</span>)</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delrows.html" title="The routine CPXXdelrows/CPXdelrows deletes a range of rows.">CPXXdelrows and CPXdelrows</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes a set of constraints</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.remove(ilog.concert.IloAddable[])</span>, or
+<span class="keyword apiname">IloCplexModeler.delete(IloCopyable[], int, int).</span>, or
+<span class="keyword apiname">IloLPMatrix.removeRows(int, int)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRangeArray::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractableArray.html#method_endElements">endElements</a> or <span class="keyword apiname">IloModel::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloModel.html#method_remove">remove</a>(const <span class="keyword apiname">IloExtractableArray</span>)</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delsetrows.html" title="The routine CPXXdelsetrows/CPXdelsetrows deletes a set of rows.">CPXXdelsetrows and CPXdelsetrows</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes names of rows and columns</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">----</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">----</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delnames.html" title="The routine CPXXdelnames/CPXdelnames removes all names that have been previously assigned to model entities, such as rows, columns, quadratic constraints, special ordered sets (SOSs), or indicator constraints.">CPXXdelnames and CPXdelnames</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes a single variable</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloMPModeler.delete(IloCopyable)</span>(<span class="keyword apiname">IloCopyable</span>)</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloNumVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloIntVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloSemiContVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delcols.html" title="The routine CPXXdelcols/CPXdelcols deletes all the columns in a specified range.">CPXXdelcols and CPXdelcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes a range of variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplexModeler.delete(IloCopyable[], int, int)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloNumVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloIntVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloSemiContVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delcols.html" title="The routine CPXXdelcols/CPXdelcols deletes all the columns in a specified range.">CPXXdelcols and CPXdelcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Deletes a set of variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplexModeler.delete(IloCopyable[], int, int)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloNumVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloIntVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloSemiContVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/delsetcols.html" title="The routine CPXXdelsetcols/CPXdelsetcols deletes a set of columns from a CPLEX problem object.">CPXXdelsetcols and CPXdelsetcols</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes objective sense</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloObjective.setSense(ilog.concert.IloObjectiveSense)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloObjective::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setSense">setSense</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgobjsen.html" title="The routine CPXXchgobjsen/CPXchgobjsen changes the sense of the optimization for a problem, to maximization or minimization.">CPXXchgobjsen and CPXchgobjsen</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes sense of a single constraint</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.setLB(double)</span>, <span class="keyword apiname">IloRange.setUB(double)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLB">setLB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setUB">setUB</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgsense.html" title="The routine CPXXchgsense/CPXchgsense changes the sense of a set of linear constraints of a CPLEX problem object.">CPXXchgsense and CPXchgsense</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes sense of multiple constraints</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.setBounds(double, double)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setBounds">setBounds</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgsense.html" title="The routine CPXXchgsense/CPXchgsense changes the sense of a set of linear constraints of a CPLEX problem object.">CPXXchgsense and CPXchgsense</a>
+                     </code>
+                  </td>
+
+                  </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes a coefficient in a matrix, rhs, or objective function</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloMPModeler.addToExpr(ilog.concert.IloRange, ilog.concert.IloNumExpr)</span>
+                     </p>
+
+                     <p class="p"><span class="keyword apiname">IloLPMatrix.setNZ(int, int, double)</span> (for matrix)</p>
+
+                     <p class="p"><span class="keyword apiname">IloRange.setLB(double)</span>, <span class="keyword apiname">IloRange.setUB(double)</span>,
+<span class="keyword apiname">IloRange#setBounds(double, double)</span> (for rhs) </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloMPModeler.setLinearCoef(ilog.concert.IloObjective, ilog.concert.IloNumVar,
+double)</span> (for objective) </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloRange::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLinearCoef">setLinearCoef</a> (for matrix)</p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloRange::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLB">setLB</a>, <span class="keyword apiname">IloRange::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setUB">setUB</a>, <span class="keyword apiname">IloRange::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setBounds">setBounds</a> (for rhs)</p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloObjective::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setLinearCoef">setLinearCoef</a> (for objective)</p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgcoef.html" title="The routine CPXXchgcoef/CPXchgcoef changes a single coefficient in the constraint matrix, linear objective coefficients, righthand side, or ranges of a CPLEX problem object.">CPXXchgcoef and CPXchgcoef</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes a <strong class="ph b">list</strong> of matrix coefficients</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloMPModeler.setLinearCoefs(ilog.concert.IloRange, double[],
+ilog.concert.IloNumVar[])</span> or <span class="keyword apiname">IloLPMatrix.setNZs(int[], int[],
+double[])</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLinearCoefs">setLinearCoefs</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgcoeflist.html" title="The routine CPXXchgcoeflist/CPXchgcoeflist changes a list of matrix coefficients of a CPLEX problem object.">CPXXchgcoeflist and CPXchgcoeflist</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes a coefficient in the Q matrix</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloMPModeler.addToExpr(ilog.concert.IloRange, ilog.concert.IloNumExpr)</span> or
+<span class="keyword apiname">IloObjective.setExpr(ilog.concert.IloNumExpr)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloObjective::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setExpr">setExpr</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/qpapi/chgqpcoef.html" title="The routine CPXXchgqpcoef/CPXchgqpcoef changes the coefficient in the quadratic objective of a quadratic problem (QP) corresponding to the variable pair (i,j) to the value newvalue.">CPXXchgqpcoef and CPXchgqpcoef</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes a single bound</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>,
+and <span class="keyword apiname">IloSemiContVar</span> objects, use the methods <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setLB(double)">setLB</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setUB(double)">setUB</a> and <span class="keyword apiname">IloSemiContVar.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSemiContVar.html#setSemiContLB(double)">setSemiContLB</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>, <span class="keyword apiname">IloBoolVar</span>,
+and <span class="keyword apiname">IloSemiContVar</span> objects, use the methods <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setLB">setLB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setUB">setUB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setBounds">setBounds</a>, and <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSemiContVar.html#method_setSemiContLB">setSemiContLB</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgbds.html" title="The routine CPXXchgbds/CPXchgbds changes the lower or upper bounds on a set of variables of a problem.">CPXXchgbds and CPXchgbds</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes multiple bounds</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>,
+and <span class="keyword apiname">IloSemiContVar</span> objects, use the methods <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html#setLB(double)">setLB</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html#setUB(double)">setUB</a> and <span class="keyword apiname">IloSemiContVar.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSemiContVar.html#setSemiContLB(double)">setSemiContLB</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>, <span class="keyword apiname">IloBoolVar</span>,
+and <span class="keyword apiname">IloSemiContVar</span> objects, use the methods <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setLB">setLB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setUB">setUB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setBounds">setBounds</a>, and <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSemiContVar.html#method_setSemiContLB">setSemiContLB</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgbds.html" title="The routine CPXXchgbds/CPXchgbds changes the lower or upper bounds on a set of variables of a problem.">CPXXchgbds and CPXchgbds</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes a single coefficient in objective function</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloMPModeler.setLinearCoef(ilog.concert.IloObjective, ilog.concert.IloNumVar,
+double)</span> or <span class="keyword apiname">IloObjective.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloObjective.html#setExpr(ilog.concert.IloNumExpr)">setExpr</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloObjective::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setLinearCoef">setLinearCoef</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setExpr">setExpr</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgobj.html" title="The routine CPXXchgobj/CPXchgobj changes the linear objective coefficients of a set of variables in a CPLEX problem object.">CPXXchgobj and CPXchgobj</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes multiple coefficients in objective function</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloMPModeler.setLinearCoefs(ilog.concert.IloObjective, double[],
+ilog.concert.IloNumVar[])</span> or <span class="keyword apiname">IloObjective.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloObjective.html#setExpr(ilog.concert.IloNumExpr)">setExpr</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloObjective::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setLinearCoef">setLinearCoef</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloObjective.html#method_setExpr">setExpr</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgobj.html" title="The routine CPXXchgobj/CPXchgobj changes the linear objective coefficients of a set of variables in a CPLEX problem object.">CPXXchgobj and CPXchgobj</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes a single coefficient in righthand side</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setLB(double)">setLB</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setUB(double)">setUB</a>, <span class="keyword apiname">IloRange#setBounds(double,
+double)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLB">setLB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setUB">setUB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setBounds">setBounds</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgrhs.html" title="The routine CPXXchgrhs/CPXchgrhs changes the righthand side coefficients of a set of linear constraints in the CPLEX problem object.">CPXXchgrhs and CPXchgrhs</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes multiple coefficients in righthand side</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setLB(double)">setLB</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setUB(double)">setUB</a>, <span class="keyword apiname">IloRange#setBounds(double,
+double)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLB">setLB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setUB">setUB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setBounds">setBounds</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgrhs.html" title="The routine CPXXchgrhs/CPXchgrhs changes the righthand side coefficients of a set of linear constraints in the CPLEX problem object.">CPXXchgrhs and CPXchgrhs</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes range coefficients of a set of constraints</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setLB(double)">setLB</a>, <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloRange.html#setUB(double)">setUB</a>, <span class="keyword apiname">IloRange#setBounds(double,
+double)</span>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setLB">setLB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setUB">setUB</a>, <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setBounds">setBounds</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgrngval.html" title="The routine CPXXchgrngval/CPXchgrngval changes the range coefficients of a set of linear constraints in the CPLEX problem object.">CPXXchgrngval and CPXchgrngval</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes name of a variable or constraint</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloAddable.html#setName(java.lang.String)">setName</a>  For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>, <span class="keyword apiname">IloSemiContVar</span>,
+use the method <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html#setName(java.lang.String)">setName</a>. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloRange::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setName">setName</a>
+                     </p>
+
+                     <p class="p">For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>, <span class="keyword apiname">IloBoolVar</span>, <span class="keyword apiname">IloSemiContVar</span>,
+use the method <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_setName">setName</a>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgname.html" title="The routine CPXXchgname/CPXchgname changes the name of a constraint or the name of a variable in a CPLEX problem object.">CPXXchgname and CPXchgname</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes names of constraints</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloRange.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloAddable.html#setName(java.lang.String)">setName</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloRange::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloRange.html#method_setName">setName</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgrowname.html" title="This routine changes the names of linear constraints in a CPLEX problem object.">CPXXchgrowname and CPXchgrowname</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes names of variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">For <span class="keyword apiname">IloNumVar</span>, <span class="keyword apiname">IloIntVar</span>, <span class="keyword apiname">IloSemiContVar</span>,
+use the method <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html#setName(java.lang.String)">setName</a>. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">For <span class="keyword apiname">IloNumVarArray</span>, <span class="keyword apiname">IloIntVarArray</span>, <span class="keyword apiname">IloBoolVarArray</span>, <span class="keyword apiname">IloSemiContVarArray</span>,
+use the method <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractableArray.html#method_setName">setName</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgcolname.html" title="The routine CPXXchgcolname/CPXchgcolname changes the names of variables in a CPLEX problem object.">CPXXchgcolname and CPXchgcolname</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes problem name</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloAddable.html#setName(java.lang.String)">setName</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloModel::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_setName">setName</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgprobname.html" title="The routine CPXXchgprobname/CPXchgprobname changes the name of the current problem.">CPXXchgprobname and CPXchgprobname</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes problem type</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Use <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloConversion.html">IloConversion</a> objects or <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#solveFixed()">solveFixed</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloConversion.html">IloConversion</a> objects or <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_solveFixed">solveFixed</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/cpxapi/chgprobtype.html" title="The routine CPXXchgprobtype/CPXchgprobtype changes the current problem to a related problem.">CPXXchgprobtype and CPXchgprobtype</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Changes variable type</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Use <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloConversion.html">IloConversion</a> objects </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Use <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloConversion.html">IloConversion</a> objects</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/chgctype.html" title="The routine CPXXchgctype/CPXchgctype changes the types of a set of variables of a CPLEX problem object.">CPXXchgctype and CPXchgctype</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds a single Special Ordered Set</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">Create and add <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSOS1.html">IloSOS1</a> or <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSOS2.html">IloSOS2</a> objects or use<p class="p"><span class="keyword apiname">IloMPModeler.addSOS1(ilog.concert.IloNumVar[],
+double[])</span>
+                     </p>
+or <p class="p"><span class="keyword apiname">IloMPModeler.addSOS2(ilog.concert.IloNumVar[],
+double[])</span>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Create and add <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS1.html">IloSOS1</a> or <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS2.html">IloSOS2</a> objects </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/addsos.html" title="The routine CPXXaddsos/CPXaddsos adds information about a special ordered set (SOS) to a problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP.">CPXXaddsos and CPXaddsos</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Adds multiple Special Ordered Sets</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloSOS</span> classes implement the interface <span class="keyword apiname">IloAddable</span>,
+both individual objects and arrays of objects. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">Create and add <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS1Array.html">IloSOS1Array</a> or <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS2Array.html">IloSOS2Array</a> objects </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/addsos.html" title="The routine CPXXaddsos/CPXaddsos adds information about a special ordered set (SOS) to a problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP.">CPXXaddsos and CPXaddsos</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes a single Special Ordered Set</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloModel.html#remove(ilog.concert.IloAddable[])">remove</a> (<span class="keyword apiname">IloSOS</span> classes
+implement the interface <span class="keyword apiname">IloAddable</span>, both individual
+objects and arrays of objects). </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloSOS1::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>, <span class="keyword apiname">IloSOS2::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractable.html#method_end">end</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/delsetsos.html" title="The routine CPXXdelsetsos/CPXdelsetsos deletes a group of special ordered sets (SOSs) from a CPLEX problem object.">CPXXdelsetsos and CPXdelsetsos</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes multiple Special Ordered Sets</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloModel.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloModel.html#remove(ilog.concert.IloAddable[])">remove</a> (<span class="keyword apiname">IloSOS</span> classes
+implement the interface <span class="keyword apiname">IloAddable</span>, both individual
+objects and arrays of objects). </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloSOS1::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractableArray.html#method_removeFromAll">removeFromAll</a>, <span class="keyword apiname">IloSOS2::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloExtractableArray.html#method_removeFromAll">removeFromAll</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/delsetsos.html" title="The routine CPXXdelsetsos/CPXdelsetsos deletes a group of special ordered sets (SOSs) from a CPLEX problem object.">CPXXdelsetsos and CPXdelsetsos</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes all MIP priority orders from a single variable</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#delPriority(ilog.concert.IloNumVar)">delPriority</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_delPriority">delPriority</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/copyorder.html" title="The routine CPXXcopyorder/CPXcopyorder copies a priority order to a CPLEX problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP.">CPXXcopyorder and CPXcopyorder</a>
+                     </code> with
+item count set to 0 or set <span class="keyword apiname">CPX_PARAM_MIPORDIND</span> to
+0 and order will be ignored</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes all MIP priority orders from multiple variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#delPriorities(ilog.concert.IloNumVar[])">delPriorities</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_delPriorities">delPriorities</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/copyorder.html" title="The routine CPXXcopyorder/CPXcopyorder copies a priority order to a CPLEX problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP.">CPXXcopyorder and CPXcopyorder</a>
+                     </code> with
+item count set to 0 or set <span class="keyword apiname">CPX_PARAM_MIPORDIND</span> to
+0 and order will be ignored</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes all MIP branching directives from a single variable</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#delDirection(ilog.concert.IloNumVar)">delDirection</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_delDirection">delDirection</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <a class="xref" href="../../../refcallablelibrary/mipapi/copyorder.html" title="The routine CPXXcopyorder/CPXcopyorder copies a priority order to a CPLEX problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP.">CPXXcopyorder and CPXcopyorder</a> 
+with item count set to 0 or set <span class="keyword apiname">CPX_PARAM_MIPORDIND</span> to
+0 and order will be ignored</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes all MIP branching directives from multiple variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#delDirections(ilog.concert.IloNumVar[])">delDirections</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_delDirections">delDirections</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/copyorder.html" title="The routine CPXXcopyorder/CPXcopyorder copies a priority order to a CPLEX problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP.">CPXXcopyorder and CPXcopyorder</a>
+                     </code>with
+item count set to 0 or set <span class="keyword apiname">CPX_PARAM_MIPORDIND</span> to
+0 and order will be ignored</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e169 ">Removes cuts </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e172 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#clearCuts()">clearCuts</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e175 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_clearCuts">clearCuts</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d63271e178 ">----</td>
+
+               </tr>
+
+            </tbody>
+</table>
+</div>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/apioverviewcplex.html" title="Provides links to reference manuals of the C, C++, and Java application programming interfaces of CPLEX">Overview of the APIs of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

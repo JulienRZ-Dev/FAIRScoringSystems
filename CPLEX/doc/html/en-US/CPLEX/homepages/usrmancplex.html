@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="User's Manual for CPLEX" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/CPLEX.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/preface/preface_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/APIs/part_languages_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/cont_optim/part_cont_optim_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/discr_optim/part_discr_optim_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/parallel_optim/partParallelOptim_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/infeas_unbd/partInfeasUnbnded_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/UsrMan/topics/progr_adv/partAdvProg_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="q3e3nIoV" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../CPLEX/homepages/CPLEX.html" />
+<title>User's Manual for CPLEX</title>
+</head>
+<body id="q3e3nIoV"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">User's Manual for CPLEX</h1>
+
+<div class="body">
+<p class="p">Welcome to the CPLEX User's Manual.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/preface/preface_title_synopsis.html">Meet CPLEX</a></strong><br />
+Introduces CPLEX, explains what it does, suggests prerequisites, and offers advice for using this documentation with it.</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/APIs/part_languages_title_synopsis.html">Languages and APIs</a></strong><br />
+This part of the manual collects topics about each of the application programming interfaces (APIs) available for IBM ILOG CPLEX. It is not necessary to read each of these topics thoroughly. In fact, most users will concentrate only on the topic about the API that they plan to use, whether C, C++, Java, or .NET. </li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html">Programming considerations</a></strong><br />
+This part of the manual documents concepts that are valid as you develop an application, regardless of the programming language that you choose. It highlights software engineering practices implemented in IBM ILOG CPLEX, practices that will enable you to develop effective applications to exploit it efficiently.</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/cont_optim/part_cont_optim_title_synopsis.html">Continuous optimization</a></strong><br />
+This part focuses on algorithmic considerations about the optimizers of IBM ILOG CPLEX that solve problems formulated in  terms of <strong class="ph b">continuous</strong> variables. While ILOG CPLEX is delivered  with default settings that enable you to solve many problems without  changing parameters, this part also documents features that you can  customize for your application.  </li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/discr_optim/part_discr_optim_title_synopsis.html">Discrete optimization</a></strong><br />
+This part focuses on algorithmic considerations about the optimizers of IBM ILOG CPLEX that solve problems formulated in terms of discrete variables, such as integer, Boolean, piecewise-linear, or semi-continuous variables. While default settings of ILOG CPLEX enable you to solve many problems without changing parameters, this part also documents features that enable you to tune performance. </li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html">Multiobjective optimization</a></strong><br />
+This part introduces multiobjective optimization.</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/parallel_optim/partParallelOptim_title_synopsis.html">Parallel optimization</a></strong><br />
+This part documents features of CPLEX for optimization in parallel. It introduces special considerations about parallel programming with CPLEX. It documents distributed parallel optimization techniques for mixed integer programming (MIP). This part of the manual assumes that you are already familiar with earlier parts of the manual. </li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/infeas_unbd/partInfeasUnbnded_title_synopsis.html">Infeasibility and unboundedness</a></strong><br />
+Documents tools to help you analyze the source of the infeasibility in a model: the preprocessing reduction parameter for distinguishing infeasibility from unboundedness, the conflict refiner for detecting minimal sets of mutually contradictory bounds and constraints, and FeasOpt for repairing infeasibilities.</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/UsrMan/topics/progr_adv/partAdvProg_title_synopsis.html">Advanced programming techniques</a></strong><br />
+This part documents advanced programming techniques for users of IBM ILOG CPLEX. It shows you how to apply query routines to gather information while CPLEX is working. It demonstrates how to redirect the search with goals or callbacks. This part also covers user-defined cuts and pools of lazy constraints. It documents the advanced MIP control interface and the advanced aspects of preprocessing: presolve and aggregation. It also introduces special considerations about parallel programming with CPLEX. This part of the manual assumes that you are already familiar with earlier parts of the manual.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../CPLEX/homepages/CPLEX.html">CPLEX Optimizers</a></div>
+</div>
+</nav></div></body>
+</html>

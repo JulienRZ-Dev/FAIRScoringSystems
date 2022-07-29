@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Engine representation of variables" />
+<meta name="abstract" content="Decision variables in the engine can be accessed via a method of the optimizer object." />
+<meta name="Description" content="Decision variables in the engine can be accessed via a method of the optimizer object." />
+<meta name="DC.subject" content="extraction, decision variable" />
+<meta name="keywords" content="extraction, decision variable" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizerextend.1014440" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<title>Engine representation of variables</title>
+</head>
+<body id="migration.uss_usradvcpoptimizerextend.1014440"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Engine representation of variables</h1>
+<div class="body"><p class="shortdesc">Decision variables in the engine can be accessed via
+a method of the optimizer object.</p>
+
+
+<p class="p">A model variable (an instance of <code class="ph codeph">IloIntVar</code>) contains just the domain information 
+for that variable. An engine variable (an instance of <code class="ph codeph">IlcIntVar</code>) contains the 
+same information plus some additional data structures to handle constraint propagation.
+</p>
+<p class="p">
+Let us take an example of code to illustrate the differences between model variables
+and engine variables:
+</p>
+
+<pre class="pre codeblock"><code>
+    IloIntVar x(env, 0, 10, "x");
+    IloIntVar y(env, 0, 10, "y");
+    IloModel model(env);
+    model.add(x*x &lt;= y);
+    IloCP cp(model);
+    cp.propagate();
+    cp.out() &lt;&lt; "The engine variable of " &lt;&lt; x &lt;&lt; " is " &lt;&lt; cp.domain(x) &lt;&lt; std::endl;
+    cp.out() &lt;&lt; "The engine variable of " &lt;&lt; y &lt;&lt; " is " &lt;&lt; cp.domain(y) &lt;&lt; std::endl;
+</code></pre>
+<p class="p">produces the output: </p>
+
+<pre class="pre codeblock"><code>
+The engine variable of x[0..10]  is x[0..3]
+The engine variable of y[0..10]  is y[0..10]
+
+</code></pre>
+<p class="p">
+It is important to note that the domain
+reductions are not performed on the modeling objects themselves, but on
+the corresponding internal engine objects, instances of <code class="ph codeph">IlcIntVar</code>. 
+</p>
+<p class="p"> There are basically two ways of accessing engines variables from model variables. The first way
+is available at the top level, through an API on <code class="ph codeph">IloCP</code>, as in the previous example.
+For example, you can display the current domain of an engine variable with
+<code class="ph codeph">IloCP::domain(IloIntVar x)</code>, get the lower bound of the domain with
+<code class="ph codeph">IloCP::getMin(IloIntVar x)</code>, or after a successful solve, get the value of the
+variable with <code class="ph codeph">IloCP::getValue(IloIntVar x)</code>. </p>
+<p class="p"> Note that, at the top level, you cannot directly get the engine variable (the
+<code class="ph codeph">IlcIntVar</code>) from a model variable (the <code class="ph codeph">IloIntVar</code>), since the engine
+variable depends also on the worker. </p>
+<p class="p">The second way of accessing engine variables is available only during the search process. This
+happens inside a worker and through a constraint, a goal, a demon, or a macro defining the
+extraction. In this case, you can directly get the engine variable corresponding to a model variable
+by using the <code class="ph codeph">IloCPEngine</code> associated with the worker. For example, a constraint or a
+goal using the function <code class="ph codeph">getCPEngine()</code>, to get an instance of
+<code class="ph codeph">IloCPEngine</code>: </p>
+
+<pre class="pre codeblock"><code>
+
+    IloIntVar var;
+    ...
+    IloCPEngine cp = getCPEngine();
+    IlcIntVar engineVar = cp.getInt(var); 
+</code></pre>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" title="CP Optimizer does not work directly on the objects in the model. Instead it creates engine objects corresponding to the different modeling objects of the model, and performs propagation and search on these engine objects. This can be ignored for a normal use of CP Optimizer, but for a more advanced use, which needs the engine extensions API, a little bit more have to be known.">Model extraction</a></div>
+</div>
+</nav></div></body>
+</html>

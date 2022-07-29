@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Array properties" />
+<meta name="abstract" content="Provides a reference of the properties of arrays." />
+<meta name="Description" content="Provides a reference of the properties of arrays." />
+<meta name="DC.subject" content="arrays, properties (IBM ILOG Script), properties, for IBM ILOG Script arrays" />
+<meta name="keywords" content="arrays, properties (IBM ILOG Script), properties, for IBM ILOG Script arrays" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_arrays.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptValues.1011735" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_arrays.html" />
+<title>Array properties</title>
+</head>
+<body id="usropllangref.uss_langref_scriptValues.1011735"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Array properties</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a reference of the properties of arrays.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that describes the syntax and effects of array properties in IBM ILOG Script." id="usropllangref.uss_langref_scriptValues.1011735__usropllangref.uss_langref_scriptValues.1011808" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Array properties</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d487464e52">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d487464e55">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d487464e52 "> <em class="ph i">array</em>[<em class="ph i">index</em>]</td>
+
+<td class="entry" valign="top" headers="d487464e55 "><p class="p">If <code class="ph codeph">index</code> can be converted to a number between
+0 and 2e31-1 (see <a class="xref" href="opl_langref_scriptValues_numbersauto.html" title="Describes the automatic conversion of numbers in OPL functions.">Automatic conversion to a number</a>), <code class="ph codeph">array[index]</code> is
+the value of the index-th element of the array.</p>
+<p class="p">Otherwise, it
+is considered as a standard property access.</p>
+<p class="p">If this element
+has never been set, <code class="ph codeph">null</code> is returned.</p>
+<p class="p">Example:</p>
+<p class="p">Suppose
+that the array <code class="ph codeph">a</code> has been created with</p>
+a = new
+Array("foo", 12, true) <p class="p">Then:</p>
+<p class="p">a[0] –&gt; "foo"</p>
+<p class="p">a[1]
+–&gt; 12</p>
+<p class="p">a[2] –&gt; true</p>
+<p class="p">a[3] –&gt; null</p>
+<p class="p">a[1000]
+–&gt; null</p>
+         <p class="p">When an element of an array is set beyond
+the current length of the array, the array is automatically expanded: </p>
+a[1000]
+= "bar" // the array is automatically expanded.  <p class="p">Unlike other properties,
+the numeric properties of an array are not listed by the <code class="ph codeph">for..in</code> statement. </p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d487464e52 "><em class="ph i">array</em>.length</td>
+
+<td class="entry" valign="top" headers="d487464e55 "><p class="p">The length of <code class="ph codeph">array</code>, which is the highest
+index of an element set in <code class="ph codeph">array</code>, plus one. It is
+always included in 0 to 2e31 -1.</p>
+<p class="p">When a new element is set in
+the array, and its index is greater than or equal to the current array
+length, the <code class="ph codeph">length</code> property is automatically increased.</p>
+<p class="p">Example:
+Suppose that the array <code class="ph codeph">a</code> has been created with</p>
+a
+= new Array("a", "b", "c") <p class="p">Then:</p>
+a.length -&gt; 3 a[100] = "bar";
+a.length  –&gt; 101   <p class="p">You can also change the length of an array
+by setting its <code class="ph codeph">length</code> property.</p>
+<p class="p">a = new Array();
+a[4] = "foo"; a[9] = "bar" a.length  –&gt; 10 </p>
+<p class="p"></p>
+<p class="p">a.length
+= 5   a.length –&gt; 5   a[4] –&gt; "foo"   a[9] –&gt; null</p>
+  </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_values_arrays.html" title="Array representation and functions.">IBM ILOG Script arrays</a></div>
+</div>
+</nav></div></body>
+</html>

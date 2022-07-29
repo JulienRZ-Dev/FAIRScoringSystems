@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Lexicographic constraint" />
+<meta name="abstract" content="The lexicographic constraint is a specialized constraint which maintains order between two groups of expressions." />
+<meta name="Description" content="The lexicographic constraint is a specialized constraint which maintains order between two groups of expressions." />
+<meta name="DC.subject" content="constraint, lexicographic, lexicographic constraint" />
+<meta name="keywords" content="constraint, lexicographic, lexicographic constraint" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizerconstraints.1015047" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" />
+<title>Lexicographic constraint</title>
+</head>
+<body id="migration.uss_usrcpoptimizerconstraints.1015047"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Lexicographic constraint</h1>
+
+
+
+<div class="body"><p class="shortdesc">The lexicographic constraint is a specialized
+constraint which maintains order between two groups of expressions.</p>
+
+<p class="p">A lexicographic constraint maintains order between two
+groups of expressions. The two groups of expressions are conventionally
+specified in two arrays that must be the same length. A lexicographic
+constraint compares the expressions, index by index, to see which
+is greater in lexicographic terms. </p>
+
+<p class="p">Informally, you might think of a lexicographic constraint
+as putting two arrays in alphabetic order relative to each other.</p>
+
+<p class="p">In formal terms, a lexicographic constraint over two arrays <code class="ph codeph">x</code> and <code class="ph codeph">y</code> maintains that <code class="ph codeph">x</code> is less than or equal to <code class="ph codeph">y</code> in
+the lexicographical sense of the term. That is, either both arrays
+are equal, index by index, or there exists an index <code class="ph codeph">i</code> strictly
+less than the length of the array <code class="ph codeph">x</code> such
+that for all<code class="ph codeph"> j &lt; i, x[j] = y[j]</code> and <code class="ph codeph">x[i] &lt; y[i]</code>.</p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the global
+function <code class="ph codeph">IloLexicographic</code> returns a lexicographic
+constraint.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, the method <code class="ph codeph">IloCP.lexicographic </code>returns
+a lexicographic constraint.</p>
+
+<p class="p">Likewise, in the <strong class="ph b">C# API</strong> of CP Optimizer,
+the method <code class="ph codeph">CP.Lexicographic</code> returns a lexicographic
+constraint.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" title="Specialized constraints on integer decision variables are designed and implemented to reduce domains of variables efficiently during a search.">Specialized constraints on integer decision variables</a></div>
+</div>
+</nav></div></body>
+</html>

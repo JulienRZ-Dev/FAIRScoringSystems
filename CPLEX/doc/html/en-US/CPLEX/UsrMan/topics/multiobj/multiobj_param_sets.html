@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Parameter sets" />
+<meta name="abstract" content="Explains how to use parameter sets with multiobjective optimization." />
+<meta name="Description" content="Explains how to use parameter sets with multiobjective optimization." />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobj_intro" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<title>Parameter sets</title>
+</head>
+<body id="multiobj_intro"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Parameter sets</h1>
+
+
+<div class="body"><p class="shortdesc">Explains how to use parameter sets with multiobjective optimization.</p>
+
+<p class="p">During the solution process, you may prefer that optimization problems with different priorities
+are solved with different parameter settings. CPLEX makes this possible by using parameter sets. If
+parameter sets are passed to the <code class="ph codeph">CPXmultiobjopt()</code> function (or the corresponding
+functions in the other APIs), then those sets are used one-by-one in the optimizations.</p>
+
+<p class="p">Using a parameter set means that, with each subproblem, first all parameters are set to their
+default values and then the parameters listed in the set are changed to the values specified in that
+set. </p>
+
+<p class="p">There are a few exceptions. The parameters in the environment that set a global limit (time
+limit, deterministic time limit, etc.) act as a limit on the cumulative resource use of the sequence
+of optimizations. </p>
+
+<p class="p">The following two parameters also do <strong class="ph b">not</strong> reset to their default values before applying the
+new parameter set with each subproblem: </p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">CPXPARAM_Parallel</code>: since parallel mode cannot be changed during the algorithm,
+any parallel mode settings in the parameter sets will be disregarded. See <a class="xref" href="../../../Parameters/topics/ParallelMode.html" title="Sets the parallel optimization mode. Possible modes are automatic, deterministic, and opportunistic.">parallel mode switch</a>.</li>
+
+<li class="li"><code class="ph codeph">CPXPARAM_ScreenOutput</code>: the value in the master environment will be used in all
+subproblems, except in those where the parameter set overrides it. See <a class="xref" href="../../../Parameters/topics/SCRIND.html" title="Decides whether or not results are displayed on screen in an application of the C API.">messages to screen switch</a></li>
+
+</ul>
+
+<div class="note note"><span class="notetitle">Note:</span> After optimization the parameters in the environment are reset to whatever values they had
+before the optimization.</div>
+
+<p class="p">For more information about using parameter sets, see <a class="xref" href="../../../../refcallablelibrary/groups/homepageparametersets.html">Parameter sets</a> in the <em class="ph i">CPLEX Callable
+Library (C API) Reference Manual</em>.</p>
+
+<p class="p">For a list of examples using parameter sets with multiobjective optimization, see <a class="xref" href="multiobj_examples.html" title="Provides an overview of the examples using multiobjective optimization.">Examples for multiobjective optimization</a>.</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a></div>
+</div>
+</nav></div></body>
+</html>

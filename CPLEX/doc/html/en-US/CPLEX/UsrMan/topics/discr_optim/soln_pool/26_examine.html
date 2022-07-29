@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Examining the solution pool" />
+<meta name="abstract" content="Describes access to generic information about the solution pool." />
+<meta name="Description" content="Describes access to generic information about the solution pool." />
+<meta name="DC.subject" content="solution pool, replaced solutions, gap, solution pool replacements and" />
+<meta name="keywords" content="solution pool, replaced solutions, gap, solution pool replacements and" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/01_soln_pool_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solnpool.1048913" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/01_soln_pool_title_synopsis.html" />
+<title>Examining the solution pool</title>
+</head>
+<body id="User_manual.uss_solnpool.1048913"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Examining the solution pool</h1>
+ 
+ 
+
+<div class="body"><p class="shortdesc">Describes access to generic information about the solution
+pool.</p>
+
+<p class="p">In the Interactive Optimizer, the command <code class="ph codeph">display solution pool</code> 
+produces a synopsis about the solution pool, such as the following lines. </p>
+
+<pre class="pre codeblock"><code>
+CPLEX&gt; display solution pool
+Solution pool: 29 solutions saved.
+Mean objective = 5.7372413793e+002
+</code></pre>
+<p class="p">Also in the Interactive Optimizer, the command <code class="ph codeph">display solution list</code> 
+shows the objective value of solutions in the pool, along with the
+percentage of discrete variables that take a value different from
+the incumbent. To display all solutions in the pool, use  <code class="ph codeph">display solution list *</code> .
+Alternatively, you can specify the indices of the solutions to display,
+for example: <code class="ph codeph">display solution list 2-4</code> .</p>
+
+<div class="p">The information displayed by both of these commands in the Interactive
+Optimizer is available through methods or routines in Concert Technology
+and the Callable Library, as shown in <a class="xref" href="26_examine.html#User_manual.uss_solnpool.1048913__User_manual.uss_solnpool.1048928" title="A four-column table showing a value of interest to access, the name of its accessor in Concert Technology (C++, Java, .NET APIs), the name of its accessor in the Callable Library (C API), and the name of its accessor in the Interactive Optimizer.">Table 1</a>. </div>
+
+<div class="p"> <a class="xref" href="26_examine.html#User_manual.uss_solnpool.1048913__User_manual.uss_solnpool.1048928" title="A four-column table showing a value of interest to access, the name of its accessor in Concert Technology (C++, Java, .NET APIs), the name of its accessor in the Callable Library (C API), and the name of its accessor in the Interactive Optimizer.">Table 1</a> summarizes
+methods, routines, and commands that access aggregated information
+about the solution pool itself, such information as the number of
+solutions in the pool, the number of solutions that have been replaced,
+and the arithmetic mean of the objective value of solutions in the
+pool. </div>
+
+<p class="p">Solutions are <em class="ph i">replaced</em>, according to the replacement policy,
+when the pool reaches its maximum capacity. Its maximum capacity is
+specified by the solution pool capacity parameter (<a class="xref" href="../../../../Parameters/topics/SolnPoolCapacity.html" title="Limits the number of solutions kept in the solution pool">maximum number of solutions kept in solution pool</a>: <code class="ph codeph">SolnPoolCapacity</code>, <code class="ph codeph">CPX_PARAM_SOLNPOOLCAPACITY</code>) <strong class="ph b">not</strong> by
+the parameter that limits populate (<a class="xref" href="../../../../Parameters/topics/PopulateLim.html" title="Sets the maximum number of mixed integer programming (MIP) solutions generated for the solution pool during each call to the populate procedure.">maximum number of solutions generated for solution pool by populate</a>: <code class="ph codeph">PopulateLimit</code>, <code class="ph codeph">CPX_PARAM_POPULATELIM</code>).</p>
+
+<p class="p">In the presence of an objective tolerance specific to the solution
+pool, as specified either by the <a class="xref" href="../../../../Parameters/topics/SolnPoolGap.html" title="Sets a relative tolerance on the objective value for the solutions in the solution pool.">relative gap for solution pool</a> parameter
+(<code class="ph codeph">SolnPoolGap</code>, <code class="ph codeph">CPX_PARAM_SOLNPOOLGAP</code>)
+or by the <a class="xref" href="../../../../Parameters/topics/SolnPoolAGap.html" title="Sets an absolute tolerance on the objective value for the solutions in the solution pool.">absolute gap for solution pool</a> parameter
+(<code class="ph codeph">SolnPoolAGap</code>, <code class="ph codeph">CPX_PARAM_SOLNPOOLAGAP</code>),
+solutions that are generated but then deleted because of the improvement
+in the best integer value are also counted as replaced.    </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table showing a value of interest to access, the name of its accessor in Concert Technology (C++, Java, .NET APIs), the name of its accessor in the Callable Library (C API), and the name of its accessor in the Interactive Optimizer." id="User_manual.uss_solnpool.1048913__User_manual.uss_solnpool.1048928" class="table ShadedHead" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Accessing information about the solution pool</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d229882e170">Purpose</th>
+
+<th class="entry thleft" align="left" valign="top" id="d229882e173">Concert Technology</th>
+
+<th class="entry thleft" align="left" valign="top" id="d229882e176">Callable Library</th>
+
+<th class="entry thleft" align="left" valign="top" id="d229882e179">Interactive Optimizer</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d229882e170 ">Number of solutions</td>
+
+<td class="entry" valign="top" headers="d229882e173 "><code class="ph codeph">getSolnPoolNsolns</code></td>
+
+<td class="entry" valign="top" headers="d229882e176 "><code class="ph codeph">CPXgetsolnpoolnumsolns</code></td>
+
+<td class="entry" valign="top" headers="d229882e179 "><code class="ph codeph">display solution pool</code></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d229882e170 ">Number replaced</td>
+
+<td class="entry" valign="top" headers="d229882e173 "><code class="ph codeph">getSolnPoolNreplaced</code></td>
+
+<td class="entry" valign="top" headers="d229882e176 "><code class="ph codeph">CPXgetsolnpoolnumreplaced</code></td>
+
+<td class="entry" valign="top" headers="d229882e179 "><code class="ph codeph">display solution pool</code></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d229882e170 ">Arithmetic mean of objective values</td>
+
+<td class="entry" valign="top" headers="d229882e173 "><code class="ph codeph">getSolnPoolMeanObjValue</code></td>
+
+<td class="entry" valign="top" headers="d229882e176 "><code class="ph codeph">CPXgetsolnpoolmeanobjval</code></td>
+
+<td class="entry" valign="top" headers="d229882e179 "><code class="ph codeph">display solution pool</code></td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/01_soln_pool_title_synopsis.html" title="Introduces the solution pool for storing multiple solutions to a mixed integer programming problem (MIP) and explains techniques for generating and managing those solutions.">Solution pool: generating and keeping multiple solutions</a></div>
+</div>
+</nav></div></body>
+</html>

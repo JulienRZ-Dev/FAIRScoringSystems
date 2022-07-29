@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXmultiobjchgattribs and CPXmultiobjchgattribs" />
+<meta name="abstract" content="The routine CPXXmultiobjchgattribs/CPXmultiobjchgattribs changes the name, the weight, priority, absolute and relative tolerance attributes of an objective in the multiobjective description of a CPLEX problem object." />
+<meta name="Description" content="The routine CPXXmultiobjchgattribs/CPXmultiobjchgattribs changes the name, the weight, priority, absolute and relative tolerance attributes of an objective in the multiobjective description of a CPLEX problem object." />
+<meta name="DC.subject" content="CPXmultiobjchgattribs, C API Reference Manual, CPXXmultiobjchgattribs" />
+<meta name="keywords" content="CPXmultiobjchgattribs, C API Reference Manual, CPXXmultiobjchgattribs" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemultiobjective.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpMultiobjective.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobjchgattribs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemultiobjective.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpMultiobjective.html" />
+<title>CPXXmultiobjchgattribs and CPXmultiobjchgattribs</title>
+</head>
+<body id="multiobjchgattribs"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">
+    <span class="keyword apiname">CPXXmultiobjchgattribs</span> and
+    <span class="keyword apiname">CPXmultiobjchgattribs</span>
+  </h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+    The routine
+    <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjchgattribs</span>/<span class="keyword apiname">CPXmultiobjchgattribs</span></code>
+    changes the name, the weight, priority, absolute and relative
+    tolerance attributes of an objective in the multiobjective
+    description of a CPLEX problem object.
+  </p>
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span>
+        <span class="keyword kwd">CPXXmultiobjchgattribs</span><span class="ph delim">(</span>
+        <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">objind</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">offset</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">weight</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">priority</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">abstol</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">reltol</span><span class="ph delim">,</span>
+        <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">name</span><span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span>
+        <span class="keyword kwd">CPXmultiobjchgattribs</span><span class="ph delim">(</span>
+        <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+        <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+        <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">objind</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">offset</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">weight</span><span class="ph delim">,</span>
+        <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">priority</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">abstol</span><span class="ph delim">,</span>
+        <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">reltol</span><span class="ph delim">,</span>
+        <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">name</span><span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">
+        The routine
+        <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjchgattribs</span>/<span class="keyword apiname">CPXmultiobjchgattribs</span></code>
+        changes the name, the weight, priority, absolute and relative
+        tolerance attributes of an objective in the multiobjective
+        description of a CPLEX problem object.
+      </p>
+
+
+      <div class="note note"><span class="notetitle">Note:</span> 
+        <p class="p">The objective must already exist in the CPLEX problem object.</p>
+
+
+        <p class="p">Setting an entry to unchanged indicates the current value
+        should be left in place (see the parameter descriptions below).</p>
+
+
+        <p class="p">Using this function to change the name of the 0-th
+        objective is equivalent to calling
+        <code class="ph codeph"><span class="keyword apiname">CPXchgobjname</span>/<span class="keyword apiname">CPXXchgobjname</span></code>.</p>
+
+      </div>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+      <dl class="dl parml">
+        
+        
+          <dt class="dt pt dlterm">env</dt>
+
+          <dd class="dd pd">
+            
+            A pointer to the CPLEX environment as returned by
+            <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">lp</dt>
+
+          <dd class="dd pd">
+            
+            A pointer to a CPLEX problem object as returned by
+            <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">objind</dt>
+
+          <dd class="dd pd">
+            
+            An integer that specifies the numeric index of the
+            objective whose attributes are to be changed.
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">offset</dt>
+
+          <dd class="dd pd">
+            
+            A double number that should be the new offset that specifies 
+            the constant term associated with the objective function.
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">weight</dt>
+
+          <dd class="dd pd">
+            
+            A double number that should be the new weight of the
+            objective. Pass in 
+            <a class="xref" href="../macros/CPX_NO_WEIGHT_CHANGE.html">CPX_NO_WEIGHT_CHANGE</a>          
+             to leave the weight unchanged.
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">priority</dt>
+
+          <dd class="dd pd">
+            
+            An integer number that should be the new priority of the
+            objective. Pass in 
+            <a class="xref" href="../macros/CPX_NO_PRIORITY_CHANGE.html">CPX_NO_PRIORITY_CHANGE</a>                
+             to leave the priority unchanged.
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">abstol</dt>
+
+          <dd class="dd pd">
+            
+            A double number that should be the new absolute tolerance of the objective. 
+            Pass in <code class="ph codeph">CPX_NO_ABSTOL_CHANGE</code> to leave the absolute tolerance unchanged. 
+            When specifying a new value, the same limits apply as with the 
+            <a class="xref" href="../../CPLEX/Parameters/topics/EpAGap.html" title="Sets an absolute tolerance on the gap between the best integer objective and the objective of the best node remaining."><code class="ph codeph">CPXPARAM_MIP_Tolerances_AbsMIPGap</code></a>
+            parameter.
+            See the section on <a class="xref" href="../../CPLEX/UsrMan/topics/multiobj/multiobj_specifying.html" title="Explains how to specify multiple objective problems.">Specifying multiple objective problems</a> 
+            in the <em class="ph i">CPLEX User's Manual</em> for the details on the meaning of this tolerance.         
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">reltol</dt>
+
+          <dd class="dd pd">
+            
+             A double number that should be the new relative tolerance of the objective. 
+             Pass in <code class="ph codeph">CPX_NO_RELTOL_CHANGE</code> to leave the relative tolerance unchanged. 
+             When specifying a new value, the same limits apply as with the 
+             <a class="xref" href="../../CPLEX/Parameters/topics/EpGap.html" title="Sets a relative tolerance on the gap between the best integer objective and the objective of the best node remaining."><code class="ph codeph">CPXPARAM_MIP_Tolerances_MIPGap</code></a>
+             parameter. Note that a nondefault setting of this parameter only applies to MIP multiobjective problems. 
+             See the section on <a class="xref" href="../../CPLEX/UsrMan/topics/multiobj/multiobj_specifying.html" title="Explains how to specify multiple objective problems.">Specifying multiple objective problems</a> 
+             in the <em class="ph i">CPLEX User's Manual</em> for the details on the meaning of this tolerance.        
+          </dd>
+
+        
+
+        
+        
+          <dt class="dt pt dlterm">name</dt>
+
+          <dd class="dd pd">
+            
+            The new name of the objective. Pass in
+            <code class="ph codeph">NULL</code> to leave the name unchanged.
+          </dd>
+
+        
+
+      </dl>
+
+    </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      <pre class="pre codeblock"><code>
+        status = CPXmultiobjchgattribs (env, lp, 10, 2.0, 99,
+                                        CPX_NO_ABSTOL_CHANGE, CPX_NO_RELTOL_CHANGE, NULL);
+      </code></pre>
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetMNO.html">M, N, O</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemultiobjective.html">Multiobjective optimization</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpMultiobjective.html">Multiobjective optimization routines</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Workers and the IloCPEngine" />
+<meta name="abstract" content="CP Optimizer may run several workers in parallel to solve a constraint model." />
+<meta name="Description" content="CP Optimizer may run several workers in parallel to solve a constraint model." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizerextend.1014893" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<title>Workers and the IloCPEngine</title>
+</head>
+<body id="migration.uss_usradvcpoptimizerextend.1014893"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Workers and the IloCPEngine</h1>
+<div class="body"><p class="shortdesc">CP Optimizer may run several workers in parallel to solve a constraint model.</p>
+
+<p class="p">This means that, 
+although only one model exists, each worker has its own engine objects to work with during 
+the search process. 
+Indeed, each worker is associated with a backtracking search engine, represented by an 
+instance of <code class="ph codeph">IloCPEngine</code>. An <code class="ph codeph">IloCPEngine</code> is in charge of performing the search for this 
+worker. It is given all the engine objects that have been extracted for the worker, and
+it provides the mapping from model variables to engine variables, which is needed to write 
+custom constraints and goals.
+</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" title="CP Optimizer does not work directly on the objects in the model. Instead it creates engine objects corresponding to the different modeling objects of the model, and performs propagation and search on these engine objects. This can be ignored for a normal use of CP Optimizer, but for a more advanced use, which needs the engine extensions API, a little bit more have to be known.">Model extraction</a></div>
+</div>
+</nav></div></body>
+</html>

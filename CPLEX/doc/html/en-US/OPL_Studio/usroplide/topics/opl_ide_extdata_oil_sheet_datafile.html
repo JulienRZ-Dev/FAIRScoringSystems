@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="The oil sheet data file" />
+<meta name="abstract" content="Describes the data file in the project." />
+<meta name="Description" content="Describes the data file in the project." />
+<meta name="DC.subject" content="data files, oil sheet example, code samples, oilSheet.dat, keywords, SheetConnection, SheetConnection, OPL keyword, multiple spreadsheets, spreadsheets, multiple, cells, reading, reading, columns/cells from a spreadsheet, writing to, SheetWrite, OPL keyword, results, storing in a spreadsheet, storing results in a spreadsheet, SheetWrite" />
+<meta name="keywords" content="data files, oil sheet example, code samples, oilSheet.dat, keywords, SheetConnection, SheetConnection, OPL keyword, multiple spreadsheets, spreadsheets, multiple, cells, reading, reading, columns/cells from a spreadsheet, writing to, SheetWrite, OPL keyword, results, storing in a spreadsheet, storing results in a spreadsheet, SheetWrite" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplide/topics/opl_ide_extdata_oil_sheet.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplide.uss_ide_datasources.130247" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplide/topics/opl_ide_extdata_oil_sheet.html" />
+<title>The oil sheet data file</title>
+</head>
+<body id="usroplide.uss_ide_datasources.130247"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">The oil sheet data file</h1>
+<div class="body"><p class="shortdesc">Describes the data file in the project.</p>
+
+<p class="p">Double-click the <code class="ph codeph">oilSheet.dat</code> file
+in the project tree to see the contents of the data file.</p>
+
+<div class="example" id="usroplide.uss_ide_datasources.130247__usroplide.uss_ide_datasources.132832"><h2 class="title sectiontitle">Data file for the Oil Sheet example (<code class="ph codeph">oilSheet.dat</code>)</h2><pre class="pre codeblock"><code>SheetConnection sheet("oilSheet.xls");
+Gasolines from SheetRead(sheet,"'gas data'!A2:A4");
+Oils from SheetRead(sheet,"'oil data'!A2:A4");
+Gas from SheetRead(sheet,"'gas data'!B2:E4");
+Oil from SheetRead(sheet,"'oil data'!B2:E4");
+MaxProduction = 14000;
+ProdCost = 4;
+
+
+a to SheetWrite(sheet,"RESULT!A2:A4");
+Blend to SheetWrite(sheet,"RESULT!B2:D4");
+</code></pre></div>
+
+<p class="p">The data file starts with the <code class="ph codeph">SheetConnection</code> statement
+used to connect to the spreadsheet.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">You can have multiple data files and, within any of them,
+multiple connections to spreadsheets. </p>
+
+</div>
+
+
+
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplide/topics/opl_ide_extdata_oil_sheet.html" title="Describes the oil data spreadsheet, the oil sheet project, and its execution.">The oil sheet example</a></div>
+</div>
+</nav><article class="topic nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" id="usroplide.uss_ide_datasources.130254"><h2 class="title topictitle2" id="ariaid-title2">Connecting to the spreadsheet from OPL</h2>
+<div class="body"><p class="p">The connection is established by the following statement:</p>
+<p class="p exampletitle" id="usroplide.uss_ide_datasources.130254__usroplide.uss_ide_datasources.138885">Connecting to a spreadsheet (MS Excel)</p>
+<pre class="pre codeblock"><code>SheetConnection sheet("oilSheet.xls");
+</code></pre><p class="p">The name of the spreadsheet file in quotation marks is
+passed as an argument.</p>
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">You do not need to specify the full path name. Relative
+paths are resolved using the directory of the current .<code class="ph codeph">dat</code> files. </p>
+
+</div>
+</div>
+</article>
+<article class="topic nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" id="usroplide.uss_ide_datasources.130267"><h2 class="title topictitle2" id="ariaid-title3">Reading from the spreadsheet</h2>
+<div class="body"><section class="section" id="usroplide.uss_ide_datasources.130267__usroplide.uss_ide_datasources.138798"><h3 class="title sectiontitle">Reading spreadsheet columns</h3><p class="p">You can read data from a column in any sheet into an
+OPL array using the <code class="ph codeph">SheetRead</code> statement,
+as in the data file <code class="ph codeph">oilSheet.dat</code>. </p>
+<p class="p exampletitle" id="usroplide.uss_ide_datasources.130267__usroplide.uss_ide_datasources.138920">Reading spreadsheet columns (<code class="ph codeph">oilSheet.dat</code>)</p>
+<pre class="pre codeblock"><code>Gasolines from SheetRead(sheet,"'gas data'!A2:A4");
+Oils from SheetRead(sheet,"'oil data'!A2:A4");
+</code></pre><p class="p">Note that the cells are read from 2 upward as the name
+of the column is not stored.</p>
+</section>
+<section class="section" id="usroplide.uss_ide_datasources.130267__usroplide.uss_ide_datasources.138803"><h3 class="title sectiontitle">Reading spreadsheet cell ranges</h3><p class="p">You can read blocks of cells from a spreadsheet into
+an OPL array using the <code class="ph codeph">SheetRead</code> statement,
+as in <code class="ph codeph">oilSheet.dat</code>.</p>
+<p class="p exampletitle" id="usroplide.uss_ide_datasources.130267__usroplide.uss_ide_datasources.138989">Reading spreadsheet cells (<code class="ph codeph">oilSheet.dat</code>)</p>
+<pre class="pre codeblock"><code>Gas from SheetRead(sheet,"'gas data'!B2:E4");
+Oil from SheetRead(sheet,"'oil data'!B2:E4");
+</code></pre><p class="p">Note that the columns read are B to E (not A) and the
+cells read are from 2 upward as the <code class="ph codeph">name</code> column
+is not used and the names of the other columns are not stored in the
+data arrays. </p>
+<p class="p">Note also that the data file initializes some variables
+directly; it does not take data only from the spreadsheet.</p>
+</section>
+</div>
+</article>
+<article class="topic nested1" aria-labelledby="ariaid-title4" xml:lang="en-us" id="usroplide.uss_ide_datasources.130278"><h2 class="title topictitle2" id="ariaid-title4">Writing the results to the spreadsheet</h2>
+<div class="body"><p class="p">At the end of the optimization process, you need to store
+the optimal blends and advertising expenditures in the <code class="ph codeph">RESULTS</code> sheet.</p>
+<p class="p">You can insert the <code class="ph codeph">oil</code>, <code class="ph codeph">gas</code>, <code class="ph codeph">blend</code>,
+and <code class="ph codeph">a</code> arrays as columns in the <code class="ph codeph">RESULT</code> sheet
+using a <code class="ph codeph">SheetWrite</code> statement.</p>
+<p class="p exampletitle" id="usroplide.uss_ide_datasources.130278__usroplide.uss_ide_datasources.139006">Writing results to a spreadsheet (<code class="ph codeph">oilSheet.dat</code>)</p>
+<pre class="pre codeblock"><code>a to SheetWrite(sheet,"RESULT!A2:A4");
+Blend to SheetWrite(sheet,"RESULT!B2:D4");
+</code></pre></div>
+</article>
+</div></body>
+</html>

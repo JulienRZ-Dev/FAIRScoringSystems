@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="XML file format: serialized models and solutions" />
+<meta name="abstract" content="CPLEX offers an XML file format to support serialized models and solutions." />
+<meta name="Description" content="CPLEX offers an XML file format to support serialized models and solutions." />
+<meta name="DC.subject" content="file formats, XML, serialized models, serialized solutions, XML file format, definition" />
+<meta name="keywords" content="file formats, XML, serialized models, serialized solutions, XML file format, definition" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/reffileformatscplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_reference.uss_reffileformatscplex.167911" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/reffileformatscplex.html" />
+<title>XML file format: serialized models and solutions</title>
+</head>
+<body id="File_formats_reference.uss_reffileformatscplex.167911"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">XML file format: serialized models and solutions</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX offers
+an XML file format to support serialized models and solutions.</p>
+
+<p class="p">Concert Technology for C++ users offers a suite of classes
+for serializing CPLEX models
+(that is, instances of <code class="ph codeph">IloModel</code> ) and solutions
+(that is, instances of <code class="ph codeph">IloSolution</code>) through
+XML. The <em class="ph i">CPLEX C++ API Reference Manual</em> documents
+the XML serialization API in the group <code class="ph codeph">optim.concert.xml</code>.
+That group includes these classes:</p>
+
+<ul class="ul"><li class="li"><p class="p"> <code class="ph codeph">IloXmlContext</code> allows
+you to serialize an instance of <code class="ph codeph">IloModel</code> or <code class="ph codeph">IloSolution</code>.
+This class offers methods for reading and writing a model, a solution,
+or both a model and a solution together. There are examples of how
+to use this class in the reference manual.</p>
+
+</li>
+<li class="li"><p class="p"> <code class="ph codeph">IloXmlInfo</code> offers
+methods that enable you to validate the XML serialization of elements,
+such as numeric arrays, integer arrays, variables, and other extractables
+from your model or solution. </p>
+</li>
+ 
+<li class="li"><p class="p"> <code class="ph codeph">IloXmlReader</code> creates
+a reader in an environment (that is, in an instance of <code class="ph codeph">IloEnv</code>).
+This class offers methods to check runtime type information (RTTI),
+to recognize hierarchic relations between objects, and to access attributes
+of objects in your model or solution.</p>
+</li>
+ 
+<li class="li"><p class="p"> <code class="ph codeph">IloXmlWriter</code> creates
+a writer in an environment (that is, in an instance of <code class="ph codeph">IloEnv</code>).
+This class offers methods to access elements and to convert their
+types as needed in order to serialize elements of your model or solution.</p>
+
+</li>
+
+</ul>
+ 
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">There is a fundamental difference between writing an
+XML file of a model and writing an LP/MPS/SAV file of the same extracted
+model. Some higher level modeling constructs do not have an equivalent 
+representation in the solver engine and have to be transformed when passed 
+to the solver engine. The XML file will represent those constructs as such.
+In contrast, the LP/MPS/SAV file will represent only the transformed
+model. That transformed model obscures those features because
+of the automatic transformation that took place.  </p>
+
+</div>
+ 
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/reffileformatscplex.html">File formats supported by CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

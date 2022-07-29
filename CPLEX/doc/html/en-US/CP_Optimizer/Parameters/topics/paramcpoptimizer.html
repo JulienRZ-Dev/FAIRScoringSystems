@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Parameters of CP Optimizer" />
+<meta name="abstract" content="Users can browse CP Optimizer parameters, organized by topics." />
+<meta name="Description" content="Users can browse CP Optimizer parameters, organized by topics." />
+<meta name="DC.subject" content="parameter" />
+<meta name="keywords" content="parameter" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/topics/cpoptimizer_splash.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_mbz_5w1_ww" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/topics/cpoptimizer_splash.html" />
+<title>Parameters of CP Optimizer</title>
+</head>
+<body id="topic_mbz_5w1_ww"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Parameters of CP Optimizer</h1>
+
+
+
+<div class="body"><p class="shortdesc">Users can browse CP Optimizer parameters, organized by topics.</p>
+
+
+<p class="p">In CP Optimizer, the parameters are represented by the enumerations
+<code class="ph codeph">IntParam</code> and <code class="ph codeph">NumParam</code>. 
+Some of the integer values for parameters in the enumeration  <code class="ph codeph">IntParam</code> are listed in the 
+enumeration <code class="ph codeph">ParameterValues</code>. 
+</p>
+
+<div class="p">
+In the C++ API, these enumerations are 
+<code class="ph codeph"><a class="xref" href="../../../refcppcpoptimizer/html/enumerations/IloCP_IntParam.html">IloCP::IntParam</a></code> 
+and <code class="ph codeph"><a class="xref" href="../../../refcppcpoptimizer/html/enumerations/IloCP_NumParam.html">IloCP::NumParam</a></code>, 
+and some of the values of the parameters are 
+<code class="ph codeph"><a class="xref" href="../../../refcppcpoptimizer/html/enumerations/IloCP_ParameterValues.html">IloCP::ParameterValues</a></code>.
+The parameters and values are named with the prefix <code class="ph codeph">IloCP::</code>. For example:
+<pre class="pre codeblock"><code>
+cp.setParameter(IloCP::AllDiffInferenceLevel, IloCP::Basic);
+</code></pre>
+</div>
+
+
+<div class="p">
+In the <strong class="ph b">Java™ API</strong>, these enumerations are 
+<code class="ph codeph"><a class="xref" href="../../../refjavacpoptimizer/html/ilog/cp/IloCP.IntParam.html">IloCP.IntParam</a></code> and
+<code class="ph codeph"><a class="xref" href="../../../refjavacpoptimizer/html/ilog/cp/IloCP.DoubleParam.html">IloCP.DoubleParam</a></code>.
+The parameters and values are named with the prefix <code class="ph codeph">IloCP.IntParam</code> and <code class="ph codeph">IloCP.DoubleParam</code>. For example:
+<pre class="pre codeblock"><code>
+cp.setParameter(IloCP.IntParam.AllDiffInferenceLevel, IloCP.ParameterValues.Basic);
+</code></pre>
+</div>
+
+<div class="p">
+In the <strong class="ph b">C# API</strong>, these enumerations are 
+<code class="ph codeph"><a class="xref" href="../../../refdotnetcpoptimizer/html/T_ILOG_CP_CP_IntParam.htm">CP.IntParam</a></code> and
+<code class="ph codeph"><a class="xref" href="../../../refdotnetcpoptimizer/html/T_ILOG_CP_CP_DoubleParam.htm">CP.DoubleParam</a></code>.
+The parameters and values are named with the prefix <code class="ph codeph">CP.IntParam</code> and <code class="ph codeph">CP.DoubleParam</code>. For example:
+<pre class="pre codeblock"><code>
+cp.SetParameter(CP.IntParam.AllDiffInferenceLevel, CP.ParameterValues.Basic);
+</code></pre>
+</div>
+
+
+<section class="section"><h2 class="title sectiontitle">Display and output</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">LogVerbosity</strong>. 
+<ul class="ul">
+<li class="li">This parameter determines the verbosity of the search log.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"> <strong class="ph b">Possible values:</strong> 
+<code class="ph codeph">Quiet</code>, <code class="ph codeph">Terse</code>, <code class="ph codeph">Normal</code>, and <code class="ph codeph">Verbose</code>. 
+Mode <code class="ph codeph">Quiet</code> does not display any information, the other modes display progressively more information.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Normal</code>.</li>
+
+<li class="li"><div class="note note"><span class="notetitle">Note:</span> The CP Optimizer search log is meant for visual inspection only, not for mechanized parsing. In particular, 
+the log may change from version to version of CP Optimizer in order to improve the quality of information displayed 
+in the log. Any code based on the log output for correct functioning may have to be updated when a new version of 
+CP Optimizer is released.</div>
+</li>
+
+</ul>
+</li>
+ 
+<li class="li"><strong class="ph b">LogPeriod</strong>. 
+<ul class="ul">
+<li class="li">The CP Optimizer search log includes information that is displayed periodically. This parameter 
+controls how often that information is displayed. By setting this parameter to a value of <code class="ph codeph">k</code>, the log 
+is displayed every <code class="ph codeph">k</code> branches (search decisions).</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Positive integers.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">WarningLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter controls the level of warnings issued by CP Optimizer when a solve is launched. 
+Specifically, all warnings of level higher than this parameter are masked. Since CP Optimizer warning levels run from 
+1 to 3, setting this parameter to 0 turns off all warnings. Warnings issued may indicate potential errors 
+or inefficiencies in your model.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to 3.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> 2.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">PrintModelDetailsInMessages</strong>. 
+<ul class="ul">
+<li class="li">Whenever CP Optimizer prints an error or warning message, it can also print the relevant part of
+the input model (in CPO file format). This parameter controls printing of this additional
+information.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> and <code class="ph codeph">Off</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong>
+<code class="ph codeph">On</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ModelAnonymizer</strong>.
+<ul class="ul">
+<li class="li">This parameter controls anonymization of a model dumped via the <code class="ph codeph">dumpModel</code> method. When the anonymizer 
+is off, then names of variables and constraints in the model may be found in the output file. When the anonymizer is 
+on, names given to variables or constraints in the model will not be reflected in the output file and standard 
+anonymized names will be used.</li>
+ 
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Off</code> and <code class="ph codeph">On</code>.</li>
+ 
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Off</code>.</li>
+  
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">UseFileLocations</strong>.
+<ul class="ul">
+<li class="li">This parameter controls whether CP Optimizer processes file locations. With each constraint, 
+variable or expression it is possible to associate a source file location (file name and line number). 
+CP Optimizer can use locations later for reporting errors and conflicts. Locations are also included in 
+exported/dumped models (#line directives). When the value is <code class="ph codeph">Off</code> 
+then CP Optimizer ignores locations in the input model and also does not export them in CPO file format.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> and <code class="ph codeph">Off</code>.</li>
+ 
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">On</code>.</li>
+
+<li class="li"><div class="note note"><span class="notetitle">Note:</span> In C++, you can only make use of file locations via the <code class="ph codeph">ILOADD</code>
+macro for adding objects to a model (see the examples cpofileformat.cpp,
+facility_explanations.cpp and sched_conflict.cpp).  For Java, this
+should happen automatically as long as you do not use the option
+<code class="ph codeph">-g</code> to disable file and line debugging when you compile your code.</div>
+</li>
+
+</ul>
+</li>
+
+<li class="li" id="topic_mbz_5w1_ww__KPIDisplay"><strong class="ph b">KPIDisplay</strong>
+<ul class="ul" id="topic_mbz_5w1_ww__ul_f14_yl3_jfb">
+<li class="li">This parameter controls how your defined KPIs are displayed in the log. You can display your
+KPIs either on one line or on several lines.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values</strong>: <code class="ph codeph">SingleLine</code> and <code class="ph codeph">MultipleLines</code></li>
+
+<li class="li"><strong class="ph b">Default value</strong>: <code class="ph codeph">SingleLine</code></li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Presolve</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">Presolve</strong>. 
+<ul class="ul">
+<li class="li">This parameter controls the presolve of the model to produce more compact formulations and to 
+achieve more domain reduction.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> (presolve is activated) and 
+<code class="ph codeph">Off</code> (presolve is deactivated).</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">On</code>.</li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Optimality tolerances</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">OptimalityTolerance</strong>.
+<ul class="ul">
+<li class="li">This parameter sets an absolute tolerance on the objective value for optimization models. 
+This means that when CP Optimizer reports an optimal solution found, then there is no solution which improves the 
+objective by more than the value of this parameter. This parameter is used in conjunction with 
+<code class="ph codeph">RelativeOptimalityTolerance</code>. The optimality of a solution is 
+proven if either of the two parameters' criteria is fulfilled.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Floating-point values from 0.0 to <code class="ph codeph">IloInfinity</code>.</li>
+ 
+<li class="li"><strong class="ph b">Default value:</strong> 0.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">RelativeOptimalityTolerance</strong>. 
+<ul class="ul">
+<li class="li">This parameter sets a relative tolerance on the objective value for optimization 
+models. This means that when CP Optimizer reports an optimal solution found, then there is no solution which improves the 
+objective by more than the absolute value of the objective times the value of this parameter.
+This parameter is used in conjunction with <code class="ph codeph">OptimalityTolerance</code>. The optimality of a solution is proven 
+if either of the two parameters' criteria are fulfilled.</li>
+ 
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Floating-point values from 0.0 to <code class="ph codeph">IloInfinity</code>. </li>
+
+<li class="li"><strong class="ph b">Default value:</strong> 1e-4.</li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Search control</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">Workers</strong>.
+<ul class="ul">
+<li class="li">This parameter sets the number of workers to run in parallel to solve your model. If the number of 
+workers is set to <code class="ph codeph">n</code> (with <code class="ph codeph">n</code> greater than one), the CP optimizer will create 
+<code class="ph codeph">n</code> workers, each in their own thread, that will work together to solve the problem. The emphasis of 
+these workers is more to find better feasible solutions and then to speed up the proof of optimality.</li>
+
+<li class="li">Note that the memory required by CP Optimizer grows roughly linearly as the number of workers is increased. 
+If you are solving a very large model on a multi-core processor and memory usage is an issue, it is advisable to 
+specify a reduced number of workers, or even one worker, rather than use the default value.</li>
+ 
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Auto</code> and positive integers.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Auto</code>. This amounts to using as many workers as there are CPU cores 
+available on the machine.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">SearchType</strong>. 
+<ul class="ul">
+<li class="li">This parameter determines the type of search that is applied when solving a problem. 
+When set to <code class="ph codeph">DepthFirst</code>, a regular depth-first search is applied. When set to <code class="ph codeph">Restart</code>, 
+a depth-first search that restarts from time to time is applied. When set to <code class="ph codeph">MultiPoint</code>, a method that 
+combines a set of - possibly partial - solutions is applied. When set to <code class="ph codeph">Auto</code> in sequential mode, this 
+value chooses the appropriate search method to be used. In general <code class="ph codeph">Auto</code> will be the Restart search. The 
+default value is <code class="ph codeph">Auto</code>.</li>
+
+<li class="li">In parallel mode (i.e, when the number of workers is greater than one - see the <code class="ph codeph">Workers</code> parameter), the 
+different searches described above are spread over the workers. When the value of <code class="ph codeph">SearchType</code> is 
+<code class="ph codeph">Auto</code>, then the decision of choosing the search type for a worker is automatically made; otherwise, all 
+workers execute the same type of search. Note that in the latter case, the workers will not do the same exploration due 
+to some randomness introduced to break ties in decision making.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Auto</code>, <code class="ph codeph">DepthFirst</code>, <code class="ph codeph">Restart</code>, 
+and <code class="ph codeph">MultiPoint</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">RandomSeed</strong>.
+<ul class="ul">
+<li class="li">The search uses some randomization in some strategies. This parameter sets the seed of the 
+random generator used by these strategies.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+ 
+<li class="li"><strong class="ph b">Default value:</strong> 0.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">RestartFailLimit</strong>. 
+<ul class="ul">
+<li class="li">When <code class="ph codeph">SearchType</code> is set to <code class="ph codeph">Restart</code>, a depth-first search is 
+restarted after a certain number of failures. This parameter controls the number of failures that must occur before 
+restarting search. This value can increase after each restart: see the parameter <code class="ph codeph">RestartGrowthFactor</code>.</li>
+ 
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> From 0 to <code class="ph codeph">IloIntMax</code>.</li>
+ 
+<li class="li"><strong class="ph b">Default value:</strong> 100. </li>
+
+ </ul>
+</li>
+
+<li class="li"><strong class="ph b">RestartGrowthFactor</strong>.
+<ul class="ul">
+<li class="li">When <code class="ph codeph">SearchType</code> is set to <code class="ph codeph">Restart</code>, a depth-first search is restarted after a 
+certain number of failures. This parameter controls the increase of this number between restarts. If the last fail 
+limit was <code class="ph codeph">f</code> after a restart, for next run, the new fail limit will be <code class="ph codeph">f</code> times the 
+value of this parameter. The initial fail limit can be controlled with the parameter <code class="ph codeph">RestartFailLimit</code>. </li>
+ 
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Floating-point values from 1.0 to <code class="ph codeph">IloInfinity</code>.</li>
+ 
+<li class="li"><strong class="ph b">Default value:</strong> 1.05. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">DynamicProbing</strong>. 
+<ul class="ul">
+<li class="li">This parameter controls probing carried out during search. Probing can be useful on some problems as it can make 
+stronger inferences on combinations of constraints. The strength of probing can be defined by parameter 
+<code class="ph codeph">DynamicProbingStrength</code>. Dynamic probing only has an effect when using the <code class="ph codeph">Restart</code> 
+search type, on problems without interval variables. </li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Auto</code> (dynamic probing is activated and its strength is adjusted adaptively),
+<code class="ph codeph">On</code> (dynamic probing is activated with a constant strength), and 
+<code class="ph codeph">Off</code> (dynamic probing is deactivated).</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Auto</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">DynamicProbingStrength</strong>. 
+<ul class="ul">
+<li class="li"> This parameter controls the effort which is dedicated to dynamic probing. It determines the ratio P/R where P is the 
+effort dedicated to dynamic probing, and R is the rest of the search effort.
+Changing this parameter has no effect unless the <code class="ph codeph">DynamicProbing</code> parameter is set 
+to <code class="ph codeph">Auto</code> or <code class="ph codeph">On</code>. When <code class="ph codeph">DynamicProbing</code> has value <code class="ph codeph">On</code>, 
+the probing strength is held constant throughout the search process. When <code class="ph codeph">DynamicProbing</code> has value 
+<code class="ph codeph">Auto</code>, the probing strength starts off at the specified value and is thereafter adjusted automatically.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Floating-point from 0.001 to 1000. A value of 1.0 indicates that dynamic probing will consume a 
+roughly equal amount of effort as the rest of the search.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> 0.03, meaning that around 3% of total search time is dedicated to dynamic probing.</li>
+ 
+</ul>
+
+</li>
+
+<li class="li"><strong class="ph b">MultiPointNumberOfSearchPoints</strong>. 
+<ul class="ul">
+<li class="li">This parameter controls the number of (possibly partial) solutions manipulated by the
+multi-point search algorithm. The default value is 30. A larger value will diversify the search,
+with possible improvement in solution quality at the expense of a longer run time. A smaller value
+will intensify the search, resulting in faster convergence at the expense of solution quality. Note
+that memory consumption increases proportionally to this parameter, for each search point must store
+each decision variable domain.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li">Possible values are integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li">Default value is 30.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">TemporalRelaxation</strong>. 
+<ul class="ul">
+<li class="li">This advanced parameter can be used to control the usage of a temporal relaxation internal to the invoking IloCP engine. 
+For some models, using the relaxation becomes inefficient, and you may deactivate the use of the temporal relaxation using 
+value <code class="ph codeph">Off</code>. 
+</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> and <code class="ph codeph">Off</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">On</code>, meaning the relaxation is used in the engine when needed.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">FailureDirectedSearch</strong>.
+<ul class="ul">
+<li class="li"> This parameter controls usage of failure-directed search. Failure-directed search assumes that
+there is no (better) solution or that such a solution is very hard to find. Therefore it focuses on
+a systematic exploration of the search space, first eliminating assignments that are most likely to
+fail. Failure-directed search is used only for scheduling problems (i.e. models containing interval
+variables) and only when the parameter <code class="ph codeph">SearchType</code> is set to
+<code class="ph codeph">Restart</code> or <code class="ph codeph">Auto</code>.When the value is <code class="ph codeph">On</code> then CP
+Optimizer starts failure-directed search when other search strategies are (no longer) successful and
+when the memory necessary for the search does not exceed the value set by the
+<code class="ph codeph">FailureDirectedSearchMaxMemory</code> parameter.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> and <code class="ph codeph">Off</code>. </li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">On</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">FailureDirectedSearchEmphasis</strong>.
+<ul class="ul">
+<li class="li"> This parameter controls how much time CP Optimizer invests into failure-directed search once it
+is started. The default value Auto means that CP Optimizer observes the performance of
+failure-directed search and decides automatically how much time is invested. Any other value means
+that once failure-directed search has started, it is used by the given number of workers. The value
+does not have to be integer. For example, a value of 1.5 means that the first worker spends 100% of
+its time on failure-directed search, the second worker spends 50% of its time on failure-directed
+search, and the remainder spend none of their time.</li>
+
+<li class="li">For more information about failure-directed search see parameter <code class="ph codeph">FailureDirectedSearch</code>.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Auto</code> and floating-point values from 1.0 to <code class="ph codeph">IloInfinity</code>. </li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Auto</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">FailureDirectedSearchMaxMemory</strong>.
+<ul class="ul">
+<li class="li"> This parameter controls the maximum amount of memory (in bytes) available to failure-directed search (see 
+<code class="ph codeph">FailureDirectedSearchMaxMemory</code>). Failure-directed search can sometimes consume a lot of memory, 
+especially when end times of interval variables are not bounded. Therefore it is usually not started immediately, 
+but only when the effective horizon (time period over which CP Optimizer must reason) becomes small enough for 
+failure-directed search to operate inside the memory limit specified by this parameter. For many types of scheduling 
+problems, the effective horizon tends to reduce when CP Optimizer finds a better solution (often most significantly when 
+the initial solution is found). Therefore, when each new solution is found, CP Optimizer decides whether or not to turn 
+on failure-directed search.</li>
+
+<li class="li">Note that this parameter does not influence the effectiveness of failure-directed search, once started. 
+Its purpose is only to control the point at which failure-directed search will begin to function.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> 104,857,600 (100MB).</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">AutomaticReplay</strong>.
+<ul class="ul">
+<li class="li"> This parameter is an advanced, low-level one for controlling the behavior of <code class="ph codeph">solve()</code> and 
+<code class="ph codeph">next()</code>. When the model being solved has an objective and solve is used, or when 
+<code class="ph codeph">startNewSearch</code> and <code class="ph codeph">next</code> are used to produce multiple solutions, the solver may have 
+a need to replay the last (or best) solution found. This can, in some cases, involve re-invoking the strategy which 
+produced the solution. Normally this is only necessary if you use low level "Ilc" interfaces to specify problem 
+elements not in the model.</li>
+
+<li class="li">A typical reason for setting this parameter to <code class="ph codeph">Off</code> is, for instance, if you use your own custom 
+goal, and this goal is not deterministic (does not do the same thing when executed twice). In this instance, the replay 
+will not work correctly, and you can use this parameter to disable replay.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> and <code class="ph codeph">Off</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">On</code>. </li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Search limits</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">TimeLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the CPU time spent solving before terminating a search. The time is given in seconds.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Floating-point values from 0.0 to
+<code class="ph codeph">IloInfinity</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloInfinity</code>, does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">TimeMode</strong>. 
+<ul class="ul">
+<li class="li">This parameter defines how time is measured in CP Optimizer. CP Optimizer uses time for both display purposes and for 
+limiting the search via <code class="ph codeph">TimeLimit</code>. Note that when multiple processors are available and the number of 
+workers (<code class="ph codeph">Workers</code>) is greater than one, then the CPU time can be greater than the elapsed time by a factor 
+up to the number of workers.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">ElapsedTime</code> and
+<code class="ph codeph">CPUTime</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">ElapsedTime</code>. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">FailLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the number of failures that can occur before terminating the search.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ChoicePointLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the number of choice points that are created before terminating a search.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">BranchLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the number of branches that are made before terminating a search. A branch is a decision made 
+at a choice point in the search, a typical node being made up of two branches, for example: <code class="ph codeph">x == value</code> 
+and <code class="ph codeph">x != value</code>. 
+A branch is only counted at the moment a decision is executed, not when the two branches of the choice point are decided. 
+A branch is counted even if the decision leads to an inconsistency (failure).</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">SolutionLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the number of feasible solutions that are found before terminating a search.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Inference levels for constraint propagation</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">DefaultInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the general inference level for constraints whose particular inference level is 
+<code class="ph codeph">Default</code>. </li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> (In increasing order of inference strength.) <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Basic</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">AllDiffInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every <code class="ph codeph">AllDiff</code> constraint  extracted to the invoking 
+CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all <code class="ph codeph">AllDiff</code> 
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">DistributeInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every distribution constraint extracted to the invoked CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all distribution 
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">CountInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every counting constraint extracted to the invoked CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all counting 
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">CountDifferentInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every <code class="ph codeph">countDifferent</code> constraint extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all <code class="ph codeph">countDifferent</code> 
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">SequenceInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every sequence constraint extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all sequence
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">AllMinDistanceInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every <code class="ph codeph">allMinDistance</code> constraint extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all <code class="ph codeph">allMinDistance</code> 
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ElementInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every element constraint extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the inference strength of all element
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">PrecedenceInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every precedence constraint extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the precedence strength of all element
+constraints to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">IntervalSequenceInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every interval sequence variable extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the precedence strength of all interval 
+sequence variable to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">NoOverlapInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every no overlap constraint extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the precedence strength of all no overlap 
+constraint to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">CumulFunctionInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every cumul function extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the precedence strength of all cumul
+functions to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">StateFunctionInferenceLevel</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies the inference level for every state function extracted to the 
+invoking CP instance.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">Default</code>, <code class="ph codeph">Low</code>,
+<code class="ph codeph">Basic</code>, <code class="ph codeph">Medium</code>, and <code class="ph codeph">Extended</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Default</code>, which allows the precedence strength of all state
+functions to be controlled via <code class="ph codeph">DefaultInferenceLevel</code>.</li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Failure explanation</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">LogSearchTags</strong>. 
+<ul class="ul">
+<li class="li">This parameter controls the log activation. When set to <code class="ph codeph">On</code>, the engine will display failure tags 
+(indices) in the engine log when solving the model. To specify the failures to explain, the member functions 
+<code class="ph codeph">explainFailure(IloInt failureTag)</code> or <code class="ph codeph">explainFailure(IloIntArray tagArray)</code> needs to be 
+called with the failure tags as the parameter. Several failures tags can be added. The member function 
+<code class="ph codeph">clearExplanations</code> is used to clear the set of failure tags to be explained. To be able to see failure 
+tags and explanations, the parameter <code class="ph codeph">SearchType</code> must be set to <code class="ph codeph">DepthFirst</code> and the 
+parameter <code class="ph codeph">Workers</code> to 1. </li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> and <code class="ph codeph">Off</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Off</code>.</li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Conflict refiner</h2>
+
+<ul class="ul">
+<li class="li"><strong class="ph b">ConflictRefinerTimeLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the CPU time spent before terminating the conflict refiner.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Float</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Floating-point values from 0.0 to <code class="ph codeph">IloInfinity</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloInfinity</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ConflictRefinerIterationLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the number of iterations that are made before terminating the conflict refiner.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ConflictRefinerBranchLimit</strong>. 
+<ul class="ul">
+<li class="li">This parameter limits the total number of branches that are made before terminating the conflict refiner.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ConflictRefinerFailLimit</strong>.
+<ul class="ul">
+<li class="li">This parameter limits the total number of failures that can occur before terminating the conflict refiner.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> Integers from 0 to <code class="ph codeph">IloIntMax</code>.</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">IloIntMax</code>, which  does not set any limit. </li>
+
+</ul>
+</li>
+
+<li class="li"><strong class="ph b">ConflictRefinerOnVariables</strong>. 
+<ul class="ul">
+<li class="li">This parameter specifies whether the conflict refiner should refine variables domains.</li>
+
+<li class="li"><strong class="ph b">Type</strong>: Int</li>
+
+<li class="li"><strong class="ph b">Possible values:</strong> <code class="ph codeph">On</code> (conflict refiner will refine both constraints and variables domains)
+and <code class="ph codeph">Off</code> (conflict refiner will only refine constraints).</li>
+
+<li class="li"><strong class="ph b">Default value:</strong> <code class="ph codeph">Off</code>.</li>
+
+</ul>
+</li>
+
+</ul>
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/topics/cpoptimizer_splash.html">CP Optimizer</a></div>
+</div>
+</nav></div></body>
+</html>

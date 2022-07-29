@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ilog.views.eclipse.gantt.runtime
+Archiver-Version: Plexus Archiver
+Built-By: jviewsadm
+Require-Bundle: ilog.views.eclipse.framework.runtime;bundle-version="[
+ 8.10.0,8.11.0)";visibility:=reexport,org.eclipse.core.runtime,com.ibm
+ .icu
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Rogue Wave Software, Inc.
+Eclipse-LazyStart: true
+Eclipse-ExtensibleAPI: true
+Export-Package: ilog.views.eclipse.gantt.runtime,ilog.views.gantt,ilog
+ .views.gantt.action,ilog.views.gantt.beans,ilog.views.gantt.beans.edi
+ tor,ilog.views.gantt.event,ilog.views.gantt.graphic,ilog.views.gantt.
+ graphic.grid,ilog.views.gantt.graphic.interactor,ilog.views.gantt.gra
+ phic.renderer,ilog.views.gantt.graphic.renderer.composite,ilog.views.
+ gantt.graphic.timeindicator,ilog.views.gantt.model,ilog.views.gantt.m
+ odel.filter,ilog.views.gantt.model.general,ilog.views.gantt.model.jdb
+ c,ilog.views.gantt.model.table,ilog.views.gantt.print,ilog.views.gant
+ t.project,ilog.views.gantt.property,ilog.views.gantt.scale,ilog.views
+ .gantt.styling,ilog.views.gantt.swing,ilog.views.gantt.swing.calendar
+ view,ilog.views.gantt.text,ilog.views.gantt.util.event,ilog.views.gan
+ tt.util.log,ilog.views.gantt.xml,ilog.views.schedule,ilog.views.sched
+ ule.data,ilog.views.schedule.interactor,ilog.views.schedule.print,ilo
+ g.views.schedule.text
+Bundle-Name: Rogue Wave JViews Gantt Runtime for Eclipse
+Bundle-Version: 8.10.0.v20161008
+Bundle-ClassPath: .,lib/eclipse-gantt-runtime.jar
+Bundle-Activator: ilog.views.eclipse.gantt.runtime.GanttRuntimePlugin
+Created-By: Apache Maven 3.0.5
+Build-Jdk: 1.8.0_101
+
+Name: ilog/views/eclipse/gantt/runtime/GanttRuntimePlugin.class
+SHA-256-Digest: 9kzR2ouXFNdrXHRgilJkPuMlVu8dvc48OEzlAMvhm3g=
+
+Name: lib/eclipse-gantt-runtime.jar
+SHA-256-Digest: Rou1IdHr1X5Be6VV0leFAZ0RFshe9Tz6kggch537fbk=
+

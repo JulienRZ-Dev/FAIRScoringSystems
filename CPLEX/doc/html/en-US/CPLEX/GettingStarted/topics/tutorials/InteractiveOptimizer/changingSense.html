@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Changing sense" />
+<meta name="abstract" content="This option changes the sense of a constraint in the Interactive Optimizer." />
+<meta name="Description" content="This option changes the sense of a constraint in the Interactive Optimizer." />
+<meta name="DC.subject" content="sense, changing in Interactive Optimizer, changing, sense in Interactive Optimizer, constraint, changing sense in Interactive Optimizer, change Interactive Optimizer command, sense, objective function" />
+<meta name="keywords" content="sense, changing in Interactive Optimizer, changing, sense in Interactive Optimizer, constraint, changing sense in Interactive Optimizer, change Interactive Optimizer command, sense, objective function" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/changingProb_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_interactiveOptimizerStart.151096" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/changingProb_synopsis.html" />
+<title>Changing sense</title>
+</head>
+<body id="Getting_started.uss_interactiveOptimizerStart.151096"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Changing sense</h1>
+<div class="body"><p class="shortdesc">This option changes the sense of a constraint in the
+Interactive Optimizer.</p>
+
+<p class="p">Next, change the sense of the <code class="ph codeph">new3</code> constraint
+from ≥ to ≤ using the <code class="ph codeph">sense</code> option
+of the <code class="ph codeph">change</code> command. At the <code class="ph codeph">CPLEX&gt;</code> prompt,
+type:</p>
+
+<pre class="pre codeblock"><code>
+change sense 
+</code></pre>
+<p class="p">CPLEX prompts you to specify a constraint. There are
+two ways of specifying this constraint: if you know the name (for
+example, <code class="ph codeph">new3</code> ), you can enter the name;
+if you do not know the name, you can specify the index of the constraint.
+In this example, the index is 3 for the <code class="ph codeph">new3</code> constraint.
+Try the first method and type:</p>
+
+<pre class="pre codeblock"><code>
+Change sense of which constraint: new3 
+Sense of constraint 'new3' is '&gt;='.
+</code></pre>
+<p class="p">CPLEX tells you the current sense of the selected constraint.
+All that is left now is to enter the new sense, which can be entered
+as <code class="ph codeph">&lt;=</code> , <code class="ph codeph">&gt;=</code> ,
+or <code class="ph codeph">=</code> . You can also type simply <code class="ph codeph">&lt;</code>  (interpreted
+as ≤) or <code class="ph codeph">&gt;</code>  (interpreted
+as ≥). The letters <code class="ph codeph">l</code> , <code class="ph codeph">g</code> ,
+and <code class="ph codeph">e</code> are also interpreted as ≤,
+≥, and = respectively.</p>
+
+<pre class="pre codeblock"><code>
+New sense ['&lt;=' or '&gt;=' or '=']: &lt;= 
+Sense of constraint 'new3' changed to '&lt;='.
+</code></pre>
+<p class="p">The sense of the constraint has been changed.</p>
+
+<p class="p">The sense of the objective function may be changed by
+specifying the objective function name (its default is <code class="ph codeph">obj</code> )
+or the number 0 when CPLEX prompts you for the constraint. You are
+then prompted for a new sense. The sense of an objective function
+can take the value <code class="ph codeph">maximum</code> or <code class="ph codeph">minimum</code> or
+the abbreviation <code class="ph codeph">max</code> or <code class="ph codeph">min</code> .</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/changingProb_synopsis.html" title="To change a problem, the Interactive Optimizer supports these commands and options.">Changing a problem</a></div>
+</div>
+</nav></div></body>
+</html>

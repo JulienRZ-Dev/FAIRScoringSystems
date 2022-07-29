@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Setting CP parameters" />
+<meta name="abstract" content="How to set a parameter value by adding script statements to the model." />
+<meta name="Description" content="How to set a parameter value by adding script statements to the model." />
+<meta name="DC.subject" content="IBM ILOG Script, setting CP parameters, constraint programming, setting parameters" />
+<meta name="keywords" content="IBM ILOG Script, setting CP parameters, constraint programming, setting parameters" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllanguser/topics/opl_languser_script_in_cp.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangtut.uss_langtut_script_in_cp.1020709" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_in_cp.html" />
+<title>Setting CP parameters</title>
+</head>
+<body id="usropllangtut.uss_langtut_script_in_cp.1020709"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Setting CP parameters</h1>
+
+
+
+<div class="body"><p class="shortdesc">How to set a parameter value by adding script statements
+to the model.</p>
+
+<p class="p">The preferred way to set CP parameters is from the IDE settings
+editor. However, it is sometimes convenient to set a parameter value
+by adding script statements to the model. </p>
+
+<p class="p">The IBM ILOG Script syntax to change a CP parameter is:</p>
+
+<p class="p"><code class="ph codeph">cp.param.paramName = “paramvalue”</code> </p>
+
+<p class="p">For example:</p>
+
+<p class="p"><code class="ph codeph">cp.param.DefaultInferenceLevel = “Low”</code> </p>
+
+<p class="p">or (from the model <code class="ph codeph">timetabling.mod</code>):</p>
+
+<div class="example" id="usropllangtut.uss_langtut_script_in_cp.1020709__usropllangtut.uss_langtut_script_in_cp.1021862"><pre class="pre codeblock"><code>   var p = cp.param;
+   p.logPeriod = 10000;
+   p.searchType = "DepthFirst";
+   p.timeLimit = 600;
+</code></pre></div>
+
+<p class="p">See <a class="xref" href="../../oplparams/topics/opl_params_cpoptions.html" title="Presents the available constraint programming options which are the OPL equivalents of CP Optimizer parameters.">Constraint programming options</a> in <em class="ph i">Parameters
+and settings in OPL</em> for a detailed description of each parameter.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three column table that lists parameters of IBM ILOG Script, their possible values, and their default values." id="usropllangtut.uss_langtut_script_in_cp.1020709__usropllangtut.uss_langtut_script_in_cp.1020823" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. IBM ILOG Script CP parameters</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d511356e95">Parameter</th>
+
+<th class="entry thleft" align="left" valign="top" id="d511356e98">Possible Values</th>
+
+<th class="entry thleft" align="left" valign="top" id="d511356e101">Default Value</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">AllDiffInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Default, Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Default</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">AllMinDistanceInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Default, Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Default</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">BranchLimit </td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">2100000000</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">ChoicePointLimit</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">2100000000</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">ConstraintAggregation</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">On/Off</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">On</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">CountInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Default, Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Default</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d511356e95 ">CumulFunctionInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Basic</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">DefaultInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Basic</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">ElementInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Default, Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Default</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">FailLimit</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">2100000000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d511356e95 ">IntervalSequenceInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Basic</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">LogPeriod</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">1000</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">LogVerbosity</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Quiet, Terse, Normal, Verbose</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Normal</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">MultiPointNumberOfSearchPoints</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">30</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d511356e95 ">NoOverlapInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Basic</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">OptimalityTolerance</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">1e-15</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d511356e95 ">PrecedenceInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Basic</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">PropagationLog</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Quiet, Terse, Normal, Verbose</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Quiet</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">RandomSeed</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">0</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">RelativeOptimalityTolerance</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">0</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">RestartFailLimit</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">100</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">RestartGrowthFactor</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">1.05</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">SearchType</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">DepthFirst, Restart, MultiPoint, Auto</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Auto</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">SolutionLimit</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">2100000000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d511356e95 ">StateFunctionInferenceLevel</td>
+
+<td class="entry" valign="top" headers="d511356e98 ">Low, Basic, Medium, Extended</td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Basic</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">TimeLimit</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Infinity (number in seconds)</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d511356e95 ">Workers</td>
+
+<td class="entry" valign="top" headers="d511356e98 "> </td>
+
+<td class="entry" valign="top" headers="d511356e101 ">Auto (as many workers as there are CPUs available)</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllanguser/topics/opl_languser_script_in_cp.html" title="Explains how to use IBM ILOG Script statements to set parameters that control propagation and search and to define search phases.">Using IBM ILOG Script in constraint programming</a></div>
+</div>
+</nav></div></body>
+</html>

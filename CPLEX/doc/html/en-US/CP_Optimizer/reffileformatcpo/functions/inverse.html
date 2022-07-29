@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="inverse" />
+<meta name="abstract" content="Constrains elements of one array to be inverses of another." />
+<meta name="Description" content="Constrains elements of one array to be inverses of another." />
+<meta name="DC.subject" content="inverse" />
+<meta name="keywords" content="inverse" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="inverse" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>inverse</title>
+</head>
+<body id="inverse"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">inverse</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Constrains elements of one array to be inverses of another.
+</p>
+
+
+
+<section class="section" id="inverse__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">inverse</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> f, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> invf)
+</code></pre>
+</section>
+
+
+<section class="section" id="inverse__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">f</code>: an integer expression array
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">invf</code>: an integer expression array
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="inverse__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function creates an inverse constraint such that if the length of
+the arrays <code class="ph codeph">f</code> and <code class="ph codeph">invf</code> is <code class="ph codeph">n</code>, then this function returns a
+constraint that ensures that:
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    for all <code class="ph codeph">i</code> in the interval <code class="ph codeph">[0, n-1]</code>, <code class="ph codeph">invf[f[i]] == i</code>
+  </li>
+
+  <li class="li">
+    for all <code class="ph codeph">j</code> in the interval <code class="ph codeph">[0, n-1]</code>, <code class="ph codeph">f[invf[j]] == j</code>
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="inverse__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+Let's assume you have scheduled teams <code class="ph codeph">N</code> for access to an equipment on a period of <code class="ph codeph">N</code> weeks. 
+The result is found in the <code class="ph codeph">weeks</code> array which contains different team ids <code class="ph codeph">1..N</code>.
+You now wish to have an array of variables that contains, for each team, the week during which it will be allowed
+to use the equipment. This can be done using the <code class="ph codeph"><a class="xref" href="inverse.html" title="Constrains elements of one array to be inverses of another.">inverse</a></code> constraint:
+</p>
+
+
+<pre class="pre codeblock"><code>
+<span class="ph commentemph">// N-1 because we index arrays</span>
+N = 4;  
+<span class="ph commentemph">// for each week, know the allowed team</span>
+week_teams = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N)];
+<span class="ph commentemph">// ensure different teams each week</span>
+<a class="xref" href="alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a>(week_teams); 
+<span class="ph commentemph">// for each team, know the assigned week</span>
+team_weeks = [<a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N), <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..N)];
+<span class="ph commentemph">// ensure week &lt;-&gt; team inverse mapping</span>
+<strong class="ph b">inverse</strong>(week_teams, team_weeks);
+</code></pre>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

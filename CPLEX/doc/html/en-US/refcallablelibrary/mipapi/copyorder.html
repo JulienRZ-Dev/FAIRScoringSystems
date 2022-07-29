@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcopyorder and CPXcopyorder" />
+<meta name="abstract" content="The routine CPXXcopyorder/CPXcopyorder copies a priority order to a CPLEX problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP." />
+<meta name="Description" content="The routine CPXXcopyorder/CPXcopyorder copies a priority order to a CPLEX problem object of type CPXPROB_MILP, CPXPROB_MIQP, or CPXPROB_MIQCP." />
+<meta name="DC.subject" content="CPXcopyorder, C API Reference Manual, CPXXcopyorder" />
+<meta name="keywords" content="CPXcopyorder, C API Reference Manual, CPXXcopyorder" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPmodifymodel.html" />
+<meta name="DC.Relation" scheme="URI" content="readcopyorder.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="copyorder" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPmodifymodel.html" />
+<title>CPXXcopyorder and CPXcopyorder</title>
+</head>
+<body id="copyorder"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcopyorder</span> and <span class="keyword apiname">CPXcopyorder</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyorder</span>/<span class="keyword apiname">CPXcopyorder</span></code> copies a priority order
+ to a CPLEX problem object of type
+ <code class="ph codeph">CPXPROB_MILP</code>,
+ <code class="ph codeph">CPXPROB_MIQP</code>, or
+ <code class="ph codeph">CPXPROB_MIQCP</code>.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcopyorder</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">priority</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">direction</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcopyorder</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">priority</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">direction</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyorder</span>/<span class="keyword apiname">CPXcopyorder</span></code> copies a priority order
+ to a CPLEX problem object of type
+ <code class="ph codeph">CPXPROB_MILP</code>,
+ <code class="ph codeph">CPXPROB_MIQP</code>, or
+ <code class="ph codeph">CPXPROB_MIQCP</code>.
+ A call to <code class="ph codeph"><span class="keyword apiname">CPXXcopyorder</span>/<span class="keyword apiname">CPXcopyorder</span></code> replaces any other information
+ about priority order previously stored in that CPLEX problem object.
+ During branching, integer variables with higher
+ priorities are given preference over integer variables with lower
+ priorities. Priorities must be
+ <strong class="ph b">nonnegative integers</strong>. A preferred branching
+ direction may also be specified for each variable.</p>
+
+
+ <p class="p">The CPLEX parameter 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPOrdInd.html" title="Decides whether to use the priority order, if one exists, for the next mixed integer optimization.">MIP priority order switch</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_Order</code>)  
+must be set to
+ <code class="ph codeph">CPX_ON</code>, its default value, 
+for the priority order to be used in
+ a subsequent optimization.</p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Table 1: Settings for direction</span></caption><colgroup></colgroup><tbody class="tbody">
+ 
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BRANCH_GLOBAL</code></td>
+
+ <td class="entry" valign="top">use global branching direction when setting the 
+<a class="xref" href="../../CPLEX/Parameters/topics/BrDir.html" title="Decides which branch, the up or the down branch, should be taken first at each node.">MIP branching direction</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_Branch</code>)
+ parameter </td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BRANCH_DOWN</code></td>
+
+ <td class="entry" valign="top">branch down first on variable <code class="ph codeph"><span class="keyword parmname">indices</span>[i]</code></td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BRANCH_UP</code></td>
+
+ <td class="entry" valign="top">branch up first on variable <code class="ph codeph"><span class="keyword parmname">indices</span>[i]</code></td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer giving the number of entries in the list.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indices</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing the numeric indices of the columns corresponding to the integer variables that are assigned priorities.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">priority</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing the nonnegative priorities assigned to the integer variables. The entry <code class="ph codeph"><span class="keyword parmname">priority</span>[j]</code> is the priority assigned to variable <code class="ph codeph"><span class="keyword parmname">indices</span>[j]</code>. Can be <code class="ph codeph">NULL</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">direction</dt>
+
+        <dd class="dd pd">
+          
+          An array of type <code class="ph codeph">int</code> containing the branching direction assigned to the integer variables. The entry <code class="ph codeph"><span class="keyword parmname">direction</span>[j]</code> is the direction assigned to variable <code class="ph codeph"><span class="keyword parmname">indices</span>[j]</code>. Can be <code class="ph codeph">NULL</code>. Possible settings for <code class="ph codeph"><span class="keyword parmname">direction</span>[j]</code> appear in Table 1.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+
+ <pre class="pre codeblock"><code>
+ status = CPXcopyorder (env, lp, cnt, indices, priority,
+                        direction);</code></pre>
+
+
+ 
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPmodifymodel.html">Modifying a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="readcopyorder.html" title="The routine CPXXreadcopyorder/CPXreadcopyorder reads an ORD file and copies the priority order information into a CPLEX problem object.">CPXreadcopyorder</a></li></ul></div>
+</nav>
+</div></body>
+</html>

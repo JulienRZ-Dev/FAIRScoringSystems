@@ -1,0 +1,10 @@
+dataset_path=data/customer.csv
+labels_name=A,B,C,D
+constraints=s: 3,eod: 0.03
+objectives=a
+lambda_bound=9
+time_limit=3600
+testing_mode=True
+n_folds=5
+sensitive_groups=Gender == Female
+sensitive_labels=A,B,C,D

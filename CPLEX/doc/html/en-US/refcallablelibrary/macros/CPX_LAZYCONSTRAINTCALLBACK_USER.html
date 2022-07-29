@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPX_LAZYCONSTRAINTCALLBACK_USER" />
+<meta name="DC.subject" content="CPX_LAZYCONSTRAINTCALLBACK_USER, C API Reference Manual" />
+<meta name="keywords" content="CPX_LAZYCONSTRAINTCALLBACK_USER, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepagelazyconstraintCB.html" />
+<meta name="DC.Relation" scheme="URI" content="CPX_LAZYCONSTRAINTCALLBACK_HEUR.html" />
+<meta name="DC.Relation" scheme="URI" content="CPX_LAZYCONSTRAINTCALLBACK_MIPSTART.html" />
+<meta name="DC.Relation" scheme="URI" content="CPX_LAZYCONSTRAINTCALLBACK_NODE.html" />
+<meta name="DC.Relation" scheme="URI" content="../cpxapi/callbackgetinfoint.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPX_LAZYCONSTRAINTCALLBACK_USER" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepagelazyconstraintCB.html" />
+<title>CPX_LAZYCONSTRAINTCALLBACK_USER</title>
+</head>
+<body id="CPX_LAZYCONSTRAINTCALLBACK_USER"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">CPX_LAZYCONSTRAINTCALLBACK_USER</h1>
+
+  
+  <div class="body refbody">
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPX_LAZYCONSTRAINTCALLBACK_USER</span>
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section">
+      
+      <p class="p">
+        This is the value returned by
+        <code class="ph codeph"><a class="xref" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback."><span class="keyword apiname">CPXXcallbackgetinfoint</span>/<span class="keyword apiname">CPXcallbackgetinfoint</span></a></code>
+        when querying <code class="ph codeph">CPXCALLBACKINFO_CANDIDATE_SOURCE</code> and the <code class="ph codeph">CANDIDATE</code> context was invoked for a solution that originated from a solution vector posted by the user.
+      </p>
+
+      <p class="p">
+        Note that this is <strong class="ph b">not</strong> returned by
+        <code class="ph codeph"><a class="xref" href="../mipapi/getcallbacknodeinfo.html" title="The routine CPXXgetcallbacknodeinfo/CPXgetcallbacknodeinfo is called from within user-written callbacks during a MIP optimization and accesses information about nodes."><span class="keyword apiname">CPXXgetcallbacknodeinfo</span>/<span class="keyword apiname">CPXgetcallbacknodeinfo</span></a></code>
+        when querying <code class="ph codeph">CPX_CALLBACK_INFO_LAZY_SOURCE</code>! In the
+        legacy callback framework, callbacks assume that solutions posted by
+        the user satisfy lazy constraints. Only the generic callback framework
+        checks lazy constraints for solutions injected by the user.
+      </p>
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepagelazyconstraintCB.html">Lazy constraint and callback symbols in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="CPX_LAZYCONSTRAINTCALLBACK_HEUR.html">CPX_LAZYCONSTRAINTCALLBACK_HEUR</a></li>
+<li class="linklist"><a class="link" href="CPX_LAZYCONSTRAINTCALLBACK_MIPSTART.html">CPX_LAZYCONSTRAINTCALLBACK_MIPSTART</a></li>
+<li class="linklist"><a class="link" href="CPX_LAZYCONSTRAINTCALLBACK_NODE.html">CPX_LAZYCONSTRAINTCALLBACK_NODE</a></li>
+<li class="linklist"><a class="link" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></li></ul></div>
+</nav>
+</div></body>
+</html>

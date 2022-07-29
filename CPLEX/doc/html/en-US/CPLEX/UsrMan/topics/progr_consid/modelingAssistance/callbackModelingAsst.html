@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Modeling assistance callback" />
+<meta name="abstract" content="The modeling assistance callback allows the user to intercept information coming from modeling assistance." />
+<meta name="Description" content="The modeling assistance callback allows the user to intercept information coming from modeling assistance." />
+<meta name="DC.subject" content="modeling assistance, examples, callback" />
+<meta name="keywords" content="modeling assistance, examples, callback" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbackModelingAssistance" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" />
+<title>Modeling assistance callback</title>
+</head>
+<body id="callbackModelingAssistance"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Modeling assistance callback</h1>
+
+
+
+<div class="body"><p class="shortdesc">The modeling assistance callback allows the user to intercept information coming from
+modeling assistance.</p>
+
+<p class="p">The most common reason to do this is to prevent certain types of messages from being displayed or
+to redirect the messages (for example, rather than displaying them on the screen, put them in a log
+file). Another possible usage of this callback would be to abort the solve if some warning is
+triggered.</p>
+
+<p class="p">For the modeling assistance callback, whenever a modeling assistance warning is detected inside
+CPLEX, CPLEX calls the user function with the <code class="ph codeph">issueid</code> and <code class="ph codeph">message</code>
+parameters. Then, the code that the user wrote handles those parameters. After the user function
+returns, CPLEX continues on with its internal logic.</p>
+
+<div class="note note"><span class="notetitle">Note:</span> Note that when using the modeling assistance callback, determining whether any output is shown
+at all is entirely up to the user. An empty modeling assistance callback would do nothing and as a
+result no modeling assistance output would be displayed.</div>
+
+<p class="p">The modeling assistance callback interacts closely with two parameters:</p>
+
+<ul class="ul">
+<li class="li">The <a class="xref" href="../../../../Parameters/topics/DataCheck.html" title="Turns on or off data consistency checking and modeling assistance.">data consistency checking and modeling assistance</a>
+parameter, <code class="ph codeph">CPXPARAM_Read_DataCheck</code>,  controls whether modeling assistance is turned
+on. When the value of this parameter is set to level <code class="ph codeph">2</code>,
+<code class="ph codeph">CPX_DATACHECK_ASSIST</code>, CPLEX turns on both data consistency checking and modeling
+assistance. Otherwise, CPLEX will not turn on modeling assistance.</li>
+
+<li class="li">The <a class="xref" href="../../../../Parameters/topics/WarningLimit.html" title="Determines how many times warnings of a specific type will be displayed.">warning limit</a> parameter, <code class="ph codeph">CPXPARAM_Read_WarningLimit</code>, controls the number of warnings
+displayed. By default, when modeling assistance is turned on via the data consistency checking
+parameter, CPLEX will display 10 warnings for a given modeling issue and then omit the rest. This
+parameter controls this limit and allows the user to display all of the warnings if desired.</li>
+
+</ul>
+
+<p class="p">For a list of the routines and type definitions that enable you to implement the modeling
+assistance callback in the C API, see <a class="xref" href="../../../../../refcallablelibrary/groups/homepagemodelasstcallback.html">Modeling assistance callback</a> in the <em class="ph i">CPLEX
+Callable Library (C API) Reference Manual</em>. The modeling assistance callback is also  implemented
+in the C++, Java, .NET, and Python APIs of CPLEX. See the reference manuals of those APIs for more
+detailed information.</p>
+
+<p class="p">The following example shows how to implement the modeling assistance callback using the Java API.
+In this example, the code uses the modeling assistance callback to "block" specified modeling
+assistance messages. The user can "block" more than one message at a time by adding additional
+<code class="ph codeph">if</code> statements. </p>
+
+<pre class="pre codeblock"><code>/* -------------------------------------------------------------- -*- Java -*-
+ * File: ModelAsstCB.java
+ * Version 12.9.0  
+ * --------------------------------------------------------------------------
+ * Licensed Materials - Property of IBM
+ * 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+ * Copyright IBM Corporation 2017, 2018, 2019. All Rights Reserved.
+ *
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with
+ * IBM Corp.
+ * --------------------------------------------------------------------------
+ */
+
+import ilog.concert.*;
+import ilog.cplex.*;
+
+
+/**
+ * Demonstrate how to use the modeling assistance callback.
+ *
+ * See the usage message for required command line arguments.
+ */
+public class ModelAsstCB {
+
+   /**
+    * This is the class implementing the callback for modeling assistance.
+    */
+   private static class Callback implements IloModelingAssistance.Callback {
+      private int numCalls;
+
+      public Callback() {
+         this.numCalls = 0;
+      }
+
+      /**
+       * Get the number of times the callback was invoked.
+       */
+      public int getNumCalls() {
+         return numCalls;
+      }
+
+      /**
+       * This is the function that we have to implement and that CPLEX will call
+       * during modeling assistance (e.g., before and after optimization).
+       */
+      @Override
+      public void invoke (int issueid, String message) throws IloException {
+         // Increment the number of calls.
+         numCalls++;
+
+         // IloModelingAssistance.BIGM_TO_IND corresponds to CPXMI_BIGM_TO_IND
+         // in the callable Library. This applies to all of the CPXMI macros.
+         if (issueid == IloModelingAssistance.BIGM_TO_IND) {
+            // Purely as an example, for no reason in particular, ignore
+            // this type of modeling issue.
+         }
+         else {
+            // Otherwise, display the warning message.
+            System.out.println(message);
+         }
+      }
+   }
+
+   private static void usage() {
+      System.out.println("Usage: java ModelAsstCB &lt;filename&gt;");
+      System.out.println("  filename  Name of a file, with .mps, .lp, or .sav");
+      System.out.println("            extension, and a possible, additional .gz");
+      System.out.println("            extension");
+      System.exit(2);
+   }
+
+   public static void main(String[] args) throws Exception {
+      if (args.length != 1) {
+         usage();
+         return;
+      }
+
+      // Create the modeler/solver object
+      IloCplex cplex = new IloCplex();
+
+      // Read model from file with name args[0] into cplex optimizer object
+      cplex.importModel(args[0]);
+
+      // Turn on modeling assistance. Otherwise, the modeling assistance
+      // callback would not be invoked.
+      cplex.setParam(IloCplex.Param.Read.DataCheck, IloCplex.DataCheck.Assist);
+      // Increase the warning limit, so that we print "all" possible modeling
+      // assistance warnings. This also applies to the number of warnings
+      // that will be captured by the modeling assistance callback.
+      cplex.setParam(IloCplex.Param.Read.WarningLimit,
+                     cplex.getMax(IloCplex.Param.Read.WarningLimit));
+
+      // Instantiate a Callback object and register it with the IloCplex
+      // instance. When a modeling assistance callback is registered,
+      // modeling assistance messages will _not_ be printed in the engine
+      // log.
+      Callback callback = new Callback();
+      cplex.use(callback);
+
+      try {
+         // Solve the model and display the solution if one was found.
+         if (cplex.solve()) {
+            System.out.println("Solution status    = " + cplex.getStatus());
+            System.out.println("Solution value     = " + cplex.getObjValue());
+         }
+         // Display the number of times the modeling assistance callback was
+         // invoked.
+         System.out.println("Number of warnings = " + callback.getNumCalls());
+      }
+      finally {
+         cplex.end();
+      }
+   }
+}
+</code></pre>
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/modelingAssistance/introModelingAssistance.html" title="CPLEX can assist you as you develop your model.">Modeling assistance in CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

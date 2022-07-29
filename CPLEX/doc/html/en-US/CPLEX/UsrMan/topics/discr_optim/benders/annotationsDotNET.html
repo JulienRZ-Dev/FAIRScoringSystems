@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Annotations for .NET API users" />
+<meta name="abstract" content="CPLEX offers features to support annotations of your model for Benders decomposition in the .NET API." />
+<meta name="Description" content="CPLEX offers features to support annotations of your model for Benders decomposition in the .NET API." />
+<meta name="DC.subject" content="annotations, .NET API, Benders algorithm" />
+<meta name="keywords" content="annotations, .NET API, Benders algorithm" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="annotationsDotNET" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<title>Annotations for .NET API users</title>
+</head>
+<body id="annotationsDotNET"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Annotations for .NET API users</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX offers features to support annotations of your model for Benders decomposition in the .NET API.</p>
+ 
+<p class="p">In the .NET API, CPLEX offers features to support annotation of your model. 
+These classes to support annotations:</p>
+ 
+<ul class="ul"> 
+<li class="li"><span class="keyword apiname">Cplex.Annotation</span></li>
+ 
+<li class="li"><span class="keyword apiname">Cplex.LongAnnotation</span></li>
+ 
+</ul>
+ 
+
+<p class="p">These methods of the class <span class="keyword apiname">Cplex</span> support annotations:</p>
+ 
+<ul class="ul">
+<li class="li"><span class="keyword apiname">NewLongAnnotation(String name)</span></li>
+ 
+<li class="li"><span class="keyword apiname">NewLongAnnotation(String name, long defval)</span></li>
+ 
+<li class="li"><span class="keyword apiname">FindLongAnnotation(String name)</span></li>
+ 
+<li class="li"><span class="keyword apiname">FindLongAnnotation(int num)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetAnnotationName(LongAnnotation annotation)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetNumLongAnnotations()</span></li>
+ 
+<li class="li"><span class="keyword apiname">DelAnnotation(LongAnnotation annotation)</span></li>
+ 
+<li class="li"><span class="keyword apiname">HasLongAnnotation(String name)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetDefaultValue (LongAnnotation annotation)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetAnnotation (LongAnnotation annotation, IloNumVar var)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetAnnotation (LongAnnotation annotation, IloIntVar var)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetAnnotation (LongAnnotation annotation, IloObjective obj)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetAnnotation (LongAnnotation annotation, IloConstraint con)</span></li>
+ 
+<li class="li"><span class="keyword apiname">GetAnnotation (LongAnnotation annotation, IloAddable[] items)</span></li>
+ 
+<li class="li"><span class="keyword apiname">SetAnnotation(LongAnnotation annotation, IloNumVar var, long value)</span></li>
+ 
+<li class="li"><span class="keyword apiname">SetAnnotation(LongAnnotation annotation, IloObjective obj, long value)</span></li>
+ 
+<li class="li"><span class="keyword apiname">SetAnnotation(LongAnnotation annotation, IloConstraint con, long value)</span></li>
+ 
+<li class="li"><span class="keyword apiname">SetAnnotation(LongAnnotation annotation, IloAddable[] items, long[] values)</span></li>
+ 
+<li class="li"><span class="keyword apiname">WriteAnnotations(String filename)</span></li>
+ 
+<li class="li"><span class="keyword apiname">ReadAnnotations(String filename)</span></li>
+ 
+<li class="li"><span class="keyword apiname">WriteBendersAnnotation(String filename)</span></li>
+ 
+</ul>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" title="Annotation of a model specifies to CPLEX how to decompose your model.">Annotating a model for CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

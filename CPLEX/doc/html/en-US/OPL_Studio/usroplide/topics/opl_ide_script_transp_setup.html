@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Setting up the transportation model and data" />
+<meta name="abstract" content="Describes the model and data files." />
+<meta name="Description" content="Describes the model and data files." />
+<meta name="DC.subject" content="execute, IBM ILOG Script block, transportation example" />
+<meta name="keywords" content="execute, IBM ILOG Script block, transportation example" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/usroplide/topics/opl_ide_script_transp.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usroplide.uss_ide_scripting.121114" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/usroplide/topics/opl_ide_script_transp.html" />
+<title>Setting up the transportation model and data</title>
+</head>
+<body id="usroplide.uss_ide_scripting.121114"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Setting up the transportation model and data</h1>
+
+
+
+<div class="body taskbody"><p class="shortdesc">Describes the model and data files.</p>
+
+
+<section class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd588719e28">About this task</h2></div> <p class="p">To start working with this example:</p>
+ </section>
+
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd588719e34">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Use the <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Example</span></span> menu command to open the <span class="ph uicontrol">transp</span> example.</span> 
+<div class="itemgroup info"><p class="p">The IDE displays the <code class="ph codeph">transp</code> project in the OPL Projects Navigator. Open the model file in the editing area. </p>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Double-click <span class="ph uicontrol">transp4.mod</span> to display the model in the editor.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Scroll to the <code class="ph codeph">execute</code> blocks.</span> 
+<div class="itemgroup info"><p class="p">There are three preprocessing <code class="ph codeph">execute</code> blocks before the objective, as shown in
+the following code extract.</p>
+<p class="p exampletitle" id="usroplide.uss_ide_scripting.121114__usroplide.uss_ide_scripting.149539">Preprocessing statements <code class="ph codeph">(transp4.mod)</code></p>
+<pre class="pre codeblock"><code>execute PARAMS {
+  cplex.tilim = 100;
+}
+
+execute SETTINGS {
+  settings.displayComponentName = true;
+  settings.displayWidth = 40;
+  writeln("Routes: ",Routes);
+}
+
+execute DISPLAY {
+  function printRoute(r) {
+    write("  ",r.p,":");
+    writeln(r.e.o,"-&gt;",r.e.d);
+  }
+
+  writeln("Routes:");
+  for (var r in Routes) {
+    printRoute(r);
+  }
+}
+</code></pre></div>
+</li>
+<li class="li step stepexpand">
+<span class="ph cmd">The data is initialized in the <code class="ph codeph">transp4.dat</code> data file. You can double-click
+<span class="ph uicontrol">transp4.dat</span> to open that file in the editing area if you want to follow along
+with the following elements:</span> 
+<div class="itemgroup tutorialinfo">
+<p class="p">Note that the tuple set <code class="ph codeph">TableRoutes</code> is database-friendly in that it would allow
+the loading of data on routes and costs with a single SELECT statement.</p>
+
+<p class="p">In this example, the tuples in set <code class="ph codeph">TableRoutes</code> and in arrays
+<code class="ph codeph">Supply</code> and <code class="ph codeph">Demand</code> are explicitly initialized in the data file
+because the matrix is sparse and only some tuples exist.</p>
+
+<p class="p">The model requires routes and costs separately, so in the model file, the tuples in tuple set
+<code class="ph codeph">Routes</code> are derived from those in <code class="ph codeph">TableRoutes</code> and the tuples in
+sets <code class="ph codeph">Supplies</code> and <code class="ph codeph">Customers</code> are then derived from those in
+<code class="ph codeph">Routes</code>.</p>
+
+</div>
+
+</li>
+</ol>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/usroplide/topics/opl_ide_script_transp.html" title="Presents the example and explains how to execute it and debug the preprocessing script.">The transportation example</a></div>
+</div>
+</nav></div></body>
+</html>

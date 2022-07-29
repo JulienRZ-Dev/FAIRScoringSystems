@@ -1,0 +1,86 @@
+<!-- Generator: GNU source-highlight 2.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>01: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+02: <b><font color="#007D00">// Licensed Materials - Property of IBM</font></b>
+03: <b><font color="#007D00">//</font></b>
+04: <b><font color="#007D00">// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55</font></b>
+05: <b><font color="#007D00">// Copyright IBM Corporation 1998, 2018. All Rights Reserved.</font></b>
+06: <b><font color="#007D00">//</font></b>
+07: <b><font color="#007D00">// Note to U.S. Government Users Restricted Rights:</font></b>
+08: <b><font color="#007D00">// Use, duplication or disclosure restricted by GSA ADP Schedule</font></b>
+09: <b><font color="#007D00">// Contract with IBM Corp.</font></b>
+10: <b><font color="#007D00">// --------------------------------------------------------------------------</font></b>
+11: 
+12: 
+13: <b><font color="#007D00">// Problem Description</font></b>
+14: <b><font color="#007D00">// -------------------</font></b>
+15: 
+16: <b><font color="#007D00">// A ship-building company has a certain number of customers. Each customer is supplied</font></b>
+17: <b><font color="#007D00">// by exactly one plant. In turn, a plant can supply several customers. The problem is</font></b>
+18: <b><font color="#007D00">// to decide where to set up the plants in order to supply every customer while minimizing</font></b>
+19: <b><font color="#007D00">// the cost of building each plant and the transportation cost of supplying the customers.</font></b>
+20: 
+21: <b><font color="#007D00">// For each possible plant location there is a fixed cost and a production capacity.</font></b>
+22: <b><font color="#007D00">// Both take into account the country and the geographical conditions.</font></b>
+23: 
+24: <b><font color="#007D00">// For every customer, there is a demand and a transportation cost with respect to</font></b>
+25: <b><font color="#007D00">// each plant location.</font></b>
+26: 
+27: <b><font color="#0000FF">using</font></b> <b><font color="#0000FF">CP</font></b>;
+28: 
+29: <b><font color="#0000FF">int</font></b> nbCustomer = ...;
+30: <b><font color="#0000FF">int</font></b> nbLocation = ...;
+31: <b><font color="#0000FF">range</font></b> Customers = 0..nbCustomer-1;
+32: <b><font color="#0000FF">range</font></b> Locations = 0..nbLocation-1;
+33: <b><font color="#0000FF">int</font></b> cost[Customers][Locations] = ...;
+34: <b><font color="#0000FF">int</font></b> demand[Customers] = ...;
+35: <b><font color="#0000FF">int</font></b> fixedCost[Locations] = ...;
+36: <b><font color="#0000FF">int</font></b> capacity[Locations] = ...;;
+37: 
+38: <b><font color="#0000FF">int</font></b> custValues[Customers] = ...;
+39: 
+40: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">int</font></b> cust[Customers] <b><font color="#0000FF">in</font></b> Locations;
+41: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">int</font></b> open[Locations] <b><font color="#0000FF">in</font></b> 0..1;
+42: <b><font color="#0000FF">dvar</font></b> <b><font color="#0000FF">int</font></b> load[l <b><font color="#0000FF">in</font></b> Locations] <b><font color="#0000FF">in</font></b> 0..capacity[l];
+43: 
+44: <b><font color="#0000FF">dexpr</font></b> <b><font color="#0000FF">int</font></b> obj = <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Locations) fixedCost[l]*open[l]
+45:   + <b><font color="#7D007D">sum</font></b>(c <b><font color="#0000FF">in</font></b> Customers) cost[c][cust[c]];
+46: 
+47: <b><font color="#0000FF">dexpr</font></b> <b><font color="#0000FF">float</font></b> occupancy = <b><font color="#7D007D">sum</font></b>(c <b><font color="#0000FF">in</font></b> Customers) demand[c]
+48:   / <b><font color="#7D007D">sum</font></b>(l <b><font color="#0000FF">in</font></b> Locations) open[l]*capacity[l];
+49: 
+50: <b><font color="#0000FF">dexpr</font></b> <b><font color="#0000FF">float</font></b> minOccup = <b><font color="#7D007D">min</font></b>(l <b><font color="#0000FF">in</font></b> Locations)
+51:   ((load[l] / (capacity[l]) + (1-open[l])));
+52: 
+53: <b><font color="#0000FF">execute</font></b> {
+54:   cp.addKPI(occupancy, <b><font color="#8A2BE2">"Occupancy"</font></b>);
+55:   cp.addKPI(minOccup, <b><font color="#8A2BE2">"Min occupancy"</font></b>);
+56:   cp.param.timeLimit = 10;
+57:   cp.param.logPeriod = 10000;
+58: }
+59: 
+60: minimize obj;
+61: subject to {
+62:   forall(l <b><font color="EA7D00">in</font></b> Locations)
+63:     open[l] == (load[l] &gt; 0);
+64:   pack(all(l <b><font color="EA7D00">in</font></b> Locations) load[l],
+65:        all(c <b><font color="EA7D00">in</font></b> Customers) cust[c],
+66:        all(c <b><font color="EA7D00">in</font></b> Customers) demand[c]);
+67: }
+68: 
+69: execute {
+70:   writeln(<b><font color="#8A2BE2">"obj = "</font></b> + obj);
+71: }
+72: main
+73: {
+74:   <b><font color="#0000FF">thisOplModel</font></b>.generate();
+75:   <b><font color="EA7D00">var</font></b> sol=<b><font color="EA7D00">new</font></b> IloOplCPSolution();
+76:   <b><font color="EA7D00">for</font></b> (<b><font color="EA7D00">var</font></b> c <b><font color="EA7D00">in</font></b> <b><font color="#0000FF">thisOplModel</font></b>.Customers)
+77:     sol.setValue(<b><font color="#0000FF">thisOplModel</font></b>.cust[c],<b><font color="#0000FF">thisOplModel</font></b>.custValues[c]);
+78:   cp.setStartingPoint(sol);
+79:   cp.solve();
+80:   <b><font color="#0000FF">thisOplModel</font></b>.postProcess();
+81: } 
+</tt></pre>

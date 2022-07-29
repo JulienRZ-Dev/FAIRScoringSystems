@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="CPLEX Optimizers" />
+<meta name="DC.Relation" scheme="URI" content="../../Optimization_Studio/topics/COS_home.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/CPLEX_2.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/gscplex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/usrmancplex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/reffileformatscplex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/refparameterscplex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/interactiveoptimizercommands.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/examplescplex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/homepages/apioverviewcplex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/homepageCrefman.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/maps/refcppcplex/html/overview.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/maps/refjavacplex/html/overview-summary.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/maps/refdotnetcplex/html/R_Project.htm" />
+<meta name="DC.Relation" scheme="URI" content="../../CPLEX/maps/refpythoncplex/html/help.html" />
+<meta name="DC.Relation" scheme="URI" content="../GettingStarted/topics/preface/preface_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../GettingStarted/topics/set_up/setup_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../GettingStarted/topics/tutorials/tutorials_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../ReleaseNotes/topics/releasenotes201/home.html" />
+<meta name="DC.Relation" scheme="URI" content="../UsrMan/topics/progr_consid/dev_hints/01_dev_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../UsrMan/topics/cont_optim/simplex/01_simplex_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../UsrMan/topics/discr_optim/mip/01_mip_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../UsrMan/topics/progr_consid/tuning/01_tune_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../UsrMan/topics/infeas_unbd/partInfeasUnbnded_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/Error_codes.html" />
+<meta name="DC.Relation" scheme="URI" content="https://www.ibm.com/analytics/decision-optimization/support" />
+<meta name="DC.Relation" scheme="URI" content="http://www.ibm.com/support/fixcentral/options" />
+<meta name="DC.Relation" scheme="URI" content="https://www.ibm.com/support/pages/detailed-system-requirements-ibm-ilog-cplex-optimization-studio" />
+<meta name="DC.Relation" scheme="URI" content="https://www.ibm.com/support/pages/node/397233" />
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="cwtyyFU4" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../kc_welcome.css" />
+<link rel="Start" href="../../Optimization_Studio/topics/COS_home.html" />
+<title>CPLEX Optimizers</title>
+</head>
+<body class="kc_welcome" id="cwtyyFU4"><div role="main">
+<div class="kc_welcome_header"><h1 class="title topictitle1 kc_welcome_header" id="ariaid-title1">CPLEX Optimizers</h1>
+</div>
+<div class="body"></div>
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/CPLEX_2.html">Legal terms</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/gscplex.html">Getting Started with CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/usrmancplex.html">User's Manual for CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/reffileformatscplex.html">File formats supported by CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/refparameterscplex.html">Parameters of CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/interactiveoptimizercommands.html">Interactive Optimizer of CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/examplescplex.html">Examples of CPLEX</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CPLEX/homepages/apioverviewcplex.html">Overview of the APIs of CPLEX</a></strong><br />
+Provides links to reference manuals of the C, C++, and Java application programming interfaces of CPLEX</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/homepageCrefman.html">CPLEX Callable Library (C API) Reference Manual</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../refcppcplex/html/overview.html">CPLEX C++ Reference Manual</a></strong><br />
+This reference manual documents the C++ API of  CPLEX.</li>
+<li class="link ulchildlink"><strong><a href="../../refjavacplex/html/overview-summary.html">CPLEX Java Reference Manual</a></strong><br />
+This reference manual documents the Java API
+of  CPLEX.</li>
+<li class="link ulchildlink"><strong><a href="../../refdotnetcplex/html/R_Project.htm">CPLEX .NET Reference Manual</a></strong><br />
+This reference manual documents the .NET API of  CPLEX.</li>
+<li class="link ulchildlink"><strong><a href="../../refpythoncplex/html/help.html">CPLEX Python Reference Manual</a></strong><br />
+This reference manual documents the Python API of
+CPLEX.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../Optimization_Studio/topics/COS_home.html" title="Welcome to the IBM ILOG CPLEX Optimization Studio documentation.">IBM ILOG CPLEX Optimization Studio 20.1.0 documentation</a></div>
+</div>
+
+<div class="linklist linklist kc_welcome_box"><h3 class="linklistlabel kc_welcome_category_head">Getting started</h3><div class="kc_welcome_box_inner"><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../GettingStarted/topics/preface/preface_synopsis.html" title="This preface introduces CPLEX.">Introducing CPLEX</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../GettingStarted/topics/set_up/setup_synopsis.html" title="To set up CPLEX for your particular platform or integrated development environment, and to check your set up, follow these steps.">Setting up CPLEX</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../GettingStarted/topics/tutorials/tutorials_synopsis.html" title="These tutorials introduce you to each of the components of IBM ILOG CPLEX Optimizer.">Tutorials</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../ReleaseNotes/topics/releasenotes201/home.html" title="These release notes highlight improvements and new features in IBM CPLEX 20.1.0.">Release notes for CPLEX Optimizers 20.1.0</a></li></div></div></div></div>
+
+<div class="linklist linklist kc_welcome_box"><h3 class="linklistlabel kc_welcome_category_head">Common tasks</h3><div class="kc_welcome_box_inner"><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../UsrMan/topics/progr_consid/dev_hints/01_dev_title_synopsis.html" title="Offers suggestions for improving application development and debugging completed applications.">Developing CPLEX applications</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../UsrMan/topics/cont_optim/simplex/01_simplex_title_synopsis.html" title="Documents the primal and dual simplex optimizers.">Solving LPs: simplex optimizers</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../UsrMan/topics/discr_optim/mip/01_mip_title_synopsis.html" title="Documents the solution of mixed integer programs (MIPs) with the CPLEX mixed integer optimizer; that is, solving models in which one or more variables must take integer solution values.">Solving mixed integer programming problems (MIP)</a></li></div></div></div></div>
+
+<div class="linklist linklist kc_welcome_box"><h3 class="linklistlabel kc_welcome_category_head">Troubleshooting</h3><div class="kc_welcome_box_inner"><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../UsrMan/topics/progr_consid/tuning/01_tune_title_synopsis.html" title="The tuning tool, a utility to aid you in improving the performance of your optimization applications, analyzes a model or a group of models and suggests a suite of parameter settings for you to use that provide better performance than the default parameter settings for your model or group of models. This topic documents the tuning tool of IBM ILOG CPLEX.">Tuning tool</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../UsrMan/topics/infeas_unbd/partInfeasUnbnded_title_synopsis.html" title="Documents tools to help you analyze the source of the infeasibility in a model: the preprocessing reduction parameter for distinguishing infeasibility from unboundedness, the conflict refiner for detecting minimal sets of mutually contradictory bounds and constraints, and FeasOpt for repairing infeasibilities.">Infeasibility and unboundedness</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><a class="link" href="../../refcallablelibrary/macros/Error_codes.html" title="This numerically sorted list of CPLEX error codes links to the reference documentation of each code.">Interpreting error codes by number</a></li></div></div></div></div>
+
+<div class="linklist linklist kc_welcome_box"><h3 class="linklistlabel kc_welcome_category_head">Support</h3><div class="kc_welcome_box_inner"><div class="kc_welcome_link">
+<div><li class="linklist"><img src="../../sout.gif" alt="" /><a class="link" href="https://www.ibm.com/analytics/decision-optimization/support" target="_blank" rel="noopener" title="(Opens in a new tab or window)">IBM Decision Optimization Help and Support Portal</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><img src="../../sout.gif" alt="" /><a class="link" href="http://www.ibm.com/support/fixcentral/options" target="_blank" rel="noopener" title="(Opens in a new tab or window)">IBM Fix Central</a></li></div></div></div></div>
+
+<div class="linklist linklist kc_welcome_box"><h3 class="linklistlabel kc_welcome_category_head">More information</h3><div class="kc_welcome_box_inner"><div class="kc_welcome_link">
+<div><li class="linklist"><img src="../../sout.gif" alt="" /><a class="link" href="https://www.ibm.com/support/pages/detailed-system-requirements-ibm-ilog-cplex-optimization-studio" target="_blank" rel="noopener" title="(Opens in a new tab or window)">Detailed System Requirements (DSR)</a></li></div></div><div class="kc_welcome_link">
+<div><li class="linklist"><img src="../../sout.gif" alt="" /><a class="link" href="https://www.ibm.com/support/pages/node/397233" target="_blank" rel="noopener" title="(Opens in a new tab or window)">Previous release notes</a></li></div></div></div></div>
+</nav><div id="copyright"><div><p class="copyright">© Copyright IBM Corporation 2020</p></div></div></div></body>
+</html>

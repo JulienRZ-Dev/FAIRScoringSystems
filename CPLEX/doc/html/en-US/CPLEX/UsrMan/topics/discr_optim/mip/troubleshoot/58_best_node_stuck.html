@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Lack of movement in the best node" />
+<meta name="abstract" content="Describes conditions in which strong branching may help." />
+<meta name="Description" content="Describes conditions in which strong branching may help." />
+<meta name="DC.subject" content="variable selection strategy, strong branching and best node progress, strong branching, limiting, strong branching candidate list" />
+<meta name="keywords" content="variable selection strategy, strong branching and best node progress, strong branching, limiting, strong branching candidate list" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/troubleshoot/53_trouble_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveMIP.656567" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/troubleshoot/53_trouble_title_synopsis.html" />
+<title>Lack of movement in the best node</title>
+</head>
+<body id="User_manual.uss_solveMIP.656567"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Lack of movement in the best node</h1>
+<div class="body"><p class="shortdesc">Describes conditions in which strong branching may help.</p>
+
+<p class="p">For some models, the Best Node value in the node log
+changes very slowly or not at all. The time required to solve such models can sometimes
+be reduced by the variable selection strategy known as strong branching.
+Strong branching explores a set of candidate branching-variables in-depth,
+performing a limited number of simplex iterations to estimate the
+effect of branching up or down on each.  </p>
+
+<div class="note important"><span class="importanttitle">Important:</span> 
+<p class="p">Strong branching consumes significantly more computation
+time per node than the default variable selection strategy. </p>
+
+</div>
+
+<p class="p">To activate strong branching, set the variable selection
+parameter to a value of <code class="ph codeph">3</code>. For documentation
+of that parameter, see <a class="xref" href="../../../../../Parameters/topics/VarSel.html" title="Sets the rule for selecting the branching variable at the node which has been selected for branching.">MIP variable selection strategy</a> in
+the <em class="ph i">CPLEX Parameters Reference Manual</em>.</p>
+
+<p class="p">On rare occasions, it can be helpful to modify strong
+branching limits. If you modify the limit on the size of the candidate
+list, then strong branching will explore a larger (or smaller) set
+of candidates. If you modify the limit on strong branching iteration,
+then strong branching will perform more (or fewer) simplex iterations
+per candidate.</p>
+
+<p class="p">These limits are controlled by the parameters <code class="ph codeph">StrongCandLim</code> and <code class="ph codeph">StrongItLim</code>,
+respectively. </p>
+
+<p class="p">Other parameters to consider trying, in the case of slow
+movement of the Best Node value, are nondefault levels for <code class="ph codeph">Probe</code> (try
+the aggressive setting of <code class="ph codeph">3</code> first, and
+then reduce it if the probing step itself takes excessive time for
+your purposes), and <code class="ph codeph">MIPEmphasis</code> set to
+a value of <code class="ph codeph">3</code>.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/troubleshoot/53_trouble_title_synopsis.html" title="Describes symptoms of performance problems in MIP optimization and recommends remedies.">Troubleshooting MIP performance problems</a></div>
+</div>
+</nav></div></body>
+</html>

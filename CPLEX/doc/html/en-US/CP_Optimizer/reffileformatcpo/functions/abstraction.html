@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="abstraction" />
+<meta name="abstract" content="Returns a constraint that abstracts the values of one array as values in another array." />
+<meta name="Description" content="Returns a constraint that abstracts the values of one array as values in another array." />
+<meta name="DC.subject" content="abstraction" />
+<meta name="keywords" content="abstraction" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="abstraction" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>abstraction</title>
+</head>
+<body id="abstraction"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">abstraction</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns a constraint that abstracts the values of one array as values in another array.
+</p>
+
+
+
+<section class="section" id="abstraction__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">abstraction</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> y,  <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> values, <a class="xref" href="../syntax/070_Types.html#Numerical_types__int">int</a> abstractValue)
+</code></pre>
+</section>
+
+
+<section class="section" id="abstraction__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">y</code>: an array of abstracted integer expressions
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">x</code>: an array of reference integer expressions
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">values</code>: an array of integer values to be abstracted
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">abstractValue</code>: an escape value
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="abstraction__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This constraint abstracts expression array <code class="ph codeph">x</code> into the expression array <code class="ph codeph">y</code>.
+That is:
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x[i] = v</code> with <code class="ph codeph">v</code> in <code class="ph codeph">values</code> if and only if <code class="ph codeph">y[i] = v</code>.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">x[i] = v</code> with <code class="ph codeph">v</code> not in <code class="ph codeph">values</code> if and only if <code class="ph codeph">y[i] = abstractValue</code>.
+  </li>
+
+</ul>
+
+
+<p class="p">
+The abstract value (specified by <code class="ph codeph">abstractValue</code>) must not be in the domain of
+<code class="ph codeph">x[i]</code>.
+</p>
+
+
+<p class="p">
+This constraint maintains a many-to-one mapping that makes it possible to
+define constraints that impinge only on a particular set of values.
+</p>
+
+
+</section>
+
+
+<section class="section" id="abstraction__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+x1 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(3);
+x2 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(4);
+x3 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(5);
+y1 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+y2 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+y3 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..100);
+<strong class="ph b">abstraction</strong>([y1, y2, y3], [x1, x2, x3], [4, 8, 12, 16], 7);
+</code></pre>
+<p class="p">
+In this example <code class="ph codeph">y1 = 7</code>, <code class="ph codeph">y2 = 4</code> and <code class="ph codeph">y3 = 7</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="abstraction__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code> and <code class="ph codeph">y</code> must be arrays of the same size.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">abstractValue</code> must not be in the domain of any <code class="ph codeph">x[i]</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+</nav>
+
+</div></body>
+</html>

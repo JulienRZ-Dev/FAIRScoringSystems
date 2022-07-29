@@ -1,0 +1,21 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: G25vdx+1e9AudJlbHM3DSuwao9tx8
+ U4KgvHRoMUBZSE=
+SHA-256-Digest-Manifest: X6Qn99lvGI6rsNYecgF8tH5UoYuZUHpM0lNbAmkmhkA=
+Created-By: 1.8.0_101 (Oracle Corporation)
+
+Name: lib/external/xercesImpl-2.9.1.jar
+SHA-256-Digest: gH2cITgdagc0jrjqU1j3cpVJyND7tKKn0EWXSmWu3CI=
+
+Name: lib/eclipse-framework-runtime.jar
+SHA-256-Digest: wwixVQQUwDdkxmTAuRvKyM7G4fWGE5LVuGkdIrQ3grs=
+
+Name: lib/external/batik-jviews-tiff-8.10.jar
+SHA-256-Digest: bvAXVyNdsL5/b9aODFkmK5RRsGoKUULfqFDTlqeEFCQ=
+
+Name: lib/external/batik-jviews-svggen-8.10.jar
+SHA-256-Digest: 2A4io8pAAhIyWMVQYdyRngjU1ymMC9F2uaK8EJngCuE=
+
+Name: lib/external/svgdom-1.0.jar
+SHA-256-Digest: 52Xwh21UOVtZCaNRsKEescCdLkCCdD6w28qGBkbYFlE=
+

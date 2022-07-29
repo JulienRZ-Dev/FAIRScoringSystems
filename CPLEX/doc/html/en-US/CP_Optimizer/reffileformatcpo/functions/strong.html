@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="strong" />
+<meta name="abstract" content="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints." />
+<meta name="Description" content="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints." />
+<meta name="DC.subject" content="strong" />
+<meta name="keywords" content="strong" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="allowedAssignments.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/strongcst.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="strong" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>strong</title>
+</head>
+<body id="strong"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">strong</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.
+</p>
+
+
+
+<section class="section" id="strong__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">strong</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> x)
+</code></pre>
+</section>
+
+
+<section class="section" id="strong__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code>: An array of integer expressions over which propagation is to be strengthened.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="strong__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+The <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> constraint strengthens the model on the expressions <code class="ph codeph">x</code>.
+This is done by creating an <code class="ph codeph"><a class="xref" href="allowedAssignments.html" title="Explicitly defines possible assignments on one or more integer expressions.">allowedAssignments</a></code> constraint in place
+of the <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> constraint during presolve. Only the assignments to
+the expressions which do not result in an immediate inconsistency are
+added to the tuple set of the <code class="ph codeph"><a class="xref" href="allowedAssignments.html" title="Explicitly defines possible assignments on one or more integer expressions.">allowedAssignments</a></code> constraint.
+</p>
+
+
+<p class="p">
+Constraints that can be identified as redundant (when taken together
+with this new constraint) are removed from the model during presolve.
+This is the case for constraints that are only over the variables of
+the array given as argument.
+</p>
+
+
+</section>
+
+
+<section class="section" id="strong__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+We wish to create a variable which identifies a chessboard square from
+its <code class="ph codeph">x</code> and <code class="ph codeph">y</code> coordinates.
+</p>
+
+
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..7);
+y = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..7);
+id = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..63);
+id == 8 * x + y;
+<a class="xref" href="forbiddenAssignments.html" title="Explicitly defines forbidden assignments for one or more integer expressions.">forbiddenAssignments</a>(x, [4, 5, 6]);
+<strong class="ph b">strong</strong>([x, y, id]);
+</code></pre>
+<p class="p">
+The arithmetic operators <code class="ph codeph">*</code> and <code class="ph codeph">+</code> propagate only the bounds of expressions.
+So, for example, if <code class="ph codeph">x</code> has domain {0, 1, 2, 3, 7} and <code class="ph codeph">y</code> has
+domain {0, 1, ..., 7}, without the strong constraint, <code class="ph codeph">id</code> would have domain
+{0, 1, ..., 63}, since computation on the bounds of <code class="ph codeph">x</code> and <code class="ph codeph">y</code> do not allow
+more reduction.  With the <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> annotation, values are considered
+individually, and the domain of <code class="ph codeph">id</code> would be reduced to {0, ..., 28, 56, ..., 63},
+since the values {32, ..., 55} are not possible for <code class="ph codeph">id</code>, given that the
+values {4, 5, 6} are not possible for <code class="ph codeph">x</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="strong__Notes"><h2 class="title sectiontitle">Notes</h2>
+<p class="p">
+Expansion of <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> constraints to <code class="ph codeph"><a class="xref" href="allowedAssignments.html" title="Explicitly defines possible assignments on one or more integer expressions.">allowedAssignments</a></code>
+involves algorithms which are relatively expensive computationally.
+Therefore, the use of <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> needs to be carefully considered,
+especially when there are many <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> annotations, the <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code>
+spans over many variables, or the domains over which <code class="ph codeph"><a class="xref" href="strong.html" title="A model annotation to encourage CP Optimizer to produce stronger (higher inference) constraints.">strong</a></code> is
+used are large.
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="allowedAssignments.html" title="Explicitly defines possible assignments on one or more integer expressions.">allowedAssignments</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/strongcst.html">Strong constraints in CP Optimizer</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

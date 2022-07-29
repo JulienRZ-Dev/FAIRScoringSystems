@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Closing log files" />
+<meta name="abstract" content="Describes facilities for closing log files." />
+<meta name="Description" content="Describes facilities for closing log files." />
+<meta name="DC.subject" content="closing, log files, log file, CPXXsetlogfilename routine, managing input, output, Python API, streams, closing log files" />
+<meta name="keywords" content="closing, log files, log file, CPXXsetlogfilename routine, managing input, output, Python API, streams, closing log files" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_log_files_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_manageIO.1002615" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_log_files_synopsis.html" />
+<title>Closing log files</title>
+</head>
+<body id="User_manual.uss_manageIO.1002615"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Closing log files</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes facilities for closing log files.</p>
+
+<ul class="ul">
+<li class="li"><p class="p">If you do not want CPLEX to record messages in a log file,
+then you can close the log file from the Interactive Optimizer with
+the command <code class="ph codeph">set logfile *</code>.</p>
+ </li>
+
+<li class="li"><p class="p">By default, routines from the Callable Library do not write
+to a log file. However, if you want to close a log file that you created
+by a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/setlogfilename.html" title="Sets and opens the log file.">CPXsetlogfilename</a></code>,
+call <code class="ph codeph">CPXsetlogfilename</code> again, and this time, pass <code class="ph codeph">NULL</code> 
+as its argument.</p>
+</li>
+ 
+<li class="li"><p class="p">From Concert, use the <code class="ph codeph">setOut</code>  method with <code class="ph codeph">env.getNullStream</code> as
+argument, where <code class="ph codeph">env</code> is an <code class="ph codeph">IloEnv</code> object,
+to stop sending logging output to an output stream.</p>
+ </li>
+
+<li class="li"><p class="p">From the Python API, use the methods <code class="ph codeph">set_results_stream</code> and <code class="ph codeph">set_log_stream</code> with
+the argument <code class="ph codeph">None</code> to stop CPLEX from sending logged
+output to an output stream.</p>
+</li>
+
+</ul>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_log_files_synopsis.html" title="Describes facilities for working with log files.">Managing log files</a></div>
+</div>
+</nav></div></body>
+</html>

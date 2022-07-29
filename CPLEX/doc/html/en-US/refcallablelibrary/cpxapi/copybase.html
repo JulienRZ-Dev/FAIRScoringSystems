@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcopybase and CPXcopybase" />
+<meta name="abstract" content="The routine CPXXcopybase/CPXcopybase copies a basis into a CPLEX problem object." />
+<meta name="Description" content="The routine CPXXcopybase/CPXcopybase copies a basis into a CPLEX problem object." />
+<meta name="DC.subject" content="CPXcopybase, C API Reference Manual, CPXXcopybase" />
+<meta name="keywords" content="CPXcopybase, C API Reference Manual, CPXXcopybase" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<meta name="DC.Relation" scheme="URI" content="readcopybase.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="copybase" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<title>CPXXcopybase and CPXcopybase</title>
+</head>
+<body id="copybase"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcopybase</span> and <span class="keyword apiname">CPXcopybase</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybase</span>/<span class="keyword apiname">CPXcopybase</span></code> copies a basis into a
+CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcopybase</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">cstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rstat</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcopybase</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">cstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rstat</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybase</span>/<span class="keyword apiname">CPXcopybase</span></code> copies a basis into a
+CPLEX problem object. It is not necessary to copy a basis prior to
+optimizing an LP problem, but a good initial basis can increase the speed of
+optimization significantly. A basis does not need to be primal or dual
+feasible to be used by the optimizer.</p>
+
+
+<div class="note note"><span class="notetitle">Note:</span> 
+The basis is ignored by the optimizer if the parameter known as 
+<a class="xref" href="../../CPLEX/Parameters/topics/AdvInd.html" title="If set to 1 or 2, this parameter specifies that CPLEX should use advanced starting information when it initiates optimization.">advanced start switch</a>
+(<code class="ph codeph">CPXPARAM_Advance</code>)  
+is set to 0 (zero).
+</div>
+
+<p class="p"> </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Table 1: Values of basis status for columns in cstat[j]</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_LOWER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">0</code></td>
+
+<td class="entry" valign="top">variable at lower bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BASIC</code></td>
+<td class="entry" valign="top"><code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">variable is basic</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_UPPER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">2</code></td>
+
+<td class="entry" valign="top">variable at upper bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_FREE_SUPER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">3</code></td>
+
+<td class="entry" valign="top">variable free and nonbasic</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Table 2: Values of basis status for rows other than ranged rows in rstat[j]</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_LOWER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">0</code></td>
+
+<td class="entry" valign="top">associated slack, surplus, or artificial variable is nonbasic at value 0.0 (zero)</td>
+
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BASIC</code></td>
+<td class="entry" valign="top"><code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">associated slack, surplus, or artificial variable is basic</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 3. Table 3: Values of basis status for ranged rows in rstat[j]</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row">
+<td class="entry" valign="top"><code class="ph codeph">CPX_AT_LOWER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">0</code></td>
+
+<td class="entry" valign="top">associated slack, surplus, or artificial variable is nonbasic at its lower bound</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top"><code class="ph codeph">CPX_BASIC</code></td>
+<td class="entry" valign="top"><code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">associated slack, surplus, or artificial variable is basic</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top"><code class="ph codeph">CPX_AT_UPPER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">2</code></td>
+
+<td class="entry" valign="top">associated slack, surplus, or artificial variable is nonbasic at its upper bound</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cstat</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the basis status of the columns in the constraint matrix. The length of the array is equal to the number of columns in the problem object. Possible values of the basis status of columns appear in Table 1.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rstat</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the basis status of the slack, or surplus, or artificial variable associated with each row in the constraint matrix. The length of the array is equal to the number of rows in the CPLEX problem object. For rows other than ranged rows, the array element <code class="ph codeph"><span class="keyword parmname">rstat</span>[i]</code> has the meaning in Table 2. For ranged rows, the array element <code class="ph codeph"><span class="keyword parmname">rstat</span>[i]</code> has the meaning in Table 3.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXcopybase (env, lp, cstat, rstat);</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpBasis.html">Manipulating a basis</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="readcopybase.html" title="The routine CPXXreadcopybase/CPXreadcopybase reads a basis from a BAS file, and copies that basis into a CPLEX problem object.">CPXreadcopybase</a></li></ul></div>
+</nav>
+</div></body>
+</html>

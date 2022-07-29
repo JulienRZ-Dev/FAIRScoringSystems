@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Help</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">&nbsp;</td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="help.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<div class="document" id="ibm-r-ilog-cplex-python-api-documentation">
+<h1 class="title">IBM(R) ILOG CPLEX Python API Reference Manual</h1>
+
+<div class="section" id="about-this-manual">
+<h1>About this manual</h1>
+<p>This reference manual documents the IBM(R) ILOG CPLEX Python API.
+There are separate reference manuals for the C Callable Library, C++,
+Java, and .NET APIs of CPLEX.</p>
+<p>To see the table of contents for this reference manual in your browser, click [frames]. </p>
+</div>
+<div class="section" id="what-is-the-cplex-python-api">
+<h1>What is the CPLEX Python API?</h1>
+<p>The CPLEX Python API is a Python package named 
+<a class="reference external" href="cplex-module.html"><tt class="docutils literal"><span class="pre">cplex</span></tt></a> 
+that allows the Callable Library to be accessed from the Python
+programming language.  It is equally suitable for interactive use
+through the Python interpreter or for writing scripts or full-fledged
+applications.</p>
+  
+<p>For users of Python, CPLEX offers both a Python application 
+programming interface (API) documented in this reference manual, 
+as well as IBM(R) Decision Optimization CPLEX(R) Modeling for Python, 
+also known as DOcplex. DOcplex is a library composed of two modules:
+<ul>
+<li>Mathematical Programming Modeling for Python using docplex.mp (DOcplex.MP)
+</li>
+<li>Constraint Programming Modeling for Python using docplex.cp (DOcplex.CP)
+</li>
+</ul>
+For more about DOcplex, see the 
+<img src="../../sout.gif" alt="" />
+<a class="link" href="https://cdn.rawgit.com/IBMDecisionOptimization/docplex-doc/master/docs/index.html" target="_blank" title="(Opens in a new tab or window)">DOcplex landing page</a>.
+</p>  
+</div>
+<div class="section" id="what-you-need-to-know">
+<h1>What you need to know</h1>
+<p>This manual assumes that you are
+familiar with the Python programming language.</p>
+<p>This manual also assumes that you are familiar with the operating system
+on which you are using CPLEX and have the appropriate version of
+Python installed on your system. For information about supported platforms, see
+Detailed System Requirements (DSR) on your IBM customer support site.
+</p>
+<p>For interactive use, the tab completion functionality provided by the
+Python module <tt class="docutils literal"><span class="pre">rlcompleter</span></tt> is extremely useful as you
+browse the CPLEX Python API.  GNU/Linux systems typically include
+this package by default.  Mac users are advised to install the package
+<tt class="docutils literal"><span class="pre">readline</span></tt> for their system.  Windows users are advised
+either to use IDLE, the Python IDE distributed with Python, or to
+install the package <tt class="docutils literal"><span class="pre">readline</span></tt> for their system.</p>
+</div>
+<div class="section" id="structure-of-the-package-cplex">
+<h1>Structure of the package <tt class="docutils literal"><span class="pre">cplex</span></tt></h1>
+<p>The CPLEX Python API is an object-oriented API providing most of
+its functionality through the class 
+<a class="reference external" href="cplex.Cplex-class.html"><tt class="docutils literal"><span class="pre">Cplex</span></tt></a> 
+defined in the top level of the package 
+<a class="reference external" href="cplex-module.html"><tt class="docutils literal"><span class="pre">cplex</span></tt></a>. 
+This class has a number of methods, such as
+<a class="reference external" href="cplex.Cplex-class.html#read"><tt class="docutils literal"><span class="pre">Cplex.read</span></tt></a> 
+and 
+<a class="reference external" href="cplex.Cplex-class.html#solve"><tt class="docutils literal"><span class="pre">Cplex.solve</span></tt></a>
+for operating on optimization problems,
+but most of its functionality is provided through methods of data
+attributes such as
+<a class="reference external" href="cplex._internal._subinterfaces.LinearConstraintInterface-class.html"><tt class="docutils literal"><span class="pre">Cplex.linear_constraints</span></tt></a>,
+<a class="reference external" href="cplex._internal._subinterfaces.ObjectiveInterface-class.html"><tt class="docutils literal"><span class="pre">Cplex.objective</span></tt></a>, and
+<a class="reference external" href="cplex._internal._subinterfaces.SolutionInterface-class.html"><tt class="docutils literal"><span class="pre">Cplex.solution</span></tt></a>.
+These objects provide methods for modifying and
+querying data associated with the corresponding parts of an
+optimization problem.  These objects are instances of classes defined
+within the subpackage <tt class="docutils literal"><span class="pre">cplex._internal</span></tt>.
+As its name suggests, classes and other data defined in the package
+<tt class="docutils literal"><span class="pre">cplex._internal</span></tt> are not to be
+instantiated or otherwise accessed directly by the user, but rather
+should only be accessed as attributes of an instance of the
+object <tt class="docutils literal"><span class="pre">Cplex</span></tt>.</p>
+</div>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

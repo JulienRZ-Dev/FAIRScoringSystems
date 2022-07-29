@@ -1,0 +1,1824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Evaluating solution quality" />
+<meta name="abstract" content="These symbolic values or fields represent measures of the quality of a solution." />
+<meta name="Description" content="These symbolic values or fields represent measures of the quality of a solution." />
+<meta name="DC.subject" content="solution quality, gap, values for by API, solution quality and, Callable Library (C API), C++ API, Java API, Python API, Interactive Optimizer" />
+<meta name="keywords" content="solution quality, gap, values for by API, solution quality and, Callable Library (C API), C++ API, Java API, Python API, Interactive Optimizer" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/apioverviewcplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPLEXoverviewAPI_SolutionQuality" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/apioverviewcplex.html" />
+<title>Evaluating solution quality</title>
+</head>
+<body id="CPLEXoverviewAPI_SolutionQuality"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Evaluating solution quality</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">These symbolic values or fields represent measures of the quality of a solution.</p>
+
+      <div class="p">
+This table documents the measures of the quality of a solution that CPLEX provides. 
+Some specify <strong class="ph b">characteristics</strong> of a solution; some indicate the <strong class="ph b">accuracy</strong> 
+of a solution.
+<ul class="ul">
+            <li class="li">A new row defines a measure of the quality of a solution. </li>
+
+            <li class="li">Under that row, the first column offers a link to the reference documentation in the Callable Library (C API). 
+The link in that column leads to a page of documentation for that measure of the quality of a 
+solution. That documentation also shows names of the measure in other APIs. For some measures, 
+that documentation also shows how CPLEX calculates the measure.</li>
+
+            <li class="li">The second column shows the name in the Python API. </li>
+
+            <li class="li">The third column shows the name in the C++ API.  </li>
+
+            <li class="li">The fourth column shows the name in the Java API.  </li>
+
+         </ul>
+
+      </div>
+
+      <p class="p">For special considerations about the information available from the solution of a 
+mixed integer programming (MIP) model, see the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/mip/para/51_soln_info.html" title="Describes access to information about the solution of a MIP optimization.">Accessing information about the MIP solution</a> 
+in the <em class="ph i">CPLEX User's Manual</em>. 
+See also the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/mip/troubleshoot/60_ill_conditioned_MIP_kappa.html" title="Recommends techniques to detect ill conditioning in your MIP model.">MIP kappa: detecting and coping with ill-conditioned MIP models</a>.
+</p>
+
+      <p class="p">For a definition of <strong class="ph b">MIP kappa</strong> and documentation of the parameter that tells 
+CPLEX whether to calculate kappa, the condition number of optimal bases that CPLEX 
+encounters during its solution of a mixed integer program (MIP), see 
+<a class="xref" href="../../Parameters/topics/MIPKappaStats.html" title="Sets the strategy for computing statistics about MIP kappa">MIP kappa computation</a> in the 
+<em class="ph i">CPLEX Parameters Reference Manual</em>.
+</p>
+
+      <p class="p">For special considerations about the information available from the solution of a model 
+solved by the <strong class="ph b">barrier optimizer</strong>, see the topic 
+<a class="xref" href="../../UsrMan/topics/cont_optim/barrier/18_soln_quality.html" title="Documents the information available about the quality of a solution found by the barrier optimizer.">Understanding solution quality from the barrier LP optimizer</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.
+</p>
+
+      <p class="p">
+         <strong class="ph b">Python</strong> For syntactic details about accessing the quality of a solution 
+in the Python API, see the topic 
+<a class="xref" href="../../UsrMan/topics/APIs/Python/07_query_soln.html" title="Introduces methods to query the quality of solutions in the Python API.">Querying solution information in the Python API</a>. 
+</p>
+
+      <p class="p">
+         <strong class="ph b">C++</strong> For syntactic details about accessing the quality of a solution 
+in the C++ API, see the topics  
+<a class="xref" href="../../UsrMan/topics/APIs/Cpp/soln_info.html" title="Describes available information about solution feasibility, solution variables, basis information, and solution quality.">Accessing solution information</a>, 
+especially 
+<a class="xref" href="../../UsrMan/topics/APIs/Cpp/sensitivity_analysis.html" title="Describes methods in the C++ API to analyze infeasible problems.">Performing sensitivity analysis</a> 
+in the <em class="ph i">CPLEX User's Manual</em>. 
+</p>
+
+      <p class="p">
+         <strong class="ph b">Java</strong> For syntactic details about accessing the quality of a solution 
+in the Java API, see the topics 
+<a class="xref" href="../../UsrMan/topics/APIs/Java/12_access_soln.html" title="Describes the information available in the Java API about a solution.">Accessing solution information</a> 
+and 
+<a class="xref" href="../../UsrMan/topics/APIs/Java/22_soln_info_title_synopsis.html" title="Describes additional information available from a solution.">More solution information</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.  
+</p>
+
+      <div class="p">
+         <strong class="ph b">.NET</strong> Names of classes, methods, and symbolic constants
+in the C#.NET API correspond very closely to those in the Java API
+with these systematic exceptions: 
+<ul class="ul">
+            <li class="li">In the Java API, the names of classes begin with the prefix <span class="keyword apiname">Ilo</span>,
+whereas in C#.NET they do not.</li>
+
+            <li class="li">In the Java API, the names of methods conventionally begin
+with a lowercase letter, for example, <code class="ph codeph">addCols</code>, whereas
+in the C#.NET API, the names of methods conventionally begin with
+an uppercase (that is, capital) letter, for example, <code class="ph codeph">AddCols</code> according
+to Microsoft practice. </li>
+
+         </ul>
+
+      </div>
+
+      <div class="p">
+         <strong class="ph b">Interactive Optimizer</strong>  After CPLEX has found a solution, the 
+<code class="ph codeph">display solution</code> 
+command followed by one of these measures as an option 
+shows that solution quality measure for that solved problem. 
+For example: 
+<pre class="pre codeblock"><code>
+display solution quality
+</code></pre>
+or
+<pre class="pre codeblock"><code>
+display solution kappa
+</code></pre>
+      </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table; a new row defines a measure of the quality of a solution; the first column offers a link to the reference documentation in the Callable Library (C API); the second column shows the name in the Python API; the third column shows the name in the C++ API; the fourth column shows the name in the Java API." class="table ShadedHead" rules="all" frame="border" border="1"><span class="desc tabledesc">
+            
+         </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+               <tr class="row">
+                  <th class="entry thleft" align="left" valign="top" id="d73588e310">C API symbol</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d73588e313">Python API class variable</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d73588e316">C++ API enumeration</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d73588e319">Java API field</th>
+
+               </tr>
+
+            </thead>
+<tbody class="tbody">
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the objective value relative to the dual barrier solution.</p>
+
+                     <p class="p">This feature is available only for a <strong class="ph b">barrier</strong> solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_DUAL_OBJ.html" title="Concert Technology enum: DualObj">CPX_DUAL_OBJ</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">dual_objective </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::DualObj </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.DualObj </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the exact condition number of the scaled basis matrix.</p>
+
+                     <p class="p">This feature is available only for a simplex solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_EXACT_KAPPA.html" title="Concert Technology enum: ExactKappa">CPX_EXACT_KAPPA</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">exact_kappa </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::ExactKappa </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.ExactKappa </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the estimated condition number of the scaled basis matrix.</p>
+
+                     <p class="p">This feature is available only for a simplex solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA.html" title="Concert Technology enum: Kappa">CPX_KAPPA</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::Kappa </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.Kappa </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access a score of numerical difficulties for a CPLEX MIP solve. The score is an aggregate of
+the fractions of ill-posed, unstable, and suspicious-looking bases encountered during
+branch-and-cut. </p>
+
+                     <p class="p">This feature is available only for <strong class="ph b">simplex</strong>-based algorithms when the MIP kappa stats
+parameter is set and after CPLEX has processed at least one LP-basis during the solve.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA_ATTENTION.html" title="Concert Technology enum: KappaAttention">CPX_KAPPA_ATTENTION</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa_attention </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::KappaAttention </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.KappaAttention </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the percentage of numerically ill-posed simplex bases (condition number greater than
+1e+14) among simplex bases encountered during a solve. </p>
+
+                     <p class="p">This feature is available only for <strong class="ph b">simplex</strong>-based algorithms when the MIP kappa stats
+parameter is set and after CPLEX has processed at least one LP-basis during the solve.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA_ILLPOSED.html" title="Concert Technology enum: KappaIllposed">CPX_KAPPA_ILLPOSED</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa_illposed </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::KappaIllposed </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.KappaIllposed </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the highest condition number encountered during a MIP solve. </p>
+
+                     <p class="p">This feature is available only for <strong class="ph b">simplex</strong>-based algorithms when the MIP kappa stats
+parameter is set and after CPLEX has processed at least one LP-basis during the solve.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA_MAX.html" title="Concert Technology enum: KappaMax">CPX_KAPPA_MAX</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa_max </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::KappaMax </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.KappaMax </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the percentage of numerically stable simplex bases (condition number less than 1e+7)
+among simplex bases encountered during a MIP solve.</p>
+
+                     <p class="p">This feature is available only for <strong class="ph b">simplex</strong>-based algorithms when the MIP kappa stats
+parameter is set and after CPLEX has processed at least one LP-basis during the solve.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA_STABLE.html" title="Concert Technology enum: KappaStable">CPX_KAPPA_STABLE</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa_stable </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::KappaStable </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.KappaStable </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the percentage of numerically suspicious simplex bases (condition number between 1e+7
+and 1e+10) among simplex bases encountered during a MIP solve.</p>
+
+                     <p class="p">This feature is available only for <strong class="ph b">simplex</strong>-based algorithms when the MIP kappa stats
+parameter is set and after CPLEX has processed at least one LP-basis during the solve.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA_SUSPICIOUS.html" title="Concert Technology enum: KappaSuspicious">CPX_KAPPA_SUSPICIOUS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa_suspicious </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::KappaSuspicious </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.KappaSuspicious </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the percentage of numerically unstable simplex bases (condition number between 1e+10
+and 1e+14) among simplex bases encountered during a MIP solve.</p>
+
+                     <p class="p">This feature is available only for <strong class="ph b">simplex</strong>-based algorithms when the MIP kappa stats
+parameter is set and after CPLEX has processed at least one LP-basis during the solve.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_KAPPA_UNSTABLE.html" title="Concert Technology enum: KappaUnstable">CPX_KAPPA_UNSTABLE</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">kappa_unstable </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::KappaUnstable </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.KappaUnstable </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum violation of the complementary slackness conditions for the
+unscaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index of a row or column with the largest violation of the
+complementary slackness conditions. An index (such as *quality_p) strictly less than zero denotes
+row (-i-1) or the slack variable for that row, in the case of columns.</p>
+
+                     <p class="p">This feature is available only for a <strong class="ph b">barrier</strong> solution. </p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_COMP_SLACK.html" title="Concert Technology enum: MaxCompSlack">CPX_MAX_COMP_SLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_comp_slack </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxCompSlack </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxCompSlack </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum of dual infeasibility or, equivalently, the maximum reduced-cost
+infeasibility for the unscaled problem </p>
+
+                     <p class="p">integer: To access the lowest index where the maximum dual infeasibility occurs for the unscaled
+problem</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_DUAL_INFEAS.html" title="Concert Technology enum: MaxDualInfeas">CPX_MAX_DUAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_dual_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxDualInfeas </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxDualInfeas </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access maximum dual residual value. For a <strong class="ph b">simplex</strong> solution, this is the maximum
+of the vector |c-B'pi|, and for a <strong class="ph b">barrier</strong> solution, it is the maximum of the vector
+|A'pi+rc-c| for the unscaled problem </p>
+
+                     <p class="p">integer: To access the lowest index where the maximum dual residual occurs for the unscaled
+problem</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_DUAL_RESIDUAL.html" title="Concert Technology enum: MaxDualResidual">CPX_MAX_DUAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_dual_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxDualResidual </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxDualResidual </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum infeasibility of the indicator constraints, or equivalently, the
+maximum bound violation of the indicator constraint slacks. </p>
+
+                     <p class="p">integer: To access the lowest index of the indicator constraints where the maximum indicator
+slack infeasibility occurs. </p>
+
+                     <p class="p">Can use a supplied primal solution</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_INDSLACK_INFEAS.html" title="Concert Technology enum: not applicable">CPX_MAX_INDSLACK_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_indicator_slack_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">not applicable: CPLEX C++ does not distinguish indicator constraints from linear constraints
+in this respect. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">not applicable: CPLEX Java does not distinguish indicator constraints from linear constraints
+in this respect. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum of integer infeasibility for the unscaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum integer infeasibility occurs for the
+unscaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_INT_INFEAS.html" title="Concert Technology enum: MaxIntInfeas">CPX_MAX_INT_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_int_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxIntInfeas </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxIntInfeas </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute value in the dual solution vector for the unscaled
+problem</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum pi value occurs for the unscaled
+problem</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_PI.html" title="Concert Technology enum: MaxPi">CPX_MAX_PI</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_pi </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxPi </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxPi </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum primal infeasibility or, equivalently, the maximum bound violation
+including slacks for the unscaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index of a column or row where the maximum primal infeasibility
+occurs for the unscaled problem. An index (such as *quality_p) strictly less than zero specifies
+that the maximum occurs at the slack variable for row (-i-1). </p>
+
+                     <p class="p">Can use a supplied primal solution</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_PRIMAL_INFEAS.html" title="Concert Technology enum: MaxPrimalInfeas">CPX_MAX_PRIMAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_primal_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxPrimalInfeas </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxPrimalInfeas </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum of the vector |Ax-b| for the unscaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum primal residual occurs for the unscaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_PRIMAL_RESIDUAL.html" title="Concert Technology enum: MaxPrimalResidual">CPX_MAX_PRIMAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_primal_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxPrimalResidual </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxPrimalResidual
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum residual over all the quadratic constraints in the unscaled
+problem, where the maximum residual is the absolute value of the difference of the lefthand side,
+including the slack variable, over the righthand side. </p>
+
+                     <p class="p">integer: To access the lowest index over all the quadratic constraints where the maximum residual
+occurs in the unscaled problem. </p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_QCPRIMAL_RESIDUAL.html" title="Concert Technology enum: MaxPrimalResidual">CPX_MAX_QCPRIMAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_quadratic_primal_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxPrimalResidual </a> does
+not distinguish quadratic from linear constraints in this respect</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxPrimalResidual </a> does
+not distinguish quadratic from linear constraints in this respect </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute quadratic constraint slack value. </p>
+
+                     <p class="p">integer: To access the lowest index of the quadratic constraints where the maximum quadratic
+constraint slack values occurs. </p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_QCSLACK.html" title="Concert Technology enum: not applicable">CPX_MAX_QCSLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_quadratic_slack </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">CPLEX C++ does not distinguish quadratic from linear constraints in this respect.</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">CPLEX Java does not distinguish quadratic from linear constraints in this respect.</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum infeasibility of the quadratic constraints, or equivalently, the
+maximum bound violation of the quadratic constraint slacks. </p>
+
+                     <p class="p">integer: To access the lowest index of the quadratic constraints where the maximum quadratic
+slack infeasibility occurs. </p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_QCSLACK_INFEAS.html" title="Concert Technology enum: not applicable">CPX_MAX_QCSLACK_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_quadratic_slack_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">CPLEX C++ does not distinguish quadratic from linear constraints in this respect. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">CPLEX Java does not distinguish quadratic from linear constraints in this respect. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute reduced cost value for the unscaled problem </p>
+
+                     <p class="p">integer: To access the lowest index where the maximum reduced cost value occurs for the unscaled
+problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_RED_COST.html" title="Concert Technology enum: MaxRedCost">CPX_MAX_RED_COST</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_reduced_cost </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxRedCost </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxRedCost </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum of dual infeasibility or, equivalently, the maximum reduced-cost
+infeasibility for the scaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum dual infeasibility occurs for the scaled
+problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_DUAL_INFEAS.html" title="Concert Technology enum: MaxScaledDualInfeas">CPX_MAX_SCALED_DUAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_dual_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledDualInfeas
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledDualInfeas
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access maximum dual residual value for the scaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum dual residual occurs for the scaled problem
+</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_DUAL_RESIDUAL.html" title="Concert Technology enum: MaxScaledDualResidual">CPX_MAX_SCALED_DUAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_dual_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledDualResidual
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledDualResidual
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute value in the dual solution vector for the scaled
+problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum pi value occurs for the scaled problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_PI.html" title="Concert Technology enum: MaxScaledPi">CPX_MAX_SCALED_PI</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_pi </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledPi </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledPi </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum primal infeasibility or, equivalently, the maximum bound violation
+including slacks for the scaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index of a column or row where the maximum primal infeasibility
+occurs for the scaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_PRIMAL_INFEAS.html" title="Concert Technology enum: MaxScaledPrimalInfeas">CPX_MAX_SCALED_PRIMAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_primal_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledPrimalInfeas
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledPrimalInfeas
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum of the vector |Ax-b| for the scaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum primal residual occurs for the scaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_PRIMAL_RESIDUAL.html" title="Concert Technology enum: MaxScaledPrimalResidual">CPX_MAX_SCALED_PRIMAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_primal_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledPrimalResidual
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledPrimalResidual
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute reduced cost value for the scaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum reduced cost value occurs for the scaled
+problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_RED_COST.html" title="Concert Technology enum: MaxScaledRedCost">CPX_MAX_SCALED_RED_COST</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_reduced_cost </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledRedCost </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledRedCost
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute slack value for the scaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum slack value occurs for the scaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_SLACK.html" title="Concert Technology enum: MaxScaledSlack">CPX_MAX_SCALED_SLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_scaled_slack </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledSlack </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledSlack </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute value in the primal solution vector for the scaled
+problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum x value occurs for the scaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SCALED_X.html" title="Concert Technology enum: MaxScaledX">CPX_MAX_SCALED_X</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">maz_scaled_x </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxScaledX </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxScaledX </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute slack value for the unscaled problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum slack value occurs for the unscaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_SLACK.html" title="Concert Technology enum: MaxSlack">CPX_MAX_SLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_slack </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxSlack </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxSlack </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">double: To access the maximum absolute value in the primal solution vector for the unscaled
+problem.</p>
+
+                     <p class="p">integer: To access the lowest index where the maximum x value occurs for the unscaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_MAX_X.html" title="Concert Technology enum: MaxX">CPX_MAX_X</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">max_x </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::MaxX </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.MaxX </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the objective value gap between the primal and dual objective value solution.</p>
+
+                     <p class="p">This feature is available only for a <strong class="ph b">barrier</strong> solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_OBJ_GAP.html" title="Concert Technology enum: ObjGap">CPX_OBJ_GAP</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">objective_gap </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::ObjGap </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.ObjGap </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the objective value relative to the primal barrier solution.</p>
+
+                     <p class="p">This feature is available only for a <strong class="ph b">barrier</strong> solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_PRIMAL_OBJ.html" title="Concert Technology enum: PrimalObj">CPX_PRIMAL_OBJ</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">primal_objective </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::PrimalObj </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.PrimalObj </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the violations of the complementary slackness conditions for the unscaled
+problem.</p>
+
+                     <p class="p">This feature is available only for a <strong class="ph b">barrier</strong> solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_COMP_SLACK.html" title="Concert Technology enum: SumCompSlack">CPX_SUM_COMP_SLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_comp_slack </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumCompSlack </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumCompSlack </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of dual infeasibilities or, equivalently, the sum of reduced-cost bound
+violations for the unscaled problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_DUAL_INFEAS.html" title="Concert Technology enum: SumDualInfeas">CPX_SUM_DUAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_dual_infeasibilities </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumDualInfeas </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumDualInfeas </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute values of the dual residual vector for the unscaled
+problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_DUAL_RESIDUAL.html" title="Concert Technology enum: SumDualResidual">CPX_SUM_DUAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_dual_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumDualResidual </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumDualResidual </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the infeasibilities of the indicator constraints.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_INDSLACK_INFEAS.html" title="Concert Technology enum: not applicable">CPX_SUM_INDSLACK_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_indicator_slack_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">CPLEX C++ does not distinguish indicator constraints from linear constraints in this
+respect.</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">CPLEX Java does not distinguish indicator constraints from linear constraints in this
+respect.</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of integer infeasibilities for the unscaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_INT_INFEAS.html" title="Concert Technology enum: SumIntInfeas">CPX_SUM_INT_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_integer_infeasibilities </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumIntInfeas </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumIntInfeas </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute values in the dual solution vector for the unscaled
+problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_PI.html" title="Concert Technology enum: SumPi">CPX_SUM_PI</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_pi </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumPi </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumPi </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of primal infeasibilities or, equivalently, the sum of bound violations for the
+unscaled problem. </p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_PRIMAL_INFEAS.html" title="Concert Technology enum: SumPrimalInfeas">CPX_SUM_PRIMAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_primal_infeasibilities </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumPrimalInfeas </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumPrimalInfeas </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the elements of vector |Ax-b| for the unscaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_PRIMAL_RESIDUAL.html" title="Concert Technology enum: SumPrimalResidual">CPX_SUM_PRIMAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_primal_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumPrimalResidual </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumPrimalResidual
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the residuals |x'Qx + dx - f| for the unscaled quadratic constraints.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_QCPRIMAL_RESIDUAL.html" title="Concert Technology enum: SumPrimalResidual">CPX_SUM_QCPRIMAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_quadratic_primal_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">CPLEX C++ does not distinguish quadratic constraints from linear constraints in this respect. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">CPLEX Java does not distinguish quadratic constraints from linear constraints in this
+respect. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute quadratic constraint slack values.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_QCSLACK.html" title="Concert Technology enum: SumSlack">CPX_SUM_QCSLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_quadratic_slack </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">CPLEX C++ does not distinguish quadratic constraints from linear constraints in this respect. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">CPLEX Java does not distinguish quadratic constraints from linear constraints in this
+respect. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the infeasibilities of the quadratic constraints.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_QCSLACK_INFEAS.html" title="Concert Technology enum: not applicable">CPX_SUM_QCSLACK_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_quadratic_slack_infeasibility </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">CPLEX C++ does not distinguish quadratic from linear constraints in this respect. </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">CPLEX Java does not distinguish quadratic from linear constraints in this respect. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute reduced cost values for the unscaled problem. </p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_RED_COST.html" title="Concert Technology enum: SumRedCost">CPX_SUM_RED_COST</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_reduced_cost </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumRedCost </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumRedCost </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of dual infeasibilities or, equivalently, the sum of reduced-cost bound
+violations for the scaled problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_DUAL_INFEAS.html" title="Concert Technology enum: SumScaledDualInfeas">CPX_SUM_SCALED_DUAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_dual_infeasibilities </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledDualInfeas
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledDualInfeas
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute values of the dual residual vector for the scaled problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_DUAL_RESIDUAL.html" title="Concert Technology enum: SumScaledDualResidual">CPX_SUM_SCALED_DUAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_dual_residual </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledDualResidual
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledDualResidual
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute values in the dual solution vector for the scaled problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_PI.html" title="Concert Technology enum: SumScaledPi">CPX_SUM_SCALED_PI</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_pi </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledPi </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledPi </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of primal infeasibilities or, equivalently, the sum of bound violations for the
+scaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_PRIMAL_INFEAS.html" title="Concert Technology enum: SumScaledPrimalInfeas">CPX_SUM_SCALED_PRIMAL_INFEAS</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_primal_infeasibilities </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledPrimalInfeas
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledPrimalInfeas
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the elements of vector |Ax-b| for the scaled problem.</p>
+
+                     <p class="p"> Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_PRIMAL_RESIDUAL.html" title="Concert Technology enum: SumScaledPrimalResidual">CPX_SUM_SCALED_PRIMAL_RESIDUAL</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_primal_residual</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledPrimalResidual
+</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledPrimalResidual
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute reduced cost values for the scaled problem.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_RED_COST.html" title="Concert Technology enum: SumScaledRedCost">CPX_SUM_SCALED_RED_COST</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_reduced_cost </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledRedCost </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledRedCost
+</a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute slack values for the scaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_SLACK.html" title="Concert Technology enum: SumScaledSlack">CPX_SUM_SCALED_SLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_slack</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledSlack </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledSlack </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute values in the primal solution vector for the scaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SCALED_X.html" title="Concert Technology enum: SumScaledX">CPX_SUM_SCALED_X</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_scaled_x</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumScaledX </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumScaledX </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute slack values for the unscaled problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_SLACK.html" title="Concert Technology enum: SumSlack">CPX_SUM_SLACK</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_slack</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumSlack </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumSlack </a>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" colspan="4" align="left" valign="top" headers="d73588e310 d73588e313 d73588e316 d73588e319 ">
+                     <p class="p">To access the sum of the absolute values in the primal solution vector for the unscaled
+problem.</p>
+
+                     <p class="p">Can use a supplied primal solution.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e310 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/macros/CPX_SUM_X.html" title="Concert Technology enum: SumX">CPX_SUM_X</a>
+                     </code>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e313 ">sum_x</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e316 ">
+                     <a class="xref hardcodedApiLink" href="../../../refcppcplex/html/enumerations/IloCplex_Quality.html">IloCplex::Quality::SumX </a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d73588e319 ">
+                     <a class="xref hardcodedApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.QualityType.html">IloCplex.QualityType.SumX </a>
+                  </td>
+
+               </tr>
+
+            </tbody>
+</table>
+</div>
+
+   </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/apioverviewcplex.html" title="Provides links to reference manuals of the C, C++, and Java application programming interfaces of CPLEX">Overview of the APIs of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

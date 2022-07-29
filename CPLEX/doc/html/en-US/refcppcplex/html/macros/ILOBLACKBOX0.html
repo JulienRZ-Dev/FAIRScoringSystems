@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>ILOBLACKBOX0</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer.extensions/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../macros/ILOBLACKBOX0.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Macro ILOBLACKBOX0</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcp/cpext.h</span></div><div
+            class="prototype">ILOBLACKBOX0(bbfunc)</div><div
+            class="prototype">ILOBLACKBOX1(bbfunc, bbtype1, bbvar1)</div><div
+            class="prototype">ILOBLACKBOX2(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2)</div><div
+            class="prototype">ILOBLACKBOX3(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3)</div><div
+            class="prototype">ILOBLACKBOX4(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3, bbtype4, bbvar4)</div><div
+            class="prototype">ILOBLACKBOX5(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3, bbtype4, bbvar4, bbtype5, bbvar5)</div><div
+            class="prototype">ILOBLACKBOX6(bbfunc, bbtype1, bbvar1, bbtype2, bbvar2, bbtype3, bbvar3, bbtype4, bbvar4, bbtype5, bbvar5, bbtype6, bbvar6)</div>
+Macro for defining a new black-box expression.
+            <div
+ lass="description"><p>A black-box expression is a numerical expression for which the closed form is not known or cannot be formulated using CP Optimizer's classical expressions. A black-box expression is specified by providing a C++ code that evaluates the expression at given points. This function is called by the engine during the resolution.</p>
+<p>This macro defines a black-box expression named <code>bbfunc</code> with <code>n</code> arguments. When <code>n</code> is greater than zero, the types and names of the black-box function arguments must be supplied as arguments to the macro. Each argument is defined by its type <code>bbtypen</code> and a name <code>bbvarn</code>.</p>
+<p>Here is an example of a black-box expression <code>f</code>:</p>
+<pre>
+IloNum PI = 3.14159265358979323846;
+
+ILOBLACKBOX2(f, IloNumExpr, x, IloNumExpr, y) {
+  // f(x,y) = cos(4.pi.x) + cos(4.pi.y) + 5(x+y) + 2
+  IloNum vx = getValue(x);
+  IloNum vy = getValue(y);
+  IloNum v = cos(4*PI*vx) + cos(4*PI*vy) + 5*(vx+vy) + 2;
+  returnValue(v);
+}
+</pre>
+<p>An instance of this black-box expression can be created in the model with the following signature, and used as an <code>IloNumExpr</code>:</p>
+<pre>
+IloBlackbox f(IloEnv env, IloNumExpr x, IloNumExpr y);
+</pre>	
+<p>For example, here is a small complete model using the above black-box expression:</p>	
+<pre>
+IloEnv env;
+IloModel model(env);
+IloIntVar x(env, 0, 100, "x");
+IloIntVar y(env, 0, 100, "y");
+model.add(x <= y); // Symmetry breaking as f(x,y)=f(y,x)
+IloNumExpr obj = f(env, x/100.0, y/100.0);
+model.add(5*(x+y) <= 100*(1+obj)); // Lower-bounding expression
+model.add(IloMinimize(env, obj));
+IloCP cp(model);
+cp.solve();
+env.end();
+</pre>	
+<p>Once defined with the macro <code>ILOBLACKBOX</code>, a black-box expression can be used in the same way as classical numerical expressions in the model. In particular, it can be mixed with other expressions (classical or black-box expressions), used as part of the objective function, used in constraints, used in the scope of other black-box expressions, and used as a KPI or part of a KPI.</p>
+<p>The following functions are available inside the evaluation code to access the current values of variables/expressions in the scope of the black-box:</p>
+<pre>
+IloInt  getValue  (IloIntVar x)      const;
+IloInt  getValue  (IloIntExpr x)     const;
+IloNum  getValue  (IloNumExpr x)     const;
+IloBool isPresent (IloIntervalVar x) const;
+IloBool isAbsent  (IloIntervalVar x) const;
+IloInt  getStart  (IloIntervalVar x) const;
+IloInt  getEnd    (IloIntervalVar x) const;
+IloInt  getSize   (IloIntervalVar x) const;
+IloIntervalVar getFirst(IloIntervalSequenceVar s) const;
+IloIntervalVar getLast (IloIntervalSequenceVar s) const;
+IloIntervalVar getNext (IloIntervalSequenceVar s, IloIntervalVar x) const;
+IloIntervalVar getPrev (IloIntervalSequenceVar s, IloIntervalVar x) const;
+</pre>
+<p>Black-box expressions can return a single value or multiple values through the following functions:</p>
+<pre>
+void returnValue(IloNum val); // Return value of a single value function
+void returnValue(IloInt i, IloNum val); // Return ith element of a multiple value function
+</pre>
+<p>When the black-box expression returns a vector of values, each component of the vector can be accessed with the <code>operator[]</code> on <code>IloBlackbox</code>:</p>
+<pre>
+IloNumExpr IloBlackbox::operator[](IloInt i);
+</pre>
+<p>In the simpler case of a single value, the class <code>IloBlackbox</code> can directly be used as an <code>IloNumExpr</code>.</p>
+
+		</div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a href="../classes/IloBlackbox.html">IloBlackbox</a></p></body>
+</html>

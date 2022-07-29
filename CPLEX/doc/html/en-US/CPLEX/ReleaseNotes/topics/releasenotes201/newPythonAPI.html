@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="New features in the CPLEX Python API" />
+<meta name="abstract" content="These release notes highlight new features in the Python API of IBM CPLEX 20.1.0. For more information, see the reference manual of the Python API of CPLEX." />
+<meta name="Description" content="These release notes highlight new features in the Python API of IBM CPLEX 20.1.0. For more information, see the reference manual of the Python API of CPLEX." />
+<meta name="DC.subject" content="Python versions, CPLEX 20.1.0 release notes" />
+<meta name="keywords" content="Python versions, CPLEX 20.1.0 release notes" />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPLEXReleaseNotesV201newPythonAPI" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" />
+<title>New features in the CPLEX Python API</title>
+</head>
+<body id="CPLEXReleaseNotesV201newPythonAPI"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">New features in the CPLEX Python API</h1>
+
+
+
+<div class="body"><p class="shortdesc">These release notes highlight new features in the Python API of IBM CPLEX 20.1.0. For
+more information, see the reference manual of the Python API of CPLEX.</p>
+
+<section class="section"><h2 class="title sectiontitle">Python versions</h2>
+
+<p class="p">CPLEX 20.1.0 supports these versions of Python on platforms that previously supported CPLEX and
+Python: </p>
+
+<ul class="ul">
+<li class="li">Python V3.7</li>
+
+<li class="li">Python V3.8</li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">New enumeration values for generic callback information</h2>
+
+<p class="p">CPLEX 20.1.0 has two new enumeration values for the generic callback information enumeration:</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">after_cut_loop</code> - New enumeration value
+<code class="ph codeph">CPXCALLBACKINFO_AFTERCUTLOOP</code> that reports whether CPLEX has finished its internal
+cut loop. The information can only be queried from the <code class="ph codeph">RELAXATION</code> context. </li>
+
+<li class="li"><code class="ph codeph">nodes_left</code> - New enumeration value <code class="ph codeph">CPXCALLBACKINFO_NODESLEFT</code>
+that reports the number of open nodes from generic callback. The information can only be queried
+from the <code class="ph codeph">RELAXATION</code> context. </li>
+
+</ul>
+
+<p class="p">Please see the documentation of <a class="xref" href="../../../../refcallablelibrary/enumerations/CPXCALLBACKINFO.html">CPXCALLBACKINFO</a> for more information.</p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">New methods</h2>
+
+<p class="p"><code class="ph codeph">Cplex.conflict.get_num_groups()</code></p>
+
+<p class="p"><code class="ph codeph">Cplex.solution.progress.get_num_conflict_passes()</code></p>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Methods with new functionality</h2>
+
+<p class="p">For the following two methods, if the previously required additional arguments are omitted, then
+the constraint groups will be generated automatically (as with the CPLEX interactive):</p>
+
+<p class="p"><code class="ph codeph">Cplex.conflict.refine()</code></p>
+
+<p class="p"><code class="ph codeph">Cplex.conflict.refine_MIP_start()</code></p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/ReleaseNotes/topics/releasenotes201/new.html" title="These release notes highlight new features in IBM CPLEX 20.1.0.">New features</a></div>
+</div>
+</nav></div></body>
+</html>

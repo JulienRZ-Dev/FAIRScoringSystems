@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Accessing LP Results in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getax.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbaritcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbase.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcolinfeas.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcrossdexchcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcrossdpushcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcrosspexchcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcrossppushcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdsbcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getitcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getmethod.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getobjval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getphase1cnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpsbcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getrowinfeas.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getsiftitcnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getsiftphase1cnt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getslack.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getstat.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getstatstring.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/solninfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/solution.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepageaccessresults" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Accessing LP Results in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepageaccessresults"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Accessing LP Results in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines access and manipulate LP results produced by CPLEX.
+</p>
+
+<p class="p">
+See also routines specific to MIPs, QCPs, and network models.
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getax.html">CPXXgetax and CPXgetax</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetax</span>/<span class="keyword apiname">CPXgetax</span></code> accesses row activity levels for a range of linear constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbaritcnt.html">CPXXgetbaritcnt and CPXgetbaritcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbaritcnt</span>/<span class="keyword apiname">CPXgetbaritcnt</span></code> accesses the total number of Barrier iterations to solve an LP problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbase.html">CPXXgetbase and CPXgetbase</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbase</span>/<span class="keyword apiname">CPXgetbase</span></code> accesses the basis resident in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcolinfeas.html">CPXXgetcolinfeas and CPXgetcolinfeas</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcolinfeas</span>/<span class="keyword apiname">CPXgetcolinfeas</span></code> computes the infeasibility of a given solution for a range of variables.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcrossdexchcnt.html">CPXXgetcrossdexchcnt and CPXgetcrossdexchcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcrossdexchcnt</span>/<span class="keyword apiname">CPXgetcrossdexchcnt</span></code> accesses the number of dual exchange iterations in the crossover method.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcrossdpushcnt.html">CPXXgetcrossdpushcnt and CPXgetcrossdpushcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcrossdpushcnt</span>/<span class="keyword apiname">CPXgetcrossdpushcnt</span></code> accesses the number of dual push iterations in the crossover method.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcrosspexchcnt.html">CPXXgetcrosspexchcnt and CPXgetcrosspexchcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcrosspexchcnt</span>/<span class="keyword apiname">CPXgetcrosspexchcnt</span></code> accesses the number of primal exchange iterations in the crossover method.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcrossppushcnt.html">CPXXgetcrossppushcnt and CPXgetcrossppushcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcrossppushcnt</span>/<span class="keyword apiname">CPXgetcrossppushcnt</span></code> accesses the number of primal push iterations in the crossover method.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdj.html">CPXXgetdj and CPXgetdj</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdj</span>/<span class="keyword apiname">CPXgetdj</span></code> accesses the reduced costs for a range of the variables of a linear or quadratic program.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdsbcnt.html">CPXXgetdsbcnt and CPXgetdsbcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdsbcnt</span>/<span class="keyword apiname">CPXgetdsbcnt</span></code> accesses the number of dual super-basic variables in the current solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getitcnt.html">CPXXgetitcnt and CPXgetitcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetitcnt</span>/<span class="keyword apiname">CPXgetitcnt</span></code> accesses the total number of simplex iterations to solve an LP problem, or the number of crossover iterations in the case that the barrier optimizer is used.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getmethod.html">CPXXgetmethod and CPXgetmethod</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetmethod</span>/<span class="keyword apiname">CPXgetmethod</span></code> returns an integer specifying the solution algorithm used to solve the resident LP, QP, or QCP problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getobjval.html">CPXXgetobjval and CPXgetobjval</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetobjval</span>/<span class="keyword apiname">CPXgetobjval</span></code> accesses the solution objective value.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getphase1cnt.html">CPXXgetphase1cnt and CPXgetphase1cnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetphase1cnt</span>/<span class="keyword apiname">CPXgetphase1cnt</span></code> accesses the number of Phase I iterations to solve a problem using the primal or dual simplex method.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getpi.html">CPXXgetpi and CPXgetpi</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetpi</span>/<span class="keyword apiname">CPXgetpi</span></code> accesses the dual values for a range of the constraints of a linear or quadratic program.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getpsbcnt.html">CPXXgetpsbcnt and CPXgetpsbcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetpsbcnt</span>/<span class="keyword apiname">CPXgetpsbcnt</span></code> accesses the number of primal super-basic variables in the current solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getrowinfeas.html">CPXXgetrowinfeas and CPXgetrowinfeas</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetrowinfeas</span>/<span class="keyword apiname">CPXgetrowinfeas</span></code> computes the infeasibility of a given solution for a range of linear constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getsiftitcnt.html">CPXXgetsiftitcnt and CPXgetsiftitcnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsiftitcnt</span>/<span class="keyword apiname">CPXgetsiftitcnt</span></code> accesses the total number of sifting iterations to solve an LP problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getsiftphase1cnt.html">CPXXgetsiftphase1cnt and CPXgetsiftphase1cnt</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsiftphase1cnt</span>/<span class="keyword apiname">CPXgetsiftphase1cnt</span></code> accesses the number of Phase I sifting iterations to solve an LP problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getslack.html">CPXXgetslack and CPXgetslack</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetslack</span>/<span class="keyword apiname">CPXgetslack</span></code> accesses the slack values for a range of linear constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getstat.html">CPXXgetstat and CPXgetstat</a></strong><br />
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetstat</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXgetstat</span></code> accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization, after <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXfeasopt</span></code> and its extensions, after <code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXrefineconflict</span></code> and its extensions.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getstatstring.html">CPXXgetstatstring and CPXgetstatstring</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetstatstring</span>/<span class="keyword apiname">CPXgetstatstring</span></code> places a string in a buffer.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getx.html">CPXXgetx and CPXgetx</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetx</span>/<span class="keyword apiname">CPXgetx</span></code> accesses the solution values for a range of problem variables.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/solninfo.html">CPXXsolninfo and CPXsolninfo</a></strong><br />
+        </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/solution.html">CPXXsolution and CPXsolution</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXsolution</span>/<span class="keyword apiname">CPXsolution</span></code> accesses the solution values produced by all the optimization routines <strong class="ph b">except</strong> the routine <code class="ph codeph"><span class="keyword apiname">CPXXNETprimopt</span>/<span class="keyword apiname">CPXNETprimopt</span></code>.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

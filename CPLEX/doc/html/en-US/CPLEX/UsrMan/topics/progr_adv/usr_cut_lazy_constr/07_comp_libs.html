@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using the Component Libraries to add user cuts or lazy constraints" />
+<meta name="abstract" content="Describes routines and methods for adding pools of user cuts or lazy constraints in the APIs." />
+<meta name="Description" content="Describes routines and methods for adding pools of user cuts or lazy constraints in the APIs." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/usr_cut_lazy_constr/06_add_uc_lc_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cbAndLcPools.1016650" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/usr_cut_lazy_constr/06_add_uc_lc_title_synopsis.html" />
+<title>Using the Component Libraries to add user cuts or lazy constraints</title>
+</head>
+<body id="User_manual.uss_cbAndLcPools.1016650"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Using the Component Libraries to add user cuts or lazy constraints</h1>
+
+   
+   <div class="body"><p class="shortdesc">Describes routines and methods for adding pools of user
+cuts or lazy constraints in the APIs.</p>
+
+      <p class="p">The following facilities add user defined cuts to a user cut pool. </p>
+
+      <ul class="ul">
+         <li class="li">
+            <p class="p">The <strong class="ph b">Callable Library</strong> routine <a class="xref" href="../../../../../refcallablelibrary/mipapi/addusercuts.html" title="The routine CPXXaddusercuts/CPXaddusercuts adds constraints to the list of constraints that CPLEX can add to the LP subproblem of a MIP optimization if they are violated by the LP relaxation solution.">CPXaddusercuts</a>
+            </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">The <strong class="ph b">Concert Technology</strong> methods:</p>
+
+            <ul class="ul">
+               <li class="li">
+                  <p class="p"><code class="ph codeph">
+                        <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#addUserCuts">addUserCuts</a>
+                     </code> in
+the C++ API</p>
+
+               </li>
+
+               <li class="li">
+                  <p class="p">
+                     <code class="ph codeph">IloCplex.addUserCuts</code>  in the Java API</p>
+
+               </li>
+
+               <li class="li">
+                  <p class="p">
+                     <code class="ph codeph">Cplex.AddUserCuts</code>  in the .NET API</p>
+
+               </li>
+
+            </ul>
+
+         </li>
+
+         <li class="li">
+            <p class="p">The <strong class="ph b">Python API</strong> method <code class="ph codeph">cplex.linear_constraints.advanced.add_user_cuts</code>
+            </p>
+
+         </li>
+
+      </ul>
+
+      <p class="p">The following facilities will add lazy constraints to a lazy constraint
+pool. </p>
+
+      <ul class="ul">
+         <li class="li">
+            <p class="p">The <strong class="ph b">Callable Library</strong> routine is <a class="xref" href="../../../../../refcallablelibrary/mipapi/addlazyconstraints.html" title="The routine CPXXaddlazyconstraints/CPXaddlazyconstraints adds constraints to the list of constraints that should be added to the LP subproblem of a MIP optimization if they are violated.">CPXaddlazyconstraints</a>. </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">The <strong class="ph b">Concert Technology</strong> methods </p>
+
+            <ul class="ul">
+               <li class="li">
+                  <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#addLazyConstraints">addLazyConstraints</a> in the C++
+API</p>
+
+               </li>
+
+               <li class="li">
+                  <p class="p">
+                     <code class="ph codeph">IloCplex.addLazyConstraints</code> in the Java API</p>
+
+               </li>
+
+               <li class="li">
+                  <p class="p">
+                     <code class="ph codeph">Cplex.AddLazyConstraints</code> in the .NET API</p>
+
+               </li>
+
+            </ul>
+
+         </li>
+
+         <li class="li">
+            <p class="p">The <strong class="ph b">Python API</strong> method <code class="ph codeph">cplex.linear_constraints.advanced.add_lazy_constraints</code>
+            </p>
+
+         </li>
+
+      </ul>
+
+   </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/usr_cut_lazy_constr/06_add_uc_lc_title_synopsis.html" title="You can add user cuts or lazy constraints through routines or methods in the Component Libraries or via LP, SAV, or MPS files, as explained in the following sections.">Adding user cuts and lazy constraints</a></div>
+</div>
+</nav></div></body>
+</html>

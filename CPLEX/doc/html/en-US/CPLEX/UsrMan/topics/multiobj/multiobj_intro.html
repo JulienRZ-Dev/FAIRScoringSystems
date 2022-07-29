@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Multiobjective optimization" />
+<meta name="abstract" content="Provides an overview of multiobjective optimization." />
+<meta name="Description" content="Provides an overview of multiobjective optimization." />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobj_intro" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<title>Multiobjective optimization</title>
+</head>
+<body id="multiobj_intro"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Multiobjective optimization</h1>
+
+
+<div class="body"><p class="shortdesc">Provides an overview of multiobjective optimization.</p>
+
+<p class="p">Optimization problems with multiple linear objective functions can be specified in CPLEX. To
+solve them, CPLEX offers a mixture of blended and lexicographic (or hierarchical) optimization.</p>
+
+<p class="p">A <strong class="ph b">blended objective</strong> consists of simply the linear combination of several objectives with
+given weights.</p>
+
+<p class="p">A <strong class="ph b">lexicographic objective</strong> supposes that an order has been given among the various
+objective functions. This order allows you to define a lexicographic order among solutions: a
+solution is lexicographically smaller than another one if, in the first objective where they differ
+(following the order), it is smaller. An optimal solution is then one that is lexicographically
+minimal (or maximal depending on the optimization sense).</p>
+
+<p class="p">CPLEX can combine both blended and lexicographic objectives in the same optimization problem.</p>
+
+<p class="p">For a list of examples using multiobjective optimization, see <a class="xref" href="multiobj_examples.html" title="Provides an overview of the examples using multiobjective optimization.">Examples for multiobjective optimization</a>.</p>
+
+<p class="p">The other topics in this section describe in more detail how to work with multiple objectives in
+CPLEX.</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a></div>
+</div>
+</nav></div></body>
+</html>

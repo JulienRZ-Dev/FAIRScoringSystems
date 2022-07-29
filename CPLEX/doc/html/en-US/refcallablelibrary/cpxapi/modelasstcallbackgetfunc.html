@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXmodelasstcallbackgetfunc and CPXmodelasstcallbackgetfunc" />
+<meta name="abstract" content="Get the currently installed modeling assistance callback." />
+<meta name="Description" content="Get the currently installed modeling assistance callback." />
+<meta name="DC.subject" content="CPXmodelasstcallbackgetfunc, C API Reference Manual, CPXXmodelasstcallbackgetfunc" />
+<meta name="keywords" content="CPXmodelasstcallbackgetfunc, C API Reference Manual, CPXXmodelasstcallbackgetfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodelasstcallback.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="modelasstcallbacksetfunc.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="modelasstcallbackgetfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetMNO.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodelasstcallback.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXmodelasstcallbackgetfunc and CPXmodelasstcallbackgetfunc</title>
+</head>
+<body id="modelasstcallbackgetfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXmodelasstcallbackgetfunc</span> and <span class="keyword apiname">CPXmodelasstcallbackgetfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+    Get the currently installed modeling assistance callback.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXmodelasstcallbackgetfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXMODELASSTCALLBACKFUNC</span> <span class="ph oper">**</span><span class="ph var">callback_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void **</span><span class="ph sep"> </span><span class="ph var">cbhandle_p</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXmodelasstcallbackgetfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXMODELASSTCALLBACKFUNC</span> <span class="ph oper">**</span><span class="ph var">callback_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void **</span><span class="ph sep"> </span><span class="ph var">cbhandle_p</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+    <p class="p">This routine 
+    gets the currently installed modeling assistance callback as last set by
+    <a class="xref" href="modelasstcallbacksetfunc.html" title="Sets the modeling assistance callback function.">CPXXmodelasstcallbacksetfunc and CPXmodelasstcallbacksetfunc</a>.
+    </p>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+         <p class="p">A pointer to the CPLEX environment as returned by 
+<code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to a CPLEX problem object as returned for example by
+<code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span></code>.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">callback_p</dt>
+
+        <dd class="dd pd">
+          
+             <p class="p">Pointer to a memory location where the routine will store the
+             callback function of the currently installed modeling assistance
+             callback. Upon successful return, this memory location will contain the
+             <span class="keyword parmname">callback</span> value set by the last call to
+             <a class="xref" href="modelasstcallbacksetfunc.html" title="Sets the modeling assistance callback function.">CPXXmodelasstcallbacksetfunc and CPXmodelasstcallbacksetfunc</a>
+             (or <code class="ph codeph">NULL</code> if that routine has not yet been called).
+          </p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbhandle_p</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">Pointer to a memory location where the routine will store the
+             user handle currently installed.
+             Upon successful return, this memory location will contain the
+             <span class="keyword parmname">cbhandle</span> value set by the last call to
+             <a class="xref" href="modelasstcallbacksetfunc.html" title="Sets the modeling assistance callback function.">CPXXmodelasstcallbacksetfunc and CPXmodelasstcallbacksetfunc</a>
+             (or <code class="ph codeph">NULL</code> if that routine has not yet been called).
+          </p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetMNO.html">M, N, O</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodelasstcallback.html">Modeling assistance callback</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="modelasstcallbacksetfunc.html" title="Sets the modeling assistance callback function.">CPXmodelasstcallbacksetfunc</a></li></ul></div>
+</nav>
+</div></body>
+</html>

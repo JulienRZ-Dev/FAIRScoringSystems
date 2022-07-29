@@ -1,0 +1,12 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: t8NaVwyb3axPH5MUoW1oCVNHcL7oJ
+ 1NE7Xdxps6RdfI=
+SHA-256-Digest-Manifest: 0Frxc7P3i88JRZf5xcvNfBN61+gLqwOBKpPm/u9OdUc=
+Created-By: 1.8.0_101 (Oracle Corporation)
+
+Name: ilog/views/eclipse/chart/runtime/ChartRuntimePlugin.class
+SHA-256-Digest: xpCNuU5MGfx7qDvXeExPozzR0I+0Hr3u0NNhBgk4dr8=
+
+Name: lib/eclipse-chart-runtime.jar
+SHA-256-Digest: EaPHXyGxHAqjzwrQUBO8WBpuFTs+Ubja9oFK+qPCJEs=
+

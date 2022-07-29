@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Engine representation of constraints" />
+<meta name="abstract" content="Constraints in the engine are built using the decision variables in the engine." />
+<meta name="Description" content="Constraints in the engine are built using the decision variables in the engine." />
+<meta name="DC.subject" content="extraction, constraint" />
+<meta name="keywords" content="extraction, constraint" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizerextend.1015029" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" />
+<title>Engine representation of constraints</title>
+</head>
+<body id="migration.uss_usradvcpoptimizerextend.1015029"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Engine representation of constraints</h1>
+<div class="body"><p class="shortdesc">Constraints in the engine are built using the decision
+variables in the engine.</p>
+
+<p class="p">The engine object for a constraint is an instance of <code class="ph codeph">IlcConstraint</code>.
+Basically, a model constraint or group of constraints is extracted
+to an instance of <code class="ph codeph">IlcConstraint</code>. To illustrate
+constraint extraction, consider the following model: </p>
+
+<pre class="pre codeblock"><code>
+    IloIntVar x(env, 0, 3); 
+    IloIntVar y(env, 0, 3); 
+    IloModel model(env); 
+    model.add(x &lt; y); 
+
+</code></pre>
+<p class="p">The code:  </p>
+
+<pre class="pre codeblock"><code>
+    IloCP cp(mode); 
+    cp.propagate(); 
+
+</code></pre>
+<p class="p">performs constraint propagation on the engine variables. First, it takes the constraint <code class="ph codeph">x &lt; y</code> and
+starts extracting it to an instance of <code class="ph codeph">IloCPEngine</code>.  In order to extract this constraint, it extracts the two variables <code class="ph codeph">x</code>
+and <code class="ph codeph">y</code>. The extraction of these variables creates two <code class="ph codeph">IlcIntVar</code> objects: 
+<code class="ph codeph">ix</code> and <code class="ph codeph">iy</code>. Then, the extraction of the constraint continues by taking the
+two <code class="ph codeph">IlcIntVar</code> objects and creating the equivalent <code class="ph codeph">IlcConstraint</code>: <code class="ph codeph">ix &lt; iy</code>. This
+inequality constraint is then added to the instance of 
+<code class="ph codeph">IloCPEngine</code>. 
+Then, the constraint is propagated, and domains of <code class="ph codeph">ix</code> and 
+<code class="ph codeph">iy</code> are reduced. 
+The line "<code class="ph codeph">cp.propagate();</code>" creates an equivalent of the following code:  </p>
+
+<pre class="pre codeblock"><code>
+    IlcIntVar ix(cp, 0, 3); 
+    IlcIntVar iy(cp, 0, 3); 
+    cpEngine.add(ix &lt; iy);
+
+</code></pre>
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_extract.html" title="CP Optimizer does not work directly on the objects in the model. Instead it creates engine objects corresponding to the different modeling objects of the model, and performs propagation and search on these engine objects. This can be ignored for a normal use of CP Optimizer, but for a more advanced use, which needs the engine extensions API, a little bit more have to be known.">Model extraction</a></div>
+</div>
+</nav></div></body>
+</html>

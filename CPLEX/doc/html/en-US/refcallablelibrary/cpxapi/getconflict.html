@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetconflict and CPXgetconflict" />
+<meta name="abstract" content="This routine returns the linear constraints and variables belonging to a conflict previously computed by the routine CPXXrefineconflict/CPXrefineconflict." />
+<meta name="Description" content="This routine returns the linear constraints and variables belonging to a conflict previously computed by the routine CPXXrefineconflict/CPXrefineconflict." />
+<meta name="DC.subject" content="CPXgetconflict, C API Reference Manual, CPXXgetconflict" />
+<meta name="keywords" content="CPXgetconflict, C API Reference Manual, CPXXgetconflict" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<meta name="DC.Relation" scheme="URI" content="refineconflict.html" />
+<meta name="DC.Relation" scheme="URI" content="clpwrite.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getconflict" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<title>CPXXgetconflict and CPXgetconflict</title>
+</head>
+<body id="getconflict"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetconflict</span> and <span class="keyword apiname">CPXgetconflict</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+This routine returns the linear constraints and variables belonging
+to a conflict previously computed by the routine
+<code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span>/<span class="keyword apiname">CPXrefineconflict</span></code>.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetconflict</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">confstat_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">rowind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">rowbdstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">confnumrows_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">colind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">colbdstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">confnumcols_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetconflict</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">confstat_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">rowind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">rowbdstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">confnumrows_p</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">colind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">colbdstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">confnumcols_p</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">This routine returns the linear constraints and variables belonging
+to a conflict previously computed by the routine
+<code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span>/<span class="keyword apiname">CPXrefineconflict</span></code>. The conflict is a subset
+of constraints and variables from the original, infeasible problem
+that is still infeasible. It is generally minimal, in the sense that
+removal of any of the constraints or variable bounds in the conflict will
+make the conflict set become feasible. However, the
+computed conflict will not be minimal if the previous call to
+<code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span>/<span class="keyword apiname">CPXrefineconflict</span></code> was not allowed to run to completion.
+</p>
+
+<p class="p"><strong class="ph b">Conflict Status</strong></p>
+
+<p class="p">
+The status of the currently available conflict is returned in
+<code class="ph codeph"><span class="keyword parmname">confstat_p</span></code>. If <code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span>/<span class="keyword apiname">CPXrefineconflict</span></code> was
+called previously, the status will be one of the following values:
+</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">CPX_STAT_CONFLICT_MINIMAL</code>,</li>
+
+<li class="li"><code class="ph codeph">CPX_STAT_CONFLICT_FEASIBLE</code>, or </li>
+
+<li class="li"><code class="ph codeph"><span class="keyword apiname">CPX_STAT_CONFLICT_ABORT_reason</span></code>.</li>
+
+</ul>
+
+<p class="p">When the status of a conflict is <code class="ph codeph">CPX_STAT_CONFLICT_FEASIBLE</code>,
+the routine <code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span>/<span class="keyword apiname">CPXrefineconflict</span></code> determined that the problem
+was feasible, and thus no conflict is available. Otherwise, a conflict
+is returned. The returned conflict is minimal if the status is
+<code class="ph codeph">CPX_STAT_CONFLICT_MINIMAL</code>.</p>
+
+<p class="p">
+The conflict status can also be queried with the
+routine <code class="ph codeph"><span class="keyword apiname">CPXXgetstat</span>/<span class="keyword apiname">CPXgetstat</span></code>.
+</p>
+
+<p class="p"><strong class="ph b">Row and Column Status</strong>
+</p>
+
+<p class="p">
+In the array <code class="ph codeph"><span class="keyword parmname">rowbdstat</span></code>, integer values are returned specifying
+the status of the corresponding row in the conflict. For row
+<code class="ph codeph"><span class="keyword parmname">rowind</span>[i]</code>, <code class="ph codeph"><span class="keyword parmname">rowbdstat</span>[i]</code> can assume the value
+<code class="ph codeph">CPX_CONFLICT_MEMBER</code> for constraints
+that participate in a minimal conflict. When the computed conflict
+is not minimal, <code class="ph codeph"><span class="keyword parmname">rowbdstat</span>[i]</code> can assume the value
+<code class="ph codeph">CPX_CONFLICT_POSSIBLE_MEMBER</code>, to report that row i has not
+been proven to be part of the conflict. If a row has been proven not
+to belong to the conflict, its index will not be listed in
+<code class="ph codeph"><span class="keyword parmname">rowind</span></code>.
+</p>
+
+<p class="p">
+Similarly, the array <code class="ph codeph"><span class="keyword parmname">colbdstat</span></code>
+contains integers specifying the status of
+the variable bounds in the conflict. The value specified in
+<code class="ph codeph"><span class="keyword parmname">colbdstat</span>[i]</code> is the conflict status
+for variable <code class="ph codeph"><span class="keyword parmname">colind</span>[i]</code>. If <code class="ph codeph"><span class="keyword parmname">colind</span>[i]</code>
+has been proven to be part of the
+conflict, <code class="ph codeph"><span class="keyword parmname">colbdstat</span>[i]</code> will take one of the following values:
+</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">CPX_CONFLICT_MEMBER</code>, </li>
+
+<li class="li"><code class="ph codeph">CPX_CONFLICT_LB</code>, or </li>
+
+<li class="li"><code class="ph codeph">CPX_CONFLICT_UB</code>. </li>
+
+</ul>
+
+<p class="p">When variable <code class="ph codeph"><span class="keyword parmname">colind</span>[i]</code> has neither been proven to belong
+nor been proven not to belong
+to the conflict, the status <code class="ph codeph"><span class="keyword parmname">colbdstat</span>[i]</code> will be one of
+the following values:
+</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">CPX_CONFLICT_POSSIBLE_MEMBER</code>, </li>
+
+<li class="li"><code class="ph codeph">CPX_CONFLICT_POSSIBLE_LB</code>, or </li>
+
+<li class="li"><code class="ph codeph">CPX_CONFLICT_POSSIBLE_UB</code>. </li>
+
+</ul>
+
+<p class="p">In both cases, the _LB status specifies that only the lower bound is
+part of the conflict. Similarly, the _UB status specifies that the upper
+bound is part of the conflict. Finally, if both bounds are
+required in the conflict, a _MEMBER status is assigned to that variable.
+</p>
+
+<p class="p"> The status values marked <code class="ph codeph"><span class="keyword apiname">POSSIBLE</span></code>
+specify that the corresponding constraints
+and variables in the conflict are possibly not required to produce
+a minimal conflict, but the conflict
+refinement algorithm was not able to remove them
+before it terminated (for example, because it reached a time limit
+set by the user).</p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by the routine <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">confstat_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer used to return the status of the conflict.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rowind</dt>
+
+        <dd class="dd pd">
+          
+          An array to receive the list of the indices of the constraints that participate in the conflict. The length of the array must not be less than the number of rows in the conflict. If that number is not known, use the total number of rows in the problem object instead.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rowbdstat</dt>
+
+        <dd class="dd pd">
+          
+          An array to receive the conflict status of the rows. Entry <code class="ph codeph"><span class="keyword parmname">rowbdstat</span>[i]</code> gives the status of row <code class="ph codeph"><span class="keyword parmname">rowind</span>[i]</code>. The length of the array must not be less than the number of rows in the conflict. If that number is not known, use the number of rows in the problem object instead.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">confnumrows_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer where the number of rows in the conflict is returned.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">colind</dt>
+
+        <dd class="dd pd">
+          
+          An array to receive the list of the indices of the variables that participate in the conflict. The length of the array must not be less than the number of columns in the conflict. If that number is not known, use the number of columns in the problem object instead.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">colbdstat</dt>
+
+        <dd class="dd pd">
+          
+          An array to receive the conflict status of the columns. Entry <code class="ph codeph"><span class="keyword parmname">colbdstat</span>[i]</code> gives the status of column <code class="ph codeph"><span class="keyword parmname">colind</span>[i]</code>. The length of the array must not be less than the number of columns in the conflict. If that number is not known, use the number of columns in the problem object instead.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">confnumcols_p</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to an integer where the number of columns in the conflict is returned.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXgetconflict (env, lp, &amp;conflictstatus,
+		  rowindex, rowboundstatus, &amp;confnumrows,
+		  colindex, colboundstatus, &amp;confnumcols);
+</code></pre>
+
+
+
+
+
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzesolution.html">Analyzing Solutions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html">Analyzing Infeasibility in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html">Detecting and resolving conflicts with the conflict refiner and feasopt</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="refineconflict.html" title="This routine is deprecated. Use CPXXrefineconflictext/CPXrefineconflictext instead.">CPXrefineconflict</a></li>
+<li class="linklist"><a class="link" href="clpwrite.html" title="After CPXXrefineconflict/CPXrefineconflict or CPXXrefineconflictext/CPXrefineconflictext has been invoked on an infeasible problem to identify a minimal set of constraints that are in conflict, this routine will write an LP format file containing the identified conflict.">CPXclpwrite</a></li></ul></div>
+</nav>
+</div></body>
+</html>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetgrad and CPXgetgrad" />
+<meta name="abstract" content="The routine CPXXgetgrad/CPXgetgrad can be used, after an LP has been solved and a basis is available, to access information useful for different types of post-solution analysis." />
+<meta name="Description" content="The routine CPXXgetgrad/CPXgetgrad can be used, after an LP has been solved and a basis is available, to access information useful for different types of post-solution analysis." />
+<meta name="DC.subject" content="CPXgetgrad, C API Reference Manual, CPXXgetgrad" />
+<meta name="keywords" content="CPXgetgrad, C API Reference Manual, CPXXgetgrad" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getgrad" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<title>CPXXgetgrad and CPXgetgrad</title>
+</head>
+<body id="getgrad"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetgrad</span> and <span class="keyword apiname">CPXgetgrad</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetgrad</span>/<span class="keyword apiname">CPXgetgrad</span></code> can be used, after an LP has been
+solved and a basis is available, to access information useful for different
+types of post-solution analysis.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetgrad</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">j</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM *</span><span class="ph sep"> </span><span class="ph var">head</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">y</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetgrad</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">j</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int *</span><span class="ph sep"> </span><span class="ph var">head</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">y</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetgrad</span>/<span class="keyword apiname">CPXgetgrad</span></code> can be used, after an LP has been
+solved and a basis is available, to access information useful for different
+types of post-solution analysis. <code class="ph codeph"><span class="keyword apiname">CPXXgetgrad</span>/<span class="keyword apiname">CPXgetgrad</span></code> provides two
+arrays that can be used to project the impact of making changes to optimal
+variable values or objective function coefficients.</p>
+
+
+<p class="p">For a unit change in the value of the <code class="ph codeph">j</code>th variable, the
+value of the <code class="ph codeph">i</code>th basic variable, sometimes referred to as the
+variable basic in the <code class="ph codeph">i</code>th row, changes by the amount
+<code class="ph codeph"><span class="keyword parmname">y</span>[i]</code>. Also, for a unit change of the objective function
+coefficient of the <code class="ph codeph">i</code>th basic variable, the reduced-cost of the
+<code class="ph codeph">j</code>th variable changes by the amount <code class="ph codeph"><span class="keyword parmname">y</span>[i]</code>. The
+vector <code class="ph codeph"><span class="keyword parmname">y</span></code> is equal to the product of the inverse of the basis
+matrix and the column <code class="ph codeph">j</code> of the constraint matrix. Thus,
+<code class="ph codeph"><span class="keyword parmname">y</span></code> can be thought of as the representation of the
+<code class="ph codeph">j</code>th column in terms of the basis.</p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">j</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the index of the column of interest. A negative value for <code class="ph codeph">j</code> specifies a column representing the slack or artificial variable for row -<code class="ph codeph">j</code> <code class="ph codeph">-1</code>
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">head</dt>
+
+        <dd class="dd pd">
+          
+          An array to contain a listing of the indices of the basic variables in the order in which they appear in the basis. This listing is sometimes called the basis header. The <code class="ph codeph">i</code>th entry in this list is also sometimes viewed as the variable in the <code class="ph codeph">i</code>th row of the basis. If the <code class="ph codeph">i</code>th basic variable is a structural variable, <code class="ph codeph"><span class="keyword parmname">head</span>[i]</code> simply contains the column index of that variable. If it is a slack variable, <code class="ph codeph"><span class="keyword parmname">head</span>[i]</code> contains one less than the negative of the row index of that slack variable. This array should be of length at least <code class="ph codeph"><span class="keyword apiname">CPXgetnumrows</span>(<span class="keyword apiname">env,lp</span>)</code>. May be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">y</dt>
+
+        <dd class="dd pd">
+          
+          An array to contain the coefficients of the <code class="ph codeph">j</code>th column relative to the current basis. See the discussion above on how to interpret the entries in <code class="ph codeph"><span class="keyword parmname">y</span></code>. This array should be of length at least <code class="ph codeph"><span class="keyword apiname">CPXgetnumrows</span>(<span class="keyword apiname">env,lp</span>)</code>. May be NULL.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs. This routine fails if no basis exists.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXgetgrad (env, lp, 13, head, y);
+</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzesolution.html">Analyzing Solutions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpSolution.html">Accessing a solution</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Sequence constraints on interval variables and interval sequence variables" />
+<meta name="abstract" content="Groups of interval variables may be constrained to have relative positions of the start and end points of the interval variables." />
+<meta name="Description" content="Groups of interval variables may be constrained to have relative positions of the start and end points of the interval variables." />
+<meta name="DC.subject" content="sequence constraint, no overlap constraint, constraint, no overlap, sequence, interval sequence variable" />
+<meta name="keywords" content="sequence constraint, no overlap constraint, constraint, no overlap, sequence, interval sequence variable" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/constraints_interval.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1230567619322" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/constraints_interval.html" />
+<title>Sequence constraints on interval variables and interval sequence variables</title>
+</head>
+<body id="descriptiveTopic1230567619322"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Sequence constraints on interval variables and interval
+sequence variables</h1>
+
+
+
+<div class="body"><p class="shortdesc">Groups of interval variables may be constrained
+to have relative positions of the start and end points of the interval
+variables.</p>
+
+<p class="p">An interval sequence variable alone does not enforce any
+constraint on the relative position of the end points of the interval
+variables. For instance, an interval variable <em class="ph i">a</em> could
+be sequenced before an interval variable <em class="ph i">b</em> in a sequence <em class="ph i">p</em> without any impact on the relative position between
+the start/end points of <em class="ph i">a</em> and <em class="ph i">b</em> (<em class="ph i">a</em> could still be fixed to start after the end of <em class="ph i">b</em>). Different semantics can be used to define how a sequence
+constrains the positions of intervals. </p>
+
+<p class="p">There are four sequencing constraints available on sequence
+variables. The first in sequence constraint on an interval variable
+and an interval sequence variable states that if the interval variable
+is present, then it will be the first interval of the sequence. The
+last in sequence constraint on an interval variable and an interval
+sequence variable states that if an interval variable is present,
+it will be the last interval of the sequence. The before constraint
+on an interval sequence variable and two interval variable states
+that if both interval variables are present, then the first interval
+variable will appear in the sequence before the other interval. The
+previous constraint on an interval sequence variable and two interval
+variable states that if both interval variables are present then the
+first interval variable will be just before the other in the sequence,
+that is, it will appear before the second and no other interval will
+be sequenced between the two intervals. </p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the functions <code class="ph codeph">IloFirst</code>, <code class="ph codeph">IloLast</code>, <code class="ph codeph">IloBefore</code> and <code class="ph codeph">IloPrev</code> represent
+the sequencing constraints.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, the methods <code class="ph codeph">IloCP.first</code>, <code class="ph codeph">IloCP.last</code>, <code class="ph codeph">IloCP.before</code> and <code class="ph codeph">IloCP.prev</code> represent the sequencing constraints.</p>
+
+<p class="p">In the <strong class="ph b">C# API</strong> of CP Optimizer, the methods <code class="ph codeph">CP.First</code>, <code class="ph codeph">CP.Last</code>, <code class="ph codeph">CP.Before</code> and <code class="ph codeph">CP.Prev</code> represent
+the sequencing constraints.</p>
+
+<p class="p">The no overlap constraint on an interval sequence variable <em class="ph i">p</em> states that the sequence defines a chain of non-overlapping
+intervals, any interval in the chain being constrained to end before
+the start of the next interval in the chain. This constraint is typically
+useful for modeling disjunctive resources.  </p>
+
+<p class="p">A transition distance matrix can be specified, which defines
+the minimal distance that must separate two consecutive intervals
+in the sequence.</p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the class <code class="ph codeph">IloNoOverlap</code> represents a no overlap constraint.</p>
+
+<p class="p">In the <strong class="ph b">Java API</strong> of
+CP Optimizer, the method <code class="ph codeph">IloCP.noOverlap</code> returns
+a no overlap constraint.</p>
+
+<p class="p">In the <strong class="ph b">C# API</strong> of CP Optimizer, the method <code class="ph codeph">CP.NoOverlap</code> returns a no overlap constraint.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/constraints_interval.html" title="CP Optimizer provides specialized expressions and constraints on interval decision variables.">Constraints and expressions on interval decision variables</a></div>
+</div>
+</nav></div></body>
+</html>

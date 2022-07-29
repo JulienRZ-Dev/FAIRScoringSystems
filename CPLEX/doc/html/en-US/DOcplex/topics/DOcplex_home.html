@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+<meta name="dcterms.rights" content="© Copyright IBM Corporation 2020">
+
+
+
+<meta name="description" content="">
+
+<meta name="geo.country" content="ZZ">
+<script>
+    digitalData = {
+      page: {
+        pageInfo: {
+  language: "en-us",
+publisher: "IBM",
+
+  version: "v18",
+  ibm: {
+  country: "ZZ",
+  type: "CT701"
+  
+         }
+       }
+     }
+   };
+  </script><!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css">
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css">
+<title>DOcplex Python Modeling API</title>
+</head>
+<body id="topic_ywk_g25_gbb"><main role="main"><article role="article" aria-labelledby="d55e10">
+<h1 class="topictitle1" id="d55e10">DOcplex Python Modeling API</h1>
+
+
+
+
+<div class="body"><p class="shortdesc"></p>
+
+<p>IBM Decision Optimization CPLEX Modeling for Python, also known as DOcplex, is a library composed of two modules:</p>
+
+<ul>
+<li>Mathematical Programming Modeling for Python using docplex.mp (DOcplex.MP)</li>
+
+<li>Constraint Programming Modeling for Python using docplex.cp (DOcplex.CP)</li>
+
+</ul>
+
+<p>DOcplex is a native Python modeling library for optimization. </p>
+
+<p>It's compatible with the NumPy and pandas libraries and available from the <code class="ph codeph">PyPI</code>
+or <code class="ph codeph">conda</code> package managers.</p>
+
+<p>For more about DOcplex, see the <a href="https://cdn.rawgit.com/IBMDecisionOptimization/docplex-doc/master/docs/index.html" rel="noopener" target="_blank" title="(Opens in a new tab or window)">DOcplex landing page</a>.</p>
+
+<div class="note"><span class="notetitle">Note:</span> 
+<p>The following error may occur when using the DOcplex Python modeling API with the CP Optimizer
+engine:</p>
+
+<pre class="codeblock"><code>
+Exception has occurred: CpoException
+
+Can not execute command 'cpoptimizer.exe -angel'. Please check availability of required executable file.</code></pre>
+<p>The <code class="ph codeph">cpoptimizer.exe</code> executable is located under the
+<code class="ph codeph">&lt;InstallDir&gt;/cpoptimizer/bin/</code> directory. Make sure your <code class="ph codeph">PATH</code>
+variable contains this directory. If not, please add it. Otherwise, please check that
+<code class="ph codeph">cpoptimizer.exe</code> is in this directory.</p>
+
+</div>
+</div>
+
+<aside role="complementary" aria-labelledby="d55e10"><nav role="navigation">
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../DOcplex/topics/DOcplex_examples.html">DOcplex examples</a></strong><br>
+DOcplex examples are available for constraint programming and mathematical programming, either as Jupyter Notebooks or Python models. </li>
+</ul>
+</nav></aside></article></main></body></html>

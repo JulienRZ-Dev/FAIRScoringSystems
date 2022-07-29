@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Building Callable Library applications on UNIX platforms" />
+<meta name="abstract" content="Standard conventions for compiling and linking on UNIX platforms apply to your Callable Library applications." />
+<meta name="Description" content="Standard conventions for compiling and linking on UNIX platforms apply to your Callable Library applications." />
+<meta name="DC.subject" content="UNIX, building Callable Library (C API) applications, example, running Callable Library (C API), running from standard distribution (C API)" />
+<meta name="keywords" content="UNIX, building Callable Library (C API) applications, example, running Callable Library (C API), running from standard distribution (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/compiling.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_callableLibraryStart.1005282" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/compiling.html" />
+<title>Building Callable Library applications on UNIX platforms</title>
+</head>
+<body id="Getting_started.uss_callableLibraryStart.1005282"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Building Callable Library applications on UNIX platforms</h1>
+
+
+
+<div class="body"><p class="shortdesc">Standard conventions for compiling and linking on UNIX
+platforms apply to your Callable Library applications.</p>
+
+<p class="p">To compile and execute an example (<code class="ph codeph">lpex1</code>)
+do the following tasks: </p>
+
+<pre class="pre codeblock"><code>  % cd examples/<em class="ph i">platform</em>/<em class="ph i">format</em>  
+% make lpex1 #to compile and execute the first CPLEX example
+</code></pre>
+<p class="p">In that command, <em class="ph i">platform</em> specifies 
+the name of the subdirectory corresponding to your type of machine,
+and <em class="ph i">format</em> specifies 
+your particular library format, such as static, multithreaded, or
+other format.</p>
+
+<p class="p">A list of all the examples that can be built this way
+is to be found in the <span class="ph filepath">makefile</span> by
+looking for <code class="ph codeph">C_EX</code> (C examples), or you can
+view the files listed in <code class="ph codeph">examples/src</code>. </p>
+
+<p class="p">The <span class="ph filepath">makefile</span> contains
+recommended compiler flags and other settings for your particular
+computer, which you can find by searching in it for "Compiler options"
+and use in your applications that call CPLEX.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/compiling.html" title="Compilation and linking an application of the C API differ according to platform.">Compiling and linking Callable Library applications</a></div>
+</div>
+</nav></div></body>
+</html>

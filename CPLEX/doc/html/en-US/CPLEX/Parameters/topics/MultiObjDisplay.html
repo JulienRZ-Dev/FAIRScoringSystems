@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="level of display during multiobjective optimization" />
+<meta name="abstract" content="Decides what CPLEX displays during multiobjective optimization." />
+<meta name="Description" content="Decides what CPLEX displays during multiobjective optimization." />
+<meta name="DC.subject" content="CPX_PARAM_MULTIOBJDISPLAY, multiobjective optimization display" />
+<meta name="keywords" content="CPX_PARAM_MULTIOBJDISPLAY, multiobjective optimization display" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobjdisplay" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>level of display during multiobjective optimization</title>
+</head>
+<body id="multiobjdisplay"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">level of display during multiobjective optimization</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Decides what CPLEX displays during multiobjective optimization.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">level of display during multiobjective optimization</p>
+
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d113362e54">API</th>
+
+<th class="entry nrule" valign="top" id="d113362e57">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">CPXPARAM_MultiObjective_Display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">IloCplex::Param::MultiObjective::Display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">IloCplex.Param.MultiObjective.Display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">Cplex.Param.MultiObjective.Display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">multiobjdisplay</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">parameters.multiobjective.display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">multiobjective display</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d113362e54 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d113362e57 ">1600</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">Decides the level of display during multiobjective optimization. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><span class="desc tabledesc">
+
+</span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d113362e166">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d113362e169">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d113362e166 ">0</td>
+
+<td class="entry" valign="top" headers="d113362e169 ">No display</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d113362e166 ">1</td>
+
+<td class="entry" valign="top" headers="d113362e169 ">Summary display after each subproblem <strong class="ph b">default</strong>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d113362e166 ">2</td>
+
+<td class="entry" valign="top" headers="d113362e169 ">Summary display after each subproblem, as well as subproblem logs </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="p"> </p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

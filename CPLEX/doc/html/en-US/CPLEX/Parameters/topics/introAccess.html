@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Accessing parameters" />
+<meta name="abstract" content="Users access and modify parameters by means of methods in the various APIs." />
+<meta name="Description" content="Users access and modify parameters by means of methods in the various APIs." />
+<meta name="DC.subject" content="parameter set, accessing, parameters, set of parameters, sets of parameters" />
+<meta name="keywords" content="parameter set, accessing, parameters, set of parameters, sets of parameters" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/refparameterscplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1197395994429" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/refparameterscplex.html" />
+<title>Accessing parameters</title>
+</head>
+<body id="descriptiveTopic1197395994429"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Accessing parameters</h1>
+
+
+
+<div class="body"><p class="shortdesc">Users access and modify parameters by means of methods
+in the various APIs.</p>
+
+<p class="p">Documentation about CPLEX parameters specific to the Python API
+is available as online help inside a Python session. A brief introduction
+to CPLEX parameters is available in the topic <a class="xref" href="../../GettingStarted/topics/tutorials/Python/parameters.html" title="Manage CPLEX parameters in the CPLEX Python API.">Using CPLEX parameters in the CPLEX Python API</a> in
+the tutorial about Python in <em class="ph i">Getting Stated with CPLEX</em>.</p>
+
+<p class="p">The following methods set and access parameters for objects of the class
+<code class="ph codeph">IloCplex</code> in C++:</p>
+
+<pre class="pre codeblock"><code>setParam
+getParam
+getMin
+getMax
+getDefault
+setDefaults
+</code></pre>
+<p class="p">The following methods set and access parameters for objects of the class <code class="ph codeph">IloCplex</code>
+in Java:</p>
+
+<pre class="pre codeblock"><code>setParam
+getParam
+getMin
+getMax
+getDefault
+setDefaults
+</code></pre>
+<p class="p">The names of the corresponding accessors in the class <code class="ph codeph">Cplex</code> in
+the .NET API follow the usual conventions of names and capitalization
+of languages in that framework. For example, the class <code class="ph codeph">Cplex</code> and
+its method <code class="ph codeph">Solve</code> are denoted <code class="ph codeph">Cplex.Solve</code>.
+Likewise, the methods <code class="ph codeph">Cplex.GetParam</code> and <code class="ph codeph">SetParam</code> access
+and set parameters in the .NET API.</p>
+
+<p class="p">C applications and applications written in other languages callable
+from C access and set parameters with the following routines:</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing Callable Library routines to access parameters and their purpose." class="table PlainHead" rules="all" frame="border" border="1"><span class="desc tabledesc">  </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry" valign="top" id="d147776e110">Callable Library routine to access parameters</th>
+
+<th class="entry" valign="top" id="d147776e113">Purpose</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetdblparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Accesses a parameter of type double</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXsetdblparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Changes a parameter of type double</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXinfodblparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Gets the default value and range of a parameter of type double</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetintparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Accesses a parameter of type integer</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXsetintparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Changes a parameter of type integer</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXinfointparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Gets the default value and range of a parameter of type integer</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetlongparam</code></td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Accesses a parameter of type long</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXsetlongparam</code></td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Changes a parameter of type long</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXinfolongparam</code></td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Gets the default value and range of a parameter of type long</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetstrparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Accesses a parameter of type string</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXsetstrparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Changes a parameter of type string</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXinfostrparam</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Gets the default value of a parameter of type string</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXsetdefaults</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Resets all parameters to their standard default values</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetparamname</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Accesses the name of a parameter</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetparamnum</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Access the identifying number assigned to a parameter</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d147776e110 "><code class="ph codeph">CPXgetchgparams</code> </td>
+
+<td class="entry" valign="top" headers="d147776e113 ">Accesses all parameters not currently at their default value</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/refparameterscplex.html">Parameters of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

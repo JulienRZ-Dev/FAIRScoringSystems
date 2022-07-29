@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Controlling the optimizers" />
+<meta name="abstract" content="Describes parameters that control the optimizers in the C++ API." />
+<meta name="Description" content="Describes parameters that control the optimizers in the C++ API." />
+<meta name="DC.subject" content="CPLEX, parameters (C++ API), controlling in IloCplex (C++ API), BoolParam (C++ API), IntParam (C++ API), NumParam (C++ API), String Param (C++ API), current parameter value (C++ API), accessing parameter values (C++ API), current value (C++ API), IloCplex C++ class, getParam method (C++ API), default value (C++ API), IloCplex C++ class, getDefault method (C++ API), getMin method (C++ API), getMax method (C++ API), minimum value (C++ API), maximum value (C++ API), C++ API, parameters in C++ API, simplex optimality (example C++ API), setParam method (C++ API), setDefaults method (C++ API), all defaults (C++ API), all default parameters (C++ API), callbacks to null (C++ API), resetting to null (C++ API)" />
+<meta name="keywords" content="CPLEX, parameters (C++ API), controlling in IloCplex (C++ API), BoolParam (C++ API), IntParam (C++ API), NumParam (C++ API), String Param (C++ API), current parameter value (C++ API), accessing parameter values (C++ API), current value (C++ API), IloCplex C++ class, getParam method (C++ API), default value (C++ API), IloCplex C++ class, getDefault method (C++ API), getMin method (C++ API), getMax method (C++ API), minimum value (C++ API), maximum value (C++ API), C++ API, parameters in C++ API, simplex optimality (example C++ API), setParam method (C++ API), setDefaults method (C++ API), all defaults (C++ API), all default parameters (C++ API), callbacks to null (C++ API), resetting to null (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/solving_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cplusIloCplex.112953" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/solving_synopsis.html" />
+<title>Controlling the optimizers</title>
+</head>
+<body id="User_manual.uss_cplusIloCplex.112953"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Controlling the optimizers</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Describes parameters that control the optimizers
+in the C++ API.</p>
+
+      <p class="p">Though CPLEX defaults will prove sufficient to solve most
+problems, CPLEX offers a variety of parameters to control various
+algorithmic choices. CPLEX parameters can assume values of type <code class="ph codeph">bool</code>, <code class="ph codeph">num</code>, <code class="ph codeph">int</code>,
+and <code class="ph codeph">string</code>. <code class="ph codeph">IloCplex</code> provides
+four categories of parameters that are listed in the nested enumeration
+types:</p>
+
+      <ul class="ul">
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/enumerations/IloCplex_BoolParam.html">IloCplex_BoolParam</a>
+            </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/enumerations/IloCplex_IntParam.html">IloCplex_IntParam</a>
+            </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/enumerations/IloCplex_NumParam.html">IloCplex_NumParam</a>
+            </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/enumerations/IloCplex_StringParam.html">IloCplex_StringParam</a>
+            </p>
+
+         </li>
+
+      </ul>
+
+      <p class="p">To access the current value of a parameter that interests
+you from Concert Technology, use the method <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#getParam">getParam</a>.
+To access the default value of a parameter, use the method <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#getDefault">getDefault</a>.
+Use the methods <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#getMin">getMin</a> and <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#getMax">getMax</a> to
+access the minimum and maximum values of <code class="ph codeph">num</code> 
+and <code class="ph codeph">int</code>  type parameters.</p>
+
+      <div class="p">Some integer parameters are tied to nested enumerations
+that define symbolic constants for the values the parameter may assume.
+The table <a class="xref" href="parameters.html#User_manual.uss_cplusIloCplex.112953__User_manual.uss_cplusIloCplex.133852" title="A two-column table showing names of enumerations and their purpose.">Table 1</a> summarizes those parameters and their enumeration
+types.  </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing names of enumerations and their purpose." id="User_manual.uss_cplusIloCplex.112953__User_manual.uss_cplusIloCplex.133852" class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Nested enumerations for integer parameters</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+               <tr class="row" style="vertical-align:top;">
+                  <th class="entry thleft" align="left" valign="top" id="d165481e362"> This Enumeration: </th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d165481e365"> Is Used for This Parameter: </th>
+
+               </tr>
+
+            </thead>
+<tbody class="tbody">
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::Algorithm</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::RootAlg</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::Algorithm</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::NodeAlg</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::MIPEmphasisType</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::MIPEmphasis</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::VariableSelect</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::VarSel</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::NodeSelect</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::NodeSel</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::PrimalPricing</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::PPriInd</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::DualPricing</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::DPriInd</code>
+                  </td>
+
+               </tr>
+
+               <tr class="row" style="vertical-align:top;">
+                  <td class="entry" valign="top" headers="d165481e362 ">
+                     <code class="ph codeph">IloCplex::BranchDirection</code>
+                  </td>
+
+                  <td class="entry" valign="top" headers="d165481e365 ">
+                     <code class="ph codeph">IloCplex::BrDir</code>
+                  </td>
+
+               </tr>
+
+            </tbody>
+</table>
+</div>
+
+      <p class="p">There are, of course, routines in Concert Technology to
+set these parameters. Use the following methods to set the values
+of CPLEX parameters: </p>
+
+      <ul class="ul">
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#setParam">setParam</a>(<code class="ph codeph">BoolParam</code>, <code class="ph codeph">value</code>); </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#setParam">setParam</a>(<code class="ph codeph">IntParam</code>, <code class="ph codeph">value</code>); </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#setParam">setParam</a>(<code class="ph codeph">NumParam</code>, <code class="ph codeph">value</code>); </p>
+
+         </li>
+
+         <li class="li">
+            <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#setParam">setParam</a>(<code class="ph codeph">StringParam</code>, <code class="ph codeph">value</code>); </p>
+
+         </li>
+
+      </ul>
+
+      <p class="p">For example, the numeric parameter <code class="ph codeph">IloCplex::EpOpt </code>controlling
+the optimality tolerance for the simplex algorithms can be set to
+0.0001 by this call:  </p>
+
+      <p class="p"><a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#setParam">setParam</a>(<code class="ph codeph">IloCplex::EpOpt, 0.0001</code>); </p>
+
+      <p class="p"> The <em class="ph i">CPLEX Parameters Reference Manual</em> documents
+the type of each parameter (<code class="ph codeph">bool</code>, <code class="ph codeph">int</code>, <code class="ph codeph">num</code>, <code class="ph codeph">string</code>)
+along with the Concert Technology enumeration value, symbolic constant,
+and reference number representing the parameter.</p>
+
+      <p class="p">The method <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#setDefaults">setDefaults</a> resets
+all parameters (except the log file) to their default values, including
+the CPLEX callback functions. This routine resets the callback functions
+to <code class="ph codeph">NULL</code>. </p>
+
+      <p class="p">When you are solving a MIP, CPLEX provides additional
+controls of the solution process. Priority orders and branching directions
+can be used to control the branching in a static way. These controls
+are discussed in <a class="xref" href="../../discr_optim/mip/heuristics/42_heur_title_synopsis.html" title="Introduces heuristics in performance features.">Heuristics</a>. These controls are
+static in the sense that they allow you to control the solution process
+based on data that does not change during the solution and can thus
+be set up before you solve the model. </p>
+
+      <p class="p">Dynamic control of the solution process of MIPs is provided
+through goals or control callbacks. They are discussed in <a class="xref" href="../../progr_adv/goals/01_goals_title_synopsis.html" title="Documents goals and their role in a branch &amp; cut search.">Using goals</a>, and in <a class="xref" href="../../progr_adv/callbacks_basic/01_cb_title_synopsis.html" title="Introduces legacy optimization callbacks.">Using legacy optimization callbacks</a>. Goals and callbacks
+allow you to control the solution process based on information that
+is generated during the solution process. <a class="xref" href="../../progr_adv/cf_goals_cbs/cfGoalsCallbacks_title_synopsis.html" title="Contrasts goals with callbacks.">Goals and callbacks: a comparison</a> contrasts the advantages
+of each approach.</p>
+
+      </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/solving_synopsis.html" title="Describes facilities for solving a model in the C++ API.">Solving the model</a></div>
+</div>
+</nav></div></body>
+</html>

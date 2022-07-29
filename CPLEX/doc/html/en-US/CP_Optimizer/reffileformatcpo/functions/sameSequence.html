@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="sameSequence" />
+<meta name="abstract" content="This function creates a same-sequence constraint between two sequence variables." />
+<meta name="Description" content="This function creates a same-sequence constraint between two sequence variables." />
+<meta name="DC.subject" content="sameSequence" />
+<meta name="keywords" content="sameSequence" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/interval_sequence.html" />
+<meta name="DC.Relation" scheme="URI" content="sequenceVar.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="sameCommonSubsequence.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="sameSequence" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>sameSequence</title>
+</head>
+<body id="sameSequence"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">sameSequence</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+This function creates a same-sequence constraint between two sequence variables.
+</p>
+
+
+
+<section class="section" id="sameSequence__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">sameSequence</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__sequenceVar">sequenceVar</a> seq1, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__sequenceVar">sequenceVar</a> seq2)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">sameSequence</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__sequenceVar">sequenceVar</a> seq1, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__sequenceVar">sequenceVar</a> seq2, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intervalVarArray">intervalVarArray</a> array1, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intervalVarArray">intervalVarArray</a> array2)
+</code></pre>
+</section>
+
+
+<section class="section" id="sameSequence__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">seq1</code>: first constrained sequence variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">seq2</code>: second constrained sequence variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">array1</code>: first array of interval variables defining the mapping between the two sequence variables.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">array2</code>: second array of interval variables defining the mapping between the two sequence variables.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="sameSequence__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function creates a same-sequence constraint between sequence variables <code class="ph codeph">seq1 and seq2</code>. Sequence variables <code class="ph codeph">seq1</code> and <code class="ph codeph">seq2</code> should be of the same size <code class="ph codeph">n</code>. If no array of interval variables is specified, the mapping between interval variables of the two sequences is given by the order of the interval variables in the arrays <code class="ph codeph">array1</code> and <code class="ph codeph">array2</code> used in the definition of the sequences. If some arrays are specified, they are used to define the mapping. The constraint states that the two sequences <code class="ph codeph">seq1</code> and <code class="ph codeph">seq2</code> are identical modulo a mapping between intervals <code class="ph codeph">array1[i]</code> and <code class="ph codeph">array2[i]</code>. 
+</p>
+
+
+<p class="p">
+For more information on the <a class="xref" href="sameSequence.html" title="This function creates a same-sequence constraint between two sequence variables.">sameSequence</a> constraint, see the concept <a class="xref" href="../../../refcppcpoptimizer/html/interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="sameSequence__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The example below defines a sameSequence constraint between two sequence variables <code class="ph codeph">a</code> and <code class="ph codeph">b</code> such that interval variable <code class="ph codeph">ai</code> if mapped on interval variable <code class="ph codeph">bi</code>.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=14);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=12);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=9);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=21);
+a  = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([a1, a2, a3, a4]);
+b1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=1, end=1..4);
+b2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=1, end=1..4);
+b3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=1, end=1..4);
+b4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=1, end=1..4);
+b  = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([b1, b2, b3, b4]);
+<a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a>(a);
+<a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a>(b);
+<strong class="ph b">sameSequence</strong>(a, b);
+</code></pre>
+<p class="p">
+In this example, the value of <code class="ph codeph"><a class="xref" href="endOf.html" title="Returns the end of specified interval variable.">endOf</a>(bi)</code> would give the position (in {1, 2, 3, 4}) of interval variable <code class="ph codeph">ai</code> in the sequence. 
+</p>
+
+
+</section>
+
+
+<section class="section" id="sameSequence__Example2"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The example below defines a sameSequence constraint between two sequence variables <code class="ph codeph">a</code> and <code class="ph codeph">b</code> so that <code class="ph codeph">a1</code> is mapped with <code class="ph codeph">b2</code>, <code class="ph codeph">a2</code> with <code class="ph codeph">b3</code>,  <code class="ph codeph">a3</code> with <code class="ph codeph">b4</code>, and <code class="ph codeph">a4</code> with <code class="ph codeph">b1</code>.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=14);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=12);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=9);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=21);
+a  = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([a1, a2, a3, a4]);
+b1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=14);
+b2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=12);
+b3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=9);
+b4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=21);
+b  = <a class="xref" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a>([b1, b2, b3, b4]);
+<a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a>(a);
+<a class="xref" href="noOverlap.html" title="Constrains a set of interval variables not to overlap each others.">noOverlap</a>(b);
+<strong class="ph b">sameSequence</strong>(a, b, [a1, a2, a3, a4], [b2, b3, b4, b1]);
+</code></pre>
+<p class="p">
+A possible solution to this problem is the following assignment of interval variables: 
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    a1=[0, 14)<code class="ph codeph">, a2=[14, 26)</code>, a3=[26, 35)<code class="ph codeph">, a4=[35, 56)</code>
+  </li>
+
+  <li class="li">
+    b1=[42, 56)<code class="ph codeph">, b2=[0, 12)</code>, b3=[12, 21)<code class="ph codeph">, b4=[21, 42)</code>
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="sameSequence__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    The two sequence variables <code class="ph codeph">seq1</code> and <code class="ph codeph">seq2</code> should be of the same size.
+  </li>
+
+  <li class="li">
+    When used as argument of the constraint, the interval variable arrays <code class="ph codeph">array1</code> and <code class="ph codeph">array2</code> should be of the same size as the sequence variables and contain all the interval variables of their respective sequence variable.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="sameSequence__Notes"><h2 class="title sectiontitle">Notes</h2>
+<p class="p">
+There are two common use-cases of constraints <a class="xref" href="sameSequence.html" title="This function creates a same-sequence constraint between two sequence variables.">sameSequence</a> and <a class="xref" href="sameCommonSubsequence.html" title="This function creates a same-common-subsequence constraint between two sequence variables.">sameCommonSubsequence</a>:
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    for modeling no-bypass constraints
+  </li>
+
+  <li class="li">
+    for building robust sequences of activities in stochastic scheduling problems by ensuring that, on a given machine, the same sequence of activity is used across different scenarios.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="sequenceVar.html" title="Creates new sequence variable.">sequenceVar</a></li>
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li>
+<li class="linklist"><a class="link" href="sameCommonSubsequence.html" title="This function creates a same-common-subsequence constraint between two sequence variables.">sameCommonSubsequence</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/interval_sequence.html">Interval variable sequencing in CP Optimizer</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

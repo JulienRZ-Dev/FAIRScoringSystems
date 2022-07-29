@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="What can you do with a generic callback?" />
+<meta name="abstract" content="Generic callbacks are flexible and multi-purpose." />
+<meta name="Description" content="Generic callbacks are flexible and multi-purpose." />
+<meta name="DC.subject" content="callback, access relaxed solution, reject integer-feasible solutions, inject heuristic solutions, query status, query progress" />
+<meta name="keywords" content="callback, access relaxed solution, reject integer-feasible solutions, inject heuristic solutions, query status, query progress" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="whatToDoCallbacks" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<title>What can you do with a generic callback?</title>
+</head>
+<body id="whatToDoCallbacks"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">What can you do with a generic callback?</h1>
+
+ 
+ 
+<div class="body"><p class="shortdesc">Generic callbacks are flexible and multi-purpose.
+</p>
+ 
+<div class="p">In your application, you can do the following things with the generic callback:
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Query information about current solution status and progress</dt>
+
+            <dd class="dd">
+              Using the routines <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a>,
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a>,
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a>, and
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetincumbent.html" title="Gets the incumbent solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.">CPXXcallbackgetincumbent and CPXcallbackgetincumbent</a>, you can obtain
+              information that CPLEX has currently calculated about your
+              problem and how much work CPLEX has performed so far.
+              See also the enumeration <a class="xref" href="../../../../../refcallablelibrary/enumerations/CPXCALLBACKINFO.html">CPXCALLBACKINFO</a> 
+              for a list of information that can be queried from a generic callback.
+            </dd>
+
+          
+          
+            <dt class="dt dlterm">Inject heuristic solutions</dt>
+
+            <dd class="dd">
+              Using <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a>, you can inject a
+              feasible solution (for example, a solution found by a heuristic that you implemented) 
+              into the CPLEX solution process.
+            </dd>
+
+          
+          
+            <dt class="dt dlterm">Reject integer-feasible solutions as candidates</dt>
+
+            <dd class="dd">
+              Upon request, CPLEX will invoke the generic callback for each integer-feasible solution 
+              that CPLEX finds. This convention gives you a chance to reject
+              the solution (with and without adding lazy constraints that
+              cut off the solution). See 
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetcandidatepoint.html" title="Gets the candidate solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a>,
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetcandidateray.html" title="Gets the unbounded ray for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidateray and CPXcallbackgetcandidateray</a>, and
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackrejectcandidate.html" title="Rejects a candidate solution or an unbounded direction from a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE and potentially specifies additional constraints that cut off the solution.">CPXXcallbackrejectcandidate and CPXcallbackrejectcandidate</a> for more details.
+            </dd>
+
+          
+          
+            <dt class="dt dlterm">Get the current relaxed solution</dt>
+
+            <dd class="dd">
+              Upon request, CPLEX will invoke the callback whenever CPLEX finds a
+              (fractional) solution to a relaxed problem available. This
+              solution can be queried with
+              <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a>.
+            </dd>
+
+           
+           
+          <dt class="dt dlterm">Add user cuts</dt>
+
+<dd class="dd">You can add user cuts to the current relaxed solution in a generic callback by means of the
+routine <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackaddusercuts.html" title="Add user cuts from ***.">CPXXcallbackaddusercuts and CPXcallbackaddusercuts</a>. </dd>
+
+          
+
+<dt class="dt dlterm">Implement a customized branching strategy</dt>
+
+<dd class="dd">Upon request, CPLEX will invoke the generic callback prior to branching at a node in the
+branch-and-cut tree. This convention gives you the possibility either to specify a custom branching
+decision, or to let CPLEX branch according to the selected branching strategy. For more information,
+see <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a>,
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackmakebranch.html" title="The routine CPXXcallbackmakebranch/CPXcallbackmakebranch defines the branching constraints that define a branch from the current node in the MIP search tree, from the context ***. The branch can include both variable bound changes and additional linear constraints.">CPXXcallbackmakebranch and CPXcallbackmakebranch</a>, and <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackprunenode.html" title="Instructs CPLEX to prune the current node of the search tree from a callback in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.">CPXXcallbackprunenode and CPXcallbackprunenode</a>. </dd>
+
+ 
+           
+          <dt class="dt dlterm">Force termination</dt>
+ 
+          <dd class="dd">You can force CPLEX to terminate optimization from a generic callback by means of the routine 
+          <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackabort.html" title="Aborts a CPLEX solve from a callback.">CPXXcallbackabort and CPXcallbackabort</a>.
+          </dd>
+
+          
+        </dl>
+
+      </div>
+
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

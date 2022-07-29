@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXsettuningcallbackfunc and CPXsettuningcallbackfunc" />
+<meta name="abstract" content="Modifies the user-written legacy callback function to be called before each trial run during the tuning process." />
+<meta name="Description" content="Modifies the user-written legacy callback function to be called before each trial run during the tuning process." />
+<meta name="DC.subject" content="CPXsettuningcallbackfunc, C API Reference Manual, CPXXsettuningcallbackfunc" />
+<meta name="keywords" content="CPXsettuningcallbackfunc, C API Reference Manual, CPXXsettuningcallbackfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpTuning.html" />
+<meta name="DC.Relation" scheme="URI" content="getcallbackinfo.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="settuningcallbackfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpTuning.html" />
+<title>CPXXsettuningcallbackfunc and CPXsettuningcallbackfunc</title>
+</head>
+<body id="settuningcallbackfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXsettuningcallbackfunc</span> and <span class="keyword apiname">CPXsettuningcallbackfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+Modifies the user-written legacy callback function to be called before each trial run during
+the tuning process.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXsettuningcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">callback</span>)(CPXCENVptr, void *, int, void *)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXsettuningcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">callback</span>)(CPXCENVptr, void *, int, void *)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXsettuningcallbackfunc</span>/<span class="keyword apiname">CPXsettuningcallbackfunc</span></code> modifies the
+user-written legacy callback function to be called before each trial run during
+the tuning process.</p>
+
+
+<div class="note tip"><span class="tiptitle">Tip:</span> 
+<p class="p">
+This routine is part of legacy callbacks.
+Do not use this routine with a generic callback in your application.
+For more about generic callbacks, see the topic 
+<a class="xref" href="../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.
+</p>
+
+</div>
+
+
+<p class="p"><strong class="ph b">Callback description</strong></p>
+
+
+<pre class="pre codeblock"><code>
+int CPXPUBLIC
+callback (CPXCENVptr env,
+          void *cbdata,
+          int wherefrom,
+          void *cbhandle);
+</code></pre>
+
+<p class="p">This is the user-written callback routine.</p>
+
+
+<p class="p"><strong class="ph b">Callback return value</strong></p>
+
+
+<p class="p">A nonzero terminates the tuning.</p>
+
+
+<p class="p"><strong class="ph b">Callback arguments</strong></p>
+
+
+<p class="p"><code class="ph codeph"><span class="keyword parmname">env</span></code></p>
+
+
+<p class="p">A pointer to the CPLEX environment that was passed into the associated
+tuning routine.</p>
+
+
+<p class="p"><code class="ph codeph"><span class="keyword parmname">cbdata</span></code></p>
+
+
+<p class="p">A pointer passed from the tuning routine to the user-written
+callback function that contains information about the tuning process.
+The only
+purpose for the <code class="ph codeph"><span class="keyword parmname">cbdata</span></code> pointer is to pass it to the routine
+<code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackinfo</span>/<span class="keyword apiname">CPXgetcallbackinfo</span></code>.</p>
+
+
+<p class="p"><code class="ph codeph"><span class="keyword parmname">wherefrom</span></code></p>
+
+
+<p class="p">An integer value specifying from which procedure the
+user-written callback function was called. This value will always be
+<code class="ph codeph">CPX_CALLBACK_TUNING</code>
+for this callback.</p>
+
+
+<p class="p"><code class="ph codeph"><span class="keyword parmname">cbhandle</span></code></p>
+
+
+<p class="p">Pointer to user private data, as passed to
+<code class="ph codeph"><span class="keyword apiname">CPXXsettuningcallbackfunc</span>/<span class="keyword apiname">CPXsettuningcallbackfunc</span></code>.</p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">A pointer to the CPLEX environment as returned by 
+<code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">callback</dt>
+
+        <dd class="dd pd">
+          
+         <p class="p">A pointer to a user-written callback function. Setting
+         <code class="ph codeph"><span class="keyword parmname">callback</span></code> to NULL 
+         prevents any callback function from being
+         called during tuning. The call to <code class="ph codeph"><span class="keyword parmname">callback</span></code> 
+         occurs before each trial run of the tuning.
+         This function is written by the user; its prototype is documented here. </p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbhandle</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">A pointer to user private data. 
+          This pointer is passed to the callback function.</p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+
+<pre class="pre codeblock"><code>
+status = CPXsettuningcallbackfunc (env, myfunc, NULL);</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpTuning.html">Tuning applications</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="getcallbackinfo.html" title="The routine CPXXgetcallbackinfo/CPXgetcallbackinfo accesses information about the current optimization process from within a user-written legacy callback function.">CPXgetcallbackinfo</a></li></ul></div>
+</nav>
+</div></body>
+</html>

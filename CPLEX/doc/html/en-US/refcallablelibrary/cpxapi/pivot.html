@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXpivot and CPXpivot" />
+<meta name="abstract" content="The routine CPXXpivot/CPXpivot performs a basis change where variable jenter replaces variable jleave in the basis." />
+<meta name="Description" content="The routine CPXXpivot/CPXpivot performs a basis change where variable jenter replaces variable jleave in the basis." />
+<meta name="DC.subject" content="CPXpivot, C API Reference Manual, CPXXpivot" />
+<meta name="keywords" content="CPXpivot, C API Reference Manual, CPXXpivot" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetPQ.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="pivot" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetPQ.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpBasis.html" />
+<title>CPXXpivot and CPXpivot</title>
+</head>
+<body id="pivot"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXpivot</span> and <span class="keyword apiname">CPXpivot</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivot</span>/<span class="keyword apiname">CPXpivot</span></code> performs a basis change where
+variable <code class="ph codeph"><span class="keyword parmname">jenter</span></code> replaces variable <code class="ph codeph"><span class="keyword parmname">jleave</span></code> in the
+basis.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXpivot</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">jenter</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">jleave</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">leavestat</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXpivot</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">jenter</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">jleave</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">leavestat</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+<div class="note warning"><span class="warningtitle">Warning:</span> 
+<p class="p">This is an advanced routine.
+Advanced routines typically demand a thorough understanding
+of the algorithms used by CPLEX. Thus they incur a higher risk of
+incorrect behavior in your application, behavior that can be difficult
+to debug. Therefore, the team encourages you to consider carefully whether
+you can accomplish the same task by means of other Callable Library
+routines instead.
+</p>
+
+</div>
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivot</span>/<span class="keyword apiname">CPXpivot</span></code> performs a basis change where
+variable <code class="ph codeph"><span class="keyword parmname">jenter</span></code> replaces variable <code class="ph codeph"><span class="keyword parmname">jleave</span></code> in the
+basis. </p>
+
+
+<p class="p">Use the constant <code class="ph codeph">CPX_NO_VARIABLE</code> for <code class="ph codeph"><span class="keyword parmname">jenter</span></code>
+or for <code class="ph codeph"><span class="keyword parmname">jleave</span></code> if you want CPLEX to determine one of
+the two variables involved in the basis change.
+</p>
+
+
+<p class="p"> It is invalid to pass a basic variable for <code class="ph codeph"><span class="keyword parmname">jenter</span></code>. Also, no
+nonbasic variable may be specified for <code class="ph codeph"><span class="keyword parmname">jleave</span></code>, except for
+<code class="ph codeph"><span class="keyword parmname">jenter</span> == <span class="keyword parmname">jleave</span></code> when the variable has both finite upper and
+lower bounds. In that case, the variable is moved from the current to the
+other bound. No shifting or perturbation is performed.</p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by the <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX LP problem object, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">jenter</dt>
+
+        <dd class="dd pd">
+          
+          An index specifying the variable to enter the basis. The slack or artificial variable for row <code class="ph codeph">i</code> is denoted by <code class="ph codeph"><span class="keyword parmname">jenter</span> = -i-1</code>. The argument <code class="ph codeph"><span class="keyword parmname">jenter</span></code> must either identify a nonbasic variable or take the value <code class="ph codeph">CPX_NO_VARIABLE</code>. When <code class="ph codeph"><span class="keyword parmname">jenter</span></code> is set to <code class="ph codeph">CPX_NO_VARIABLE</code>, CPLEX will use the leaving variable <code class="ph codeph"><span class="keyword parmname">jleave</span></code> to perform a dual simplex method ratio test that determines the entering variable.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">jleave</dt>
+
+        <dd class="dd pd">
+          
+          An index specifying the variable to leave the basis. The slack or artificial variable for row <code class="ph codeph">i</code> is denoted by <code class="ph codeph"><span class="keyword parmname">jleave</span> = -i-1</code>. The argument <code class="ph codeph"><span class="keyword parmname">jleave</span></code> typically identifies a basic variable. However, if <code class="ph codeph"><span class="keyword parmname">jenter</span></code> denotes a variable with finite upper and lower bounds, <code class="ph codeph"><span class="keyword parmname">jleave</span></code> may be set to <code class="ph codeph"><span class="keyword parmname">jenter</span></code> to specify that the variable moves from its current bound to the other. The argument <code class="ph codeph"><span class="keyword parmname">jleave</span></code> may also be set to <code class="ph codeph">CPX_NO_VARIABLE</code>. In that case, CPLEX will use the incoming variable <code class="ph codeph"><span class="keyword parmname">jenter</span></code> to perform a primal simplex method ratio test that determines the leaving variable.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">leavestat</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the nonbasic status to be assigned to the leaving variable after the basis change. This is important for the case where <code class="ph codeph"><span class="keyword parmname">jleave</span></code> specifies a variable with finite upper and lower bounds, as it may become nonbasic at its lower or upper bound.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXpivot (env, lp, jenter, jleave, CPX_AT_LOWER);
+</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetPQ.html">P, Q</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpBasis.html">Manipulating a basis</a></div>
+</div>
+</nav></div></body>
+</html>

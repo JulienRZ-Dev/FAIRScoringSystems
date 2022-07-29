@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcallbacksetfunc and CPXcallbacksetfunc" />
+<meta name="abstract" content="Sets the generic callback function and specifies in which contexts it will be invoked." />
+<meta name="Description" content="Sets the generic callback function and specifies in which contexts it will be invoked." />
+<meta name="DC.subject" content="CPXcallbacksetfunc, C API Reference Manual, CPXXcallbacksetfunc" />
+<meta name="keywords" content="CPXcallbacksetfunc, C API Reference Manual, CPXXcallbacksetfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="callbackgetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../typedefs/CPXCALLBACKFUNC.html" />
+<meta name="DC.Relation" scheme="URI" content="../enumerations/CPXCALLBACKINFO.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="callbacksetfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpCallbacks.html" />
+<title>CPXXcallbacksetfunc and CPXcallbacksetfunc</title>
+</head>
+<body id="callbacksetfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcallbacksetfunc</span> and <span class="keyword apiname">CPXcallbacksetfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+    Sets the generic callback function and specifies in which contexts it will be
+    invoked.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcallbacksetfunc</span>
+          <span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLONG</span><span class="ph sep"> </span><span class="ph var">contextmask</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCALLBACKFUNC</span> <span class="ph oper">*</span><span class="ph var">callback</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">userhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcallbacksetfunc</span>
+          <span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLONG</span><span class="ph sep"> </span><span class="ph var">contextmask</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCALLBACKFUNC</span> <span class="ph oper">*</span><span class="ph var">callback</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">userhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+
+      <p class="p">
+        The generic callback function is a callback function that is
+        invoked in many different places during the search. In contrast to the
+        legacy CPLEX callback functions, it is not a dedicated callback
+        (for example, dedicated to separate a cut) but rather a multi-purpose function. 
+        What your application can 
+        reasonably do in a callback invocation is defined by the <strong class="ph b">context</strong>
+        in which the callback is invoked. This context is specified by the
+        <span class="keyword parmname">contextid</span> argument to the callback.
+      </p>
+
+      <div class="p">
+        For a detailed explanation of the various contexts in which the
+        callback can be invoked refer to the documentation of the following
+        constants:
+        <ul class="ul">
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a></li>
+
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a></li>
+
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a></li>
+
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" title="Generic callback at thread-local progress">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</a></li>
+
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a></li>
+
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></li>
+
+          <li class="li"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></li>
+
+        </ul>
+ 
+        These constants can also be combined by means of a bit-wise OR with the
+        value of the <span class="keyword parmname">contextmask</span> argument passed to that routine. 
+      </div>
+
+      <p class="p">For a list of differences between a generic callback and the legacy callbacks 
+      of CPLEX, see this topic 
+      <a class="xref" href="../../CPLEX/UsrMan/topics/progr_adv/callbacks/defnCallbacks.html" title="Generic callbacks supercede legacy callbacks, such as informational callbacks, query callbacks, or control callbacks.">What is a generic callback?</a> 
+      in the <em class="ph i">CPLEX User's Manual</em>.
+      </p>
+
+      
+      <p class="p">
+        With an appropriate context, you can use 
+        a generic callback to monitor progress of the solution
+        process (<a class="xref" href="../macros/CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" title="Generic callback at thread-local progress">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</a>,
+        <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a>) as well
+        as to control or guide the solution process
+        (<a class="xref" href="callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a>,
+         <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a>,
+         <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a>,
+         <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a>).
+      </p>
+
+      <p class="p">
+        For more detail about other purpose of a generic callback, see the topic 
+        <a class="xref" href="../../CPLEX/UsrMan/topics/progr_adv/callbacks/whatToDoCallbacks.html" title="Generic callbacks are flexible and multi-purpose.">What can you do with a generic callback?</a> 
+        in the <em class="ph i">CPLEX User's Manual</em>.
+      </p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Contexts in which CPLEX invokes the generic callback</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+          <tr class="row">
+            <th class="entry" valign="top" id="d631134e343">Context</th>
+
+            <th class="entry" valign="top" id="d631134e346">Description</th>
+
+          </tr>
+
+        </thead>
+<tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked when CPLEX starts a new thread. This context offers the user an 
+              opportunity to set up thread-local data if necessary.
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked when CPLEX tears down a thread (that was previously
+              announced with <a class="xref" href="../macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a>). 
+              This context offers the user an opportunity to tear down thread-local data if
+              necessary.
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" title="Generic callback at thread-local progress">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked to inform the application about thread-local progress in the search.
+              The user can query progress information with these routines:
+              <a class="xref" href="callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a>,
+               <a class="xref" href="callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a>,
+               <a class="xref" href="callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a>. The user can also 
+              inject feasible solutions by means of <a class="xref" href="callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a>.
+              The user can also halt the search with <a class="xref" href="callbackabort.html" title="Aborts a CPLEX solve from a callback.">CPXXcallbackabort and CPXcallbackabort</a>.
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked to inform the application about global progress in the search.
+              The user can query progress information with these routines:
+              <a class="xref" href="callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a>,
+               <a class="xref" href="callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a>,
+               <a class="xref" href="callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a>. The user can also 
+              inject feasible solutions by means of <a class="xref" href="callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a>.
+              The user can also halt the search with <a class="xref" href="callbackabort.html" title="Aborts a CPLEX solve from a callback.">CPXXcallbackabort and CPXcallbackabort</a>.
+
+              <strong class="ph b">Attention!</strong> In a multi-threaded application, invocation of a generic callback 
+              holds a lock. Consequently, the generic callback  is implicitly thread-safe. However, lengthy
+              computations in the callback will block other threads during this lock.
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked when CPLEX has found a candidate feasible solution. The
+              user can query the proposed solution by means of <a class="xref" href="callbackgetcandidatepoint.html" title="Gets the candidate solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a>
+              and reject the candidate if necessary by means of <a class="xref" href="callbackrejectcandidate.html" title="Rejects a candidate solution or an unbounded direction from a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE and potentially specifies additional constraints that cut off the solution.">CPXXcallbackrejectcandidate and CPXcallbackrejectcandidate</a>.
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked when CPLEX has found a relaxed solution (usually not
+              integer feasible). For example, the solution perhaps came from a
+              node LP relaxation, but the solution can also come from other places as well.
+              The user can query the relaxed solution by means of 
+              <a class="xref" href="callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a>
+              and can, for instance, add user cuts by means of
+              <a class="xref" href="callbackaddusercuts.html" title="Add user cuts from ***.">CPXXcallbackaddusercuts and CPXcallbackaddusercuts</a>.
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" headers="d631134e343 "><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></td>
+
+            <td class="entry" valign="top" headers="d631134e346 ">
+              Invoked when CPLEX is done processing a node and has to decide how to branch.
+              The user can query the relaxed solution of the node by means of 
+              <a class="xref" href="callbackgetrelaxationpoint.html" title="Get the solution to the current node relaxation and its objective value for callback invocations with *** or ***.">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a>,
+              and can specify a custom branching by means of
+              <a class="xref" href="callbackprunenode.html" title="Instructs CPLEX to prune the current node of the search tree from a callback in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.">CPXXcallbackprunenode and CPXcallbackprunenode</a>
+              or <a class="xref" href="callbackmakebranch.html" title="The routine CPXXcallbackmakebranch/CPXcallbackmakebranch defines the branching constraints that define a branch from the current node in the MIP search tree, from the context ***. The branch can include both variable bound changes and additional linear constraints.">CPXXcallbackmakebranch and CPXcallbackmakebranch</a>.
+            </td>
+
+          </tr>
+
+        </tbody>
+</table>
+</div>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">The generic callback and multi-threading</h2>
+      
+      <p class="p">
+        For special considerations about the generic callback and multi-threaded applications, 
+        see the topic 
+        <a class="xref" href="../../CPLEX/UsrMan/topics/progr_adv/callbacks/defnCallbacks.html" title="Generic callbacks supercede legacy callbacks, such as informational callbacks, query callbacks, or control callbacks.">What is a generic callback?</a> 
+        in the <em class="ph i">CPLEX User's Manual</em>.
+      </p>
+ 
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Special considerations</h2>
+      
+        <p class="p">
+          You must not mix the generic callback with legacy callbacks. If you
+          install both generic and legacy callbacks, then CPLEX raises an error as soon as
+          you call any optmization function, such as 
+          <a class="xref" href="../mipapi/mipopt.html" title="At any time after a mixed integer program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXmipopt/CPXmipopt may be used to find a solution to that problem.">CPXXmipopt and CPXmipopt</a> or 
+          <a class="xref" href="lpopt.html" title="At any time after a linear program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXlpopt/CPXlpopt finds a solution to that problem using one of the CPLEX linear optimizers.">CPXXlpopt and CPXlpopt</a> or other optimization routines.
+        </p>
+
+      
+        <p class="p">
+          In order to clear a generic callback, invoke this function with a
+          <span class="keyword parmname">contextmask</span> of 0 (zero) or a
+          <span class="keyword parmname">callback</span> of <code class="ph codeph">NULL</code>.
+        </p>
+
+    
+        <p class="p">
+          Code in a generic callback function can invoke only routines that
+          take a context pointer (<code class="ph codeph">CPXCALLBACKCONTEXTptr</code>) as an argument.
+          Calling other CPLEX routines (especially those taking a pointer to the environment 
+          (<code class="ph codeph">CPXENVptr</code>) or a pointer to an LP problem (<code class="ph codeph">CPXLPptr</code>) 
+          as an argument results in undefined behavior.
+        </p>
+
+     
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to the CPLEX environment as returned by 
+<code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to a CPLEX problem object as returned, for example, by
+<code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.</p>
+
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">contextmask</dt>
+
+        <dd class="dd pd">
+          
+          Specifies in which context CPLEX should invoke the callback.
+          This value can be the bit-wise OR of the various constants that define
+          the generic callback contexts.
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">callback</dt>
+
+        <dd class="dd pd">
+          
+          The user-written callback function to invoke. See
+          <a class="xref" href="../typedefs/CPXCALLBACKFUNC.html" title="Prototype for generic callback functions">CPXCALLBACKFUNC</a> for the signature
+          of this function.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">userhandle</dt>
+
+        <dd class="dd pd">
+          
+          User data for callback invocation. CPLEX passes this pointer as the last
+          argument to the callback function.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecallbacks.html">Callback Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpCallbacks.html">Using callbacks</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="callbackgetfunc.html" title="Get the currently installed generic callback."><span class="keyword apiname">CPXXcallbackgetfunc</span>/<span class="keyword apiname">CPXcallbackgetfunc</span></a></li>
+<li class="linklist"><a class="link" href="../typedefs/CPXCALLBACKFUNC.html" title="Prototype for generic callback functions"><code class="ph codeph">CPXCALLBACKFUNC</code></a></li>
+<li class="linklist"><a class="link" href="../enumerations/CPXCALLBACKINFO.html"><code class="ph codeph">CPXCALLBACKINFO</code></a></li></ul></div>
+</nav>
+</div></body>
+</html>

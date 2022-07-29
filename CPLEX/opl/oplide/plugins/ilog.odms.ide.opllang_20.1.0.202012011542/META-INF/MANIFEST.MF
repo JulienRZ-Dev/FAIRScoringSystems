@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ilog.odms.ide.opllang;singleton:=true
+Archiver-Version: Plexus Archiver
+Built-By: opladm
+Require-Bundle: org.eclipse.core.runtime,ilog.odms.ide.opllang.interfa
+ ces
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-BuddyPolicy: dependent
+Bundle-Vendor: %Bundle-Vendor
+Export-Package: ilog.concert,ilog.concert.cppimpl,ilog.cp,ilog.cp.cppi
+ mpl,ilog.cplex,ilog.cplex.cppimpl,ilog.odms.ide.opllang,ilog.odms.ide
+ .opllang.annotation,ilog.odms.ide.opllang.bridge.util,ilog.odms.ide.o
+ pllang.multiplex,ilog.odms.ide.opllang.osgi,ilog.odms.ide.opllang.rem
+ ote.mbean,ilog.odms.ide.opllang.run,ilog.odms.ide.opllang.run.comm,il
+ og.opl,ilog.opl_core.cppimpl
+Bundle-Name: %Bundle-Name
+Bundle-Version: 20.1.0.202012011542
+Bundle-Localization: plugin
+Bundle-ClassPath: ilog.odms.ide.opllang.jar,oplall.jar,.
+Bundle-Activator: ilog.odms.ide.opllang.IloOplLangPlugin
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_191
+Eclipse-BundleShape: dir
+
+Name: about.html
+SHA-256-Digest: KU4sNPtXY9H0pv6LPL0crG/OaI/dkpKuZQ1A0ZSf0S8=
+
+Name: oplall.jar
+SHA-256-Digest: CBDjabiGsDakNvV3CmabBeFnuxpAhrGcmybTh3vzAOQ=
+
+Name: ilog.odms.ide.opllang.jar
+SHA-256-Digest: OCgzBNkQdBZthCcOSOERXYCDYwlqNPtXJnO4UII5ejI=
+
+Name: plugin.properties
+SHA-256-Digest: 2jXqJ8K/dx2I/kJOzPkEUdS8wIJh4JCj/gzFPGR/QGw=
+

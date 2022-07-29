@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="exp" />
+<meta name="abstract" content="OPL &#34;exponent&#34; function" />
+<meta name="Description" content="OPL &#34;exponent&#34; function" />
+<meta name="DC.subject" content="logarithms, exp, OPL function" />
+<meta name="keywords" content="logarithms, exp, OPL function" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_lg.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_ln.html" />
+<meta name="DC.Relation" scheme="URI" content="tlr_oplf_log.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="KZIYAtle" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>exp</title>
+</head>
+<body id="KZIYAtle"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">exp</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL <q class="q">exponent</q> function</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL function
+to return <em class="ph i">e</em> <sup class="ph sup">f</sup>.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d434011e48" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d434011e48" class="stentry">
+<pre class="pre msgblock">float</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+exp(float f)
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Returns <em class="ph i">e</em> <sup class="ph sup">f</sup>. You can use this function within
+IBM ILOG Script statements by specifying the OPL namespace:</p>
+<pre class="pre codeblock"><code>
+( Opl.xxx() )
+</code></pre></section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>float a=1;
+float b=2;
+float c=4.5;
+
+float expofa=exp(a);
+float expofb=exp(b);
+float expofc=exp(c);
+
+execute
+{
+   writeln("exp(",a,") gives ",expofa);
+   writeln("exp(",b,") gives ",expofb); 
+   writeln("exp(",c,") gives ",expofc); 
+}
+</code></pre><p class="p paragrouptitle">Result</p>
+<pre class="pre codeblock"><code>exp(1) gives 2.718281828459045
+exp(2) gives 7.38905609893065
+exp(4.5) gives 90.01713130052181
+</code></pre></div>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="tlr_oplf_lg.html" title="OPL function for the base–2 log">lg</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_ln.html" title="OPL function for the natural log">ln</a></li>
+<li class="linklist"><a class="link" href="tlr_oplf_log.html" title="OPL function for the base–10 logarithm">log</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

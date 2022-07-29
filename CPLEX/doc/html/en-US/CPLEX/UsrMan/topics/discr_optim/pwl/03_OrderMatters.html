@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Order matters" />
+<meta name="abstract" content="Order among the x-coordinates of the breakpoints of a piecewise linear constraint matters." />
+<meta name="Description" content="Order among the x-coordinates of the breakpoints of a piecewise linear constraint matters." />
+<meta name="DC.subject" content="piecewise linear, breakpoints, order matters" />
+<meta name="keywords" content="piecewise linear, breakpoints, order matters" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/pwl/01_pwl_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usrManDiscontOptimPWLegOrderMatters" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/pwl/01_pwl_title_synopsis.html" />
+<title>Order matters</title>
+</head>
+<body id="usrManDiscontOptimPWLegOrderMatters"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Order matters</h1>
+
+
+
+<div class="body"><p class="shortdesc"> 
+Order among the x-coordinates of the breakpoints of a piecewise linear constraint matters.
+</p>
+ 
+<p class="p">If your XML model includes piecewise linear constraints (PWL), 
+you must specify breakpoints in a PWL constraint in increasing order of 
+the x-coordinates of the breakpoints. 
+Otherwise, CPLEX cannot extract them as you intend. 
+</p>
+<div class="p">
+As a demonstration of the effect of order among breakpoints, consider, for example, these breakpoints: 
+<pre class="pre codeblock"><code> 
+(0,0) (1,0) (1,1) (2,1)
+(0,0) (1,1) (1,0) (2,1) 
+</code></pre> 
+Both sets cite the same four breakpoints, but notice that the order is different.
+The first set specifies these two horizontal line segments:
+<pre class="pre codeblock"><code> 
+                          _
+(0,0) (1,0) (1,1) (2,1)  _
+</code></pre> 
+The second set specifies these two parallel line segments sloping at 45 degrees: 
+<pre class="pre codeblock"><code> 
+(0,0) (1,1) (1,0) (2,1) //
+</code></pre> 
+</div>
+
+</div>
+ 
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/pwl/01_pwl_title_synopsis.html" title="Demonstrates the use of piecewise linear functions to solve a transportation problem.">Using piecewise linear functions in optimization: a transport example</a></div>
+</div>
+</nav></div></body>
+</html>

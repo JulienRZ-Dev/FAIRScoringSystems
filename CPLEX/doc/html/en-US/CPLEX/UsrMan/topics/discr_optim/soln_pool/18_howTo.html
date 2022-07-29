@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="How to enumerate all solutions" />
+<meta name="abstract" content="Tells how to enumerate all solutions of a MIP model." />
+<meta name="Description" content="Tells how to enumerate all solutions of a MIP model." />
+<meta name="DC.subject" content="writing, solutions of solution pool in Interactive Optimizer, enumerating, solution pool, accessing, enumerating all solutions, accessing solutions in, writing all solutions" />
+<meta name="keywords" content="writing, solutions of solution pool in Interactive Optimizer, enumerating, solution pool, accessing, enumerating all solutions, accessing solutions in, writing all solutions" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/17_enumerate_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solnpool.1052804" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/17_enumerate_title_synopsis.html" />
+<title>How to enumerate all solutions</title>
+</head>
+<body id="User_manual.uss_solnpool.1052804"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">How to enumerate all solutions</h1>
+ 
+ 
+ 
+<div class="body taskbody"><p class="shortdesc">Tells how to enumerate all solutions of a MIP model.</p>
+ 
+<section class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd229133e54">About this task</h2></div>
+<p class="p">You can also enumerate all solutions that are valid for
+a specific criterion. For example, if you want to enumerate all alternative
+optimal solutions, do the following steps:</p>
+ 
+</section>
+ 
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd229133e60">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Set the <a class="xref" href="../../../../Parameters/topics/SolnPoolAGap.html" title="Sets an absolute tolerance on the objective value for the solutions in the solution pool.">absolute gap for solution pool</a> parameter
+(<code class="ph codeph">SolnPoolAGap</code>, <code class="ph codeph">CPX_PARAM_SOLNPOOLAGAP</code>)
+to 0.0 (zero). </span></li>
+<li class="li step"><span class="ph cmd">Set the <a class="xref" href="../../../../Parameters/topics/SolnPoolIntensity.html" title="Controls the trade-off between the number of solutions generated for the solution pool and the amount of time or memory consumed.">solution pool intensity</a> parameter
+to 4 (<code class="ph codeph">SolnPoolIntensity</code>, <code class="ph codeph">CPX_PARAM_SOLNPOOLINTENSITY</code>).</span></li>
+<li class="li step"><span class="ph cmd">Set the <a class="xref" href="../../../../Parameters/topics/PopulateLim.html" title="Sets the maximum number of mixed integer programming (MIP) solutions generated for the solution pool during each call to the populate procedure.">maximum number of solutions generated for solution pool by populate</a> (<code class="ph codeph">PopulateLim</code>, <code class="ph codeph">CPX_PARAM_POPULATELIM</code>)
+to a value sufficiently large for your model; for example, 2 100 000 000.</span></li>
+<li class="li step"><span class="ph cmd">Call populate.</span></li>
+</ol>
+ 
+
+<section class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd229133e118">Results</h2></div> 
+<p class="p">Beware, however, that, even for small models, the number
+of possible solutions is likely to be huge. Consequently, enumerating
+all of them will take time and consume a large quantity of memory.</p>
+ 
+<div class="p">In the Interactive Optimizer, for example, to write all the solutions 
+to a file named <code class="ph codeph">mySolutions.sol</code> in the SOL file format, 
+execute that procedure and then use the following command:
+<pre class="pre codeblock"><code>
+write mySolutions.sol all
+</code></pre>
+</div>
+
+<p class="p">In addition, when you attempt to enumerate all solutions,
+some restrictions apply, as explained in the following sections.</p>
+
+<ul class="ul"><li class="li"><p class="p"> <a class="xref" href="19_limitation_finite_precision.html" title="Describes limitations due to finite precision arithmetic.">Limitations due to continuous variables and finite precision</a> </p>
+
+</li>
+<li class="li"><p class="p"> <a class="xref" href="20_limitation_unbnded.html" title="Describes limitations due to unbounded MIP models.">Limitations due to unbounded MIP models</a> </p>
+
+</li>
+<li class="li"><p class="p"> <a class="xref" href="21_limitation_num_difficulty.html" title="Describes limitations due to numeric difficulties.">Limitations due to numeric difficulties</a> </p>
+
+</li>
+</ul>
+
+</section>
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/17_enumerate_title_synopsis.html" title="Describes difficulties of enumerating all solutions.">Enumerating all solutions</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Multiobjective optimization routines" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumobjs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjchgattribs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetcntinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetdblinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetdiminfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetintinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetlonginfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetnumsolves.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetobjval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjgetobjvalbypriority.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjopt.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/multiobjsetobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setnumobjs.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpMultiobjective" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<title>Multiobjective optimization routines</title>
+</head>
+<body id="hpMultiobjective"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Multiobjective optimization routines </h1>
+
+<div class="body">
+<p class="p"> These routines implement multiobjective optimization. </p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumobjs.html">CPXXgetnumobjs and CPXgetnumobjs</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXgetnumobjs</span>/<span class="keyword apiname">CPXgetnumobjs</span></code>     returns the number of objectives in the problem instance.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjchgattribs.html">CPXXmultiobjchgattribs and CPXmultiobjchgattribs</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjchgattribs</span>/<span class="keyword apiname">CPXmultiobjchgattribs</span></code>     changes the name, the weight, priority, absolute and relative     tolerance attributes of an objective in the multiobjective     description of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetcntinfo.html">CPXXmultiobjgetcntinfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetcntinfo</span></code> accesses integer-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetdblinfo.html">CPXXmultiobjgetdblinfo and CPXmultiobjgetdblinfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetdblinfo</span>/<span class="keyword apiname">CPXmultiobjgetdblinfo</span></code> accesses double-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetdiminfo.html">CPXXmultiobjgetdiminfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetdiminfo</span></code> accesses integer-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetindex.html">CPXXmultiobjgetindex and CPXmultiobjgetindex</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetindex</span>/<span class="keyword apiname">CPXmultiobjgetindex</span></code>     searches for the index number of the specified objective in a CPLEX     problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetintinfo.html">CPXXmultiobjgetintinfo and CPXmultiobjgetintinfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetintinfo</span>/<span class="keyword apiname">CPXmultiobjgetintinfo</span></code> accesses integer-valued information about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetlonginfo.html">CPXXmultiobjgetlonginfo and CPXmultiobjgetlonginfo</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetlonginfo</span>/<span class="keyword apiname">CPXmultiobjgetlonginfo</span></code> accesses long-valued information  about the solution of the specified subproblem during the last multi-objective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetname.html">CPXXmultiobjgetname and CPXmultiobjgetname</a></strong><br />
+     Accesses the name of the specified objective of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetnumsolves.html">CPXXmultiobjgetnumsolves and CPXmultiobjgetnumsolves</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetnumsolves</span>/<span class="keyword apiname">CPXmultiobjgetnumsolves</span></code>     accesses the specified objective of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetobj.html">CPXXmultiobjgetobj and CPXmultiobjgetobj</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetobj</span>/<span class="keyword apiname">CPXmultiobjgetobj</span></code>     accesses the specified objective of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetobjval.html">CPXXmultiobjgetobjval and CPXmultiobjgetobjval</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetobjval</span>/<span class="keyword apiname">CPXmultiobjgetobjval</span></code>     accesses the value of objective with index n after multiobjective     optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjgetobjvalbypriority.html">CPXXmultiobjgetobjvalbypriority and CPXmultiobjgetobjvalbypriority</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjgetobjvalbypriority</span>/<span class="keyword apiname">CPXmultiobjgetobjvalbypriority</span></code>     accesses the blended objective value for the specified priority     after multiobjective optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjopt.html">CPXXmultiobjopt and CPXmultiobjopt</a></strong><br />
+      The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjopt</span>/<span class="keyword apiname">CPXmultiobjopt</span></code>     performs a multiobjective optimization on a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/multiobjsetobj.html">CPXXmultiobjsetobj and CPXmultiobjsetobj</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXmultiobjsetobj</span>/<span class="keyword apiname">CPXmultiobjsetobj</span></code>     sets the specified objective of the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setnumobjs.html">CPXXsetnumobjs and CPXsetnumobjs</a></strong><br />
+     The routine     <code class="ph codeph"><span class="keyword apiname">CPXXsetnumobjs</span>/<span class="keyword apiname">CPXsetnumobjs</span></code>     sets the number of objectives in the problem instance.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

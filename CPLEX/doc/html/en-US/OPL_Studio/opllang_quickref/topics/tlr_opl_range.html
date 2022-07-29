@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="range" />
+<meta name="abstract" content="OPL keyword for ranges of integers" />
+<meta name="Description" content="OPL keyword for ranges of integers" />
+<meta name="DC.subject" content="lower and upper bounds, upper bound, quantifiers, ranges, aggregate operators, arrays, decision variables, range, OPL keyword" />
+<meta name="keywords" content="lower and upper bounds, upper bound, quantifiers, ranges, aggregate operators, arrays, decision variables, range, OPL keyword" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="q9NWdsch" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" />
+<title>range</title>
+</head>
+<body id="q9NWdsch"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">range</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL keyword for ranges of integers</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL keyword
+to specify ranges of integers.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d429325e62" class="stentry">context</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d429325e62" class="stentry">Model files (.mod)</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+LiteralType: "int"
+           | "float"
+           | "boolean"
+           | "int+"
+           | "float+"
+           | "string"
+           | "range"
+           | "range" "float"
+           | "constraint"
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Integer
+ranges are fundamental in OPL, since they are often used in arrays
+and decision variable declarations, as well as in aggregate operators,
+queries, and quantifiers. An integer range is specified by giving
+its lower and upper bounds, as in </p>
+<pre class="pre codeblock"><code>
+range Rows = 1..10;
+</code></pre><p class="p">which declares a range <code class="ph codeph">1..10</code>.
+The lower and upper bounds can also be given by expressions, as in </p>
+<pre class="pre codeblock"><code>
+int n = 8; 
+range Rows = n+1..2*n+1; 
+</code></pre><p class="p">Once a range has been defined, it is possible
+to declare data taking their values in this range. In OPL 4.x, you
+must use one of the standard types when declaring data or a decision
+variable, as in:</p>
+<pre class="pre codeblock"><code>
+range Workers = 1..nbWorkers;
+{int} qualified[Tasks] = ...;
+range Obj = 0..(n*n);
+dvar int obj in Obj;
+</code></pre><p class="p">The declaration:</p>
+<pre class="pre codeblock"><code>
+range float fr = 1.2..2.2; 
+</code></pre><p class="p">specifies the subset of the real numbers in
+the interval <code class="ph codeph">[1.2,2.2]</code>.</p>
+<div class="cautiontitle">CAUTION:</div><div class="note caution"> <p class="p">If, in a model, you define a range such as <code class="ph codeph">a..b</code> with <code class="ph codeph">b</code> smaller than <code class="ph codeph">a</code> (<code class="ph codeph">-2..-10</code>, for example),
+that range is considered empty and OPL transforms it to <code class="ph codeph">0..-1</code>.</p>
+ </div>
+</section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><p class="p">A compilable example:</p>
+<pre class="pre codeblock"><code>range Rows = 1..10;
+
+int n = 8; 
+range Rows2 = n+1..2*n+1; 
+
+int nbWorkers=10;
+range Workers = 1..nbWorkers;
+range Obj = 0..(n*n);
+dvar int obj in Obj;
+
+range float fr = 1.2..2.2; 
+</code></pre></div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_keywords_top.html" title="Description, syntax, and example for each individual OPL keyword..">OPL keywords</a></div>
+</div>
+</nav></div></body>
+</html>

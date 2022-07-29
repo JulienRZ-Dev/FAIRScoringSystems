@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXchgrngval and CPXchgrngval" />
+<meta name="abstract" content="The routine CPXXchgrngval/CPXchgrngval changes the range coefficients of a set of linear constraints in the CPLEX problem object." />
+<meta name="Description" content="The routine CPXXchgrngval/CPXchgrngval changes the range coefficients of a set of linear constraints in the CPLEX problem object." />
+<meta name="DC.subject" content="CPXchgrngval, C API Reference Manual, CPXXchgrngval" />
+<meta name="keywords" content="CPXchgrngval, C API Reference Manual, CPXXchgrngval" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpModifyModel.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="chgrngval" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpModifyModel.html" />
+<title>CPXXchgrngval and CPXchgrngval</title>
+</head>
+<body id="chgrngval"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXchgrngval</span> and <span class="keyword apiname">CPXchgrngval</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgrngval</span>/<span class="keyword apiname">CPXchgrngval</span></code> changes the range
+coefficients of a set of linear constraints in the CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXchgrngval</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">values</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXchgrngval</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">values</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXchgrngval</span>/<span class="keyword apiname">CPXchgrngval</span></code> changes the range
+coefficients of a set of linear constraints in the CPLEX problem object.</p>
+
+<p class="p">Note that changing the range coefficients will <strong class="ph b">not</strong> change the sense of a constraint.
+You must call 
+<code class="ph codeph"><a class="xref" href="chgsense.html" title="The routine CPXXchgsense/CPXchgsense changes the sense of a set of linear constraints of a CPLEX problem object."><span class="keyword apiname">CPXXchgsense</span>/<span class="keyword apiname">CPXchgsense</span></a></code> 
+to change the sense of a ranged row if the previous range coefficient was 0 (zero) and the 
+constraint sense was not 'R'. Similarly, changing the range coefficient from a nonzero 
+value to 0 (zero) will <strong class="ph b">not</strong> change the constraint sense from 'R' to 'E'; an additional call of 
+<code class="ph codeph"><a class="xref" href="chgsense.html" title="The routine CPXXchgsense/CPXchgsense changes the sense of a set of linear constraints of a CPLEX problem object."><span class="keyword apiname">CPXXchgsense</span>/<span class="keyword apiname">CPXchgsense</span></a></code> 
+is required to accomplish that.
+</p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the total number of range coefficients to be changed, and thus specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">indices</span></code> and <code class="ph codeph"><span class="keyword parmname">values</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indices</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing the numeric indices of the rows corresponding to the linear constraints for which range coefficients are to be changed.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">values</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing the new values of the range coefficients of the linear constraints present in <code class="ph codeph"><span class="keyword parmname">indices</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXchgrngval (env, lp, cnt, indices, values);</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodifyproblem.html">Modifying Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpModifyModel.html">Modifying a model for a linear program (LP)</a></div>
+</div>
+</nav></div></body>
+</html>

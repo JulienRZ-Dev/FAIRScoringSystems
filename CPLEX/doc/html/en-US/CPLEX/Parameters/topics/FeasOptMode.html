@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="mode of FeasOpt" />
+<meta name="abstract" content="Decides how FeasOpt measures the relaxation when finding a minimal relaxation in an infeasible model." />
+<meta name="Description" content="Decides how FeasOpt measures the relaxation when finding a minimal relaxation in an infeasible model." />
+<meta name="DC.subject" content="CPX_PARAM_FEASOPTMODE, FeasOptMode, feasopt mode, FeasOpt, mode, bound violation" />
+<meta name="keywords" content="CPX_PARAM_FEASOPTMODE, FeasOptMode, feasopt mode, FeasOpt, mode, bound violation" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196784845432" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>mode of FeasOpt</title>
+</head>
+<body id="languageRefTopic1196784845432"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">mode of FeasOpt</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Decides how FeasOpt measures the relaxation when finding
+a minimal relaxation in an infeasible model.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+    
+    <p class="p">Mode of FeasOpt</p>
+
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d100589e66">API</th>
+
+<th class="entry nrule" valign="top" id="d100589e69">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d100589e72">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">CPXPARAM_Feasopt_Mode</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">CPX_PARAM_FEASOPTMODE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">IloCplex::Param::Feasopt::Mode</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">FeasOptMode (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">IloCplex.Param.Feasopt.Mode</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">FeasOptMode (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">Cplex.Param.Feasopt.Mode</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">FeasOptMode (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">feasoptmode </td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">feasoptmode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">parameters.feasopt.mode</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">feasopt.mode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">feasopt mode</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">feasopt mode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d100589e66 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d100589e69 ">1084</td>
+
+<td class="entry nrule" valign="top" headers="d100589e72 ">1084</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Decides how FeasOpt measures
+the relaxation when finding a minimal relaxation in an infeasible
+model. FeasOpt works in two phases. In its first phase, it attempts
+to minimize its relaxation of the infeasible model. That is, it attempts
+to find a feasible solution that requires minimal change. In its second
+phase, it finds an optimal solution among those that require only
+as much relaxation as it found necessary in the first phase. Values
+of this parameter indicate two aspects to CPLEX: </p>
+<ul class="ul">
+<li class="li"><p class="p">whether to stop in phase one or continue to phase two and </p>
+</li>
+
+<li class="li"><p class="p">how to measure the relaxation, according to one of the following
+criteria:</p>
+ <ul class="ul">
+<li class="li"><p class="p">as a sum of required relaxations;</p>
+ </li>
+
+<li class="li"><p class="p">as the number of constraints and bounds required to be relaxed; </p>
+</li>
+
+<li class="li"><p class="p">as a sum of the squares of required relaxations. </p>
+</li>
+
+</ul>
+ </li>
+
+</ul>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table showing possible values, their symbolic equivalents in C and C++, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d100589e234">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d100589e237">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d100589e240">Symbol (C API)</th>
+
+<th class="entry thleft" align="left" valign="top" id="d100589e243">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d100589e234 ">0</td>
+
+<td class="entry" valign="top" headers="d100589e237 "><code class="ph codeph">MinSum</code> </td>
+
+<td class="entry" valign="top" headers="d100589e240 "><code class="ph codeph">CPX_FEASOPT_MIN_SUM</code> </td>
+
+<td class="entry" valign="top" headers="d100589e243 ">Minimize the sum of all required relaxations in first phase
+only; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d100589e234 ">1</td>
+
+<td class="entry" valign="top" headers="d100589e237 "><code class="ph codeph">OptSum</code> </td>
+
+<td class="entry" valign="top" headers="d100589e240 "><code class="ph codeph">CPX_FEASOPT_OPT_SUM</code> </td>
+
+<td class="entry" valign="top" headers="d100589e243 ">Minimize the sum of all required relaxations in first phase
+and execute second phase to find optimum among minimal relaxations</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d100589e234 ">2</td>
+
+<td class="entry" valign="top" headers="d100589e237 "><code class="ph codeph">MinInf</code> </td>
+
+<td class="entry" valign="top" headers="d100589e240 "><code class="ph codeph">CPX_FEASOPT_MIN_INF</code> </td>
+
+<td class="entry" valign="top" headers="d100589e243 ">Minimize the number of constraints and bounds requiring relaxation
+in first phase only</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d100589e234 ">3</td>
+
+<td class="entry" valign="top" headers="d100589e237 "><code class="ph codeph">OptInf</code> </td>
+
+<td class="entry" valign="top" headers="d100589e240 "><code class="ph codeph">CPX_FEASOPT_OPT_INF</code> </td>
+
+<td class="entry" valign="top" headers="d100589e243 ">Minimize the number of constraints and bounds requiring relaxation
+in first phase and execute second phase to find optimum among minimal
+relaxations</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d100589e234 ">4</td>
+
+<td class="entry" valign="top" headers="d100589e237 "><code class="ph codeph">MinQuad</code> </td>
+
+<td class="entry" valign="top" headers="d100589e240 "><code class="ph codeph">CPX_FEASOPT_MIN_QUAD</code> </td>
+
+<td class="entry" valign="top" headers="d100589e243 ">Minimize the sum of squares of required relaxations in first
+phase only </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d100589e234 ">5</td>
+
+<td class="entry" valign="top" headers="d100589e237 "><code class="ph codeph">OptQuad</code> </td>
+
+<td class="entry" valign="top" headers="d100589e240 "><code class="ph codeph">CPX_FEASOPT_OPT_QUAD</code> </td>
+
+<td class="entry" valign="top" headers="d100589e243 ">Minimize the sum of squares of required relaxations in first
+phase and execute second phase to find optimum among minimal relaxations</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="p"> </p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

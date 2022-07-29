@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="The incumbent and the solution pool" />
+<meta name="abstract" content="Describes access to the incumbent from the solution pool." />
+<meta name="Description" content="Describes access to the incumbent from the solution pool." />
+<meta name="DC.subject" content="incumbent solution, in solution pool, solution pool, incumbent solution in, index 0 (zero)" />
+<meta name="keywords" content="incumbent solution, in solution pool, solution pool, incumbent solution in, index 0 (zero)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/01_soln_pool_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solnpool.1052298" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/01_soln_pool_title_synopsis.html" />
+<title>The incumbent and the solution pool</title>
+</head>
+<body id="User_manual.uss_solnpool.1052298"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">The incumbent and the solution pool</h1>
+ 
+ 
+ 
+<div class="body"><p class="shortdesc">Describes access to the incumbent from the solution pool.</p>
+
+<p class="p">A copy of the incumbent solution (that is, the best integer
+solution found relative to the objective function) is always added
+to the pool, as long as the pool capacity is at least one, regardless
+of its evaluation with respect to any filters and regardless of the
+replacement criterion governing the solution pool. This copy of the
+incumbent solution will be the first member of the solution pool,
+that is, the solution with index 0 (zero). The incumbent is accessible
+through queries that use the symbolic value identifying the incumbent.</p>
+
+<ul class="ul"><li class="li"><p class="p">In the C++ API, use the value <code class="ph codeph">IloCplex::IncumbentId</code> as
+an argument to such methods as <code class="ph codeph">IloCplex::getValues</code>, <code class="ph codeph">getSlack</code>, <code class="ph codeph">getSlacks</code>, <code class="ph codeph">getQuality</code>, <code class="ph codeph">getObjValue</code>.</p>
+
+</li>
+<li class="li"><p class="p">In the Java API, use the value <code class="ph codeph">IloCplex.IncumbentId</code> as
+an argument to such methods as <code class="ph codeph">IloCplex.getValues</code>, <code class="ph codeph">getSlack</code>, <code class="ph codeph">getSlacks</code>, <code class="ph codeph">getQuality</code>, <code class="ph codeph">getObjValue</code>.</p>
+
+</li>
+<li class="li"><p class="p">In the .NET API, use the value <code class="ph codeph">Cplex.IncumbentId</code> as
+an argument to such methods as <code class="ph codeph">Cplex.GetValues</code>, <code class="ph codeph">GetSlack</code>, <code class="ph codeph">GetSlacks</code>, <code class="ph codeph">GetQuality</code>, <code class="ph codeph">GetObjValue</code>.</p>
+
+</li>
+<li class="li"><p class="p">In the Callable Library (C API), use
+the symbolic value <code class="ph codeph">CPX_INCUMBENT_ID</code> as
+an argument to such routines as<code class="ph codeph">,CPXgetsolnpoolx</code>, <code class="ph codeph">CPXgetsolnpoolobjval</code>, <code class="ph codeph">CPXgetsolnpoolslack</code>, <code class="ph codeph">CPXgetsolnpoolqconstrslack</code>, <code class="ph codeph">CPXgetsolnpooldblquality</code>, <code class="ph codeph">CPXgetsolnpoolintquality</code>, <code class="ph codeph">CPXgetsolnpoolsolnname</code>, <code class="ph codeph">CPXsolwritesolnpool</code>, <code class="ph codeph">CPXchgprobtypesolnpool</code>.</p>
+
+</li>
+<li class="li"><div class="p">In the Interactive Optimizer use the command: 
+<pre class="pre codeblock"><code>display solution member 0</code></pre> 
+or 
+<pre class="pre codeblock"><code>display solution member incumbent</code></pre> 
+That is, you can display the incumbent solution by index number or by name. </div>
+
+</li>
+</ul>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/soln_pool/01_soln_pool_title_synopsis.html" title="Introduces the solution pool for storing multiple solutions to a mixed integer programming problem (MIP) and explains techniques for generating and managing those solutions.">Solution pool: generating and keeping multiple solutions</a></div>
+</div>
+</nav></div></body>
+</html>

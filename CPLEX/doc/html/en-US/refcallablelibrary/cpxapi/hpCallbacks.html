@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using callbacks" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackabort.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackaddusercuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackcandidateispoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackcandidateisray.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackexitcutloop.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetcandidatepoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetcandidateray.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetincumbent.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetinfodbl.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetinfoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetinfolong.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetrelaxationpoint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackgetrelaxationstatus.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackmakebranch.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackpostheursoln.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackprunenode.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackrejectcandidate.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbackrejectcandidatelocal.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/callbacksetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getcallbackinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlpcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnetcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/gettuningcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/modelasstcallbackgetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/modelasstcallbacksetfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlpcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setnetcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/settuningcallbackfunc.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="hpCallbacks" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<title>Using callbacks</title>
+</head>
+<body id="hpCallbacks"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Using callbacks</h1>
+
+<div class="body">
+<p class="p">
+These routines invoke callbacks, implement callbacks, manipulate the 
+branch and bound tree, access callback information. See also callbacks for 
+mixed integer programs (MIPs).
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackabort.html">CPXXcallbackabort and CPXcallbackabort</a></strong><br />
+      Aborts a CPLEX solve from a callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackaddusercuts.html">CPXXcallbackaddusercuts and CPXcallbackaddusercuts</a></strong><br />
+      Add user cuts from <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackcandidateispoint.html">CPXXcallbackcandidateispoint and CPXcallbackcandidateispoint</a></strong><br />
+      Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE     was invoked for a candidate feasible point.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackcandidateisray.html">CPXXcallbackcandidateisray and CPXcallbackcandidateisray</a></strong><br />
+      Tests whether a callback in the context     CPX_CALLBACKCONTEXT_CANDIDATE     was invoked for an unbounded relaxation.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackexitcutloop.html">CPXXcallbackexitcutloop and CPXcallbackexitcutloop</a></strong><br />
+      Instructs CPLEX to exit the cutloop at the current node from a callback      in the context CPX_CALLBACKCONTEXT_RELAXATION.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetcandidatepoint.html">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a></strong><br />
+      Gets the candidate solution and its objective value for callback invocations     in the context CPX_CALLBACKCONTEXT_CANDIDATE.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetcandidateray.html">CPXXcallbackgetcandidateray and CPXcallbackgetcandidateray</a></strong><br />
+      Gets the unbounded ray for callback invocations     in the context CPX_CALLBACKCONTEXT_CANDIDATE.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetfunc.html">CPXXcallbackgetfunc and CPXcallbackgetfunc</a></strong><br />
+      Get the currently installed generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetincumbent.html">CPXXcallbackgetincumbent and CPXcallbackgetincumbent</a></strong><br />
+      Gets the incumbent solution and its objective value for callback invocations     in the context CPX_CALLBACKCONTEXT_CANDIDATE.dita.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetinfodbl.html">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a></strong><br />
+    Accesses information of type double from a generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetinfoint.html">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></strong><br />
+   Accesses information of type integer from a generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetinfolong.html">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a></strong><br />
+   Accesses information of type long from a generic callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetrelaxationpoint.html">CPXXcallbackgetrelaxationpoint and CPXcallbackgetrelaxationpoint</a></strong><br />
+     Get the solution to the current node relaxation and its objective value for     callback invocations with <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></code>     or <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackgetrelaxationstatus.html">CPXXcallbackgetrelaxationstatus and CPXcallbackgetrelaxationstatus</a></strong><br />
+     Get the solution status for the current node relaxation.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackmakebranch.html">CPXXcallbackmakebranch and CPXcallbackmakebranch</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbackmakebranch</span>/<span class="keyword apiname">CPXcallbackmakebranch</span></code>     defines the branching constraints that define a branch from the current node     in the MIP search tree, from the context <code class="ph codeph"><a class="xref" href="../macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></code>.     The branch can include both variable bound changes and additional linear constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackpostheursoln.html">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a></strong><br />
+     Posts a feasible solution to CPLEX.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackprunenode.html">CPXXcallbackprunenode and CPXcallbackprunenode</a></strong><br />
+      Instructs CPLEX to prune the current node of the search tree from a callback      in the contexts CPX_CALLBACKCONTEXT_RELAXATION and CPX_CALLBACKCONTEXT_BRANCHING.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackrejectcandidate.html">CPXXcallbackrejectcandidate and CPXcallbackrejectcandidate</a></strong><br />
+      Rejects a candidate solution or an unbounded direction from a callback       in the context CPX_CALLBACKCONTEXT_CANDIDATE and       potentially specifies additional constraints that cut off the solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbackrejectcandidatelocal.html">CPXXcallbackrejectcandidatelocal and CPXcallbackrejectcandidatelocal</a></strong><br />
+      Rejects a candidate solution or an unbounded direction from a callback       in the context CPX_CALLBACKCONTEXT_CANDIDATE and       specifies additional constraints that cut off the solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/callbacksetfunc.html">CPXXcallbacksetfunc and CPXcallbacksetfunc</a></strong><br />
+      Sets the generic callback function and specifies in which contexts it will be     invoked.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getcallbackinfo.html">CPXXgetcallbackinfo and CPXgetcallbackinfo</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackinfo</span>/<span class="keyword apiname">CPXgetcallbackinfo</span></code> accesses information about the current optimization process from within a  user-written legacy callback function.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getlpcallbackfunc.html">CPXXgetlpcallbackfunc and CPXgetlpcallbackfunc</a></strong><br />
+   Accesses the user-written legacy callback routine to be called after each iteration during the optimization of a continuous problem (LP, QP, or QCP), and also periodically during the CPLEX presolve algorithm.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnetcallbackfunc.html">CPXXgetnetcallbackfunc and CPXgetnetcallbackfunc</a></strong><br />
+   Accesses the user-written legacy callback routine to be called each time a log message is issued during the optimization of a network problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/gettuningcallbackfunc.html">CPXXgettuningcallbackfunc and CPXgettuningcallbackfunc</a></strong><br />
+   Accesses the user-written legacy callback routine to be called before each trial run during the tuning process.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/modelasstcallbackgetfunc.html">CPXXmodelasstcallbackgetfunc and CPXmodelasstcallbackgetfunc</a></strong><br />
+      Get the currently installed modeling assistance callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/modelasstcallbacksetfunc.html">CPXXmodelasstcallbacksetfunc and CPXmodelasstcallbacksetfunc</a></strong><br />
+      Sets the modeling assistance callback function.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setlpcallbackfunc.html">CPXXsetlpcallbackfunc and CPXsetlpcallbackfunc</a></strong><br />
+   Modifies the user-written legacy callback routine to be called after each iteration during the optimization of a linear program, and also periodically during the CPLEX presolve algorithm.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setnetcallbackfunc.html">CPXXsetnetcallbackfunc and CPXsetnetcallbackfunc</a></strong><br />
+   Sets the user-written legacy callback routine to be called each time a log message is issued during the optimization of a network program.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/settuningcallbackfunc.html">CPXXsettuningcallbackfunc and CPXsettuningcallbackfunc</a></strong><br />
+   Modifies the user-written legacy callback function to be called before each trial run during the tuning process.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

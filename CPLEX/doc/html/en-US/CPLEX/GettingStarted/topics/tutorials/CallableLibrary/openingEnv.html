@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Opening the CPLEX environment" />
+<meta name="abstract" content="Your Callable Library application initializes the CPLEX environment." />
+<meta name="Description" content="Your Callable Library application initializes the CPLEX environment." />
+<meta name="DC.subject" content="Callable Library (C API), opening CPLEX, CPXopenCPLEX routine, purpose in C API, CPXmsgstr routine, CPXcloseCPLEX routine, purpose in C API" />
+<meta name="keywords" content="Callable Library (C API), opening CPLEX, CPXopenCPLEX routine, purpose in C API, CPXmsgstr routine, CPXcloseCPLEX routine, purpose in C API" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/howItWorks_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_callableLibraryStart.148417" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/howItWorks_synopsis.html" />
+<title>Opening the CPLEX environment</title>
+</head>
+<body id="Getting_started.uss_callableLibraryStart.148417"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Opening the CPLEX environment</h1>
+
+
+
+<div class="body"><p class="shortdesc">Your Callable Library application initializes the CPLEX
+environment.</p>
+
+<p class="p">CPLEX requires a number of internal data structures in order to execute properly. These data
+structures must be initialized before any call to the CPLEX Callable Library. The first call to the
+CPLEX Callable Library is always to the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code>. This
+routine returns a pointer to the CPLEX environment. This pointer is then passed to nearly every
+CPLEX Callable Library routine (for example, <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/msgstr.html" title="The routine CPXXmsgstr/CPXmsgstr sends a character string to a CPLEX message channel.">CPXXmsgstr and CPXmsgstr</a></code> is an exception).</p>
+
+<p class="p">The application developer must make an independent decision as
+to whether the variable containing the environment pointer is a global
+or local variable. Multiple environments are allowed, but extensive
+opening and closing of environments may create significant overhead
+and degrade performance; typical applications make use of only one
+environment for the entire execution, since a single environment may
+hold as many problem objects as the user wants. After all calls to
+the Callable Library are complete, the environment is released by
+the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/closeCPLEX.html" title="This routine frees all of the data structures associated with CPLEX.">CPXcloseCPLEX</a></code>.
+ This routine specifies to CPLEX that all calls to the Callable Library
+are complete, any memory allocated by CPLEX is returned to the operating
+system, and the use of CPLEX is ended for this run.</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/howItWorks_synopsis.html" title="CPLEX carries out these activities when it is invoked from the Callable Library (C API).">How CPLEX works</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Special operators" />
+<meta name="abstract" content="Lists the special operators in OPL and their syntax." />
+<meta name="Description" content="Lists the special operators in OPL and their syntax." />
+<meta name="DC.subject" content="syntax, in IBM ILOG Script, special operators, operators, special" />
+<meta name="keywords" content="syntax, in IBM ILOG Script, special operators, operators, special" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_expr.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptStructure.1020775" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_expr.html" />
+<title>Special operators</title>
+</head>
+<body id="usropllangref.uss_langref_scriptStructure.1020775"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Special operators</h1>
+
+
+
+<div class="body"><p class="shortdesc">Lists the special operators in OPL and their syntax.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table lists the syntax and effects of special operators in OPL." id="usropllangref.uss_langref_scriptStructure.1020775__usropllangref.uss_langref_scriptStructure.1020778" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Special operator syntax</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d484671e50">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d484671e53">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d484671e50 "><code class="ph codeph">new constructor(arg1, ..., argn)</code></td>
+
+<td class="entry" valign="top" headers="d484671e53 "><p class="p">Calls the constructor with the given arguments, and returns the created value.
+</p>
+<p class="p">Examples: </p>
+new Array() new MyCar("Ford", 1975) <p class="p">The constructor is typically a script
+variable reference, but it can be any expression. </p>
+<p class="p">Example: </p>
+new ctors[i](arg) // Invokes
+constructor ctors[i] </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d484671e50 "><code class="ph codeph">typeof</code> value</td>
+
+<td class="entry" valign="top" headers="d484671e53 "><p class="p">Returns a string representing the type of value, as follows: </p>
+Array
+    "object"   Boolean   "boolean"   Date      "date"   Function 
+"function"   Null      "object"   Number    "number"   Object    "object"
+  String    "string"   Undefined "undefined"   </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d484671e50 "><code class="ph codeph">delete</code> variable</td>
+
+<td class="entry" valign="top" headers="d484671e53 "><p class="p">Deletes the global script variable <code class="ph codeph">variable</code>. This does not mean that the
+value in <code class="ph codeph">variable</code> is deleted, but that it is removed from the global environment.
+</p>
+<p class="p">Example: </p>
+myVar = "Hello, world" // Create the global variable myVar delete myVar
+writeln(myVar) // Signals an error because myVar is undefined <p class="p">If <code class="ph codeph">variable</code> is a
+local variable, an error is signalled; if <code class="ph codeph">variable</code> is not a known variable, nothing
+happens. </p>
+<p class="p">The whole expression returns <code class="ph codeph">true</code>. </p>
+<p class="p"><strong class="ph b">For C/C++
+programmers:</strong><em class="ph i"> </em>The <code class="ph codeph">delete</code> operator has a radically different meaning in
+IBM ILOG Script; in C++, it is used to delete objects, not script variables and properties. </p>
+
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d484671e50 "><p class="p"><code class="ph codeph">delete</code> value.name</p>
+<p class="p"><code class="ph codeph">delete</code> value[name] </p>
+</td>
+
+<td class="entry" valign="top" headers="d484671e53 "><p class="p">Remove the property <code class="ph codeph">name</code> from the object
+value. </p>
+<p class="p">If <code class="ph codeph">value</code> does not contain the <code class="ph codeph">name</code> property,
+this expression does nothing. If the property does exist but cannot
+be deleted, an error is signalled. If <code class="ph codeph">value</code> is not
+an object, an error is signalled. </p>
+<p class="p">The whole expression returns
+the <code class="ph codeph">true</code> value. </p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d484671e50 ">expression1 , expression2</td>
+
+<td class="entry" valign="top" headers="d484671e53 "><p class="p">Evaluates <code class="ph codeph">expression1</code> and <code class="ph codeph">expression2</code> sequentially,
+and returns the value of <code class="ph codeph">expression2</code>. The value of <code class="ph codeph">expression1</code> is
+ignored. </p>
+<p class="p">The most common use for this operator is inside <code class="ph codeph">for</code> loops,
+where it can be used to evaluate several expressions where a single
+expression is expected: </p>
+<pre class="pre codeblock"><code>for (var i=0, j=0; i&lt;10; i++, j+=2)
+{  writeln(j, " is twice as big as ", i); }</code></pre></td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_expr.html" title="Expressions are a combination of literals, script variables, special keywords, and operators.">Expressions in IBM ILOG Script</a></div>
+</div>
+</nav></div></body>
+</html>

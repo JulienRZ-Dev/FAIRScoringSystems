@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Program description" />
+<meta name="abstract" content="Describes the architecture of an application from the C API solving the diet problem." />
+<meta name="Description" content="Describes the architecture of an application from the C API solving the diet problem." />
+<meta name="DC.subject" content="CPXopenCPLEX routine, role in application, CPXcreateprob routine, CPXnewcols routine, CPXaddrows routine, example, CPXlpopt routine, CPXsolution routine" />
+<meta name="keywords" content="CPXopenCPLEX routine, role in application, CPXcreateprob routine, CPXnewcols routine, CPXaddrows routine, example, CPXlpopt routine, CPXsolution routine" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/C/32_diet_eg_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_callableLibrary.650775" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/C/32_diet_eg_title_synopsis.html" />
+<title>Program description</title>
+</head>
+<body id="User_manual.uss_callableLibrary.650775"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Program description</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes the architecture of an application from the C
+API solving the diet problem.</p>
+
+<p class="p">All definitions needed for a Callable Library application are imported
+when your application includes the file <code class="ph codeph">&lt;ilcplex/cplex.h&gt;</code> at
+the beginning of the application. After a number of lines that establish
+the calling sequences for the routines that are to be used, the <code class="ph codeph">main</code> 
+function of the application begins by checking for correct command
+line arguments, printing a usage reminder and exiting in case of errors.</p>
+
+<p class="p">Next, the data defining the problem are read from a file specified
+in the command line at run time. The details of this are handled in
+the routine <code class="ph codeph">readdata</code>. In this file, cost, lower bound,
+and upper bound are specified for each type of food; then minimum
+and maximum levels of several nutrients needed in the diet are specified;
+finally, a table giving levels of each nutrient found in each unit
+of food is given. The result of a successful call to this routine
+is two variables <code class="ph codeph">nfoods</code> and <code class="ph codeph">nnutr</code> containing
+the number of foods and nutrients in the data file, arrays <code class="ph codeph">cost</code>, <code class="ph codeph">lb</code>, <code class="ph codeph">ub</code> containing
+the information about the foods, arrays <code class="ph codeph">nutrmin</code>, <code class="ph codeph">nutrmax</code> containing
+nutritional requirements for the proposed diet, and array <code class="ph codeph">nutrper</code> containing
+the nutritional value of the foods.</p>
+
+<p class="p">Preparations to build and solve the model with CPLEX begin with
+the call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code>.
+This establishes a CPLEX environment to contain the LP problem.</p>
+
+<p class="p">After calls to set parameters, one to control the output that comes
+to the user's terminal, and another to turn on data checking for debugging
+purposes, a problem object is initialized through the call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/createprob.html" title="The routine CPXXcreateprob/CPXcreateprob creates a CPLEX problem object in the CPLEX environment.">CPXcreateprob</a></code>.
+This call returns a pointer to an empty problem object, which now
+can be populated with data. </p>
+
+<p class="p">Two alternative approaches to filling this problem object are implemented
+in this program, <code class="ph codeph">populatebyrow</code>  and <code class="ph codeph">populatebycolumn</code>,
+and which one is executed is set at run time by an argument on the
+command line. The routine <code class="ph codeph">populatebyrow</code>  operates
+by first defining all the columns through a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/newcols.html" title="The routine CPXXnewcols/CPXnewcols adds empty columns to a specified CPLEX problem object.">CPXnewcols</a></code> and
+then repeatedly calls <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXaddrows</a></code> to
+enter the data of the constraints. The routine <code class="ph codeph">populatebycolumn</code> 
+takes the complementary approach of establishing all the rows first
+with a call to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/newrows.html" title="The routine CPXXnewrows/CPXnewrows adds empty constraints to a specified CPLEX problem object.">CPXnewrows</a></code> and
+then sequentially adds the column data by calls to <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/addcols.html" title="The routine CPXXaddcols/CPXaddcols adds columns to a specified CPLEX problem object.">CPXaddcols</a></code>. </p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/C/32_diet_eg_title_synopsis.html" title="Walks through an example applying the C API.">Example: optimizing the diet problem in the Callable Library</a></div>
+</div>
+</nav></div></body>
+</html>

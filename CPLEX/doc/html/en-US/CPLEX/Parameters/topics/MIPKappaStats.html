@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIP kappa computation" />
+<meta name="abstract" content="Sets the strategy for computing statistics about MIP kappa" />
+<meta name="Description" content="Sets the strategy for computing statistics about MIP kappa" />
+<meta name="DC.subject" content="CPX_PARAM_MIPKAPPASTATS, MIPKappaStats, mip strategy kappastats, numerical emphasis, kappa, MIP, kappa computation, condition number, MIP performance, numerical difficulties, basis" />
+<meta name="keywords" content="CPX_PARAM_MIPKAPPASTATS, MIPKappaStats, mip strategy kappastats, numerical emphasis, kappa, MIP, kappa computation, condition number, MIP performance, numerical difficulties, basis" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1266237349678" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>MIP kappa computation</title>
+</head>
+<body id="languageRefTopic1266237349678"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">MIP kappa computation</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets the strategy for computing statistics about
+MIP kappa</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">MIP kappa
+computation</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d110112e76">API</th>
+
+<th class="entry nrule" valign="top" id="d110112e79">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d110112e82">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">CPXPARAM_MIP_Strategy_KappaStats</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">CPX_PARAM_MIPKAPPASTATS</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">IloCplex::Param::MIP::Strategy::KappaStats</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">MIPKappaStats (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">IloCplex.Param.MIP.Strategy.KappaStats</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">MIPKappaStats (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">Cplex.Param.MIP.Strategy.KappaStats</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">MIPKappaStats (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">mipkappastats </td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">mipkappastats</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">parameters.mip.strategy.kappastats</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">mip.strategy.kappastats</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">mip strategy kappastats</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">mip strategy kappastats</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d110112e76 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d110112e79 ">2137</td>
+
+<td class="entry nrule" valign="top" headers="d110112e82 ">2137</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Sets
+the strategy for CPLEX to gather statistics about the MIP kappa of
+subproblems of a MIP.   </p>
+
+
+<p class="p paragrouptitle">What is MIP kappa?</p>
+
+<p class="p">MIP kappa summarizes the <strong class="ph b">distribution</strong> of the <strong class="ph b">condition
+number</strong> of the <strong class="ph b">optimal bases</strong> CPLEX encountered
+during the solution of a MIP model. That summary may let you know
+more about the numerical difficulties of your MIP model.</p>
+
+
+
+<p class="p paragrouptitle">When can you compute MIP kappa?</p>
+
+<p class="p">Because MIP kappa (as a statistical distribution) requires
+CPLEX to compute the condition number of the optimal bases of the
+subproblems during branch-and-cut search, you can compute the MIP
+kappa only when CPLEX solves the subproblem with its simplex optimizer.
+In other words, in order to obtain results with this parameter, you
+can <strong class="ph b">not</strong> use the sifting optimizer nor the barrier
+without crossover to solve the subproblems. See the parameters 
+<a class="xref" href="NodeAlg.html" title="Decides which continuous optimizer will be used to solve the subproblems in a MIP, after the initial relaxation.">MIP subproblem algorithm</a> (<code class="ph codeph">CPX_PARAM_SUBALG</code>, 
+<code class="ph codeph">NodeAlg</code>) and <a class="xref" href="STARTALG.html" title="Sets which continuous optimizer will be used to solve the initial relaxation of a MIP.">algorithm for initial MIP relaxation</a> 
+(<code class="ph codeph">CPX_PARAM_STARTALG, RootAlg</code>) 
+for more details about those choices.  </p>
+
+
+
+<p class="p paragrouptitle">What are the performance trade-offs
+for computing MIP kappa?</p>
+
+<p class="p">Computing the kappa of a subproblem
+has a cost. In fact, computing MIP kappa for the basis matrices can
+be computationally expensive and thus generally slows down the solution
+of a problem.  Therefore, 
+the automatic setting <code class="ph codeph">CPX_MIPKAPPA_AUTO</code> tells CPLEX generally not to compute
+MIP kappa, but in cases where the parameter 
+<a class="xref" href="NumericalEmphasis.html" title="Emphasizes precision in numerically unstable or difficult problems.">numerical precision emphasis</a> 
+(<code class="ph codeph">CPX_PARAM_NUMERICALEMPHASIS, NumericalEmphasis</code>) 
+is turned on, that is, set to 1 (one),
+CPLEX computes MIP kappa for a sample of subproblems.</p>
+
+<p class="p">The value <code class="ph codeph">CPX_MIPKAPPA_SAMPLE</code> leads to a negligible
+performance degradation on average, but can slow down the branch-and-cut
+exploration by as much as 10% on certain models. </p>
+
+<p class="p">The value <code class="ph codeph">CPX_MIPKAPPA_FULL</code>  leads to a 2% performance
+degradation on average, but can significantly slow the branch-and-cut
+exploration on certain models. </p>
+
+<p class="p">In practice, the  value <code class="ph codeph">CPX_MIPKAPPA_SAMPLE</code> 
+is a good trade-off between
+performance and accuracy of statistics. </p>
+
+<p class="p">If you need very accurate statistics, 
+then use value <code class="ph codeph">CPX_MIPKAPPA_FULL</code>.</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their symbolic name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d110112e308">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d110112e311">Symbol</th>
+
+<th class="entry thleft" align="left" valign="top" id="d110112e314">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry" valign="top" headers="d110112e308 ">–1</td>
+
+<td class="entry" valign="top" headers="d110112e311 "><code class="ph codeph">CPX_MIPKAPPA_OFF</code> </td>
+
+<td class="entry" valign="top" headers="d110112e314 ">No MIP kappa statistics</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d110112e308 "> 0</td>
+
+<td class="entry" valign="top" headers="d110112e311 "><code class="ph codeph">CPX_MIPKAPPA_AUTO</code> </td>
+
+<td class="entry" valign="top" headers="d110112e314 ">Automatic: let CPLEX decide; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d110112e308 "> 1</td>
+
+<td class="entry" valign="top" headers="d110112e311 "><code class="ph codeph">CPX_MIPKAPPA_SAMPLE</code> </td>
+
+<td class="entry" valign="top" headers="d110112e314 ">Compute MIP kappa for a sample of subproblems</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d110112e308 "> 2</td>
+
+<td class="entry" valign="top" headers="d110112e311 "><code class="ph codeph">CPX_MIPKAPPA_FULL</code> </td>
+
+<td class="entry" valign="top" headers="d110112e314 ">Compute MIP kappa for all subproblems</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

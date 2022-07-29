@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Features not supported with multiobjective optimization" />
+<meta name="abstract" content="Lists the features not supported by multiobjective optimization." />
+<meta name="Description" content="Lists the features not supported by multiobjective optimization." />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="multiobj_intro" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" />
+<title>Features not supported with multiobjective optimization</title>
+</head>
+<body id="multiobj_intro"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Features not supported with multiobjective optimization</h1>
+
+
+<div class="body"><p class="shortdesc">Lists the features not supported by multiobjective optimization.</p>
+
+<p class="p">The algorithms for multiobjective optimization do not support the following features:</p>
+
+<ul class="ul">
+<li class="li">Quadratic terms are <strong class="ph b">not</strong> permitted in any of the objectives or in the constraints.</li>
+
+<li class="li">Multiobjective optimization and model annotation are currently <strong class="ph b">not</strong> compatible. When the
+objective is annotated in an annotation file or via the annotation API, using
+<code class="ph codeph">CPX_ANNOTATIONOBJ_OBJ</code> as the type of the object to be annotated, then the primary
+objective is annotated. At that moment there is then no way to annotate the other objectives. </li>
+
+<li class="li">All generic callbacks and legacy optimization informational callbacks <strong class="ph b">are</strong> compatible with
+multiobjective optimization. However, all other legacy optimization callbacks, in particular control
+callbacks, are <strong class="ph b">not</strong> compatible with multiobjective optimization. For more information, see
+<a class="xref" href="../progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a> and <a class="xref" href="../progr_adv/callbacks_basic/01_cb_title_synopsis.html" title="Introduces legacy optimization callbacks.">Using legacy optimization callbacks</a>.</li>
+
+<li class="li">CPLEX disregards parallel mode specifications in parameter sets during multiobjective
+optimization. CPLEX will use the parallel mode found in the environment at the time when
+<code class="ph codeph">CPXmultiobjopt()</code> is invoked.</li>
+
+</ul>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/UsrMan/topics/multiobj/partMultiobj_title_synopsis.html" title="This part introduces multiobjective optimization.">Multiobjective optimization</a></div>
+</div>
+</nav></div></body>
+</html>

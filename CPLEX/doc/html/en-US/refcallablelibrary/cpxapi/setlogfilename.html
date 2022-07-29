@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXsetlogfilename and CPXsetlogfilename" />
+<meta name="abstract" content="Sets and opens the log file." />
+<meta name="Description" content="Sets and opens the log file." />
+<meta name="DC.subject" content="CPXsetlogfilename, CPXXsetlogfilename" />
+<meta name="keywords" content="CPXsetlogfilename, CPXXsetlogfilename" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemessage.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpIO.html" />
+<meta name="DC.Relation" scheme="URI" content="getlogfilename.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Esetlogfilename" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemessage.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpIO.html" />
+<title>CPXXsetlogfilename and CPXsetlogfilename</title>
+</head>
+<body id="Esetlogfilename"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXsetlogfilename</span> and <span class="keyword apiname">CPXsetlogfilename</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     Sets and opens the log file.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXsetlogfilename</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">mode</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXsetlogfilename</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">mode</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+      <p class="p">
+        This routine sets the CPLEX log file to the file specified by <code class="ph codeph">filename</code>.
+        The CPLEX log file captures output from all four CPLEX-defined channels.
+        CPLEX opens the log file in the mode specified by <code class="ph codeph">mode</code>, 
+        which is a string following the same specification as the respective
+        argument for the function <code class="ph codeph">fopen</code> in the C library.
+      </p>
+
+      <p class="p">
+        CPLEX closes any previously open log file, even if opening a new
+        log file fails. Passing <code class="ph codeph">NULL</code> as <code class="ph codeph">filename</code>
+        is allowed and closes the current log file (if any).
+      </p>
+
+
+      <div class="note note"><span class="notetitle">Note:</span> 
+        A call to <code class="ph codeph"><span class="keyword apiname">CPXXsetlogfilename</span>/<span class="keyword apiname">CPXsetlogfilename</span></code>
+        is equivalent to directing output from the
+        <code class="ph codeph">cpxresults</code>,
+        <code class="ph codeph">cpxwarning</code>,
+        <code class="ph codeph">cpxerror</code>, and
+        <code class="ph codeph">cpxlog</code>
+        message channels to a single file.
+      </div>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+                    
+          A pointer to the CPLEX environment as returned by
+          <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">filename</dt>
+
+        <dd class="dd pd">
+          
+          The name of the log file to open.
+          CPLEX considers this argument a null-terminated
+          string and passes it to the operating system as is, regardless of 
+          the encoding specified by the CPLEX  
+          <a class="xref" href="../../CPLEX/Parameters/topics/APIEncoding.html" title="API string encoding switch">API string encoding switch</a>.
+          The encoding that CPLEX uses when writing to the logfile is the value
+          of <a class="xref" href="../../CPLEX/Parameters/topics/FileEncoding.html" title="file encoding switch">file encoding switch</a>
+          at the time the log file is opened (that is, when this routine is called).
+        </dd>
+
+      
+
+
+      
+      
+        <dt class="dt pt dlterm">mode</dt>
+
+        <dd class="dd pd">
+          
+          The mode in which CPLEX should open the file. The specification is
+          the same as that for the C library function <code class="ph codeph">fopen</code>.
+          For example, use a quoted character, such as "w" to write 
+          or "a" to append.
+          Make sure you open the file for writing; otherwise, CPLEX writes nothing 
+          to the log file, and CPLEX can produce an error every time
+          it attempts to write.
+          If <code class="ph codeph">filename</code> is <code class="ph codeph">NULL</code>, then this
+          argument is ignored and can be <code class="ph codeph">NULL</code>, too.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+<section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+<pre class="pre codeblock"><code>
+status = CPXsetlogfilename (env, "logfile.txt", "w");
+</code></pre>
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemessage.html">Controlling Output in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpIO.html">Input, output, and communication channels</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="getlogfilename.html" title="The routine CPXXgetlogfilename/CPXgetlogfilename accesses the name of the current logfile.">CPXXgetlogfilename and CPXgetlogfilename</a></li></ul></div>
+</nav>
+</div></body>
+</html>

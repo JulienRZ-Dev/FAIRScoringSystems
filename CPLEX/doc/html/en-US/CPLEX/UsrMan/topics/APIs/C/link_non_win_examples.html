@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="CPLEX C and C++ examples with dynamic libraries" />
+<meta name="abstract" content="Describes CPLEX C and C++ examples with dynamic libraries on non-Windows platforms." />
+<meta name="Description" content="Describes CPLEX C and C++ examples with dynamic libraries on non-Windows platforms." />
+<meta name="DC.subject" content="shared libraries non-Windows platforms" />
+<meta name="keywords" content="shared libraries non-Windows platforms" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/C/link_non_win_intro.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="link_non_win_examples" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/C/link_non_win_intro.html" />
+<title>CPLEX C and C++ examples with dynamic libraries</title>
+</head>
+<body id="link_non_win_examples"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">CPLEX C and C++ examples with dynamic libraries</h1>
+
+
+
+<div class="body"><p class="shortdesc">Describes CPLEX C and C++ examples with dynamic libraries on non-Windows
+platforms.</p>
+
+<p class="p">The makefiles shipped with CPLEX for the C and C++ examples are written so that you can link the
+examples either with the static or the dynamic library (if the latter is available for your
+platform). By default, the makefiles link statically with the CPLEX library. See also <a class="xref" href="../../../../GettingStarted/topics/tutorials/Cplusplus/testingInstall_UNIX.html" title="After you install CPLEX on a UNIX platform, you can test the installation.">Testing your installation on UNIX</a>.</p>
+
+<p class="p">To build an individual example or run and execute all the examples:</p>
+
+<pre class="pre codeblock"><code>make mipex1
+make blend
+make execute_c
+make execute_cpp</code></pre>
+<p class="p">To create binaries that link with the CPLEX dynamic library:</p>
+
+<pre class="pre codeblock"><code>make dynamic=yes mipex1
+make dynamic=yes blend</code></pre>
+<p class="p">Similarly, to execute the examples with dynamically linked libraries:</p>
+
+<pre class="pre codeblock"><code>make dynamic=yes execute_c
+make dynamic=yes execute_cpp</code></pre>
+<p class="p">Remember that you may have to delete the example binaries if you first linked with them
+statically. Otherwise they will look up-to-date for <code class="ph codeph">make</code> and the tool will not
+rebuild them. </p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/C/link_non_win_intro.html" title="Outlines how to link with CPLEX shared libraries on non-Windows platforms.">Linking with CPLEX shared libraries on non-Windows platforms</a></div>
+</div>
+</nav></div></body>
+</html>

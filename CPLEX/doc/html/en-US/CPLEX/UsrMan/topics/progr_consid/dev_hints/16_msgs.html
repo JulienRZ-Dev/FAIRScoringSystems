@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Read your messages" />
+<meta name="abstract" content="Introduces warning and error messages." />
+<meta name="Description" content="Introduces warning and error messages." />
+<meta name="DC.subject" content="error handling, querying exceptions, debugging and, redirecting output to screen, programming practices and, messages (User's Manual)" />
+<meta name="keywords" content="error handling, querying exceptions, debugging and, redirecting output to screen, programming practices and, messages (User's Manual)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/dev_hints/12_common_errors_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_developAppli.636865" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/dev_hints/12_common_errors_title_synopsis.html" />
+<title>Read your messages</title>
+</head>
+<body id="User_manual.uss_developAppli.636865"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Read your messages</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Introduces warning and error messages.</p>
+
+      <p class="p">CPLEX detects many different kinds of errors and generates exception,
+warnings, or error messages about them. </p>
+
+      <p class="p">To query exceptions in Concert Technology, use the methods: </p>
+
+      <p class="p">
+         <code class="ph codeph">IloInt</code>
+         <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex_Exception.html#getStatus">getStatus</a>
+         <code class="ph codeph">()
+const;  const char* IloException::getMessage() const; </code>
+      </p>
+
+      <p class="p">To view warnings and error messages in the Callable Library, you
+must direct them either to your screen or to a log file.</p>
+
+      <ul class="ul">
+         <li class="li">
+            <p class="p">To direct all messages to your screen, use the routine <code class="ph codeph">
+                  <a class="xref" href="../../../../../refcallablelibrary/cpxapi/setintparam.html" title="The routine CPXXsetintparam/CPXsetintparam sets the value of a CPLEX parameter of type CPXINT.">CPXsetintparam</a>
+               </code> to
+set the <a class="xref" href="../../../../Parameters/topics/SCRIND.html" title="Decides whether or not results are displayed on screen in an application of the C API.">messages to screen switch</a>
+               <code class="ph codeph">CPX_PARAM_SCRIND</code>.</p>
+
+         </li>
+
+         <li class="li">
+            <p class="p">To direct all messages to a log file, use the routine <code class="ph codeph">
+                  <a class="xref" href="../../../../../refcallablelibrary/cpxapi/setlogfilename.html" title="Sets and opens the log file.">CPXXsetlogfilename</a>
+               </code>.</p>
+
+         </li>
+
+      </ul>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/dev_hints/12_common_errors_title_synopsis.html" title="Serves as a checklist to eliminate common pitfalls from an application.">Eliminating common programming errors</a></div>
+</div>
+</nav></div></body>
+</html>

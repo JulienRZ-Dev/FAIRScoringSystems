@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetstat and CPXgetstat" />
+<meta name="abstract" content="The routine CPXXgetstat/CPXgetstat accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization, after CPXXfeasopt/CPXfeasopt and its extensions, after CPXXrefineconflict/CPXrefineconflict and its extensions." />
+<meta name="Description" content="The routine CPXXgetstat/CPXgetstat accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization, after CPXXfeasopt/CPXfeasopt and its extensions, after CPXXrefineconflict/CPXrefineconflict and its extensions." />
+<meta name="DC.subject" content="CPXgetstat, C API Reference Manual, CPXXgetstat" />
+<meta name="keywords" content="CPXgetstat, C API Reference Manual, CPXXgetstat" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageaccessresults.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getstat" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageaccessresults.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpSolution.html" />
+<title>CPXXgetstat and CPXgetstat</title>
+</head>
+<body id="getstat"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetstat</span> and <span class="keyword apiname">CPXgetstat</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetstat</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXgetstat</span></code> accesses the solution
+status of the problem after an LP, QP, QCP, or MIP optimization,
+after <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXfeasopt</span></code> and its extensions, after
+<code class="ph codeph"><span class="keyword apiname">CPXXrefineconflict</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXrefineconflict</span></code> and its extensions.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetstat</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetstat</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetstat</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXgetstat</span></code> 
+accesses the solution status of the problem after an LP, QP, QCP, or MIP optimization,
+after <a class="xref" href="feasopt.html" title="The routine CPXXfeasopt/CPXfeasopt computes a minimum-cost relaxation of the righthand side values of constraints or bounds on variables in order to make an infeasible problem feasible.">CPXXfeasopt and CPXfeasopt</a> and its extensions, 
+after <a class="xref" href="refineconflict.html" title="This routine is deprecated. Use CPXXrefineconflictext/CPXrefineconflictext instead.">CPXXrefineconflict and CPXrefineconflict</a> and its extensions. </p>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      <p class="p">The routine returns the solution status of the most recent optimization performed on the CPLEX problem object.</p>
+
+      
+      <p class="p">A return value of 0 (zero) specifies either an error condition or
+that a change to the most recently optimized problem may have invalidated the solution status.</p>
+
+<p class="p">
+For status code 6, <code class="ph codeph">CPX_STAT_NUM_BEST</code>, the algorithm
+could not converge to the requested tolerances due to numeric difficulties.
+</p>
+ 
+<p class="p">Other return values are shown in 
+<a class="xref" href="../macros/homepagesolutionstatus.html">Solution Status Symbols in the CPLEX Callable Library (C API)</a>. </p>
+
+<p class="p">
+The best solution found can be retrieved by the routine 
+<a class="xref" href="solution.html" title="The routine CPXXsolution/CPXsolution accesses the solution values produced by all the optimization routines except the routine CPXXNETprimopt/CPXNETprimopt.">CPXXsolution and CPXsolution</a>. 
+Similarly, when an abort status is returned,
+the last solution computed before the algorithm aborted can be
+retrieved by <code class="ph codeph"><span class="keyword apiname">CPXXsolution</span></code>/<code class="ph codeph"><span class="keyword apiname">CPXsolution</span></code>.
+</p>
+
+<p class="p">
+Use the query routines 
+<a class="xref" href="solninfo.html">CPXXsolninfo and CPXsolninfo</a> 
+and 
+<code class="ph codeph"><span class="keyword apiname">CPXXsolution</span>/<span class="keyword apiname">CPXsolution</span></code> to obtain further information
+about the current solution of an LP, QP, or QCP.
+</p>
+
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+lpstat = CPXgetstat (env, lp);
+</code></pre> 
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageaccessresults.html">Accessing LP Results in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpSolution.html">Accessing a solution</a></div>
+</div>
+</nav></div></body>
+</html>

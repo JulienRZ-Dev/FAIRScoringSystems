@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Arrays" />
+<meta name="abstract" content="Arrays are used extensively in modeling with Concert Technology." />
+<meta name="Description" content="Arrays are used extensively in modeling with Concert Technology." />
+<meta name="DC.subject" content="array, IloIntArray class, IloIntArray class, add method, remove method, input, output, stream" />
+<meta name="keywords" content="array, IloIntArray class, IloIntArray class, add method, remove method, input, output, stream" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/model_data.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizermodel.1012317" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/model_data.html" />
+<title>Arrays</title>
+</head>
+<body id="migration.uss_usrcpoptimizermodel.1012317"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Arrays</h1>
+
+
+
+<div class="body"><p class="shortdesc">Arrays are used extensively in modeling with Concert
+Technology.</p>
+
+<p class="p">The data for an IBM® ILOG® Concert Technology
+model is often presented in terms of arrays. </p>
+
+<p class="p">In the Microsoft .NET
+Framework languages and the Java™ APIs,
+the native array classes are used to store data in arrays and are
+passed as arguments to many Concert Technology functions. In the C++
+API, objects of the class <code class="ph codeph">IloIntArray</code> can
+be used to store integer data in arrays. </p>
+
+<p class="p">Elements of the class <code class="ph codeph">IloIntArray</code> can
+be accessed like elements of standard C++ arrays, but the class also
+offers a wealth of additional functions. For example, Concert Technology
+arrays are extensible; in other words, they transparently adapt to
+the required size when new elements are added using the method <code class="ph codeph">add</code>. Conversely, elements can be removed from anywhere
+in the array with the method <code class="ph codeph">remove</code>. Concert
+Technology arrays also provide debugging support when compiled in
+debug mode by using assertion statements to ensure that no element
+beyond the array bounds is accessed. Input and output operators (that
+is, <code class="ph codeph">operator&lt;&lt;</code> and <code class="ph codeph">operator&gt;&gt;</code>)
+are provided for arrays. For example, the code produces the following
+output:  </p>
+
+<pre class="pre codeblock"><code>
+[1, 2, 3]
+
+</code></pre>
+<p class="p"> This output format can be read back in with the <code class="ph codeph">operator&gt;&gt;</code>, for example:  </p>
+
+<pre class="pre codeblock"><code>
+    std::cin &gt;&gt; data;
+
+</code></pre>
+<p class="p">When you have finished using an array and want to reclaim
+its memory, call the method <code class="ph codeph">end</code>; for example, <code class="ph codeph">data.end</code>. When the environment ends, all memory
+of arrays belonging to that same environment is returned to the system
+as well. Thus, in practice you do not need to call <code class="ph codeph">end</code> on
+an array (or any other Concert Technology object) just before calling <code class="ph codeph">IloEnv::end</code>.  </p>
+
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Array of integer values  </p>
+ <p class="p">Arrays of integer values are represented by the class <code class="ph codeph">IloIntArray</code> in the C++ API of Concert Technology.
+These arrays are extensible. </p>
+ <p class="p">When you use an array,
+you can access a value in that array by its index, and the <code class="ph codeph">operator[]</code> is overloaded for this purpose. </p>
+ <p class="p">In the C# and Java APIs,
+the native arrays are used. </p>
+ </div>
+
+<p class="p">Finally, the <strong class="ph b">C++ API</strong> of Concert Technology
+provides the template class <code class="ph codeph">IloArray&lt;X&gt;</code> to
+create array classes for your own type <code class="ph codeph">X</code>.
+This technique can be used to generate multidimensional arrays. All
+the functions mentioned here are supported for <code class="ph codeph">IloArray</code> classes
+except for input/output, which depends on the input and output operator
+being defined for type <code class="ph codeph">X</code>.  </p>
+
+<div class="note note"><span class="notetitle">Note:</span>  <p class="p paragrouptitle">Extensible array </p>
+ <p class="p">In the C++ API, Concert Technology provides the template
+class <code class="ph codeph">IloArray</code> which makes it easy for you
+to create classes of arrays for elements of any given class. In other
+words, you can use this template to create arrays of Concert Technology
+objects; you can also use this template to create arrays of arrays
+(that is, multidimensional arrays). </p>
+ <p class="p">When you use
+an array, you can access a value in that array by its index, and the <code class="ph codeph">operator[]</code> is overloaded for this purpose. </p>
+ <p class="p">The classes you create in this way consist of extensible
+arrays. That is, you can add elements to the array as needed.  </p>
+ </div>
+
+<p class="p">In the <strong class="ph b">Java API</strong>,
+arrays used by a CP Optimizer method might be created as such: </p>
+
+<pre class="pre codeblock"><code>
+      int[] fixedCost ={ 1, 2, 4, 3 };
+      IloIntVar[] open = cp.intVarArray(4,0,1);
+      IloIntExpr obj = cp.prod(open, fixedCost);
+
+</code></pre>
+<p class="p">In the <strong class="ph b">C# API</strong>, arrays used by a CP Optimizer
+method might be created as: </p>
+
+<pre class="pre codeblock"><code>
+      int[] fixedCost ={ 1, 2, 4, 3 };
+      IIntVar[] open = cp.IntVarArray(4,0,1);
+      IIntExpr obj = cp.Prod(open, fixedCost);
+
+</code></pre>
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/model_data.html" title="Concert Technology provides classes that simplify the management of data.">Managing data</a></div>
+</div>
+</nav></div></body>
+</html>

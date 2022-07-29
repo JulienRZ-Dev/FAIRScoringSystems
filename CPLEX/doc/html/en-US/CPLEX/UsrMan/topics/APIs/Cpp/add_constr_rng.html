@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Adding constraints: IloConstraint and IloRange" />
+<meta name="abstract" content="Describes the C++ classes for constraints and ranges." />
+<meta name="Description" content="Describes the C++ classes for constraints and ranges." />
+<meta name="DC.subject" content="IloRange class, adding constraints (C++ API), constraint, representing with IloRange (C++ API)" />
+<meta name="keywords" content="IloRange class, adding constraints (C++ API), constraint, representing with IloRange (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modeling_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cplusIloCplex.106587" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modeling_synopsis.html" />
+<title>Adding constraints: IloConstraint and IloRange</title>
+</head>
+<body id="User_manual.uss_cplusIloCplex.106587"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Adding constraints: IloConstraint and IloRange</h1>
+<div class="body"><p class="shortdesc">Describes the C++ classes for constraints and ranges.</p>
+
+<p class="p">Similarly, objects of the class <code class="ph codeph">IloConstraint</code> 
+represents constraints in your model. Most constraints will belong
+to the subclass <code class="ph codeph">IloRange</code> , derived from <code class="ph codeph">IloConstraint,</code> 
+and thus inherit its constructors and methods.  <code class="ph codeph">IloRange</code> 
+represent constraints of the form <code class="ph codeph">lower bound </code> <code class="ph codeph">≤</code><code class="ph codeph"> expression</code>  <code class="ph codeph">≤</code><code class="ph codeph"> upper
+bound</code> . In other words, an instance of <code class="ph codeph">IloRange</code> 
+is a convenient way to express a ranged constraint, that is, a constraint
+with explicit upper or lower bounds. Any floating-point value or <code class="ph codeph">+IloInfinity</code> 
+or <code class="ph codeph">-IloInfinity </code> can be used for the bounds.
+For example:</p>
+
+<pre class="pre codeblock"><code>
+IloRange r1(env, 3.0, x[1] + x[2], 3.0);
+</code></pre>
+<p class="p">defines the constraint <code class="ph codeph">x[1] + x[2] == 3.0</code> . </p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modeling_synopsis.html" title="Introduces classes of the C++ API of Concert Technology for modeling optimization problems to be solved by IloCplex.">Modeling an optimization problem with Concert Technology</a></div>
+</div>
+</nav></div></body>
+</html>

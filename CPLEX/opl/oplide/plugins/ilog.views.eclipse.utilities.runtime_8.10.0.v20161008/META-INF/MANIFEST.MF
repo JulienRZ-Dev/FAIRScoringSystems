@@ -1,0 +1,44 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ilog.views.eclipse.utilities.runtime
+Archiver-Version: Plexus Archiver
+Built-By: jviewsadm
+Require-Bundle: org.eclipse.core.runtime,com.ibm.icu,org.slf4j.api;vis
+ ibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Rogue Wave Software, Inc.
+Eclipse-LazyStart: true
+Eclipse-ExtensibleAPI: true
+Export-Package: ilog.views.util,ilog.views.util.base64,ilog.views.util
+ .beans,ilog.views.util.beans.editor,ilog.views.util.collections,ilog.
+ views.util.collections.internal,ilog.views.util.convert,ilog.views.ut
+ il.data,ilog.views.util.event,ilog.views.util.filter,ilog.views.util.
+ filter.event,ilog.views.util.image,ilog.views.util.internal,ilog.view
+ s.util.java2d,ilog.views.util.java2d.internal,ilog.views.util.psheet,
+ ilog.views.util.psheet.resources,ilog.views.util.styling.runtime,ilog
+ .views.util.styling.runtime.internal,ilog.views.util.swing,ilog.views
+ .util.swing.border,ilog.views.util.swing.calendar,ilog.views.util.swi
+ ng.calendar.event,ilog.views.util.swing.calendar.plaf,ilog.views.util
+ .swing.calendar.resources,ilog.views.util.swing.color,ilog.views.util
+ .swing.color.resources,ilog.views.util.swing.context,ilog.views.util.
+ swing.date,ilog.views.util.swing.font,ilog.views.util.swing.font.reso
+ urces,ilog.views.util.swing.internal,ilog.views.util.swing.layout,ilo
+ g.views.util.swing.table,ilog.views.util.swing.tree,ilog.views.util.s
+ wing.validation,ilog.views.util.text,ilog.views.util.text.internal,il
+ og.views.util.time,ilog.views.util.waitcursor,ilog.views.util.xml
+Bundle-Name: Rogue Wave JViews Base Utilities Runtime for Eclipse
+Bundle-Version: 8.10.0.v20161008
+Bundle-ClassPath: lib/eclipse-utilities-runtime.jar
+Created-By: Apache Maven 3.0.5
+Build-Jdk: 1.8.0_101
+
+Name: about.html
+SHA-256-Digest: cmUdGuvVMfjthRyjagC/QZGvH/OtnxhdSAWucSSOuKQ=
+
+Name: lib/eclipse-utilities-runtime.jar
+SHA-256-Digest: +yPC4hC+y8cnpRMtr9GboDmMnC/eFrG3pcuFs/xZNuo=
+
+Name: license.html
+SHA-256-Digest: eRwSQN9YbKcZ+djtaLCLSSGOJ3kmorNUifA74LlyMyg=
+

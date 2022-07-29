@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="countDifferent" />
+<meta name="abstract" content="Returns the number of different values in a given integer expression array." />
+<meta name="Description" content="Returns the number of different values in a given integer expression array." />
+<meta name="DC.subject" content="countDifferent" />
+<meta name="keywords" content="countDifferent" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="count.html" />
+<meta name="DC.Relation" scheme="URI" content="alldiff.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="countDifferent" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>countDifferent</title>
+</head>
+<body id="countDifferent"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">countDifferent</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns the number of different values in a given integer expression array.
+</p>
+
+
+
+<section class="section" id="countDifferent__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> <strong class="ph b">countDifferent</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> exprs)
+</code></pre>
+</section>
+
+
+<section class="section" id="countDifferent__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">exprs</code>: an array of integer expressions
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="countDifferent__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This expression number of distinct values in the array <code class="ph codeph">exprs</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="countDifferent__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+To ensure that variables <code class="ph codeph">a1</code>..<code class="ph codeph">a5</code> have only 2 or 3 different values:
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..5);
+a2 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..5);
+a3 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..5);
+a4 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..5);
+a5 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..5);
+<a class="xref" href="range.html" title="Restricts the bounds of an integer or floating-point expression.">range</a>(<strong class="ph b">countDifferent</strong>([a1, a2, a3, a4, a5]), 2, 3);
+</code></pre>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="count.html" title="Returns the number of occurrences of a given value found in a given integer expression array.">count</a></li>
+<li class="linklist"><a class="link" href="alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

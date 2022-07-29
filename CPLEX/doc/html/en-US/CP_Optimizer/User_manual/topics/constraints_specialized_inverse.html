@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Inverse constraint" />
+<meta name="abstract" content="The inverse constraint is a specialized constraint which forces two groups of decision variables to be in strict correspondence with each other." />
+<meta name="Description" content="The inverse constraint is a specialized constraint which forces two groups of decision variables to be in strict correspondence with each other." />
+<meta name="DC.subject" content="constraint, inverse, inverse constraint" />
+<meta name="keywords" content="constraint, inverse, inverse constraint" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizerconstraints.1015042" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" />
+<title>Inverse constraint</title>
+</head>
+<body id="migration.uss_usrcpoptimizerconstraints.1015042"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Inverse constraint</h1>
+
+
+
+<div class="body"><p class="shortdesc">The inverse constraint is a specialized constraint which
+forces two groups of decision variables to be in strict correspondence
+with each other.</p>
+
+<p class="p">An inverse constraint forces two groups of decision variables to
+be in strict correspondence with each other. The two groups of decision
+variables are conventionally represented by two arrays. An inverse
+constraint makes sure that the <em class="ph i">i</em>-th item of one array is the
+inverse of the <em class="ph i">i</em>-th item of the other array, and vice versa.</p>
+
+
+<p class="p">In formal terms, if the length of the arrays<code class="ph codeph">f</code> and <code class="ph codeph">invf</code> is <code class="ph codeph">n</code>,
+then the inverse constraint guarantees that:</p>
+
+<ul class="ul">
+<li class="li"><p class="p">for all <code class="ph codeph">i</code> in the interval <code class="ph codeph">[0,n-1]</code>,
+then <code class="ph codeph">invf[f[i]]==i</code>;</p>
+ </li>
+
+<li class="li"><p class="p">for all <code class="ph codeph">j</code> in the interval <code class="ph codeph">[0,n-1]</code>,
+then <code class="ph codeph">f[invf[j]]==j</code>.</p>
+ </li>
+
+</ul>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, the class <code class="ph codeph">IloInverse</code> represents
+inverse constraints. For samples of this constraint, see <code class="ph codeph">sports.cpp</code> or <code class="ph codeph">talent.cpp</code>.</p>
+
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, the method <code class="ph codeph">IloCP.inverse</code> represents
+inverse constraints. For a sample of this constraint, see <code class="ph codeph">Sports.java</code>.</p>
+
+<p class="p">Likewise, in the <strong class="ph b">C# API</strong> of CP Optimizer, the method <code class="ph codeph">CP.Inverse</code> represents
+inverse constraints. For a sample of this constraints, see <code class="ph codeph">Sports.cs</code>.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/constraints_specialized.html" title="Specialized constraints on integer decision variables are designed and implemented to reduce domains of variables efficiently during a search.">Specialized constraints on integer decision variables</a></div>
+</div>
+</nav></div></body>
+</html>

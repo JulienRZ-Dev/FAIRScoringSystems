@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="alwaysNoState" />
+<meta name="abstract" content="This constraint ensures that a state function is undefined on an interval." />
+<meta name="Description" content="This constraint ensures that a state function is undefined on an interval." />
+<meta name="DC.subject" content="alwaysNoState" />
+<meta name="keywords" content="alwaysNoState" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/state_functions.html" />
+<meta name="DC.Relation" scheme="URI" content="alwaysEqual.html" />
+<meta name="DC.Relation" scheme="URI" content="alwaysConstant.html" />
+<meta name="DC.Relation" scheme="URI" content="alwaysIn.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="alwaysNoState" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>alwaysNoState</title>
+</head>
+<body id="alwaysNoState"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">alwaysNoState</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+This constraint ensures that a state function is undefined on an interval.
+</p>
+
+
+
+<section class="section" id="alwaysNoState__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alwaysNoState</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__Type_stateFunction">stateFunction</a> function, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alwaysNoState</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__Type_stateFunction">stateFunction</a> function, <a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a> start, <a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a> end)
+</code></pre>
+</section>
+
+
+<section class="section" id="alwaysNoState__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">function</code>: constrained state function.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">interval</code>: interval variable during which <code class="ph codeph">function</code> is constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">start</code>: start of the fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>) during which <code class="ph codeph">function</code> is constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">end</code>: end of the fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>) during which <code class="ph codeph">function</code> is constrained.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="alwaysNoState__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns a constraint that ensures that <code class="ph codeph">function</code> is undefined everywhere on the interval (either interval variable <code class="ph codeph">interval</code> when it is present or fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>)). This constraint will ensure, in particular, that no interval variable that requires the function to be defined (see <a class="xref" href="alwaysEqual.html" title="This constraint fixes a given state for a state function during a variable or fixed interval.">alwaysEqual</a>, <a class="xref" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a>) can overlap with interval variable <code class="ph codeph">interval</code> or fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>)).
+</p>
+
+
+<p class="p">
+For more information on state functions, see the concept <a class="xref" href="../../../refcppcpoptimizer/html/state_functions.html">State functions in CP Optimizer</a>. 
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="alwaysEqual.html" title="This constraint fixes a given state for a state function during a variable or fixed interval.">alwaysEqual</a></li>
+<li class="linklist"><a class="link" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a></li>
+<li class="linklist"><a class="link" href="alwaysIn.html" title="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval.">alwaysIn</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/state_functions.html">State functions in CP Optimizer</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

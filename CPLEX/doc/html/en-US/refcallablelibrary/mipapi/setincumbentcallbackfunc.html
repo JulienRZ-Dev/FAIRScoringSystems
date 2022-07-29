@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXsetincumbentcallbackfunc and CPXsetincumbentcallbackfunc" />
+<meta name="abstract" content="The routine CPXXsetincumbentcallbackfunc/CPXsetincumbentcallbackfunc sets and modifies the user-written callback routine to be called when an integer solution has been found but before this solution replaces the incumbent." />
+<meta name="Description" content="The routine CPXXsetincumbentcallbackfunc/CPXsetincumbentcallbackfunc sets and modifies the user-written callback routine to be called when an integer solution has been found but before this solution replaces the incumbent." />
+<meta name="DC.subject" content="CPXsetincumbentcallbackfunc, C API Reference Manual, CPXXsetincumbentcallbackfunc" />
+<meta name="keywords" content="CPXsetincumbentcallbackfunc, C API Reference Manual, CPXXsetincumbentcallbackfunc" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="getincumbentcallbackfunc.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="setincumbentcallbackfunc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXsetincumbentcallbackfunc and CPXsetincumbentcallbackfunc</title>
+</head>
+<body id="setincumbentcallbackfunc"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXsetincumbentcallbackfunc</span> and <span class="keyword apiname">CPXsetincumbentcallbackfunc</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ 
+
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetincumbentcallbackfunc</span>/<span class="keyword apiname">CPXsetincumbentcallbackfunc</span></code> sets and modifies
+ the user-written callback routine to be called when an integer solution has
+ been found but before this solution replaces the incumbent.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXsetincumbentcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">incumbentcallback</span>)(CPXX_CALLBACK_INCUMBENT_ARGS)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXsetincumbentcallbackfunc</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span>(<span class="keyword kwd">CPXPUBLIC</span> <span class="ph oper">*</span><span class="ph var">incumbentcallback</span>)(CALLBACK_INCUMBENT_ARGS)<span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbhandle</span>
+        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetincumbentcallbackfunc</span>/<span class="keyword apiname">CPXsetincumbentcallbackfunc</span></code> sets and modifies
+ the user-written callback routine to be called when an integer solution has
+ been found but before this solution replaces the incumbent. This callback
+ can be used to discard solutions that do not meet criteria beyond that of
+ the mixed integer programming formulation.
+ When the user-written callback is used in that manner, the user must
+ set the parameter that controls 
+<a class="xref" href="../../CPLEX/Parameters/topics/Reduce.html" title="Specifies whether primal reductions, dual reductions, both, or neither are performed during preprocessing.">primal and dual reduction type</a> 
+(<code class="ph codeph">CPXPARAM_Preprocessing_Reduce</code>) 
+ to either the value
+ <code class="ph codeph">CPX_PREREDUCE_PRIMALONLY</code> or the value
+ <code class="ph codeph">CPX_PREREDUCE_NOPRIMALORDUAL</code>. This setting of the
+ parameter is not necessary when the incumbent callback is used for
+ other purposes.
+ </p>
+
+
+ <p class="p">Variables are in terms of the original problem if the 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>)  
+ is set to <code class="ph codeph">CPX_OFF</code> before the
+ call to <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code> 
+that calls the callback. Otherwise,
+ variables are in terms of the presolved problem.</p>
+
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <div class="p">The incumbent callback may be invoked during MIP start processing.
+  In that case the <code class="ph codeph">wherefrom</code> parameter passed into the callback
+  is <code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_MIPSTART</code>.
+  With this <code class="ph codeph">wherefrom</code> the following special consideration
+  applies:
+  <ul class="ul">
+  <li class="li">MIP start processing occurs very early in the solution process. At this
+   point no search tree is setup yet and there are no search tree nodes yet.
+   Consequently, a lot of the callback functions that require a node context
+   will fail in this situation.
+  </li>
+
+  </ul>
+
+ </div>
+
+ </div>
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to the CPLEX environment,
+           as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">incumbentcallback</dt>
+
+        <dd class="dd pd">
+          
+          <p class="p">A pointer to a user-written incumbent callback.
+          If the callback is set to <code class="ph codeph">NULL</code>,
+          no callback can be called during optimization.</p>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbhandle</dt>
+
+        <dd class="dd pd">
+          
+           <p class="p">A pointer to user private data.
+           This pointer is passed to the callback.</p>
+
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXsetincumbentcallbackfunc (env, myincumbentcheck,
+                                       mydata);</code></pre>
+ <p class="p">See also <em class="ph i">Advanced MIP Control Interface</em> in the
+ <em class="ph i">CPLEX User's Manual</em>.</p>
+
+
+ <p class="p"><strong class="ph b">Callback description</strong></p>
+
+
+ <pre class="pre codeblock"><code>
+ int CPXPUBLIC
+ callback (CPXCENVptr env,
+           void *cbdata,
+           int wherefrom,
+           void *cbhandle,
+           double objval,
+           double *x,
+           int *isfeas_p,
+           int *useraction_p);
+ </code></pre>
+
+ <p class="p">The incumbent callback is called when CPLEX has found an integer
+ solution, but before this solution replaces the incumbent integer
+ solution.</p>
+
+
+ <p class="p">Variables are in terms of the original problem if the 
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>) 
+ is set to <code class="ph codeph">CPX_OFF</code> before the
+ call to <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code> 
+ that calls the callback. Otherwise,
+ variables are in terms of the presolved problem.</p>
+
+
+ <p class="p"><strong class="ph b">Callback return value</strong></p>
+
+
+ <p class="p">The callback returns 0 (zero) if successful and nonzero if an error
+ occurs.</p>
+
+
+ <p class="p"><strong class="ph b">Callback arguments</strong></p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">env</span></code></p>
+
+
+ <p class="p">A pointer to the CPLEX environment, as returned by
+ <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">cbdata</span></code></p>
+
+
+ <p class="p">A pointer to pass to functions that obtain 
+callback-specific information, such as 
+the number of integer-infeasible values at 
+the current node, or that take callback-specific 
+action, such as to add a cut in a user cut callback.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">wherefrom</span></code></p>
+
+
+ <p class="p">An integer value reporting where in the optimization this function was
+ called. It can have one of the following values:  
+</p>
+
+<ul class="ul">
+<li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_NODESOLN</code>  
+specifies that the incumbent callback was called for an integral solution 
+in a node of the search tree of the relaxation. </li>
+
+<li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_HEURSOLN</code> 
+specifies that the incumbent callback was called for a solution generated 
+by the internal heuristics of CPLEX. </li>
+
+<li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_USERSOLN</code> 
+specifies that the incumbent callback was called for a solution generated 
+by the user. </li>
+
+<li class="li"><code class="ph codeph">CPX_CALLBACK_MIP_INCUMBENT_MIPSTART</code> 
+specifies that the incumbent callback was called during MIP start processing.
+Note that in this case not all callback functionality is available since this
+happens very early in the search process. For example, you cannot attach or
+get user data to/from the current node, nor can you do anything else that
+requires a search tree node context.
+</li>
+
+</ul>
+
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">cbhandle</span></code></p>
+
+
+ <p class="p">A pointer to user private data.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">objval</span></code></p>
+
+
+ <p class="p">A variable that contains the objective value of the integer solution.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">x</span></code></p>
+
+
+ <p class="p">An array that contains primal solution values for the integer
+ solution.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">isfeas_p</span></code></p>
+
+
+ <p class="p">A pointer to an integer variable that determines whether or not CPLEX
+ should use the integer solution specified in <code class="ph codeph"><span class="keyword parmname">x</span></code> to replace the
+ current incumbent. A nonzero value states that the incumbent should be
+ replaced by <code class="ph codeph"><span class="keyword parmname">x</span></code>; a zero value states that it should not.</p>
+
+
+ <p class="p"><code class="ph codeph"><span class="keyword parmname">useraction_p</span></code></p>
+
+
+ <p class="p">A pointer to an integer to contain the specifier of the action to be
+ taken on completion of the user callback. The table
+ summarizes the possible values. </p>
+
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Actions to be taken after a user-written incumbent callback</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+ <tr class="row"><th class="entry" valign="top" id="d996040e469">Value</th>
+<th class="entry" valign="top" id="d996040e471">Symbolic Constant</th>
+<th class="entry" valign="top" id="d996040e473">Action</th>
+</tr>
+</thead>
+<tbody class="tbody">
+ <tr class="row"><td class="entry" valign="top" headers="d996040e469 "><code class="ph codeph">0</code></td>
+<td class="entry" valign="top" headers="d996040e471 "><code class="ph codeph">CPX_CALLBACK_DEFAULT</code></td>
+
+ <td class="entry" valign="top" headers="d996040e473 ">Proceed with optimization</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d996040e469 "><code class="ph codeph">1</code></td>
+<td class="entry" valign="top" headers="d996040e471 "><code class="ph codeph">CPX_CALLBACK_FAIL</code></td>
+
+ <td class="entry" valign="top" headers="d996040e473 ">Exit optimization</td>
+</tr>
+
+ <tr class="row"><td class="entry" valign="top" headers="d996040e469 "><code class="ph codeph">2</code></td>
+<td class="entry" valign="top" headers="d996040e471 "><code class="ph codeph">CPX_CALLBACK_SET</code></td>
+
+ <td class="entry" valign="top" headers="d996040e473 ">Proceed with optimization</td>
+</tr>
+
+ </tbody>
+</table>
+</div>
+
+
+
+ 
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebasiccallbacks.html">Callback Routines (basic) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="getincumbentcallbackfunc.html" title="The routine CPXXgetincumbentcallbackfunc/CPXgetincumbentcallbackfunc accesses the user-written callback to be called by CPLEX during MIP optimization after an integer solution has been found but before this solution replaces the incumbent.">CPXgetincumbentcallbackfunc</a></li></ul></div>
+</nav>
+</div></body>
+</html>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcopystart and CPXcopystart" />
+<meta name="abstract" content="This routine provides starting information for use in a subsequent call to a simplex optimization routine." />
+<meta name="Description" content="This routine provides starting information for use in a subsequent call to a simplex optimization routine." />
+<meta name="DC.subject" content="CPXcopystart, C API Reference Manual, CPXXcopystart" />
+<meta name="keywords" content="CPXcopystart, C API Reference Manual, CPXXcopystart" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpSolve.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="copystart" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpSolve.html" />
+<title>CPXXcopystart and CPXcopystart</title>
+</head>
+<body id="copystart"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcopystart</span> and <span class="keyword apiname">CPXcopystart</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+This routine provides starting information for use in a subsequent 
+call to a simplex optimization routine.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcopystart</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">cstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">cprim</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rprim</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">cdual</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rdual</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcopystart</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">cstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rstat</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">cprim</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rprim</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">cdual</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rdual</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<div class="p">The routine 
+<code class="ph codeph"><span class="keyword apiname">CPXXcopystart</span>/<span class="keyword apiname">CPXcopystart</span></code> 
+provides starting
+information for use in a subsequent call to a simplex optimization routine. For example, 
+the subsequent call can be one of the following combinations:
+     <ul class="ul">
+
+     <li class="li"> 
+     <a class="xref" href="lpopt.html" title="At any time after a linear program has been created by a call to CPXXcreateprob/CPXcreateprob, the routine CPXXlpopt/CPXlpopt finds a solution to that problem using one of the CPLEX linear optimizers.">CPXXlpopt and CPXlpopt</a>
+     with the parameter to control the 
+     <a class="xref" href="../../CPLEX/Parameters/topics/LPMETHOD.html" title="Controls which algorithm is used to solve continuous linear models or to solve the root relaxation of a MIP.">algorithm for continuous linear problems</a> 
+      set to the value 
+     <code class="ph codeph">CPX_ALG_PRIMAL</code> or
+     <code class="ph codeph">CPX_ALG_DUAL</code>; 
+     </li>
+
+
+<li class="li"> 
+<a class="xref" href="../qpapi/qpopt.html" title="The routineCPXXqpopt/CPXqpopt may be used, at any time after a continuous quadratic program has been created, to find a solution to that problem using one of the CPLEX quadratic optimizers.">CPXXqpopt and CPXqpopt</a>
+with the parameter to control the 
+<a class="xref" href="../../CPLEX/Parameters/topics/QPMETHOD.html" title="Sets which algorithm to use when the C routine CPXqpopt (or the command optimize in the Interactive Optimizer) is invoked.">algorithm for continuous quadratic optimization</a> 
+ set to the value 
+<code class="ph codeph">CPX_ALG_PRIMAL</code> or
+<code class="ph codeph">CPX_ALG_DUAL</code>; 
+</li>
+
+
+<li class="li">
+<a class="xref" href="dualopt.html" title="The routine CPXXdualopt/CPXdualopt may be used at any time after a linear program has been created via a call to CPXXcreateprob/CPXcreateprob to find a solution to that problem using the dual simplex algorithm.">CPXXdualopt and CPXdualopt</a>;
+</li>
+
+
+<li class="li">
+<a class="xref" href="primopt.html" title="The routine CPXXprimopt/CPXprimopt may be used after a linear program has been created via a call to CPXXcreateprob/CPXcreateprob, to find a solution to that problem using the primal simplex method.">CPXXprimopt and CPXprimopt</a>;
+</li>
+
+
+<li class="li">
+<a class="xref" href="hybnetopt.html" title="The routine CPXXhybnetopt/CPXhybnetopt, given a linear program that has been created via a call to CPXXcreateprob/CPXcreateprob, extracts an embedded network, uses the CPLEX Network Optimizer to attempt to obtain an optimal basis to the network, and optimizes the entire linear program using one of the CPLEX simplex methods.">CPXXhybnetopt and CPXhybnetopt</a>.
+</li>
+
+
+</ul>
+
+
+Starting information is not applicable to the barrier optimizer nor to the mixed
+integer optimizer (MIP).</div>
+
+
+<p class="p">When a basis (arguments <code class="ph codeph"><span class="keyword parmname">cstat</span></code> and 
+<code class="ph codeph"><span class="keyword parmname">rstat</span></code>) is
+installed for a linear problem and 
+<code class="ph codeph"><span class="keyword apiname">CPXXlpopt</span>/<span class="keyword apiname">CPXlpopt</span></code> is used with
+<code class="ph codeph">CPXPARAM_LPMethod</code> set to 
+<code class="ph codeph">CPX_ALG_AUTOMATIC</code>, CPLEX
+will use the primal simplex algorithm if the basis is primal feasible and
+the dual simplex method otherwise.</p>
+
+
+<div class="p">Any of three different kinds of starting points can be provided: 
+<ul class="ul"><li class="li">
+a starting basis (<code class="ph codeph"><span class="keyword parmname">cstat</span></code>, 
+<code class="ph codeph"><span class="keyword parmname">rstat</span></code>); 
+</li>
+
+<li class="li">starting primal values 
+(<code class="ph codeph"><span class="keyword parmname">cprim</span></code>,  
+<code class="ph codeph"><span class="keyword parmname">rprim</span></code>); 
+</li>
+
+<li class="li"> starting dual values
+(<code class="ph codeph"><span class="keyword parmname">cdual</span></code>, <code class="ph codeph"><span class="keyword parmname">rdual</span></code>). 
+</li>
+
+</ul>
+
+Only a starting basis is
+applicable to an invocation of  
+<code class="ph codeph"><span class="keyword apiname">CPXXhybnetopt</span>/<span class="keyword apiname">CPXhybnetopt</span></code>, 
+but for Dual Simplex and
+Primal Simplex, any combination of these three types of information can be of
+use in providing a starting point. If no starting-point is provided, this
+routine returns an error; otherwise, any resident starting information in the
+CPLEX problem object is freed, and the new information is copied into it.</div>
+
+
+<p class="p">If you provide a starting basis, then both <code class="ph codeph"><span class="keyword parmname">cstat</span></code> and
+<code class="ph codeph"><span class="keyword parmname">rstat</span></code> must be specified. It is permissible to provide
+<code class="ph codeph"><span class="keyword parmname">cprim</span></code> with or without 
+<code class="ph codeph"><span class="keyword parmname">rprim</span></code>, or <code class="ph codeph"><span class="keyword parmname">rdual</span></code>
+with or without <code class="ph codeph"><span class="keyword parmname">cdual</span></code>; 
+arrays not being provided must be passed as NULL pointers.</p>
+
+
+<div class="note note"><span class="notetitle">Note:</span> 
+The starting information is ignored by the optimizers if the parameter
+known as 
+<a class="xref" href="../../CPLEX/Parameters/topics/AdvInd.html" title="If set to 1 or 2, this parameter specifies that CPLEX should use advanced starting information when it initiates optimization.">advanced start switch</a>
+(<code class="ph codeph">CPXPARAM_Advance</code>)  
+is set to 0 (zero).</div>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Table 1: Values for cstat[j]</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_LOWER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">0</code></td>
+
+<td class="entry" valign="top">variable at lower bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BASIC</code></td>
+<td class="entry" valign="top"><code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">variable is basic</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_UPPER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">2</code></td>
+
+<td class="entry" valign="top">variable at upper bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_FREE_SUPER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">3</code></td>
+
+<td class="entry" valign="top">variable free and nonbasic</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Table 2: Values of rstat elements other than ranged rows</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_LOWER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">0</code></td>
+
+<td class="entry" valign="top">associated slack variable nonbasic at value 0.0 (zero)</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BASIC</code></td>
+<td class="entry" valign="top"><code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">associated slack artificial variable basic</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 3. Table 3: Values of rstat elements that are ranged rows</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_LOWER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">0</code></td>
+
+<td class="entry" valign="top">associated slack variable nonbasic at its lower bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_BASIC</code></td>
+<td class="entry" valign="top"><code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">associated slack variable basic</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_AT_UPPER</code></td>
+<td class="entry" valign="top"><code class="ph codeph">2</code></td>
+
+<td class="entry" valign="top">associated slack variable nonbasic at upper bound</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cstat</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the basis status of the columns in the constraint matrix. The length of the array is equal to the number of columns in the CPLEX problem object. If this array is NULL, <code class="ph codeph"><span class="keyword parmname">rstat</span></code> must be NULL. Table 1 shows the possible values.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rstat</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the basis status of the slack, surplus, or artificial variable associated with each row in the constraint matrix. The length of the array is equal to the number of rows in the LP problem. For rows other than ranged rows, the array element <code class="ph codeph"><span class="keyword parmname">rstat</span>[i]</code> can be set according to Table 2. For ranged rows, the array element <code class="ph codeph"><span class="keyword parmname">rstat</span>[i]</code> can be set according to Table 3. If this array is NULL, <code class="ph codeph"><span class="keyword parmname">cstat</span></code> must be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cprim</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the initial primal values of the column variables. The length of the array must be no less than the number of columns in the CPLEX problem object. If this array is NULL, <code class="ph codeph"><span class="keyword parmname">rprim</span></code> must be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rprim</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the initial primal values of the slack (row) variables. The length of the array must be no less than the number of rows in the CPLEX problem object. This array may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cdual</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the initial values of the reduced costs for the column variables. The length of the array must be no less than the number of columns in the CPLEX problem object. This array may be NULL.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rdual</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the initial values of the dual variables for the rows.The length of the array must be no less than the number of rows in the CPLEX problem object. If this array is NULL, <code class="ph codeph"><span class="keyword parmname">cdual</span></code> must be NULL.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXcopystart (env,
+		lp,
+		cstat,
+		rstat,
+		cprim,
+		rprim,
+		cdual,
+		rdual);</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagecreatedeletecopy.html">Creating and Deleting Problems, Copying Data in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpSolve.html">Solving a linear program</a></div>
+</div>
+</nav></div></body>
+</html>

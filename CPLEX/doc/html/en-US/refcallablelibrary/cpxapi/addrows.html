@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXaddrows and CPXaddrows" />
+<meta name="abstract" content="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object." />
+<meta name="Description" content="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object." />
+<meta name="DC.subject" content="CPXaddrows, C API Reference Manual, CPXXaddrows" />
+<meta name="keywords" content="CPXaddrows, C API Reference Manual, CPXXaddrows" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="addrows" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemodifyproblem.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpBuildModel.html" />
+<title>CPXXaddrows and CPXaddrows</title>
+</head>
+<body id="addrows"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXaddrows</span> and <span class="keyword apiname">CPXaddrows</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> adds constraints to a specified
+CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXaddrows</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">ccnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">colname</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">rowname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXaddrows</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">ccnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">rcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">rmatind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rmatval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">colname</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char **</span><span class="ph sep"> </span><span class="ph var">rowname</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> adds constraints to a specified
+CPLEX problem object. This routine may be called any time after a call to
+<code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>. </p>
+
+
+<p class="p">When you add a ranged row, <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> sets the
+corresponding range value to 0 (zero).
+Use the routine <code class="ph codeph"><a class="xref" href="chgrngval.html" title="The routine CPXXchgrngval/CPXchgrngval changes the range coefficients of a set of linear constraints in the CPLEX problem object."><span class="keyword apiname">CPXXchgrngval</span>/<span class="keyword apiname">CPXchgrngval</span></a></code>
+to change the range value.</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values of sense</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'L'</code></td>
+
+<td class="entry" valign="top">&lt;= constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'E'</code></td>
+
+<td class="entry" valign="top">= constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'G'</code></td>
+
+<td class="entry" valign="top">&gt;= constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph"><span class="keyword parmname">sense</span>[i]</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">'R'</code></td>
+
+<td class="entry" valign="top">ranged constraint</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p class="p">When you build or modify your problem with this routine,
+you can verify that the results are as you intended
+by calling <code class="ph codeph"><span class="keyword apiname">CPXcheckaddrows</span></code>
+during application development.
+</p>
+
+<div class="note important"><span class="importanttitle">Important:</span> 
+<p class="p">The use of <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code>
+as a way to add new columns is discouraged in favor of a direct call to 
+<code class="ph codeph"><a class="xref" href="newcols.html" title="The routine CPXXnewcols/CPXnewcols adds empty columns to a specified CPLEX problem object."><span class="keyword apiname">CPXXnewcols</span>/<span class="keyword apiname">CPXnewcols</span></a></code>  
+before calling <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code>.</p>
+</div>
+
+
+<p class="p">CPLEX treats a righthand side (rhs) of 
+<code class="ph codeph">CPX_INFBOUND</code> 
+as infinite.</p>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">ccnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of new columns in the constraints being added to the constraint matrix. When new columns are added, they are given an objective coefficient of zero, a lower bound of zero, and an upper bound of <code class="ph codeph">CPX_INFBOUND</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of new rows to be added to the constraint matrix.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nzcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the number of nonzero constraint coefficients to be added to the constraint matrix. This specifies the length of the arrays <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> containing the righthand side term for each constraint to be added to the CPLEX problem object. May be NULL, in which case the new righthand side values are set to 0.0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">rcnt</span></code> containing the sense of each constraint to be added to the CPLEX problem object. May be NULL, in which case the new constraints are created as equality constraints. Possible values of this argument appear in the table.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array used with <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> to define the rows to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatind</dt>
+
+        <dd class="dd pd">
+          
+          An array used with <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> to define the rows to be added.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rmatval</dt>
+
+        <dd class="dd pd">
+          
+          An array used with <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword parmname">rmatind</span></code> to define the rows to be added. The format is similar to the format used to describe the constraint matrix in the routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code> (see description of <code class="ph codeph">matbeg</code>, <code class="ph codeph">matcnt</code>, <code class="ph codeph">matind</code>, and <code class="ph codeph">matval</code> in that routine), but the nonzero coefficients are grouped by row instead of column in the array <code class="ph codeph"><span class="keyword parmname">rmatval</span></code>. The nonzero elements of every row must be stored in sequential locations in this array from position <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i]</code> to <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i+1]-1</code> (or from <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[i]</code> to <code class="ph codeph"><span class="keyword parmname">nzcnt</span>-1</code> if <code class="ph codeph">i=<span class="keyword parmname">rcnt</span>-1</code>). Each entry, <code class="ph codeph"><span class="keyword parmname">rmatind</span>[i]</code>, specifies the column index of the corresponding coefficient, <code class="ph codeph"><span class="keyword parmname">rmatval</span>[i]</code>. Unlike<code class="ph codeph"><span class="keyword apiname">CPXcopylp</span></code>, all rows must be contiguous, and <code class="ph codeph"><span class="keyword parmname">rmatbeg</span>[0]</code> must be 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">colname</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">ccnt</span></code> containing pointers to character strings that represent the names of the new columns added to the CPLEX problem object, or equivalently, the new variable names. May be NULL, in which case the new columns are assigned default names if the columns already resident in the CPLEX problem object have names; otherwise, no names are associated with the variables. If column names are passed to <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> but existing variables have no names assigned, default names are created for them.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rowname</dt>
+
+        <dd class="dd pd">
+          
+          An array containing pointers to character strings that represent the names of the new rows, or equivalently, the constraint names. May be NULL, in which case the new rows are assigned default names if the rows already resident in the CPLEX problem object have names; otherwise, no names are associated with the constraints. If row names are passed to <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> but existing constraints have no names assigned, default names are created for them.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXaddrows (env, lp, ccnt, rcnt, nzcnt, rhs,
+	      sense, rmatbeg, rmatind, rmatval,
+	      newcolname, newrowname);</code></pre>
+
+<p class="p">See also the example <code class="ph codeph">lpex3.c</code> in the
+<em class="ph i">CPLEX User's Manual</em> and in the standard distribution.</p>
+
+
+<p class="p">For more about the conventions for representing a matrix as
+compact arrays, see the discussion of matbeg, matind, and matval
+in the routine <code class="ph codeph"><a class="xref" href="copylp.html" title="The routine CPXXcopylp/CPXcopylp copies data that define an LP problem to a CPLEX problem object."><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></a></code>.</p>
+
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetA.html">A</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemodifyproblem.html">Modifying Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpBuildModel.html">Building a model for a linear program (LP)</a></div>
+</div>
+</nav></div></body>
+</html>

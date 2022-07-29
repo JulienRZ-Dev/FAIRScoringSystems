@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Preparing the submodel" />
+<meta name="abstract" content="Either by using run configuration and project instances, or by using model and data file instances." />
+<meta name="Description" content="Either by using run configuration and project instances, or by using model and data file instances." />
+<meta name="DC.subject" content="projects, creating model instances through scripting, models, instantiating via scripting, classes, IloOplProject, IloOplProject IBM ILOG Script class, creating a model instance, IloOplRunConfiguration, IloOplRunConfiguration IBM ILOG Script class, scripting, creating model instances for run configurations, run configurations, creating model instances through scripting, settings files, files, .ops, code samples, for model decomposition" />
+<meta name="keywords" content="projects, creating model instances through scripting, models, instantiating via scripting, classes, IloOplProject, IloOplProject IBM ILOG Script class, creating a model instance, IloOplRunConfiguration, IloOplRunConfiguration IBM ILOG Script class, scripting, creating model instances for run configurations, run configurations, creating model instances through scripting, settings files, files, .ops, code samples, for model decomposition" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangtut.uss_langtut_modeldecomp.1014750" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<title>Preparing the submodel</title>
+</head>
+<body id="usropllangtut.uss_langtut_modeldecomp.1014750"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Preparing the submodel</h1>
+
+
+
+<div class="body"><p class="shortdesc">Either by using run configuration and project
+instances, or by using model and data file instances.</p>
+
+
+<p class="p">There are two ways of initializing all that is necessary
+for the submodel:</p>
+
+<ul class="ul">
+<li class="li"><p class="p">Using run configuration and project instances</p>
+</li>
+
+<li class="li"><p class="p">Using model and data file instances</p>
+ </li>
+
+</ul>
+
+</div>
+
+<article class="topic nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" id="usropllangtut.uss_langtut_modeldecomp.1018702">
+<h2 class="title topictitle2" id="ariaid-title2">Using run configuration and project instances</h2>
+
+
+<div class="body">
+<p class="p">The quickest way of instantiating the model consists in using the class
+                    <code class="ph codeph">IloOplProject</code>. An alternative method (not used in the
+                example) is presented afterwards, using
+                    <code class="ph codeph">IloOplRunConfiguration</code>.</p>
+
+<section class="section" id="usropllangtut.uss_langtut_modeldecomp.1018702__usropllangtut.uss_langtut_modeldecomp.1018799"><h3 class="title sectiontitle">IloOplProject</h3><p class="p">The class <span class="keyword apiname">IloOplProject</span> allows
+you to create an <span class="keyword apiname">IloOplModel</span> instance.
+This allows you to handle settings files (<span class="ph filepath">.ops</span>)
+easily.</p>
+<p class="p">These two classes are fully documented in the <em class="ph i">IBM ILOG Script Reference Manual</em>.</p>
+<p class="p">The <code class="ph codeph">IloOplDataElements</code> is created from scratch and initialized
+with data from the master model using the following code:</p>
+<pre class="pre codeblock"><code>
+var subData = new IloOplDataElements();
+subData.RollWidth = masterOpl.RollWidth;
+subData.Size = masterOpl.Size; </code></pre><p class="p">The array <code class="ph codeph">Duals</code> is now declared in the post processing of
+the master model and we pass it to the sub model as follows: </p>
+<pre class="pre codeblock"><code>
+subData.Duals = masterOpl.Duals; </code></pre></section>
+
+<section class="section" id="usropllangtut.uss_langtut_modeldecomp.1018702__usropllangtut.uss_langtut_modeldecomp.1018779"><h3 class="title sectiontitle">IloOplRunConfiguration</h3><p class="p">Alternatively, the class <span class="keyword apiname">IloOplRunConfiguration</span> could be used to create
+an <span class="keyword apiname">IloOplModel</span> instance in a straightforward
+manner by just passing the file names as arguments, as follows:</p>
+<pre class="pre codeblock"><code>  var subSource = new IloOplModelSource("cutstock-sub.mod");
+  var subDef = new IloOplModelDefinition(subSource);
+  var subData = new IloOplDataElements();
+  var subCplex = new IloCplex();
+</code></pre><p class="p">After
+the run configuration is created, you can access the <code class="ph codeph">IloOplModel</code> instance
+using the <code class="ph codeph">oplModel</code> property, as follows:</p>
+<pre class="pre codeblock"><code>    subOpl.generate();
+</code></pre></section>
+
+</div>
+
+</article>
+
+<article class="topic nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" id="usropllangtut.uss_langtut_modeldecomp.1018707">
+<h2 class="title topictitle2" id="ariaid-title3">Using model and data file instances</h2>
+
+
+<div class="body">
+<div class="p">You can also create the <span class="keyword apiname">IloOplModel</span> instance for the submodel <q class="q">from
+scratch</q>, using a model source, model definition, and data source (see the list in <a class="xref" href="opl_languser_script_fc_column_cutstock.html#descriptiveTopic1197899870602__usropllangtut.uss_langtut_modeldecomp.1020547" title="A two-column table that lists files for the cutting stock example and provides a short description of each.">The cutting stock example</a>). </div>
+
+
+
+<pre class="pre codeblock"><code>   var subSource = new IloOplModelSource("cutstock-sub.mod");
+   var subDef = new IloOplModelDefinition(subSource);
+   var subCplex = new IloCplex();
+</code></pre>
+</div>
+
+</article>
+
+
+</div></body>
+</html>

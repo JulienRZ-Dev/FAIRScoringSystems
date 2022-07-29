@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="More details on IloCPEngine" />
+<meta name="abstract" content="During search, one can manipulate the CP engine state using the handle class IloCPEngine." />
+<meta name="Description" content="During search, one can manipulate the CP engine state using the handle class IloCPEngine." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizerextend.1012315" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" />
+<title>More details on IloCPEngine</title>
+</head>
+<body id="migration.uss_usradvcpoptimizerextend.1012315"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">More details on IloCPEngine </h1>
+<div class="body"><p class="shortdesc">During search, one can manipulate the CP engine state using the handle class IloCPEngine. </p>
+
+<p class="p">
+One technical point you should be aware of, which should not affect you in practice, is that some of
+the functionality of <code class="ph codeph">IloCPEngine</code> is made available through its base class <code class="ph codeph">IlcCPEngine</code>. You may use
+<code class="ph codeph">IloCPEngine</code> everywhere without worry, but keep in mind that you will find documentation for some of
+the functionality that <code class="ph codeph">IloCPEngine</code> provides on the <code class="ph codeph">IlcCPEngine</code> class.
+</p>
+
+
+<p class="p"><code class="ph codeph">IlcCPEngine</code> provides:</p>
+
+<ul class="ul">
+<li class="li">reversibility related API (see <code class="ph codeph">saveValue</code>, <code class="ph codeph">getHeap</code>, <code class="ph codeph">addReversibleAction</code>).</li>
+
+<li class="li"> the <code class="ph codeph">solve</code> method.</li>
+
+<li class="li"> In-search:
+<ul class="ul">
+<li class="li">reversible <code class="ph codeph">IlcConstraint</code> addition to the solved model.</li>
+
+<li class="li">control API (<code class="ph codeph">fail</code>/<code class="ph codeph">exitSearch</code>).</li>
+
+<li class="li">random number generation (<code class="ph codeph">getRandomInt</code>, <code class="ph codeph">getRandomNum</code>).</li>
+
+<li class="li">engine state access using methods such as <code class="ph codeph">hasObjective()</code>, and<code class="ph codeph">getInfo(...)</code>.</li>
+
+</ul>
+</li>
+
+<li class="li">model exportation in .cpo format.</li>
+
+</ul>
+
+
+<p class="p"><code class="ph codeph">IloCPEngine</code> derives from <code class="ph codeph">IlcCPEngine</code> and provides a way to:</p>
+
+<ul class="ul">
+<li class="li">access all the extracted model objects (see <code class="ph codeph">getAllIloIntVars()</code>, <code class="ph codeph">getAllIloIntervalVars()</code>, etc...).</li>
+ 
+<li class="li">map <code class="ph codeph">Ilo</code> objects or names to engine entities such as 
+<code class="ph codeph">IlcIntVar</code> (see <code class="ph codeph">getIntVar(IloIntVar)</code>, <code class="ph codeph">getIntVar(const char*)</code>, etc..).</li>
+
+<li class="li">create engine variable domain iterators from <code class="ph codeph">IloIntVar</code> handles.</li>
+
+<li class="li">introspect the engine state using concert model objects as keys (see <code class="ph codeph">isFixed(IloIntVar)</code>, 
+<code class="ph codeph">getMin(IloIntVar)</code>, <code class="ph codeph">getObjValue()</code>, etc..).</li>
+
+<li class="li">variable domain printing using (see <code class="ph codeph">domain(IloNumVar)</code>, <code class="ph codeph">domain(IloIntervalVar)</code>).</li>
+
+</ul>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/extend_api.html" title="When using the engine extensions API of CP Optimizer, you will need to use the internal engine object classes instead of only the modeling classes. These internal classes are prefixed with Ilc.">Engine extension API classes</a></div>
+</div>
+</nav></div></body>
+</html>

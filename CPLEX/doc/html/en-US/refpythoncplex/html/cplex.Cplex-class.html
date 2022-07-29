@@ -1,0 +1,2803 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cplex.Cplex</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cplex-module.html">Package&nbsp;cplex</a> ::
+        Class&nbsp;Cplex
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cplex.Cplex-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a name="ibm-content">&nbsp;</a>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Cplex</h1><p class="nomargin-top"></p>
+<p>A class encapsulating a CPLEX Problem.</p>
+<p>An instance of the Cplex class provides methods for creating,
+modifying, and querying an optimization problem, solving it, and
+querying aspects of the solution.</p>
+<p>Most of the methods are provided within subinterfaces: for example,
+methods for adding, modifying, and querying data associated with
+variables are within the <a href="cplex.Cplex-class.html#variables" class="link">Cplex.variables</a> interface, and methods for
+querying the solution are within the <a href="cplex.Cplex-class.html#solution" class="link">Cplex.solution</a> category.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Constructor of the Cplex class.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#end" class="summary-sig-name">end</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Releases the Cplex object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#__enter__" class="summary-sig-name">__enter__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Enter the runtime context related to this object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#__exit__" class="summary-sig-name">__exit__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">exc_type</span>,
+        <span class="summary-sig-arg">exc_value</span>,
+        <span class="summary-sig-arg">traceback</span>)</span><br />
+      Exit the runtime context.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#read" class="summary-sig-name">read</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">filetype</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Reads a problem from file.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">filetype</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Writes a problem to a file.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#write_to_stream" class="summary-sig-name">write_to_stream</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">stream</span>,
+        <span class="summary-sig-arg">filetype</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">LP</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">comptype</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Writes a problem to a file-like object in the given file format.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#write_as_string" class="summary-sig-name">write_as_string</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filetype</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">LP</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">comptype</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Writes a problem as a string in the given file format.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#read_annotations" class="summary-sig-name">read_annotations</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Reads annotations from a file.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#write_annotations" class="summary-sig-name">write_annotations</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Writes the annotations to a file.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#write_benders_annotation" class="summary-sig-name">write_benders_annotation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Writes the annotation of the auto-generated decomposition.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_problem_type" class="summary-sig-name">get_problem_type</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the problem type.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_problem_type" class="summary-sig-name">set_problem_type</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">type</span>,
+        <span class="summary-sig-arg">soln</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Changes the problem type.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#copy_vmconfig" class="summary-sig-name">copy_vmconfig</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">xmlstring</span>)</span><br />
+      Read a virtual machine configuration from a string and install
+it in this instance.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#read_copy_vmconfig" class="summary-sig-name">read_copy_vmconfig</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span><br />
+      Read a virtual machine configuration from a file and install
+it in this instance.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#del_vmconfig" class="summary-sig-name">del_vmconfig</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Delete the virtual machine configuration in this instance (if
+there is any).</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#has_vmconfig" class="summary-sig-name">has_vmconfig</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Test whether this instance has a virtual machine configuration
+installed.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#solve" class="summary-sig-name">solve</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">paramsets</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Solves the problem.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#runseeds" class="summary-sig-name">runseeds</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cnt</span>=<span class="summary-sig-default">30</span>)</span><br />
+      Evaluates the variability of the problem.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#populate_solution_pool" class="summary-sig-name">populate_solution_pool</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Generates a variety of solutions to a discrete problem (MIP, MIQP, MIQCP).</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_problem_name" class="summary-sig-name">get_problem_name</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the problem name.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_problem_name" class="summary-sig-name">set_problem_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Sets the problem name.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#cleanup" class="summary-sig-name">cleanup</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">epsilon</span>)</span><br />
+      Deletes values from the problem data with absolute value
+smaller than epsilon.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#register_callback" class="summary-sig-name">register_callback</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">callback_class</span>)</span><br />
+      Registers a callback class for use during optimization.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#unregister_callback" class="summary-sig-name">unregister_callback</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">callback_class</span>)</span><br />
+      Stops a callback class from being used.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_results_stream" class="summary-sig-name">set_results_stream</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">results_file</span>,
+        <span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Specifies where results will be printed.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_warning_stream" class="summary-sig-name">set_warning_stream</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">warning_file</span>,
+        <span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Specifies where warnings will be printed.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_error_stream" class="summary-sig-name">set_error_stream</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">error_file</span>,
+        <span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Specifies where errors will be printed.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_log_stream" class="summary-sig-name">set_log_stream</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">log_file</span>,
+        <span class="summary-sig-arg">fn</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Specifies where the log will be printed.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_version" class="summary-sig-name">get_version</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a string specifying the version of CPLEX.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_versionnumber" class="summary-sig-name">get_versionnumber</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns an integer specifying the version of CPLEX.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_num_cores" class="summary-sig-name">get_num_cores</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the number of cores on this machine.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_stats" class="summary-sig-name">get_stats</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a <a href="cplex.Stats-class.html" class="link">Stats</a> object containing problem statistics.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_time" class="summary-sig-name">get_time</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a time stamp in seconds.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_dettime" class="summary-sig-name">get_dettime</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a deterministic time stamp in ticks.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#use_aborter" class="summary-sig-name">use_aborter</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">aborter</span>)</span><br />
+      Use an <a href="cplex.aborter.Aborter-class.html" class="link">Aborter</a> to control termination of solve methods.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#remove_aborter" class="summary-sig-name">remove_aborter</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Removes the <a href="cplex.aborter.Aborter-class.html" class="link">Aborter</a> being used by the invoking object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_aborter" class="summary-sig-name">get_aborter</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the <a href="cplex.aborter.Aborter-class.html" class="link">Aborter</a> being used by the invoking object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_callback" class="summary-sig-name">set_callback</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">functor</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">contextmask</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Set callback function to use during optimization.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_modeling_assistance_callback" class="summary-sig-name">set_modeling_assistance_callback</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">functor</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Set callback function to use for modeling assistance warnings.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#create_parameter_set" class="summary-sig-name">create_parameter_set</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a new CPLEX parameter set object that is associated
+with this CPLEX problem object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#copy_parameter_set" class="summary-sig-name">copy_parameter_set</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>)</span><br />
+      Returns a deep copy of a parameter set.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#get_parameter_set" class="summary-sig-name">get_parameter_set</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a parameter set containing parameters that have been
+changed from their default values in the environment.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#set_parameter_set" class="summary-sig-name">set_parameter_set</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>)</span><br />
+      Applies the parameter values in the paramset to the
+environment.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cplex.Cplex-class.html#copylp" class="summary-sig-name">copylp</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">numcols</span>,
+        <span class="summary-sig-arg">numrows</span>,
+        <span class="summary-sig-arg">objsense</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">obj</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">rhs</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">senses</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">matbeg</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">matcnt</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">matind</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">matval</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">lb</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">ub</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">range_values</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">colnames</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">rownames</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Copies LP data into a CPLEX problem object.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Class Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="problem_type"></a><span class="summary-name">problem_type</span> = <code title="ProblemType()">ProblemType()</code><br />
+      See <a href="cplex._internal.ProblemType-class.html" class="link">ProblemType</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="parameters"></a><span class="summary-name">parameters</span><br />
+      See <a href="cplex._internal._parameter_classes.RootParameterGroup-class.html" class="link">RootParameterGroup</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="variables"></a><span class="summary-name">variables</span><br />
+      See <a href="cplex._internal._subinterfaces.VariablesInterface-class.html" class="link">VariablesInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="linear_constraints"></a><span class="summary-name">linear_constraints</span><br />
+      See <a href="cplex._internal._subinterfaces.LinearConstraintInterface-class.html" class="link">LinearConstraintInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="quadratic_constraints"></a><span class="summary-name">quadratic_constraints</span><br />
+      See <a href="cplex._internal._subinterfaces.QuadraticConstraintInterface-class.html" class="link">QuadraticConstraintInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="indicator_constraints"></a><span class="summary-name">indicator_constraints</span><br />
+      See <a href="cplex._internal._subinterfaces.IndicatorConstraintInterface-class.html" class="link">IndicatorConstraintInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SOS"></a><span class="summary-name">SOS</span><br />
+      See <a href="cplex._internal._subinterfaces.SOSInterface-class.html" class="link">SOSInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="objective"></a><span class="summary-name">objective</span><br />
+      See <a href="cplex._internal._subinterfaces.ObjectiveInterface-class.html" class="link">ObjectiveInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="multiobj"></a><span class="summary-name">multiobj</span><br />
+      See <a href="cplex._internal._multiobj.MultiObjInterface-class.html" class="link">MultiObjInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MIP_starts"></a><span class="summary-name">MIP_starts</span><br />
+      See <a href="cplex._internal._subinterfaces.MIPStartsInterface-class.html" class="link">MIPStartsInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="solution"></a><span class="summary-name">solution</span><br />
+      See <a href="cplex._internal._subinterfaces.SolutionInterface-class.html" class="link">SolutionInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="presolve"></a><span class="summary-name">presolve</span><br />
+      See <a href="cplex._internal._subinterfaces.PresolveInterface-class.html" class="link">PresolveInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="order"></a><span class="summary-name">order</span><br />
+      See <a href="cplex._internal._subinterfaces.OrderInterface-class.html" class="link">OrderInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="conflict"></a><span class="summary-name">conflict</span><br />
+      See <a href="cplex._internal._subinterfaces.ConflictInterface-class.html" class="link">ConflictInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="advanced"></a><span class="summary-name">advanced</span><br />
+      See <a href="cplex._internal._subinterfaces.AdvancedCplexInterface-class.html" class="link">AdvancedCplexInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="start"></a><span class="summary-name">start</span><br />
+      See <a href="cplex._internal._subinterfaces.InitialInterface-class.html" class="link">InitialInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="feasopt"></a><span class="summary-name">feasopt</span><br />
+      See <a href="cplex._internal._subinterfaces.FeasoptInterface-class.html" class="link">FeasoptInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="long_annotations"></a><span class="summary-name">long_annotations</span><br />
+      See <a href="cplex._internal._anno.LongAnnotationInterface-class.html" class="link">LongAnnotationInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="double_annotations"></a><span class="summary-name">double_annotations</span><br />
+      See <a href="cplex._internal._anno.DoubleAnnotationInterface-class.html" class="link">DoubleAnnotationInterface</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="pwl_constraints"></a><span class="summary-name">pwl_constraints</span><br />
+      See <a href="cplex._internal._pwl.PWLConstraintInterface-class.html" class="link">PWLConstraintInterface</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Method Details</span></td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Constructor of the Cplex class.</p>
+<p>The Cplex constructor accepts four types of argument lists.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>cpx = cplex.Cplex()</pre>
+<p>cpx is a new problem with no data</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>cpx = cplex.Cplex(<span class="py-string">&quot;filename&quot;</span>)</pre>
+<p>cpx is a new problem containing the data in filename. If filename
+does not exist, an exception is raised.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>cpx = cplex.Cplex(<span class="py-string">&quot;filename&quot;</span>, <span class="py-string">&quot;filetype&quot;</span>)</pre>
+<p>same as form 2, but cplex reads the file filename as a file of
+type filetype, rather than inferring the file type from its
+extension.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>cpx = cplex.Cplex(old_cpx)</pre>
+<p>cpx contains the same problem data as old_cpx, but is a different
+object and contains no solution data. Future changes to one do
+not affect the other.</p>
+<p>The Cplex object is a context manager and can be used, like so:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>with cplex.Cplex() <span class="py-keyword">as</span> cpx:
+<span class="py-more">... </span>    <span class="py-comment"># do stuff</span>
+<span class="py-more">... </span>    <span class="py-keyword">pass</span></pre>
+<p>When the with-block is finished, the <a href="cplex.Cplex-class.html#end" class="link">end()</a> method will be
+called automatically.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="end"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">end</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Releases the Cplex object.</p>
+<p>Frees all data structures associated with CPLEX. After a call of
+the method end(), the invoking Cplex object and all objects that
+have been created with it (such as variables and constraints) can
+no longer be used. Attempts to use them subsequently raise a
+ValueError.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>The Cplex object is a context manager. Thus, rather than
+calling this method explicitly, the best practice should be to
+use a Cplex object in a &quot;with&quot; statement (see <a href="cplex.Cplex-class.html#__enter__" class="link">__enter__</a> and
+<a href="cplex.Cplex-class.html#__exit__" class="link">__exit__</a>).</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>cpx = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>cpx.end()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__enter__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__enter__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enter the runtime context related to this object.</p>
+<p>The &quot;with&quot; statement will bind this method's return value to the
+target specified in the as clause of the statement, if any.</p>
+<p>Cplex objects return themselves.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>with cplex.Cplex() <span class="py-keyword">as</span> cpx:
+<span class="py-more">... </span>    <span class="py-comment"># do stuff</span>
+<span class="py-more">... </span>    <span class="py-keyword">pass</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__exit__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__exit__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">exc_type</span>,
+        <span class="sig-arg">exc_value</span>,
+        <span class="sig-arg">traceback</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Exit the runtime context.</p>
+<p>When we exit the with-block, the <a href="cplex.Cplex-class.html#end" class="link">end()</a> method is called
+automatically.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>,
+        <span class="sig-arg">filetype</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a problem from file.</p>
+<p>The first argument is a string specifying the filename from which
+the problem will be read.</p>
+<p>If the method is called with two arguments, the second argument
+is a string specifying the file type. If this argument is
+omitted, filetype is taken to be the extension of the filename.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/readcopyprob.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXreadcopyprob</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">&quot;lpex.mps&quot;</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>,
+        <span class="sig-arg">filetype</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a problem to a file.</p>
+<p>The first argument is a string specifying the filename to which
+the problem will be written.</p>
+<p>If the filename ends with .bz2 (for BZip2) or .gz (for GNU Zip),
+a compressed file is written.</p>
+<p>If the method is called with two arguments, the second argument
+is a string specifying the file type. If this argument is
+omitted, filetype is taken to be the extension of the filename.</p>
+<p>If filetype is any of &quot;sav&quot;, &quot;mps&quot;, &quot;lp&quot;, the problem is written
+in the corresponding format. If filetype is either &quot;rew&quot; or &quot;rlp&quot;
+the problem is written with generic names in mps or lp format,
+respectively. If filetype is &quot;alp&quot; the problem is written with
+generic names in lp format, where the variable names are
+annotated to indicate the type and bounds of each variable.</p>
+<p>If filetype is &quot;dua&quot;, the dual problem is written to a file. If
+filetype is &quot;emb&quot;, an embedded network problem is written to a
+file. If filetype is &quot;ppe&quot;, the perturbed problem is written to a
+file. If filetype is &quot;dpe&quot;, the perturbed dual problem is written
+to a file.</p>
+<p>For documentation of the file types, see the CPLEX File Format
+Reference Manual.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/writeprob.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXwriteprob</span></tt></a>, <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/dualwrite.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXdualwrite</span></tt></a>,
+<a class="rst-reference external" href="../../refcallablelibrary/cpxapi/embwrite.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXembwrite</span></tt></a>, <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/dperwrite.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXdperwrite</span></tt></a>, and
+<a class="rst-reference external" href="../../refcallablelibrary/cpxapi/pperwrite.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXpperwrite</span></tt></a> in the Callable Library Reference Manual
+for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'x1'</span>, <span class="py-string">'x2'</span>, <span class="py-string">'x3'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.write(<span class="py-string">&quot;example.lp&quot;</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_to_stream"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_to_stream</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">stream</span>,
+        <span class="sig-arg">filetype</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">LP</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">comptype</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a problem to a file-like object in the given file format.</p>
+<p>The filetype argument can be any of &quot;sav&quot; (a binary format), &quot;lp&quot;
+(the default), &quot;mps&quot;, &quot;rew&quot;, &quot;rlp&quot;, or &quot;alp&quot; (see <a href="cplex.Cplex-class.html#write" class="link">Cplex.write</a>
+for an explanation of these).</p>
+<p>If comptype is &quot;bz2&quot; (for BZip2) or &quot;gz&quot; (for GNU Zip), a
+compressed file is written.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/writeprob.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXwriteprob</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'x1'</span>, <span class="py-string">'x2'</span>, <span class="py-string">'x3'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">NoOpStream</span>():
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+<span class="py-more">... </span>        self.was_called = False
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">write</span>(self, bytes):
+<span class="py-more">... </span>        self.was_called = True
+<span class="py-more">... </span>        <span class="py-keyword">pass</span>
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">flush</span>(self):
+<span class="py-more">... </span>        <span class="py-keyword">pass</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>stream = NoOpStream()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.write_to_stream(stream)
+<span class="py-prompt">&gt;&gt;&gt; </span>stream.was_called
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_as_string"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_as_string</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filetype</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">LP</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">comptype</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a problem as a string in the given file format.</p>
+<p>For an explanation of the filetype and comptype arguments, see
+<a href="cplex.Cplex-class.html#write_to_stream" class="link">Cplex.write_to_stream</a>.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>When SAV format is specified for filetype or a compressed file
+format is specified for comptype, the return value will be a
+byte string.</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'x1'</span>, <span class="py-string">'x2'</span>, <span class="py-string">'x3'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>lp_str = c.write_as_string(<span class="py-string">&quot;lp&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(lp_str) &gt; 0
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_annotations"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_annotations</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads annotations from a file.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/readcopyannotations.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXreadcopyannotations</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.long_annotations.add(<span class="py-string">'ann1'</span>, 0)
+<span class="py-prompt">&gt;&gt;&gt; </span>objtype = c.long_annotations.object_type.variable
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'v1'</span>, <span class="py-string">'v2'</span>, <span class="py-string">'v3'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.long_annotations.set_values(idx, objtype,
+<span class="py-more">... </span>                              [(i, 1) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> indices])
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.double_annotations.add(<span class="py-string">'ann1'</span>, 0)
+<span class="py-prompt">&gt;&gt;&gt; </span>objtype = c.double_annotations.object_type.variable
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'v1'</span>, <span class="py-string">'v2'</span>, <span class="py-string">'v3'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.double_annotations.set_values(idx, objtype,
+<span class="py-more">... </span>                                [(i, 1) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> indices])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.write_annotations(<span class="py-string">'example.ann'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.long_annotations.delete()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.double_annotations.delete()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.long_annotations.get_num()
+<span class="py-output">0</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.double_annotations.get_num()
+<span class="py-output">0</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.read_annotations(<span class="py-string">'example.ann'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.long_annotations.get_num()
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.double_annotations.get_num()
+<span class="py-output">1</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_annotations"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_annotations</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes the annotations to a file.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/writeannotations.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXwriteannotations</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>idx = c.long_annotations.add(<span class="py-string">'ann1'</span>, 0)
+<span class="py-prompt">&gt;&gt;&gt; </span>objtype = c.long_annotations.object_type.variable
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(names=[<span class="py-string">'v1'</span>, <span class="py-string">'v2'</span>, <span class="py-string">'v3'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.long_annotations.set_values(idx, objtype,
+<span class="py-more">... </span>                              [(i, 1) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> indices])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.write_annotations(<span class="py-string">'example.ann'</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_benders_annotation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_benders_annotation</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes the annotation of the auto-generated decomposition.</p>
+<p>Writes the annotation of the decompostion CPLEX automatically
+generates for the model of the CPLEX problem object to the
+specified file.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/writebendersannotation.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXwritebendersannotation</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">'UFL_25_35_1.mps'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.write_benders_annotation(<span class="py-string">'UFL_25_35_1.ann'</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_problem_type"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_problem_type</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the problem type.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/getprobtype.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXgetprobtype</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>The return value is an attribute of <a href="cplex.Cplex-class.html#problem_type" class="link">problem_type</a>.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">&quot;lpex.mps&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.get_problem_type()
+<span class="py-output">0</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.problem_type[c.get_problem_type()]
+<span class="py-output">'LP'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_problem_type"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_problem_type</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">type</span>,
+        <span class="sig-arg">soln</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Changes the problem type.</p>
+<p>If only one argument is given, that argument specifies the new
+problem type (see <a href="cplex.Cplex-class.html#problem_type" class="link">problem_type</a>). It must be one of the
+following:</p>
+<ul class="rst-simple">
+<li>Cplex.problem_type.LP</li>
+<li>Cplex.problem_type.MILP</li>
+<li>Cplex.problem_type.fixed_MILP</li>
+<li>Cplex.problem_type.QP</li>
+<li>Cplex.problem_type.MIQP</li>
+<li>Cplex.problem_type.fixed_MIQP</li>
+<li>Cplex.problem_type.QCP</li>
+<li>Cplex.problem_type.MIQCP</li>
+</ul>
+<p>If an optional second argument is given, it is taken to be an
+identifier of a member of the solution pool. In this case, the
+first argument must be one of the following:</p>
+<ul class="rst-simple">
+<li>Cplex.problem_type.fixed_MILP</li>
+<li>Cplex.problem_type.fixed_MIQP</li>
+</ul>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/chgprobtype.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXchgprobtype</span></tt></a> and <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/chgprobtypesolnpool.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXchgprobtypesolnpool</span></tt></a>
+in the Callable Library Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_problem_type(c.problem_type.LP)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="copy_vmconfig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">copy_vmconfig</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">xmlstring</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read a virtual machine configuration from a string and install
+it in this instance.</p>
+<p>The content of the string passed to this function must conform to
+the VMC file specification. If the string can be successfully
+parsed, then the virtual machine configuration specified by it is
+installed in this instance. In case of error, a previously
+installed virtual machine configuration is not touched.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxdistmipapi/copyvmconfig.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXcopyvmconfig</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_copy_vmconfig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_copy_vmconfig</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filename</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read a virtual machine configuration from a file and install
+it in this instance.</p>
+<p>The filename argument to this function must specify a file that
+conforms to the VMC file format. If the file can be successfully
+parsed, then the virtual machine configuration specified by it is
+installed in this instance. In case of error, a previously
+installed virtual machine configuration is not touched.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxdistmipapi/readcopyvmconfig.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXreadcopyvmconfig</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="del_vmconfig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">del_vmconfig</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Delete the virtual machine configuration in this instance (if
+there is any).</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxdistmipapi/delvmconfig.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXdelvmconfig</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.del_vmconfig()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="has_vmconfig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">has_vmconfig</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Test whether this instance has a virtual machine configuration
+installed.</p>
+<p>See <a href="cplex.Cplex-class.html#copy_vmconfig" class="link">copy_vmconfig</a>, <a href="cplex.Cplex-class.html#read_copy_vmconfig" class="link">read_copy_vmconfig</a>, and <a href="cplex.Cplex-class.html#del_vmconfig" class="link">del_vmconfig</a>.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.has_vmconfig()
+<span class="py-output">False</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="solve"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">solve</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">paramsets</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Solves the problem.</p>
+<p>The optional paramsets argument can only be specified when
+multiple objectives are present (otherwise, a ValueError is
+raised). paramsets must be a sequence containing <a href="cplex.paramset.ParameterSet-class.html" class="link">ParameterSet</a>
+objects (see <a href="cplex.Cplex-class.html#create_parameter_set" class="link">Cplex.create_parameter_set</a>) or None. See
+<a class="rst-reference external" href="../../refcallablelibrary/cpxapi/multiobjopt.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmultiobjopt</span></tt></a> in the Callable Library Reference Manual
+for more detail.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>The solve method returning normally (i.e., without raising an
+exception) does not necessarily mean that an optimal or
+feasible solution has been found. Use
+<a href="cplex._internal._subinterfaces.SolutionInterface-class.html#get_status" class="link">SolutionInterface.get_status()</a> to query the status of the
+current solution.</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">&quot;lpex.mps&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.solve()
+<span class="py-prompt">&gt;&gt;&gt; </span>status = c.solution.get_status()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="runseeds"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">runseeds</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cnt</span>=<span class="sig-default">30</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Evaluates the variability of the problem.</p>
+<p>Solves the same problem instance multiple times using different
+random seeds allowing the user to evaluate the variability of the
+problem class the instance belongs to.</p>
+<p>The optional cnt argument specifies the number of times
+optimization should be performed (the default is 30).</p>
+<p>A problem must be an MILP, MIQP, or MIQCP and must exist in
+memory.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="populate_solution_pool"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populate_solution_pool</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Generates a variety of solutions to a discrete problem (MIP, MIQP, MIQCP).</p>
+<p>The algorithm that populates the solution pool works in two
+phases.</p>
+<p>In the first phase, it solves the problem to optimality (or
+some stopping criterion set by the user) while it sets up a
+branch and cut tree for the second phase.</p>
+<p>In the second phase, it generates multiple solutions by using
+the information computed and stored in the first phase and by
+continuing to explore the tree.</p>
+<p>For more information, see the function <a class="rst-reference external" href="../../refcallablelibrary/mipapi/populate.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXpopulate</span></tt></a> in the
+Callable Library Reference Manual and the topic solution pool
+in the CPLEX User's Manual.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_problem_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_problem_name</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the problem name.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/getprobname.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXgetprobname</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_problem_name(<span class="py-string">&quot;prob1&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.get_problem_name()
+<span class="py-output">'prob1'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_problem_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_problem_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the problem name.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/chgprobname.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXchgprobname</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_problem_name(<span class="py-string">&quot;prob1&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.get_problem_name()
+<span class="py-output">'prob1'</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="cleanup"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cleanup</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">epsilon</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Deletes values from the problem data with absolute value
+smaller than epsilon.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/cleanup.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXcleanup</span></tt></a> in the Callable Library Reference Manual
+for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>indices = c.variables.add(obj=[1.0, 1e-10, 1.0])
+<span class="py-prompt">&gt;&gt;&gt; </span>c.objective.get_linear()
+<span class="py-output">[1.0, 1e-10, 1.0]</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>c.cleanup(epsilon=1e-6)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.objective.get_linear()
+<span class="py-output">[1.0, 0.0, 1.0]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="register_callback"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">register_callback</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">callback_class</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Registers a callback class for use during optimization.</p>
+<p>callback_class must be a proper subclass of one of the callback
+classes defined in the module <a href="cplex.callbacks-module.html" class="link">callbacks</a>. To implement custom
+logic, override the __call__ method with a method that has
+signature __call__(self) -&gt; None. If callback_class is a subclass
+of more than one callback class, it will only be called when its
+first superclass is called. register_callback returns the
+instance of callback_class registered for use. Any previously
+registered callback of the same class will no longer be
+registered.</p>
+<p>Returns an instance of callback_class.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">MyMIPInfoCallback</span>(cplex.callbacks.MIPInfoCallback):
+<span class="py-more">... </span>    <span class="py-keyword">pass</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>cb = c.register_callback(MyMIPInfoCallback)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="unregister_callback"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unregister_callback</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">callback_class</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Stops a callback class from being used.</p>
+<p>callback_class must be one of the callback classes defined in the
+module <a href="cplex.callbacks-module.html" class="link">callbacks</a> or a subclass of one of them. This method
+unregisters any previously registered callback of the same class.
+If callback_class is a subclass of more than one callback class,
+this method will unregister only the callback of the same type as
+its first superclass.</p>
+<p>Returns the instance of callback_class just unregistered.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">MyMIPInfoCallback</span>(cplex.callbacks.MIPInfoCallback):
+<span class="py-more">... </span>    <span class="py-keyword">pass</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>cb = c.register_callback(MyMIPInfoCallback)
+<span class="py-prompt">&gt;&gt;&gt; </span>cb = c.unregister_callback(MyMIPInfoCallback)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_results_stream"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_results_stream</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">results_file</span>,
+        <span class="sig-arg">fn</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Specifies where results will be printed.</p>
+<p>The first argument must be a file-like object (i.e., an object
+with a write method and a flush method). Use None as the first
+argument to suppress output.</p>
+<p>The second optional argument is a function that takes a string as
+input and returns a string. If specified, strings sent to this
+stream will be processed by this function before being written.</p>
+<p>Returns the stream to which results will be written. To write to
+this stream, use this object's write() method.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>with cplex.Cplex() <span class="py-keyword">as</span> c, open(<span class="py-string">&quot;output.txt&quot;</span>, <span class="py-string">&quot;w&quot;</span>) <span class="py-keyword">as</span> f:
+<span class="py-more">... </span>    output = c.set_results_stream(f)
+<span class="py-more">... </span>    output.write(<span class="py-string">&quot;this is an example&quot;</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_warning_stream"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_warning_stream</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">warning_file</span>,
+        <span class="sig-arg">fn</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Specifies where warnings will be printed.</p>
+<p>The first argument must be a file-like object (i.e., an object
+with a write method and a flush method). Use None as the first
+argument to suppress output.</p>
+<p>The second optional argument is a function that takes a string as
+input and returns a string. If specified, strings sent to this
+stream will be processed by this function before being written.</p>
+<p>Returns the stream to which warnings will be written. To write to
+this stream, use this object's write() method.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>with cplex.Cplex() <span class="py-keyword">as</span> c, open(<span class="py-string">&quot;output.txt&quot;</span>, <span class="py-string">&quot;w&quot;</span>) <span class="py-keyword">as</span> f:
+<span class="py-more">... </span>    output = c.set_warning_stream(f)
+<span class="py-more">... </span>    output.write(<span class="py-string">&quot;this is an example&quot;</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_error_stream"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_error_stream</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">error_file</span>,
+        <span class="sig-arg">fn</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Specifies where errors will be printed.</p>
+<p>The first argument must be a file-like object (i.e., an object
+with a write method and a flush method). Use None as the first
+argument to suppress output.</p>
+<p>The second optional argument is a function that takes a string as
+input and returns a string. If specified, strings sent to this
+stream will be processed by this function before being written.</p>
+<p>Returns the stream to which errors will be written. To write to
+this stream, use this object's write() method.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>with cplex.Cplex() <span class="py-keyword">as</span> c, open(<span class="py-string">&quot;output.txt&quot;</span>, <span class="py-string">&quot;w&quot;</span>) <span class="py-keyword">as</span> f:
+<span class="py-more">... </span>    output = c.set_error_stream(f)
+<span class="py-more">... </span>    output.write(<span class="py-string">&quot;this is an example&quot;</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_log_stream"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_log_stream</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">log_file</span>,
+        <span class="sig-arg">fn</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Specifies where the log will be printed.</p>
+<p>The first argument must be a file-like object (i.e., an object
+with a write method and a flush method). Use None as the first
+argument to suppress output.</p>
+<p>The second optional argument is a function that takes a string as
+input and returns a string. If specified, strings sent to this
+stream will be processed by this function before being written.</p>
+<p>Returns the stream to which the log will be written. To write to
+this stream, use this object's write() method.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>with cplex.Cplex() <span class="py-keyword">as</span> c, open(<span class="py-string">&quot;output.txt&quot;</span>, <span class="py-string">&quot;w&quot;</span>) <span class="py-keyword">as</span> f:
+<span class="py-more">... </span>    output = c.set_log_stream(f)
+<span class="py-more">... </span>    output.write(<span class="py-string">&quot;this is an example&quot;</span>)</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_version"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_version</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a string specifying the version of CPLEX.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/version.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXversion</span></tt></a> in the Callable Library Reference Manual
+for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>version = c.get_version()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_versionnumber"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_versionnumber</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns an integer specifying the version of CPLEX.</p>
+<p>The version of CPLEX is in the format vvrrmmff, where vv is the
+version, rr is the release, mm is the modification, and ff is the
+fixpack number. For example, for CPLEX version 12.5.0.1 the
+returned value is 12050001.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/versionnumber.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXversionnumber</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>versionnumber = c.get_versionnumber()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_num_cores"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_num_cores</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the number of cores on this machine.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/getnumcores.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXgetnumcores</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>num_cores = c.get_num_cores()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_stats"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_stats</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a <a href="cplex.Stats-class.html" class="link">Stats</a> object containing problem statistics.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>Printing the <a href="cplex.Stats-class.html" class="link">Stats</a> object will give a nice summary of the
+problem statistics in human readable form (e.g. as with the
+&quot;display problem statistics&quot; command in the CPLEX interactive).</dd>
+</dl>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">&quot;lpex.mps&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>stats = c.get_stats()
+<span class="py-prompt">&gt;&gt;&gt; </span>stats.num_variables
+<span class="py-output">32</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>stats.num_linear_constraints
+<span class="py-output">27</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_time"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_time</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a time stamp in seconds.</p>
+<p>To measure time spent between a starting point and ending point
+of an operation, take the result of this method at the starting
+point; take the result of this method at the end point; subtract
+the starting time stamp from the ending time stamp; the
+subtraction yields elapsed time in seconds.</p>
+<p>The interpretation of this value as wall clock time or CPU time
+is controlled by the parameter clocktype.</p>
+<p>The absolute value of the time stamp is not meaningful.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/gettime.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXgettime</span></tt></a> in the Callable Library Reference Manual
+for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">&quot;lpex.mps&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>start = c.get_time()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.solve()
+<span class="py-prompt">&gt;&gt;&gt; </span>solve_time = c.get_time() - start</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_dettime"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_dettime</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a deterministic time stamp in ticks.</p>
+<p>To measure elapsed deterministic time in ticks between a starting
+point and ending point of an operation, take the deterministic
+time stamp at the starting point; take the deterministic time
+stamp at the ending point; subtract the starting deterministic
+time stamp from the ending deterministic time stamp.</p>
+<p>The absolute value of the deterministic time stamp is not
+meaningful.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/getdettime.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXgetdettime</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_results_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>out = c.set_log_stream(None)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.read(<span class="py-string">&quot;lpex.mps&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>start = c.get_dettime()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.solve()
+<span class="py-prompt">&gt;&gt;&gt; </span>solve_dettime = c.get_dettime() - start</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="use_aborter"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">use_aborter</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">aborter</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Use an <a href="cplex.aborter.Aborter-class.html" class="link">Aborter</a> to control termination of solve methods.</p>
+<p>Instructs the invoking object to use the aborter to control
+termination of its solving and tuning methods.</p>
+<p>If another aborter is already being used by the invoking object,
+then this method overrides the previously used aborter.</p>
+<p>Returns the aborter installed in the invoking object or None.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>aborter = c.use_aborter(cplex.Aborter())</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="remove_aborter"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_aborter</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes the <a href="cplex.aborter.Aborter-class.html" class="link">Aborter</a> being used by the invoking object.</p>
+<p>Returns the aborter that was removed or None.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>aborter = c.use_aborter(cplex.Aborter())
+<span class="py-prompt">&gt;&gt;&gt; </span>aborter = c.remove_aborter()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_aborter"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_aborter</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the <a href="cplex.aborter.Aborter-class.html" class="link">Aborter</a> being used by the invoking object.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>aborter = c.use_aborter(cplex.Aborter())
+<span class="py-prompt">&gt;&gt;&gt; </span>aborter = c.get_aborter()</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_callback"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_callback</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">functor</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">contextmask</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set callback function to use during optimization.</p>
+<p>Sets the callback that CPLEX invokes during optimization. If
+functor is None then contextmask will be treated as 0 and the
+callback is effectively cleared from CPLEX.</p>
+<p>In all other cases functor must be a reference to an object that
+has a callable member called 'invoke' (if that does not exist, or
+is not a callable, an exception will occur the first time CPLEX
+attempts to invoke the callback). Whenever CPLEX needs to invoke
+the callback it calls this member with exactly one argument: an
+instance of <a href="cplex.callbacks.Context-class.html" class="link">cplex.callbacks.Context</a>.</p>
+<p>Note that in the 'invoke' function you must not invoke any
+functions of the Cplex instance that is performing the current
+solve. All functions that can be invoked from a callback are
+members of the <a href="cplex.callbacks.Context-class.html" class="link">cplex.callbacks.Context</a> class.</p>
+<p>contextmask must be the bitwise OR of values from
+<a href="cplex.callbacks.Context-class.html#id" class="link">cplex.callbacks.Context.id</a> and specifies in which contexts
+CPLEX shall invoke the callback: the callback is invoked in all
+contexts for which the corresponding bit is set in contextmask.</p>
+<p>Note about cplex.callbacks.Context.id.thread_down: This is
+considered a &quot;destructor&quot; function and should not raise any
+exception. Any exception raised from the callback in this context
+will just be ignored.</p>
+<p>See <a href="cplex.callbacks.Context-class.html" class="link">cplex.callbacks.Context</a>.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/callbacksetfunc.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXcallbacksetfunc</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">GenericCB</span>():
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">invoke</span>(self, context):
+<span class="py-more">... </span>        <span class="py-keyword">pass</span>  <span class="py-comment"># Do something here.</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>cb = GenericCB()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_callback(cb)  <span class="py-comment"># Register callback.</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_callback(None)  <span class="py-comment"># Clear callback.</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_modeling_assistance_callback"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_modeling_assistance_callback</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">functor</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set callback function to use for modeling assistance warnings.</p>
+<p>Sets the callback that CPLEX invokes before and after
+optimization (once for every modeling issue detected). If functor
+is None then the callback is effectively cleared from CPLEX. The
+callback function will only be invoked if the CPLEX parameter
+Cplex.parameters.read.datacheck is set to
+Cplex.parameters.read.datacheck.values.assist (2). In addition,
+the parameter Cplex.parameters.read.warninglimit controls the
+number of times each type of modeling assistance warning will be
+reported (the rest will be ignored). See CPX_PARAM_DATACHECK and
+CPX_PARAM_WARNLIM in the Parameters of CPLEX Reference Manual.</p>
+<p>In all other cases functor must be a reference to an object that
+has a callable attribute named 'invoke' (if that does not exist,
+or is not a callable, an exception will occur the first time CPLEX
+attempts to invoke the callback). Whenever CPLEX needs to invoke
+the callback it calls this member with two argument: the modeling
+issue ID and the associated warning message.</p>
+<p>See <a href="cplex.model_info-module.html" class="link">model_info</a>.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/modelasstcallbacksetfunc.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXmodelasstcallbacksetfunc</span></tt></a> in the Callable Library
+Reference Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.parameters.read.datacheck.set(
+<span class="py-more">... </span>    c.parameters.read.datacheck.values.assist)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">ModelAsstCB</span>():
+<span class="py-more">... </span>    <span class="py-keyword">def</span> <span class="py-defname">invoke</span>(self, issueid, message):
+<span class="py-more">... </span>        <span class="py-keyword">pass</span>  <span class="py-comment"># Do something here.</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>cb = ModelAsstCB()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_modeling_assistance_callback(cb)  <span class="py-comment"># Register callback.</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_modeling_assistance_callback(None)  <span class="py-comment"># Clear callback.</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="create_parameter_set"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">create_parameter_set</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a new CPLEX parameter set object that is associated
+with this CPLEX problem object.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>When this CPLEX problem object is destroyed, the parameter set
+object returned by this function will also be destoyed.</dd>
+</dl>
+<p>See <a href="cplex.paramset.ParameterSet-class.html" class="link">ParameterSet</a>.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(ps)
+<span class="py-output">1</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="copy_parameter_set"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">copy_parameter_set</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">source</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a deep copy of a parameter set.</p>
+<p>In a sense, this a convenience function; it is equivalent to
+querying what parameters are in the source parameter set,
+querying their values, and then adding those parameters to the
+target parameter set.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>The source parameter set must have been created by this CPLEX
+problem object. Mixing parameter sets from different CPLEX
+problem objects is not supported.</dd>
+<dt>Note</dt>
+<dd>When this CPLEX problem object is destroyed, the parameter set
+object returned by this function will also be destoyed.</dd>
+</dl>
+<p>See <a href="cplex.paramset.ParameterSet-class.html" class="link">ParameterSet</a>.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/paramsetcopy.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXparamsetcopy</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>source = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>source.add(c.parameters.advance,
+<span class="py-more">... </span>           c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(source)
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>target = c.copy_parameter_set(source)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(target)
+<span class="py-output">1</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_parameter_set"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_parameter_set</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a parameter set containing parameters that have been
+changed from their default values in the environment.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.parameters.advance.set(c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.get_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>val = ps.get(c.parameters.advance)
+<span class="py-prompt">&gt;&gt;&gt; </span>val == c.parameters.advance.values.none
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_parameter_set"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_parameter_set</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">source</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Applies the parameter values in the paramset to the
+environment.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>The source parameter set must have been created by this CPLEX
+problem object. Mixing parameter sets from different CPLEX
+problem objects is not supported.</dd>
+</dl>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/paramsetapply.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXparamsetapply</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps = c.create_parameter_set()
+<span class="py-prompt">&gt;&gt;&gt; </span>ps.add(c.parameters.advance,
+<span class="py-more">... </span>       c.parameters.advance.values.none)
+<span class="py-prompt">&gt;&gt;&gt; </span>c.set_parameter_set(ps)
+<span class="py-prompt">&gt;&gt;&gt; </span>value = c.parameters.advance.get()
+<span class="py-prompt">&gt;&gt;&gt; </span>value == c.parameters.advance.values.none
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="copylp"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">copylp</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">numcols</span>,
+        <span class="sig-arg">numrows</span>,
+        <span class="sig-arg">objsense</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">obj</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">rhs</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">senses</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">matbeg</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">matcnt</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">matind</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">matval</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">lb</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">ub</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">range_values</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">colnames</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">rownames</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Copies LP data into a CPLEX problem object.</p>
+<p>The arguments define an objective function, constraint matrix,
+variable bounds, righthand side, constraint senses, range values,
+names of constraints, and names of variables.</p>
+<dl class="rst-docutils">
+<dt>Note</dt>
+<dd>This method can give better performance when building a model,
+but it may not be as user friendly as using other methods. To
+compare different techniques, see the lpex1.py example.</dd>
+<dt>Note</dt>
+<dd>Calling this method destroys any existing data associated with
+the problem object.</dd>
+</dl>
+<p>numcols : the number of columns in the constraint matrix, or
+equivalently, the number of variables in the problem object.</p>
+<p>numrows : the number of rows in the constraint matrix, not
+including the objective function or bounds on the variables.</p>
+<p>objsense : sets the sense of the objective function. Must be
+either Cplex.objective.sense.minimize or
+Cplex.objective.sense.maximize.</p>
+<p>obj : a list of floats of length at least <code class="link">numcols</code> containing
+the objective function coefficients. Required if <code class="link">numcols</code> &gt; 0.</p>
+<p>rhs : a list of floats of length at least <code class="link">numrows</code> containing
+the righthand side value for each constraint in the constraint
+matrix. Required if <code class="link">numrows</code> &gt; 0.</p>
+<p>senses : A list of single-character strings or a string
+containing the sense of each constraint in the constraint matrix.
+Must be of length at least <code class="link">numrows</code>. Each entry must be one of
+'G', 'L', 'E', and 'R', indicating greater-than-or-equal-to (&gt;=),
+less-than-or-equal-to (&lt;=), equality (=), and ranged constraints,
+respectively. Required if <code class="link">numrows</code> &gt; 0.</p>
+<p>With respect to the arguments <code class="link">matbeg</code> (beginning of the matrix),
+<code class="link">matcnt</code> (count of the matrix), <code class="link">matind</code> (indices of the matrix),
+and <code class="link">matval</code> (values of the matrix), CPLEX needs to know only the
+nonzero coefficients. These arguments are required if
+<code class="link">numcols</code> &gt; 0 and <code class="link">numrows</code> &gt; 0.</p>
+<p>These arrays are accessed as follows. Suppose that CPLEX wants to
+access the entries in some column j. These are assumed to be
+given by the entries:
+matval[matbeg[j]],.., matval[matbeg[j]+matcnt[j]-1]</p>
+<p>The corresponding row indices are:
+matind[matbeg[j]],.., matind[matbeg[j]+matcnt[j]-1]</p>
+<p>lb : a list of length at least <code class="link">numcols</code> containing the lower
+bound on each of the variables. Required if <code class="link">numcols</code> &gt; 0.</p>
+<p>ub : a list of length at least <code class="link">numcols</code> containing the upper
+bound on each of the variables. Required if <code class="link">numcols</code> &gt; 0.</p>
+<p>range_values : a list of floats, specifying the difference
+between lefthand side and righthand side of each linear
+constraint. If range_values[i] &gt; 0 (zero) then the constraint i
+is defined as rhs[i] &lt;= rhs[i] + range_values[i]. If
+range_values[i] &lt; 0 (zero) then constraint i is defined as
+rhs[i] + range_value[i] &lt;= a*x &lt;= rhs[i].</p>
+<p>colnames : a list of strings of length at least <code class="link">numcols</code>
+containing the names of the matrix columns or, equivalently, the
+constraint names.</p>
+<p>rownames : a list of strings of length at least <code class="link">numrows</code>
+containing the names of the matrix rows or, equivalently, the
+constraint names.</p>
+<p>See <a class="rst-reference external" href="../../refcallablelibrary/cpxapi/copylpwnames.html" target="_top"><tt class="rst-docutils literal"><span class="pre">CPXcopylpwnames</span></tt></a> in the Callable Library Reference
+Manual for more detail.</p>
+<p>Example usage:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cplex
+<span class="py-prompt">&gt;&gt;&gt; </span>c = cplex.Cplex()
+<span class="py-prompt">&gt;&gt;&gt; </span>c.copylp(numcols=3,
+<span class="py-more">... </span>         numrows=2,
+<span class="py-more">... </span>         objsense=c.objective.sense.maximize,
+<span class="py-more">... </span>         obj=[1.0, 2.0, 3.0],
+<span class="py-more">... </span>         rhs=[20.0, 30.0],
+<span class="py-more">... </span>         senses=<span class="py-string">&quot;LL&quot;</span>,
+<span class="py-more">... </span>         matbeg=[0, 2, 4],
+<span class="py-more">... </span>         matcnt=[2, 2, 2],
+<span class="py-more">... </span>         matind=[0, 1, 0, 1, 0, 1],
+<span class="py-more">... </span>         matval=[-1.0, 1.0, 1.0, -3.0, 1.0, 1.0],
+<span class="py-more">... </span>         lb=[0.0, 0.0, 0.0],
+<span class="py-more">... </span>         ub=[40.0, cplex.infinity, cplex.infinity],
+<span class="py-more">... </span>         range_values=[0.0, 0.0],
+<span class="py-more">... </span>         colnames=[<span class="py-string">&quot;x1&quot;</span>, <span class="py-string">&quot;x2&quot;</span>, <span class="py-string">&quot;x3&quot;</span>],
+<span class="py-more">... </span>         rownames=[<span class="py-string">&quot;c1&quot;</span>, <span class="py-string">&quot;c2&quot;</span>])</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+ <!-- CC Accessibility - Skip to main content link -->
+ <th bgcolor="#70b0f0" class="navbar-select">
+ <a href="#ibm-content">
+ <img class="ibm-access" src="whitepixel.png" alt="Skip&nbsp;to&nbsp;main&nbsp;content"/>
+ </a></th>
+ <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >CPLEX Python API Reference Manual</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+     &nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

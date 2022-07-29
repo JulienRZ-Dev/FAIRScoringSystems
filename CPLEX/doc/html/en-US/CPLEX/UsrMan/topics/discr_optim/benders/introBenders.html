@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Benders algorithm" />
+<meta name="abstract" content="CPLEX implements Benders algorithm." />
+<meta name="Description" content="CPLEX implements Benders algorithm." />
+<meta name="DC.subject" content="Benders algorithm, introduction, cut-generating linear program (CGLP)" />
+<meta name="keywords" content="Benders algorithm, introduction, cut-generating linear program (CGLP)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/part_discr_optim_title_synopsis.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/parameterBenders.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/apiBenders.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/examplesBenders.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/defaultDecomp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotatedDecomp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/biblio.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="introBenders" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/part_discr_optim_title_synopsis.html" />
+<title>Benders algorithm</title>
+</head>
+<body id="introBenders"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Benders algorithm</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX implements Benders algorithm.</p>
+
+<p class="p">Given 
+a formulation of a problem, CPLEX can decompose the model into a single master and 
+(possibly multiple) subproblems. To do so, CPLEX makes use of annotations that 
+you supply for your model. 
+This approach can be applied to mixed-integer linear programs (MILP). 
+For certain types of problems, this approach can offer significant performance improvements.
+</p>
+ 
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/parameterBenders.html">Parameter for Benders algorithm</a></strong><br />
+Benders strategy parameter specifies how CPLEX applies  Benders algorithm to your problem.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/apiBenders.html">API for Benders algorithm</a></strong><br />
+CPLEX implements Benders algorithm in all its application programming interfaces (API).</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/examplesBenders.html">Examples of Benders algorithm</a></strong><br />
+CPLEX provides examples that implement Benders algorithm.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/defaultDecomp.html">Benders decomposition: CPLEX default</a></strong><br />
+CPLEX implements a default Benders decomposition in certain situations.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotatedDecomp.html">Annotated decomposition for Benders algorithm</a></strong><br />
+CPLEX applies your annotations when it decomposes a model.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html">Annotating a model for CPLEX</a></strong><br />
+Annotation of a model specifies to CPLEX how to decompose your model.</li>
+<li class="link ulchildlink"><strong><a href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/biblio.html">Further reading about Benders algorithm</a></strong><br />
+Directs a reader to more sources about Benders algorithm.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/part_discr_optim_title_synopsis.html" title="This part focuses on algorithmic considerations about the optimizers of IBM ILOG CPLEX that solve problems formulated in terms of discrete variables, such as integer, Boolean, piecewise-linear, or semi-continuous variables. While default settings of ILOG CPLEX enable you to solve many problems without changing parameters, this part also documents features that enable you to tune performance.">Discrete optimization</a></div>
+</div>
+</nav></div></body>
+</html>

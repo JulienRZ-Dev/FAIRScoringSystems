@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Evaluating variability" />
+<meta name="abstract" content="CPLEX solves a problem multiple times to evaluate variability." />
+<meta name="Description" content="CPLEX solves a problem multiple times to evaluate variability." />
+<meta name="DC.subject" content="Interactive Optimizer, evaluating problem variability, MIP performance, evaluating variability, Mixed Integer Linear Program (MILP), variability and, Mixed Integer Quadratic Program (MIQP), Mixed Integer Quadratically Constrained Program (MIQCP), variability, MILP, MIQP, MIQCP, gap, in log showing variability" />
+<meta name="keywords" content="Interactive Optimizer, evaluating problem variability, MIP performance, evaluating variability, Mixed Integer Linear Program (MILP), variability and, Mixed Integer Quadratic Program (MIQP), Mixed Integer Quadratically Constrained Program (MIQCP), variability, MILP, MIQP, MIQCP, gap, in log showing variability" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/interactiveoptimizercommands.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Interactive_optimizer_reference.uss_refinteractiveoptimizer.measureVariability" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/interactiveoptimizercommands.html" />
+<title>Evaluating variability</title>
+</head>
+<body id="Interactive_optimizer_reference.uss_refinteractiveoptimizer.measureVariability"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Evaluating variability</h1>
+ 
+ 
+
+<div class="body"><p class="shortdesc">CPLEX solves a problem multiple times to evaluate variability. </p>
+ 
+<p class="p"> 
+CPLEX can solve the same mixed integer problem multiple times, each time using a different random seed. 
+Exercising this tool can serve as a surrogate for random perturbation of your model. 
+In fact, exercising this tool can help you evaluate the variability of the class of problems that your instance 
+belongs to. </p>
+
+<div class="p"><strong class="ph b">Tip</strong>: Your problem must be one of the following types of problem:
+<ul class="ul">
+<li class="li">mixed integer linear program (MILP)</li>
+
+<li class="li">mixed integer quadratic program (MIQP)</li>
+
+<li class="li">mixed integer quadratically constrained program (MIQCP)</li>
+
+</ul>
+
+</div>
+
+<div class="p">To invoke this procedure, follow these steps:
+<ul class="ul"> 
+<li class="li">First, enter or read your model, so that your 
+problem is currently in memory and available to CPLEX.</li>
+ 
+<li class="li">Optionally, set CPLEX parameters in the usual way; these settings will be applied on every run.</li>
+ 
+<li class="li">Then invoke the following command, where <em class="ph i">n</em> specifies 
+the number of times that you want CPLEX to solve your problem for comparison.</li>
+
+</ul>
+
+ 
+</div>
+ 
+<pre class="pre codeblock"><code> 
+tools runseeds <em class="ph i">n</em>
+</code></pre>
+<p class="p">If you do not specify <em class="ph i">n</em>, CPLEX solves 30 times by default.</p>
+ 
+
+<section class="section"><h2 class="title sectiontitle">Sample log of a run to evaluate variability</h2> 
+ 
+<pre class="pre codeblock"><code> 
+    exit  sol    objective     gap  iteration      node   runtime   dettime
+run code stat        value     (%)      count     count   seconds     ticks
+  1    0  108          ---     ---     419468     39808      8.00   4195.20
+  2    0  108          ---     ---     514998     49440      8.00   4369.46
+  3    0  101            0    0.00      69242      8453      1.55    981.88
+  4    0  108          ---     ---     518059     37514      8.00   4460.28
+  5    0  101            0    0.00     123420     16923      4.52   3692.25
+  6    0  108          ---     ---     511910     46768      8.01   4550.99
+  7    0  108          ---     ---     459329     41168      8.00   4260.86
+  8    0  108          ---     ---     431280     32714      8.01   4215.08
+  9    0  108          ---     ---     379432     36441      8.00   3992.18
+ 10    0  108          ---     ---     377233     27091      8.01   3710.86
+ 11    0  108          ---     ---     333495     20436      8.01   3620.59
+ 12    0  101            0    0.00      21160      2993      0.44    225.97
+ 13    0  101            0    0.00     124943     14762      4.55   3714.96
+ 14    0  101            0    0.00     113538     12581      4.43   3641.18
+ 15    0  108          ---     ---     549655     46617      8.00   4606.69
+ 16    0  108          ---     ---     447175     26129      8.00   4007.73
+ 17    0  101            0    0.00      38622      5525      1.42    843.57
+ 18    0  108          ---     ---     413188     43561      8.00   4158.66
+ 19    0  101            0    0.00     490580     41267      7.83   4324.97
+ 20    0  108          ---     ---     499872     38093      8.00   4394.23
+ 21    0  101            0    0.00        292         0      0.14     86.63
+ 22    0  108          ---     ---     450731     47616      8.00   4373.14
+ 23    0  101            0    0.00     101645      9091      1.57    982.50
+ 24    0  108          ---     ---     520977     50566      8.00   4412.67
+ 25    0  108          ---     ---     501371     45112      8.00   4371.53
+ 26    0  108          ---     ---     496808     39674      8.00   4352.48
+ 27    0  108          ---     ---     414917     44412      8.00   4345.97
+ 28    0  101            0    0.00     427330     31227      6.97   4120.19
+ 29    0  108          ---     ---     481120     44447      8.00   4547.70
+ 30    0  101            0    0.00     465275     40579      7.69   4222.06
+ 
+Exit codes:
+      0 : No error
+ 
+Optimization status codes:
+                 objective     gap  iteration      node   runtime   dettime
+                     value     (%)      count     count   seconds     ticks
+    101 : integer optimal solution (11 times)
+     average:            0    0.00     179641     16673      3.74   2439.65
+     std dev:            0    0.00     185898     14571      2.89   1772.79
+    108 : time limit exceeded, no integer solution (19 times)
+     average:          ---     ---     459001     39874      8.00   4260.33
+     std dev:          ---     ---      58792      8317      0.00    267.13
+</code></pre>
+</section>
+
+
+</div>
+ 
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/interactiveoptimizercommands.html">Interactive Optimizer of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

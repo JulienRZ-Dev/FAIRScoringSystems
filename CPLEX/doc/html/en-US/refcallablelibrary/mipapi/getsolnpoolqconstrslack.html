@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetsolnpoolqconstrslack and CPXgetsolnpoolqconstrslack" />
+<meta name="abstract" content="The routine CPXXgetsolnpoolqconstrslack/CPXgetsolnpoolqconstrslack accesses the slack values for a range of the quadratic constraints for a member of the solution pool of a quadratically constrained program (QCP)." />
+<meta name="Description" content="The routine CPXXgetsolnpoolqconstrslack/CPXgetsolnpoolqconstrslack accesses the slack values for a range of the quadratic constraints for a member of the solution pool of a quadratically constrained program (QCP)." />
+<meta name="DC.subject" content="CPXgetsolnpoolqconstrslack, C API Reference Manual, CPXXgetsolnpoolqconstrslack" />
+<meta name="keywords" content="CPXgetsolnpoolqconstrslack, C API Reference Manual, CPXXgetsolnpoolqconstrslack" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagesolutionpool.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPsolnpool.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getsolnpoolqconstrslack" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagesolutionpool.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPsolnpool.html" />
+<title>CPXXgetsolnpoolqconstrslack and CPXgetsolnpoolqconstrslack</title>
+</head>
+<body id="getsolnpoolqconstrslack"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetsolnpoolqconstrslack</span> and <span class="keyword apiname">CPXgetsolnpoolqconstrslack</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsolnpoolqconstrslack</span>/<span class="keyword apiname">CPXgetsolnpoolqconstrslack</span></code> accesses
+ the slack values for a range of the quadratic constraints for a member
+ of the solution pool of a quadratically constrained program (QCP).
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetsolnpoolqconstrslack</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">soln</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">qcslack</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">end</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetsolnpoolqconstrslack</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">soln</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double *</span><span class="ph sep"> </span><span class="ph var">qcslack</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">begin</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">end</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsolnpoolqconstrslack</span>/<span class="keyword apiname">CPXgetsolnpoolqconstrslack</span></code> accesses
+ the slack values for a range of the quadratic constraints for a member
+ of the solution pool of a quadratically constrained program (QCP). The
+ beginning and end of the range must be specified.
+ The slack values returned consist of the righthand side minus the constraint
+ activity level. </p>
+
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">soln</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the index of the solution pool member for which to return slack values. A value of -1 specifies that the incumbent should be used instead of a solution pool member.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">qcslack</dt>
+
+        <dd class="dd pd">
+          
+          An array to receive the values of the slack or surplus variables for each of the constraints. This array must be of length at least (<code class="ph codeph"><span class="keyword parmname">end</span></code> - <code class="ph codeph"><span class="keyword parmname">begin</span></code> <code class="ph codeph">+</code> <code class="ph codeph">1</code>). If successful, <code class="ph codeph"><span class="keyword parmname">qcslack</span>[0]</code> through <code class="ph codeph"><span class="keyword parmname">qcslack</span>[<span class="keyword parmname">end</span>-<span class="keyword parmname">begin</span>]</code> contain the values of the slacks.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">begin</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the beginning of the range of slack values to be returned.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">end</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the end of the range of slack values to be returned.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) on success and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXgetsolnpoolqconstrslack (env, lp, 3, qcslack, 0, CPXgetnumqconstrs(env,lp)-1);
+ </code></pre>
+
+
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagesolutionpool.html">Accessing the Solution Pool in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPsolnpool.html">Managing the solution pool of a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

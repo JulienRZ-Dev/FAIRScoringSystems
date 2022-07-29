@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using environment variables in CPLEX" />
+<meta name="abstract" content="CPLEX uses environment variables." />
+<meta name="Description" content="CPLEX uses environment variables." />
+<meta name="DC.subject" content="environment variables, parameter file (PRM)" />
+<meta name="keywords" content="environment variables, parameter file (PRM)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usrmanprogrconsidenvironvar" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" />
+<title>Using environment variables in CPLEX</title>
+</head>
+<body id="usrmanprogrconsidenvironvar"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Using environment variables in CPLEX</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX uses environment variables.</p>
+
+<p class="p"> 
+If your operating system supports environment variables, CPLEX can make use of certain of 
+them. You set the value of such environment 
+variables according to the usual conventions of your operating system or platform. 
+</p>
+
+<p class="p">
+For example, when you create a file of CPLEX parameter settings, as explained in 
+<a class="xref" href="../../../Parameters/topics/introPRMfile.html" title="Users of the Callable Library (C API) can save current parameter settings in a PRM file.">Saving parameter settings to a file in the C API</a>,
+CPLEX recognizes the location of that parameter file by means of the environment variable 
+<strong class="ph b"><code class="ph codeph">ILOG_CPLEX_PARAMETER_FILE</code></strong>.  Moreover, CPLEX reads the contents of 
+that PRM file and applies the parameter settings accordingly.
+</p>
+ 
+<p class="p">Likewise, as explained in 
+<a class="xref" href="../parallel_optim/distribMIP/parametersVMCrampup.html" title="Documents how to specify CPLEX parameters, ramp up options, and environment variables in a VMC file for distributed parallel optimization.">VMC file for specifying parameters, ramp up options, and environment variables in distributed parallel optimization</a> 
+CPLEX recognizes and applies environment variables specified in a virtual machine configuration (VMC) file 
+for a distributed mixed integer program (MIP). 
+</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../CPLEX/UsrMan/topics/progr_consid/partProgConsid_title_synopsis.html" title="This part of the manual documents concepts that are valid as you develop an application, regardless of the programming language that you choose. It highlights software engineering practices implemented in IBM ILOG CPLEX, practices that will enable you to develop effective applications to exploit it efficiently.">Programming considerations</a></div>
+</div>
+</nav></div></body>
+</html>

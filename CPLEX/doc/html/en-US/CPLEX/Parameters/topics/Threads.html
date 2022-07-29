@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="global thread count" />
+<meta name="abstract" content="Sets the default number of parallel threads that will be invoked by any CPLEX parallel optimizer." />
+<meta name="Description" content="Sets the default number of parallel threads that will be invoked by any CPLEX parallel optimizer." />
+<meta name="DC.subject" content="CPX_PARAM_THREADS, CPXPARAM_Threads, Threads, parallelism, threads and, callbacks and, callbacks, parallelism and, threads, mixed integer programming (MIP)" />
+<meta name="keywords" content="CPX_PARAM_THREADS, CPXPARAM_Threads, Threads, parallelism, threads and, callbacks and, callbacks, parallelism and, threads, mixed integer programming (MIP)" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196869365992" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>global thread count</title>
+</head>
+<body id="languageRefTopic1196869365992"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">global thread count</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets the default number of parallel threads that will be invoked by any CPLEX parallel optimizer.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Global default thread count</p>
+ 
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d141691e93">API</th>
+
+<th class="entry nrule" valign="top" id="d141691e96">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d141691e99">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">CPXPARAM_Threads</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">CPX_PARAM_THREADS</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">IloCplex::Param::Threads</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">Threads (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">IloCplex.Param.Threads</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">Threads (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">Cplex.Param.Threads</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">Threads (int)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">threads </td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">threads</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">parameters.threads</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">threads</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">threads</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">threads</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d141691e93 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d141691e96 ">1067</td>
+
+<td class="entry nrule" valign="top" headers="d141691e99 ">1067</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+ 
+<p class="p"> Sets the default maximal number of parallel threads 
+that will be invoked by any CPLEX parallel optimizer.  </p>
+ 
+<p class="p">For a single thread, the parallel algorithms behave deterministically, 
+regardless of thread parameter settings; that is, the algorithm proceeds 
+sequentially in a single thread. </p>
+ 
+<p class="p">In this context, <strong class="ph b">sequential</strong> means that the algorithm proceeds step by step, 
+consecutively, in a predictable and repeatable order within a single thread. 
+<strong class="ph b">Deterministic</strong> means that repeated solving of the same model with 
+the same parameter settings on the same computing platform will follow exactly 
+the same solution path, yielding the same level of performance and 
+the same values in the solution. Sequential execution is deterministic. 
+In multithreaded computing, a deterministic setting requires synchronization 
+between threads. <strong class="ph b">Opportunistic</strong> entails less synchronization between threads 
+and thus may offer better performance at the sacrifice of repeatable, invariant 
+solution paths and values in repeated runs on multiple threads or multiple processors.  
+</p>
+
+<p class="p">When this parameter is at its default setting 0 (zero), and your application includes <strong class="ph b">no
+callbacks</strong> CPLEX can use all available threads; that is, at most 32 threads or the number of
+cores of the machine, whichever is smaller. If your machine offers more than 32 threads, you can
+take advantage of them by increasing the value of this parameter.</p>
+
+<p class="p">In the case where you are using callbacks, you need to distinguish between <strong class="ph b">legacy
+callbacks</strong> (that is informational, query, and control callbacks) and <strong class="ph b">generic callbacks</strong>.
+Generic callbacks have been introduced more recently and offer a better support for a modern
+parallel MIP optimization.</p>
+
+<p class="p"><strong class="ph b">Generic callbacks and parallel MIP optimization</strong></p>
+ 
+<p class="p">In contrast with legacy callbacks, the presence of a generic callback in your application will
+not have any impact on the number of threads used by CPLEX (that is, parallel MIP search will behave
+the same way as if no callbacks are present). However, as in the case of legacy callbacks, if you
+use parallel MIP search in conjunction with generic callbacks, you need to be aware of the fact that
+the callbacks may be invoked concurrently, and the order in which your callbacks are executed from
+different threads can be non-deterministic even in deterministic parallel mode.</p>
+
+<p class="p"> For a description of generic callbacks, see the topic <a class="xref" href="../../UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a> in the <em class="ph i">CPLEX User’s
+Manual</em>. </p>
+
+<p class="p"><strong class="ph b">Legacy callbacks and parallel MIP optimization</strong></p>
+
+<p class="p">When this parameter is at its default setting 0 (zero), some of the legacy callbacks will disable
+parallel MIP search. To be precise, if your application includes legacy callbacks other than
+informational callbacks (that is, the application includes a query, diagnostic, or control
+callback), then CPLEX will disable parallel MIP search and automatically switch to sequential MIP
+search. Note, however, that this is not entirely equivalent to setting this parameter to 1 (one), as
+the continuous relaxation of the problem could still be solved in a parallel fashion.</p>
+
+<p class="p">In order to enable parallel MIP optimization in conjunction with legacy callbacks other than
+informational callbacks, you need to set this parameter to a positive value. However, when you do
+so, you need to be aware of the fact that the callbacks may be invoked concurrently, and the order
+in which your callbacks are executed from different threads can be non-deterministic, even in
+deterministic parallel mode.</p>
+
+<p class="p"> For a description of informational, query, diagnostic, and control callbacks, see the topic
+<a class="xref" href="../../UsrMan/topics/progr_adv/callbacks_basic/01_cb_title_synopsis.html" title="Introduces legacy optimization callbacks.">Using legacy optimization callbacks</a>
+and the topic <a class="xref" href="../../UsrMan/topics/progr_adv/callbacks_adv/01_adv_callbacks_title_synopsis.html" title="Documents the legacy advanced MIP control interface.">Advanced MIP control interface (legacy)</a> in the
+<em class="ph i">CPLEX User’s Manual</em>.</p>
+
+</section>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d141691e316">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d141691e319">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d141691e316 ">0</td>
+
+<td class="entry" valign="top" headers="d141691e319 ">Automatic: let CPLEX decide; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d141691e316 ">1</td>
+
+<td class="entry" valign="top" headers="d141691e319 ">Sequential; single threaded</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d141691e316 ">N</td>
+
+<td class="entry" valign="top" headers="d141691e319 ">Uses up to N threads; N is limited by available processors 
+and Processor Value Units (PVU).</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<section class="section"><h2 class="title sectiontitle">See also</h2>
+
+<a class="xref" href="ParallelMode.html" title="Sets the parallel optimization mode. Possible modes are automatic, deterministic, and opportunistic.">parallel mode switch</a>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

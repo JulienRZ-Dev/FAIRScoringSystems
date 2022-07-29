@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="New CP Optimizer black-box optimization feature" />
+<meta name="abstract" content="A black-box expression is a numerical expression for which the closed form is not known or cannot be formulated using the classical expressions available with CP Optimizer. This is now available in the C++ API." />
+<meta name="Description" content="A black-box expression is a numerical expression for which the closed form is not known or cannot be formulated using the classical expressions available with CP Optimizer. This is now available in the C++ API." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="relonotes_V201_blackbox" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" />
+<title>New CP Optimizer black-box optimization feature</title>
+</head>
+<body id="relonotes_V201_blackbox"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">New CP Optimizer black-box optimization feature</h1>
+
+
+
+<div class="body"><p class="shortdesc">A black-box expression is a numerical expression for which the closed form is not known
+or cannot be formulated using the classical expressions available with CP Optimizer. This is now
+available in the C++ API. </p>
+
+<section class="section">
+<p class="p"></p>
+
+<p class="p">A black-box expression is specified by providing some C++ code that evaluates the expression at
+given points.</p>
+
+<p class="p">Black-box expressions are defined using the C++ macros <code class="ph codeph">ILOBLACKBOXn</code>, where
+<code class="ph codeph">n</code> is the number of arguments of the black-box:</p>
+
+<pre class="pre codeblock"><code>
+ILOBLACKBOXn(function_name, type_1, arg_1, type_2, arg_2, ..., type_n, arg_n) { 
+  CODE
+} </code></pre>
+<p class="p">For instance, the following example defines a very simple black-box expression <code class="ph codeph">f</code>
+with two numerical expressions in its scope and uses it in a model:</p>
+
+<pre class="pre codeblock"><code>
+IloNum PI = 3.14159265358979323846;
+ILOBLACKBOX2(f, IloNumExpr, x, IloNumExpr, y) {
+  // f(x,y) = cos4πx + cos4πy + 5(x+y) + 2    
+  IloNum vx = getValue(x); // Access value of expression x
+  IloNum vy = getValue(y); // Access value of expression y
+  IloNum v = cos(4*PI*vx) + cos(4*PI*vy) + 5*(vx+vy) + 2;
+  returnValue(v); // Return computed value
+}
+
+IloEnv env;
+IloModel model(env);
+IloIntVar x(env, 0, 100, "x");
+IloIntVar y(env, 0, 100, "y");
+model.add(x &lt;= y); // Symmetry breaking as f(x,y)=f(y,x)
+IloNumExpr objective = f(env, x/100.0, y/100.0);
+model.add(5*(x+y) &lt;= 100*(1+objective)); // Lower-bounding expression
+model.add(IloMinimize(env, objective));
+IloCP cp(model);
+cp.solve();
+env.end();</code></pre>
+<p class="p">Black-box expressions support any type of CP Optimizer variables or expressions in their scope
+(integer or numerical expressions, interval variables, sequence variables) as well as user-defined
+classes and structures.</p>
+
+<p class="p">There is no limitation on the use of black-box expressions in the model; they can be used and
+mixed together as with any other expression. In particular, black-box expressions can be mixed with
+other expressions (classical or black-box expressions), used as part of the objective function, used
+in constraints, used in the scope of other black-box expressions, or used as a KPI or part of a
+KPI.</p>
+
+<p class="p">Black-box expressions can be undefined at some points and their evaluation can be a single or
+multiple floating-point values.</p>
+
+<p class="p">By default, the expression evaluation code is called in parallel by the different workers during
+problem resolution. Features are available in the evaluation code to make it easier to write
+multi-thread safe code (in particular, using the possibility of accessing a local memory allocator
+or a local random generator or, if needed, to specify some critical sections of the code).</p>
+
+<p class="p">Black-box expressions are created using the macros <code class="ph codeph">ILOBLACKBOXn</code>, and return an
+instance of <code class="ph codeph">IloBlackbox</code>. For more information, see <a class="xref" href="relnotes_V201_cpp.html" title="Provides details of new features and changes for C++ users.">C++ users</a>.</p>
+
+<p class="p">A complete example illustrating the use of black-box expressions is available here: <code class="ph codeph">
+&lt;Install_dir&gt;/cpoptimizer/examples/src/cpp/sched_jobshop_blackbox.cpp</code>.</p>
+
+<p class="p">For more information about black-box expressions, see <a class="xref" href="relnotes_V201_blackbox_expressions.html" title="Provides a more detailed overview of CP Optimizer black-box expressions.">CP Optimizer black-box expressions</a>.</p>
+
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Release_notes/topics/relnotes_V201.html" title="These release notes highlight improvements and new features of CP Optimizer in IBM ILOG CPLEX Optimization Studio 20.1.0.">Release notes for CP Optimizer 20.1.0</a></div>
+</div>
+</nav></div></body>
+</html>

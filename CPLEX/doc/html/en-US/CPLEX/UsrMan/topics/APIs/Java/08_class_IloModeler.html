@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using IloModeler" />
+<meta name="abstract" content="Describes the class IloModeler in the Java API." />
+<meta name="Description" content="Describes the class IloModeler in the Java API." />
+<meta name="DC.subject" content="IloModeler class, basic modeling (Java API)" />
+<meta name="keywords" content="IloModeler class, basic modeling (Java API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Java/06_modeling_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_javaIloCplex.1006860" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/06_modeling_title_synopsis.html" />
+<title>Using IloModeler</title>
+</head>
+<body id="User_manual.uss_javaIloCplex.1006860"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Using IloModeler</h1>
+<div class="body"><p class="shortdesc">Describes the class IloModeler in the Java API.</p>
+
+<p class="p"> <code class="ph codeph">IloModeler</code> defines an interface
+for building optimization models. This interface defines methods for
+constructing variable, constraint, and objective function objects.</p>
+
+<section class="section" id="User_manual.uss_javaIloCplex.1006860__User_manual.uss_javaIloCplex.1006862"><h2 class="title sectiontitle">Variables in a model</h2><p class="p">A modeling variable in Concert Technology is represented
+by an object of type <code class="ph codeph">IloNumVar</code> or one of
+its extensions. You can choose from a variety of methods defined in <code class="ph codeph">IloModeler</code> and <code class="ph codeph">IloMPModeler</code> to
+create one or multiple modeling variable objects. An example of the
+method is: </p>
+<pre class="pre codeblock"><code>
+IloNumVar x = cplex.numVar(lb, ub, IloNumVarType.Float, "xname");
+</code></pre><p class="p">This constructor method allows you to set all the attributes
+of a variable: its lower and upper bounds, its type, and its name.
+Names are optional in the sense that <code class="ph codeph">null</code> strings
+are considered to be valid as well.</p>
+<p class="p">The other constructor methods for variables are provided
+mainly for ease of use. For example, because names are not frequently
+assigned to variables, all variable constructors come in pairs, where
+one variant requires a name string as the last parameter and the other
+one does not (defaulting to a <code class="ph codeph">null</code> string).</p>
+<p class="p">Integer variables can be created by the <code class="ph codeph">intVar</code> methods,
+and do not require the type <code class="ph codeph">IloNumVarType.Int</code> to
+be passed, as this is implied by the method name. The bound parameters
+are also specified more consistently as integers. These methods return
+objects of type <code class="ph codeph">IloIntVar</code>, an extension
+of interface <code class="ph codeph">IloNumVar</code> that allows you
+to query and set bounds consistently using integers, rather than doubles
+as used for <code class="ph codeph">IloNumVar</code> .</p>
+<p class="p">Frequently, integer variables with <code class="ph codeph">0/1</code> bounds
+are used as decision variables. To help create such variables, the <code class="ph codeph">boolVar</code> methods
+are provided. In the Boolean type, <code class="ph codeph">0</code> (zero)
+and <code class="ph codeph">1</code> (one) are implied, so these methods
+do not need to accept any bound values.</p>
+<p class="p">For all these constructive methods, there are also equivalent
+methods for creating a complete array of modeling variables at one
+time. These methods are called <code class="ph codeph">numVarArray</code>, <code class="ph codeph">intVarArray</code>,
+and <code class="ph codeph">boolVarArray</code> .</p>
+</section>
+
+<section class="section" id="User_manual.uss_javaIloCplex.1006860__User_manual.uss_javaIloCplex.1006995"><h2 class="title sectiontitle">Expressions</h2><p class="p">Modeling variables are typically used in expressions
+that define constraints or objective functions. Expressions are represented
+by objects of type <code class="ph codeph">IloNumExpr</code>. They are
+built using methods such as <code class="ph codeph">sum</code>, <code class="ph codeph">prod</code>, <code class="ph codeph">diff</code>, <code class="ph codeph">negative</code>,
+and <code class="ph codeph">square</code>. For example, the expression </p>
+<pre class="pre codeblock"><code>
+x1 + 2*x2
+
+</code></pre><p class="p">where <code class="ph codeph">x1</code> and <code class="ph codeph">x2</code> are <code class="ph codeph">IloNumVar</code> objects,
+is constructed by this call: </p>
+<pre class="pre codeblock"><code>
+IloNumExpr expr = cplex.sum(x1, cplex.prod(2.0, x2));
+</code></pre><p class="p">It follows that a single variable is a special case of
+an expression, since <code class="ph codeph">IloNumVar</code> is an extension
+of <code class="ph codeph">IloNumExpr</code>.</p>
+<p class="p">The special case of linear expressions is represented
+by objects of type <code class="ph codeph">IloLinearNumExpr</code>. Such
+expressions can be edited, especially convenient when linear expressions
+are being built in a loop, like this: </p>
+<pre class="pre codeblock"><code>
+IloLinearNumExpr lin = cplex.linearNumExpr();
+   for (int i = 0; i &lt; num; ++i)
+     lin.addTerm(value[i], variable[i]);
+</code></pre><p class="p">The special case of the scalar product of an array of
+values with an array of variables is directly supported through the
+method <code class="ph codeph">scalProd</code>. Thus that loop can be
+rewritten as:</p>
+<pre class="pre codeblock"><code>
+IloLinearNumExpr lin = cplex.scalProd(value, variable);
+</code></pre><p class="p">It is recommended that you build expressions in terms
+of data that is either integer or double-precision (64-bit) floating-point.
+Single-precision (32 bit) floating-point data should be avoided as
+it can result in unnecessarily ill-conditioned problems. For more
+information, refer to <a class="xref" href="../../cont_optim/simplex/20_num_difficulty.html" title="Documents CPLEX behavior with respect to numeric difficulties in LP models.">Numeric difficulties</a>.</p>
+</section>
+
+<section class="section" id="User_manual.uss_javaIloCplex.1006860__User_manual.uss_javaIloCplex.1023937"><h2 class="title sectiontitle">Ranged constraints</h2><p class="p">Ranged constraints are constraints of the form:<code class="ph codeph"> lb </code><code class="ph codeph">≤ </code><code class="ph codeph">expression</code><code class="ph codeph"> ≤</code><code class="ph codeph"> ub</code> and
+are represented in Concert Technology by objects of type <code class="ph codeph">IloRange</code>.
+The most general constructor is:</p>
+<pre class="pre codeblock"><code>
+IloRange rng = cplex.range(lb, expr, ub, name);
+</code></pre><p class="p">where <code class="ph codeph">lb</code> and <code class="ph codeph">ub</code> are
+double values, <code class="ph codeph">expr</code> is of type <code class="ph codeph">IloNumExpr</code>,
+and <code class="ph codeph">name</code> is a string.</p>
+<p class="p">By choosing the range bounds appropriately, ranged constraints
+can be used to model any of the more commonly found constraints of
+the form: </p>
+<pre class="pre codeblock"><code>
+expr  relation  rhs
+</code></pre><p class="p">where <em class="ph i">relation</em> is
+the relation <code class="ph codeph">=</code>, <code class="ph codeph">≤</code>,
+or <code class="ph codeph">≥</code>. The following table shows
+how to choose <code class="ph codeph">lb</code> and <code class="ph codeph">ub</code> for
+modeling these relations: </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table giving a relation and showing how to determine its lower bound (lb) and its upper bound (ub); the fourth column shows the Java method to use to represent the relation." class="table NoBorder" rules="none" frame="void" border="0"><span class="desc tabledesc">
+
+</span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry nrule" valign="top" id="d168848e341">relation</th>
+
+<th class="entry nrule" valign="top" id="d168848e344">lb</th>
+
+<th class="entry nrule" valign="top" id="d168848e347">ub</th>
+
+<th class="entry nrule" valign="top" id="d168848e350">method</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody"><tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d168848e341 "><code class="ph codeph">=</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e344 "><code class="ph codeph">rhs</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e347 "><code class="ph codeph">rhs</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e350 "><code class="ph codeph">eq</code></td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d168848e341 "><code class="ph codeph">≤</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e344 "><code class="ph codeph">-Double.MAX_VALUE</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e347 "><code class="ph codeph">rhs</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e350 "><code class="ph codeph">le</code></td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry nrule" valign="top" headers="d168848e341 "><code class="ph codeph">≥</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e344 "><code class="ph codeph">rhs</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e347 "><code class="ph codeph">Double.MAX_VALUE</code></td>
+
+<td class="entry nrule" valign="top" headers="d168848e350 "><code class="ph codeph">ge</code></td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">The last column contains the method provided with <code class="ph codeph">IloModeler</code> to
+use directly to create the appropriate ranged constraint, when you
+specify the expression and righthand side (RHS). For example, the
+constraint <code class="ph codeph">expr </code><code class="ph codeph">≤</code><code class="ph codeph"> 1.0</code> is
+created by the call:</p>
+<pre class="pre codeblock"><code>
+IloRange le = cplex.le(expr, 1.0);
+</code></pre><p class="p">Again, all constructors for ranged constraints come in
+pairs, one constructor with and one without an argument for the name.</p>
+</section>
+
+<section class="section" id="User_manual.uss_javaIloCplex.1006860__User_manual.uss_javaIloCplex.1011477"><h2 class="title sectiontitle">The objective function</h2><p class="p">The objective function in Concert Technology is represented
+byan object of type <code class="ph codeph">IloObjective</code>. Such
+objects are defined by an optimization sense, an expression, and an
+optional name. The objective expression is represented by an <code class="ph codeph">IloNumExpr</code>.
+The objective sense is represented by an object of class <code class="ph codeph">IloObjectiveSense</code> and
+can take two values, <code class="ph codeph">IloObjectiveSense.Maximize</code> or <code class="ph codeph">IloObjectiveSense.Minimize</code>.
+The most general constructor for an objective function object is:</p>
+<p class="p">where <code class="ph codeph">sense</code> is of type <code class="ph codeph">IloObjectiveSense</code>, <code class="ph codeph">expr</code> is
+of type <code class="ph codeph">IloNumExpr</code>, and <code class="ph codeph">name</code> is
+a string.</p>
+<p class="p">For convenience, the methods <code class="ph codeph">maximize</code> and <code class="ph codeph">minimize</code> are
+provided to create a maximization or minimization objective respectively,
+without using an <code class="ph codeph">IloObjectiveSense</code> parameter.
+Names for objective function objects are optional, so all constructor
+methods come in pairs, one with and one without the name parameter.</p>
+</section>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/06_modeling_title_synopsis.html" title="Describes classes in the Java API to model an optimization problem.">Modeling an optimization problem with Concert Technology in the Java API</a></div>
+</div>
+</nav></div></body>
+</html>

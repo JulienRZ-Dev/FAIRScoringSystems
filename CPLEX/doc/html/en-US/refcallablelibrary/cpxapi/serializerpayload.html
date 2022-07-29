@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXserializerpayload and CPXserializerpayload" />
+<meta name="abstract" content="Queries the internal memory buffer used by ser." />
+<meta name="Description" content="Queries the internal memory buffer used by ser." />
+<meta name="DC.subject" content="CPXserializerpayload, C API Reference Manual, CPXXserializerpayload" />
+<meta name="keywords" content="CPXserializerpayload, C API Reference Manual, CPXXserializerpayload" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageportability.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpIO.html" />
+<meta name="DC.Relation" scheme="URI" content="../structures/cpxserializer.html" />
+<meta name="DC.Relation" scheme="URI" content="serializercreate.html" />
+<meta name="DC.Relation" scheme="URI" content="serializerlength.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="serializerpayload" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageportability.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpIO.html" />
+<title>CPXXserializerpayload and CPXserializerpayload</title>
+</head>
+<body id="serializerpayload"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXserializerpayload</span> and <span class="keyword apiname">CPXserializerpayload</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+    
+    
+    
+    Queries the internal memory buffer used by <code class="ph codeph"><span class="keyword parmname">ser</span></code>.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">void const *</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXserializerpayload</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCSERIALIZERptr</span><span class="ph sep"> </span><span class="ph var">ser</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">void const *</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXserializerpayload</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCSERIALIZERptr</span><span class="ph sep"> </span><span class="ph var">ser</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+
+    
+    
+    Queries the internal memory buffer used by <code class="ph codeph"><span class="keyword parmname">ser</span></code>.
+    A serializer created by the routine 
+    <code class="ph codeph"><a class="xref" href="serializercreate.html" title="This routine creates a new serializer."><span class="keyword apiname">CPXXserializercreate</span>/<span class="keyword apiname">CPXserializercreate</span></a></code> serializes
+    data into an internal memory block (that is, a buffer). 
+    This routine returns a
+    pointer to this buffer. You can query the length of the buffer 
+    by the routine <code class="ph codeph"><a class="xref" href="serializerlength.html" title="Queries the size of the memory block currently used by the serializer ser."><span class="keyword apiname">CPXXserializerlength</span>/<span class="keyword apiname">CPXserializerlength</span></a></code>.
+    
+    
+    
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">ser</dt>
+
+        <dd class="dd pd">
+          
+    The serializer to query.
+    The serializer must be a valid serializer as returned by <code class="ph codeph"><a class="xref" href="serializercreate.html" title="This routine creates a new serializer."><span class="keyword apiname">CPXXserializercreate</span>/<span class="keyword apiname">CPXserializercreate</span></a></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      
+    This routine returns a pointer to the beginning of the internal
+    memory buffer used by <code class="ph codeph"><span class="keyword parmname">ser</span></code>. This pointer is 
+    valid only until the next change to <code class="ph codeph"><span class="keyword parmname">ser</span></code>. Adding more
+    data to <code class="ph codeph"><span class="keyword parmname">ser</span></code> invalidates the pointer.
+    Destroying <code class="ph codeph"><span class="keyword parmname">ser</span></code> invalidates the pointer.
+
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageportability.html">Portability Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpIO.html">Input, output, and communication channels</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../structures/cpxserializer.html" title="Serializer interface.">cpxserializer</a></li>
+<li class="linklist"><a class="link" href="serializercreate.html" title="This routine creates a new serializer.">CPXserializercreate</a></li>
+<li class="linklist"><a class="link" href="serializerlength.html" title="Queries the size of the memory block currently used by the serializer ser.">CPXserializerlength</a></li></ul></div>
+</nav>
+</div></body>
+</html>

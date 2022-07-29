@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Iteration progress in the log file" />
+<meta name="abstract" content="Identifies iteration progress in the log file of the barrier optimizer." />
+<meta name="Description" content="Identifies iteration progress in the log file of the barrier optimizer." />
+<meta name="DC.subject" content="slack, role in inequality constraints (barrier), infeasibility, norms" />
+<meta name="keywords" content="slack, role in inequality constraints (barrier), infeasibility, norms" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/cont_optim/barrier/09_log_file_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveBarrier.653753" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/cont_optim/barrier/09_log_file_title_synopsis.html" />
+<title>Iteration progress in the log file</title>
+</head>
+<body id="User_manual.uss_solveBarrier.653753"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Iteration progress in the log file</h1>
+<div class="body"><p class="shortdesc">Identifies iteration progress in the log file of the
+barrier optimizer.</p>
+
+<p class="p">After the information about the Cholesky factor, the
+log file records progress at each iteration. It records both primal
+and dual objectives (as <code class="ph codeph">Primal Obj</code> and <code class="ph codeph">Dual Obj</code>)
+per iteration.</p>
+
+<div class="p">It also records absolute infeasibilities per iteration.
+Internally, the CPLEX barrier optimizer treats inequality constraints
+as equality constraints with added slack and surplus variables. Consequently,
+primal constraints in a problem are written as Ax = b and
+x + s = u, and the dual constraints are written
+as ATy + z - w = c. As a result, in
+the log file, the infeasibilities represent norms, as summarized in <a class="xref" href="16_log_file_iterations.html#User_manual.uss_solveBarrier.653753__User_manual.uss_solveBarrier.653766" title="A three-column table showing types of infeasibility, the corresponding label in the log file, and the associated norm.">Table 1</a>.
+ </div>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing types of infeasibility, the corresponding label in the log file, and the associated norm." id="User_manual.uss_solveBarrier.653753__User_manual.uss_solveBarrier.653766" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Infeasibilities and norms in the log file of a barrier optimization</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;"><tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d178969e66"> Infeasibility </th>
+
+<th class="entry thleft" align="left" valign="top" id="d178969e69"> In log file </th>
+
+<th class="entry thleft" align="left" valign="top" id="d178969e72"> Norm </th>
+
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d178969e66 "> primal  </td>
+
+<td class="entry" valign="top" headers="d178969e69 ">  <code class="ph codeph">Prim Inf</code>  </td>
+
+<td class="entry" valign="top" headers="d178969e72 "> |b - Ax| </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d178969e66 "> upper </td>
+
+<td class="entry" valign="top" headers="d178969e69 ">  <code class="ph codeph">Upper Inf</code>  </td>
+
+<td class="entry" valign="top" headers="d178969e72 "> |u - (x + s)| </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d178969e66 "> dual </td>
+
+<td class="entry" valign="top" headers="d178969e69 ">  <code class="ph codeph">Dual Inf</code>  </td>
+
+<td class="entry" valign="top" headers="d178969e72 "> |c - yA - z + w| </td>
+
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">If solution values are large in absolute value, then
+the infeasibilities may appear inordinately large because they are
+recorded in the log file in absolute terms. The optimizer uses relative
+infeasibilities as termination criteria.</p>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/cont_optim/barrier/09_log_file_title_synopsis.html" title="Describes the log file generated by the barrier optimizer.">Interpreting the barrier log file</a></div>
+</div>
+</nav></div></body>
+</html>

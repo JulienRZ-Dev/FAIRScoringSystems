@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Conditional statement" />
+<meta name="abstract" content="Provides a reference for the syntax of conditional statements in OPL." />
+<meta name="Description" content="Provides a reference for the syntax of conditional statements in OPL." />
+<meta name="DC.subject" content="conditional statements, in IBM ILOG Script for OPL, syntax, in IBM ILOG Script, statements, conditional" />
+<meta name="keywords" content="conditional statements, in IBM ILOG Script for OPL, syntax, in IBM ILOG Script, statements, conditional" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_statements.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_scriptStructure.1020942" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_statements.html" />
+<title>Conditional statement</title>
+</head>
+<body id="usropllangref.uss_langref_scriptStructure.1020942"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Conditional statement</h1>
+
+
+
+<div class="body"><p class="shortdesc">Provides a reference for the syntax of conditional statements
+in OPL.</p>
+
+<section class="section" id="usropllangref.uss_langref_scriptStructure.1020942__usropllangref.uss_langref_scriptStructure.1020970"><h2 class="title sectiontitle">Loops</h2>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table lists the syntax and effect of conditional statements in OPL." id="usropllangref.uss_langref_scriptStructure.1020942__usropllangref.uss_langref_scriptStructure.1023609" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Conditional statement syntax</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d485342e110">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d485342e113">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d485342e110 "><p class="p"><code class="ph codeph">if</code> (expression) statement1</p>
+<p class="p">[<code class="ph codeph">else</code> statement2]</p>
+</td>
+
+<td class="entry" valign="top" headers="d485342e113 "><p class="p">Evaluate <code class="ph codeph">expression</code> ; if it is true, execute <code class="ph codeph">statement1</code> ;
+otherwise, if <code class="ph codeph">statement2</code> is provided, execute <code class="ph codeph">statement2</code>. </p>
+<p class="p">If <code class="ph codeph">expression</code> gives
+a non-Boolean value, this value is converted to a Boolean value. </p>
+<p class="p"></p>
+<p class="p">Examples: </p>
+<p class="p"></p>
+if
+(a == b) writeln("They are equal")  else writeln("They are not equal")
+if (s.indexOf("a") &lt; 0) {  write("The string ", s)  writeln(" doesn’t
+contains the letter a") }  </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table lists the syntax and effects of loops in OPL." id="usropllangref.uss_langref_scriptStructure.1020942__usropllangref.uss_langref_scriptStructure.1023642" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Loop syntax</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d485342e178">Syntax</th>
+
+<th class="entry thleft" align="left" valign="top" id="d485342e181">Effect</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d485342e178 "><p class="p"><code class="ph codeph">while</code> (expression)</p>
+<p class="p"> statement</p>
+</td>
+
+<td class="entry" valign="top" headers="d485342e181 "><p class="p">Execute <code class="ph codeph">statement</code> repeatedly as long as <code class="ph codeph">expression</code> is <code class="ph codeph">true</code>.
+The test takes place before each execution of <code class="ph codeph">statement</code>. </p>
+<p class="p">If <code class="ph codeph">expression</code> gives
+a non-Boolean value, this value is converted to a Boolean value. </p>
+<p class="p"></p>
+<p class="p">Examples: </p>
+<p class="p"></p>
+while
+(a*a &lt; b) a = a+1 while (s.length) {  r = s.charAt(0)+r  s = s.substring(1)
+}  </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d485342e178 "><p class="p"><code class="ph codeph">for</code> ( [ initialize ] ;</p>
+<p class="p">      [ condition
+] ;</p>
+<p class="p">      [ update ] )</p>
+<p class="p">   statement</p>
+<p class="p">where <em class="ph i">condition</em> and <em class="ph i">update</em> are
+expressions, and <em class="ph i">initialize</em> is either an expression or has
+the form: </p>
+<p class="p"><code class="ph codeph">var</code> variable = expression</p>
+</td>
+
+<td class="entry" valign="top" headers="d485342e181 "><p class="p">Evaluate <code class="ph codeph">initialize</code> once, if present. Its
+value is ignored. If it has the form: </p>
+var variable = expression <p class="p">then <code class="ph codeph">variable</code> is
+declared as a local script variable and initialized as in the <code class="ph codeph">var</code> statement. </p>
+<p class="p">Then,
+execute <code class="ph codeph">statement</code> repeatedly as long as <code class="ph codeph">condition</code> is
+true. If <code class="ph codeph">condition</code> is omitted, it is taken to be
+true, which results in an infinite loop. If condition gives a non-Boolean
+value, this value is converted to a Boolean value. </p>
+<p class="p">If present, <code class="ph codeph">update</code> is
+evaluated at each pass through the loop, after <code class="ph codeph">statement</code> and
+before <code class="ph codeph">condition</code>. Its value is ignored.</p>
+<p class="p">Example: </p>
+for
+(var i=0; i &lt; a.length; i++) {  sum = sum+a[i]  prod = prod*a[i]
+} </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d485342e178 "><code class="ph codeph">for</code> ( [ <code class="ph codeph">var</code> ] variable <code class="ph codeph">in</code> expression)
+statement</td>
+
+<td class="entry" valign="top" headers="d485342e181 "><p class="p">Iterate over the properties of the value of <code class="ph codeph">expression</code> :
+for each property,<code class="ph codeph"> variable</code> is set to a string representing
+this property, and <code class="ph codeph">statement</code> is executed once. </p>
+<p class="p">If
+the <code class="ph codeph">var</code> keyword is present, <code class="ph codeph">variable</code> is
+declared as a local script variable, as with the <code class="ph codeph">var</code> statement. </p>
+<p class="p">For
+example, the following function takes an arbitrary value and displays
+all its properties and their values: </p>
+function printProperties(v)
+{  for (var p in v)   writeln(p, " -&gt; ", v[p]) } <p class="p">Properties
+listed by the <code class="ph codeph">for..in</code> statement include method properties,
+which are merely regular properties whose value is a function value.
+For example, the call <code class="ph codeph">printProperties("foo")</code> would
+display:</p>
+length -&gt; 3 toString -&gt; [primitive method toString]
+substring -&gt; [primitive method substring] charAt -&gt; [primitive
+method charAt] etc <p class="p">The only properties which are not listed by <code class="ph codeph">for..in</code> loops
+are the numeric properties of arrays. </p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d485342e178 "><code class="ph codeph">break</code> </td>
+
+<td class="entry" valign="top" headers="d485342e181 "><p class="p">Exit the current <code class="ph codeph">while</code>, <code class="ph codeph">for</code> or <code class="ph codeph">for..i</code> n
+loop, and continue the execution at the statement immediately following
+the loop. This statement cannot be used outside a loop. </p>
+<p class="p"></p>
+<p class="p">Example: </p>
+while
+(i &lt; a.length) {  if (a[i] == "foo") {   foundFoo = true   break
+ }  i = i+1 } // Execution continues here  </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d485342e178 "><code class="ph codeph">continue</code> </td>
+
+<td class="entry" valign="top" headers="d485342e181 "><p class="p">Stop the current iteration of the current <code class="ph codeph">while</code>, <code class="ph codeph">for</code> or <code class="ph codeph">for..i</code> n
+loop, and continue the execution of the loop with the next iteration.
+This statement cannot be used outside a loop. </p>
+<p class="p">Example: </p>
+ for
+(var i=0; i &lt; a.length; i++) {  if (a[i] &lt; 0) continue  writeln("A
+positive number: ", a[i]) }  </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_script_struct_statements.html" title="A statement can be a conditional statement, a loop statement, a local script variable declaration, a function definition, or a default value.">Statements</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Setting parameters" />
+<meta name="abstract" content="The parameters in CP Optimizer can be set using a method of the class representing the optimizer." />
+<meta name="Description" content="The parameters in CP Optimizer can be set using a method of the class representing the optimizer." />
+<meta name="DC.subject" content="IloCP class, setParameter method, search parameter" />
+<meta name="keywords" content="IloCP class, setParameter method, search parameter" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/User_manual/topics/intro_param.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usrcpoptimizerintro.137406" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/User_manual/topics/intro_param.html" />
+<title>Setting parameters</title>
+</head>
+<body id="migration.uss_usrcpoptimizerintro.137406"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Setting parameters</h1>
+
+
+
+<div class="body"><p class="shortdesc">The parameters in CP Optimizer can be set using
+a method of the class representing the optimizer.</p>
+
+<p class="p">In the <strong class="ph b">C++ API</strong> of CP Optimizer, you set
+a parameter on the optimizer with a call to  <code class="ph codeph">IloCP::setParameter</code>. The
+first argument to this function is either <code class="ph codeph">IloCP::IntParam</code> or <code class="ph codeph">IloCP::NumParam</code>. The second argument is a value
+of type <code class="ph codeph">IloInt</code>, <code class="ph codeph">IloNum</code> or
+the enumerated type <code class="ph codeph">IloCP::ParameterValues</code>.
+To set a parameter on the optimizer in the C++ API, you use the method <code class="ph codeph">IloCP::setParameter</code>, for example:  </p>
+
+<pre class="pre codeblock"><code>
+    IloCP cp(model);
+    cp.setParameter(IloCP::SearchType, IloCP::DepthFirst);
+    cp.solve();
+
+</code></pre>
+<p class="p">In the <strong class="ph b">Java™ API</strong> of
+CP Optimizer, you set a parameter on the optimizer with a call to <code class="ph codeph">IloCP.setParameter</code>. The first argument to this function
+is either <code class="ph codeph">IloCP.IntParam</code> or <code class="ph codeph">IloCP.DoubleParam</code>.
+The second argument is a value of type <code class="ph codeph">int</code> or <code class="ph codeph">double</code> or an instance of a subclass of <code class="ph codeph">IloCP.ParameterValues</code>. To set a parameter on the
+optimizer in the Java API, you
+use the method <code class="ph codeph">IloCP.setParameter</code>, for example: </p>
+
+<pre class="pre codeblock"><code>
+      IloCP cp = new IloCP();
+      // add variables and constraints
+      cp.setParameter(IloCP.IntParam.SearchType, 
+                      IloCP.ParameterValues.DepthFirst);
+      cp.solve();
+
+</code></pre>
+<p class="p">Likewise, in the <strong class="ph b">C# API</strong> of CP Optimizer,
+you set a parameter on the optimizer with a call to <code class="ph codeph">CP.SetParameter</code>.
+The first argument to this function is either <code class="ph codeph">CP.IntParam</code> or <code class="ph codeph">CP.DoubleParam</code>. The second argument is a value of
+type <code class="ph codeph">Int32</code> or <code class="ph codeph">Double</code> or
+an instance of a subclass of <code class="ph codeph">CP.ParameterValues</code>.
+To set a parameter on the optimizer in the C# API, you use the method <code class="ph codeph">CP.SetParameter</code>, for example:  </p>
+
+<pre class="pre codeblock"><code>
+      CP cp = new CP();
+      // add variables and constraints
+      cp.SetParameter(CP.IntParam.SearchType, 
+                      CP.ParameterValues.DepthFirst);
+      cp.Solve();
+
+</code></pre>
+<p class="p"> Some parameters may not be changed while there is an
+active search, such as between calls to the optimizer methods <code class="ph codeph">startNewSearch</code> and <code class="ph codeph">endSearch</code>.
+You can change any limit, such as  <code class="ph codeph">ChoicePoinLimit</code>, <code class="ph codeph">BranchLimit</code>, <code class="ph codeph">TimeLimit</code>, <code class="ph codeph">SolutionLimit</code> and <code class="ph codeph">FailLimit</code> during
+search.</p>
+
+<p class="p">The appropriate values are detailed in the <em class="ph i">CP
+Optimizer Reference Manuals</em>. Most of the search parameters available
+for use in CP Optimizer are discussed in more detail throughout this
+manual.</p>
+
+</div>
+
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/User_manual/topics/intro_param.html" title="It is possible to set parameters on the CP Optimizer object to control the output, to control the constraint propagation, to limit the search and to control the search engine. It is important to observe that any parameter change from its default is displayed at the head of the search log">Using search parameters</a></div>
+</div>
+</nav></div></body>
+</html>

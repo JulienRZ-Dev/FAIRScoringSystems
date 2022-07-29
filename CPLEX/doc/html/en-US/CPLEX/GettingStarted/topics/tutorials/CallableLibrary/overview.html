@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Overview" />
+<meta name="abstract" content="Callable Library applications follow conventional coding practices for linking and compiling." />
+<meta name="Description" content="Callable Library applications follow conventional coding practices for linking and compiling." />
+<meta name="DC.subject" content="Callable Library (C API), distribution file" />
+<meta name="keywords" content="Callable Library (C API), distribution file" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/compiling.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="uYqLFpXK" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/compiling.html" />
+<title>Overview</title>
+</head>
+<body id="uYqLFpXK"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Overview</h1>
+<div class="body"><p class="shortdesc">Callable Library applications follow conventional coding
+practices for linking and compiling.</p>
+
+<p class="p">Each Callable Library is distributed as a single library
+file <code class="ph codeph">libcplex.a</code> or <code class="ph codeph">cplexXXX.lib</code> .
+Use of the library file is similar to that with <code class="ph codeph">.o</code> or <code class="ph codeph">.obj</code> files.
+Simply substitute the library file in the link procedure. This procedure
+simplifies linking and makes sure that the smallest possible executable
+is generated. </p>
+
+<p class="p">The following compilation and linking instructions assume
+that the example source programs and CPLEX Callable Library files
+are in the directories associated with a default installation of the
+software. If this is not true, additional compile and link flags would
+be required to point to the locations of the include file <span class="ph filepath">cplex.h</span> or <span class="ph filepath">cplexx.h</span>,
+and Callable Library files respectively. </p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">The following instructions were current at the time of publication. As compilers, linkers and
+operating systems are released, different instructions may apply. Be sure to check the <em class="ph i">Release
+Notes</em> that come with your CPLEX distribution for any changes. Also check the CPLEX topics among
+Detailed System Requirements (DSR) at the IBM.com website.</p>
+
+</div>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/CallableLibrary/compiling.html" title="Compilation and linking an application of the C API differ according to platform.">Compiling and linking Callable Library applications</a></div>
+</div>
+</nav></div></body>
+</html>

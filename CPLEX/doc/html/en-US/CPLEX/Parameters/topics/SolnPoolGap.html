@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="relative gap for solution pool" />
+<meta name="abstract" content="Sets a relative tolerance on the objective value for the solutions in the solution pool." />
+<meta name="Description" content="Sets a relative tolerance on the objective value for the solutions in the solution pool." />
+<meta name="DC.subject" content="CPX_PARAM_SOLNPOOLGAP, CPXPARAM_MIP_Pool_RelGap, SolnPoolGap, mip pool relgap, relative gap, solution pool, tolerance, solution pool, relative, gap, relative, gap, relative in solution pool, incumbent, solution pool relative gap and" />
+<meta name="keywords" content="CPX_PARAM_SOLNPOOLGAP, CPXPARAM_MIP_Pool_RelGap, SolnPoolGap, mip pool relgap, relative gap, solution pool, tolerance, solution pool, relative, gap, relative, gap, relative in solution pool, incumbent, solution pool relative gap and" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196868245462" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>relative gap for solution pool</title>
+</head>
+<body id="languageRefTopic1196868245462"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">relative gap for solution pool</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets a relative tolerance on the objective value
+for the solutions in the solution pool.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Relative
+gap for the solution pool</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d137532e88">API</th>
+
+<th class="entry nrule" valign="top" id="d137532e91">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d137532e94">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">CPXPARAM_MIP_Pool_RelGap</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">CPX_PARAM_SOLNPOOLGAP</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">IloCplex::Param::MIP::Pool::RelGap</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">SolnPoolGap (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">IloCplex.Param.MIP.Pool.RelGap</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">SolnPoolGap (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">Cplex.Param.MIP.Pool.RelGap</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">SolnPoolGap (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">solnpoolgap </td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">solnpoolgap</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">parameters.mip.pool.relgap</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">mip.pool.relgap</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">mip pool relgap</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">mip pool relgap</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d137532e88 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d137532e91 ">2105</td>
+
+<td class="entry nrule" valign="top" headers="d137532e94 ">2105</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Sets
+a relative tolerance on the objective value for the solutions in the
+solution pool. Solutions that are worse (either greater in the case
+of a minimization, or less in the case of a maximization) than the
+incumbent solution by this measure are not kept in the solution pool.
+For example, if you set this parameter to 0.01, then solutions worse
+than the incumbent by 1% or more will be discarded.</p>
+<p class="p">Values
+of the <a class="xref" href="SolnPoolAGap.html" title="Sets an absolute tolerance on the objective value for the solutions in the solution pool.">absolute gap for solution pool</a> (<code class="ph codeph">SolnPoolAGap</code> or <code class="ph codeph">CPX_PARAM_SOLNPOOLAGAP</code>) and the <a class="xref" href="SolnPoolGap.html" title="Sets a relative tolerance on the objective value for the solutions in the solution pool.">relative gap for solution pool</a> (<code class="ph codeph">SolnPoolGap</code> or <code class="ph codeph">CPX_PARAM_SOLNPOOLGAP</code>) may differ: For example,
+you may specify that solutions must be within 15 units by means of
+the solution pool absolute gap and within 1% of the incumbent by means
+of the solution pool relative gap. A solution is accepted in the pool
+only if it is valid for both the relative and the absolute gaps.</p>
+<p class="p">The solution pool relative gap parameter can also be used
+as a stopping criterion for the populate procedure: if populate cannot
+enumerate any more solutions that satisfy this objective quality,
+then it will stop. In the presence of both an absolute and a relative
+solution pool gap parameter, populate will stop when the smaller of
+the two is reached.</p>
+<p class="p paragrouptitle">Values</p>
+<p class="p">Any nonnegative
+real number; <strong class="ph b">default</strong>: 1.0e+75. </p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

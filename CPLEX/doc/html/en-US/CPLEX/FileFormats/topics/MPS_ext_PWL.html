@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Piecewise linear (PWL) constraints in MPS files" />
+<meta name="abstract" content="CPLEX extensions of MPS file format support piecewise linear (PWL) constraints." />
+<meta name="Description" content="CPLEX extensions of MPS file format support piecewise linear (PWL) constraints." />
+<meta name="DC.subject" content="piecewise linear, in MPS file format, MPS file format, piecewise linear (PWL) constraints" />
+<meta name="keywords" content="piecewise linear, in MPS file format, MPS file format, piecewise linear (PWL) constraints" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/FileFormats/topics/MPS_ext_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_reference_MPS_PWL" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/FileFormats/topics/MPS_ext_synopsis.html" />
+<title>Piecewise linear (PWL) constraints in MPS files</title>
+</head>
+<body id="File_formats_reference_MPS_PWL"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Piecewise linear (PWL) constraints in MPS files</h1>
+ 
+ 
+<div class="body"><p class="shortdesc">CPLEX extensions
+of MPS file format support piecewise linear (PWL) constraints.</p>
+
+<div class="p">MPS file format supports declaration of piecewise linear constraints in a model. 
+For a definition of a piecewise-linear (PWL) constraint, see the topic 
+<a class="xref" href="../../UsrMan/topics/discr_optim/pwl/02_pwl_defn.html" title="Defines a piecewise linear function.">What is a piecewise linear function?</a> 
+in the <em class="ph i">CPLEX User's Manual</em>.
+Declaration of piecewise linear constraints in MPS file format requires two sections: 
+PWLNAM lists the piecewise linear constraints present in the model; PWLCON lists the
+breakpoints in each of the segments of those named constraints.
+<pre class="pre codeblock"><code>
+PWLNAM
+    PWLNAME1   VARY1   VARX1   preslope1   postslope1
+    PWLNAME2   VARY2   VARX2   preslope2   postslope2
+    ...
+PWLCON
+    PWLNAME1   x1_1   y1_1
+    ... 
+    PWLNAME1   x1_N1   y1_N1
+    PWLNAME2   x2_1   y1_2
+    ...
+    PWLNAME2   x2_N2   y1_N2
+    ...
+</code></pre> 
+
+</div>
+
+<p class="p">All syntactic elements must be present in the MPS declaration. 
+In particular, CPLEX rejects a PWL declaration with no breakpoint and 
+issues the error message 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_ILL_DEFINED_PWL.html" title="1213 ill defined piecewise linear function">CPXERR_ILL_DEFINED_PWL</a>.
+</p>
+ 
+<section class="section"><h2 class="title sectiontitle">Order of PWL elements in MPS file format</h2> 
+ 
+<p class="p">
+The order of 
+lines within the PWLNAM section is not significant. However, within PWLCON, 
+in the declaration of a piecewise linear constraint, you must specify the 
+breakpoints in the order that you want CPLEX to extract them.</p>
+ 
+<div class="p">Consider, for example, these breakpoints: 
+<pre class="pre codeblock"><code> 
+(0,0) (1,0) (1,1) (2,1)
+(0,0) (1,1) (1,0) (2,1) 
+</code></pre> 
+Both sets cite the same four breakpoints, but notice that the order is different.
+The first set specifies these two horizontal line segments:
+<pre class="pre codeblock"><code> 
+                          _
+(0,0) (1,0) (1,1) (2,1)  _
+</code></pre> 
+The second set specifies these two parallel line segments sloping at 45 degrees: 
+<pre class="pre codeblock"><code> 
+(0,0) (1,1) (1,0) (2,1) //
+</code></pre> 
+</div>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Example syntax</h2> 
+ 
+<div class="p">For example, consider these lines in an MPS file:
+<pre class="pre codeblock"><code> 
+PWLNAM
+    firstPWLconstraint y x 0.5 2.0
+    . . . 
+PWLCON
+    firstPWLconstraint 0 0
+    firstPWLconstraint 1 1
+    firstPWLconstraint 2 4
+    . . . 
+</code></pre>
+Those lines in the MPS file declare one piecewise linear constraint. The name of 
+the constraint is firstPWLconstraint. This piecewise linear constraint 
+constrains two variables: y and x. 
+The preslope of this piecewise linear constraint is 0.5. The postslope is 2.0.
+The breakpoints are (0, 0), (1,1), and (2,4). 
+</div>
+
+</section>
+ 
+<section class="section"><h2 class="title sectiontitle">Sample PWL data in MPS file format</h2> 
+ 
+<p class="p">Cplex produces the following data in MPS file format from the Python example 
+<code class="ph codeph">transport.py</code> of a model with a piecewise linear objective function. 
+(The same data is available for comparison in LP file format in the topic 
+<a class="xref" href="LP_PWL.html" title="CPLEX conforms to these rules about piecewise linear (PWL) constraints in LP file format.">Piecewise linear (PWL) constraints in LP file format</a> in this manual.)
+</p>
+ 
+<pre class="pre codeblock"><code> 
+* ENCODING=ISO-8859-1
+NAME          transport.mps
+ROWS
+ N  obj     
+ E  c1      
+ E  c2      
+ E  c3      
+ E  c4      
+ E  c5      
+ E  c6      
+ E  c7      
+COLUMNS
+    y1        obj                             1
+    y2        obj                             1
+    y3        obj                             1
+    y4        obj                             1
+    y5        obj                             1
+    y6        obj                             1
+    y7        obj                             1
+    y8        obj                             1
+    y9        obj                             1
+    y10       obj                             1
+    y11       obj                             1
+    y12       obj                             1
+    x1        c1                              1
+    x1        c4                              1
+    x2        c1                              1
+    x2        c5                              1
+    x3        c1                              1
+    x3        c6                              1
+    x4        c1                              1
+    x4        c7                              1
+    x5        c2                              1
+    x5        c4                              1
+    x6        c2                              1
+    x6        c5                              1
+    x7        c2                              1
+    x7        c6                              1
+    x8        c2                              1
+    x8        c7                              1
+    x9        c3                              1
+    x9        c4                              1
+    x10       c3                              1
+    x10       c5                              1
+    x11       c3                              1
+    x11       c6                              1
+    x12       c3                              1
+    x12       c7                              1
+RHS
+    rhs       c1                           1000
+    rhs       c2                            850
+    rhs       c3                           1250
+    rhs       c4                            900
+    rhs       c5                           1200
+    rhs       c6                            600
+    rhs       c7                            400
+INDICATORS
+PWLNAM
+ p1       y1       x1                           120                      50
+ p2       y2       x2                           120                      50
+ p3       y3       x3                           120                      50
+ p4       y4       x4                           120                      50
+ p5       y5       x5                           120                      50
+ p6       y6       x6                           120                      50
+ p7       y7       x7                           120                      50
+ p8       y8       x8                           120                      50
+ p9       y9       x9                           120                      50
+ p10      y10      x10                          120                      50
+ p11      y11      x11                          120                      50
+ p12      y12      x12                          120                      50
+PWLCON
+ p1                           200                   24000
+ p1                           400                   40000
+ p2                           200                   24000
+ p2                           400                   40000
+ p3                           200                   24000
+ p3                           400                   40000
+ p4                           200                   24000
+ p4                           400                   40000
+ p5                           200                   24000
+ p5                           400                   40000
+ p6                           200                   24000
+ p6                           400                   40000
+ p7                           200                   24000
+ p7                           400                   40000
+ p8                           200                   24000
+ p8                           400                   40000
+ p9                           200                   24000
+ p9                           400                   40000
+ p10                          200                   24000
+ p10                          400                   40000
+ p11                          200                   24000
+ p11                          400                   40000
+ p12                          200                   24000
+ p12                          400                   40000
+ENDATA
+</code></pre>
+</section>
+
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/FileFormats/topics/MPS_ext_synopsis.html" title="CPLEX extends the MPS standard in several ways.">Special records in MPS files: CPLEX extensions</a></div>
+</div>
+</nav></div></body>
+</html>

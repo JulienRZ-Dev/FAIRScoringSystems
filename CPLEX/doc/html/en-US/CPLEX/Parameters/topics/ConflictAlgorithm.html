@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="conflict refiner algorithm" />
+<meta name="abstract" content="Determines which algorithm CPLEX uses in the conflict refiner to find a minimal conflict in an infeasible model." />
+<meta name="Description" content="Determines which algorithm CPLEX uses in the conflict refiner to find a minimal conflict in an infeasible model." />
+<meta name="DC.subject" content="CPXPARAM_Conflict_Algorithm, ConflictAlgorithm, conflict refiner, choice of algorithms for" />
+<meta name="keywords" content="CPXPARAM_Conflict_Algorithm, ConflictAlgorithm, conflict refiner, choice of algorithms for" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="ConflictRefinerAlgorithm" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>conflict refiner algorithm</title>
+</head>
+<body id="ConflictRefinerAlgorithm"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">conflict refiner algorithm</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Determines which algorithm CPLEX uses  
+in the conflict refiner to find a minimal conflict 
+in an infeasible model.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">Conflict refiner algorithm</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d91573e59">API</th>
+
+<th class="entry nrule" valign="top" id="d91573e62">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">CPXPARAM_Conflict_Algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">IloCplex::Param::Conflict::Algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">IloCplex.Param.Conflict.Algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">Cplex.Param.Conflict.Algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">conflictalg</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">parameters.conflict_algorithm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">conflict i</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d91573e59 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d91573e62 ">1073</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This parameter determines which algorithm CPLEX uses in the conflict refiner 
+to discover a minimal set of conflicting constraints in an infeasible model.
+</p>
+
+<p class="p">By default, CPLEX automatically chooses the algorithm in the 
+conflict refiner according to 
+the way that CPLEX determined the infeasibility of the original
+problem. 
+</p>
+
+<p class="p">
+To see which algorithm that CPLEX chose by default, use the 
+parameter to manage 
+<a class="xref" href="ConflictDisplay.html" title="Decides how much information CPLEX reports when the conflict refiner is working.">conflict information display</a>. 
+</p>
+
+<p class="p">The algorithm selected by default by CPLEX ordinarily yields the fastest 
+possible performance, while it makes sure that CPLEX finds a minimal conflict 
+if you allow it to run to completion. 
+However, in certain models, a 
+nondefault selection can work better. In particular, settings 
+1 (one), 2, or 3  entail preprocessing or propagation algorithms 
+that are very fast, but those same algorithms can be inefficient 
+at discarding large numbers 
+of constraints quickly. In such a case, explicitly setting this 
+parameter to 5 for a limited solve by the conflict refiner or to 
+6 for a full solve can improve performance. </p>
+ 
+<p class="p">Also, only settings 0, 4, and 6 guarantee a provably minimal conflict. 
+The faster but more limited settings of 1, 2, 3, and 5 are less effective 
+at proving whether individual constraints are included in or excluded from a minimal conflict.
+</p>
+
+<p class="p">Setting 4 of this parameter is primarily for continuous models.</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d91573e194">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d91573e197">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">0</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Automatic: let CPLEX choose; <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">1</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Simple, fast algorithm </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">2</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Bound propagation</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">3</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Presolve</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">4</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Irreducibly inconsistent set (IIS) for continuous models</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">5</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Limited solve</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d91573e194 ">6</td>
+
+<td class="entry" valign="top" headers="d91573e197 ">Full solve</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">See also</h2>
+
+<a class="xref" href="ConflictDisplay.html" title="Decides how much information CPLEX reports when the conflict refiner is working.">conflict information display</a>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

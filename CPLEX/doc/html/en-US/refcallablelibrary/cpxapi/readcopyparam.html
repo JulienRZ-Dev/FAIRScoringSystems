@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXreadcopyparam and CPXreadcopyparam" />
+<meta name="abstract" content="The routine CPXXreadcopyparam/CPXreadcopyparam reads parameter names and settings from the file specified by filename_str and copies them into CPLEX." />
+<meta name="Description" content="The routine CPXXreadcopyparam/CPXreadcopyparam reads parameter names and settings from the file specified by filename_str and copies them into CPLEX." />
+<meta name="DC.subject" content="CPXreadcopyparam, C API Reference Manual, CPXXreadcopyparam" />
+<meta name="keywords" content="CPXreadcopyparam, C API Reference Manual, CPXXreadcopyparam" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagemanageparameters.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagereadfiles.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpParameters.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="readcopyparam" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetR.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagemanageparameters.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagereadfiles.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpParameters.html" />
+<title>CPXXreadcopyparam and CPXreadcopyparam</title>
+</head>
+<body id="readcopyparam"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXreadcopyparam</span> and <span class="keyword apiname">CPXreadcopyparam</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+
+
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXreadcopyparam</span>/<span class="keyword apiname">CPXreadcopyparam</span></code> reads parameter names and
+settings from the file specified by <code class="ph codeph"><span class="keyword parmname">filename_str</span></code> and copies
+them into CPLEX.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXreadcopyparam</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXreadcopyparam</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">filename_str</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+
+<p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXreadcopyparam</span>/<span class="keyword apiname">CPXreadcopyparam</span></code> reads parameter names and
+settings from the file specified by <code class="ph codeph"><span class="keyword parmname">filename_str</span></code> and copies
+them into CPLEX. </p>
+
+
+<p class="p">This routine reads and copies files in the PRM format, as
+created by <code class="ph codeph"><a class="xref" href="writeparam.html" title="The routine CPXXwriteparam/CPXwriteparam writes the name and current setting of CPLEX parameters that are not at their default setting in the environment specified by env."><span class="keyword apiname">CPXXwriteparam</span>/<span class="keyword apiname">CPXwriteparam</span></a></code>.
+The PRM format is documented in the
+<em class="ph i">CPLEX File Formats Reference Manual</em>.
+</p>
+
+
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">filename_str</dt>
+
+        <dd class="dd pd">
+          
+          Name of the file to read and copy into CPLEX.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetR.html">R</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagemanageparameters.html">Managing Parameters in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagereadfiles.html">Reading Files in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpParameters.html">Using parameters of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

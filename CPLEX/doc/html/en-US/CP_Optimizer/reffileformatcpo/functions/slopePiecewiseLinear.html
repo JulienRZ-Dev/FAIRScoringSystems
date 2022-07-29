@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="slopePiecewiseLinear" />
+<meta name="abstract" content="Evaluates piecewise-linear function given by set of breaking points and slopes." />
+<meta name="Description" content="Evaluates piecewise-linear function given by set of breaking points and slopes." />
+<meta name="DC.subject" content="slopePiecewiseLinear" />
+<meta name="keywords" content="slopePiecewiseLinear" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="coordinatePiecewiseLinear.html" />
+<meta name="DC.Relation" scheme="URI" content="segmentedFunction.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="slopePiecewiseLinear" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>slopePiecewiseLinear</title>
+</head>
+<body id="slopePiecewiseLinear"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">slopePiecewiseLinear</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Evaluates piecewise-linear function given by set of breaking points and slopes.
+</p>
+
+
+
+<section class="section" id="slopePiecewiseLinear__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">slopePiecewiseLinear</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> x, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> points, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__floatArray">floatArray</a> slopes, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> refX, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> refY)
+</code></pre>
+</section>
+
+
+<section class="section" id="slopePiecewiseLinear__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">x</code>: x-value for which the function should be evaluated.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">points</code>: sorted array of <code class="ph codeph">n-1</code> x-values (breaking points) that separate <code class="ph codeph">n</code> function segments.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">slopes</code>: array of <code class="ph codeph">n</code> slopes, one for each segments.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">refX</code>: reference x-value.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">refY</code>: value of the function at <code class="ph codeph">refX</code> (reference y-value).
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="slopePiecewiseLinear__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function evaluates piecewise-linear function at point <code class="ph codeph">x</code>. The function
+consists of several segments separated by <code class="ph codeph">points</code>, within each segment the
+function is linear. The function is defined by slopes of all segments
+(<code class="ph codeph">slopes</code>) and by breaking points (<code class="ph codeph">points</code>) on x-axis. Furthermore it is
+necessary to specify reference value <code class="ph codeph">refX</code> and corresponding function value
+<code class="ph codeph">refY</code>.
+</p>
+
+
+<p class="p">
+The function is continuous unless some value in <code class="ph codeph">points</code> is specified twice.
+Specifying the same value in <code class="ph codeph">points</code> allows to model discontinous function, in
+this case the corresponding value in <code class="ph codeph">slopes</code> is not interpreted as a slope but
+as the height of the jump (delta) at that point.
+</p>
+
+
+<p class="p">
+Assuming that the array <code class="ph codeph">points</code> has size <code class="ph codeph">n</code>, the function consists of the
+following linear segments:
+</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;"><tr class="row" style="vertical-align:middle;">
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d371888e172"> Segment number </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d371888e175"> Definition interval </th>
+
+      <th class="entry thcenter thmid" align="center" valign="middle" id="d371888e178"> Slope </th>
+
+  </tr>
+</thead>
+<tbody class="tbody">
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e172 "> 0 </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e175 "> <code class="ph codeph">(-∞, points[0])</code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e178 "> <code class="ph codeph">slope[0]</code>  </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e172 "> <code class="ph codeph">i=1,2,.. n-1</code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e175 "> <code class="ph codeph">[points[i-1], points[i])</code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e178 "> slope[i] </td>
+
+    </tr>
+
+    <tr class="row" style="vertical-align:middle;">
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e172 "> <code class="ph codeph">n</code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e175 "> <code class="ph codeph">[points[n-1], ∞)</code> </td>
+
+      <td class="entry tdcenter tdmid" align="center" valign="middle" headers="d371888e178 "> slope[n] </td>
+
+    </tr>
+
+</tbody>
+</table>
+</div>
+
+
+</section>
+
+
+<section class="section" id="slopePiecewiseLinear__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+x = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(-5..30);
+y = <strong class="ph b">slopePiecewiseLinear</strong>(x, [   5,  5, 10, 15, 15, 19],
+                            [-0.5, -2, -1,  0,  5,  0, 1],
+                            11, 1);
+</code></pre>
+<p class="p">
+The code above creates expression <code class="ph codeph">y</code> that evaluates piecewise-linear function at point <code class="ph codeph">x</code> (a variable). The function has the following graph:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram38.png" /></div>
+
+<p class="p">
+Here are a few examples of function values:
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    if <code class="ph codeph">x=3</code> then <code class="ph codeph">y=9</code>,
+  </li>
+
+  <li class="li">
+    if <code class="ph codeph">x=5</code> then <code class="ph codeph">y=6</code> (discontinuity),
+  </li>
+
+  <li class="li">
+    if <code class="ph codeph">x=12</code> then <code class="ph codeph">y=1</code>,
+  </li>
+
+  <li class="li">
+    if <code class="ph codeph">x=15</code> then <code class="ph codeph">y=6</code> (discontinuity),
+  </li>
+
+  <li class="li">
+    if <code class="ph codeph">x=20</code> then <code class="ph codeph">y=7</code>.
+  </li>
+
+</ul>
+
+
+<p class="p">
+We used reference point <code class="ph codeph">(11, 1)</code> to specify the function. But we can use any other points listed above, e.g. <code class="ph codeph">(15, 6)</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="slopePiecewiseLinear__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    Array <code class="ph codeph">slopes</code> cannot be empty.
+  </li>
+
+  <li class="li">
+    Array <code class="ph codeph">slopes</code> must contain exactly one more value than <code class="ph codeph">points</code>.
+  </li>
+
+  <li class="li">
+    Array <code class="ph codeph">points</code> must be sorted.
+  </li>
+
+  <li class="li">
+    In <code class="ph codeph">points</code> any number cannot appear more than twice.
+  </li>
+
+  <li class="li">
+    Infinity (or minus infinity) is not allowed in any parameter.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="coordinatePiecewiseLinear.html" title="Evaluates piecewise-linear function given by set of breaking points and values.">coordinatePiecewiseLinear</a></li>
+<li class="linklist"><a class="link" href="segmentedFunction.html" title="Creates a new piecewise linear function.">segmentedFunction</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

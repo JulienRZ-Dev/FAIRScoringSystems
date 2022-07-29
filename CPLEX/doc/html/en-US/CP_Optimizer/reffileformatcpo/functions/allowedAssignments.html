@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="allowedAssignments" />
+<meta name="abstract" content="Explicitly defines possible assignments on one or more integer expressions." />
+<meta name="Description" content="Explicitly defines possible assignments on one or more integer expressions." />
+<meta name="DC.subject" content="allowedAssignments" />
+<meta name="keywords" content="allowedAssignments" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="forbiddenAssignments.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/070_Types.html#Basic_expression_types/intExpr" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/120_Arrays.html#Arrays_and_array_types/intExprArray" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/130_MoreTypes.html#More_types/Type_tupleSet" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="allowedAssignments" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>allowedAssignments</title>
+</head>
+<body id="allowedAssignments"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">allowedAssignments</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Explicitly defines possible assignments on one or more integer expressions.
+</p>
+
+
+
+<section class="section" id="allowedAssignments__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">allowedAssignments</strong>(<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a> expr, <a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a> values)
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">allowedAssignments</strong>(<a class="xref" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a> exprs, <a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_tupleSet">tupleSet</a> tuples)
+</code></pre>
+</section>
+
+
+<section class="section" id="allowedAssignments__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">expr</code>: an integer expression to be constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">values</code>: an integer array giving the possible values of <code class="ph codeph">expr</code>.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">exprs</code>: an array of integer expressions to be constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">tuples</code>: the set of tuples defining possible value assignments to <code class="ph codeph">exprs</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="allowedAssignments__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This Boolean expression (which is interpreted as a constraint outside of
+an expression) determines whether the assignment to a single expression <code class="ph codeph">expr</code>
+or to an array of expressions <code class="ph codeph">exprs</code> is contained within the value set
+<code class="ph codeph">values</code> or the tuple set <code class="ph codeph">tuples</code> respectively.  The Boolean expression
+will be true if and only if (depending on the signature):
+</p>
+
+
+<ul class="ul">
+  <li class="li">
+    the value of the expression <code class="ph codeph">expr</code> is present in the array <code class="ph codeph">values</code>.
+  </li>
+
+  <li class="li">
+    the values of the expressions <code class="ph codeph">exprs</code> are present in the tuple set <code class="ph codeph">tuples</code>.
+  </li>
+
+</ul>
+
+
+<p class="p">
+The order of the constrained variables in the array <code class="ph codeph">exprs</code> is
+important because the same order is respected in the tuple set <code class="ph codeph">tuples</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="allowedAssignments__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+a = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+b = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+c = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(1..3);
+<strong class="ph b">allowedAssignments</strong>([a,b,c], [[1,2,3],[3,2,1],[2,3,1]]);
+</code></pre>
+</section>
+
+
+<section class="section" id="allowedAssignments__Example2"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+In this example there are 4 mathematics lessons per week, and 6 hours per
+day (a 30 hour week). We want to schedule all the mathematics lessons
+in the morning or all of them in the afternoon.  The example shown for
+<a class="xref" href="range.html" title="Restricts the bounds of an integer or floating-point expression.">range</a> can additionally be used to limit the number of mathematics lessons
+to at most one per day, but that part of the model is not shown here.
+</p>
+
+
+<pre class="pre codeblock"><code>
+m1 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..29);
+m2 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..29);
+m3 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..29);
+m4 = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..29);
+morning   = [0..2,  6..8, 12..14, 18..20, 24..26];
+afternoon = [3..5, 9..11, 15..17, 21..23, 27..29];
+   (<strong class="ph b">allowedAssignments</strong>(m1, morning) &amp;&amp; <strong class="ph b">allowedAssignments</strong>(m2, morning)
+ &amp;&amp; <strong class="ph b">allowedAssignments</strong>(m3, morning) &amp;&amp; <strong class="ph b">allowedAssignments</strong>(m4, morning))
+||
+   (<strong class="ph b">allowedAssignments</strong>(m1, afternoon) &amp;&amp; <strong class="ph b">allowedAssignments</strong>(m2, afternoon)
+ &amp;&amp; <strong class="ph b">allowedAssignments</strong>(m3, afternoon) &amp;&amp; <strong class="ph b">allowedAssignments</strong>(m4, afternoon));
+</code></pre>
+<p class="p">
+The variables <code class="ph codeph">m1</code> to <code class="ph codeph">m4</code> represent the hours of the four mathematics lessons.
+Since there is a 30 hour week, then domains are from 0 to 29.
+The integer arrays <code class="ph codeph">morning</code> and <code class="ph codeph">afternoon</code> specify the time slots
+associated with mornings and afternoons respectively.  Thereafter a logical
+constraint states that either <code class="ph codeph">m1</code> to <code class="ph codeph">m4</code> all take values from the <code class="ph codeph">morning</code>
+array, or all take values from the <code class="ph codeph">afternoon</code> array.
+</p>
+
+
+</section>
+
+
+<section class="section" id="allowedAssignments__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    The size of the <code class="ph codeph">exprs</code> array must be the same as the
+    arity of each tuple contained in <code class="ph codeph">tuples</code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="allowedAssignments__Notes"><h2 class="title sectiontitle">Notes</h2>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="forbiddenAssignments.html" title="Explicitly defines forbidden assignments for one or more integer expressions.">forbiddenAssignments</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intArray">intArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/070_Types.html#Basic_expression_types__intExpr">intExpr</a></li>
+<li class="linklist"><a class="link" href="../syntax/120_Arrays.html#Arrays_and_array_types__intExprArray">intExprArray</a></li>
+<li class="linklist"><a class="link" href="../syntax/130_MoreTypes.html#More_types__Type_tupleSet">tupleSet</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

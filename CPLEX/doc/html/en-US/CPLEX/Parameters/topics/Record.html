@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="recording switch" />
+<meta name="abstract" content="Records invocations of Callable Library (C API) routines" />
+<meta name="Description" content="Records invocations of Callable Library (C API) routines" />
+<meta name="DC.subject" content="CPX_PARAM_RECORD, CPXPARAM_Record, record CPLEX calls, record, Interactive Optimizer command" />
+<meta name="keywords" content="CPX_PARAM_RECORD, CPXPARAM_Record, record CPLEX calls, record, Interactive Optimizer command" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="RecordParam" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>recording switch</title>
+</head>
+<body id="RecordParam"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">recording switch</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Records invocations of Callable Library (C API) routines </p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Records invocations of Callable Library (C API) routines</p>
+ 
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d130419e58">API</th>
+
+<th class="entry nrule" valign="top" id="d130419e61">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">CPXPARAM_Record </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">IloCplex::Param::Record</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">IloCplex.Param.Record</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">Cplex.Param.Record</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">record</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">parameters.record</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">record yes</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d130419e58 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d130419e61 ">1162</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>  
+<p class="p"> 
+This parameter determines whether CPLEX records invocations of 
+ routines in an application of the CPLEX Callable Library (C API). 
+ This choice applies implicitly to all other application programming interfaces (APIs) 
+ of CPLEX (C++, Java, .NET, Python) as those APIs wrap routines of the 
+ CPLEX Callable Library (C API).
+</p>
+ 
+<p class="p">This parameter can help in technical support or debugging.  
+For example, in a custom application, the recording allows 
+technical support to replay the CPLEX-specific function calls without
+needing access to your original source code and data.</p>
+ 
+<p class="p"> 
+This parameter is off by default, that is, 0 (zero). 
+(When this parameter is off initially, it has no effect.)
+</p>
+ 
+<p class="p"> When this parameter is turned on, that is, 1 (one), it records all invocations (function calls)
+of C routines in a file named <code class="ph codeph">cplex.db.XXXXXX</code>, where <em class="ph i">XXXXXX</em> is replaced with
+a unique string appropriately. The record includes input and output arguments as well as return
+values. Recording continues until you close the CPLEX environment or your application terminates.
+That is, after you turn on this parameter, it is not possible for you to turn off recording until
+you close the CPLEX environment or your application terminates. </p>
+ 
+
+<p class="p"> 
+When you want to record, set this parameter immediately after your application 
+creates the CPLEX environment.
+</p>
+ 
+<p class="p"> 
+Alternatively, you can also turn on this parameter by setting its value in a 
+formatted PRM file of CPLEX parameter settings, and then using the environment variable 
+<code class="ph codeph">ILOG_CPLEX_PARAMETER_FILE</code> to specify that file. 
+CPLEX applies the settings it finds in a PRM file designated by that environment 
+variable as early as possible. 
+For more detail about that environment variable, see the topic 
+<a class="xref" href="../../UsrMan/topics/progr_consid/environmentVariables.html" title="CPLEX uses environment variables.">Using environment variables in CPLEX</a> 
+in the <em class="ph i">CPLEX User's Manual</em>. For more information about creating a file of parameter 
+settings (that is, a PRM file), see the topic 
+<a class="xref" href="introPRMfile.html" title="Users of the Callable Library (C API) can save current parameter settings in a PRM file.">Saving parameter settings to a file in the C API</a> 
+in the <em class="ph i">CPLEX Parameters Reference Manual</em>. 
+</p>
+  
+
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d130419e214">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d130419e217">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d130419e214 ">0</td>
+
+<td class="entry" valign="top" headers="d130419e217 ">Recording is off by <strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d130419e214 ">1</td>
+
+<td class="entry" valign="top" headers="d130419e217 ">Turn on recording </td>
+
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

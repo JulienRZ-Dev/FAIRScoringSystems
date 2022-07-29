@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Overview" />
+<meta name="abstract" content="Outlines different ways to modify a model for CPLEX in a C++ application." />
+<meta name="Description" content="Outlines different ways to modify a model for CPLEX in a C++ application." />
+<meta name="DC.subject" content="notifying, changes to IloCplex object (C++ API), notifying changes to IloCplex object (C++ API), notifying about changes to (C++ API), IloCplex C++ class, solve method (C++ API), IloModel C++ class, modifying a model, add method (C++ API), removing objects (C++ API), adding objects (C++ API), remove method (C++ API)" />
+<meta name="keywords" content="notifying, changes to IloCplex object (C++ API), notifying changes to IloCplex object (C++ API), notifying about changes to (C++ API), IloCplex C++ class, solve method (C++ API), IloModel C++ class, modifying a model, add method (C++ API), removing objects (C++ API), adding objects (C++ API), remove method (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modify_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="memRnmJG" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modify_synopsis.html" />
+<title>Overview</title>
+</head>
+<body id="memRnmJG"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Overview</h1>
+
+   
+   
+   <div class="body"><p class="shortdesc">Outlines different ways to modify a model for CPLEX in
+a C++ application.</p>
+
+      <p class="p">In some applications, you may want to solve another model
+or a modification of your original model, in order, for example, to
+analyze a scenario or to make adaptations based on the solution of
+the first model. To do this, you do not have to start a new model
+from scratch, but instead you can take an existing model and change
+it to your needs. To do so, call the modification methods of the individual
+modeling objects. </p>
+
+      <p class="p">When an extracted model is modified, the modification
+is tracked in the <code class="ph codeph">cplex</code> object through <em class="ph i">notification</em>. Whenever a modification
+method is called, <code class="ph codeph">cplex</code>objects that have
+extracted the model are notified about it. The <code class="ph codeph">cplex</code> objects
+then track the modification in their internal data structures. </p>
+
+      <p class="p">Not only does CPLEX track all modifications of the model
+it has extracted, but also it tries to maintain as much solution information
+from a previous invocation of <a class="xref hardcodedApiLink" href="../../../../../refcppcplex/html/classes/IloCplex.html#solve">solve</a> as is possible
+and reasonable. </p>
+
+      <p class="p">You have already encountered what is perhaps the most
+important modification method, that is, the method <code class="ph codeph">IloModel::add</code> for
+adding modeling objects to a model. Conversely, you may call <code class="ph codeph">IloModel::remove</code> to
+remove a modeling object from a model. </p>
+
+      <p class="p">Objective functions can be modified by changing their
+sense and by editing their expression, or by changing their expression
+completely. </p>
+
+      <p class="p">Similarly, the bounds of constraints and their expressions
+can be modified. </p>
+
+      <p class="p">For a complete list of supported modifications, see the
+documentation of the individual modeling objects in the reference
+manual.</p>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/modify_synopsis.html" title="Describes methods in the C++ API to modify a model.">Modifying a model</a></div>
+</div>
+</nav></div></body>
+</html>

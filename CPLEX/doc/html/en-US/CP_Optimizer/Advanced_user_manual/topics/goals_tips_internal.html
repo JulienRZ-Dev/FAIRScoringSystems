@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Internal solve" />
+<meta name="abstract" content="An internal solve can be performed inside a goal." />
+<meta name="Description" content="An internal solve can be performed inside a goal." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/Advanced_user_manual/topics/goals_tips.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migration.uss_usradvcpoptimizergoals.1017025" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/Advanced_user_manual/topics/goals_tips.html" />
+<title>Internal solve</title>
+</head>
+<body id="migration.uss_usradvcpoptimizergoals.1017025"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Internal solve</h1>
+
+
+<div class="body"><p class="shortdesc">An internal solve can be performed inside a goal.</p>
+
+<p class="p">When defining a custom goal, it may be useful to launch a sub-search with its own goal.
+In CP Optimizer, an internal solve can be performed inside a goal.
+To this aim, <code class="ph codeph">IloCPEngine</code> provides the function:
+</p>
+
+<pre class="pre codeblock"><code>
+ IlcBool solve(const IlcGoal goal, IlcBool restore = IlcFalse) const;
+</code></pre>
+<p class="p">
+The parameter restore indicates whether or not at the end of the search the 
+invoking engine should restore the state that it was in prior to the search.
+ </p>
+
+<p class="p">
+<code class="ph codeph">IloCPEngine</code> also provides the more general functions
+<code class="ph codeph">startNewSearch(const IlcGoal goal)</code>, <code class="ph codeph">next()</code>, 
+and <code class="ph codeph">endSearch()</code>. 
+ </p>
+
+<p class="p">
+Inside a goal you may write:
+ </p>
+
+<pre class="pre codeblock"><code>
+   ILCGOAL1(MyIlcGoal, IlcIntVarArray, x){
+   IlcCPEngine cp = getCPEngine();
+   IlcBool success = cp.solve(MySubIlcGoal(cp,...));
+   if (success)
+     ...
+   else 
+     ...
+   }
+</code></pre>
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/Advanced_user_manual/topics/goals_tips.html" title="Programming tips are provided to help with writing efficient custom goals.">Programming tips</a></div>
+</div>
+</nav></div></body>
+</html>

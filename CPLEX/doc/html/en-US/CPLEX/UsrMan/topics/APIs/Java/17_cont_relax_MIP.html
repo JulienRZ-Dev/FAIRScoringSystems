@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Solving subsequent continuous relaxations in a MIP" />
+<meta name="abstract" content="Shows how to choose the optimizer to solve a series of relaxations." />
+<meta name="Description" content="Shows how to choose the optimizer to solve a series of relaxations." />
+<meta name="DC.subject" content="solving, subsequent LPs or QPs in a MIP (Java API)" />
+<meta name="keywords" content="solving, subsequent LPs or QPs in a MIP (Java API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Java/13_choose_optim_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_javaIloCplex.1018488" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/13_choose_optim_title_synopsis.html" />
+<title>Solving subsequent continuous relaxations in a MIP</title>
+</head>
+<body id="User_manual.uss_javaIloCplex.1018488"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Solving subsequent continuous relaxations in a MIP</h1>
+
+
+
+<div class="body"><p class="shortdesc">Shows how to choose the optimizer to solve a series
+of relaxations.</p>
+
+<p class="p">Parameter <code class="ph codeph">IloCplex.IntParam.RootAlg</code> also
+controls the algorithm used for solving the first continuous relaxation
+when solving a MIP. The algorithm for solving all subsequent continuous
+relaxations is then controlled by the parameter <code class="ph codeph">IloCplex.IntParam.NodeAlg</code> .</p>
+
+<p class="p">In other words, use the root algorithm parameter to choose
+the optimizer for solving at the root, and use the node algorithm
+parameter to choose the optimizer for solving at the subsequent nodes
+of the problem.</p>
+
+<div class="p">The algorithm choices appear in <a class="xref" href="17_cont_relax_MIP.html#User_manual.uss_javaIloCplex.1018488__User_manual.uss_javaIloCplex.1027283" title="A five-column table showing possible values for the node algorithm, the Java type of that algorithm, whether that algorithm solves mixed integer linear programs at the nodes, whether that algorithm solves mixed integer programs with a quadratic term in the objective, whether that algorithm solves mixed integer programs with quadratic terms among the constraints.">Table 1</a>  </div>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A five-column table showing possible values for the node algorithm, the Java type of that algorithm, whether that algorithm solves mixed integer linear programs at the nodes, whether that algorithm solves mixed integer programs with a quadratic term in the objective, whether that algorithm solves mixed integer programs with quadratic terms among the constraints." id="User_manual.uss_javaIloCplex.1018488__User_manual.uss_javaIloCplex.1027283" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Algorithm types for NodeAlg </span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d171405e78">  <code class="ph codeph">alg</code>  </th>
+
+<th class="entry thleft" align="left" valign="top" id="d171405e84"> Algorithm Type </th>
+
+<th class="entry thleft" align="left" valign="top" id="d171405e87"> MILP? </th>
+
+<th class="entry thleft" align="left" valign="top" id="d171405e90"> MIQP? </th>
+
+<th class="entry thleft" align="left" valign="top" id="d171405e93"> MIQCP? </th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171405e78 ">  <code class="ph codeph">0</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e84 ">  <code class="ph codeph">IloCplex.Algorithm.Auto</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e87 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e90 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e93 "> yes </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171405e78 ">  <code class="ph codeph">1</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e84 ">  <code class="ph codeph">IloCplex.Algorithm.Primal</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e87 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e90 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e93 "> not available </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171405e78 ">  <code class="ph codeph">2</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e84 ">  <code class="ph codeph">IloCplex.Algorithm.Dual</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e87 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e90 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e93 "> not available </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171405e78 ">  <code class="ph codeph">3</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e84 ">  <code class="ph codeph">IloCplex.Algorithm.Network</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e87 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e90 "> not available  </td>
+
+<td class="entry" valign="top" headers="d171405e93 "> not available </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171405e78 ">  <code class="ph codeph">4</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e84 ">  <code class="ph codeph">IloCplex.Algorithm.Barrier</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e87 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e90 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e93 "> yes </td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171405e78 "> 5 </td>
+
+<td class="entry" valign="top" headers="d171405e84 ">  <code class="ph codeph">IloCplex.Algorithm.Sifting</code>  </td>
+
+<td class="entry" valign="top" headers="d171405e87 "> yes </td>
+
+<td class="entry" valign="top" headers="d171405e90 "> not available </td>
+
+<td class="entry" valign="top" headers="d171405e93 "> not available </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/13_choose_optim_title_synopsis.html" title="Describes algorithms implemented in the Java API for solving optimization problems.">Choosing an optimizer</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>IlcCPEngine</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../classes/IlcCPEngine.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Class IlcCPEngine</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+                class="definition-file">ilcp/cpext.h</span></div><div><img
+                src="IlcCPEngine.png" border="0"
+                usemap="#svg_map_IlcCPEngine"
+                    alt="Map of IlcCPEngine"><map
+                        name="svg_map_IlcCPEngine"><area
+                        href="../classes/IlcCPEngine.html" shape="rect"
+                        alt="IlcCPEngine"
+                        coords="10.0,10.0,75.0,27.640625" /><area
+                        href="../classes/IloCPEngine.html" shape="rect"
+                        alt="IloCPEngine"
+                        coords="52.5,37.640625,117.5,55.28125" /><area
+                        href="../classes/IlcCPEngine.html" shape="rect"
+                        alt="IlcCPEngine"
+            coords="10.0,10.0,75.0,27.640625" /></map></img></div>
+An instance of this class represents a backtracking search
+        engine for CP Optimizer.
+    <div
+            class="description"><p>You never need to create an instance of this class.  The master
+    <code>IloCP</code> object will create instances of this class which
+    you can then use in your own CP Optimizer extensions code in C++.
+    Specifically, you can get the current instance from within an instance
+    of <code>IlcGoalI</code>, <code>IlcDemonI</code> or
+    <code>IlcConstraintI</code> by calling the <code>getCPEngine()</code>
+    member function.  Likewise, these classes (as well as others such as
+    <code>IlcRevInt</code>) require that you pass an instance of this
+    class when building an object of that type.
+ </p><p>The search can also be influenced by adding constraints
+    (<code>add(const IlcConstraint ct)</code>) or by performing &quot;internal&quot;
+    solves (<code>solve(IlcGoal goal, IlcBool restore = IlcFalse)</code>).
+ </p><p>Most member functions in this class contain <code>assert</code>
+ statements. For an explanation of the macro <code>NDEBUG</code> (a way to
+ turn on or turn off these <code>assert</code> statements), see the concept
+ Assert and NDEBUG.</p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../classes/IloCPEngine.html">IloCPEngine</a>, <a
+                href="../classes/IlcGoalI.html">IlcGoalI</a>, <a
+                href="../classes/IlcConstraintI.html">IlcConstraintI</a>, <a
+            href="../classes/IlcDemonI.html">IlcDemonI</a></p><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Method Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_add">add</a>(const <a
+                    href="../classes/IlcConstraint.html">IlcConstraint</a> constraint) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_addReversibleAction">addReversibleAction</a>(const <a
+                    href="../classes/IlcGoal.html">IlcGoal</a> goal) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                    href="../classes/IlcCPEngine.html#method_exitSearch">exitSearch</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_fail">fail</a>(<a
+                    href="../typedefs/IlcAny.html">IlcAny</a> label=0) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public IlcAllocationStack *</code></td><td
+                            width="100%"><code><a
+                    href="../classes/IlcCPEngine.html#method_getHeap">getHeap</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IlcFloat.html">IlcFloat</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/IlcCPEngine.html#method_getInfo">getInfo</a>(const char * name) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IlcInt.html">IlcInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_getInfo">getInfo</a>(<a
+                    href="../enumerations/IlcCPEngine_IntInfo.html">IlcCPEngine::IntInfo</a> info) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IlcInt.html">IlcInt</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_getRandomInt">getRandomInt</a>(<a
+                    href="../typedefs/IlcInt.html">IlcInt</a> n) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IlcFloat.html">IlcFloat</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/IlcCPEngine.html#method_getRandomNum">getRandomNum</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public ostream &amp;</code></td><td
+                            width="100%"><code><a
+                    href="../classes/IlcCPEngine.html#method_out">out</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../variables/IlcBool.html">IlcBool</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/IlcCPEngine.html#method_solve">solve</a>(const <a
+                            href="../classes/IlcGoal.html">IlcGoal</a> goal, <a
+            href="../variables/IlcBool.html">IlcBool</a> restore=IlcFalse) const</code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                        colspan="2">Inner Enumeration</th></tr><tr><td><a
+            href="../enumerations/IlcCPEngine_IntInfo.html">IlcCPEngine::IntInfo</a></td><td>
+Integer information for <code>IlcCPEngine</code>.
+        </td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Method Detail</th></tr></table><h3><a
+            name="method_add">add</a></h3><div
+                class="prototype">public void <span
+                class="function-name">add</span>(const <a
+                href="../classes/IlcConstraint.html">IlcConstraint</a> <span
+            class="parameter-name">constraint</span>) const</div><div
+                class="description"><p>This member function adds <code>constraint</code> to the invoking engine so that it
+ takes <code>constraint</code> into account during its search.</p><p>This function may only be called from inside an <code>IlcGoalI</code> or
+ <code>IlcConstraintI::post</code>.</p></div><hr /><h3><a
+            name="method_addReversibleAction">addReversibleAction</a></h3><div
+                class="prototype">public void <span
+                class="function-name">addReversibleAction</span>(const <a
+                href="../classes/IlcGoal.html">IlcGoal</a> <span
+            class="parameter-name">goal</span>) const</div><div
+                        class="description"><p>For managing reversible changes that are not assignments, CP Optimizer provides <em>reversible actions</em>. Such
+ actions are executed when CP Optimizer restores the state of the invoking optimizer. A reversible action is created by
+ the member function <code>addReversibleAction</code>.</p><p>However, where possible, it is much more efficient to use the reversible classes&mdash;<code><a
+                        href="../classes/IlcRevInt.html">IlcRevInt</a></code>,
+ <code><a
+                        href="../classes/IlcRevAny.html">IlcRevAny</a></code>, <code><a
+                        href="../classes/IlcRevBool.html">IlcRevBool</a></code>,
+ <code><a
+                href="../classes/IlcRevFloat.html">IlcRevFloat</a></code>&mdash;to manage reversible assignments than to use reversible actions.</p><p>In the member function <code>addReversibleAction</code>, the argument <code>goal</code> must be a goal
+ that does not change the state of the invoking engine. That is, it must not execute any reversible assignments,
+ nor call other goals, nor call the member function <code>fail</code>.  If the local engine backtracks to a choice point that was set
+ before this call to <code>addReversibleAction</code>, then <code>goal</code> will be executed.</p><p>The execution of reversible actions is interleaved with the restoration of reversible states. Thus when a
+ reversible goal is called, the state of the invoking CP optimizer is the same as the state of the invoking solver
+ when <code>addReversibleAction</code> was called.</p></div><hr /><h3><a
+            name="method_exitSearch">exitSearch</a></h3><div
+                class="prototype">public void <span
+            class="function-name">exitSearch</span>() const</div><div
+            class="description"><p>This member function completely exits the search of the invoking worker.
+ </p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../classes/IlcGoalI.html">IlcGoalI</a>, <a
+                href="../classes/IlcGoal.html">IlcGoal</a></p><hr /><h3><a
+            name="method_fail">fail</a></h3><div
+                class="prototype">public void <span
+                class="function-name">fail</span>(<a
+                href="../typedefs/IlcAny.html">IlcAny</a> <span
+                class="parameter-name">label</span>=<span
+            class="parameter-name">0</span>) const</div><div
+                        class="description"><p>The backtrack of a search goal is triggered by this member function. In fact, this member function triggers
+ the failure of the executing instance of <code><a
+            href="../classes/IlcGoal.html">IlcGoal</a></code>. The execution of the current goal
+ then stops, and goal execution resumes at
+ the last choice point with untried subgoals. It is possible to resume goal execution at an earlier
+ choice point by associating labels with choice points. Then the member function <code>fail</code>
+ can be called with a label, and in that case, goal execution resumes at the last choice point with
+ that label.</p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../functions/IlcOr.html">IlcOr</a>, <a
+                href="../functions/IlcAnd.html">IlcAnd</a>, <a
+                href="../classes/IlcGoal.html">IlcGoal</a>, <a
+                href="../classes/IlcGoalI.html">IlcGoalI</a></p><hr /><h3><a
+            name="method_getHeap">getHeap</a></h3><div
+                class="prototype">public IlcAllocationStack * <span
+            class="function-name">getHeap</span>() const</div><div
+                class="description"><p>This member function returns a pointer to the heap associated with the
+ invoking engine. Use this member function with the overloaded
+ <code>new</code> operator, like this:</p><pre
+                class="sample">new (cpengine.getHeap())</pre></div><hr /><h3><a
+            name="method_getInfo">getInfo</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IlcFloat.html">IlcFloat</a> <span
+                class="function-name">getInfo</span>(const char * <span
+            class="parameter-name">name</span>) const</div><div
+                class="description"><p>This method returns the value of information named <code>name</code> in
+ the invoking <code>IlcCPEngine</code> instance.  The information is with
+ respect to this local worker, and not globally over the whole search process.</p></div><hr /><h3><a
+            name="method_getInfo">getInfo</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IlcInt.html">IlcInt</a> <span
+                class="function-name">getInfo</span>(<a
+                href="../enumerations/IlcCPEngine_IntInfo.html">IlcCPEngine::IntInfo</a> <span
+            class="parameter-name">info</span>) const</div><div
+                class="description"><p>This method returns the value of the Integer information <code>info</code> in
+ the invoking <code>IlcCPEngine</code> instance.  The information is with respect to this
+ local worker, and not globally over the whole search process.</p></div><hr /><h3><a
+            name="method_getRandomInt">getRandomInt</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IlcInt.html">IlcInt</a> <span
+                class="function-name">getRandomInt</span>(<a
+                href="../typedefs/IlcInt.html">IlcInt</a> <span
+            class="parameter-name">n</span>) const</div><div
+            class="description"><p>
+  This member function returns a pseudo-randomly generated
+  integer value in the range [0..n).
+ </p></div><p
+            class="see-also-title">See Also:</p><p
+                class="see-also-links"><a
+                href="../enumerations/IloCP_IntParam.html#field_RandomSeed">RandomSeed</a></p><hr /><h3><a
+            name="method_getRandomNum">getRandomNum</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IlcFloat.html">IlcFloat</a> <span
+            class="function-name">getRandomNum</span>() const</div><div
+                class="description"><p>
+  This member function returns a pseudo-randomly generated
+  floating-point value in the range [0..1).
+ </p></div><hr /><h3><a
+            name="method_out">out</a></h3><div
+                class="prototype">public ostream &amp; <span
+            class="function-name">out</span>() const</div><div
+                        class="description"><p>This member function returns a reference to the stream currently
+ used for logging. It returns the same stream provided by
+ <code>IloCP::out (<a
+                href="../classes/IloAlgorithm.html#method_out">IloAlgorithm::out</a></code>).  </p></div><hr /><h3><a
+            name="method_solve">solve</a></h3><div
+                class="prototype">public <a
+                href="../variables/IlcBool.html">IlcBool</a> <span
+                class="function-name">solve</span>(const <a
+                href="../classes/IlcGoal.html">IlcGoal</a> <span
+                class="parameter-name">goal</span>, <a
+                href="../variables/IlcBool.html">IlcBool</a> <span
+                class="parameter-name">restore</span>=<span
+            class="parameter-name">IlcFalse</span>) const</div><div
+            class="description"><p>This member function solves a sub-problem by using the goal <code>goal</code>
+ passed as a parameter. The parameter <code>restore</code> indicates whether
+ or not at the end of the search the invoking engine should restore the
+ state that it was in prior to the search.</p></div><hr /><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Inner Enumeration Detail</th></tr></table><h1><a
+            name="enumeration_IntInfo">Enumeration IntInfo</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcp/cpext.h</span></div>
+Integer information for <code>IlcCPEngine</code>.
+        <div
+            class="description"><p>An enumeration for the class <code>IlcCPEngine</code>.</p><p> These values are used by <code>IlcCPEngine::getInfo</code> to
+     obtain local information about the invoking worker as opposed to
+     global information over the whole search process.  For example,
+     <code>IlcCPEngine::getInfo(IlcCPEngine::NumberOfBranches)</code>
+     will return the number of branches executed by this local worker up to
+     the current point in search.</p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfChoicePoints = 1</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of choice points executed
+ so far in the local worker <code>IlcCPEngine</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfFails = 2</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of fails executed
+ so far in the local worker <code>IlcCPEngine</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfBranches = 3</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information is the number of branches executed
+ so far in the local worker <code>IlcCPEngine</code> instance. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfEngineVariables = 6</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> Advanced information. This information represents the total number of ''engine''
+ variables created in the local engine at the current point in search.
+ Instances of
+ <code>IlcIntVar</code>, <code>IlcIntervalVar</code> and
+ <code>IlcSequenceVar</code> are engine variables.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>MemoryUsage = 8</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> This information represents the total memory, in bytes, used
+     by the local <code>IlcCPEngine</code> instance and any
+     of its slave objects. </p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>WorkerId = 26</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p>CP Optimizer assigns an ID to each local worker when solving
+    in parallel.  This ID can take a value to 0 to the number of
+    worker threads less one.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NumberOfEngineConstraints = 2018</code></td><td
+                    valign="top" align="left"><div
+                    valign="top"><p> Advanced information. This information represents the total number of ''engine''
+ constraints created in the local engine at the current point in search.
+ This is largely an internal measurement but can be useful for debugging or understanding
+ memory usage.</p></div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>ILC_MAX_IntInfo</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr></table><br /></body>
+</html>

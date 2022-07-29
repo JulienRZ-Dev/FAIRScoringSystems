@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Annotations for Callable Library (C API) users" />
+<meta name="abstract" content="CPLEX supports annotations for Benders decomposition in the Callable Library (C API)." />
+<meta name="Description" content="CPLEX supports annotations for Benders decomposition in the Callable Library (C API)." />
+<meta name="DC.subject" content="annotations, Callable Library (C API)" />
+<meta name="keywords" content="annotations, Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="annotationsCallableLibrary" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" />
+<title>Annotations for Callable Library (C API) users</title>
+</head>
+<body id="annotationsCallableLibrary"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Annotations for Callable Library (C API) users</h1>
+
+
+
+
+<div class="body"><p class="shortdesc">CPLEX supports annotations for Benders decomposition in the Callable Library (C API).</p>
+ 
+<div class="p">In the Callable Library (C API), CPLEX offers these routines to support annotation of
+your model: <ul class="ul">
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/deldblannotation.html" title="The routine CPXXdeldblannotation/CPXdeldblannotation deletes a double valued annotation.">CPXXdeldblannotation and CPXdeldblannotation</a> and 
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/dellongannotation.html" title="The routine CPXXdellongannotation/CPXdellongannotation deletes a long valued annotation.">CPXXdellongannotation and CPXdellongannotation</a> 
+delete an annotation of the specified type from your model. </li>
+ 
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getdblannotationname.html" title="The routine CPXXgetdblannotationname/CPXgetdblannotationname accesses the name of the double valued annotation with the specified index in a CPLEX problem object.">CPXXgetdblannotationname and CPXgetdblannotationname</a> and 
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getlongannotationname.html" title="The routine CPXXgetlongannotationname/CPXgetlongannotationname accesses the name of the long valued annotation with the specified index in a CPLEX problem object.">CPXXgetlongannotationname and CPXgetlongannotationname</a> 
+retrieve the name of the annotation of the specified type designated by its index. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getdblannotationindex.html" title="The routine CPXXgetdblannotationindex/CPXgetdblannotationindex retreives the index of the double valued annotation with the given name.">CPXXgetdblannotationindex and CPXgetdblannotationindex</a> and 
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getlongannotationindex.html" title="The routine CPXXgetlongannotationindex/CPXgetlongannotationindex retreives the index of the long valued annotation with the given name.">CPXXgetlongannotationindex and CPXgetlongannotationindex</a> 
+retrieve the index of the annotation of the specified type. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getdblannotationdefval.html" title="The routine CPXXgetdblannotationdefval/CPXgetdblannotationdefval accesses the default value of an annotation of a CPLEX problem object.">CPXXgetdblannotationdefval and CPXgetdblannotationdefval</a>
+accesses the default value of an annotation. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getdblannotations.html" title="The routine CPXXgetdblannotations/CPXgetdblannotations accesses the annotation values range of modeling objects in a CPLEX problem object.">CPXXgetdblannotations and CPXgetdblannotations</a> accesses
+the values of the annotations of a range of modeling objects in a model. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getlongannotationdefval.html" title="The routine CPXXgetlongannotationdefval/CPXgetlongannotationdefval accesses the default value of an annotation of a CPLEX problem object.">CPXXgetlongannotationdefval and CPXgetlongannotationdefval</a>
+accesses the default value of an annotation. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getlongannotations.html" title="The routine CPXXgetlongannotations/CPXgetlongannotations accesses the annotation values of a range of modeling objects in a CPLEX problem object.">CPXXgetlongannotations and CPXgetlongannotations</a> accesses
+the values of the annotations of a range of modeling objects in a model. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getnumdblannotations.html" title="The routine CPXXgetnumdblannotations/CPXgetnumdblannotations accesses the number of double values annotations in the problem object.">CPXXgetnumdblannotations and CPXgetnumdblannotations</a> and 
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/getnumlongannotations.html" title="The routine CPXXgetnumlongannotations/CPXgetnumlongannotations accesses the number of long values annotations in the problem object.">CPXXgetnumlongannotations and CPXgetnumlongannotations</a> 
+access the number of annotations of the specified type in a model. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/newdblannotation.html" title="The routine CPXXnewdblannotation/CPXnewdblannotation creates a new annotation with the specified name for annotating modeling objects with data of type double. By default all modeling objects are annotated with defval.">CPXXnewdblannotation and CPXnewdblannotation</a> creates an 
+annotation with the specified name for annotating modeling objects with data of type
+<code class="ph codeph">dbl</code>. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/newlongannotation.html" title="The routine CPXXnewlongannotation/CPXnewlongannotation creates a new annotation with the specified name for annotating modeling objects with data of type long. By default all modeling objects are annotated with defval.">CPXXnewlongannotation and CPXnewlongannotation</a> creates 
+an annotation with the specified name for annotating modeling objects with data of type
+<code class="ph codeph">long</code>. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/readcopyannotations.html" title="The routine CPXXreadcopyannotations/CPXreadcopyannotations reads a file in the ANN file format and copies the information of all the annotations contained in that file into a CPLEX problem object. Any previously existing annotations in the problem object will first be deleted.">CPXXreadcopyannotations and CPXreadcopyannotations</a> reads a
+file in the <code class="ph codeph">.ann</code> file format and copies the information of all the annotations
+contained in that file into a CPLEX problem object. That is, this routine annotates a model with
+data from a formatted file of annotations. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/setdblannotations.html" title="The routine CPXXsetdblannotations/CPXsetdblannotations sets the annotation values for a set of modeling objects in the CPLEX problem object.">CPXXsetdblannotations and CPXsetdblannotations</a> sets the
+annotation values for a set of modeling objects in the CPLEX problem object. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/setlongannotations.html" title="The routine CPXXsetlongannotations/CPXsetlongannotations sets the annotation values for a set of modeling objects in the CPLEX problem object.">CPXXsetlongannotations and CPXsetlongannotations</a> sets the
+annotation values for a set of modeling objects in the CPLEX problem object. </li>
+
+<li class="li">
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/writeannotations.html" title="The routine CPXXwriteannotations/CPXwriteannotations writes the information of all the annotations contained the CPLEX problem object to the specified file.">CPXXwriteannotations and CPXwriteannotations</a> writes all
+the annotations of a model to a specified file. </li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/writebendersannotation.html" title="Writes the annotation of the decomposition that CPLEX automatically generated for the model of the CPLEX problem object to the specified file.">CPXXwritebendersannotation and CPXwritebendersannotation</a> collects the annotations that
+CPLEX automatically generated for your model and writes those annotations to a formatted file.</li>
+
+</ul>
+
+</div>
+ 
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/discr_optim/benders/annotations.html" title="Annotation of a model specifies to CPLEX how to decompose your model.">Annotating a model for CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>

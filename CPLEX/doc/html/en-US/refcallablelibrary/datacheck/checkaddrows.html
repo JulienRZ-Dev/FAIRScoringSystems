@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcheckaddrows and CPXcheckaddrows" />
+<meta name="abstract" content="Checks data when rows are added to a model." />
+<meta name="Description" content="Checks data when rows are added to a model." />
+<meta name="DC.subject" content="CPXXcheckaddrows, C API Reference Manual, CPXcheckaddrows" />
+<meta name="keywords" content="CPXXcheckaddrows, C API Reference Manual, CPXcheckaddrows" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/homepagedatacheck.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="checkaddrows" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/datacheck/homepagedatacheck.html" />
+<title>CPXXcheckaddrows and CPXcheckaddrows</title>
+</head>
+<body id="checkaddrows"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1">
+    <span class="keyword apiname">CPXXcheckaddrows</span> and <span class="keyword apiname">CPXcheckaddrows</span>
+  </h1>
+ 
+  
+  
+  <div class="body refbody"><p class="shortdesc">
+Checks data when rows are added to a model.
+  </p>
+
+
+<section class="section"><h2 class="title sectiontitle">Signature</h2></section>
+
+    <section class="section refsyn">
+    <pre class="pre codeblock"><code>
+CPXCHECKLIBAPI
+int CPXPUBLIC CPXXcheckaddrows (CPXCENVptr env, 
+                                CPXCLPptr lp, 
+                                CPXDIM ccnt,
+                                CPXDIM rcnt, 
+                                CPXNNZ nzcnt, 
+                          const double *rhs,
+                          const char *sense, 
+                          const CPXNNZ *rmatbeg,
+                          const CPXDIM *rmatind, 
+                          const double *rmatval,
+                                char **colname, 
+                                char **rowname);
+    </code></pre>
+
+    <pre class="pre codeblock"><code>
+CPXCHECKLIBAPI
+int CPXPUBLIC CPXcheckaddrows (CPXCENVptr env, 
+                               CPXCLPptr lp, 
+                               CPXDIM ccnt,
+                               CPXDIM rcnt, 
+                               CPXNNZ nzcnt, 
+                         const double *rhs,
+                         const char *sense, 
+                         const CPXNNZ *rmatbeg,
+                         const CPXDIM *rmatind, 
+                         const double *rmatval,
+                               char **colname, 
+                               char **rowname);
+    </code></pre>
+    </section>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">
+This routine validates the arguments of the corresponding routine 
+<a class="xref" href="../cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXXaddrows and CPXaddrows</a>.
+The source code of this data checking routine 
+is in the file <code class="ph codeph">check.c</code>, provided 
+as part of the product.  </p>
+
+<p class="p">To call this routine, you must compile 
+and link <code class="ph codeph">check.c</code> with your program 
+as you compile and link with the CPLEX Callable Library.  
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Arguments</h2>
+
+<p class="p">The arguments of this routine are the same as those of 
+<a class="xref" href="../cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXXaddrows and CPXaddrows</a>.
+The second argument, <code class="ph codeph">lp</code>, is technically 
+a pointer to a <strong class="ph b">constant</strong> LP object 
+of type <code class="ph codeph">CPXCLPptr</code> rather than type <code class="ph codeph">CPXLPptr</code>, 
+because this routine does not modify the problem. 
+For most user applications, this distinction is unimportant. 
+</p>
+ 
+</section>
+
+    <table cellpadding="4" cellspacing="0" border="1" class="simpletable properties simpletableborder" summary="Each row in this table describes a property; each property can have a type, value, and description."><col style="width:50%" /><col style="width:50%" /><tr class="sthead prophead">
+<th style="vertical-align:bottom;text-align:left;" id="d810274e126" class="stentry propvaluehd">Name</th>
+<th style="vertical-align:bottom;text-align:left;" id="d810274e128" class="stentry propdeschd">Description</th>
+</tr><tbody><tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">env</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">lp</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">ccnt</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An integer that specifies the number of new columns in the constraints being added to the constraint matrix. When new columns are added, they are given an objective coefficient of zero, a lower bound of zero, and an upper bound of <code class="ph codeph"><span class="keyword apiname">CPX_INFBOUND</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">rcnt</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An integer that specifies the number of new rows to be added to the constraint matrix.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">nzcnt</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An integer that specifies the number of nonzero constraint coefficients to be added to the constraint matrix. This specifies the length of the arrays <code class="ph codeph"><span class="keyword apiname">rmatind</span></code> and <code class="ph codeph"><span class="keyword apiname">rmatval</span></code>.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">rhs</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array of length <code class="ph codeph"><span class="keyword apiname">rcnt</span></code> containing the righthand side term for each constraint to be added to the CPLEX problem object. May be NULL, in which case the new righthand side values are set to 0.0 (zero).
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">sense</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array of length <code class="ph codeph"><span class="keyword apiname">rcnt</span></code> containing the sense of each constraint to be added to the CPLEX problem object. May be NULL, in which case the new constraints are created as equality constraints. Possible values of this argument appear in the table.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">rmatbeg</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array used with <code class="ph codeph"><span class="keyword apiname">rmatind</span></code> and <code class="ph codeph"><span class="keyword apiname">rmatval</span></code> to define the rows to be added.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">rmatind</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array used with <code class="ph codeph"><span class="keyword apiname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword apiname">rmatval</span></code> to define the rows to be added.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">rmatval</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array used with <code class="ph codeph"><span class="keyword apiname">rmatbeg</span></code> and <code class="ph codeph"><span class="keyword apiname">rmatind</span></code> to define the rows to be added. The format is similar to the format used to describe the constraint matrix in the routine <code class="ph codeph"><span class="keyword apiname">CPXXcopylp</span>/<span class="keyword apiname">CPXcopylp</span></code> (see description of <code class="ph codeph"><span class="keyword apiname">matbeg, matcnt</span></code>, <code class="ph codeph"><span class="keyword apiname">matind</span></code>, and <code class="ph codeph"><span class="keyword apiname">matval</span></code> in that routine), but the nonzero coefficients are grouped by row instead of column in the array <code class="ph codeph"><span class="keyword apiname">rmatval</span></code>. The nonzero elements of every row must be stored in sequential locations in this array from position <code class="ph codeph"><span class="keyword apiname">rmatbeg[i]</span></code> to <code class="ph codeph"><span class="keyword apiname">rmatbeg[i+1]-1</span></code> (or from <code class="ph codeph"><span class="keyword apiname">rmatbeg[i]</span></code> to <code class="ph codeph"><span class="keyword apiname">nzcnt -1</span></code> if <code class="ph codeph"><span class="keyword apiname">i=rcnt-1</span></code>). Each entry, <code class="ph codeph"><span class="keyword apiname">rmatind[i]</span></code>, specifies the column index of the corresponding coefficient, <code class="ph codeph"><span class="keyword apiname">rmatval[i]</span></code>. Unlike<code class="ph codeph"><span class="keyword apiname"> CPXcopylp</span></code>, all rows must be contiguous, and <code class="ph codeph"><span class="keyword apiname">rmatbeg[0]</span></code> must be 0 (zero).
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">colname</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array of length <code class="ph codeph"><span class="keyword apiname">ccnt</span></code> containing pointers to character strings that represent the names of the new columns added to the CPLEX problem object, or equivalently, the new variable names. May be NULL, in which case the new columns are assigned default names if the columns already resident in the CPLEX problem object have names; otherwise, no names are associated with the variables. If column names are passed to <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> but existing variables have no names assigned, default names are created for them.
+        </td>
+</tr>
+<tr class="strow property">
+<td style="vertical-align:top;" headers="d810274e126" class="stentry propvalue">rowname</td>
+<td style="vertical-align:top;" headers="d810274e128" class="stentry propdesc">
+          
+
+          An array containing pointers to character strings that represent the names of the new rows, or equivalently, the constraint names. May be NULL, in which case the new rows are assigned default names if the rows already resident in the CPLEX problem object have names; otherwise, no names are associated with the constraints. If row names are passed to <code class="ph codeph"><span class="keyword apiname">CPXXaddrows</span>/<span class="keyword apiname">CPXaddrows</span></code> but existing constraints have no names assigned, default names are created for them.
+        </td>
+</tr>
+</tbody></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Return</h2>
+
+<p class="p">
+The routine returns nonzero if it detects an error in the data; 
+it returns zero if it does not detect any data errors.  
+</p>
+
+</section>
+
+
+<section class="section"><h2 class="title sectiontitle">Example</h2>
+   
+    <pre class="pre codeblock"><code>
+status = CPXcheckaddrows (env, lp, ccnt, rcnt, nzcnt, rhs,
+                           sense, rmatbeg, rmatind, rmatval,
+                           newcolname, newrowname);
+    </code></pre> 
+</section>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/datacheck/homepagedatacheck.html">Data checking in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

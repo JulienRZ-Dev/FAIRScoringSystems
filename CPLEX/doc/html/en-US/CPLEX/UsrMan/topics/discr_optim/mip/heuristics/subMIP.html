@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="What is a subMIP?" />
+<meta name="abstract" content="Defines subMIP and documents conditions in which CPLEX solves a subMIP." />
+<meta name="Description" content="Defines subMIP and documents conditions in which CPLEX solves a subMIP." />
+<meta name="DC.subject" content="subMIP, definition, subproblem" />
+<meta name="keywords" content="subMIP, definition, subproblem" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/heuristics/42_heur_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usrManDiscrOptimMIPdefnSubMIP" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/heuristics/42_heur_title_synopsis.html" />
+<title>What is a subMIP?</title>
+</head>
+<body id="usrManDiscrOptimMIPdefnSubMIP"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">What is a subMIP?</h1>
+ 
+ 
+<div class="body"><p class="shortdesc">Defines subMIP and documents conditions in which CPLEX solves a subMIP.</p>
+
+<p class="p">In CPLEX, a <strong class="ph b">subMIP</strong> is an auxiliary mixed integer program (MIP).
+A subMIP is not a subproblem. (A subproblem is the LP relaxation 
+of a node other than the root.) 
+</p>
+ 
+<div class="p">CPLEX solves subMIPs in these situations:
+<ul class="ul">
+<li class="li">when it builds a solution from a partial MIP start; </li>
+
+<li class="li">when it repairs an infeasible MIP start; </li>
+
+<li class="li">when it executes the relaxation induced neighborhood search (RINS) heuristic; </li>
+
+<li class="li">when it branches locally; </li>
+
+<li class="li">when it polishes a solution. </li>
+
+</ul>
+ 
+</div>
+
+<div class="p">A subMIP is usually smaller in size than 
+the MIP that CPLEX is currently solving. CPLEX conventionally solves 
+a subMIP with stricter limits on resources than in the original problem, but 
+CPLEX offers parameters that enable you to specify other choices. 
+For documentation of parameters that instruct CPLEX how you want to solve a subMIP,
+see these topics in the <em class="ph i">CPLEX Parameters</em> reference manual:
+<ul class="ul"> 
+<li class="li"><a class="xref" href="../../../../../Parameters/topics/SubMIPStartAlg.html" title="Sets which continuous optimizer will be used to solve the initial relaxation of a subMIP of a MIP.">algorithm for initial MIP relaxation of a subMIP of a MIP</a></li>
+ 
+<li class="li"><a class="xref" href="../../../../../Parameters/topics/SubMIPSubAlg.html" title="Sets which optimizer will be used to solve the subproblems of a subMIP of a MIP.">algorithm for subproblems of a subMIP of a MIP</a></li>
+ 
+<li class="li"><a class="xref" href="../../../../../Parameters/topics/SubMIPScale.html" title="Decides how to scale the problem matrix when CPLEX solves a subMIP during MIP optimization.">scale parameter for subMIPs</a></li>
+ 
+<li class="li"><a class="xref" href="../../../../../Parameters/topics/SubMIPNodeLimit.html" title="Limits the number of nodes explored when CPLEX solves a subMIP.">limit on nodes explored when CPLEX solves a subMIP</a></li>
+ 
+</ul>
+ 
+</div>
+
+</div>
+ 
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/heuristics/42_heur_title_synopsis.html" title="Introduces heuristics in performance features.">Heuristics</a></div>
+</div>
+</nav></div></body>
+</html>

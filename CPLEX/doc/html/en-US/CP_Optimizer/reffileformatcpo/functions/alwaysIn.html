@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="alwaysIn" />
+<meta name="abstract" content="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval." />
+<meta name="Description" content="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval." />
+<meta name="DC.subject" content="alwaysIn" />
+<meta name="keywords" content="alwaysIn" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/cumul_functions.html" />
+<meta name="DC.Relation" scheme="URI" content="cumulRange.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../refcppcpoptimizer/html/state_functions.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/110_SchedulingTypes.html#Scheduling_types/Type_stateFunction" />
+<meta name="DC.Relation" scheme="URI" content="alwaysConstant.html" />
+<meta name="DC.Relation" scheme="URI" content="alwaysEqual.html" />
+<meta name="DC.Relation" scheme="URI" content="alwaysNoState.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="alwaysIn" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>alwaysIn</title>
+</head>
+<body id="alwaysIn"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">alwaysIn</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+These constraints restrict the possible values of a <code class="ph codeph"><a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code> or
+<code class="ph codeph"><a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__Type_stateFunction">stateFunction</a></code> to a particular range during a variable or fixed interval.
+</p>
+
+
+
+<section class="section" id="alwaysIn__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alwaysIn</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> function, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmin, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmax)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alwaysIn</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a> function, <a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a> start, <a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a> end, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmin, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmax)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alwaysIn</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__Type_stateFunction">stateFunction</a> function, <a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmin, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmax)
+<a class="xref" href="../syntax/070_Types.html#Type_constraint">constraint</a> <strong class="ph b">alwaysIn</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__Type_stateFunction">stateFunction</a> function, <a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a> start, <a class="xref" href="../syntax/070_Types.html#Numerical_types__sint">sint</a> end, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmin, <a class="xref" href="../syntax/070_Types.html#Numerical_types__uint">uint</a> vmax)
+</code></pre>
+</section>
+
+
+<section class="section" id="alwaysIn__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">function</code>: constrained cumul expression or state function.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">interval</code>: interval variable during which <code class="ph codeph">function</code> is constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">start</code>: start of the fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>) during which <code class="ph codeph">function</code> is constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">end</code>: end of the fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>) during which <code class="ph codeph">function</code> is constrained.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">vmin</code>: minimum of the allowed range for values of <code class="ph codeph">function</code> during the interval.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">vmax</code>: maximum of the allowed range for values of <code class="ph codeph">function</code> during the interval.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="alwaysIn__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+These functions return a constraints that restricts the possible values of <code class="ph codeph">function</code> to a particular range [<code class="ph codeph">vmin</code>,<code class="ph codeph">vmax</code>] during an interval variable <code class="ph codeph">interval</code> or a fixed interval [<code class="ph codeph">start</code>,<code class="ph codeph">end</code>). In the case of an interval variable <code class="ph codeph">interval</code>, this constraint is active only when the interval variable is present, if the interval is absent the constraint is always satisfied, regardless of the value of <code class="ph codeph">function</code>. When the constraint is posted on a state function, the range constraint holds only on the segments where the state function is defined.
+</p>
+
+
+</section>
+
+
+<section class="section" id="alwaysIn__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The following example models a discrete resource with an availability profile over time.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=8);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=7);
+resourceUse = <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a1,2) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a2,3) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a3,3) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a4,2);
+<span class="ph commentemph">// Resource availability profile: 3 on [0,4), 4 on [4,10), 3 on [10,intervalmax)</span>
+<strong class="ph b">alwaysIn</strong>(resourceUse, 0,  4, 0, 3);
+<strong class="ph b">alwaysIn</strong>(resourceUse, 4, 10, 0, 4);
+<strong class="ph b">alwaysIn</strong>(resourceUse, 10, <a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a>, 0, 3);
+</code></pre>
+<p class="p">
+A possible solution to this problem is the following assignment of interval variables: <code class="ph codeph">a1=[0,8)</code>, <code class="ph codeph">a2=[16,21)</code>, <code class="ph codeph">a3=[10,16)</code>, <code class="ph codeph">a4=[4,10)</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="alwaysIn__Example2"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The following example models a discrete resource together with a maintenance activity that can be performed only when no activity is executed on the resource.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=8);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=7);
+<span class="ph commentemph">// Maintenance activity to be scheduled to start in [10,15]</span>
+maintenance = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=3,start=10..15);
+resourceUse = <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a1,2) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a2,3) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a3,3) + <a class="xref" href="pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a4,2);
+<span class="ph commentemph">// Resource vmax capacity is 4</span>
+resourceUse &lt;= 4;
+<span class="ph commentemph">// Maintenance activity requires the resource not to be used (vmax level 0).</span>
+<strong class="ph b">alwaysIn</strong>(resourceUse, maintenance, 0, 0);
+</code></pre>
+<p class="p">
+A possible solution to this problem is the following assignment of interval variables: <code class="ph codeph">a1=[0,8)</code>, <code class="ph codeph">a2=[8,13)</code>, <code class="ph codeph">a3=[16,22)</code>, <code class="ph codeph">a4=[0,7)</code>, <code class="ph codeph">maintenance=[13,16)</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="alwaysIn__Example3"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+The following example models the temperature of an oven as a state function. Each activity requires the temperature of the oven to belong to a particular range. Activities requiring incompatible temperature cannot be executed in parallel.
+</p>
+
+
+<pre class="pre codeblock"><code>
+a1 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=8);
+a2 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=5);
+a3 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=6);
+a4 = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=7);
+temperature = <a class="xref" href="stateFunction.html" title="Creates a new state function.">stateFunction</a>();
+<span class="ph commentemph">// Each activity specifies a particular range of possible temperature</span>
+<strong class="ph b">alwaysIn</strong>(temperature, a1, 10, 20);
+<strong class="ph b">alwaysIn</strong>(temperature, a2, 15, 25);
+<strong class="ph b">alwaysIn</strong>(temperature, a3, 5, 10);
+<strong class="ph b">alwaysIn</strong>(temperature, a4, 5, 15);
+<span class="ph commentemph">// The temperature should always be defined and remain constant during each activity</span>
+<a class="xref" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a>(temperature, a1);
+<a class="xref" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a>(temperature, a2);
+<a class="xref" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a>(temperature, a3);
+<a class="xref" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a>(temperature, a4);
+</code></pre>
+<p class="p">
+A possible solution to this problem is the following assignment of interval variables: <code class="ph codeph">a1=[0,8)</code>, <code class="ph codeph">a2=[8,13)</code>, <code class="ph codeph">a3=[0,6)</code>, <code class="ph codeph">a4=[0,7)</code>.
+</p>
+
+
+</section>
+
+
+<section class="section" id="alwaysIn__Requirements"><h2 class="title sectiontitle">Requirements</h2>
+<ul class="ul">
+  <li class="li">
+    For the function using a constant interval, <code class="ph codeph">end</code> should be greater than <code class="ph codeph">start</code>.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">vmax</code> should be greater or equal to <code class="ph codeph">vmin</code>.
+  </li>
+
+  <li class="li">
+    When used with <code class="ph codeph"><a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__cumulExpr">cumulExpr</a></code> both values <code class="ph codeph">vmin</code> and <code class="ph codeph">vmax</code> must be in range 0..<code class="ph codeph"><a class="xref" href="../syntax/040_Constants.html#Constants__intervalmax">intervalmax</a></code>.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="alwaysIn__Notes"><h2 class="title sectiontitle">Notes</h2>
+<p class="p">
+Note that unlike constraints <a class="xref" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a> and <a class="xref" href="alwaysEqual.html" title="This constraint fixes a given state for a state function during a variable or fixed interval.">alwaysEqual</a>, the constraint <a class="xref" href="alwaysIn.html" title="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval.">alwaysIn</a> does not require the state <code class="ph codeph">function</code> to be defined over the entire interval. 
+</p>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li>
+<li class="linklist"><a class="link" href="cumulRange.html" title="Limits the range of a cumul function expression.">cumulRange</a></li>
+<li class="linklist"><a class="link" href="alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a></li>
+<li class="linklist"><a class="link" href="alwaysEqual.html" title="This constraint fixes a given state for a state function during a variable or fixed interval.">alwaysEqual</a></li>
+<li class="linklist"><a class="link" href="alwaysNoState.html" title="This constraint ensures that a state function is undefined on an interval.">alwaysNoState</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/cumul_functions.html">Cumul functions in CP Optimizer</a></li>
+<li class="linklist"><a class="link" href="../../../refcppcpoptimizer/html/state_functions.html">State functions in CP Optimizer</a></li>
+<li class="linklist"><a class="link" href="../syntax/110_SchedulingTypes.html#Scheduling_types__Type_stateFunction">stateFunction</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXgetnumpwl and CPXgetnumpwl" />
+<meta name="abstract" content="The routine CPXXgetnumpwl/CPXgetnumpwl accesses the number of piecewise linear (PWL) constraints in a CPLEX problem object." />
+<meta name="Description" content="The routine CPXXgetnumpwl/CPXgetnumpwl accesses the number of piecewise linear (PWL) constraints in a CPLEX problem object." />
+<meta name="DC.subject" content="CPXgetnumpwl, C API Reference Manual, CPXXgetnumpwl" />
+<meta name="keywords" content="CPXgetnumpwl, C API Reference Manual, CPXXgetnumpwl" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="getnumpwl" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetG.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpPWL.html" />
+<title>CPXXgetnumpwl and CPXgetnumpwl</title>
+</head>
+<body id="getnumpwl"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXgetnumpwl</span> and <span class="keyword apiname">CPXgetnumpwl</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumpwl</span>/<span class="keyword apiname">CPXgetnumpwl</span></code> accesses the number of
+    piecewise linear (PWL) constraints in a CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">CPXDIM</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXgetnumpwl</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXgetnumpwl</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXCLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+    <p class="p">The routine
+    <code class="ph codeph"><span class="keyword apiname">CPXXgetnumpwl</span>/<span class="keyword apiname">CPXgetnumpwl</span></code>
+    accesses the number of piecewise linear (PWL) constraints in a
+    CPLEX problem object.</p>
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by
+          <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by
+          <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+       If the problem object or environment
+      does not exist, the routine returns the value 0; otherwise, it
+      returns the number of piecewise linear (PWL) constraints in
+      the problem object.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      <pre class="pre codeblock"><code>
+	numpwl = CPXgetnumpwl (env, lp);
+      </code></pre>
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetG.html">G</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpPWL.html">Piecewise linearity (PWL) in models in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

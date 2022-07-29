@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Querying Models (MIP) in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getindconstr.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getindconstrindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getindconstrname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumbin.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumindconstrs.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumlazyconstraints.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumusercuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumsemicont.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumsemiint.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnumsos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getorder.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getsos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getsosindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getsosname.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagequerymip" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Querying Models (MIP) in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepagequerymip"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Querying Models (MIP) in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines enable your application to access information
+about a mixed integer program (MIP) in CPLEX after the model 
+has been created or even after 
+the model has been modified.
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getctype.html">CPXXgetctype and CPXgetctype</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetctype</span>/<span class="keyword apiname">CPXgetctype</span></code> accesses the types for a  range of variables in a problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getindconstr.html">CPXXgetindconstr and CPXgetindconstr</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetindconstr</span>/<span class="keyword apiname">CPXgetindconstr</span></code> accesses a specified  indicator constraint on the variables of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getindconstrindex.html">CPXXgetindconstrindex and CPXgetindconstrindex</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetindconstrindex</span>/<span class="keyword apiname">CPXgetindconstrindex</span></code>  searches for the index number  of the specified indicator constraint in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getindconstrname.html">CPXXgetindconstrname and CPXgetindconstrname</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetindconstrname</span>/<span class="keyword apiname">CPXgetindconstrname</span></code> accesses the name of  a specified indicator constraint of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumbin.html">CPXXgetnumbin and CPXgetnumbin</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumbin</span>/<span class="keyword apiname">CPXgetnumbin</span></code> accesses the number of  binary variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumindconstrs.html">CPXXgetnumindconstrs and CPXgetnumindconstrs</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumindconstrs</span>/<span class="keyword apiname">CPXgetnumindconstrs</span></code>  accesses the number of  indicator constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumlazyconstraints.html">CPXXgetnumlazyconstraints and CPXgetnumlazyconstraints</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumlazyconstraints</span>/<span class="keyword apiname">CPXgetnumlazyconstraints</span></code>  accesses the number of lazy constraints in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumusercuts.html">CPXXgetnumusercuts and CPXgetnumusercuts</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumusercuts</span>/<span class="keyword apiname">CPXgetnumusercuts</span></code>  accesses the number of user cuts in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumint.html">CPXXgetnumint and CPXgetnumint</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumint</span>/<span class="keyword apiname">CPXgetnumint</span></code> accesses the number of  general integer variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumsemicont.html">CPXXgetnumsemicont and CPXgetnumsemicont</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumsemicont</span>/<span class="keyword apiname">CPXgetnumsemicont</span></code> accesses the number  of semi-continuous variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumsemiint.html">CPXXgetnumsemiint and CPXgetnumsemiint</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumsemiint</span>/<span class="keyword apiname">CPXgetnumsemiint</span></code> accesses the number  of semi-integer variables in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnumsos.html">CPXXgetnumsos and CPXgetnumsos</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumsos</span>/<span class="keyword apiname">CPXgetnumsos</span></code> accesses the number of  special ordered sets (SOS) in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getorder.html">CPXXgetorder and CPXgetorder</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetorder</span>/<span class="keyword apiname">CPXgetorder</span></code> accesses all the MIP  priority order information stored in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getsos.html">CPXXgetsos and CPXgetsos</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsos</span>/<span class="keyword apiname">CPXgetsos</span></code> accesses  the definitions of a range of special  ordered sets (SOS) stored in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getsosindex.html">CPXXgetsosindex and CPXgetsosindex</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsosindex</span>/<span class="keyword apiname">CPXgetsosindex</span></code> searches for the index number  of the specified special ordered set in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getsosname.html">CPXXgetsosname and CPXgetsosname</a></strong><br />
+  Accesses a range of names of   special ordered sets (SOS) in a CPLEX problem object.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

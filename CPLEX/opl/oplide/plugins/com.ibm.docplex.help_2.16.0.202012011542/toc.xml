@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--© Copyright IBM Corporation 2019-->
+<toc label="DOcplex Python Modeling API" topic="DOcplex/topics/DOcplex_home.html">
+   <criteria name="prodname" value="com.ibm.docplex.help"/>
+   <criteria name="version" value="2"/>
+   <topic label="DOcplex Python Modeling API" href="DOcplex/topics/DOcplex_home.html">
+      <topic label="DOcplex examples" href="DOcplex/topics/DOcplex_examples.html"/>
+   </topic>
+</toc>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Benders strategy" />
+<meta name="abstract" content="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model." />
+<meta name="Description" content="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model." />
+<meta name="DC.subject" content="decomposition, Benders, Benders decomposition, Benders algorithm, Benders strategy, BendersStrategy, CPXPARAM_Benders_Strategy, strategy" />
+<meta name="keywords" content="decomposition, Benders, Benders decomposition, Benders algorithm, Benders strategy, BendersStrategy, CPXPARAM_Benders_Strategy, strategy" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="BendersStrategyParameter" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>Benders strategy</title>
+</head>
+<body id="BendersStrategyParameter"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Benders strategy</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">This parameter specifies whether CPLEX should apply 
+Benders algorithm as a strategy to solve a model. </p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Benders decomposition algorithm as a strategy</p>
+ 
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d87063e70">API</th>
+
+<th class="entry nrule" valign="top" id="d87063e73">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">CPXPARAM_Benders_Strategy </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">IloCplex::Param::Benders::Strategy </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">IloCplex.Param.Benders.Strategy </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">Cplex.Param.Benders.Strategy </td>
+
+</tr>
+ 
+<tr class="row"> 
+<td class="entry nrule" valign="top" headers="d87063e70 ">OPL</td>
+ 
+<td class="entry nrule" valign="top" headers="d87063e73 ">bendersstrategy</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">parameters.benders.strategy </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">benders strategy <em class="ph i">value</em></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d87063e70 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d87063e73 ">1501 </td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p"> 
+Given a formulation of a problem, CPLEX can decompose the model into a single master and 
+(possibly multiple) subproblems. To do so, CPLEX can make use of annotations that you supply for your model. 
+The strategy can be applied to mixed-integer linear programs (MILP). 
+For certain types of problems, this approach offers significant performance improvements as 
+subproblems can be solved in parallel.
+</p>
+
+<p class="p">
+For mixed integer programs (MIP), under certain conditions, CPLEX can 
+apply Benders algorithm to improve the search to find more feasible solutions 
+more quickly.
+</p>
+ 
+</section>
+ 
+<section class="section"><h2 class="title sectiontitle">Tolerances for Benders</h2> 
+ 
+These other CPLEX parameters allow you to specify cut tolerances particular to Benders:
+<ul class="ul"> 
+<li class="li"><a class="xref" href="BendersFeasCutTol.html" title="This parameter specifies a tolerance for the feasibility of cuts when CPLEX solves a model decomposed according to Benders algorithm.">Benders feasibility cut tolerance</a> </li>
+ 
+<li class="li"><a class="xref" href="BendersOptCutTol.html" title="This parameter specifies a tolerance for the optimality of cuts when CPLEX solves a model decomposed according to Benders algorithm.">Benders optimality cut tolerance</a> </li>
+
+</ul>
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Strategies</h2> 
+ 
+<div class="p">By <strong class="ph b">default</strong>, if you did not annotate your model to specify a decomposition, CPLEX executes 
+conventional branch and bound. If you annotated your model, CPLEX attempts to apply your annotations 
+and to refine your decomposition before it solves the model. 
+With this parameter, you can direct CPLEX to decompose your model and to apply its implementation 
+of Benders algorithm in one of these alternative ways:
+<ul class="ul">
+<li class="li">1 USER: CPLEX attempts to decompose your model strictly according to your annotations.</li>
+ 
+<li class="li">2 WORKERS: CPLEX decomposes your model by using your annotations as hints and refining the 
+decomposition where it can.
+    <ul class="ul">
+    <li class="li">CPLEX initially decomposes your model according to your annotations.</li>
+ 
+    <li class="li">Cplex then attempts to refine that decomposition by further decomposing the specified subproblems.</li>
+
+    </ul>
+
+    This approach can be useful if you annotate certain variables to go into master, 
+    and all others to go into a single subproblem, which CPLEX can then decompose further for you.
+</li>
+ 
+<li class="li">3 FULL: CPLEX automatically decomposes your model, ignoring any annotations you may have supplied. 
+    <ul class="ul">
+    <li class="li">CPLEX puts all integer variables into the master. </li>
+ 
+    <li class="li">CPLEX puts all continuous variables into a subproblem. </li>
+ 
+    <li class="li">CPLEX further decomposes that subproblem, if possible.</li>
+
+    </ul>
+
+</li>
+
+</ul>
+
+</div>
+
+
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Annotations for decomposition</h2> 
+ 
+<div class="p">If you want to specify a decomposition to CPLEX, you use <strong class="ph b">annotations</strong>. 
+First, create a new annotation <code class="ph codeph">cpxBendersPartition</code> of type <code class="ph codeph">long</code>. 
+Next, use <code class="ph codeph">cpxBendersPartition</code> to annotate some or all of the variables in your model. 
+These annotations specify to CPLEX whether certain variables belong to the master or to one of the 
+subproblems assigned to workers (where the subproblems are numbered from 1 (one) to N, the number of 
+subproblems).
+<ul class="ul">
+<li class="li">If you annotate a given variable with the value 0 (zero), CPLEX assigns that variable to the master.</li>
+ 
+<li class="li">If you do not annotate a given variable, CPLEX assumes the <strong class="ph b">default</strong> value annotation.</li>
+ 
+<li class="li">If you annotate a given variable with the value i, where i is greater than or equal to 1 (one), 
+CPLEX assigns that variable to subproblem i.</li>
+ 
+<li class="li">If you annotate a given variable with a value strictly less than zero, CPLEX raises an error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_NO_DECOMPOSITION.html" title="2000 No Benders decomposition available">CPXERR_NO_DECOMPOSITION</a>. 
+</li>
+ 
+</ul>
+
+</div>
+ 
+<p class="p">CPLEX produces an error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_BAD_DECOMPOSITION.html" title="2002 Invalid Benders decomposition">CPXERR_BAD_DECOMPOSITION</a>  
+if the annotated decomposition does not yield disjoint subproblems. For example, 
+if your annotations specify that two (or more) variables belong in different subproblems, yet your model 
+specifies that these variables participate in the same constraint, then these variables  are linked. 
+Consequently, the subproblems where these variables appear according to your annotations are not 
+disjoint with respect to the partition. </p>
+ 
+
+<p class="p"><strong class="ph b">Tip</strong>: It is a good idea to verify that the N subproblems plus master actually define 
+a complete decomposition of the original model into disjoint subproblems. 
+That is, make sure you have a complete partition for your decomposition into disjoint subproblems. 
+</p>
+
+</section>
+ 
+<section class="section"><h2 class="title sectiontitle">Benders without annotations</h2> 
+ 
+<p class="p">If you want CPLEX to apply a Benders strategy as it solves your problem, but you 
+do not specify <code class="ph codeph">cpxBendersPartition</code> annotations yourself, CPLEX puts all 
+<strong class="ph b">integer</strong> variables in master and <strong class="ph b">continuous linear</strong> variables into subproblems. 
+</p>
+
+ 
+</section>
+ 
+<section class="section"><h2 class="title sectiontitle">Errors in automatic decomposition</h2> 
+ 
+<p class="p">When you specify a Benders strategy, but you do not annotate your model, CPLEX attempts to 
+partition the variables into a Benders decomposition. In such a case, 
+if there are no integer variables in your model, or 
+if there are no continuous variables in your model, CPLEX raises an error 
+(<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_BAD_DECOMPOSITION.html" title="2002 Invalid Benders decomposition">CPXERR_BAD_DECOMPOSITION</a> 
+or 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_NO_DECOMPOSITION.html" title="2000 No Benders decomposition available">CPXERR_NO_DECOMPOSITION</a>) 
+stating that it cannot automatically decompose the model to apply a Benders strategy.</p>
+ 
+</section>
+ 
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d87063e368">Value</th>
+ 
+<th class="entry thleft" align="left" valign="top" id="d87063e371">Name</th>
+
+<th class="entry thleft" align="left" valign="top" id="d87063e374">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d87063e368 ">-1</td>
+ 
+<td class="entry" valign="top" headers="d87063e371 ">OFF</td>
+
+<td class="entry" valign="top" headers="d87063e374 ">Execute conventional branch and bound; ignore any Benders annotations. That is, 
+do not use Benders algorithm even if a Benders partition of the current model is present </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d87063e368 ">0</td>
+
+<td class="entry" valign="top" headers="d87063e371 ">AUTO</td>
+
+<td class="entry" valign="top" headers="d87063e374 "><strong class="ph b">default</strong> Let CPLEX decide. 
+<ul class="ul">
+<li class="li">case 1: If the user supplies no annotations with the model, CPLEX executes conventional branch and bound.</li>
+
+<li class="li">case 2: <p class="p">If annotations specifying a Benders partition of the current model are available, 
+    CPLEX attempts to decompose the model. CPLEX uses the master as given by the annotations, and attempts to 
+    partition the subproblems further, if possible, before applying Benders algorithm to solve the model.</p>
+ 
+    <p class="p">If the user supplied annotations, but the annotations supplied do not lead to a complete decomposition 
+    into master and disjoint subproblems (that is, if the annotations are wrong in that sense), CPLEX produces 
+    the error <a class="xref" href="../../../refcallablelibrary/macros/CPXERR_BAD_DECOMPOSITION.html" title="2002 Invalid Benders decomposition">CPXERR_BAD_DECOMPOSITION</a>. 
+    </p>
+
+ </li>
+ 
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;"> 
+<td class="entry" valign="top" headers="d87063e368 ">1</td>
+ 
+<td class="entry" valign="top" headers="d87063e371 ">USER</td>
+
+<td class="entry" valign="top" headers="d87063e374 ">CPLEX applies Benders algorithm to a decomposition based on annotations supplied by the user. 
+If no annotations to decompose the model are available, 
+this setting produces the error <span class="keyword apiname">CPXERR_NO_DECOMPOSITION</span>. 
+If the user supplies annotations, but the supplied annotations do not lead to a complete partition 
+of the original model into disjoint master and subproblems, then this setting produces the error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_BAD_DECOMPOSITION.html" title="2002 Invalid Benders decomposition">CPXERR_BAD_DECOMPOSITION</a>. 
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d87063e368 ">2</td>
+ 
+<td class="entry" valign="top" headers="d87063e371 ">WORKERS</td>
+ 
+<td class="entry" valign="top" headers="d87063e374 "><p class="p">CPLEX accepts the master as given and attempts to decompose the remaining elements into 
+disjoint subproblems to assign to workers. It then solves the Benders decomposition of the model.</p>
+
+<p class="p">If no annotations to decompose the model are available, 
+this setting produces the error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_NO_DECOMPOSITION.html" title="2000 No Benders decomposition available">CPXERR_NO_DECOMPOSITION</a>. 
+</p>
+
+<p class="p">If the user supplies annotations, but the supplied annotations do not lead to a complete partition 
+of the original model into disjoint master and subproblems, then this setting produces the error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_BAD_DECOMPOSITION.html" title="2002 Invalid Benders decomposition">CPXERR_BAD_DECOMPOSITION</a>. 
+</p>
+
+</td>
+
+</tr>
+ 
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d87063e368 ">3</td>
+ 
+<td class="entry" valign="top" headers="d87063e371 ">FULL</td>
+
+<td class="entry" valign="top" headers="d87063e374 "><p class="p">CPLEX ignores any annotation file supplied with the model; CPLEX applies presolve;  
+CPLEX then automatically generates a Benders partition, putting 
+<strong class="ph b">integer</strong> variables in master and <strong class="ph b">continuous linear</strong> variables into disjoint subproblems. 
+CPLEX then solves the Benders decomposition of the model.</p>
+ 
+<p class="p">If the problem is a strictly linear program (LP), that is, there are no integer-constrained variables to 
+put into master, then CPLEX reports the error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_PARAM_INCOMPATIBLE.html" title="1807 Incompatible parameters">CPXERR_PARAM_INCOMPATIBLE</a>.
+</p>
+ 
+<p class="p">If the problem is a mixed integer linear program (MILP) where all variables are integer-constrained, 
+(that is, there are no continuous linear variables to decompose into disjoint subproblems) 
+then CPLEX reports the error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_NO_DECOMPOSITION.html" title="2000 No Benders decomposition available">CPXERR_NO_DECOMPOSITION</a>. 
+</p>
+ 
+<p class="p">If the problem is a mixed integer linear program (MILP) where all variables are continuous, 
+(that is, there are no integer-constrained variables to decompose into master) 
+then CPLEX reports the error 
+<a class="xref" href="../../../refcallablelibrary/macros/CPXERR_NO_DECOMPOSITION.html" title="2000 No Benders decomposition available">CPXERR_NO_DECOMPOSITION</a>. 
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

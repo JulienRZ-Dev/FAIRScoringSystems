@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="What is a context for a generic callback?" />
+<meta name="abstract" content="Generic callbacks are invoked within a context." />
+<meta name="Description" content="Generic callbacks are invoked within a context." />
+<meta name="DC.subject" content="callback, context, generic callbacks and, context errors, errors in" />
+<meta name="keywords" content="callback, context, generic callbacks and, context errors, errors in" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="contextCallback" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" />
+<title>What is a context for a generic callback?</title>
+</head>
+<body id="contextCallback"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">What is a context for a generic callback?</h1>
+
+ 
+ 
+<div class="body"><p class="shortdesc">Generic callbacks are invoked within a context.
+</p>
+ 
+<p class="p">As a multi-purpose function, a generic callback can be 
+invoked in many different places during the search for a solution. 
+The <strong class="ph b">context</strong> in which CPLEX invokes a generic callback 
+determines what you can reasonably do from that generic callback.  
+</p>
+ 
+<p class="p">So how do you specify the context? 
+Initially, the argument <code class="ph codeph">contextmask</code> in the routine 
+<a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a> 
+that declares the function of the generic callback is a bit-mask. This 
+bit-mask is the bit-wise OR of possibly multiple contexts. Further, there is 
+the argument <code class="ph codeph">contextid</code> passed to the callback function itself 
+when CPLEX invokes the callback. This <code class="ph codeph">contextid</code> is a single 
+context value and indicates in which context this particular invocation occurs.
+</p>
+ 
+<div class="p"> For a detailed explanation of the various contexts in which the generic callback can be invoked,
+see the documentation of the following constants in the reference manual of the CPLEX Callable
+Library (C API): <ul class="ul">
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" title="Generic callback at thread-local progress">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a></li>
+
+<li class="li"><a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a></li>
+
+</ul>
+ (These are the constants that can be combined by means of a bit-wise OR in the value of the
+<code class="ph codeph">contextmask</code> argument passed to <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a>.)</div>
+
+      
+<p class="p">If you specify an appropriate context, the generic callback can monitor progress of the solution 
+process:  <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_LOCAL_PROGRESS.html" title="Generic callback at thread-local progress">CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</a> 
+or <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS.html" title="Generic callback at global progress">CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</a>.
+ </p>
+
+
+<p class="p">Also, according to the appropriate context and routine, the generic callback can control or guide
+the solution process. For instance, from all contexts but <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_UP.html" title="Generic callback at thread start">CPX_CALLBACKCONTEXT_THREAD_UP</a> and <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_THREAD_DOWN.html" title="Generic callback at thread end">CPX_CALLBACKCONTEXT_THREAD_DOWN</a>, the user can
+post feasible solutions to CPLEX with <a class="xref" href="../../../../../refcallablelibrary/cpxapi/callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a>, while other actions are
+allowed depending on the specific context. Please refer to the documentation of <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a>,  <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a>, and <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a>, for details on
+all operations supported to control the solution process. </p>
+ 
+<section class="section"><h2 class="title sectiontitle">Possible errors</h2> 
+           
+<p class="p">Not all information is available in all contexts. (For example, <a class="xref" href="../../discr_optim/benders/introBenders.html" title="CPLEX implements Benders algorithm.">Benders algorithm</a> is incompatible with the contexts <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_CANDIDATE.html" title="Generic callback at feasible solution candidate">CPX_CALLBACKCONTEXT_CANDIDATE</a>,  <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_RELAXATION.html" title="Generic callback at relaxation solution candidate">CPX_CALLBACKCONTEXT_RELAXATION</a>, and <a class="xref" href="../../../../../refcallablelibrary/macros/CPX_CALLBACKCONTEXT_BRANCHING.html" title="Generic callback at branching">CPX_CALLBACKCONTEXT_BRANCHING</a>.) Consequently,
+routines that query information that is not available in the current context return an error. Users
+have to be prepared for that. </p>
+ 
+</section>
+  
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks/introCallbacks.html" title="Generic callbacks are compatible with recent innovations in CPLEX.">Generic callbacks</a></div>
+</div>
+</nav></div></body>
+</html>

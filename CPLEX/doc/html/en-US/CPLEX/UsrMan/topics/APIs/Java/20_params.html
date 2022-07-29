@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Parameters" />
+<meta name="abstract" content="Introduces parameters as a means to control optimizers in the Java API." />
+<meta name="Description" content="Introduces parameters as a means to control optimizers in the Java API." />
+<meta name="DC.subject" content="parameter, setting, Java API, example turn off presolve (Java API), presolve, turning off (Java API), IloCplex class, PrimalPricing (Java API), example steepest edge pricing (Java API), accessing, current value (Java API), getParam method (Java API), all defaults (Java API), minimum value (Java API), minimum parameter value (Java API), maximum value (Java API), maximum parameter value (Java API), getMin method (Java API), getMax method (Java API), default value (Java API)" />
+<meta name="keywords" content="parameter, setting, Java API, example turn off presolve (Java API), presolve, turning off (Java API), IloCplex class, PrimalPricing (Java API), example steepest edge pricing (Java API), accessing, current value (Java API), getParam method (Java API), all defaults (Java API), minimum value (Java API), minimum parameter value (Java API), maximum value (Java API), maximum parameter value (Java API), getMin method (Java API), getMax method (Java API), default value (Java API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Java/18_optim_control_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_javaIloCplex.1018500" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/18_optim_control_title_synopsis.html" />
+<title>Parameters</title>
+</head>
+<body id="User_manual.uss_javaIloCplex.1018500"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Parameters</h1>
+<div class="body conbody"><div class="abstract"><p class="shortdesc">Introduces parameters as a means to control optimizers
+in the Java API.</p>
+
+<p class="p">Parameters are manipulated by means of IloCplex.setParam. </p>
+
+</div>
+<p class="p">For example: </p>
+<pre class="pre codeblock"><code>
+cplex.setParam(IloCplex.BooleanParam.PreInd, false);
+</code></pre><p class="p">sets the Boolean parameter <code class="ph codeph">PreInd</code> to <code class="ph codeph">false</code>,
+instructing CPLEX not to apply presolve before solving the problem. </p>
+<div class="p">Integer parameters often indicate a choice from a numbered
+list of possibilities, rather than a quantity. For example, the class <code class="ph codeph">IloCplex.PrimalPricing</code> defines
+constants with the integer parameters shown in <a class="xref" href="20_params.html#User_manual.uss_javaIloCplex.1018500__User_manual.uss_javaIloCplex.1021233" title="A two-column table showing possible values for primal pricing and their meaning.">Table 1</a> for
+better maintainability of the code.</div>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values for primal pricing and their meaning." id="User_manual.uss_javaIloCplex.1018500__User_manual.uss_javaIloCplex.1021233" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Constants in IloCplex.PrimalPricing</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;"><tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d171875e138"> Integer Parameter </th>
+
+<th class="entry thleft" align="left" valign="top" id="d171875e141"> Constant in class <code class="ph codeph">IloCplex.PrimalPricing</code>  </th>
+
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e138 ">  <code class="ph codeph">0</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e141 ">  <code class="ph codeph">IloCplex.PrimalPricing.Auto</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e138 ">  <code class="ph codeph">1</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e141 ">  <code class="ph codeph">IloCplex.PrimalPricing.Devex</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e138 ">  <code class="ph codeph">2</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e141 ">  <code class="ph codeph">IloCplex.PrimalPricing.Steep</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e138 ">  <code class="ph codeph">3</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e141 ">  <code class="ph codeph">IloCplex.PrimalPricing.SteepQStart</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e138 ">  <code class="ph codeph">4</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e141 ">  <code class="ph codeph">IloCplex.PrimalPricing.Full</code>  </td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">Thus, the suggested method for setting steepest-edge
+pricing for use with the primal simplex algorithm looks like this:</p>
+<pre class="pre codeblock"><code>cplex.setParam(IloCplex.IntParam.PPriInd,
+                IloCplex.PrimalPricing.Steep);
+</code></pre><div class="p"><a class="xref" href="20_params.html#User_manual.uss_javaIloCplex.1018500__User_manual.uss_javaIloCplex.1018543" title="A two-column table showing names of classes and their use.">Table 2</a> gives
+an overview of the classes defining constants for parameters. </div>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing names of classes and their use." id="User_manual.uss_javaIloCplex.1018500__User_manual.uss_javaIloCplex.1018543" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Classes with parameters defined by integers.</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;"><tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d171875e251"> Class </th>
+
+<th class="entry thleft" align="left" valign="top" id="d171875e254"> For use with parameters: </th>
+
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e251 ">  <code class="ph codeph">IloCplex.Algorithm</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e254 ">  <code class="ph codeph">IloCplex.IntParam.RootAlg IloCplex.IntParam.NodeAlg</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e251 ">  <code class="ph codeph">IloCplex.MIPEmphasis</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e254 ">  <code class="ph codeph">IloCplex.IntParam.MIPEmphasis</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e251 ">  <code class="ph codeph">IloCplex.VariableSelect</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e254 ">  <code class="ph codeph">IloCplex.IntParam.VarSel</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e251 ">  <code class="ph codeph">IloCplex.NodeSelect</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e254 ">  <code class="ph codeph">IloCplex.IntParam.NodeSel</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e251 ">  <code class="ph codeph">IloCplex.DualPricing</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e254 ">  <code class="ph codeph">IloCplex.IntParam.DPriInd</code>  </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d171875e251 ">  <code class="ph codeph">IloCplex.PrimalPricing</code>  </td>
+
+<td class="entry" valign="top" headers="d171875e254 ">  <code class="ph codeph">IloCplex.IntParam.PPriInd</code>  </td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">Parameters can be queried with method <code class="ph codeph">IloCplex.getParam</code> and
+reset to their default settings with method <code class="ph codeph">IloCplex.setDefaults</code>.
+The minimum and maximum value to which an integer or double parameter
+can be set is queried with methods <code class="ph codeph">IloCplex.getMin</code> and <code class="ph codeph">IloCplex.getMax</code>,
+respectively. The default value of a parameter is obtained with <code class="ph codeph">IloCplex.getDefault</code> .</p>
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Java/18_optim_control_title_synopsis.html" title="Describes the features that control optimizers in the Java API.">Controlling CPLEX optimizers</a></div>
+</div>
+</nav></div></body>
+</html>

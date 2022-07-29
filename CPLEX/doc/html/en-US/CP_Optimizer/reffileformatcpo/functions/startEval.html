@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="startEval" />
+<meta name="abstract" content="Evaluates segmentedFunction at the start of an interval variable." />
+<meta name="Description" content="Evaluates segmentedFunction at the start of an interval variable." />
+<meta name="DC.subject" content="startEval" />
+<meta name="keywords" content="startEval" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="segmentedFunction.html" />
+<meta name="DC.Relation" scheme="URI" content="intervalVar.html" />
+<meta name="DC.Relation" scheme="URI" content="endEval.html" />
+<meta name="DC.Relation" scheme="URI" content="lengthEval.html" />
+<meta name="DC.Relation" scheme="URI" content="sizeEval.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="startEval" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>startEval</title>
+</head>
+<body id="startEval"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">startEval</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Evaluates <code class="ph codeph">segmentedFunction</code> at the start of an interval variable.
+</p>
+
+
+
+<section class="section" id="startEval__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__floatExpr">floatExpr</a> <strong class="ph b">startEval</strong>(<a class="xref" href="../syntax/110_SchedulingTypes.html#Scheduling_types__intervalVar">intervalVar</a> interval, <a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_segmentedFunction">segmentedFunction</a> function, <a class="xref" href="../syntax/070_Types.html#Numerical_types__float">float</a> absentValue = 0)
+</code></pre>
+</section>
+
+
+<section class="section" id="startEval__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<ul class="ul">
+  <li class="li">
+    <code class="ph codeph">interval</code>: interval variable.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">function</code>: function to evaluate.
+  </li>
+
+  <li class="li">
+    <code class="ph codeph">absentValue</code>: value to return if interval variable <code class="ph codeph">interval</code> is absent.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+<section class="section" id="startEval__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+Evaluates <code class="ph codeph">function</code> at the start of interval variable <code class="ph codeph">interval</code>. However if <code class="ph codeph">interval</code>
+is absent then it does not have any defined start and <code class="ph codeph">absentValue</code> is returned.
+</p>
+
+
+</section>
+
+
+<section class="section" id="startEval__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+Task T is urgent: there is a cost associated with starting it late which is
+expressed by <code class="ph codeph"><a class="xref" href="../syntax/130_MoreTypes.html#More_types__Type_segmentedFunction">segmentedFunction</a></code>:
+</p>
+
+
+
+<div class="imageleft"><img class="image syntaxdiagram" src="../diagrams/diagram27.png" /></div>
+
+<p class="p">
+In the picture above, task T starts at 12 and the cost is therefore 5.
+</p>
+
+
+<p class="p">
+The cost can be computed using <code class="ph codeph"><a class="xref" href="startEval.html" title="Evaluates segmentedFunction at the start of an interval variable.">startEval</a></code> as:
+</p>
+
+
+<pre class="pre codeblock"><code>
+function = <a class="xref" href="segmentedFunction.html" title="Creates a new piecewise linear function.">segmentedFunction</a>((0, 0), (10, 5, 0), (15, 5, 3));
+T = <a class="xref" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a>();
+cost = <strong class="ph b">startEval</strong>(T, function);
+</code></pre>
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="segmentedFunction.html" title="Creates a new piecewise linear function.">segmentedFunction</a></li>
+<li class="linklist"><a class="link" href="intervalVar.html" title="Creates a new interval variable.">intervalVar</a></li>
+<li class="linklist"><a class="link" href="endEval.html" title="Evaluates segmentedFunction at the end of an interval variable.">endEval</a></li>
+<li class="linklist"><a class="link" href="lengthEval.html" title="Evaluates segmentedFunction using the length of an interval variable.">lengthEval</a></li>
+<li class="linklist"><a class="link" href="sizeEval.html" title="Evaluates segmentedFunction using the size of an interval variable.">sizeEval</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

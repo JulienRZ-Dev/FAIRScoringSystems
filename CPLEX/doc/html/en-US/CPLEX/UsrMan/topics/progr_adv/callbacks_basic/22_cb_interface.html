@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Callback interface" />
+<meta name="abstract" content="Describes the common callback interface." />
+<meta name="Description" content="Describes the common callback interface." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/18_Concert_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_callbacks.1008133" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/18_Concert_title_synopsis.html" />
+<title>Callback interface</title>
+</head>
+<body id="User_manual.uss_callbacks.1008133"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Callback interface</h1>
+<div class="body"><p class="shortdesc">Describes the common callback interface.</p>
+
+<p class="p">Two callback classes in the hierarchy need extra attention.
+The first is the base class <code class="ph codeph">IloCplex::CallbackI</code> in
+the C++ API (<code class="ph codeph">IloCplex.Callback</code> in the Java
+API or <code class="ph codeph">Cplex.Callback</code> in the .NET API or <code class="ph codeph">callbacks.Callback</code> in
+the Python API). Since there is no corresponding callback in the Callable
+Library (C API), this class cannot be used for implementing user callbacks.
+Instead, its purpose is to provide an interface common to all callback
+functions. </p>
+
+<p class="p">This common interface consists of these methods:</p>
+<ul class="ul"><li class="li"><p class="p"><code class="ph codeph">getModel</code>,
+which returns the model that is extracted to the <code class="ph codeph">IloCplex</code> object
+that is calling the callback;</p>
+</li>
+<li class="li"><p class="p"><code class="ph codeph">getEnv</code>, which
+returns the corresponding environment (C++ only),</p>
+
+</li>
+<li class="li"><p class="p"><code class="ph codeph">abort</code>, which
+aborts the current optimization.</p>
+</li>
+</ul>
+
+<p class="p">Further, methods <code class="ph codeph">getNrows</code> 
+and <code class="ph codeph">getNcols</code>  allow you to query the number
+of rows and columns of the current <code class="ph codeph">cplex</code> 
+LP matrix. These methods can be called from all callbacks.  </p>
+
+<div class="note note"><span class="notetitle">Note:</span> 
+<p class="p">For C++ users, no manipulation of the model or, more
+precisely, no manipulation of any extracted modeling object is allowed
+during the execution of a callback. No modification is allowed of
+any array or expression not local to the callback function itself
+(that is, constructed in the callback and <code class="ph codeph">end</code> –ed
+in the callback). The only exception is the modification of array
+elements. For example, <code class="ph codeph">x[i] = 0</code>  is permissible,
+whereas <code class="ph codeph">x.add(0)</code>  is <strong class="ph b">not</strong> permissible
+unless <code class="ph codeph">x</code>  is a local array of the callback. </p>
+
+</div>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_adv/callbacks_basic/18_Concert_title_synopsis.html" title="Documents callbacks in Concert Technology.">Implementing callbacks with Concert Technology</a></div>
+</div>
+</nav></div></body>
+</html>

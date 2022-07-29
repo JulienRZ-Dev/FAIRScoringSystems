@@ -1,0 +1,8 @@
+dataset_path=data/customer.csv
+labels_name=A,B,C,D
+constraints=s: 6
+objectives=ba
+lambda_bound=9
+time_limit=3600
+testing_mode=True
+n_folds=5

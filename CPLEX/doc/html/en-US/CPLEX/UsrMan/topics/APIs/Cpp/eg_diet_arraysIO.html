@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using arrays for input or output" />
+<meta name="abstract" content="Describes input and out in the application." />
+<meta name="Description" content="Describes input and out in the application." />
+<meta name="DC.subject" content="example, using arrays for I/O (C++ API), array, using for I/O (C++ API)" />
+<meta name="keywords" content="example, using arrays for I/O (C++ API), array, using for I/O (C++ API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/eg_diet_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_cplusIloCplex.123874" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/eg_diet_synopsis.html" />
+<title>Using arrays for input or output</title>
+</head>
+<body id="User_manual.uss_cplusIloCplex.123874"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Using arrays for input or output</h1>
+<div class="body"><p class="shortdesc">Describes input and out in the application.</p>
+
+<p class="p">If all goes well, the input file is opened in the file <code class="ph codeph">ifstream</code> .
+After that, the arrays for storing the problem data are created by
+declaring the appropriate variables. Then the arrays are filled by
+using the input operator with the data file. The data is checked for
+consistency and, if it fails, the program is aborted, again by throwing
+an exception. </p>
+
+<p class="p">After the problem data has been read and verified, it
+is time to build the model. To do so, construct the model object with
+this declaration: </p>
+
+<pre class="pre codeblock"><code>
+IloModel mod(env);
+</code></pre>
+<p class="p"> The array <code class="ph codeph">Buy</code>  is created
+to store the modeling variables. Since the environment is not passed
+to the constructor of <code class="ph codeph">Buy</code> , an empty handle
+is constructed. So at this point the variable <code class="ph codeph">Buy</code> 
+cannot be used. </p>
+
+<p class="p">Depending on the command-line option, either <code class="ph codeph">buildMethodByRow</code> 
+or <code class="ph codeph">buildMethodByColumn</code>  is called. Both
+create the model of the diet problem from the input data and return
+an array of modeling variables as an instance of the class <code class="ph codeph">IloNumVarArray</code> .
+At that point, <code class="ph codeph">Buy</code>  is assigned to an initialized
+handle containing all the modeling variables and can be used afterwards. </p>
+
+<section class="section" id="User_manual.uss_cplusIloCplex.123874__User_manual.uss_cplusIloCplex.123892"><h2 class="title sectiontitle">Building the model by row</h2><p class="p">The model is created by rows using the function <code class="ph codeph">buildModelByRow</code> .
+It first gets the environment from the model object passed to it.
+Then the modeling variables <code class="ph codeph">Buy</code>  are created.
+Instead of calling the constructor for the variables individually
+for each variable, create the full array of variables, with the array
+of lower and upper bounds and the variable type as parameter. In this
+array, variable <code class="ph codeph">Buy[i]</code>  is created such
+that it has lower bound <code class="ph codeph">foodMin[i]</code> , upper
+bound <code class="ph codeph">foodMax[i]</code> , and type indicated by <code class="ph codeph">type</code> . </p>
+<p class="p">The statement: </p>
+<pre class="pre codeblock"><code>
+mod.add(IloMinimize(env, IloScalProd(Buy, foodCost)));
+</code></pre><p class="p">creates the objective function and adds it to the model.
+The <code class="ph codeph">IloScalProd</code>  function creates the expression <code class="ph codeph">∑j
+(Buy[j] * foodCost[j])</code>  which is then passed to the
+function <code class="ph codeph">IloMinimize</code> . That function creates
+and returns the actual <code class="ph codeph">IloObjective</code>  object,
+which is added to the model with the call <code class="ph codeph">mod.add</code> . </p>
+<p class="p">The following loop creates the constraints of the problem
+one by one and adds them to the model. First the expression <code class="ph codeph">∑j
+(Buy[j] * nutrPer[i][j])</code>  is created by building a Concert
+Technology expression. An expression variable <code class="ph codeph">expr</code> 
+of type <code class="ph codeph">IloExpr</code>  is created, and linear
+terms are added to it by using <code class="ph codeph">operator+=</code> 
+in a loop. The expression is used with the overloaded <code class="ph codeph">operator&lt;=</code> 
+to construct a range constraint (an <code class="ph codeph">IloRange</code> 
+object) which is added to the model: </p>
+<pre class="pre codeblock"><code>
+mod.add(nutrMin[i] &lt;= expr &lt;= nutrMax[i]);
+</code></pre><p class="p">After an expression has been used for creating a constraint,
+it is deleted by a call to <code class="ph codeph">expr.end</code> .</p>
+<p class="p">Finally, the array of modeling variables <code class="ph codeph">Buy</code> 
+is returned. </p>
+</section>
+
+<section class="section" id="User_manual.uss_cplusIloCplex.123874__User_manual.uss_cplusIloCplex.123912"><h2 class="title sectiontitle">Building the model by column</h2><p class="p">The function <code class="ph codeph">buildModelByColumn </code> implements
+the creation of the model by columns. It begins by creating the array
+of modeling variables <code class="ph codeph">Buy</code>  of size 0. This
+is later populated when the columns of the problem are created and
+eventually returned. </p>
+<p class="p">The statement:  </p>
+<pre class="pre codeblock"><code>
+IloObjective cost = IloAdd(mod, IloMinimize(env));
+</code></pre><p class="p"> creates a minimization objective function object with
+0 expressions and adds it to the model. The objective object is created
+with the function <code class="ph codeph">IloMinimize</code> . The template
+function <code class="ph codeph">IloAdd</code>  is used to add the objective
+as an object to the model and to return an objective object with the
+same type, so that the objective can be stored in the variable <code class="ph codeph">cost</code> .
+The method <code class="ph codeph">IloModel::add</code>  returns the modeling
+object as an <code class="ph codeph">IloExtractable</code> , which cannot
+be assigned to a variable of a derived class such as <code class="ph codeph">IloObjective</code> .
+Similarly, an array of range constraints with 0 (zero) expressions
+is created, added to the model, and stored in the array <code class="ph codeph">range</code> . </p>
+<p class="p">In the following loop, the variables of the model are
+created one by one in columns; thus, the new variables are immediately
+installed in the model. An <code class="ph codeph">IloNumColumn</code> 
+object <code class="ph codeph">col</code>  is created and initialized
+to define how each new variable will be appended to the existing objective
+and constraints.</p>
+<p class="p">The <code class="ph codeph">IloNumColumn</code>  object <code class="ph codeph">col</code> 
+is initialized to contain the objective coefficient for the new variable.
+This is created with <code class="ph codeph">cost(foodCost[j])</code> ,
+that is using the overloaded <code class="ph codeph">operator()</code> 
+for <code class="ph codeph">IloObjective</code> . Next, an <code class="ph codeph">IloNumColumn</code> 
+object is created for every constraint, representing the coefficient
+the new variable has in that constraint. Again these <code class="ph codeph">IloNumColumn</code> 
+objects are created with the overloaded <code class="ph codeph">operator()</code> ,
+this time of <code class="ph codeph">IloRange</code> . The <code class="ph codeph">IloNumColumn</code> 
+objects are merged together to an aggregate <code class="ph codeph">IloNumColumn</code> 
+object using operator <code class="ph codeph">+=</code> . The coefficient
+for row <code class="ph codeph">i</code>  is created with <code class="ph codeph">range[i](nutrPer[i][j])</code> ,
+which calls the overloaded <code class="ph codeph">operator()</code> 
+for <code class="ph codeph">IloRange </code> objects. </p>
+<p class="p">When a column is completely constructed, a new variable
+is created for it and added to the array of modeling variables <code class="ph codeph">Buy</code> .
+The construction of the variable is performed by the constructor: </p>
+<pre class="pre codeblock"><code>
+IloNumVar(col, foodMin[j], foodMax[j], type)
+</code></pre><p class="p">which creates the new variable with lower bound <code class="ph codeph">foodMin[j]</code> ,
+upper bound <code class="ph codeph">foodMax[j]</code>  and type <code class="ph codeph">type</code> ,
+and adds it to the existing objective and ranges with the coefficients
+specified in column <code class="ph codeph">col</code> . After creating
+the variable for this column, the <code class="ph codeph">IloColumn</code> 
+object is deleted by calling <code class="ph codeph">col.end</code> .</p>
+</section>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/Cpp/eg_diet_synopsis.html" title="Shows an example of the C++ API.">Example: optimizing the diet problem in C++</a></div>
+</div>
+</nav></div></body>
+</html>

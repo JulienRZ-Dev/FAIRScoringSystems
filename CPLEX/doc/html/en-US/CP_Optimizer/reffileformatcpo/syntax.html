@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="CP Optimizer file format syntax" />
+<meta name="abstract" content="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them." />
+<meta name="Description" content="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them." />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/010_Introduction.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/020_utf8.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/030_Comments.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/040_Constants.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/050_Variables.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/060_Identifiers.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/070_Types.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/080_TopLevel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/090_Statements.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/100_Expressions.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/110_SchedulingTypes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/120_Arrays.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/130_MoreTypes.html" />
+<meta name="DC.Relation" scheme="URI" content="../../CP_Optimizer/reffileformatcpo/syntax/140_Directives.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CP_Optimizer_file_format_syntax" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html" />
+<title>CP Optimizer file format syntax</title>
+</head>
+<body id="CP_Optimizer_file_format_syntax"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">CP Optimizer file format syntax</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+This section describes the elements of the CPO file format such as statements,
+expressions, types, variables, constants or directives, and how to use them.
+</p>
+
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/010_Introduction.html">Introduction and an example</a></strong><br />
+</li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/020_utf8.html">Character encoding</a></strong><br />
+ CPO files must be encoded in UTF-8 (or pure ASCII which is a subset of UTF-8). </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/030_Comments.html">Comments</a></strong><br />
+ Comments in the style of C and C++ can be included in CPO files. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/040_Constants.html">Constants</a></strong><br />
+ The CPO file format supports numerical constants such as 123, 2.57, 1.23e+11 or 3.45E-05. There are also several named constants. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/050_Variables.html">Variables</a></strong><br />
+ In CPO files, the variables are declared by the following statement: </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/060_Identifiers.html">Identifiers</a></strong><br />
+ A variable or expression can be referenced later by the identifier associated with it. As such, the identifier must be unique. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/070_Types.html">Basic types</a></strong><br />
+ Each expression in the CPO file format has an automatically computed type (it is not possible to specify the type of an expression explicitly). </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/080_TopLevel.html">File structure</a></strong><br />
+ At the top level, a CPO file is a collection of statements and sections. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/090_Statements.html">Statements</a></strong><br />
+ Statements in a CPO file define the problem to be solved (variables, expressions, constraints and so on). </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/100_Expressions.html">Expressions</a></strong><br />
+ Expressions are formed from variables and constants by using operators and functions and by combining expressions together into arrays (array expressions). </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/110_SchedulingTypes.html">Scheduling types</a></strong><br />
+ Types designed for describing scheduling problems. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/120_Arrays.html">Arrays</a></strong><br />
+ The purpose of arrays is to group arguments. For example, the function <code class="ph codeph"><a class="xref" href="functions/alldiff.html" title="Ensures a number of expressions contain no duplicate values.">alldiff</a></code> does not take a list of integer expressions, it takes an array of them. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/130_MoreTypes.html">More types</a></strong><br />
+ This section describes additional types. </li>
+<li class="link ulchildlink"><strong><a href="../../CP_Optimizer/reffileformatcpo/syntax/140_Directives.html">Directives</a></strong><br />
+ The CPO file format supports two types of directive: #include (to include a file) and #line (to set an additional line number for error reporting). </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../CP_Optimizer/reffileformatcpo/reffileformatcpo.html">CP Optimizer File Format Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

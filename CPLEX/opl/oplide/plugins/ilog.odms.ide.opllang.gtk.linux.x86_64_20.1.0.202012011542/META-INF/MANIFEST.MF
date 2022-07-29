@@ -1,0 +1,88 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ilog.odms.ide.opllang.gtk.linux.x86_64;singleton:
+ =true
+Archiver-Version: Plexus Archiver
+Built-By: opladm
+Bundle-ManifestVersion: 2
+Eclipse-PlatformFilter: (& (osgi.ws=gtk) (osgi.os=linux) (osgi.arch=x8
+ 6_64))
+Bundle-Vendor: %Bundle-Vendor
+Fragment-Host: ilog.odms.ide.opllang
+Bundle-Name: %Fragment-Name
+Bundle-Version: 20.1.0.202012011542
+Bundle-Localization: fragment
+Bundle-ClassPath: .
+Bundle-NativeCode: liboplb.so;processor=x86_64;osname=Linux
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_191
+Eclipse-BundleShape: dir
+
+Name: libicuio.so.55
+SHA-256-Digest: 6AkjsP8zuIiPQPTR0VP4A7mN/050ysOGPQXJoMeUuBc=
+
+Name: libopltabSQLite2010.so
+SHA-256-Digest: GFtt6EZMNwJKiBkTrP9Qv5ox5Cn6x6x9xwCeZ20duGI=
+
+Name: about.html
+SHA-256-Digest: 0LNxb73WVdSPC1401RWPmfae5yrQgolv/6jeUfOBUBs=
+
+Name: libcplex2010.so
+SHA-256-Digest: g9/591V0JeVyLwv+i92txDawiHGEzs3xoodxV+o/1mU=
+
+Name: libopltabMySQL2010.so
+SHA-256-Digest: 74Re/gZKESioXGeJwvaeZX0LugK0RckmeYI3tjfQAMI=
+
+Name: libopl2010.so
+SHA-256-Digest: 5drXghWqfecVw1g2RzKlGScg/MyFUwus+4jf0arPpw4=
+
+Name: libcplex2010remote.so
+SHA-256-Digest: DSzWOyyT9VwMTt74g/gmI1vZ5BOyzIb4VM2wTDQAiRQ=
+
+Name: libicutu.so.55
+SHA-256-Digest: tJCQpGR7NoJnaz/0Y0DlBtBCYGJGtCT2NQWgcNnFxhU=
+
+Name: libopltabODBC2010.so
+SHA-256-Digest: zmC8Xf+qohn5foixbwnZJkofDrMzXlj512fHFlbrEv4=
+
+Name: libicudata.so.55
+SHA-256-Digest: bI9qpj1zDyg0UDIgkeA/WDwS7pK4pFP5h1gRH33sKDI=
+
+Name: libicuuc.so.55
+SHA-256-Digest: UqJ7NXTJVseMjLS/0lUhTZeVpIIBwtwFSh5cR5y8eQ8=
+
+Name: libicui18n.so.55
+SHA-256-Digest: RSYN0LZhngcVs0/bCmrY9fE4fpxqj2KY6HH0EbGBj3I=
+
+Name: liboplnl1.so.20
+SHA-256-Digest: IeB0gpV8Un2fY5YEL4bFpQrGi67fWsdIwxJMZHNdgRI=
+
+Name: fragment.properties
+SHA-256-Digest: JAoYEB0hBbDbnJzbnTU47OUmV92eR7TEmtZOowV6kV4=
+
+Name: libcplex2010processworker.so
+SHA-256-Digest: vCQgY7bWCt6S0zZWpkX09T87C4mcuBsVX105p02jvBE=
+
+Name: libcplex2010remotejni.so
+SHA-256-Digest: lSRWMgNrpjtppj7XmDXM1LQzWYID0O/D6c2g9joKFIU=
+
+Name: oplall.jar
+SHA-256-Digest: Fx9iRF8kzvbEh3/HbIl/y34FpEjilwoqR4M7HMU6GwU=
+
+Name: libicule.so.55
+SHA-256-Digest: /WSomCcgs5ZrAvc9kHGDAuPuFRV9MvPDxY4fw7hlOAI=
+
+Name: libiculx.so.55
+SHA-256-Digest: +i2irWPbJVHGHLeYpRrgPUpXASfKy4VEXAVm5gZzZg8=
+
+Name: libcplex2010processtransport.so
+SHA-256-Digest: 0fstwc7gpZbi9EffzrgzA5d0wb4DTqR5yYIJTqCfflE=
+
+Name: libcplex2010tcpipworker.so
+SHA-256-Digest: FEZkjjLYyD4Sv+fNNjcbQjO2LjXstYg6eU2PzVx8Ofs=
+
+Name: liboplb.so
+SHA-256-Digest: AY+gvQgyAn4+IyF2lguWYPTKeSbBBgIz2+Xmyos5hDk=
+
+Name: libcplex2010tcpiptransport.so
+SHA-256-Digest: jrUI2bVAQBpmjCIbxd8VGtliiYwO062RkcjwHIV/FbM=
+

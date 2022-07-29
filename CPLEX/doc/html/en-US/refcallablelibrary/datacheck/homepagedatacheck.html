@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Data checking in the CPLEX Callable Library (C API) Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/homepageCrefman.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkaddcols.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkaddqconstr.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkaddrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkchgcoeflist.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopyctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopylp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopylpwnames.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopynet.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopyqpsep.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopyquad.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkcopysos.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/datacheck/checkvals.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepagedatacheck" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/homepageCrefman.html" />
+<title>Data checking in the CPLEX Callable Library (C API) Reference Manual</title>
+</head>
+<body id="homepagedatacheck"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Data checking in the CPLEX Callable Library (C API) Reference Manual</h1>
+
+<div class="body">
+<p class="p">
+These routines offer you a means of checking data in your models as part of making sure that 
+your application solves the problem that you want to solve. For more information about 
+this idea of data checking, see the topic
+<a class="xref" href="../../CPLEX/UsrMan/topics/progr_consid/dev_hints/07_test_data.html" title="Presents a data checking tool.">Test data</a>
+in the <em class="ph i">CPLEX User's Manual</em>.
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkaddcols.html">CPXXcheckaddcols and CPXcheckaddcols</a></strong><br />
+ Checks data when columns are added to a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkaddqconstr.html">CPXXcheckaddqconstr and CPXcheckaddqconstr</a></strong><br />
+ Checks data when a constraint containing a quadratic term is added to a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkaddrows.html">CPXXcheckaddrows and CPXcheckaddrows</a></strong><br />
+ Checks data when rows are added to a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkchgcoeflist.html">CPXXcheckchgcoeflist and CPXcheckchgcoeflist</a></strong><br />
+ Checks data when the list of coefficients in a model changes.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopyctype.html">CPXXcheckcopyctype and CPXcheckcopyctype</a></strong><br />
+ Checks the data about the type of variables copied in a model.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopylp.html">CPXXcheckcopylp and CPXcheckcopylp</a></strong><br />
+ Checks the data copied by <span class="keyword apiname">CPXXcopylp/CPXcopylp</span>.    </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopylpwnames.html">CPXXcheckcopylpwnames and CPXcheckcopylpwnames</a></strong><br />
+ Checks data copied by <span class="keyword apiname">CPXXcopylpwnames/CPXcopylpwnames</span>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopynet.html">CPXXNETcheckcopynet and CPXNETcheckcopynet</a></strong><br />
+ Checks data copied to a network object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopyqpsep.html">CPXXcheckcopyqpsep and CPXcheckcopyqpsep</a></strong><br />
+ Checks the data when the quadratic objective matrix Q for a  separable QP problem is copied.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopyquad.html">CPXXcheckcopyquad and CPXcheckcopyquad</a></strong><br />
+ Checks data when a quadratic objective matrix Q is not diagonal.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkcopysos.html">CPXXcheckcopysos and CPXcheckcopysos</a></strong><br />
+ Checks data copied for a special ordered set (SOS) in a problem object of type  MILP, MIQP, or MIQCP.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/datacheck/checkvals.html">CPXXcheckvals and CPXcheckvals</a></strong><br />
+ Checks data by comparing an array of indices and an array of values for errors.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/homepageCrefman.html">CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

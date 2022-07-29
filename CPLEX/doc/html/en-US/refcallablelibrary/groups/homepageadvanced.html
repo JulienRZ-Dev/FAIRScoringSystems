@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Advanced Routines in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/addlazyconstraints.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/addusercuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/basicpresolve.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvacol.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvarow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvcol.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/binvrow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/branchcallbackbranchasCPLEX.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/branchcallbackbranchbds.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/branchcallbackbranchconstraints.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/branchcallbackbranchgeneral.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/btran.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbacksetnodeuserhandle.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/callbacksetuserhandle.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copybasednorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copydnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copypnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/copyprotected.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/crushform.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/crushpi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/crushx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/cutcallbackadd.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/cutcallbackaddlocal.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/djfrompi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dualfarkas.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/freelazyconstraints.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/freepresolve.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/freeusercuts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/ftran.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbasednorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getbhead.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getbranchcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackctype.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackgloballb.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackglobalub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackincumbent.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackindicatorinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacklp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodeinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodeintfeas.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodelb.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodelp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodeobjval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodestat.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodeub.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacknodex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackorder.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackpseudocosts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbackseqinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getcallbacksosinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getdeletenodecallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getheuristiccallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getijdiv.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getijrow.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getincumbentcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getlazyconstraintcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getnodecallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getpnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getprestat.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getprotected.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getray.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getredlp.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getsolvecallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/getusercutcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/killdnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/killpnorms.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/mdleave.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/pivot.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/pivotin.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/pivotout.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/preaddrows.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/prechgobj.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/presolve.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/socpapi/qconstrslackfromx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/qpdjfrompi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/qpuncrushpi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setbranchcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setbranchnosolncallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setdeletenodecallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setheuristiccallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setincumbentcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setlazyconstraintcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setnodecallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setsolvecallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/setusercutcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/slackfromx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/strongbranch.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/tightenbds.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/uncrushform.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/uncrushpi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/uncrushx.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/unscaleprob.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepageadvanced" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<title>Advanced Routines in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepageadvanced"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Advanced Routines in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines are advanced.
+</p>
+
+<p class="p">
+Advanced routines typically demand a thorough understanding 
+of the algorithms used by CPLEX. Thus they incur a higher risk 
+of incorrect behavior in your application, behavior that can 
+be difficult to debug. Therefore, the team encourages you to 
+consider carefully whether you can accomplish the same task 
+by means of other Callable Library routines instead. 
+</p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/addlazyconstraints.html">CPXXaddlazyconstraints and CPXaddlazyconstraints</a></strong><br />
+            The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddlazyconstraints</span>/<span class="keyword apiname">CPXaddlazyconstraints</span></code> adds  constraints to the list of constraints that should be added to the LP  subproblem of a MIP optimization if they are violated.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/addusercuts.html">CPXXaddusercuts and CPXaddusercuts</a></strong><br />
+            The routine <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code> adds constraints to  the list of constraints that CPLEX can add to the LP subproblem of a MIP  optimization if they are violated by the LP relaxation solution.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/basicpresolve.html">CPXXbasicpresolve and CPXbasicpresolve</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbasicpresolve</span>/<span class="keyword apiname">CPXbasicpresolve</span></code> performs bound strengthening and detects redundant rows.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvacol.html">CPXXbinvacol and CPXbinvacol</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvacol</span>/<span class="keyword apiname">CPXbinvacol</span></code> computes the representation of the j-th column in terms of the basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvarow.html">CPXXbinvarow and CPXbinvarow</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvarow</span>/<span class="keyword apiname">CPXbinvarow</span></code> computes the i-th row of <strong class="ph b">BinvA</strong> where <strong class="ph b">Binv</strong> represents the inverse of the matrix B and juxtaposition specifies matrix multiplication.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvcol.html">CPXXbinvcol and CPXbinvcol</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvcol</span>/<span class="keyword apiname">CPXbinvcol</span></code> computes the j-th column of the basis inverse.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/binvrow.html">CPXXbinvrow and CPXbinvrow</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbinvrow</span>/<span class="keyword apiname">CPXbinvrow</span></code> computes the i-th row of the basis inverse.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/branchcallbackbranchasCPLEX.html">CPXXbranchcallbackbranchasCPLEX and CPXbranchcallbackbranchasCPLEX</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchasCPLEX</span>/<span class="keyword apiname">CPXbranchcallbackbranchasCPLEX</span></code> accomplishes  two tasks.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/branchcallbackbranchbds.html">CPXXbranchcallbackbranchbds and CPXbranchcallbackbranchbds</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchbds</span>/<span class="keyword apiname">CPXbranchcallbackbranchbds</span></code> specifies the  branches to be taken from the current node.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/branchcallbackbranchconstraints.html">CPXXbranchcallbackbranchconstraints and CPXbranchcallbackbranchconstraints</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchconstraints</span>/<span class="keyword apiname">CPXbranchcallbackbranchconstraints</span></code> specifies  the branches to be taken from the current node when the branch is specified  by adding one or more constraints to the node problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/branchcallbackbranchgeneral.html">CPXXbranchcallbackbranchgeneral and CPXbranchcallbackbranchgeneral</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXbranchcallbackbranchgeneral</span>/<span class="keyword apiname">CPXbranchcallbackbranchgeneral</span></code> specifies the  branches to be taken from the current node when the branch includes variable  bound changes and additional constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/btran.html">CPXXbtran and CPXbtran</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXbtran</span>/<span class="keyword apiname">CPXbtran</span></code> solves xTB = yT and puts the answer in y.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbacksetnodeuserhandle.html">CPXXcallbacksetnodeuserhandle and CPXcallbacksetnodeuserhandle</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbacksetnodeuserhandle</span>/<span class="keyword apiname">CPXcallbacksetnodeuserhandle</span></code> sets the user  handle for the node specified by <code class="ph codeph"><span class="keyword parmname">nodeindex</span></code> and optionally  returns the old user handle stored at that node.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/callbacksetuserhandle.html">CPXXcallbacksetuserhandle and CPXcallbacksetuserhandle</a></strong><br />
+     The routine <code class="ph codeph"><span class="keyword apiname">CPXXcallbacksetuserhandle</span>/<span class="keyword apiname">CPXcallbacksetuserhandle</span></code> sets the user handle  at the current node and optionally returns the old user handle stored at  the current node.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copybasednorms.html">CPXXcopybasednorms and CPXcopybasednorms</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybasednorms</span>/<span class="keyword apiname">CPXcopybasednorms</span></code> works in conjunction with the routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbasednorms</span>/<span class="keyword apiname">CPXgetbasednorms</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copydnorms.html">CPXXcopydnorms and CPXcopydnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopydnorms</span>/<span class="keyword apiname">CPXcopydnorms</span></code> copies the dual steepest-edge norms to the specified LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copypnorms.html">CPXXcopypnorms and CPXcopypnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopypnorms</span>/<span class="keyword apiname">CPXcopypnorms</span></code> copies the primal steepest-edge norms to the specified LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/copyprotected.html">CPXXcopyprotected and CPXcopyprotected</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcopyprotected</span>/<span class="keyword apiname">CPXcopyprotected</span></code> specifies a set of variables that should not be substituted out of the problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/crushform.html">CPXXcrushform and CPXcrushform</a></strong><br />
+          The routine<code class="ph codeph"><span class="keyword apiname">CPXcrushform</span></code> crushes a linear formula of the original problem to a linear formula of the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/crushpi.html">CPXXcrushpi and CPXcrushpi</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcrushpi</span>/<span class="keyword apiname">CPXcrushpi</span></code> crushes a dual solution for the original problem to a dual solution for the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/crushx.html">CPXXcrushx and CPXcrushx</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXcrushx</span>/<span class="keyword apiname">CPXcrushx</span></code> crushes a solution for the original problem to a solution for the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/cutcallbackadd.html">CPXXcutcallbackadd and CPXcutcallbackadd</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXcutcallbackadd</span>/<span class="keyword apiname">CPXcutcallbackadd</span></code> adds lazy constraints  and globally valid cuts to the  current node LP subproblem during MIP branch and cut.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/cutcallbackaddlocal.html">CPXXcutcallbackaddlocal and CPXcutcallbackaddlocal</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXcutcallbackaddlocal</span>/<span class="keyword apiname">CPXcutcallbackaddlocal</span></code> adds local cuts during  MIP branch and cut.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/djfrompi.html">CPXXdjfrompi and CPXdjfrompi</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXdjfrompi</span>/<span class="keyword apiname">CPXdjfrompi</span></code> computes an array of reduced costs from an array of dual values.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/dualfarkas.html">CPXXdualfarkas and CPXdualfarkas</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXdualfarkas</span>/<span class="keyword apiname">CPXdualfarkas</span></code> assumes that there is a resident solution as produced by a call to <code class="ph codeph"><span class="keyword apiname">CPXXdualopt</span>/<span class="keyword apiname">CPXdualopt</span></code> and that the status of this solution as returned by <code class="ph codeph"><span class="keyword apiname">CPXXgetstat</span>/<span class="keyword apiname">CPXgetstat</span></code> is <code class="ph codeph">CPX_STAT_INFEASIBLE</code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/freelazyconstraints.html">CPXXfreelazyconstraints and CPXfreelazyconstraints</a></strong><br />
+            The routine <code class="ph codeph"><span class="keyword apiname">CPXXfreelazyconstraints</span>/<span class="keyword apiname">CPXfreelazyconstraints</span></code> clears the  list of lazy constraints that have been previously specified through calls  to <code class="ph codeph"><span class="keyword apiname">CPXXaddlazyconstraints</span>/<span class="keyword apiname">CPXaddlazyconstraints</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/freepresolve.html">CPXXfreepresolve and CPXfreepresolve</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXfreepresolve</span>/<span class="keyword apiname">CPXfreepresolve</span></code> frees the presolved problem from the LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/freeusercuts.html">CPXXfreeusercuts and CPXfreeusercuts</a></strong><br />
+            The routine <code class="ph codeph"><span class="keyword apiname">CPXXfreeusercuts</span>/<span class="keyword apiname">CPXfreeusercuts</span></code> clears the list of  user cuts that have been previously specified through calls to  <code class="ph codeph"><span class="keyword apiname">CPXXaddusercuts</span>/<span class="keyword apiname">CPXaddusercuts</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/ftran.html">CPXXftran and CPXftran</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXftran</span>/<span class="keyword apiname">CPXftran</span></code> solves By = x and puts the answer in the vector x, where B is the basis matrix.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbasednorms.html">CPXXgetbasednorms and CPXgetbasednorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbasednorms</span>/<span class="keyword apiname">CPXgetbasednorms</span></code> works in conjunction with the routine <code class="ph codeph"><span class="keyword apiname">CPXXcopybasednorms</span>/<span class="keyword apiname">CPXcopybasednorms</span></code>.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getbhead.html">CPXXgetbhead and CPXgetbhead</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbhead</span>/<span class="keyword apiname">CPXgetbhead</span></code> returns the basis header; it gives the negative value minus one of all row indices of slacks.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getbranchcallbackfunc.html">CPXXgetbranchcallbackfunc and CPXgetbranchcallbackfunc</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetbranchcallbackfunc</span>/<span class="keyword apiname">CPXgetbranchcallbackfunc</span></code> accesses the  user-written callback routine to be called during MIP optimization after a  branch has been selected but before the branch is carried out.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackctype.html">CPXXgetcallbackctype and CPXgetcallbackctype</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackctype</span>/<span class="keyword apiname">CPXgetcallbackctype</span></code> retrieves the ctypes  for the MIP problem from within a user-written callback during MIP  optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackgloballb.html">CPXXgetcallbackgloballb and CPXgetcallbackgloballb</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackgloballb</span>/<span class="keyword apiname">CPXgetcallbackgloballb</span></code> retrieves the best  known global lower bound values during MIP optimization from within a  user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackglobalub.html">CPXXgetcallbackglobalub and CPXgetcallbackglobalub</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackglobalub</span>/<span class="keyword apiname">CPXgetcallbackglobalub</span></code> retrieves the best  known global upper bound values during MIP optimization from within a  user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackincumbent.html">CPXXgetcallbackincumbent and CPXgetcallbackincumbent</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackincumbent</span>/<span class="keyword apiname">CPXgetcallbackincumbent</span></code> retrieves the  incumbent values during MIP optimization from within a user-written  callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackindicatorinfo.html">CPXXgetcallbackindicatorinfo and CPXgetcallbackindicatorinfo</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackindicatorinfo</span>/<span class="keyword apiname">CPXgetcallbackindicatorinfo</span></code> accesses  information about the indicator constraints of the presolved problem  during MIP callbacks.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacklp.html">CPXXgetcallbacklp and CPXgetcallbacklp</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacklp</span>/<span class="keyword apiname">CPXgetcallbacklp</span></code> retrieves the pointer to  the MIP problem that is in use when the user-written callback function is  called.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodeinfo.html">CPXXgetcallbacknodeinfo and CPXgetcallbacknodeinfo</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeinfo</span>/<span class="keyword apiname">CPXgetcallbacknodeinfo</span></code> is called from within  user-written callbacks during a MIP optimization and accesses information  about nodes.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodeintfeas.html">CPXXgetcallbacknodeintfeas and CPXgetcallbacknodeintfeas</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeintfeas</span>/<span class="keyword apiname">CPXgetcallbacknodeintfeas</span></code> retrieves  information for each variable about whether or not the variable is integer  feasible in the subproblem at the current node.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodelb.html">CPXXgetcallbacknodelb and CPXgetcallbacknodelb</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodelb</span>/<span class="keyword apiname">CPXgetcallbacknodelb</span></code> retrieves the lower  bound values for the subproblem at the current node during MIP optimization  from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodelp.html">CPXXgetcallbacknodelp and CPXgetcallbacknodelp</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodelp</span>/<span class="keyword apiname">CPXgetcallbacknodelp</span></code> returns a  pointer to the subproblem at the current node  from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodeobjval.html">CPXXgetcallbacknodeobjval and CPXgetcallbacknodeobjval</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeobjval</span>/<span class="keyword apiname">CPXgetcallbacknodeobjval</span></code> retrieves the  objective value for the subproblem at the current node during MIP  optimization from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodestat.html">CPXXgetcallbacknodestat and CPXgetcallbacknodestat</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodestat</span>/<span class="keyword apiname">CPXgetcallbacknodestat</span></code> retrieves the  optimization status of the subproblem at the current node from within a  user-written callback during MIP optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodeub.html">CPXXgetcallbacknodeub and CPXgetcallbacknodeub</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodeub</span>/<span class="keyword apiname">CPXgetcallbacknodeub</span></code> retrieves the upper  bound values for the subproblem at the current node during MIP optimization  from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacknodex.html">CPXXgetcallbacknodex and CPXgetcallbacknodex</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacknodex</span>/<span class="keyword apiname">CPXgetcallbacknodex</span></code> retrieves the primal  variable (x) values for the subproblem at the current node during MIP  optimization from within a user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackorder.html">CPXXgetcallbackorder and CPXgetcallbackorder</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackorder</span>/<span class="keyword apiname">CPXgetcallbackorder</span></code> retrieves MIP  priority order information during MIP optimization from within a  user-written callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackpseudocosts.html">CPXXgetcallbackpseudocosts and CPXgetcallbackpseudocosts</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackpseudocosts</span>/<span class="keyword apiname">CPXgetcallbackpseudocosts</span></code> retrieves the  pseudo-cost values during MIP optimization from within a user-written  callback.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbackseqinfo.html">CPXXgetcallbackseqinfo and CPXgetcallbackseqinfo</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbackseqinfo</span>/<span class="keyword apiname">CPXgetcallbackseqinfo</span></code> accesses information  about nodes during the MIP optimization from within user-written callbacks.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getcallbacksosinfo.html">CPXXgetcallbacksosinfo and CPXgetcallbacksosinfo</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetcallbacksosinfo</span>/<span class="keyword apiname">CPXgetcallbacksosinfo</span></code> accesses information  about special ordered sets (SOSs) during MIP optimization from within  user-written callbacks.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getdeletenodecallbackfunc.html">CPXXgetdeletenodecallbackfunc and CPXgetdeletenodecallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdeletenodecallbackfunc</span>/<span class="keyword apiname">CPXgetdeletenodecallbackfunc</span></code> accesses the  user-written callback to be called during MIP optimization when a node is to  be deleted.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdnorms.html">CPXXgetdnorms and CPXgetdnorms</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdnorms</span>/<span class="keyword apiname">CPXgetdnorms</span></code> accesses the norms from the dual steepest edge.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getheuristiccallbackfunc.html">CPXXgetheuristiccallbackfunc and CPXgetheuristiccallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetheuristiccallbackfunc</span>/<span class="keyword apiname">CPXgetheuristiccallbackfunc</span></code> accesses the  user-written callback to be called by CPLEX during MIP optimization  after the subproblem has been solved to optimality.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getijdiv.html">CPXXgetijdiv and CPXgetijdiv</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetijdiv</span>/<span class="keyword apiname">CPXgetijdiv</span></code> returns the index of the diverging row (that is, constraint) or column (that is, variable) when one of the CPLEX simplex optimizers terminates due to a diverging vector.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getijrow.html">CPXXgetijrow and CPXgetijrow</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetijrow</span>/<span class="keyword apiname">CPXgetijrow</span></code> returns the index of a specific basic variable as its position in the basis header.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getincumbentcallbackfunc.html">CPXXgetincumbentcallbackfunc and CPXgetincumbentcallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetincumbentcallbackfunc</span>/<span class="keyword apiname">CPXgetincumbentcallbackfunc</span></code> accesses the  user-written callback to be called by CPLEX during MIP optimization after an  integer solution has been found but before this solution replaces the  incumbent.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getlazyconstraintcallbackfunc.html">CPXXgetlazyconstraintcallbackfunc and CPXgetlazyconstraintcallbackfunc</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetlazyconstraintcallbackfunc</span>/<span class="keyword apiname">CPXgetlazyconstraintcallbackfunc</span></code> accesses the  user-written callback for adding lazy constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getnodecallbackfunc.html">CPXXgetnodecallbackfunc and CPXgetnodecallbackfunc</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnodecallbackfunc</span>/<span class="keyword apiname">CPXgetnodecallbackfunc</span></code> accesses the  user-written callback to be called during MIP optimization after CPLEX  has selected a node to explore, but before this exploration is carried out.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getpnorms.html">CPXXgetpnorms and CPXgetpnorms</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetpnorms</span>/<span class="keyword apiname">CPXgetpnorms</span></code> returns the norms from the primal steepest-edge.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getprestat.html">CPXXgetprestat and CPXgetprestat</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetprestat</span>/<span class="keyword apiname">CPXgetprestat</span></code> accesses presolve status information for the columns and rows of the presolved problem in the original problem and of the original problem in the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getprotected.html">CPXXgetprotected and CPXgetprotected</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetprotected</span>/<span class="keyword apiname">CPXgetprotected</span></code> accesses the set of variables that cannot be aggregated out.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getray.html">CPXXgetray and CPXgetray</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetray</span>/<span class="keyword apiname">CPXgetray</span></code> finds an unbounded direction (also known as a ray) for a linear program where the CPLEX simplex optimizer concludes that the LP is unbounded (solution status <code class="ph codeph">CPX_STAT_UNBOUNDED</code>).   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getredlp.html">CPXXgetredlp and CPXgetredlp</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetredlp</span>/<span class="keyword apiname">CPXgetredlp</span></code> returns a pointer for the presolved problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getsolvecallbackfunc.html">CPXXgetsolvecallbackfunc and CPXgetsolvecallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetsolvecallbackfunc</span>/<span class="keyword apiname">CPXgetsolvecallbackfunc</span></code> accesses the  user-written callback to be called during MIP optimization to optimize the  subproblem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/getusercutcallbackfunc.html">CPXXgetusercutcallbackfunc and CPXgetusercutcallbackfunc</a></strong><br />
+              The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetusercutcallbackfunc</span>/<span class="keyword apiname">CPXgetusercutcallbackfunc</span></code> accesses the  user-written callback for adding cuts.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/killdnorms.html">CPXXkilldnorms and CPXkilldnorms</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXkilldnorms</span>/<span class="keyword apiname">CPXkilldnorms</span></code> deletes any dual steepest-edge norms that have been retained relative to an active basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/killpnorms.html">CPXXkillpnorms and CPXkillpnorms</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXkillpnorms</span>/<span class="keyword apiname">CPXkillpnorms</span></code>  deletes any primal steepest-edge norms that have been retained relative to an active basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/mdleave.html">CPXXmdleave and CPXmdleave</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXmdleave</span>/<span class="keyword apiname">CPXmdleave</span></code> assumes that there is a resident optimal simplex basis, and a resident LU-factorization associated with this basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/pivot.html">CPXXpivot and CPXpivot</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivot</span>/<span class="keyword apiname">CPXpivot</span></code> performs a basis change where variable <code class="ph codeph"><span class="keyword parmname">jenter</span></code> replaces variable <code class="ph codeph"><span class="keyword parmname">jleave</span></code> in the basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/pivotin.html">CPXXpivotin and CPXpivotin</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivotin</span>/<span class="keyword apiname">CPXpivotin</span></code> forcibly pivots slacks that appear on a list of inequality rows into the basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/pivotout.html">CPXXpivotout and CPXpivotout</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpivotout</span>/<span class="keyword apiname">CPXpivotout</span></code> pivots a list of fixed variables out of the resident basis.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/preaddrows.html">CPXXpreaddrows and CPXpreaddrows</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXpreaddrows</span>/<span class="keyword apiname">CPXpreaddrows</span></code>  adds rows to an LP problem object and its associated presolved LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/prechgobj.html">CPXXprechgobj and CPXprechgobj</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXprechgobj</span>/<span class="keyword apiname">CPXprechgobj</span></code>  changes the objective function coefficients of an LP problem object and   its associated presolved LP problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/presolve.html">CPXXpresolve and CPXpresolve</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXpresolve</span>/<span class="keyword apiname">CPXpresolve</span></code> performs LP or MIP presolve depending whether a problem object is an LP or a MIP.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/socpapi/qconstrslackfromx.html">CPXXqconstrslackfromx and CPXqconstrslackfromx</a></strong><br />
+            The routine <code class="ph codeph"><span class="keyword apiname">CPXXqconstrslackfromx</span>/<span class="keyword apiname">CPXqconstrslackfromx</span></code> computes an array of slack  values for quadratic constraints from primal solution values.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/qpdjfrompi.html">CPXXqpdjfrompi and CPXqpdjfrompi</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXqpdjfrompi</span>/<span class="keyword apiname">CPXqpdjfrompi</span></code> computes an array of reduced costs from an array of dual values and an array of primal values for a QP.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/qpuncrushpi.html">CPXXqpuncrushpi and CPXqpuncrushpi</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXqpuncrushpi</span>/<span class="keyword apiname">CPXqpuncrushpi</span></code> uncrushes a dual solution for the presolved problem to a dual solution for the original problem if the original problem is a QP.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setbranchcallbackfunc.html">CPXXsetbranchcallbackfunc and CPXsetbranchcallbackfunc</a></strong><br />
+  Sets and modifies the  user-written legacy callback routine to be called   after a branch has been selected  but before the branch is carried out during MIP optimization.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setbranchnosolncallbackfunc.html">CPXXsetbranchnosolncallbackfunc and CPXsetbranchnosolncallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetbranchnosolncallbackfunc</span>/<span class="keyword apiname">CPXsetbranchnosolncallbackfunc</span></code>  sets the callback function that will be called instead of the  branch callback when there is a failure due to such situations as an  iteration limit being reached, unboundedness being detected,  numeric difficulties being encountered, while the node LP is  being solved.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setdeletenodecallbackfunc.html">CPXXsetdeletenodecallbackfunc and CPXsetdeletenodecallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetdeletenodecallbackfunc</span>/<span class="keyword apiname">CPXsetdeletenodecallbackfunc</span></code> sets and modifies  the user-written callback to be called during MIP optimization when a node  is to be deleted.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setheuristiccallbackfunc.html">CPXXsetheuristiccallbackfunc and CPXsetheuristiccallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetheuristiccallbackfunc</span>/<span class="keyword apiname">CPXsetheuristiccallbackfunc</span></code> sets or modifies  the user-written callback to be called by CPLEX during MIP optimization  after the subproblem has been solved to optimality.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setincumbentcallbackfunc.html">CPXXsetincumbentcallbackfunc and CPXsetincumbentcallbackfunc</a></strong><br />
+               The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetincumbentcallbackfunc</span>/<span class="keyword apiname">CPXsetincumbentcallbackfunc</span></code> sets and modifies  the user-written callback routine to be called when an integer solution has  been found but before this solution replaces the incumbent.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setlazyconstraintcallbackfunc.html">CPXXsetlazyconstraintcallbackfunc and CPXsetlazyconstraintcallbackfunc</a></strong><br />
+           The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetlazyconstraintcallbackfunc</span>/<span class="keyword apiname">CPXsetlazyconstraintcallbackfunc</span></code>  sets and modifies the user-written callback for adding lazy constraints.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setnodecallbackfunc.html">CPXXsetnodecallbackfunc and CPXsetnodecallbackfunc</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetnodecallbackfunc</span>/<span class="keyword apiname">CPXsetnodecallbackfunc</span></code> sets and modifies the  user-written callback to be called during MIP optimization after CPLEX  has selected a node to explore, but before this exploration is carried out.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setsolvecallbackfunc.html">CPXXsetsolvecallbackfunc and CPXsetsolvecallbackfunc</a></strong><br />
+    The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetsolvecallbackfunc</span>/<span class="keyword apiname">CPXsetsolvecallbackfunc</span></code> sets and modifies the  user-written callback to be called during MIP optimization to optimize  subproblems (for example, node and heuristic subproblems).   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/mipapi/setusercutcallbackfunc.html">CPXXsetusercutcallbackfunc and CPXsetusercutcallbackfunc</a></strong><br />
+   The routine  <code class="ph codeph"><span class="keyword apiname">CPXXsetusercutcallbackfunc</span>/<span class="keyword apiname">CPXsetusercutcallbackfunc</span></code>  sets and modifies the user-written callback for adding cuts.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/slackfromx.html">CPXXslackfromx and CPXslackfromx</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXslackfromx</span>/<span class="keyword apiname">CPXslackfromx</span></code> computes an array of slack values from primal solution values.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/strongbranch.html">CPXXstrongbranch and CPXstrongbranch</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXstrongbranch</span>/<span class="keyword apiname">CPXstrongbranch</span></code> computes information for selecting a branching variable in an integer-programming branch-and-cut search.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/tightenbds.html">CPXXtightenbds and CPXtightenbds</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXtightenbds</span>/<span class="keyword apiname">CPXtightenbds</span></code> changes the upper or lower bounds on a set of variables in a problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/uncrushform.html">CPXXuncrushform and CPXuncrushform</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXuncrushform</span>/<span class="keyword apiname">CPXuncrushform</span></code> uncrushes a linear formula of the presolved problem to a linear formula of the original problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/uncrushpi.html">CPXXuncrushpi and CPXuncrushpi</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXuncrushpi</span>/<span class="keyword apiname">CPXuncrushpi</span></code> uncrushes a dual solution for the presolved problem to a dual solution for the original problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/uncrushx.html">CPXXuncrushx and CPXuncrushx</a></strong><br />
+   The routine <code class="ph codeph"><span class="keyword apiname">CPXXuncrushx</span>/<span class="keyword apiname">CPXuncrushx</span></code> uncrushes a solution for the presolved problem to the solution for the original problem.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/unscaleprob.html">CPXXunscaleprob and CPXunscaleprob</a></strong><br />
+          The routine <code class="ph codeph"><span class="keyword apiname">CPXXunscaleprob</span>/<span class="keyword apiname">CPXunscaleprob</span></code> removes any scaling that CPLEX has applied to the resident problem and its associated data.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

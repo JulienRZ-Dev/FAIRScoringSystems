@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="tree memory limit" />
+<meta name="abstract" content="Sets an absolute upper limit on the size (in megabytes, uncompressed) of the branch-and-cut tree." />
+<meta name="Description" content="Sets an absolute upper limit on the size (in megabytes, uncompressed) of the branch-and-cut tree." />
+<meta name="DC.subject" content="CPX_PARAM_TRELIM, TreLim, CPXPARAM_MIP_Limits_TreeMemory, mip limits treememory, MIP limit, size of tree, tree, memory limit (MIP), termination criterion, tree size (MIP)" />
+<meta name="keywords" content="CPX_PARAM_TRELIM, TreLim, CPXPARAM_MIP_Limits_TreeMemory, mip limits treememory, MIP limit, size of tree, tree, memory limit (MIP), termination criterion, tree size (MIP)" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196869878905" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>tree memory limit</title>
+</head>
+<body id="languageRefTopic1196869878905"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">tree memory limit</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Sets an absolute upper limit on the size (in megabytes,
+uncompressed) of the branch-and-cut tree.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Tree memory limit</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d142574e73">API</th>
+
+<th class="entry nrule" valign="top" id="d142574e76">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d142574e79">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">CPXPARAM_MIP_Limits_TreeMemory</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">CPX_PARAM_TRELIM</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">IloCplex::Param::MIP::Limits::TreeMemory</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">TreLim (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">IloCplex.Param.MIP.Limits.TreeMemory</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">TreLim (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">Cplex.Param.MIP.Limits.TreeMemory</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">TreLim (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">trelim </td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">trelim</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">parameters.mip.limits.treememory</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">mip.limits.treememory</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">mip limits treememory</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">mip limits treememory</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d142574e73 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d142574e76 ">2027</td>
+
+<td class="entry nrule" valign="top" headers="d142574e79 ">2027</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Sets
+an absolute upper limit on the size (in megabytes, uncompressed) of
+the branch-and-cut tree. If this limit is exceeded, CPLEX terminates
+optimization. </p>
+
+
+<p class="p paragrouptitle">Values</p>
+
+<p class="p">Any nonnegative number; <strong class="ph b">default</strong>: 1e+75.</p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

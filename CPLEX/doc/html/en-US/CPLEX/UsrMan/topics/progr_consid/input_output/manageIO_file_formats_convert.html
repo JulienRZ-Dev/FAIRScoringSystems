@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Legacy file formats" />
+<meta name="abstract" content="Describes programming considerations about legacy file formats." />
+<meta name="Description" content="Describes programming considerations about legacy file formats." />
+<meta name="DC.subject" content="file format, legacy formats, converting, file formats, MPS file format, legacy" />
+<meta name="keywords" content="file format, legacy formats, converting, file formats, MPS file format, legacy" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_file_formats_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_manageIO.1002497" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_file_formats_synopsis.html" />
+<title>Legacy file formats</title>
+</head>
+<body id="User_manual.uss_manageIO.1002497"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Legacy file formats</h1>
+
+
+<div class="body"><p class="shortdesc">Describes programming considerations about legacy 
+file formats.</p>
+
+<p class="p">MPS, Mathematical Programming System, an industry-standard
+format based on ASCII-text has historically been restricted to a fixed
+format in which data fields were limited to eight characters and specific
+fields had to appear in specific columns on specific lines. CPLEX
+supports extensions to MPS that allow more descriptive names (that
+is, more than eight characters), greater accuracy for numeric data,
+and greater flexibility in data positions.</p>
+
+<p class="p">Most MPS files in fixed format conform to the CPLEX extensions
+and thus can be read by the CPLEX MPS reader without error. However,
+the CPLEX MPS reader will not accept the following conventions:</p>
+
+<ul class="ul"><li class="li"><p class="p">blank space within a name;</p>
+
+</li>
+<li class="li"><p class="p">blank lines;</p>
+
+</li>
+<li class="li"><p class="p">missing fields (such as bound names
+and righthand side names);</p>
+</li>
+<li class="li"><p class="p">extraneous, uncommented characters;</p>
+
+</li>
+<li class="li"><p class="p">blanks in lieu of repeated name fields,
+such as bound vector names and righthand side names.</p>
+
+</li>
+</ul>
+
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/progr_consid/input_output/manageIO_file_formats_synopsis.html" title="Explains programming considerations about widely used file formats.">Understanding file formats</a></div>
+</div>
+</nav></div></body>
+</html>

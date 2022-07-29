@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.wst.jsdt.chromium.debug.feature.nls2a" label="%featureName" plugin="org.eclipse.wst.jsdt.chromium.debug" provider-name="%providerName" version="0.6.0.v201711161131">
+
+   <description url="http://code.google.com/p/chromedevtools/wiki/EclipseDebugger">
+      %description
+   </description>
+
+   <copyright>%copyright</copyright>
+
+   <license url="license.html">
+      %license
+   </license>
+
+   
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.chromium.debug.core.nl2a" unpack="false" version="0.5.300.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.chromium.debug.ui.nl2a" unpack="false" version="0.6.200.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.chromium.debug.js.nl2a" unpack="false" version="0.1.200.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.chromium.debug.nl2a" unpack="false" version="0.4.0.v201711161131"></plugin>
+
+   
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.chromium.debug.jsdtbridge.nl2a" unpack="false" version="0.5.200.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.chromium.wip.eclipse.nl2a" unpack="false" version="0.5.200.v201711161131"></plugin>
+
+   
+
+   
+
+</feature>

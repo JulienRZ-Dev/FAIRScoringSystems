@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="ftoi" />
+<meta name="abstract" content="OPL function to convert a float to an integer" />
+<meta name="Description" content="OPL function to convert a float to an integer" />
+<meta name="DC.subject" content="conversion (OPL functions), float to int, integers, represented as floats, ftoi, OPL function" />
+<meta name="keywords" content="conversion (OPL functions), float to int, integers, represented as floats, ftoi, OPL function" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="TZbTYwvd" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>ftoi</title>
+</head>
+<body id="TZbTYwvd"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">ftoi</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">OPL function to convert a float to an integer</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">OPL function
+to convert a float representing an integer to an integer represented
+as an integer.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:100%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d435049e46" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d435049e46" class="stentry">
+<pre class="pre msgblock">int</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+ftoi(float f)
+
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">The
+function <code class="ph codeph">ftoi</code> (float to integer) can be
+used to convert an integer represented as a floating-point value to
+an integer represented as an integer. You can use this function within
+IBM ILOG Script statements by specifying the OPL namespace:</p>
+<pre class="pre codeblock"><code>
+( Opl.xxx() )
+</code></pre><p class="p">In constraint programming models,.<code class="ph codeph">ftoi</code> should be read as <code class="ph codeph">ftoi(round</code>).
+As a consequence, this code:</p>
+<pre class="pre codeblock"><code>using CP;
+dvar int x;
+
+maximize x;
+  subject to 
+{
+  ftoi(x+0.1)==1;
+}</code></pre><p class="p">gives</p>
+<pre class="pre codeblock"><code>x==1</code></pre><p class="p">even though<code class="ph codeph"> ftoi(1.1)</code> does not
+exist.</p>
+</section>
+
+<div class="example"><h2 class="title sectiontitle">Example</h2><p class="p paragrouptitle">Model</p>
+<pre class="pre codeblock"><code>int i = ftoi(round(4.7));
+
+execute
+{
+   writeln("ftoi(round(4.7)) gives ",i);
+}
+</code></pre><p class="p paragrouptitle">Result</p>
+<pre class="pre codeblock"><code>ftoi(round(4.7)) gives 5
+</code></pre><p class="p">Note
+that the declaration:</p>
+<pre class="pre codeblock"><code>
+int i = round(4.7);
+</code></pre><p class="p">produces a semantic error. The result of function <code class="ph codeph">ftoi</code> is undefined when the integer cannot be represented
+exactly in type <code class="ph codeph">int</code>.</p>
+</div>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+</nav></div></body>
+</html>

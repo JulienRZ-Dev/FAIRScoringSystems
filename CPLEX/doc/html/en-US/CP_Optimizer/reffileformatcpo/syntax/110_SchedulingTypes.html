@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Scheduling types" />
+<meta name="abstract" content="Types designed for describing scheduling problems." />
+<meta name="Description" content="Types designed for describing scheduling problems." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Scheduling_types" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<title>Scheduling types</title>
+</head>
+<body id="Scheduling_types"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Scheduling types</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+Types designed for describing scheduling problems.
+</p>
+
+
+<section class="section">
+
+<dl class="dl">
+  
+    <dt class="dt dlterm" id="Scheduling_types__intervalVar"><code class="ph codeph">intervalVar</code></dt>
+
+    <dd class="dd">Interval decision variable,
+see <a class="xref" href="../../../refcppcpoptimizer/html/interval_variables.html">Interval variables in CP Optimizer</a>.
+Note that <code class="ph codeph">intervalVar</code> is the type name but also name of function
+<a class="xref" href="../functions/intervalVar.html" title="Creates a new interval variable."><code class="ph codeph">intervalVar</code></a>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Scheduling_types__sequenceVar"><code class="ph codeph">sequenceVar</code></dt>
+
+    <dd class="dd">Interval sequence decision variable.
+See <a class="xref" href="../../../refcppcpoptimizer/html/interval_sequence.html">Interval variable sequencing in CP Optimizer</a>.
+Sequence variables can be created by function with the same name:
+<a class="xref" href="../functions/sequenceVar.html" title="Creates new sequence variable."><code class="ph codeph">sequenceVar</code></a>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Scheduling_types__stateFunction"><code class="ph codeph">stateFunction</code></dt>
+
+    <dd class="dd">State function,
+see <a class="xref" href="../../../refcppcpoptimizer/html/state_functions.html">State functions in CP Optimizer</a>.
+State functions can be created by function
+<a class="xref" href="../functions/stateFunction.html" title="Creates a new state function."><code class="ph codeph">stateFunction</code></a> and constrained using
+constraints <code class="ph codeph"><a class="xref" href="../functions/alwaysIn.html" title="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval.">alwaysIn</a></code>, <code class="ph codeph"><a class="xref" href="../functions/alwaysConstant.html" title="This constraint ensures a constant state for a state function on an interval.">alwaysConstant</a></code>, <code class="ph codeph"><a class="xref" href="../functions/alwaysNoState.html" title="This constraint ensures that a state function is undefined on an interval.">alwaysNoState</a></code> and <code class="ph codeph"><a class="xref" href="../functions/alwaysEqual.html" title="This constraint fixes a given state for a state function during a variable or fixed interval.">alwaysEqual</a></code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Scheduling_types__cumulAtom"><code class="ph codeph">cumulAtom</code></dt>
+
+    <dd class="dd">This type represents a basic cumul function expression,
+see <a class="xref" href="../../../refcppcpoptimizer/html/cumul_functions.html">Cumul functions in CP Optimizer</a>.
+Cumul atoms can be created by functions <a class="xref" href="../functions/pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>, <a class="xref" href="../functions/stepAtStart.html" title="Returns an elementary cumul function of constant value after the start of an interval.">stepAtStart</a>,
+<a class="xref" href="../functions/stepAtEnd.html" title="Returns an elementary cumul function of constant value after the end of an interval.">stepAtEnd</a> and <a class="xref" href="../functions/stepAt.html" title="Returns an elementary cumul function of constant value after a given point.">stepAt</a>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Scheduling_types__cumulExpr"><code class="ph codeph">cumulExpr</code></dt>
+
+    <dd class="dd">a combination of cumul atoms using operators +, - or function <code class="ph codeph"><a class="xref" href="../functions/sum.html" title="Returns the sum of the input.">sum</a></code>.</dd>
+
+  
+</dl>
+
+
+</section>
+
+
+<section class="section" id="Scheduling_types__Example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>
+<span class="ph commentemph">// Interval variables</span>
+a1 = <a class="xref" href="../functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=2);
+a2 = <a class="xref" href="../functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=4);
+a3 = <a class="xref" href="../functions/intervalVar.html" title="Creates a new interval variable.">intervalVar</a>(size=3);
+<span class="ph commentemph">// Functions below are cumul atoms</span>
+f1 = <a class="xref" href="../functions/pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a1,4);     
+f2 = <a class="xref" href="../functions/stepAtStart.html" title="Returns an elementary cumul function of constant value after the start of an interval.">stepAtStart</a>(a2,1); 
+f3 = <a class="xref" href="../functions/stepAtEnd.html" title="Returns an elementary cumul function of constant value after the end of an interval.">stepAtEnd</a>(a3,1);
+f4 = <a class="xref" href="../functions/stepAt.html" title="Returns an elementary cumul function of constant value after a given point.">stepAt</a>(4,5);
+<span class="ph commentemph">// Functions below are composite cumul function expressions</span>
+f5 = <a class="xref" href="../functions/sum.html" title="Returns the sum of the input.">sum</a>([f1, f3, f4]) - f2;
+f6 = <a class="xref" href="../functions/pulse.html" title="Returns an elementary cumul function of constant value between the start and the end of an interval.">pulse</a>(a1,2) +  <a class="xref" href="../functions/stepAtStart.html" title="Returns an elementary cumul function of constant value after the start of an interval.">stepAtStart</a>(a2,2) - <a class="xref" href="../functions/stepAtEnd.html" title="Returns an elementary cumul function of constant value after the end of an interval.">stepAtEnd</a>(a3,3) + <a class="xref" href="../functions/stepAt.html" title="Returns an elementary cumul function of constant value after a given point.">stepAt</a>(4,5);
+<span class="ph commentemph">// Constraints can be posted on cumul functions expressions</span>
+f1 &lt;= 5;
+f5 &lt;= 5;
+<a class="xref" href="../functions/alwaysIn.html" title="These constraints restrict the possible values of a cumulExpr or stateFunction to a particular range during a variable or fixed interval.">alwaysIn</a>(f6,0,5,0,4);
+</code></pre>
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" title="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them.">CP Optimizer file format syntax</a></div>
+</div>
+</nav></div></body>
+</html>

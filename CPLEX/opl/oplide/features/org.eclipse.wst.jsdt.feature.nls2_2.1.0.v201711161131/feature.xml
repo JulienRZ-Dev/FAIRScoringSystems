@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.wst.jsdt.feature.nls2" label="%featureName" plugin="org.eclipse.wst.jsdt.ui" provider-name="%providerName" version="2.1.0.v201711161131">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>%copyright</copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes id="org.eclipse.wst.jsdt.nodejs.feature.nls2" version="1.1.0.v201711161131"></includes>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.core.nl2" unpack="false" version="2.0.300.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.manipulation.nl2" unpack="false" version="1.0.601.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.ui.nl2" unpack="false" version="2.0.300.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.support.firefox.nl2" unpack="false" version="1.0.501.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.support.ie.nl2" unpack="false" version="1.0.601.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.doc.nl2" unpack="false" version="2.0.200.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.debug.core.nl2" unpack="false" version="3.2.200.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.debug.transport.nl2" unpack="false" version="1.0.300.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.debug.crossfire.nl2" unpack="false" version="1.0.500.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.debug.rhino.nl2" unpack="false" version="1.0.500.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.debug.rhino.debugger.nl2" unpack="false" version="1.0.600.v201711161131"></plugin>
+
+   <plugin fragment="true" id="org.eclipse.wst.jsdt.debug.ui.nl2" unpack="false" version="1.0.600.v201711161131"></plugin>
+
+   
+
+   
+
+   
+
+</feature>

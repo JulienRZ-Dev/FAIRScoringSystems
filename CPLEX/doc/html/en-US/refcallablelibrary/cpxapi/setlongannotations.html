@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXsetlongannotations and CPXsetlongannotations" />
+<meta name="abstract" content="The routine CPXXsetlongannotations/CPXsetlongannotations sets the annotation values for a set of modeling objects in the CPLEX problem object." />
+<meta name="Description" content="The routine CPXXsetlongannotations/CPXsetlongannotations sets the annotation values for a set of modeling objects in the CPLEX problem object." />
+<meta name="DC.subject" content="CPXsetlongannotations, C API Reference Manual, CPXXsetlongannotations" />
+<meta name="keywords" content="CPXsetlongannotations, C API Reference Manual, CPXXsetlongannotations" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageannotations.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="setlongannotations" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetS.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageannotations.html" />
+<title>CPXXsetlongannotations and CPXsetlongannotations</title>
+</head>
+<body id="setlongannotations"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXsetlongannotations</span> and
+     <span class="keyword apiname">CPXsetlongannotations</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+The routine
+<code class="ph codeph"><span class="keyword apiname">CPXXsetlongannotations</span>/<span class="keyword apiname">CPXsetlongannotations</span></code>
+sets the annotation values for a set of modeling objects in the CPLEX problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXsetlongannotations</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">idx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">objtype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLONG const *</span><span class="ph sep"> </span><span class="ph var">values</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXsetlongannotations</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">idx</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">objtype</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">cnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">indices</span><span class="ph delim">,</span>
+          <span class="keyword kwd">long const *</span><span class="ph sep"> </span><span class="ph var">values</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine
+   <code class="ph codeph"><span class="keyword apiname">CPXXsetlongannotations</span>/<span class="keyword apiname">CPXsetlongannotations</span></code>
+sets the annotation values for a set of modeling objects in the CPLEX problem object.</p>
+
+<p class="p">For an example of this routine in use, see <code class="ph codeph">benders.c</code> 
+distributed with the product.</p>
+
+<p class="p">For more routines supporting annotations, see
+<a class="xref" href="../groups/homepageannotations.html">Annotating Models in the CPLEX Callable Library (C API)</a>
+in the reference manual of the CPLEX Callable Library (C API).
+</p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">idx</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the index of the annotation for which to
+          assign values. To access this integer, call 
+          <a class="xref" href="getlongannotationindex.html" title="The routine CPXXgetlongannotationindex/CPXgetlongannotationindex retreives the index of the long valued annotation with the given name.">CPXXgetlongannotationindex or CPXgetlongannotationindex</a>
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">objtype</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the type of the modeling objects listed by
+          the integers provided in the argument <span class="keyword parmname">indices</span>. 
+          The table documents the types of modeling objects currently supported in CPLEX. 
+          Variables (that is, columns) are the only type of annotated modeling object 
+          pertinent to a Benders decomposition.
+          
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table; the first column lists the symbolic names of types of objects that can be annotated; the second column documents the integer identifier associated with that type of object; the third column of the table clarifies the symbolic name." class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Symbolic names and identifiers for annotation object types</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+        <tr class="row">
+          <th class="entry" valign="top" id="d787005e335">Symbol</th>
+
+          <th class="entry" valign="top" id="d787005e338">Value</th>
+ 
+          <th class="entry" valign="top" id="d787005e341">Meaning</th>
+
+        </tr>
+
+     </thead>
+<tbody class="tbody">
+        <tr class="row">
+          <td class="entry" valign="top" headers="d787005e335 ">CPX_ANNOTATIONOBJ_OBJ</td>
+
+          <td class="entry" valign="top" headers="d787005e338 ">0</td>
+ 
+          <td class="entry" valign="top" headers="d787005e341 ">objective</td>
+
+        </tr>
+ 
+        <tr class="row">
+          <td class="entry" valign="top" headers="d787005e335 ">CPX_ANNOTATIONOBJ_COL</td>
+
+          <td class="entry" valign="top" headers="d787005e338 ">1</td>
+ 
+          <td class="entry" valign="top" headers="d787005e341 ">column or variable</td>
+
+        </tr>
+ 
+        <tr class="row">
+          <td class="entry" valign="top" headers="d787005e335 ">CPX_ANNOTATIONOBJ_ROW</td>
+
+          <td class="entry" valign="top" headers="d787005e338 ">2</td>
+ 
+          <td class="entry" valign="top" headers="d787005e341 ">row or constraint</td>
+
+        </tr>
+ 
+        <tr class="row">
+          <td class="entry" valign="top" headers="d787005e335 ">CPX_ANNOTATIONOBJ_SOS</td>
+
+          <td class="entry" valign="top" headers="d787005e338 ">3</td>
+ 
+          <td class="entry" valign="top" headers="d787005e341 ">special ordered set (SOS)</td>
+
+        </tr>
+ 
+        <tr class="row">
+          <td class="entry" valign="top" headers="d787005e335 ">CPX_ANNOTATIONOBJ_IND</td>
+
+          <td class="entry" valign="top" headers="d787005e338 ">4</td>
+ 
+          <td class="entry" valign="top" headers="d787005e341 ">indicator constraint</td>
+ 
+        </tr>
+ 
+        <tr class="row">
+          <td class="entry" valign="top" headers="d787005e335 ">CPX_ANNOTATIONOBJ_QC</td>
+
+          <td class="entry" valign="top" headers="d787005e338 ">5</td>
+ 
+          <td class="entry" valign="top" headers="d787005e341 ">quadratic constraint</td>
+
+        </tr>
+
+
+ </tbody>
+</table>
+</div>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer that specifies the total number of annotations to set.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indices</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing
+          the numeric indices of the modeling primitives of the given type for
+          which to set the annotation values.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">values</dt>
+
+        <dd class="dd pd">
+          
+          An array of length <code class="ph codeph"><span class="keyword parmname">cnt</span></code> containing
+          the new annotation values for the modeling primitives of the given
+          <code class="ph codeph"><span class="keyword parmname">objtype</span></code> in <code class="ph codeph"><span class="keyword parmname">indices</span></code>.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+<pre class="pre codeblock"><code>
+status = CPXsetlongannotations (env, lp, anno_idx, CPX_ANNOTATIONOBJ_COL, cnt, indices, values);</code></pre>
+
+
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetS.html">S</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageannotations.html">Annotating Models in the CPLEX Callable Library (C API)</a></div>
+</div>
+</nav></div></body>
+</html>

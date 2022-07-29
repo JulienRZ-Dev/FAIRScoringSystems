@@ -1,0 +1,13 @@
+dataset : data/synthetic.csv
+labels_name : ['L1', 'L2', 'L3']
+s : 3.0
+eod : 0.01
+a : 1.0
+sensitive_groups : ['A1']
+sensitive_labels : ['L1']
+time_limit : 3600
+lambda_bound : 9
+n_folds : 5
+nb_samples : 642
+nb_features : 7
+nb_labels : 3

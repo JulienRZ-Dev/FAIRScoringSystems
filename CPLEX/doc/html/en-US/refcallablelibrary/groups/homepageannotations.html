@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Annotating Models in the CPLEX Callable Library (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagegroups.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_BENDERS_ANNOTATION.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_BENDERS_MASTERVALUE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newdblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newlongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopyannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writeannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writebendersannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepagebenders.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_BENDERS_ANNOTATION.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_BENDERS_MASTERVALUE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newdblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newlongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopyannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writeannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writebendersannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newdblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newlongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopyannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writeannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writebendersannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/homepagemipapi.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_BENDERS_ANNOTATION.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/CPX_BENDERS_MASTERVALUE.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/deldblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/dellongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationdefval.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationindex.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotationname.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/getnumlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newdblannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/newlongannotation.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/readcopyannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setdblannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/setlongannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writeannotations.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/writebendersannotation.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="homepageannotations" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagegroups.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepagebenders.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/homepagemipapi.html" />
+<title>Annotating Models in the CPLEX Callable Library (C API)</title>
+</head>
+<body id="homepageannotations"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Annotating Models in the CPLEX Callable Library (C API) </h1>
+
+<div class="body">
+<p class="p">
+These routines and macros are available in 
+the CPLEX Callable Library (C API) for you 
+to annotate your model. An annotation associates an ordered pair of key 
+and value with an object in your model. You can use these annotations, for 
+example, to specify blocks in a Benders decomposition of your model.
+</p>
+
+<p class="p">Multiobjective optimization and model annotation are currently not compatible. When the objective
+is annotated in an annotation file or via the annotation API, using
+<code class="ph codeph">CPX_ANNOTATIONOBJ_OBJ</code> as the type of the object to be annotated, then the primary
+objective is annotated. At that moment there is then no way to annotate the other objectives. </p>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_BENDERS_ANNOTATION.html">CPX_BENDERS_ANNOTATION</a></strong><br />
+The name of the Benders annotation</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/macros/CPX_BENDERS_MASTERVALUE.html">CPX_BENDERS_MASTERVALUE</a></strong><br />
+Default value for the Benders master partition</li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/deldblannotation.html">CPXXdeldblannotation and CPXdeldblannotation</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdeldblannotation</span>/<span class="keyword apiname">CPXdeldblannotation</span></code> deletes a double valued annotation.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/deldblannotations.html">CPXXdeldblannotations and CPXdeldblannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdeldblannotations</span>/<span class="keyword apiname">CPXdeldblannotations</span></code> deletes a range of double valued annotations.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/dellongannotation.html">CPXXdellongannotation and CPXdellongannotation</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdellongannotation</span>/<span class="keyword apiname">CPXdellongannotation</span></code> deletes a long valued annotation.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/dellongannotations.html">CPXXdellongannotations and CPXdellongannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXdellongannotations</span>/<span class="keyword apiname">CPXdellongannotations</span></code> deletes a range of long valued annotations.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdblannotationdefval.html">CPXXgetdblannotationdefval and CPXgetdblannotationdefval</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdblannotationdefval</span>/<span class="keyword apiname">CPXgetdblannotationdefval</span></code> accesses the default value of an annotation of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdblannotationindex.html">CPXXgetdblannotationindex and CPXgetdblannotationindex</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdblannotationindex</span>/<span class="keyword apiname">CPXgetdblannotationindex</span></code> retreives the index of the double valued annotation with the given name.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdblannotationname.html">CPXXgetdblannotationname and CPXgetdblannotationname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdblannotationname</span>/<span class="keyword apiname">CPXgetdblannotationname</span></code> accesses the name of the double valued annotation with the specified index in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getdblannotations.html">CPXXgetdblannotations and CPXgetdblannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetdblannotations</span>/<span class="keyword apiname">CPXgetdblannotations</span></code> accesses the annotation values range of modeling objects in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getlongannotationdefval.html">CPXXgetlongannotationdefval and CPXgetlongannotationdefval</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotationdefval</span>/<span class="keyword apiname">CPXgetlongannotationdefval</span></code> accesses the default value of an annotation of a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getlongannotationindex.html">CPXXgetlongannotationindex and CPXgetlongannotationindex</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotationindex</span>/<span class="keyword apiname">CPXgetlongannotationindex</span></code> retreives the index of the long valued annotation with the given name.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getlongannotationname.html">CPXXgetlongannotationname and CPXgetlongannotationname</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotationname</span>/<span class="keyword apiname">CPXgetlongannotationname</span></code> accesses the name of the long valued annotation with the specified index in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getlongannotations.html">CPXXgetlongannotations and CPXgetlongannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetlongannotations</span>/<span class="keyword apiname">CPXgetlongannotations</span></code> accesses the annotation values of a  range of modeling objects in a CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumdblannotations.html">CPXXgetnumdblannotations and CPXgetnumdblannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumdblannotations</span>/<span class="keyword apiname">CPXgetnumdblannotations</span></code> accesses the number of double values annotations in the problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/getnumlongannotations.html">CPXXgetnumlongannotations and CPXgetnumlongannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXgetnumlongannotations</span>/<span class="keyword apiname">CPXgetnumlongannotations</span></code> accesses the number of long values annotations in the problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/newdblannotation.html">CPXXnewdblannotation and CPXnewdblannotation</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewdblannotation</span>/<span class="keyword apiname">CPXnewdblannotation</span></code> creates a new annotation with the specified name for annotating modeling objects with data of type double.  By default all modeling objects are annotated with defval.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/newlongannotation.html">CPXXnewlongannotation and CPXnewlongannotation</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXnewlongannotation</span>/<span class="keyword apiname">CPXnewlongannotation</span></code> creates a new annotation with the specified name for annotating modeling objects with data of type long.  By default all modeling objects are annotated with defval.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/readcopyannotations.html">CPXXreadcopyannotations and CPXreadcopyannotations</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXreadcopyannotations</span>/<span class="keyword apiname">CPXreadcopyannotations</span></code> reads a file  in the <code class="ph codeph">ANN</code> file format and copies the information of  all the annotations contained in that file into a CPLEX problem object.  Any previously existing annotations in the problem object will first be deleted.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setdblannotations.html">CPXXsetdblannotations and CPXsetdblannotations</a></strong><br />
+         The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetdblannotations</span>/<span class="keyword apiname">CPXsetdblannotations</span></code> sets the annotation values for a set of modeling objects in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/setlongannotations.html">CPXXsetlongannotations and CPXsetlongannotations</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXsetlongannotations</span>/<span class="keyword apiname">CPXsetlongannotations</span></code> sets the annotation values for a set of modeling objects in the CPLEX problem object.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/writeannotations.html">CPXXwriteannotations and CPXwriteannotations</a></strong><br />
+  The routine <code class="ph codeph"><span class="keyword apiname">CPXXwriteannotations</span>/<span class="keyword apiname">CPXwriteannotations</span></code>  writes the information of all the annotations contained the CPLEX problem object  to the specified file.   </li>
+<li class="link ulchildlink"><strong><a href="../../refcallablelibrary/cpxapi/writebendersannotation.html">CPXXwritebendersannotation and CPXwritebendersannotation</a></strong><br />
+  Writes the annotation of the decomposition that CPLEX  automatically generated for the  model of the CPLEX problem object to the specified file.   </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagegroups.html">Browsing by tasks in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepagebenders.html">Benders Algorithm and Decompositions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/homepagecpxapi.html">Simplex Optimizers in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/homepagemipapi.html">Discrete Optimization in the CPLEX Callable Library (C API) Reference Manual</a></div>
+</div>
+</nav></div></body>
+</html>

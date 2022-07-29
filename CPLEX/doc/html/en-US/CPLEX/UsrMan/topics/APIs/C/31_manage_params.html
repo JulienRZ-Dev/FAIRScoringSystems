@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Managing parameters from the Callable Library" />
+<meta name="abstract" content="Introduces routines to manage parameters of CPLEX from the C API." />
+<meta name="Description" content="Introduces routines to manage parameters of CPLEX from the C API." />
+<meta name="DC.subject" content="Callable Library, parameters, parameter, Callable Library and, CPXinfointparam routine, accessing, default value (C API), default parameter value (C API), maximum value (C API), maximum parameter value (C API), minimum value (C API), minimum parameter value (C API), CPXinfodblparam routine, CPXinfostrparam routine, return value, routines to access parameters (C API), CPX_PARAM_CLOCKTYPE, example of parameter checking, symbolic constants as (C API), symbolic constants (C API), cplex.h header file, C API, current value (C API), current parameter value (C API), CPXgetintparam routine, CPXgetdblparam routine, types of, C API, CPXgetstrparam routine, setting, parameters (C API), C API, CPXsetintparam routine, arguments of, CPXopenCPLEX routine, parameters and, CPXsetdblparam routine, CPXsetstrparam routine, CPXsetdefaults routine, all defaults (C API), all default parameters (C API), callbacks to null (C API), callback, resetting to null (C API)" />
+<meta name="keywords" content="Callable Library, parameters, parameter, Callable Library and, CPXinfointparam routine, accessing, default value (C API), default parameter value (C API), maximum value (C API), maximum parameter value (C API), minimum value (C API), minimum parameter value (C API), CPXinfodblparam routine, CPXinfostrparam routine, return value, routines to access parameters (C API), CPX_PARAM_CLOCKTYPE, example of parameter checking, symbolic constants as (C API), symbolic constants (C API), cplex.h header file, C API, current value (C API), current parameter value (C API), CPXgetintparam routine, CPXgetdblparam routine, types of, C API, CPXgetstrparam routine, setting, parameters (C API), C API, CPXsetintparam routine, arguments of, CPXopenCPLEX routine, parameters and, CPXsetdblparam routine, CPXsetstrparam routine, CPXsetdefaults routine, all defaults (C API), all default parameters (C API), callbacks to null (C API), callback, resetting to null (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/APIs/C/01_cAPI_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_callableLibrary.649786" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/APIs/C/01_cAPI_title_synopsis.html" />
+<title>Managing parameters from the Callable Library</title>
+</head>
+<body id="User_manual.uss_callableLibrary.649786"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Managing parameters from the Callable Library</h1>
+
+
+
+<div class="body"><p class="shortdesc">Introduces routines to manage parameters of CPLEX from
+the C API.</p>
+
+<p class="p">Some CPLEX parameters assume values of type <code class="ph codeph">double</code>;
+others assume values of type <code class="ph codeph">int</code>; others are strings
+(that is, C-type <code class="ph codeph">char*</code>). Consequently, in the Callable
+Library, there are sets of routines (one for <code class="ph codeph">int</code>,
+one for <code class="ph codeph">double</code>, one for <code class="ph codeph">char*</code>) to
+access and to change parameters that control the CPLEX environment
+and guide optimization.</p>
+
+<p class="p">For example, the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/infointparam.html" title="The routine CPXXinfointparam/CPXinfointparam obtains the default, minimum, and maximum values of a CPLEX parameter of type CPXINT.">CPXinfointparam</a></code> shows
+you the default, the maximum, and the minimum values of a given parameter
+of type <code class="ph codeph">int</code> , whereas the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/infodblparam.html" title="The routine CPXXinfodblparam/CPXinfodblparam obtains the default, minimum, and maximum values of a CPLEX parameter of type double.">CPXinfodblparam</a></code> shows
+you the default, the maximum, and the minimum values of a given parameter
+of type <code class="ph codeph">double</code> , and the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/infostrparam.html" title="The routine CPXXinfostrparam/CPXinfostrparam obtains the default value of a CPLEX string parameter.">CPXinfostrparam</a></code> shows
+you the default value of a given string parameter. Those three Callable
+Library routines observe the same conventions: they return <code class="ph codeph">0</code> (zero)
+from a successful call and a nonzero value in case of error. </p>
+
+<p class="p">The routines <code class="ph codeph">CPXinfointparam</code>  and <code class="ph codeph">CPXinfodblparam</code> 
+expect five arguments:</p>
+
+<ul class="ul">
+<li class="li"><p class="p">a pointer to the environment; that is, a pointer of type <code class="ph codeph">CPXENVptr</code> returned
+by <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code>;</p>
+ </li>
+
+<li class="li"><p class="p">an indication of the parameter to check; this argument may
+be a symbolic constant, such as the <a class="xref" href="../../../../Parameters/topics/ClockType.html" title="Decides how computation times are measured for both reporting performance and terminating optimization when a time limit has been set.">clock type for computation time</a> parameter <code class="ph codeph">CPX_PARAM_CLOCKTYPE</code>,
+or a reference number, such as <code class="ph codeph">1006</code>; the symbolic
+constants and reference numbers of all CPLEX parameters are documented
+in the <em class="ph i">Parameters Reference Manual</em> and they are defined in
+the include file <code class="ph codeph">cplex.h</code> .</p>
+ </li>
+
+<li class="li"><p class="p">a pointer to a variable to hold the default value of the parameter;</p>
+</li>
+
+<li class="li"><p class="p">a pointer to a variable to hold the minimum value of the parameter;</p>
+</li>
+
+<li class="li"><p class="p">a pointer to a variable to hold the maximum value of the parameter.</p>
+</li>
+
+</ul>
+
+<p class="p">The routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/infostrparam.html" title="The routine CPXXinfostrparam/CPXinfostrparam obtains the default value of a CPLEX string parameter.">CPXinfostrparam</a></code> differs
+slightly in that it does not expect pointers to variables to hold
+the minimum and maximum values as those concepts do not apply to a
+string parameter.</p>
+
+<p class="p">To access the current value of a parameter that interests you from
+the Callable Library, use the routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/getintparam.html" title="The routine CPXXgetintparam/CPXgetintparam obtains the current value of a CPLEX parameter of type CPXINT.">CPXgetintparam</a></code> for
+parameters of type <code class="ph codeph">int</code> , <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/getdblparam.html" title="The routine CPXXgetdblparam/CPXgetdblparam obtains the current value of a CPLEX parameter of type double.">CPXgetdblparam</a></code> for
+parameters of type <code class="ph codeph">double</code> , and <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/getstrparam.html" title="The routine CPXXgetstrparam/CPXgetstrparam obtains the current value of a CPLEX string parameter.">CPXgetstrparam</a></code> for
+string parameters. These routines also expect arguments to indicate
+the environment, the parameter you want to check, and a pointer to
+a variable to hold that current value.</p>
+
+<p class="p">No doubt you have noticed in other chapters of this manual that
+you can set parameters from the Callable Library. There are, of course,
+routines in the Callable Library to set such parameters: one sets
+parameters of type <code class="ph codeph">int</code> ; another sets parameters
+of type <code class="ph codeph">double</code> ; another sets string parameters.</p>
+
+<ul class="ul">
+<li class="li"><p class="p"> <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/setintparam.html" title="The routine CPXXsetintparam/CPXsetintparam sets the value of a CPLEX parameter of type CPXINT.">CPXsetintparam</a></code> accepts
+arguments to indicate:</p>
+ <ul class="ul">
+<li class="li"><p class="p">the environment; that is, a pointer of type <code class="ph codeph">CPXENVptr </code> returned
+by <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code>;</p>
+ </li>
+
+<li class="li"><p class="p">the parameter to set; this routine sets parameters of type <code class="ph codeph">int</code> ;</p>
+ </li>
+
+<li class="li"><p class="p">the value you want the parameter to assume.</p>
+</li>
+
+</ul>
+ </li>
+
+<li class="li"><p class="p"> <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/setdblparam.html" title="The routine CPXXsetdblparam/CPXsetdblparam sets the value of a CPLEX parameter of type double.">CPXsetdblparam</a></code> accepts
+arguments to indicate:</p>
+ <ul class="ul">
+<li class="li"><p class="p">the environment; that is, a pointer of type <code class="ph codeph">CPXENVptr</code> returned
+by <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code>;</p>
+ </li>
+
+<li class="li"><p class="p">the parameter to set; this routine sets parameters of type <code class="ph codeph">double</code> ;</p>
+ </li>
+
+<li class="li"><p class="p">the value you want the parameter to assume.</p>
+</li>
+
+</ul>
+ </li>
+
+<li class="li"><p class="p"> <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/setstrparam.html" title="The routine CPXXsetstrparam/CPXsetstrparam sets the value of a CPLEX string parameter.">CPXsetstrparam</a></code> accepts
+arguments to indicate:</p>
+ <ul class="ul">
+<li class="li"><p class="p">the environment; that is, a pointer of type <code class="ph codeph">CPXENVptr</code> returned
+by <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/openCPLEX.html" title="The routine CPXXopenCPLEX/CPXopenCPLEX initializes a CPLEX environment.">CPXopenCPLEX</a></code>;</p>
+ </li>
+
+<li class="li"><p class="p">the parameter to set; this routine sets parameters of type
+const <code class="ph codeph">char*</code> ;</p>
+ </li>
+
+<li class="li"><p class="p">the value you want the parameter to assume.</p>
+</li>
+
+</ul>
+ </li>
+
+</ul>
+
+<p class="p">The <em class="ph i">Parameters Reference Manual</em> documents the type of each
+parameter (<code class="ph codeph">int</code>, <code class="ph codeph">double</code>, <code class="ph codeph">char*</code>)
+along with the symbolic constant and reference number representing
+the parameter.</p>
+
+<p class="p">The routine <code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/setdefaults.html" title="The routine CPXXsetdefaults/CPXsetdefaults resets all CPLEX parameters and settings to default values (with the exception of the log file).">CPXsetdefaults</a></code> resets
+all parameters (except the log file) to their default values, including
+the CPLEX callback functions. This routine resets the callback functions
+to <code class="ph codeph">NULL</code>. Like other Callable Library routines to
+manage parameters, this one accepts an argument specifying the environment,
+and it returns <code class="ph codeph">0</code> for success or a nonzero value in
+case of error.</p>
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/APIs/C/01_cAPI_title_synopsis.html" title="Shows how to write C applications using the Callable Library.">Callable Library</a></div>
+</div>
+</nav></div></body>
+</html>

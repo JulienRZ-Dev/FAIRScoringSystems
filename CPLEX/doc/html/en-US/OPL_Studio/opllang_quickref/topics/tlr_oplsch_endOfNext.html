@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="endOfNext" />
+<meta name="abstract" content="An OPL function (scheduling) that returns the end of the next interval in a given sequence." />
+<meta name="Description" content="An OPL function (scheduling) that returns the end of the next interval in a given sequence." />
+<meta name="DC.subject" content="endOfNext, OPL scheduling function, transition based scheduling, endOfNext, scheduling" />
+<meta name="keywords" content="endOfNext, OPL scheduling function, transition based scheduling, endOfNext, scheduling" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mPpWTQCK" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" />
+<title>endOfNext</title>
+</head>
+<body id="mPpWTQCK"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">endOfNext</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">An OPL function (scheduling) that returns the
+end of the next interval in a given sequence.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">An OPL
+function (scheduling) that returns the end of the next interval in
+a given sequence.</p>
+</section>
+
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><col style="width:50%" /><col style="width:50%" /><thead><tr class="sthead">
+<th style="vertical-align:bottom;text-align:left;" id="d443774e46" class="stentry">context</th>
+
+<th style="vertical-align:bottom;text-align:left;" id="d443774e49" class="stentry">type</th>
+
+</tr>
+</thead><tbody><tr class="strow">
+<td style="vertical-align:top;" headers="d443774e46" class="stentry">Model files (.mod)</td>
+
+<td style="vertical-align:top;" headers="d443774e49" class="stentry">
+<pre class="pre msgblock">dexpr int</pre>
+
+</td>
+
+</tr>
+</tbody></table>
+
+<section class="section refsyn"><h2 class="title sectiontitle">Syntax</h2><pre class="pre msgblock">
+dexpr int e = endOfNext (p, a ,nVal [,absVal]);
+
+where:
+int nVal;
+int absVal;
+</pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">This
+function returns an integer expression that represents the end of
+the interval variable that is next to interval <code class="ph codeph">a</code> in
+sequence variable <code class="ph codeph">p</code>. When interval <code class="ph codeph">a</code> is present and is the last interval of sequence <code class="ph codeph">p</code>, the function returns the constant integer value <code class="ph codeph">nVal</code>. When interval <code class="ph codeph">a</code> is
+absent, the function returns the constant integer value <code class="ph codeph">absVal</code>.
+If the value <code class="ph codeph">absVal</code> is omitted, it is considered
+to be 0.</p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllang_quickref/topics/opl_functions_top.html" title="Description, syntax, and example for each individual OPL function.">OPL functions</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Benders worker algorithm" />
+<meta name="abstract" content="This parameter specifies which algorithm CPLEX should apply to solve subproblems of a Benders decomposition." />
+<meta name="Description" content="This parameter specifies which algorithm CPLEX should apply to solve subproblems of a Benders decomposition." />
+<meta name="DC.subject" content="decomposition, Benders, Benders decomposition, subproblems, Benders algorithm, Benders worker, WorkerAlgorithm, CPXPARAM_Benders_WorkerAlgorithm, algorithm" />
+<meta name="keywords" content="decomposition, Benders, Benders decomposition, subproblems, Benders algorithm, Benders worker, WorkerAlgorithm, CPXPARAM_Benders_WorkerAlgorithm, algorithm" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="BendersWorkerAlgorithm" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>Benders worker algorithm</title>
+</head>
+<body id="BendersWorkerAlgorithm"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Benders worker algorithm</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">This parameter specifies which algorithm CPLEX should apply 
+to solve subproblems of a Benders decomposition. 
+</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2> 
+ 
+<p class="p">Chooses algorithm to solve subproblems of a model decomposed according to Benders algorithm</p>
+ 
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d146161e74">API</th>
+
+<th class="entry nrule" valign="top" id="d146161e77">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">CPXPARAM_Benders_WorkerAlgorithm </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">IloCplex::Param::Benders::WorkerAlgorithm </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">IloCplex.Param.Benders.WorkerAlgorithm </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">Cplex.Param.Benders.WorkerAlgorithm </td>
+
+</tr>
+ 
+<tr class="row"> 
+<td class="entry nrule" valign="top" headers="d146161e74 ">OPL</td>
+ 
+<td class="entry nrule" valign="top" headers="d146161e77 ">workeralg </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">parameters.benders.workeralgorithm </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">benders workeralgorithm <em class="ph i">value</em></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d146161e74 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d146161e77 ">1500 </td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p"> 
+Given a formulation of a problem, CPLEX can decompose the model into a single master and 
+possibly multiple subproblems (the worker or workers). This parameter designates the algorithm 
+that CPLEX applies to solve the workers.
+</p>
+
+<p class="p">
+For more about Benders decomposition, see  
+<a class="xref" href="BendersStrategy.html" title="This parameter specifies whether CPLEX should apply Benders algorithm as a strategy to solve a model.">Benders strategy</a> 
+in the <em class="ph i">CPLEX Parameters Reference Manual</em> and also 
+<a class="xref" href="../../UsrMan/topics/discr_optim/benders/introBenders.html" title="CPLEX implements Benders algorithm.">Benders algorithm</a>
+in the <em class="ph i">CPLEX User's Manual</em>.
+</p>
+ 
+<div class="p">For more about each possible algorithm, see these topics in the <em class="ph i">CPLEX User's Manual</em>:
+<ul class="ul"> 
+<li class="li"><a class="xref" href="../../UsrMan/topics/cont_optim/simplex/07_simplex_primal.html" title="Describes conditions favoring the primal simplex optimizer.">Primal simplex optimizer</a></li>
+
+<li class="li"><a class="xref" href="../../UsrMan/topics/cont_optim/simplex/06_simplex_dual.html" title="Describes conditions favoring the dual simplex optimizer.">Dual simplex optimizer</a></li>
+
+<li class="li"><a class="xref" href="../../UsrMan/topics/cont_optim/network/01_title_synopsis.html" title="Documents the CPLEX network optimizer.">Solving network-flow problems</a></li>
+
+<li class="li"><a class="xref" href="../../UsrMan/topics/cont_optim/barrier/01_barrier_title_synopsis.html" title="Documents solving linear programming problems by means of the CPLEX barrier optimizer.">Solving LPs: barrier optimizer</a></li>
+
+<li class="li"><a class="xref" href="../../UsrMan/topics/cont_optim/simplex/10_sifting.html" title="Describes conditions favoring the sifting optimizer.">Sifting optimizer</a></li>
+
+</ul>
+
+</div>
+
+</section>
+ 
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values, their name, and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d146161e266">Value</th>
+ 
+<th class="entry thleft" align="left" valign="top" id="d146161e269">Name</th>
+
+<th class="entry thleft" align="left" valign="top" id="d146161e272">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d146161e266 ">0</td>
+
+<td class="entry" valign="top" headers="d146161e269 ">automatic</td>
+
+<td class="entry" valign="top" headers="d146161e272 "><strong class="ph b">default</strong> Let CPLEX decide. 
+</td>
+
+</tr>
+ 
+
+<tr class="row" style="vertical-align:top;"> 
+<td class="entry" valign="top" headers="d146161e266 ">1</td>
+ 
+<td class="entry" valign="top" headers="d146161e269 ">primal</td>
+
+<td class="entry" valign="top" headers="d146161e272 ">CPLEX applies the primal simplex algorithm to workers. 
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d146161e266 ">2</td>
+ 
+<td class="entry" valign="top" headers="d146161e269 ">dual</td>
+ 
+<td class="entry" valign="top" headers="d146161e272 ">CPLEX applies the dual simplex algorithm to workers. 
+</td>
+
+</tr>
+ 
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d146161e266 ">3</td>
+ 
+<td class="entry" valign="top" headers="d146161e269 ">network</td>
+
+<td class="entry" valign="top" headers="d146161e272 ">CPLEX applies the network simplex algorithm to workers.
+</td>
+
+</tr>
+ 
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d146161e266 ">4</td>
+ 
+<td class="entry" valign="top" headers="d146161e269 ">barrier</td>
+
+<td class="entry" valign="top" headers="d146161e272 ">CPLEX applies the barrier algorithm to workers.
+</td>
+
+</tr>
+ 
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d146161e266 ">5</td>
+ 
+<td class="entry" valign="top" headers="d146161e269 ">sifting</td>
+
+<td class="entry" valign="top" headers="d146161e272 ">CPLEX applies the sifting algorithm to workers.
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+ 
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

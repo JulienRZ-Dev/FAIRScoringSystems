@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config date="1606839336261" transient="false">
+	<site updateable="true" url="platform:/base/" enabled="true" policy="USER-EXCLUDE">
+		<feature id="org.eclipse.equinox.p2.core.feature.nls2a" version="1.4.1.v201711161131" url="features/org.eclipse.equinox.p2.core.feature.nls2a_1.4.1.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.help.nls1" version="2.2.102.v201711161131" url="features/org.eclipse.help.nls1_2.2.102.v201711161131/" plugin-identifier="org.eclipse.help.base">
+		</feature>
+		<feature id="org.eclipse.e4.rcp.R473patch" version="1.0.3" url="features/org.eclipse.e4.rcp.R473patch_1.0.3/">
+		</feature>
+		<feature id="org.eclipse.help.nls2" version="2.2.102.v201711161131" url="features/org.eclipse.help.nls2_2.2.102.v201711161131/" plugin-identifier="org.eclipse.help.base">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature.nls2" version="1.3.1.v201711161131" url="features/org.eclipse.equinox.p2.extras.feature.nls2_1.3.1.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.rcp.feature" version="20.1.0.202012011542" url="features/ilog.odms.ide.rcp.feature_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature.nls1" version="1.3.1.v201711161131" url="features/org.eclipse.equinox.p2.extras.feature.nls1_1.3.1.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.emf.common.nls2a" version="2.13.0.v201711161131" url="features/org.eclipse.emf.common.nls2a_2.13.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls2a" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls2a_1.1.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature" version="1.1.0.v20170110-1317" url="features/org.eclipse.ecf.core.ssl.feature_1.1.0.v20170110-1317/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.rcp.feature.nls2" version="1.3.2.v201711161131" url="features/org.eclipse.equinox.p2.rcp.feature.nls2_1.3.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.user.ui.nls1" version="2.3.2.v201711161131" url="features/org.eclipse.equinox.p2.user.ui.nls1_2.3.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.e4.rcp.nls2a" version="1.6.2.v201711161131" url="features/org.eclipse.e4.rcp.nls2a_1.6.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.rcp.feature.nls1" version="1.3.2.v201711161131" url="features/org.eclipse.equinox.p2.rcp.feature.nls1_1.3.2.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.opl.feature.nls2" version="20.1.0.202012011542" url="features/ilog.odms.ide.opl.feature.nls2_20.1.0.202012011542/">
+		</feature>
+		<feature id="ilog.odms.ide.opl.feature.nls1" version="20.1.0.202012011542" url="features/ilog.odms.ide.opl.feature.nls1_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.user.ui.nls2" version="2.3.2.v201711161131" url="features/org.eclipse.equinox.p2.user.ui.nls2_2.3.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature" version="3.13.7.v20170516-2248" url="features/org.eclipse.ecf.filetransfer.feature_3.13.7.v20170516-2248/">
+		</feature>
+		<feature id="org.eclipse.help" version="2.2.104.v20180330-0640" url="features/org.eclipse.help_2.2.104.v20180330-0640/" plugin-identifier="org.eclipse.help.base">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature.nls1" version="3.13.7.v201711161131" url="features/org.eclipse.ecf.filetransfer.feature.nls1_3.13.7.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature.nls2" version="3.13.7.v201711161131" url="features/org.eclipse.ecf.filetransfer.feature.nls2_3.13.7.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.cvs.nls1" version="1.4.402.v201711161131" url="features/org.eclipse.cvs.nls1_1.4.402.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.emf.ecore.nls2a" version="2.13.0.v201711161131" url="features/org.eclipse.emf.ecore.nls2a_2.13.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.cvs.nls2" version="1.4.402.v201711161131" url="features/org.eclipse.cvs.nls2_1.4.402.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature.nls1" version="1.4.0.v201711161131" url="features/org.eclipse.ecf.core.feature.nls1_1.4.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.help.R473patch" version="1.0.2" url="features/org.eclipse.help.R473patch_1.0.2/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature.nls2" version="1.4.0.v201711161131" url="features/org.eclipse.ecf.core.feature.nls2_1.4.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.nodejs.feature.nls2a" version="1.1.0.v201711161131" url="features/org.eclipse.wst.jsdt.nodejs.feature.nls2a_1.1.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.nodejs">
+		</feature>
+		<feature id="org.eclipse.rcp.nls1" version="4.7.2.v201711161131" url="features/org.eclipse.rcp.nls1_4.7.2.v201711161131/" plugin-identifier="org.eclipse.rcp">
+		</feature>
+		<feature id="org.eclipse.rcp.nls2" version="4.7.2.v201711161131" url="features/org.eclipse.rcp.nls2_4.7.2.v201711161131/" plugin-identifier="org.eclipse.rcp">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.core.feature.nls1" version="1.4.1.v201711161131" url="features/org.eclipse.equinox.p2.core.feature.nls1_1.4.1.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.feature.nls2a" version="2.1.0.v201711161131" url="features/org.eclipse.wst.jsdt.feature.nls2a_2.1.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.ui">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.core.feature.nls2" version="1.4.1.v201711161131" url="features/org.eclipse.equinox.p2.core.feature.nls2_1.4.1.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls1" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls1_1.1.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.user.ui" version="2.3.2.v20171108-1343" url="features/org.eclipse.equinox.p2.user.ui_2.3.2.v20171108-1343/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" version="3.13.7.v20170516-2248" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature_3.13.7.v20170516-2248/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls2" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.nls2_1.1.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.user.ui.nls2a" version="2.3.2.v201711161131" url="features/org.eclipse.equinox.p2.user.ui.nls2a_2.3.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.platform.nls2a" version="4.7.2.v201711161131" url="features/org.eclipse.platform.nls2a_4.7.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature.nls2a" version="3.13.7.v201711161131" url="features/org.eclipse.ecf.filetransfer.feature.nls2a_3.13.7.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.chromium.debug.feature.nls2a" version="0.6.0.v201711161131" url="features/org.eclipse.wst.jsdt.chromium.debug.feature.nls2a_0.6.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.chromium.debug">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature.nls2" version="3.13.7.v201711161131" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature.nls2_3.13.7.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature.nls1" version="3.13.7.v201711161131" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature.nls1_3.13.7.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.e4.rcp" version="1.6.3.v20180329-0507" url="features/org.eclipse.e4.rcp_1.6.3.v20180329-0507/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature.nls2a" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.core.ssl.feature.nls2a_1.1.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.emf.common" version="2.13.0.v20170609-0707" url="features/org.eclipse.emf.common_2.13.0.v20170609-0707/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.chromium.debug.feature" version="0.6.0.v201705091354" url="features/org.eclipse.wst.jsdt.chromium.debug.feature_0.6.0.v201705091354/" plugin-identifier="org.eclipse.wst.jsdt.chromium.debug">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature" version="1.4.0.v20170516-2248" url="features/org.eclipse.ecf.core.feature_1.4.0.v20170516-2248/">
+		</feature>
+		<feature id="org.eclipse.platform.nls1" version="4.7.2.v201711161131" url="features/org.eclipse.platform.nls1_4.7.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.platform" version="4.7.3.v20180330-0640" url="features/org.eclipse.platform_4.7.3.v20180330-0640/">
+		</feature>
+		<feature id="org.eclipse.platform.nls2" version="4.7.2.v201711161131" url="features/org.eclipse.platform.nls2_4.7.2.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.rcp.feature.nls1" version="20.1.0.202012011542" url="features/ilog.odms.ide.rcp.feature.nls1_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.emf.ecore.nls1" version="2.13.0.v201711161131" url="features/org.eclipse.emf.ecore.nls1_2.13.0.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.rcp.feature.nls2" version="20.1.0.202012011542" url="features/ilog.odms.ide.rcp.feature.nls2_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.emf.ecore.nls2" version="2.13.0.v201711161131" url="features/org.eclipse.emf.ecore.nls2_2.13.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.nodejs.feature.nls1" version="1.1.0.v201711161131" url="features/org.eclipse.wst.jsdt.nodejs.feature.nls1_1.1.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.nodejs">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" version="1.1.0.v20170110-1317" url="features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature_1.1.0.v20170110-1317/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.nodejs.feature.nls2" version="1.1.0.v201711161131" url="features/org.eclipse.wst.jsdt.nodejs.feature.nls2_1.1.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.nodejs">
+		</feature>
+		<feature id="ilog.odms.ide.wml.feature" version="20.1.0.202012011542" url="features/ilog.odms.ide.wml.feature_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.cvs" version="1.4.404.v20180330-0640" url="features/org.eclipse.cvs_1.4.404.v20180330-0640/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.chromium.debug.feature.nls1" version="0.6.0.v201711161131" url="features/org.eclipse.wst.jsdt.chromium.debug.feature.nls1_0.6.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.chromium.debug">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.chromium.debug.feature.nls2" version="0.6.0.v201711161131" url="features/org.eclipse.wst.jsdt.chromium.debug.feature.nls2_0.6.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.chromium.debug">
+		</feature>
+		<feature id="org.eclipse.equinox.executable.nls2" version="3.7.2.v201711161131" url="features/org.eclipse.equinox.executable.nls2_3.7.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.nodejs.feature" version="1.1.0.v201803202007" url="features/org.eclipse.wst.jsdt.nodejs.feature_1.1.0.v201803202007/" plugin-identifier="org.eclipse.wst.jsdt.nodejs">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.core.feature" version="1.4.1.v20170928-1405" url="features/org.eclipse.equinox.p2.core.feature_1.4.1.v20170928-1405/">
+		</feature>
+		<feature id="org.eclipse.rcp.nls2a" version="4.7.2.v201711161131" url="features/org.eclipse.rcp.nls2a_4.7.2.v201711161131/" plugin-identifier="org.eclipse.rcp">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.feature" version="2.1.1.v201804042202" url="features/org.eclipse.wst.jsdt.feature_2.1.1.v201804042202/" plugin-identifier="org.eclipse.wst.jsdt.ui">
+		</feature>
+		<feature id="org.eclipse.emf.ecore" version="2.13.0.v20170609-0707" url="features/org.eclipse.emf.ecore_2.13.0.v20170609-0707/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature.nls2" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.core.ssl.feature.nls2_1.1.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature.nls1" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.core.ssl.feature.nls1_1.1.0.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.opl.feature" version="20.1.0.202012011542" url="features/ilog.odms.ide.opl.feature_20.1.0.202012011542/" plugin-identifier="ilog.odms.ide.opl">
+		</feature>
+		<feature id="org.eclipse.equinox.executable.nls1" version="3.7.2.v201711161131" url="features/org.eclipse.equinox.executable.nls1_3.7.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature" version="1.3.1.v20170928-1405" url="features/org.eclipse.equinox.p2.extras.feature_1.3.1.v20170928-1405/">
+		</feature>
+		<feature id="ilog.odms.ide.product.feature" version="20.1.0.202012011542" url="features/ilog.odms.ide.product.feature_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.help.nls2a" version="2.2.102.v201711161131" url="features/org.eclipse.help.nls2a_2.2.102.v201711161131/" plugin-identifier="org.eclipse.help.base">
+		</feature>
+		<feature id="org.eclipse.e4.rcp.nls1" version="1.6.2.v201711161131" url="features/org.eclipse.e4.rcp.nls1_1.6.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.executable" version="3.7.2.v20171108-1834" url="features/org.eclipse.equinox.executable_3.7.2.v20171108-1834/">
+		</feature>
+		<feature id="org.eclipse.e4.rcp.nls2" version="1.6.2.v201711161131" url="features/org.eclipse.e4.rcp.nls2_1.6.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.rcp.feature.nls2a" version="1.3.2.v201711161131" url="features/org.eclipse.equinox.p2.rcp.feature.nls2a_1.3.2.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature.nls2a" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.filetransfer.ssl.feature.nls2a_1.1.0.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.wml.feature.nls1" version="20.1.0.202012011542" url="features/ilog.odms.ide.wml.feature.nls1_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature.nls2a" version="1.3.1.v201711161131" url="features/org.eclipse.equinox.p2.extras.feature.nls2a_1.3.1.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.rcp.feature" version="1.3.2.v20171108-1343" url="features/org.eclipse.equinox.p2.rcp.feature_1.3.2.v20171108-1343/">
+		</feature>
+		<feature id="org.eclipse.emf.common.nls1" version="2.13.0.v201711161131" url="features/org.eclipse.emf.common.nls1_2.13.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.equinox.executable.nls2a" version="3.7.2.v201711161131" url="features/org.eclipse.equinox.executable.nls2a_3.7.2.v201711161131/">
+		</feature>
+		<feature id="ilog.odms.ide.wml.feature.nls2" version="20.1.0.202012011542" url="features/ilog.odms.ide.wml.feature.nls2_20.1.0.202012011542/">
+		</feature>
+		<feature id="org.eclipse.emf.common.nls2" version="2.13.0.v201711161131" url="features/org.eclipse.emf.common.nls2_2.13.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.rcp" version="4.7.3.v20180330-0640" url="features/org.eclipse.rcp_4.7.3.v20180330-0640/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature.nls2" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.filetransfer.ssl.feature.nls2_1.1.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.feature.nls2" version="2.1.0.v201711161131" url="features/org.eclipse.wst.jsdt.feature.nls2_2.1.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.ui">
+		</feature>
+		<feature id="org.eclipse.cvs.nls2a" version="1.4.402.v201711161131" url="features/org.eclipse.cvs.nls2a_1.4.402.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.wst.jsdt.feature.nls1" version="2.1.0.v201711161131" url="features/org.eclipse.wst.jsdt.feature.nls1_2.1.0.v201711161131/" plugin-identifier="org.eclipse.wst.jsdt.ui">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature.nls2a" version="3.13.7.v201711161131" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature.nls2a_3.13.7.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.0.v20170110-1317" url="features/org.eclipse.ecf.filetransfer.ssl.feature_1.1.0.v20170110-1317/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature.nls2a" version="1.4.0.v201711161131" url="features/org.eclipse.ecf.core.feature.nls2a_1.4.0.v201711161131/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature.nls1" version="1.1.0.v201711161131" url="features/org.eclipse.ecf.filetransfer.ssl.feature.nls1_1.1.0.v201711161131/">
+		</feature>
+	</site>
+</config>

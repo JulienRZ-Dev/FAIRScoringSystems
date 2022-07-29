@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>Callback</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cpoptimizer/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../classes/IloCP_Callback.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Class IloCP::Callback</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+                class="definition-file">ilcp/cp.h</span></div><div><img
+                src="IloCP_Callback.png" border="0"
+                usemap="#svg_map_IloCP::Callback"
+                    alt="Map of IloCP::Callback"><map
+                        name="svg_map_IloCP::Callback"><area
+                        href="../classes/IloCP_Callback.html"
+                        shape="rect" alt="IloCP::Callback"
+                        coords="10.0,10.0,88.0,27.640625" /><area
+                        href="../classes/IloCP_Callback.html"
+                        shape="rect" alt="IloCP::Callback"
+            coords="10.0,10.0,88.0,27.640625" /></map></img></div>
+Class for search monitoring.
+        <div
+                class="description"><p>
+ This class allows you to monitor different aspects of CP Optimizer's
+ search process by being called upon different events.  By overriding
+ the virtual function <code>invoke</code>, you may define the behavior
+ you wish.  When the callback is invoked you may use getters on the
+ IloCP object such as <code>IloCP::getInfo</code>,
+ <code>IloCP::getObjValues</code> and
+ <code>IloCP::getObjBounds</code>.
+ You may also terminate the search by calling
+ <code>IloCP::abortSearch</code>.
+ </p><div
+                    class="note"><div class="noteTitle">Note</div><div
+            class="noteText">
+ Aside from calling <code>IloCP::abortSearch</code>,
+ it is forbidden to call any function which changes CP Optimizer's
+ state inside a call to <code>invoke</code>, for example member
+ functions such as <code>setParameter</code>, <code>extract</code>,
+ <code>solve</code>, <code>refineConflict</code><em> etc.</em> should
+ not be called.
+ </div></div></div><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Method Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public virtual void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/IloCP_Callback.html#method_invoke">invoke</a>(<a
+                            href="../classes/IloCP.html">IloCP</a> cp, <a
+                    href="../enumerations/Callback_Reason.html">Callback::Reason</a> reason)</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public </code></td><td
+                            width="100%"><code><a
+            href="../classes/IloCP_Callback.html#method_~Callback">~Callback</a>()</code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                        colspan="2">Inner Enumeration</th></tr><tr><td><a
+            href="../enumerations/Callback_Reason.html">Callback::Reason</a></td><td>
+Enumerated type describing the reason for callback.
+            </td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Method Detail</th></tr></table><h3><a
+            name="method_~Callback">~Callback</a></h3><div
+                class="prototype">public  <span
+            class="function-name">~Callback</span>()</div><div
+                class="description"><p> Destructor. You should make sure to deallocate any memory
+     here which your callback has allocated when it was created
+     or during its execution. </p></div><hr /><h3><a
+            name="method_invoke">invoke</a></h3><div
+                class="prototype">public virtual void <span
+                class="function-name">invoke</span>(<a
+                href="../classes/IloCP.html">IloCP</a> <span
+                class="parameter-name">cp</span>, <a
+                href="../enumerations/Callback_Reason.html">Callback::Reason</a> <span
+            class="parameter-name">reason</span>)</div><div
+            class="description"><p> This member function is invoked by the passed CP object to
+     perform the callback action.  You should define a subclass
+     of <code>IloCP::Callback</code> which overrides the behavior
+     of this function.
+ </p><p> The <code>reason</code> parameter indicates for which reason the callback
+     is being invoked.  The current list of reasons is: </p><ul>
+<li><code>Destruction</code>:
+       The callback is being called to signal that the
+       <code>IloCP::end</code> member function
+       is being called on the passed <code>IloCP</code> object.
+       During this callback, you must not call any member function
+       on the <code>IloCP</code> object.
+     </li><li><code>EndExtraction</code>:
+       The callback is being called to signal that the process of
+       extracting the model to the engine has ended.
+     </li><li><code>EndInitialPropagation</code>:
+       The callback is being called to signal that the initial
+       top-level inference (propagation) has been carried out.
+       At this point, you can use domain getters (such as
+       <code>IloCP::getMin(IloIntVar)</code> or
+       <code>IloCP::isPresent(IloIntervalVar)</code>) to retrieve
+       information about variable domains.
+     </li><li><code>EndSearch</code>:
+       The callback is being called to signal that the solution
+       search has ended either naturally (through a proof for example),
+       or because of a limit or abort.
+     </li><li><code>EndSolve</code>:
+       The callback is being called to signal that the solving process
+       has completed.  This callback type is received after any
+       others in a solve process and can be used as a teardown or
+       a trigger to consolidate information obtained during the solve.
+     </li><li><code>ObjBound</code>:
+       The callback is being called to signal that an improved bound
+       has been found to the optimization problem being solved.
+     </li><li><code>Periodic</code>:
+       The callback is being called as part of a periodic process
+       during search.
+     </li><li><code>Proof</code>:
+       The callback is being called to indicate that a proof of
+       feasibility, infeasibility or optimality (within specified
+       tolerances) has been made.
+     </li><li><code>Solution</code>:
+       The callback is being called to indicate that a new (better
+       in the case of an optimization problem) solution has been
+       produced.  You can use getters like
+       <code>IloCP::getValue(IloIntVar)</code>
+       to get the values of decision variables.
+     </li><li><code>StartExtraction</code>:
+       The callback is being called to signal that the process of
+       extracting the model to the engine has begun.
+     </li><li><code>StartInitialPropagation</code>:
+       The callback is being called to signal that the initial
+       top-level inference (propagation) is about to begin.
+       At this point, you can use domain getters (such as
+       <code>IloCP::getMin(IloIntVar)</code> or
+       <code>IloCP::isPresent(IloIntervalVar)</code>) to retrieve
+       information about variable domains.
+     </li><li><code>StartSearch</code>:
+       The callback is being called to signal that the solution
+       search process (after initial propagation) is about to begin.
+     </li><li><code>StartSolve</code>:
+       The callback is being called to signal that the solving process
+       has just started.  This type of callback is received before any
+       others in a solve process and can be used to initialize the
+       callback with information needed for the duration of the solve.
+       During a callback called for this reason, no information, like
+       objective or bounds will be available on the <code>IloCP</code> object.
+     </li>
+</ul></div><hr /><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Inner Enumeration Detail</th></tr></table><h1><a
+            name="enumeration_Reason">Enumeration Reason</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcp/cp.h</span></div>
+Enumerated type describing the reason for callback.
+            <div
+            class="description"><p> This enumerated type comprises the different reasons for
+     which a user callback can be invoked. An argument of this
+     type is passed to
+     <code>IloCP::Callback::invoke</code>.
+     You can use it to control the behavior of your callback.
+ </p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>StartExtraction</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>EndExtraction</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>StartSearch</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>StartInitialPropagation</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>EndInitialPropagation</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Periodic</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>ObjBound</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Solution</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Proof</code></td><td valign="top"
+                    align="left">&nbsp;</td></tr><tr><td valign="top"
+                    align="left"
+                    width="20%"><code>EndSearch</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Destruction</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>StartSolve</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>EndSolve</code></td><td
+                    valign="top" align="left">&nbsp;</td></tr></table><br /></body>
+</html>

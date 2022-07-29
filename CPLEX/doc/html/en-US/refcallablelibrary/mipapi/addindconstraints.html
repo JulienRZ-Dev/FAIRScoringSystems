@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXaddindconstraints and CPXaddindconstraints" />
+<meta name="abstract" content="Adds a set of indicator constraints to the specified problem object." />
+<meta name="Description" content="Adds a set of indicator constraints to the specified problem object." />
+<meta name="DC.subject" content="CPXaddindconstraints, C API Reference Manual, CPXXaddindconstraints" />
+<meta name="keywords" content="CPXaddindconstraints, C API Reference Manual, CPXXaddindconstraints" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPmodel.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPindicatorconstr.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="addindconstraints" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetA.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPmodel.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPindicatorconstr.html" />
+<title>CPXXaddindconstraints and CPXaddindconstraints</title>
+</head>
+<body id="addindconstraints"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXaddindconstraints</span> and <span class="keyword apiname">CPXaddindconstraints</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+    Adds a set of indicator constraints to the specified problem object.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXaddindconstraints</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">indcnt</span><span class="ph delim">,</span>
+	  <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">type</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">indvar</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">complemented</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">linbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">linind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">linval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">indname</span>
+	  <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXaddindconstraints</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">indcnt</span><span class="ph delim">,</span>
+	  <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">type</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">indvar</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">complemented</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">linbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">linind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">linval</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *const *</span><span class="ph sep"> </span><span class="ph var">indname</span>
+	  <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <p class="p">The routine
+ <code class="ph codeph"><span class="keyword apiname">CPXXaddindconstraints</span>/<span class="keyword apiname">CPXaddindconstraints</span></code>
+ adds a set of  indicator constraints
+ to the specified problem object. You can call this routine any time
+ after a call to <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.</p>
+
+
+ <p class="p">An indicator constraint defines a relationship between a
+ binary variable (the indicator variable) and a linear constraint.
+ The linear constraint can be a less-than-or-equal-to constraint, a
+ greater-than-or-equal-to constraint, or an equality constraint.
+ There are three types of indicator constraints:
+ </p>
+
+ <ul class="ul">
+   <li class="li"><code class="ph codeph">CPX_INDICATOR_IF</code>: In this
+   case, the linear constraint is enforced only if the indicator
+   variable is not complemented and takes the value 1 (one)  or if it is
+   complemented and takes the value 0 (zero).
+   </li>
+
+   <li class="li"><code class="ph codeph">CPX_INDICATOR_ONLYIF</code>: This case is the 
+   reverse of the previous case. If the linear constraint is
+   satisfied, then the indicator variable must take the value 1 (one) if
+   it is not complemented or must take the value 0 (zero) if it is
+   complemented.
+   </li>
+
+   <li class="li"><code class="ph codeph">CPX_INDICATOR_IFANDONLYIF</code>.
+   Both of the previous cases must hold true.
+   </li>
+
+ </ul>
+
+
+ <p class="p">In the case of
+ <code class="ph codeph">CPX_INDICATOR_ONLYIF</code>, the condition 
+ is whether the linear constraint (say, <code class="ph codeph">ax &lt;= b</code>)
+ is satisfied or not. When it is not satisfied, then CPLEX is dealing with a
+ strict inequality. Since strict inqualities cannot be represented as such,
+ CPLEX handles this dichotomy as <code class="ph codeph">ax &lt;= b</code> and
+ <code class="ph codeph">ax &gt;= b + epsilon</code>. The "only if" part of
+ <code class="ph codeph">CPX_INDICATOR_IFANDONLYIF</code> is
+ treated similarly. CPLEX consults the linearization parameter 
+ <a class="xref" href="../../CPLEX/Parameters/topics/EpLin.html" title="Sets the epsilon (degree of tolerance) used in linearization.">epsilon (degree of tolerance) used in linearization</a> 
+when it needs to perform this transformation. 
+ </p>
+
+
+ <p class="p">The linear portion of the indicator constraints are specified in
+ the same style that rows-to-be-added are specified in 
+ <a class="xref" href="../cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXXaddrows and CPXaddrows</a>. 
+ </p>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by
+          <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX LP problem object, as returned by
+          <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indcnt</dt>
+
+        <dd class="dd pd">
+          
+          The number of indicator constraints. This argument specifies 
+	  the length of the arrays in the arguments 
+	  <code class="ph codeph"><span class="keyword parmname">indvar</span></code>,
+	  <code class="ph codeph"><span class="keyword parmname">complemented</span></code>,
+	  <code class="ph codeph"><span class="keyword parmname">rhs</span></code>,
+	  <code class="ph codeph"><span class="keyword parmname">sense</span></code>,
+	  <code class="ph codeph"><span class="keyword parmname">linbeg</span></code>,
+	  <code class="ph codeph"><span class="keyword parmname">type</span></code>,
+	  <code class="ph codeph"><span class="keyword parmname">indname</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">type</dt>
+
+        <dd class="dd pd">
+          
+          An array of integers that specifies the type
+	  (<code class="ph codeph">CPX_INDICATOR_IF</code>,
+	  <code class="ph codeph">CPX_INDICATOR_ONLYIF</code>, or
+	  <code class="ph codeph">CPX_INDICATOR_IFANDONLYIF</code>)
+	  of each indicator constraint. This argument can be NULL; in that case, all
+     entries are set to <code class="ph codeph">CPX_INDICATOR_IF</code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indvar</dt>
+
+        <dd class="dd pd">
+          
+          The indices of the binary variables that act as the
+	  indicator variables for the indicator constraints. This argument can be NULL; in that 
+          case, all entries are set to -1. (That is, no indicator variable is set.)
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">complemented</dt>
+
+        <dd class="dd pd">
+          
+          An array of Boolean values that specify for each indicator
+          variable whether the variable is complemented. This argument can be NULL; in that 
+          case, all entries are set to 0 (zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nzcnt</dt>
+
+        <dd class="dd pd">
+          
+	  The total number of nonzero coefficients in the linear
+	  constraint part of the indicator constraints. This
+	  argument gives the length of the arrays
+	  <code class="ph codeph"><span class="keyword parmname">linind</span></code> and
+	  <code class="ph codeph"><span class="keyword parmname">linval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          The righthand side values for the linear portion of the
+          indicator constraints. This argument can be NULL; in that case, all entries
+          are set to 0.0 (zero point zero).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          The sense values of the linear portion of the indicator
+          constraints. Specify 'L' for &lt;= or 'G' for &gt;= or 'E' for ==.
+          This argument can be NULL; in that case, all entries are set to 'E'.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">linbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array used with
+          <code class="ph codeph"><span class="keyword parmname">linind</span></code> and
+          <code class="ph codeph"><span class="keyword parmname">linval</span></code> to define the
+          linear portion of the indicator constraints.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">linind</dt>
+
+        <dd class="dd pd">
+          
+          An array used with
+          <code class="ph codeph"><span class="keyword parmname">linbeg</span></code> and
+          <code class="ph codeph"><span class="keyword parmname">linval</span></code> to define the
+          linear portion of the indicator constraints.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">linval</dt>
+
+        <dd class="dd pd">
+          
+          An array used with
+          <code class="ph codeph"><span class="keyword parmname">linbeg</span></code> and
+          <code class="ph codeph"><span class="keyword parmname">linind</span></code> to define the
+          the linear portion of the indicator constraints. The
+          format is similar to the format used to define the
+          rows-to-be-added in the routine 
+          <a class="xref" href="../cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXXaddrows and CPXaddrows</a>.
+          (See also the description of <code class="ph codeph"><span class="keyword parmname">rcnt</span></code>,
+          <code class="ph codeph"><span class="keyword parmname">nzcnt</span></code>,
+          <code class="ph codeph"><span class="keyword parmname">rmatbeg</span></code>,
+          <code class="ph codeph"><span class="keyword parmname">rmatind</span></code>, and
+          <code class="ph codeph"><span class="keyword parmname">rmatval</span></code> in that
+          routine).
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">indname</dt>
+
+        <dd class="dd pd">
+          
+          The array of the names of the constraint constraints. This argument can 
+          be NULL; in that case, the new constraints are assigned a
+          default name if the indicator constraints already resident
+          in the CPLEX problem object have names; otherwise, no
+          names are associated with the new constraints.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns zero if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+   status = CPXaddindconstraints (env, lp, numind, type, indicator,
+                                 complemented, nzcnt,
+                                 rhs, sense, linbeg, linind, linval,
+				 newindnames);
+ </code></pre>
+
+
+      
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetA.html">A</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPmodel.html">Building a discrete model</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPindicatorconstr.html">Using indicator constraints in a discrete model</a></div>
+</div>
+</nav></div></body>
+</html>

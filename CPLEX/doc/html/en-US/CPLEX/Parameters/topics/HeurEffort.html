@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIP heuristic effort" />
+<meta name="abstract" content="Decides how much effort that CPLEX spends on heuristics during a MIP solve." />
+<meta name="Description" content="Decides how much effort that CPLEX spends on heuristics during a MIP solve." />
+<meta name="DC.subject" content="CPXPARAM_MIP_Strategy_HeuristicEffort, HeuristicEffort, MIP strategy, heuristic effort, heuristic, effort" />
+<meta name="keywords" content="CPXPARAM_MIP_Strategy_HeuristicEffort, HeuristicEffort, MIP strategy, heuristic effort, heuristic, effort" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="param_heur_effort" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>MIP heuristic effort</title>
+</head>
+<body id="param_heur_effort"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">MIP heuristic effort</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Decides how much effort that CPLEX spends on heuristics during a MIP solve.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>
+
+<p class="p">MIP heuristic effort</p>
+
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d104063e64">API</th>
+
+<th class="entry nrule" valign="top" id="d104063e67">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">CPXPARAM_MIP_Strategy_HeuristicEffort</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">IloCplex::Param::MIP::Strategy::HeuristicEffort</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">IloCplex.Param.MIP.Strategy.HeuristicEffort</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">Cplex.Param.MIP.Strategy.HeuristicEffort</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">heureffort </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">parameters.mip.strategy.heuristiceffort</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">mip strategy heuristiceffort</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d104063e64 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d104063e67 ">2120</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2>
+
+<p class="p">Decides the MIP heuristic strategy effort level. </p>
+
+<p class="p">This parameter accepts a floating-point value. The default value is 1.0. The value is used to
+increase (if &gt; 1) or decrease (if &lt; 1) the effort that CPLEX spends on heuristics during a MIP
+solve. If set to 0, no heuristic will run.</p>
+
+<p class="p">For an introduction to heuristics in CPLEX, see the topic <a class="xref" href="../../UsrMan/topics/discr_optim/mip/performance/17_heur_cond.html" title="Describes conditions in which CPLEX applies heuristics.">Applying heuristics</a> among the topics in <a class="xref" href="../../UsrMan/topics/discr_optim/mip/performance/12_title_synopsis.html" title="Describes features for tuning performance of the MIP optimizer.">Tuning performance features of the mixed integer optimizer</a> in the <em class="ph i">CPLEX
+User’s Manual</em>. </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." id="param_heur_effort__table_qxt_3fk_qjb" class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d104063e202">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d104063e205">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d104063e202 ">0</td>
+
+<td class="entry" valign="top" headers="d104063e205 ">Disable heuristics</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" headers="d104063e202 ">&lt;1</td>
+
+<td class="entry" valign="top" headers="d104063e205 ">Decrease effort</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d104063e202 ">1</td>
+
+<td class="entry" valign="top" headers="d104063e205 "><strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d104063e202 ">&gt;1</td>
+
+<td class="entry" valign="top" headers="d104063e205 ">Increase effort</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="note note"><span class="notetitle">Note:</span> The behavior of CPLEX is undefined if both heuristic effort and heuristic frequency are set to
+non-default values. These two parameters should not be used together.</div>
+
+</section>
+
+<section class="section">
+<p class="p"><a class="xref" href="HeurFreq.html" title="Decides how often to apply the periodic heuristic.">MIP heuristic frequency</a></p>
+
+<p class="p"></p>
+
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

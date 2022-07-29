@@ -1,0 +1,10 @@
+dataset_path=data/wine.csv
+labels_name=quality == low,quality == medium,quality == high
+constraints=s: 10,eod: 0.25
+objectives=ba
+lambda_bound=9
+time_limit=3600
+testing_mode=True
+n_folds=5
+sensitive_groups=type == red
+sensitive_labels=quality == low

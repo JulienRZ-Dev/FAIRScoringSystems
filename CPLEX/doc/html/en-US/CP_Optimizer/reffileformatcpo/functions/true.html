@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="true" />
+<meta name="abstract" content="Returns a true Boolean expression." />
+<meta name="Description" content="Returns a true Boolean expression." />
+<meta name="DC.subject" content="true" />
+<meta name="keywords" content="true" />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<meta name="DC.Relation" scheme="URI" content="false.html" />
+<meta name="DC.Relation" scheme="URI" content="../syntax/070_Types.html#Basic_expression_types/boolExpr" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="true" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/functions.html" />
+<title>true</title>
+</head>
+<body id="true"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">true</h1>
+
+
+
+
+
+<div class="body refbody"><p class="shortdesc">
+Returns a true Boolean expression.
+</p>
+
+
+
+<section class="section" id="true__Syntax"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>
+<a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a> <strong class="ph b">true</strong>()
+</code></pre>
+</section>
+
+
+<section class="section" id="true__Parameters"><h2 class="title sectiontitle">Parameters</h2>
+<p class="p">
+None
+</p>
+
+
+</section>
+
+
+<section class="section" id="true__Description"><h2 class="title sectiontitle">Description</h2>
+<p class="p">
+This function returns a true Boolean expression (<code class="ph codeph"><a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code>). CP Optimizer
+usually eliminates <code class="ph codeph"><strong class="ph b">true</strong>()</code> from expressions using partial evaluation.
+</p>
+
+
+<p class="p">
+The function <code class="ph codeph"><strong class="ph b">true</strong>()</code> does not have any particular purpose except for being a
+filler.
+</p>
+
+
+</section>
+
+
+<section class="section" id="true__Example"><h2 class="title sectiontitle">Example</h2>
+<p class="p">
+When models are program-generated, it may be useful to use <code class="ph codeph"><strong class="ph b">true</strong>()</code> instead
+of a missing boolean expression. Consider the following code:
+</p>
+
+
+<pre class="pre codeblock"><code>
+<span class="ph commentemph">// Variables a:</span>
+<span class="ph stringemph">"a[1]"</span> = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..20);
+<span class="ph stringemph">"a[2]"</span> = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..20);
+<span class="ph stringemph">"a[3]"</span> = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..20);
+
+<span class="ph commentemph">// Variables b (notice that b[2] does not exist):</span>
+<span class="ph stringemph">"b[1]"</span> = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..20);
+<span class="ph stringemph">"b[3]"</span> = <a class="xref" href="intVar.html" title="Creates a new integer variable.">intVar</a>(0..20);
+
+<span class="ph commentemph">// Automatically generated constraints between a[i] and b[i]:</span>
+(<span class="ph stringemph">"a[1]"</span> &gt; 5) =&gt; (<span class="ph stringemph">"b[1]"</span> &gt; 7);
+(<span class="ph stringemph">"a[2]"</span> &gt; 5) =&gt; <strong class="ph b">true</strong>();
+(<span class="ph stringemph">"a[3]"</span> &gt; 5) =&gt; (<span class="ph stringemph">"b[3]"</span> &gt; 7);
+</code></pre>
+<p class="p">
+There are several constraints in the form <code class="ph codeph">(<span class="ph stringemph">"a[i]"</span>&gt;5) =&gt; (<span class="ph stringemph">"b[i]"</span>&gt;7)</code>. However
+variable <code class="ph codeph">b[2]</code> does not exist, therefore the case <code class="ph codeph">i=2</code> must be treated in a
+special way. Depending on the complexity of the problem the simplest and
+convenient solution could be to use <code class="ph codeph"><strong class="ph b">true</strong>()</code> as replacement for the missing
+condition and rely on CP Optimizer's partial evaluation to handle the rest.
+</p>
+
+
+<p class="p">
+In the example above the condition <code class="ph codeph">(<span class="ph stringemph">"a[2]"</span> &gt; 5) =&gt; <strong class="ph b">true</strong>()</code> always holds and
+therefore CP Optimizer eliminates it during the preprocessing (presolve).
+</p>
+
+
+</section>
+
+
+<section class="section" id="true__Notes"><h2 class="title sectiontitle">Notes</h2>
+<ul class="ul">
+  <li class="li">
+    Type <code class="ph codeph"><a class="xref" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></code> (Boolean expression) is different from type <code class="ph codeph"><a class="xref" href="../syntax/070_Types.html#Numerical_types__bit">bit</a></code> (0/1
+    constant). Therefore <code class="ph codeph"><strong class="ph b">true</strong>()</code> cannot be used as a <code class="ph codeph"><a class="xref" href="../syntax/070_Types.html#Numerical_types__bit">bit</a></code> parameter.
+  </li>
+
+  <li class="li">
+    If <code class="ph codeph"><strong class="ph b">true</strong>()</code> is used in an arithmetic expression such as <code class="ph codeph">10*<strong class="ph b">true</strong>()</code> then its
+    value is always 1.
+  </li>
+
+</ul>
+
+
+</section>
+
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/functions.html" title="The following functions can be used in a CP Optimizer model file (CPO file):">Functions</a></div>
+</div>
+
+<div class="linklist linklist relinfo relref" xml:lang="en-us"><strong>Related reference</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="false.html" title="Returns a false Boolean expression.">false</a></li></ul></div>
+
+<div class="linklist linklist relinfo" xml:lang="en-us"><strong>Related information</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="../syntax/070_Types.html#Basic_expression_types__boolExpr">boolExpr</a></li></ul></div>
+</nav>
+
+</div></body>
+</html>

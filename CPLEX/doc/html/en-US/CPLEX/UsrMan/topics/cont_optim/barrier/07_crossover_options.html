@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Controlling crossover" />
+<meta name="abstract" content="Documents parameters controlling barrier crossover." />
+<meta name="Description" content="Documents parameters controlling barrier crossover." />
+<meta name="DC.subject" content="LP, barrier optimizer crossover, barrier optimizer, crossover, optimizer, barrier crossover" />
+<meta name="keywords" content="LP, barrier optimizer crossover, barrier optimizer, crossover, optimizer, barrier crossover" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/cont_optim/barrier/01_barrier_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveBarrier.653514" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/cont_optim/barrier/01_barrier_title_synopsis.html" />
+<title>Controlling crossover</title>
+</head>
+<body id="User_manual.uss_solveBarrier.653514"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Controlling crossover</h1>
+
+
+
+<div class="body"><p class="shortdesc">Documents parameters controlling barrier crossover.</p>
+
+<p class="p">The nature of the crossover step that follows barrier
+is controlled by the parameter 
+<a class="xref" href="../../../../Parameters/topics/BarCrossAlg.html" title="Decides which crossover is performed at the end of a barrier optimization.">barrier crossover algorithm</a>
+(<code class="ph codeph">CPX_PARAM_BARCROSSALG, BarCrossAlg</code>). That topic in the 
+<em class="ph i">Parameters Reference Manual</em> explains the possible options of
+the barrier crossover parameter.
+At its default <code class="ph codeph">Automatic</code>  setting, CPLEX invokes an
+appropriate crossover step based on the problem type and the number of threads available. 
+</p>
+
+<p class="p">To turn off the crossover step that normally follows barrier optimization, use the parameter 
+<a class="xref" href="../../../../Parameters/topics/SolutionType.html" title="Specifies type of solution (basic or non basic) that CPLEX produces for a linear program (LP) or quadratic program (QP).">solution type for LP and QP</a>
+(<code class="ph codeph">CPX_PARAM_SOLUTIONTYPE, SolutionType</code>) documented in the 
+<em class="ph i">Parameters Reference Manual</em>. When you use the solution type parameter 
+to tell CPLEX to seek a nonbasic solution, in 
+barrier optimization, you effectively eliminate barrier crossover.
+</p>
+
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/cont_optim/barrier/01_barrier_title_synopsis.html" title="Documents solving linear programming problems by means of the CPLEX barrier optimizer.">Solving LPs: barrier optimizer</a></div>
+</div>
+</nav></div></body>
+</html>

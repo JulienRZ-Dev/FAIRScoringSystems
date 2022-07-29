@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Accessing slack variables and solution values" />
+<meta name="abstract" content="Documents the conventions that CPLEX observes with respect to slack variables and solution values." />
+<meta name="Description" content="Documents the conventions that CPLEX observes with respect to slack variables and solution values." />
+<meta name="DC.subject" content="LP, slack, solution, slack variables and, solution values and, accessing, simplex tableau (C API), slack variables, artificial variables, simplex tableau, accessing (C API)" />
+<meta name="keywords" content="LP, slack, solution, slack variables and, solution values and, accessing, simplex tableau (C API), slack variables, artificial variables, simplex tableau, accessing (C API)" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/01_simplex_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="slackVarAndSolnVal" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/01_simplex_title_synopsis.html" />
+<title>Accessing slack variables and solution values</title>
+</head>
+<body id="slackVarAndSolnVal"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Accessing slack variables and solution values</h1>
+
+ 
+
+<div class="body"><p class="shortdesc">Documents the conventions that CPLEX observes with respect to slack variables 
+and solution values.</p>
+
+<p class="p"> 
+In most use cases, you can regard the values of slack variables 
+returned by solution routines in CPLEX as 
+the righthand side (RHS) of the corresponding constraint minus the 
+value of the linear (or quadratic) expression in the lefthand side (LHS), 
+regardless of the sense of the constraint. 
+</p>
+
+<p class="p">Ranged rows with finite lower and upper bounds 
+have slack values consisting of the value of 
+the linear expression minus the lower bound. 
+</p>
+ 
+<p class="p"> 
+The slack variable values adhere to those conventions regardless of the 
+application programming interface (API) in use. 
+</p>
+ 
+<div class="p"> 
+However, a few use cases require additional information. For all APIs, 
+the proper interpretation of the dual variables returned by the routine 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/getpi.html" title="The routine CPXXgetpi/CPXgetpi accesses the dual values for a range of the constraints of a linear or quadratic program.">CPXXgetpi</a></code> 
+as reduced costs on slack variables depends on the internal representation 
+inside CPLEX of those slacks. In that context, CPLEX follows these conventions: 
+<ul class="ul"> 
+<li class="li">For less-than-or-equal-to (≤) constraints, CPLEX adds a nonnegative slack.</li>
+ 
+<li class="li">For equality (==) constraints, CPLEX adds an artificial variable with 
+lower and upper bounds of 0 (zero).</li>
+ 
+<li class="li">For greater-than-or-equal-to (≥) constraints, CPLEX subtracts a nonnegative 
+surplus value.</li>
+
+</ul>
+ 
+</div>
+ 
+<p class="p">The artificial variable associated with an equality constraint takes on a 
+value of 0 (zero) in the case of a feasible basis solution.</p>
+
+<p class="p">Thus, for  greater-than-or-equal-to (≥) constraints, the reduced cost 
+on the slack is simply the associated dual variable value, whereas for all 
+other constraints, the reduced cost on the slack is the <strong class="ph b">negative</strong> of 
+the dual value.</p>
+ 
+<p class="p">Formally, CPLEX transforms the problem to standard form, like this:</p>
+ 
+<pre class="pre codeblock"><code> 
+min c'x, such that Ax + Es = b, l ≤ x ≤ u,  0 ≤ s ≤ r
+</code></pre> 
+<div class="p">by adding slack and artificial variables in the following way (depending on the 
+sense of each constraint).  In the table, E is a diagonal matrix, and e_i is a unit vector
+with 1 (one) in position i.
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing the sense of a constraint, the values in the diagonal matrix, and values of the unit vector for which CPLEX adds value in slack and artificial variables in standard form." class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. How CPLEX adds slack in standard form</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;"> 
+<tr class="row"> 
+<th class="entry" valign="top" id="d198748e134">sense</th>
+
+<th class="entry" valign="top" id="d198748e137">E_i</th>
+ 
+<th class="entry" valign="top" id="d198748e140">r_i</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+ <tr class="row">
+ <td class="entry" valign="top" headers="d198748e134 "> == </td>
+ 
+ <td class="entry" valign="top" headers="d198748e137 "> e_i </td>
+ 
+ <td class="entry" valign="top" headers="d198748e140 "> 0 (zero) </td>
+ 
+ </tr>
+ 
+ <tr class="row">
+ <td class="entry" valign="top" headers="d198748e134 ">≤</td>
+ 
+ <td class="entry" valign="top" headers="d198748e137 "> e_i </td>
+ 
+ <td class="entry" valign="top" headers="d198748e140 ">infinity</td>
+ 
+ </tr>
+ 
+ <tr class="row">
+ <td class="entry" valign="top" headers="d198748e134 ">≥</td>
+ 
+ <td class="entry" valign="top" headers="d198748e137 "> -e_i </td>
+ 
+ <td class="entry" valign="top" headers="d198748e140 ">infinity</td>
+ 
+ </tr>
+ 
+ <tr class="row">
+ <td class="entry" valign="top" headers="d198748e134 ">range</td>
+ 
+ <td class="entry" valign="top" headers="d198748e137 ">-e_i</td>
+ 
+ <td class="entry" valign="top" headers="d198748e140 ">absolute value of range</td>
+ 
+ </tr>
+ 
+ </tbody>
+</table>
+</div>
+ 
+</div>
+ 
+<p class="p">This practice of CPLEX adding slack or artificial variables depending on the sense of a constraint 
+is also relevant to users of the Callable Library (C API) advanced linear programming routines 
+to access parts of the so-called <strong class="ph b">simplex tableau</strong>. First of all, slacks are handled implicitly 
+and are not part of the constraint matrix of structural variables passed to CPLEX via routines such as 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/copylp.html" title="The routine CPXXcopylp/CPXcopylp copies data that define an LP problem to a CPLEX problem object.">CPXXcopylp</a></code>, 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/addrows.html" title="The routine CPXXaddrows/CPXaddrows adds constraints to a specified CPLEX problem object.">CPXXaddrows</a></code>, or 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/addcols.html" title="The routine CPXXaddcols/CPXaddcols adds columns to a specified CPLEX problem object.">CPXXaddcols</a></code>. 
+Therefore, advanced routines, such as 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/binvarow.html" title="The routine CPXXbinvarow/CPXbinvarow computes the i-th row of BinvA where Binv represents the inverse of the matrix B and juxtaposition specifies matrix multiplication.">CPXXbinvarow</a></code> or 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/binvacol.html" title="The routine CPXXbinvacol/CPXbinvacol computes the representation of the j-th column in terms of the basis.">CPXXbinvacol</a></code>, 
+generate simplex row and column tableau information only for structural variables. To access 
+the tableau row elements associated with the slack variables, you must first call
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/binvrow.html" title="The routine CPXXbinvrow/CPXbinvrow computes the i-th row of the basis inverse.">CPXXbinvrow</a></code> 
+to obtain the associated row of the <strong class="ph b">basis inverse</strong>; then you must negate the 
+elements associated with the ≥ constraints. Likewise, to access the tableau columns 
+for slack variables, you must first call 
+<code class="ph codeph"><a class="xref" href="../../../../../refcallablelibrary/cpxapi/binvcol.html" title="The routine CPXXbinvcol/CPXbinvcol computes the j-th column of the basis inverse.">CPXXbinvcol</a></code> 
+for the appropriate slack variable; then you must negate those tableau column elements 
+if the slack corresponds to a ≥ constraint.
+</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/UsrMan/topics/cont_optim/simplex/01_simplex_title_synopsis.html" title="Documents the primal and dual simplex optimizers.">Solving LPs: simplex optimizers</a></div>
+</div>
+</nav></div></body>
+</html>

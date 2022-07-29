@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Solution options" />
+<meta name="abstract" content="After solving a problem, the Interactive Optimizer supports these additional options." />
+<meta name="Description" content="After solving a problem, the Interactive Optimizer supports these additional options." />
+<meta name="DC.Relation" scheme="URI" content="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/solvingProb_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Getting_started.uss_interactiveOptimizerStart.154888" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/solvingProb_synopsis.html" />
+<title>Solution options</title>
+</head>
+<body id="Getting_started.uss_interactiveOptimizerStart.154888"><div role="main">
+<h1 class="title topictitle1" id="ariaid-title1">Solution options</h1>
+<div class="body"><p class="shortdesc">After solving a problem, the Interactive Optimizer supports
+these additional options.</p>
+
+<p class="p">Here are some of the basic options in solving linear
+programming problems. Although the example in this tutorial does not
+make use of these options, you will find them useful when handling
+larger, more realistic problems. </p>
+
+<ul class="ul"><li class="li"><p class="p"> <a class="xref" href="solnOptions.html#Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.1001216">Filing iteration logs</a>;</p>
+
+</li>
+<li class="li"><p class="p"> <a class="xref" href="solnOptions.html#Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.154891">Re-solving</a>;</p>
+
+</li>
+<li class="li"><p class="p"> <a class="xref" href="solnOptions.html#Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.155078">Using alternative optimizers</a>;</p>
+
+</li>
+<li class="li"><p class="p"> <a class="xref" href="solnOptions.html#Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.1010080">Interrupting the optimization</a>.</p>
+
+</li>
+</ul>
+
+<p class="p">For detailed information about performance options, refer
+to the<em class="ph i"> CPLEX User’s Manual</em>.</p>
+
+<section class="section" id="Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.1001216"><h2 class="title sectiontitle">Filing iteration logs</h2><p class="p">Every time CPLEX solves a problem, much of the information
+appearing on the screen is also directed into a log file. This file
+is automatically created by CPLEX with the name <code class="ph codeph">cplex.log</code> .
+If there is an existing <code class="ph codeph">cplex.log</code> file
+in the directory where CPLEX is launched, CPLEX will append the current
+session data to the existing file. If you want to keep a unique log
+file of a problem session, you can change the default name with the <code class="ph codeph">set logfile</code> command.
+(See the<em class="ph i"> CPLEX User’s Manual</em>.)
+The log file is written in standard ASCII format and can be edited
+with any text editor.</p>
+</section>
+
+<section class="section" id="Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.154891"><h2 class="title sectiontitle">Re-solving</h2><p class="p">You may re-solve the problem by reissuing the <code class="ph codeph">optimize</code> command.
+CPLEX restarts the solution process from the previous optimal basis,
+and thus requires zero iterations. If you do not wish to restart the
+problem from an advanced basis, use the <code class="ph codeph">set advance</code> command
+to turn off the advanced start indicator.</p>
+<p class="p">Remember that a problem must be present in memory (entered
+via the <code class="ph codeph">enter</code> command or read from a file)
+before you issue the <code class="ph codeph">optimize</code> command.</p>
+</section>
+
+<section class="section" id="Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.155078"><h2 class="title sectiontitle">Using alternative optimizers</h2><p class="p">In addition to the <code class="ph codeph">optimize</code> command,
+CPLEX can use the primal simplex optimizer (<code class="ph codeph">primopt</code> command),
+the dual simplex optimizer (<code class="ph codeph">tranopt</code> command),
+the barrier optimizer (<code class="ph codeph">baropt</code> command)
+and the network optimizer (<code class="ph codeph">netopt</code> command).
+Many problems can be solved faster using these alternative optimizers,
+which are documented in more detail in the <em class="ph i">CPLEX User’s Manual</em>. If you
+want to solve a mixed integer programming problem, the <code class="ph codeph">optimize</code> command
+is equivalent to the <code class="ph codeph">mipopt</code> command.</p>
+</section>
+
+<section class="section" id="Getting_started.uss_interactiveOptimizerStart.154888__Getting_started.uss_interactiveOptimizerStart.1010080"><h2 class="title sectiontitle">Interrupting the optimization</h2><p class="p">Our short example was solved very quickly. However, larger
+problems, particularly mixed integer problems, can take much longer.
+Occasionally it may be useful to interrupt the optimization process.
+CPLEX allows such interruptions if you use <code class="ph codeph">control-c</code> .
+(The <code class="ph codeph">control</code> and <code class="ph codeph">c</code> keys
+must be pressed simultaneously.) Optimization is interrupted, and
+CPLEX issues a message indicating that the process was stopped and
+displays progress information. If you issue another optimization command
+in the same session, CPLEX will resume optimization from where it
+was interrupted.</p>
+</section>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/solvingProb_synopsis.html" title="These commands solve a problem in the Interactive Optimizer.">Solving a problem</a></div>
+</div>
+</nav></div></body>
+</html>

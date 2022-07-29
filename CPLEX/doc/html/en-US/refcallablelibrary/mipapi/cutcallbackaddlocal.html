@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXcutcallbackaddlocal and CPXcutcallbackaddlocal" />
+<meta name="abstract" content="The routine CPXXcutcallbackaddlocal/CPXcutcallbackaddlocal adds local cuts during MIP branch and cut." />
+<meta name="Description" content="The routine CPXXcutcallbackaddlocal/CPXcutcallbackaddlocal adds local cuts during MIP branch and cut." />
+<meta name="DC.subject" content="CPXcutcallbackaddlocal, C API Reference Manual, CPXXcutcallbackaddlocal" />
+<meta name="keywords" content="CPXcutcallbackaddlocal, C API Reference Manual, CPXXcutcallbackaddlocal" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<meta name="DC.Relation" scheme="URI" content="cutcallbackadd.html" />
+<meta name="DC.Relation" scheme="URI" content="getlazyconstraintcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="setlazyconstraintcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="getusercutcallbackfunc.html" />
+<meta name="DC.Relation" scheme="URI" content="setusercutcallbackfunc.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="cutcallbackaddlocal" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetC.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html" />
+<link rel="Start" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html" />
+<title>CPXXcutcallbackaddlocal and CPXcutcallbackaddlocal</title>
+</head>
+<body id="cutcallbackaddlocal"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXcutcallbackaddlocal</span> and <span class="keyword apiname">CPXcutcallbackaddlocal</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc">
+     
+ 
+
+ 
+
+ The routine <code class="ph codeph"><span class="keyword apiname">CPXXcutcallbackaddlocal</span>/<span class="keyword apiname">CPXcutcallbackaddlocal</span></code> adds local cuts during
+ MIP branch and cut.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXcutcallbackaddlocal</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">cutind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">cutval</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXcutcallbackaddlocal</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">void *</span><span class="ph sep"> </span><span class="ph var">cbdata</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">wherefrom</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">nzcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double</span><span class="ph sep"> </span><span class="ph var">rhs</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">sense</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">cutind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">cutval</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+ 
+
+ <div class="note warning"><span class="warningtitle">Warning:</span> 
+ <p class="p">This is an advanced routine.
+ Advanced routines typically demand a thorough understanding
+ of the algorithms used by CPLEX. Thus they incur a higher risk of
+ incorrect behavior in your application, behavior that can be difficult
+ to debug. Therefore, the team encourages you to consider carefully whether
+ you can accomplish the same task by means of other Callable Library
+ routines instead.
+ </p>
+
+ </div>
+
+
+ <p class="p">The routine <code class="ph codeph"><span class="keyword apiname">CPXXcutcallbackaddlocal</span>/<span class="keyword apiname">CPXcutcallbackaddlocal</span></code> adds local cuts during
+ MIP branch and cut. A local cut is one that applies to the current node
+ and the subtree rooted at this node. Global cuts, that is, cuts that apply
+ throughout the branch-and-cut tree, are added with the routine
+ <code class="ph codeph"><a class="xref" href="cutcallbackadd.html" title="The routine CPXXcutcallbackadd/CPXcutcallbackadd adds lazy constraints and globally valid cuts to the current node LP subproblem during MIP branch and cut."><span class="keyword apiname">CPXXcutcallbackadd</span>/<span class="keyword apiname">CPXcutcallbackadd</span></a></code>. This routine can be
+ called only from within user-written cut callbacks; thus it can be called
+ only when the value of its argument <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> is one of the
+ values with a name beginning
+ <code class="ph codeph">CPX_CALLBACK_MIP_CUT_</code>. </p>
+
+
+ <p class="p">The cut may be for the original problem if the parameter
+<a class="xref" href="../../CPLEX/Parameters/topics/MIPCBREDLP.html" title="Controls whether your callback accesses node information of the original model (off) or node information of the reduced, presolved model (on, default).">MIP callback switch between original model and reduced, presolved model</a> 
+(<code class="ph codeph">CPXPARAM_MIP_Strategy_CallbackReducedLP</code>) 
+was set to <code class="ph codeph">CPX_OFF</code> before the
+ call to <code class="ph codeph"><span class="keyword apiname">CPXXmipopt</span>/<span class="keyword apiname">CPXmipopt</span></code> 
+that calls the callback.
+ In this case, the 
+<a class="xref" href="../../CPLEX/Parameters/topics/PreLinear.html" title="Deprecated parameter">linear reduction switch (deprecated)</a> 
+(<code class="ph codeph">CPXPARAM_Preprocessing_Linear</code>)  
+ should also be set to <code class="ph codeph">CPX_OFF</code> (zero).
+ Otherwise, the cut is used on the presolved problem.</p>
+
+ 
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment, as returned by <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cbdata</dt>
+
+        <dd class="dd pd">
+          
+          The pointer passed to the user-written callback. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">cbdata</span></code> passed to the user-written callback.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">wherefrom</dt>
+
+        <dd class="dd pd">
+          
+          An integer value that reports where the user-written callback was called from. This argument must be the value of <code class="ph codeph"><span class="keyword parmname">wherefrom</span></code> passed to the user-written callback.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">nzcnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer value that specifies the number of coefficients in the cut, or equivalently, the length of the arrays <code class="ph codeph"><span class="keyword parmname">cutind</span></code> and <code class="ph codeph"><span class="keyword parmname">cutval</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">rhs</dt>
+
+        <dd class="dd pd">
+          
+          A double value that specifies the value of the righthand side of the cut.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">sense</dt>
+
+        <dd class="dd pd">
+          
+          An integer value that specifies the sense of the cut.
+          The sense must be one of these three values: 
+          <ul class="ul">
+          <li class="li">less than or equal to, designated by 'L'</li>
+
+          <li class="li">equal to, designated by 'E'</li>
+
+          <li class="li">greater than or equal to, designated by 'G'</li>
+
+          </ul>
+
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cutind</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the column indices of cut coefficients.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">cutval</dt>
+
+        <dd class="dd pd">
+          
+          An array containing the values of cut coefficients.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Example</h2>
+      
+      
+ <pre class="pre codeblock"><code>
+ status = CPXcutcallbackaddlocal (env,
+                                  cbdata,
+                                  wherefrom,
+                                  mynzcnt,
+                                  myrhs,
+                                  'L',
+                                  mycutind,
+                                  mycutval);
+ </code></pre>
+
+
+ 
+ 
+ 
+ 
+ 
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetC.html">C</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.html">Advanced Routines in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageadvanced.callbacks.html">Callback Routines (advanced) in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/mipapi/hpMIPcallbacks.html">Using callbacks in a discrete model</a></div>
+</div>
+
+<div class="linklist linklist"><strong>See also</strong><br />
+<ul class="linklist">
+<li class="linklist"><a class="link" href="cutcallbackadd.html" title="The routine CPXXcutcallbackadd/CPXcutcallbackadd adds lazy constraints and globally valid cuts to the current node LP subproblem during MIP branch and cut.">CPXcutcallbackadd</a></li>
+<li class="linklist"><a class="link" href="getlazyconstraintcallbackfunc.html" title="The routine CPXXgetlazyconstraintcallbackfunc/CPXgetlazyconstraintcallbackfunc accesses the user-written callback for adding lazy constraints.">CPXgetlazyconstraintcallbackfunc</a></li>
+<li class="linklist"><a class="link" href="setlazyconstraintcallbackfunc.html" title="The routine CPXXsetlazyconstraintcallbackfunc/CPXsetlazyconstraintcallbackfunc sets and modifies the user-written callback for adding lazy constraints.">CPXsetlazyconstraintcallbackfunc</a></li>
+<li class="linklist"><a class="link" href="getusercutcallbackfunc.html" title="The routine CPXXgetusercutcallbackfunc/CPXgetusercutcallbackfunc accesses the user-written callback for adding cuts.">CPXgetusercutcallbackfunc</a></li>
+<li class="linklist"><a class="link" href="setusercutcallbackfunc.html" title="The routine CPXXsetusercutcallbackfunc/CPXsetusercutcallbackfunc sets and modifies the user-written callback for adding cuts.">CPXsetusercutcallbackfunc</a></li></ul></div>
+</nav>
+</div></body>
+</html>

@@ -1,0 +1,12 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: zD0t3c8+zbezXcQ7LhRZWDzOhE25u
+ GCpIpEJaAE1dLA=
+SHA-256-Digest-Manifest: uyYk46SQGPjzLOKyXtZRkBdMGAgC7KuUDcij1YfwuxI=
+Created-By: 1.8.0_101 (Oracle Corporation)
+
+Name: ilog/views/eclipse/gantt/runtime/GanttRuntimePlugin.class
+SHA-256-Digest: hv8+He/a+xF3GC7P7K+xnYwUtvzuhFHsux8A9kosIcc=
+
+Name: lib/eclipse-gantt-runtime.jar
+SHA-256-Digest: XhzLZCPbxk/nxhjkDg27+MG4kIaapBFPJ8MmHijXMUk=
+

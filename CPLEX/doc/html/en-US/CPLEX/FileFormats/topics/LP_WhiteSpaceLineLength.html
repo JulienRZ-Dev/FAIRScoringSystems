@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="White space and line length in LP file format" />
+<meta name="abstract" content="CPLEX conforms to these rules about white space and line length for the LP file format." />
+<meta name="Description" content="CPLEX conforms to these rules about white space and line length for the LP file format." />
+<meta name="DC.subject" content="LP file format, white space, line length" />
+<meta name="keywords" content="LP file format, white space, line length" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/FileFormats/topics/LP.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="File_formats_reference.uss_reffileformatscplex.LP_WhiteSpaceLineLength" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/FileFormats/topics/LP.html" />
+<title>White space and line length in LP file format</title>
+</head>
+<body id="File_formats_reference.uss_reffileformatscplex.LP_WhiteSpaceLineLength"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">White space and line length in LP file format</h1>
+
+
+
+<div class="body"><p class="shortdesc">CPLEX conforms to these rules about white space and line length for the LP file format.</p>
+
+<p class="p">In general, white space between characters is irrelevant as it is skipped
+when a file is read. However, white space is not allowed in the keywords
+used to introduce a new section, such as <code class="ph codeph">MAX</code>, <code class="ph codeph">MIN</code>, 
+<code class="ph codeph">ST</code>, or <code class="ph codeph">BOUNDS</code>. Also the keywords must be separated by
+white space from the rest of the file and must be at the beginning
+of a line. 
+</p>
+
+<p class="p">
+The maximum length for any name is 255. The maximum length
+of any line of input is 560.</p>
+
+<p class="p">Skipping spaces may cause
+CPLEX to misinterpret (and accept) an invalid entry, such as the following:
+ </p>
+
+ <pre class="pre codeblock"><code>
+ x1 x2 = 0
+</code></pre> 
+<p class="p">If the user intended to enter that example
+as a nonlinear constraint, CPLEX would instead interpret it as a constraint
+specifying that one variable named <code class="ph codeph">x1x2</code> must
+be equal to zero. </p>
+ 
+<p class="p">To indicate a quadratic constraint
+in this section, use explicit notation for multiplication and exponentiation
+(not space).</p>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/FileFormats/topics/LP.html" title="CPLEX conforms to these rules for the LP file format.">LP file format: algebraic representation</a></div>
+</div>
+</nav></div></body>
+</html>

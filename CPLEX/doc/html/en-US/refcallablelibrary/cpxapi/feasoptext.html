@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPXXfeasoptext and CPXfeasoptext" />
+<meta name="abstract" content="The routine CPXXfeasoptext/CPXfeasoptext extends CPXXfeasopt/CPXfeasopt in several ways." />
+<meta name="Description" content="The routine CPXXfeasoptext/CPXfeasoptext extends CPXXfeasopt/CPXfeasopt in several ways." />
+<meta name="DC.subject" content="CPXfeasoptext, C API Reference Manual, CPXXfeasoptext" />
+<meta name="keywords" content="CPXfeasoptext, C API Reference Manual, CPXXfeasoptext" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/hpAlphabetEF.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/groups/homepageoptimizers.html" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="feasoptext" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/groups/hpAlphabetEF.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzesolution.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html" />
+<link rel="Start" href="../../refcallablelibrary/groups/homepageoptimizers.html" />
+<link rel="Start" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html" />
+<title>CPXXfeasoptext and CPXfeasoptext</title>
+</head>
+<body id="feasoptext"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPXXfeasoptext</span> and <span class="keyword apiname">CPXfeasoptext</span></h1>
+
+
+  
+
+  
+
+  <div class="body refbody"><p class="shortdesc"> 
+
+The routine <code class="ph codeph"><span class="keyword apiname">CPXXfeasoptext</span>/<span class="keyword apiname">CPXfeasoptext</span></code> extends <code class="ph codeph"><span class="keyword apiname">CPXXfeasopt</span>/<span class="keyword apiname">CPXfeasopt</span></code>
+in several ways.
+  </p>
+
+
+    <section class="section refsyn">
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXXfeasoptext</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM</span><span class="ph sep"> </span><span class="ph var">grpcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ</span><span class="ph sep"> </span><span class="ph var">concnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">grppref</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXNNZ const *</span><span class="ph sep"> </span><span class="ph var">grpbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXDIM const *</span><span class="ph sep"> </span><span class="ph var">grpind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">grptype</span>        <span class="ph delim">)</span>
+      </span></p>
+
+      <p class="p"><span class="ph synph">
+        <span class="keyword kwd">int</span>
+        <span class="ph sep"> </span><span class="keyword kwd">CPXfeasoptext</span><span class="ph delim">(</span>
+          <span class="keyword kwd">CPXCENVptr</span><span class="ph sep"> </span><span class="ph var">env</span><span class="ph delim">,</span>
+          <span class="keyword kwd">CPXLPptr</span><span class="ph sep"> </span><span class="ph var">lp</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">grpcnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int</span><span class="ph sep"> </span><span class="ph var">concnt</span><span class="ph delim">,</span>
+          <span class="keyword kwd">double const *</span><span class="ph sep"> </span><span class="ph var">grppref</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">grpbeg</span><span class="ph delim">,</span>
+          <span class="keyword kwd">int const *</span><span class="ph sep"> </span><span class="ph var">grpind</span><span class="ph delim">,</span>
+          <span class="keyword kwd">char const *</span><span class="ph sep"> </span><span class="ph var">grptype</span>        <span class="ph delim">)</span>
+      </span></p>
+
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+    
+ 
+
+
+<p class="p">The routine 
+<code class="ph codeph"><span class="keyword apiname">CPXXfeasoptext</span>/<span class="keyword apiname">CPXfeasoptext</span></code> 
+ extends <code class="ph codeph"><a class="xref" href="feasopt.html" title="The routine CPXXfeasopt/CPXfeasopt computes a minimum-cost relaxation of the righthand side values of constraints or bounds on variables in order to make an infeasible problem feasible.">CPXXfeasopt and CPXfeasopt</a></code> 
+in several ways. Unlike 
+<code class="ph codeph"><a class="xref" href="feasopt.html" title="The routine CPXXfeasopt/CPXfeasopt computes a minimum-cost relaxation of the righthand side values of constraints or bounds on variables in order to make an infeasible problem feasible.">CPXXfeasopt and CPXfeasopt</a></code>, 
+<code class="ph codeph"><span class="keyword apiname">CPXXfeasoptext</span>/<span class="keyword apiname">CPXfeasoptext</span></code> 
+enables the user to relax indicator constraints and quadratic constraints
+(except for explicit second order cone constraints).
+In addition, it allows the user to treat a group of constraints as a single
+constraint for the purposes of determining the penalty for relaxation.
+</p>
+
+<p class="p">
+Thus, according to the various INF relaxation penalty metrics
+(see <code class="ph codeph"><a class="xref" href="feasopt.html" title="The routine CPXXfeasopt/CPXfeasopt computes a minimum-cost relaxation of the righthand side values of constraints or bounds on variables in order to make an infeasible problem feasible.">CPXXfeasopt and CPXfeasopt</a></code> 
+ for a list of the available metrics),
+ all constraints in a group can be relaxed for a penalty of one unit.
+Similarly, according to the various QUAD metrics, the penalty for 
+relaxing a
+group grows as the square of the sum of the individual member relaxations,
+rather than as the sum of the squares of the individual relaxations.</p>
+
+<p class="p">
+If you use INF mode,
+the resulting feasopt problems will be MIPs even if
+your problem is continuous. Similarly, if you use QUAD mode, the feasopt
+problems will become quadratic even if your original problem is linear. This
+difference can result in greater than expected solve times.
+</p>
+
+<p class="p">
+The routine also computes a relaxed solution vector
+that can be queried with <code class="ph codeph"><a class="xref" href="solution.html" title="The routine CPXXsolution/CPXsolution accesses the solution values produced by all the optimization routines except the routine CPXXNETprimopt/CPXNETprimopt.">CPXXsolution and CPXsolution</a></code>,
+<code class="ph codeph"><a class="xref" href="getcolinfeas.html" title="The routine CPXXgetcolinfeas/CPXgetcolinfeas computes the infeasibility of a given solution for a range of variables.">CPXXgetcolinfeas and CPXgetcolinfeas</a></code> for columns,
+<code class="ph codeph"><a class="xref" href="getrowinfeas.html" title="The routine CPXXgetrowinfeas/CPXgetrowinfeas computes the infeasibility of a given solution for a range of linear constraints.">CPXXgetrowinfeas and CPXgetrowinfeas</a></code> for rows,
+<code class="ph codeph"><a class="xref" href="../socpapi/getqconstrinfeas.html" title="The routine CPXXgetqconstrinfeas/CPXgetqconstrinfeas computes the infeasibility of a given solution for a range of quadratic constraints.">CPXXgetqconstrinfeas and CPXgetqconstrinfeas</a></code> for quadratic constraints,
+<code class="ph codeph"><a class="xref" href="../mipapi/getindconstrinfeas.html" title="The routine CPXXgetindconstrinfeas/CPXgetindconstrinfeas computes the infeasibility of a given solution for a range of indicator constraints.">CPXXgetindconstrinfeas and CPXgetindconstrinfeas</a></code> for indicator constraints, or
+<code class="ph codeph"><a class="xref" href="../mipapi/getsosinfeas.html" title="The routine CPXXgetsosinfeas/CPXgetsosinfeas computes the infeasibility of a given solution for a range of special ordered sets (SOSs).">CPXXgetsosinfeas and CPXgetsosinfeas</a></code> for special ordered sets.
+</p>
+
+<p class="p">The arguments to this routine define the set of groups. Each group
+contains a list of member constraints, and each member has
+a type (lower bound, upper bound, linear constraint, quadratic constraint,
+or indicator constraint). The group members and member types are entered
+by means of a data structure similar to the sparse matrix data structure
+used throughout CPLEX. (See 
+<code class="ph codeph"><a class="xref" href="copylp.html" title="The routine CPXXcopylp/CPXcopylp copies data that define an LP problem to a CPLEX problem object.">CPXXcopylp and CPXcopylp</a></code> 
+for one example.)
+The argument <code class="ph codeph"><span class="keyword parmname">grpbeg</span></code> gives the starting location of each group
+in <code class="ph codeph"><span class="keyword parmname">grpind</span></code> and <code class="ph codeph"><span class="keyword parmname">grptype</span></code>. The list of members for
+group <code class="ph codeph">i</code> can be found in <code class="ph codeph"><span class="keyword parmname">grpind</span>[<span class="keyword parmname">grpbeg</span>[i]]</code> through
+<code class="ph codeph"><span class="keyword parmname">grpind</span>[<span class="keyword parmname">grpbeg</span>[i+1]-1]</code>, for i less than <code class="ph codeph"><span class="keyword parmname">grpcnt</span>-1</code> and
+<code class="ph codeph"><span class="keyword parmname">grpind</span>[<span class="keyword parmname">grpbeg</span>[i]]</code> through <code class="ph codeph"><span class="keyword parmname">grpind</span>[<span class="keyword parmname">concnt</span>-1]</code>
+for <code class="ph codeph">i = <span class="keyword parmname">grpcnt</span>-1</code>. The corresponding constraint types
+for these members can be found in <code class="ph codeph"><span class="keyword parmname">grptype</span>[<span class="keyword parmname">grpbeg</span>[i]]</code> through
+<code class="ph codeph"><span class="keyword parmname">grptype</span>[<span class="keyword parmname">grpbeg</span>[i+1]-1]</code>, for i less than <code class="ph codeph"><span class="keyword parmname">concnt</span>-1</code>
+and <code class="ph codeph"><span class="keyword parmname">grptype</span>[<span class="keyword parmname">grpbeg</span>[<span class="keyword parmname">grpcnt</span>-1]]</code> through
+<code class="ph codeph"><span class="keyword parmname">grptype</span>[<span class="keyword parmname">concnt</span>-1]</code> for <code class="ph codeph">i = <span class="keyword parmname">grpcnt</span>-1</code>.
+A constraint can appear in at most one
+group. A constraint that appears in no group will not be relaxed.
+</p>
+
+<p class="p"> </p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Table 1: Possible values for elements of grptype</span></caption><colgroup></colgroup><tbody class="tbody">
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CON_LOWER_BOUND</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">1</code></td>
+
+<td class="entry" valign="top">variable lower bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CON_UPPER_BOUND</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">2</code></td>
+
+<td class="entry" valign="top">variable upper bound</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CON_LINEAR</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">3</code></td>
+
+<td class="entry" valign="top">linear constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CON_QUADRATIC</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">4</code></td>
+
+<td class="entry" valign="top">quadratic constraint</td>
+</tr>
+
+<tr class="row"><td class="entry" valign="top"><code class="ph codeph">CPX_CON_INDICATOR</code></td>
+<td class="entry" valign="top">= <code class="ph codeph">6</code></td>
+
+<td class="entry" valign="top">indicator constraint</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<div class="p">
+These four parameters do <strong class="ph b">not</strong> influence this routine.
+<ul class="ul">
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/CutUp.html" title="Sets the upper cutoff tolerance.">upper cutoff</a>
+<code class="ph codeph">CPXPARAM_MIP_Tolerances_UpperCutoff</code>
+</li>
+
+
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/CutLo.html" title="Sets lower cutoff tolerance.">lower cutoff</a>
+<code class="ph codeph">CPXPARAM_MIP_Tolerances_LowerCutoff</code>
+</li>
+
+
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/ObjULim.html" title="Sets an upper limit on the value of the objective function in the simplex algorithms.">upper objective value limit</a>
+<code class="ph codeph">CPXPARAM_Simplex_Limits_UpperObj</code>
+</li>
+
+
+<li class="li">
+<a class="xref" href="../../CPLEX/Parameters/topics/ObjLLim.html" title="Sets a lower limit on the value of the objective function in the simplex algorithms.">lower objective value limit</a>
+<code class="ph codeph">CPXPARAM_Simplex_Limits_LowerObj</code>
+</li>
+
+</ul>
+
+If you want to study infeasibilities introduced by those parameters,
+consider adding an objective function constraint to your model to
+enforce their effect before you invoke this routine.
+</div>
+ 
+
+    <div class="note warning"><span class="warningtitle">Warning:</span> 
+      <p class="p">
+        For efficiency reasons, this function temporarily modifies your problem
+        to account for the relaxations. In certain corner cases, such as out of
+        memory situations, CPLEX may fail to restore your problem to its
+        original state. In such a case, CPLEX clears your problem, and the
+        <code class="ph codeph">lp</code> argument will refer to an empty object. The only
+        valid operation on this object is then for you to call
+        <code class="ph codeph"><a class="xref" href="freeprob.html" title="The routine CPXXfreeprob/CPXfreeprob removes the specified CPLEX problem object from the CPLEX environment and frees the associated memory used internally by CPLEX.">CPXXfreeprob and CPXfreeprob</a></code>.
+      </p>
+
+    </div>
+
+
+    </section>
+
+
+    
+    
+    
+
+    
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+    <dl class="dl parml">
+      
+      
+        <dt class="dt pt dlterm">env</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to the CPLEX environment as returned by the routine <code class="ph codeph"><span class="keyword apiname">CPXXopenCPLEX</span>/<span class="keyword apiname">CPXopenCPLEX</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">lp</dt>
+
+        <dd class="dd pd">
+          
+          A pointer to a CPLEX problem object as returned by <code class="ph codeph"><span class="keyword apiname">CPXXcreateprob</span>/<span class="keyword apiname">CPXcreateprob</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">grpcnt</dt>
+
+        <dd class="dd pd">
+          
+          The number of constraint groups to be considered.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">concnt</dt>
+
+        <dd class="dd pd">
+          
+          An integer specifying the total number of indices passed in the array <code class="ph codeph"><span class="keyword parmname">grpind</span></code>, or, equivalently, the end of the last group in <code class="ph codeph"><span class="keyword parmname">grpind</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">grppref</dt>
+
+        <dd class="dd pd">
+          
+          An array of preferences for the groups. The value <code class="ph codeph"><span class="keyword parmname">grppref</span>[i]</code> specifies the preference for the group designated by the index <code class="ph codeph">i</code>. A negative or zero value specifies that the corresponding group should not be relaxed.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">grpbeg</dt>
+
+        <dd class="dd pd">
+          
+          An array of integers specifying where the constraint indices for each group begin in the array <code class="ph codeph"><span class="keyword parmname">grpind</span></code>. Its length must be at least <code class="ph codeph"><span class="keyword parmname">grpcnt</span></code>.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">grpind</dt>
+
+        <dd class="dd pd">
+          
+          An array of integers containing the constraint indices for the constraints as they appear in groups. Group <code class="ph codeph">i</code> contains the constraints with the indices <code class="ph codeph"><span class="keyword parmname">grpind</span>[<span class="keyword parmname">grpbeg</span>[i]], ..., <span class="keyword parmname">grpind</span>[<span class="keyword parmname">grpbeg</span>[i+1]-1]</code> for <code class="ph codeph">i</code> less than <code class="ph codeph"><span class="keyword parmname">grpcnt</span>-1</code> and <code class="ph codeph"><span class="keyword parmname">grpind</span>[<span class="keyword parmname">grpbeg</span>[i]], ..., <span class="keyword parmname">grpind</span>[<span class="keyword parmname">concnt</span>-1]</code> for <code class="ph codeph">i == <span class="keyword parmname">grpcnt</span>-1</code>. Its length must be at least <code class="ph codeph"><span class="keyword parmname">concnt</span></code>, and a constraint must not be referenced more than once in this array. If a constraint does not appear in this array, the constraint will not be relaxed.
+        </dd>
+
+      
+
+      
+      
+        <dt class="dt pt dlterm">grptype</dt>
+
+        <dd class="dd pd">
+          
+          An array of characters containing the constraint types for the constraints as they appear in groups. The types of the constraints in group <code class="ph codeph">i</code> are specified in <code class="ph codeph"><span class="keyword parmname">grptype</span>[<span class="keyword parmname">grpbeg</span>[i]], ..., <span class="keyword parmname">grptype</span>[<span class="keyword parmname">grpbeg</span>[i+1]-1]</code> for <code class="ph codeph">i</code> less than <code class="ph codeph"><span class="keyword parmname">grpcnt</span>-1</code> and <code class="ph codeph"><span class="keyword parmname">grptype</span>[<span class="keyword parmname">grpbeg</span>[i]], ..., <span class="keyword parmname">grptype</span>[<span class="keyword parmname">concnt</span>-1]</code> for <code class="ph codeph">i == <span class="keyword parmname">grpcnt</span>-1</code>. Its length must be at least <code class="ph codeph"><span class="keyword parmname">concnt</span></code>, and every constraint must appear at most once in this array. Possible values appear in Table 1.
+        </dd>
+
+      
+
+    </dl>
+
+  </section>
+
+
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Return</h2>
+      
+      The routine returns 0 (zero) if successful and nonzero if an error occurs.
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/hpAlphabetEF.html">E, F</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzesolution.html">Analyzing Solutions in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageanalyzeinfeasibility.html">Analyzing Infeasibility in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/groups/homepageoptimizers.html">Optimizers in the CPLEX Callable Library (C API)</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/cpxapi/hpRefineConflict.html">Detecting and resolving conflicts with the conflict refiner and feasopt</a></div>
+</div>
+</nav></div></body>
+</html>

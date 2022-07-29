@@ -1,0 +1,2190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en"><head><link type="text/css"
+            rel="stylesheet"
+            href="../cppdoc.css" />
+<title>Context</title>
+</head><body><div
+                class="ibm-access"><a href="#ibm-content"><img
+                    class="ibm-access" src="../whitepixel.png"
+            alt="Skip to main content" /></a></div><table
+            class="navigation-bar" border="0" cellpadding="0"
+                        cellspacing="3"><tr><td><a
+                        class="navigation-item"
+                        href="../overview.html">Overview</a></td><td><a
+                        class="navigation-item"
+                        href="../optim.cplex.cpp/group.html">Group</a></td><td><a
+                        class="navigation-item"
+                        href="../tree.html">Tree</a></td><td><a
+                        class="navigation-item"
+                        href="../graph.html">Graph</a></td><td><a
+                        class="navigation-item"
+                        href="../deprecated.html">Deprecated</a></td><td><a
+                        class="navigation-item"
+                        href="../index/index.html">Index</a></td><td><a
+                        class="navigation-item"
+            href="../concepts.html">Concepts</a></td></tr></table><div
+                align="right"><a href="../index.html"
+                target="_top">FRAMES</a> <a
+                href="../classes/Callback_Context.html"
+            target="_top">NO FRAMES</a></div><hr /><a
+            name="ibm-content"></a><h1>Class Callback::Context</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+                class="definition-file">ilcplex/ilocplexi.h</span></div><div><img
+                src="Callback_Context.png" border="0"
+                usemap="#svg_map_Callback::Context"
+                    alt="Map of Callback::Context"><map
+                        name="svg_map_Callback::Context"><area
+                        href="../classes/Callback_Context.html"
+                        shape="rect" alt="Callback::Context"
+                        coords="10.0,10.0,102.0,27.640625" /><area
+                        href="../classes/Callback_Context.html"
+                        shape="rect" alt="Callback::Context"
+            coords="10.0,10.0,102.0,27.640625" /></map></img></div><div
+            class="description"><p>Instances of this class define the context in which the CPLEX generic callback
+ can be invoked. </p></div><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Method Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_abort">abort</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloRange.html">IloRange</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_addUserCut">addUserCut</a>(<a
+                            href="../classes/IloRange.html">IloRange</a> cut, <a
+                            href="../enumerations/IloCplex_CutManagement.html">IloCplex::CutManagement</a> cutmanagement, <a
+                    href="../typedefs/IloBool.html">IloBool</a> local) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_exitCutLoop">exitCutLoop</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getCandidateObjective">getCandidateObjective</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getCandidatePoint">getCandidatePoint</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getCandidatePoint">getCandidatePoint</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getCandidatePoint">getCandidatePoint</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getCandidatePoint">getCandidatePoint</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getCandidateValue">getCandidateValue</a>(IloExprArg const &amp; expr) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getDoubleInfo">getDoubleInfo</a>(<a
+                    href="../enumerations/Info_Infos.html">Info::Infos</a> what) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloEnv.html">IloEnv</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getEnv">getEnv</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalLB">getGlobalLB</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalLB">getGlobalLB</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalLB">getGlobalLB</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalLB">getGlobalLB</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalUB">getGlobalUB</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalUB">getGlobalUB</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalUB">getGlobalUB</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getGlobalUB">getGlobalUB</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getId">getId</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getIncumbent">getIncumbent</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getIncumbent">getIncumbent</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getIncumbent">getIncumbent</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getIncumbent">getIncumbent</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getIncumbentObjective">getIncumbentObjective</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getIncumbentValue">getIncumbentValue</a>(IloExprArg const &amp; expr) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXINT</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getIntInfo">getIntInfo</a>(<a
+                    href="../enumerations/Info_Infos.html">Info::Infos</a> what) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalLB">getLocalLB</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalLB">getLocalLB</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalLB">getLocalLB</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalLB">getLocalLB</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalUB">getLocalUB</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalUB">getLocalUB</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalUB">getLocalUB</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLocalUB">getLocalUB</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getLongInfo">getLongInfo</a>(<a
+                    href="../enumerations/Info_Infos.html">Info::Infos</a> what) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getRelaxationObjective">getRelaxationObjective</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getRelaxationPoint">getRelaxationPoint</a>(<a
+                    href="../classes/IloIntVar.html">IloIntVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getRelaxationPoint">getRelaxationPoint</a>(<a
+                    href="../classes/IloNumVar.html">IloNumVar</a> const &amp; var) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getRelaxationPoint">getRelaxationPoint</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_getRelaxationPoint">getRelaxationPoint</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                    href="../classes/IloNumArray.html">IloNumArray</a> &amp; vals) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../enumerations/IloCplex_CplexStatus.html">IloCplex::CplexStatus</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getRelaxationStatus">getRelaxationStatus</a>(CPXLONG flags) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloNum.html">IloNum</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_getRelaxationValue">getRelaxationValue</a>(IloExprArg const &amp; expr) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inBranching">inBranching</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inCandidate">inCandidate</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inGlobalProgress">inGlobalProgress</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inLocalProgress">inLocalProgress</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inRelaxation">inRelaxation</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inThreadDown">inThreadDown</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_inThreadUp">inThreadUp</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_isCandidatePoint">isCandidatePoint</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../typedefs/IloBool.html">IloBool</a></code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_isCandidateRay">isCandidateRay</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; constraints, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloIntVar.html">IloIntVar</a> const &amp; branchVar, <a
+                            href="../typedefs/IloNum.html">IloNum</a> bound, <a
+                            href="../enumerations/IloCplex_BranchDirection.html">IloCplex::BranchDirection</a> dir, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloNumVar.html">IloNumVar</a> const &amp; branchVar, <a
+                            href="../typedefs/IloNum.html">IloNum</a> bound, <a
+                            href="../enumerations/IloCplex_BranchDirection.html">IloCplex::BranchDirection</a> dir, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                            href="../classes/IloNumArray.html">IloNumArray</a> const &amp; bounds, <a
+                            href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; dirs, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                            href="../classes/IloNumArray.html">IloNumArray</a> const &amp; bounds, <a
+                            href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; dirs, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                            href="../classes/IloNumArray.html">IloNumArray</a> const &amp; bounds, <a
+                            href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; dirs, <a
+                            href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; constraints, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public CPXLONG</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_makeBranch">makeBranch</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                            href="../classes/IloNumArray.html">IloNumArray</a> const &amp; bounds, <a
+                            href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; dirs, <a
+                            href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; constraints, <a
+                    href="../typedefs/IloNum.html">IloNum</a> estimate) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_postHeuristicSolution">postHeuristicSolution</a>(<a
+                            href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; vars, <a
+                            href="../classes/IloNumArray.html">IloNumArray</a> const &amp; vals, double obj, <a
+                    href="../enumerations/SolutionStrategy_Types.html">SolutionStrategy::Types</a> strat) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_postHeuristicSolution">postHeuristicSolution</a>(<a
+                            href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; vars, <a
+                            href="../classes/IloNumArray.html">IloNumArray</a> const &amp; vals, double obj, <a
+                    href="../enumerations/SolutionStrategy_Types.html">SolutionStrategy::Types</a> strat) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                    href="../classes/Callback_Context.html#method_pruneCurrentNode">pruneCurrentNode</a>() const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloRange.html">IloRange</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_rejectCandidate">rejectCandidate</a>(<a
+                    href="../classes/IloRange.html">IloRange</a> violated=0) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_rejectCandidate">rejectCandidate</a>(<a
+                    href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; violated) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                            class="prototype">public <a
+                    href="../classes/IloRange.html">IloRange</a></code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_rejectCandidateLocal">rejectCandidateLocal</a>(<a
+                    href="../classes/IloRange.html">IloRange</a> violated) const</code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">public void</code></td><td
+                            width="100%"><code><a
+                            href="../classes/Callback_Context.html#method_rejectCandidateLocal">rejectCandidateLocal</a>(<a
+            href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp;amp; violated) const</code></td></tr></table><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                        colspan="1">Inner structs</th></tr><tr><td><a
+                        href="../structs/Context_Id.html">Context::Id</a></td></tr><tr><td><a
+                        href="../structs/Context_Info.html">Context::Info</a></td></tr><tr><td><a
+            href="../structs/Context_SolutionStrategy.html">Context::SolutionStrategy</a></td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Method Detail</th></tr></table><h3><a
+            name="method_abort">abort</a></h3><div
+                class="prototype">public void <span
+            class="function-name">abort</span>() const</div><div
+                class="description"><p>This method stops optimization.
+ A call of this method instructs CPLEX to halt optimization as soon as possible
+ after the callback returns. </p></div><hr /><h3><a
+            name="method_addUserCut">addUserCut</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloRange.html">IloRange</a> <span
+                class="function-name">addUserCut</span>(<a
+                href="../classes/IloRange.html">IloRange</a> <span
+                class="parameter-name">cut</span>, <a
+                href="../enumerations/IloCplex_CutManagement.html">IloCplex::CutManagement</a> <span
+                class="parameter-name">cutmanagement</span>, <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="parameter-name">local</span>) const</div><div
+                    class="description"><p>This method adds a user-defined cut. 
+ The method creates a deep copy of all <code>IloRange</code> instances 
+ passed to it, so you can invoke the method <code>end</code> on the ranges after the
+ method returns. </p>
+
+                        how CPLEX should manage the cut.
+  
+                </div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_addUserCut/cut"><span
+                        class="parameter-name">cut</span></a></td><td><div
+                    class="description">
+ The cut to add.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_addUserCut/cutmanagement"><span
+                        class="parameter-name">cutmanagement</span></a></td><td><div
+                    class="description">
+ A value from <code>IloCplex::CutManagement</code> that specifies
+                      how CPLEX should manage the cut.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_addUserCut/local"><span
+                        class="parameter-name">local</span></a></td><td><div
+            class="description">
+ A Boolean value specifying whether this cut is locally or globally valid.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+Always returns <code>cut</code>.                  </div><hr /><h3><a
+            name="method_exitCutLoop">exitCutLoop</a></h3><div
+                class="prototype">public void <span
+            class="function-name">exitCutLoop</span>() const</div><div
+                class="description"><p>This method asks CPLEX to stop cutting plane separation at the current node. </p>.
+
+ <p>This method can be invoked only from the context 
+  <code>IloCplex::Callback::Context::Id::Relaxation</code>;
+ it throws an exception when invoked from another context. </p></div><hr /><h3><a
+            name="method_getCandidateObjective">getCandidateObjective</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="function-name">getCandidateObjective</span>() const</div><div
+            class="description"><p>This method accesses the objective of the current candidate solution.
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Candidate</code>;
+ it throws an exception when invoked from another context.</p></div><h4>Returns:</h4><div
+                class="description">
+The objective value of the current candidate solution.                  </div><hr /><h3><a
+            name="method_getCandidatePoint">getCandidatePoint</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getCandidatePoint</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::getCandidatePoint(IloIntVarArray const&amp;, IloNumArray &amp;)</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the candidate solution value for a single variable.
+ </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getCandidatePoint/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the value.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value for <code>var</code> in the current candidate solution.                  </div><hr /><h3><a
+            name="method_getCandidatePoint">getCandidatePoint</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getCandidatePoint</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::getCandidatePoint(IloNumVarArray const&amp;,  IloNumArray &amp; /&gt;</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the candidate solution value for a single variable.</p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getCandidatePoint/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the value.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value for <code>var</code> in the current candidate solution.                  </div><hr /><h3><a
+            name="method_getCandidatePoint">getCandidatePoint</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getCandidatePoint</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses a candidate solution.
+ It retrieves the values for <code>vars[start]</code>, . . . , <code>vars[start+length-1]</code>
+ in the current candidate and returns them.
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Candidate</code> and if
+ <code>IloCplex::Callback::Context:isCandidatePoint()</code> returns true;
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getCandidatePoint/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which values are to be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getCandidatePoint/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the values for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the value for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getCandidatePoint">getCandidatePoint</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getCandidatePoint</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the candidate solution.
+ It retrieves the values for <code>vars[start]</code>, . . . , <code>vars[start+length-1]</code>
+ in the current candidate and returns them.
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Candidate</code> and if
+ <code>IloCplex::Callback::Context::isCandidatePoint()</code> returns true;
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getCandidatePoint/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which values are to be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getCandidatePoint/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the values for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the value for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getCandidateValue">getCandidateValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getCandidateValue</span>(IloExprArg const &amp; <span
+            class="parameter-name">expr</span>) const</div><div
+                    class="description"><p>This method evaluates <code>expr</code> with respect to the current candidate solution.
+ This method can be invoked only in the context 
+ <code>IloCplex::Callback::Context::Id::Candidate</code> and if
+ <code>IloCplex::Callback::Context::isCandidatePoint()</code> returns true. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getCandidateValue/expr"><span
+                        class="parameter-name">expr</span></a></td><td><div
+            class="description">
+ The expression to evaluate.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value of <code>expr</code> with respect to the current candidate solution.                  </div><hr /><h3><a
+            name="method_getDoubleInfo">getDoubleInfo</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getDoubleInfo</span>(<a
+                href="../enumerations/Info_Infos.html">Info::Infos</a> <span
+            class="parameter-name">what</span>) const</div><div
+                    class="description"><p>This method accesses double-precision valued information.
+ See the documentation of the <code>Info</code> struct 
+ for details about what information can be queried. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getDoubleInfo/what"><span
+                        class="parameter-name">what</span></a></td><td><div
+            class="description">
+ The information to be queried.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The requested information.                  </div><hr /><h3><a
+            name="method_getEnv">getEnv</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloEnv.html">IloEnv</a> <span
+            class="function-name">getEnv</span>() const</div><div
+                        class="description"><p>This method accesses an instance of 
+ <code><a
+                href="../classes/IloEnv.html">IloEnv</a></code> 
+ that is valid for use during a callback.
+ Use the environment object returned by this method (instead of
+ the global instance of <code>IloEnv</code>) for everything 
+ that your application does in a callback. </p></div><hr /><h3><a
+            name="method_getGlobalLB">getGlobalLB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getGlobalLB</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getGlobalLB(IloIntVarArray const&amp;, IloIntArray &amp;)</code>.  
+ (See the documentation of that method for more detail.) 
+ This method retrieves the global lower bound for a single variable.</p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalLB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getGlobalLB">getGlobalLB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getGlobalLB</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getGlobalLB(IloNumVarArray const&amp;, IloNumArray &amp;)</code>.  
+ (See the documentation of that method for more detail.) 
+ This method retrieves the global lower bound for a single variable.</p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalLB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getGlobalLB">getGlobalLB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getGlobalLB</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the global lower bounds for variables.
+ This methods queries the best known globally valid bounds. </p><p>
+ This method cannot be invoked from the context 
+ <code>IloCplex::Callback::Context::Id::ThreadUp</code> or
+ <code>IloCplex::Callback::Context::Id::ThreadDown</code>. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalLB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which lower bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getGlobalLB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the global bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getGlobalLB">getGlobalLB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getGlobalLB</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the global lower bounds for variables.
+ This methods queries the best known globally valid bounds. </p><p>
+ This method cannot be invoked from the context 
+ <code>IloCplex::Callback::Context::Id::ThreadUp</code> or
+ <code>IloCplex::Callback::Context::Id::ThreadDown</code>. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalLB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which lower bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getGlobalLB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the global bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getGlobalUB">getGlobalUB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getGlobalUB</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getGlobalUB(IloIntVarArray const&amp;, IloNumArray &amp;)</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the global upper bound for a single variable. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalUB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getGlobalUB">getGlobalUB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getGlobalUB</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getGlobalUB(IloNumVarArray const&amp;, IloNumArray &amp;)' /&gt;</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the global upper bound for a single variable. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalUB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getGlobalUB">getGlobalUB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getGlobalUB</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the global upper bounds for variables.
+ This method queries the best known globally valid bounds.
+ </p><p>
+ This method cannot be invoked from the context 
+ <code>IloCplex::Callback::Context::Id::ThreadUp</code> or
+ <code>IloCplex::Callback::Context::Id::ThreadDown</code>. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalUB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which upper bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getGlobalUB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the global bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getGlobalUB">getGlobalUB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getGlobalUB</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the global upper bounds for variables.
+ This method queries the best known globally valid bounds.
+ </p><p>
+ This method cannot be invoked from the context 
+ <code>IloCplex::Callback::Context::Id::ThreadUp</code> or
+ <code>IloCplex::Callback::Context::Id::ThreadDown</code>. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getGlobalUB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which upper bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getGlobalUB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the global bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getId">getId</a></h3><div
+                class="prototype">public CPXLONG <span
+            class="function-name">getId</span>() const</div><div
+            class="description"><p>This method accesses the context in which the corresponding 
+ callback was invoked. </p></div><h4>Returns:</h4><div
+                class="description">
+A value from <code>IloCplex::Callback::Context::Id</code> that specifies 
+         the context in which this instance was invoked.                  </div><hr /><h3><a
+            name="method_getIncumbent">getIncumbent</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getIncumbent</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::getIncumbent(IloIntVarArray const&amp;, IloNumArray &amp;)</code>.
+ (See the documentation of that method for more detail.) 
+ This method retrieves the incumbent solution value for a single variable. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getIncumbent/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the value.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value for <code>var</code> in the current incumbent solution.                  </div><hr /><h3><a
+            name="method_getIncumbent">getIncumbent</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getIncumbent</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::getIncumbent(IloNumVarArray const&amp;, IloNumArray &amp;)</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the incumbent solution value for a single variable.
+ </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getIncumbent/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the value.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value for <code>var</code> in the current incumbent solution.                  </div><hr /><h3><a
+            name="method_getIncumbent">getIncumbent</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getIncumbent</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the current incumbent solution.
+ It retrieves the values for <code>vars[start]</code>, . . . , <code>vars[start+length-1]</code>
+ in the current incumbent solution and returns them.
+ The method raises an exception if there is no incumbent solution
+ available. Use the method 
+ <code>IloCplex::Callback::getIntInfo</code>  
+ with the value <code>Info::Feasible</code> 
+ to check whether an incumbent is available. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getIncumbent/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which incumbent values are to be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getIncumbent/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the values for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+   Upon successful return, the i-th value in <code>vals</code>
+             specifies the value for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getIncumbent">getIncumbent</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getIncumbent</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the current incumbent solution.
+ It retrieves the values for <code>vars[start]</code>, . . . , <code>vars[start+length-1]</code>
+ in the current incumbent solution and returns them.
+ The method raises an exception if there is no incumbent solution
+ available. Use the method 
+ <code>IloCplex::Callback::getIntInfo</code>  
+ with the value <code>Info::Feasible</code> 
+ to check whether an incumbent is available. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getIncumbent/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which incumbent values are to be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getIncumbent/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the values for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the value for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getIncumbentObjective">getIncumbentObjective</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="function-name">getIncumbentObjective</span>() const</div><div
+            class="description"><p>This method access the objective value for the current incumbent. </p></div><h4>Returns:</h4><div
+                class="description">
+The objective for the current incumbent; if there is currently no incumbent, 
+         the return value can be infinite (represented by a value such as 1e75).                  </div><hr /><h3><a
+            name="method_getIncumbentValue">getIncumbentValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getIncumbentValue</span>(IloExprArg const &amp; <span
+            class="parameter-name">expr</span>) const</div><div
+                    class="description"><p>This method evaluates <code>expr</code> with respect to the current incumbent solution. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getIncumbentValue/expr"><span
+                        class="parameter-name">expr</span></a></td><td><div
+            class="description">
+ The expression to evaluate.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value of <code>expr</code> with respect to the current incumbent solution.                  </div><hr /><h3><a
+            name="method_getIntInfo">getIntInfo</a></h3><div
+                class="prototype">public CPXINT <span
+                class="function-name">getIntInfo</span>(<a
+                href="../enumerations/Info_Infos.html">Info::Infos</a> <span
+            class="parameter-name">what</span>) const</div><div
+                    class="description"><p>This method accesses 32-bit, signed, integer-valued information.
+ See the documentation of the <code>Info</code> struct 
+ for details about what information can be queried. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getIntInfo/what"><span
+                        class="parameter-name">what</span></a></td><td><div
+            class="description">
+ The information to be queried.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The requested information.                  </div><hr /><h3><a
+            name="method_getLocalLB">getLocalLB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getLocalLB</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getLocalLB(IloIntVarArray const&amp;, IloIntArray &amp;)</code>.  
+ (See the documentation of that method for more detail.) 
+ This method retrieves the local lower bound for a single variable.</p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalLB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getLocalLB">getLocalLB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getLocalLB</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getLocalLB(IloNumVarArray const&amp;, IloNumArray &amp;)</code>.  
+ (See the documentation of that method for more detail.) 
+ This method retrieves the local lower bound for a single variable.</p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalLB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getLocalLB">getLocalLB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getLocalLB</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the local lower bounds for variables.
+ This methods queries the local bounds that were in place when the current
+ relaxation was computed. These bounds can be tighter than global bounds
+ due to presolve, branching, and other activity. </p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code>; 
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalLB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which lower bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getLocalLB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the local bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getLocalLB">getLocalLB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getLocalLB</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the local lower bounds for variables.
+ This methods queries the local bounds that were in place when the current
+ relaxation was computed. These bounds can be tighter than global bounds
+ due to presolve, branching, and other activity. </p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code>; 
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalLB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which lower bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getLocalLB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the local bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getLocalUB">getLocalUB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getLocalUB</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getLocalUB(IloIntVarArray const&amp;, IloNumArray &amp;)</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the local upper bound for a single variable. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalUB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getLocalUB">getLocalUB</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getLocalUB</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::Context::getLocalUB(IloNumVarArray const&amp;, IloNumArray &amp;)' /&gt;</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the local upper bound for a single variable. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalUB/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the local bound.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The local bound for <code>var</code>.                  </div><hr /><h3><a
+            name="method_getLocalUB">getLocalUB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getLocalUB</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the local upper bounds for variables.
+ This method queries the local bounds that were in place when the current
+ relaxation was computed. These bounds may be tighter than global bounds
+ due to presolve, branching, and other activity.
+ </p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code>;
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalUB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which upper bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getLocalUB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the local bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getLocalUB">getLocalUB</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getLocalUB</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the local upper bounds for variables.
+ This method queries the local bounds that were in place when the current
+ relaxation was computed. These bounds may be tighter than global bounds
+ due to presolve, branching, and other activity.
+ </p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code>;
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLocalUB/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which upper bounds should be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getLocalUB/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the local bounds for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             specifies the local bound for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getLongInfo">getLongInfo</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">getLongInfo</span>(<a
+                href="../enumerations/Info_Infos.html">Info::Infos</a> <span
+            class="parameter-name">what</span>) const</div><div
+                    class="description"><p>This method accesses 64-bit, signed, integer-valued information.
+ See the documentation of the <code>Info</code> struct 
+ for details about what information can be queried. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getLongInfo/what"><span
+                        class="parameter-name">what</span></a></td><td><div
+            class="description">
+ The information to be queried.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The requested information.                  </div><hr /><h3><a
+            name="method_getRelaxationObjective">getRelaxationObjective</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="function-name">getRelaxationObjective</span>() const</div><div
+            class="description"><p>This method accesses the objective of the current relaxation.</p><p>This method can be invoked only from the context 
+  <code>IloCplex::Callback::Context::Id::Relaxation</code> or
+  <code>IloCplex::Callback::Context::Id::Branching</code>;
+ it throws an exception when invoked from another context. </p></div><h4>Returns:</h4><div
+                class="description">
+The objective value of the current relaxation.                  </div><hr /><h3><a
+            name="method_getRelaxationPoint">getRelaxationPoint</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getRelaxationPoint</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::getRelaxationPoint(IloIntVarArray const&amp;, IloNumArray &amp;)</code>. 
+ (See the documentation of that method for more detail.)
+ This method retrieves the relaxation solution value for a single variable.
+ </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationPoint/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the value.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value for <code>var</code> in the current relaxation solution.                  </div><hr /><h3><a
+            name="method_getRelaxationPoint">getRelaxationPoint</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getRelaxationPoint</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+            class="parameter-name">var</span>) const</div><div
+                    class="description"><p>This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::getRelaxationPoint(IloNumVarArray const&amp;, IloNumArray &amp;)</code>.
+ (See the documentation of that method for more detail.)
+ This method retrieves the relaxation solution value for a single variable. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationPoint/var"><span
+                        class="parameter-name">var</span></a></td><td><div
+            class="description">
+ The variable for which to query the value.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value for <code>var</code> in the current relaxation solution.                  </div><hr /><h3><a
+            name="method_getRelaxationPoint">getRelaxationPoint</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getRelaxationPoint</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the current relaxation.
+ It retrieves the values for 
+ <code>vars[start]</code>, . . . , <code>vars[start+length-1]</code>
+ in the current relaxation and returns them.
+ This method can be invoked only from the context 
+  <code>IloCplex::Callback::Context::Id::Relaxation</code> or
+  <code>IloCplex::Callback::Context::Id::Branching</code>;
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationPoint/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which relaxation values are to be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationPoint/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the values for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             will specify the value for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getRelaxationPoint">getRelaxationPoint</a></h3><div
+                class="prototype">public void <span
+                class="function-name">getRelaxationPoint</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> &amp; <span
+            class="parameter-name">vals</span>) const</div><div
+                    class="description"><p>This method accesses the current relaxation.
+ It retrieves the values for 
+ <code>vars[start]</code>, . . . , <code>vars[start+length-1]</code>
+ in the current relaxation and returns them.
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code> or
+ <code>IloCplex::Callback::Context::Id::Branching</code>;
+ it throws an exception when invoked from another context. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationPoint/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ The variables for which relaxation values are to be queried.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationPoint/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+            class="description">
+ Where to store the values for the variables in <code>vars</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+    Upon successful return, the i-th value in <code>vals</code>
+             will specify the value for the i-th variable in <code>vars</code>.
+             Note that the method resizes <code>vals</code> appropriately.                  </div><hr /><h3><a
+            name="method_getRelaxationStatus">getRelaxationStatus</a></h3><div
+                class="prototype">public <a
+                href="../enumerations/IloCplex_CplexStatus.html">IloCplex::CplexStatus</a> <span
+                class="function-name">getRelaxationStatus</span>(CPXLONG <span
+            class="parameter-name">flags</span>) const</div><div
+                    class="description"><p>This method accesses the solution status of the current
+ continous solution.
+ See the documentation of <code>CPXXcallbackgetrelaxationstatus</code>
+ in the callable library reference manual for further details.</p><p>This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code> or
+ <code>IloCplex::Callback::Context::Id::Branching</code>;
+ it throws an exception when invoked from another context. </p><code>CPXXcallbackgetrelaxationstatus</code>
+              for values that can be passed here.
+ 
+                </div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationStatus/flags"><span
+                        class="parameter-name">flags</span></a></td><td><div
+            class="description">
+ See the documentation of
+              <code>CPXXcallbackgetrelaxationstatus</code>
+              for values that can be passed here.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+     The solution status of the current continuous relaxation.                  </div><hr /><h3><a
+            name="method_getRelaxationValue">getRelaxationValue</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="function-name">getRelaxationValue</span>(IloExprArg const &amp; <span
+            class="parameter-name">expr</span>) const</div><div
+                    class="description"><p>This method evaluates <code>expr</code> with respect 
+ to the current relaxation.
+ This method can be invoked only in the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code> or
+ <code>IloCplex::Callback::Context::Id::Branching</code>. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_getRelaxationValue/expr"><span
+                        class="parameter-name">expr</span></a></td><td><div
+            class="description">
+ The expression to evaluate.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+The value of <code>expr</code> with respect to the current relaxation.                  </div><hr /><h3><a
+            name="method_inBranching">inBranching</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inBranching</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::Branching</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::Branching</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context
+         <code>IloCplex::Callback::Context::Id::Branching</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_inCandidate">inCandidate</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inCandidate</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::Candidate</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::Candidate</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context
+         <code>IloCplex::Callback::Context::Id::Candidate</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_inGlobalProgress">inGlobalProgress</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inGlobalProgress</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::GlobalProgress</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::GlobalProgress</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context
+         <code>IloCplex::Callback::Context::Id::GlobalProgress</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_inLocalProgress">inLocalProgress</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inLocalProgress</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::LocalProgres</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::LocalProgress</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context
+         <code>IloCplex::Callback::Context::Id::LocalProgress</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_inRelaxation">inRelaxation</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inRelaxation</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::Relaxation</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::Relaxation</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context
+         <code>IloCplex::Callback::Context::Id::Relaxation</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_inThreadDown">inThreadDown</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inThreadDown</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::ThreadDown</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::ThreadDown</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context
+         <code>IloCplex::Callback::Context::Id::ThreadDown</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_inThreadUp">inThreadUp</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">inThreadUp</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in the context
+ <code>IloCplex::Callback::Context::Id::ThreadUp</code>.</p><p>It is a shortcut for
+ <code>getId() == IloCplex::Callback::Context::Id::ThreadUp</code></p></div><h4>Returns:</h4><div
+                class="description"><code>true</code> if the callback was invoked in the context 
+         <code>IloCplex::Callback::Context::Id::ThreadUp</code> and
+         <code>false</code> otherwise.                  </div><hr /><h3><a
+            name="method_isCandidatePoint">isCandidatePoint</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">isCandidatePoint</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in context
+ <code>IloCplex::Callback::Context::Id::Candidate</code> with a
+ candidate feasible point. </p><p>If the function returns true, then you can call 
+ <code>IloCplex::Callback::Context::getCandidatePoint()</code>,
+ <code>IloCplex::Callback::Context::getCandidateValue()</code>, and
+ <code>IloCplex::Callback::Context::getCandidateObjective()</code>
+ to query the potentially feasible point. </p></div><h4>Returns:</h4><div
+                class="description">
+True if the callback was invoked for a feasible point,
+         false otherwise.                  </div><hr /><h3><a
+            name="method_isCandidateRay">isCandidateRay</a></h3><div
+                class="prototype">public <a
+                href="../typedefs/IloBool.html">IloBool</a> <span
+            class="function-name">isCandidateRay</span>() const</div><div
+            class="description"><p>This method tests whether the callback was invoked in context
+ <code>IloCplex::Callback::Context::Id::Candidate</code> with an
+ unbounded ray.</p><p>If the function returns true, then you can call 
+ <code>IloCplex::Callback::Context::getCandidateRay()</code> 
+ to query the unbounded ray. </p></div><h4>Returns:</h4><div
+                class="description">
+True if the callback was invoked for an unbounded ray,
+         false otherwise.                  </div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; <span
+                class="parameter-name">constraints</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                class="description"><p>Convenience wrapper for
+ <code>makeBranch(IloIntVarArray const &amp;, IloNumArray const &amp;, IloCplex::BranchDirectionArray const &amp;, IloRangeArray const &amp;, IloNum)</code>.
+ </p><p>The function creates a branch that is defined only by a set of
+ constraints.</p></div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloIntVar.html">IloIntVar</a> const &amp; <span
+                class="parameter-name">branchVar</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="parameter-name">bound</span>, <a
+                href="../enumerations/IloCplex_BranchDirection.html">IloCplex::BranchDirection</a> <span
+                class="parameter-name">dir</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                class="description"><p>Convenience wrapper for
+ <code>makeBranch(IloIntVarArray const &amp;, IloNumArray const &amp;, IloCplex::BranchDirectionArray const &amp;, IloRangeArray const &amp;, IloNum)</code>.
+ </p><p>The function creates a branch that is defined by only branching
+ on a single variable.</p></div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloNumVar.html">IloNumVar</a> const &amp; <span
+                class="parameter-name">branchVar</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+                class="parameter-name">bound</span>, <a
+                href="../enumerations/IloCplex_BranchDirection.html">IloCplex::BranchDirection</a> <span
+                class="parameter-name">dir</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                class="description"><p>Convenience wrapper for
+ <code>makeBranch(IloNumVarArray const &amp;, IloNumArray const &amp;, IloCplex::BranchDirectionArray const &amp;, IloRangeArray const &amp;, IloNum)</code>.
+ </p><p>The function creates a branch that is defined by only branching
+ on a single variable.</p></div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> const &amp; <span
+                class="parameter-name">bounds</span>, <a
+                href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; <span
+                class="parameter-name">dirs</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                class="description"><p>Convenience wrapper for
+ <code>makeBranch(IloIntVarArray const &amp;, IloNumArray const &amp;, IloCplex::BranchDirectionArray const &amp;, IloRangeArray const &amp;, IloNum)</code>.
+ </p><p>The function creates a branch that is defined only by bound changes.
+ </p></div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> const &amp; <span
+                class="parameter-name">bounds</span>, <a
+                href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; <span
+                class="parameter-name">dirs</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                class="description"><p>Convenience wrapper for
+ <code>makeBranch(IloNumVarArray const &amp;, IloNumArray const &amp;, IloCplex::BranchDirectionArray const &amp;, IloRangeArray const &amp;, IloNum)</code>.
+ </p><p>The function creates a branch that is defined only by bound changes.
+ </p></div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> const &amp; <span
+                class="parameter-name">bounds</span>, <a
+                href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; <span
+                class="parameter-name">dirs</span>, <a
+                href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; <span
+                class="parameter-name">constraints</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                    class="description"><p>This method creates a custom branch at the current node.</p><p>The method creates the branch as specified by the arguments.
+ It is fine to branch only on variables (in which case
+ <code>constraints</code> can be empty) or only on constraints
+ (in which case <code>vars</code>, <code>bounds</code>,
+ <code>dirs</code> can be empty).
+ </p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Branching</code>; 
+ it throws an exception when invoked from another context.</p><p>At most two branches can be created at a node.</p><code>vars</code>. The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>.
+                The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>. If the direction is
+               <code>IloCplex::BranchUp</code> then the corresponding
+               element in <code>bounds</code> specifies a lower bound
+               on the corresponding variable in <code>vars</code>,
+               otherwise it specifies an upper bound.
+                 of the new child. Often a reasonable choice is the
+               objective value of the current node's relaxation.
+ 
+                </div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+   The variables on which to branch.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/bounds"><span
+                        class="parameter-name">bounds</span></a></td><td><div
+                    class="description">
+ The bounds for branching on the variables in
+               <code>vars</code>. The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/dirs"><span
+                        class="parameter-name">dirs</span></a></td><td><div
+                    class="description">
+   The branching directions for the variables.
+               The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>. If the direction is
+               <code>IloCplex::BranchUp</code> then the corresponding
+               element in <code>bounds</code> specifies a lower bound
+               on the corresponding variable in <code>vars</code>,
+               otherwise it specifies an upper bound.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/constraints"><span
+                        class="parameter-name">constraints</span></a></td><td><div
+                    class="description">
+ The constraints on which to branch.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/estimate"><span
+                        class="parameter-name">estimate</span></a></td><td><div
+            class="description">
+ An estimate for the objective value of the relaxation
+               of the new child. Often a reasonable choice is the
+               objective value of the current node's relaxation.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+A unique identifier for the newly created child. This
+         corresponds to the value returned by
+         <code>IloCplex::Callback::Context::Info:NodeUID</code>.                  </div><hr /><h3><a
+            name="method_makeBranch">makeBranch</a></h3><div
+                class="prototype">public CPXLONG <span
+                class="function-name">makeBranch</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> const &amp; <span
+                class="parameter-name">bounds</span>, <a
+                href="../typedefs/IloCplex_BranchDirectionArray.html">IloCplex::BranchDirectionArray</a> const &amp; <span
+                class="parameter-name">dirs</span>, <a
+                href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; <span
+                class="parameter-name">constraints</span>, <a
+                href="../typedefs/IloNum.html">IloNum</a> <span
+            class="parameter-name">estimate</span>) const</div><div
+                    class="description"><p>This method creates a custom branch at the current node.</p><p>The method creates the branch as specified by the arguments.
+ It is fine to branch only on variables (in which case
+ <code>constraints</code> can be empty) or only on constraints
+ (in which case <code>vars</code>, <code>bounds</code>,
+ <code>dirs</code> can be empty).
+ </p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Branching</code>; 
+ it throws an exception when invoked from another context.</p><p>At most two branches can be created at a node.</p><code>vars</code>. The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>.
+                The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>. If the direction is
+               <code>IloCplex::BranchUp</code> then the corresponding
+               element in <code>bounds</code> specifies a lower bound
+               on the corresponding variable in <code>vars</code>,
+               otherwise it specifies an upper bound.
+                 of the new child. Often a reasonable choice is the
+               objective value of the current node's relaxation.
+ 
+                </div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+   The variables on which to branch.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/bounds"><span
+                        class="parameter-name">bounds</span></a></td><td><div
+                    class="description">
+ The bounds for branching on the variables in
+               <code>vars</code>. The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/dirs"><span
+                        class="parameter-name">dirs</span></a></td><td><div
+                    class="description">
+   The branching directions for the variables.
+               The elements in this array must be
+               in 1-to-1-correspondence with the elements in
+               <code>vars</code>. If the direction is
+               <code>IloCplex::BranchUp</code> then the corresponding
+               element in <code>bounds</code> specifies a lower bound
+               on the corresponding variable in <code>vars</code>,
+               otherwise it specifies an upper bound.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/constraints"><span
+                        class="parameter-name">constraints</span></a></td><td><div
+                    class="description">
+ The constraints on which to branch.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_makeBranch/estimate"><span
+                        class="parameter-name">estimate</span></a></td><td><div
+            class="description">
+ An estimate for the objective value of the relaxation
+               of the new child. Often a reasonable choice is the
+               objective value of the current node's relaxation.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+A unique identifier for the newly created child. This
+         corresponds to the value returned by
+         <code>IloCplex::Callback::Context::Info:NodeUID</code>.                  </div><hr /><h3><a
+            name="method_postHeuristicSolution">postHeuristicSolution</a></h3><div
+                class="prototype">public void <span
+                class="function-name">postHeuristicSolution</span>(<a
+                href="../classes/IloIntVarArray.html">IloIntVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> const &amp; <span
+                class="parameter-name">vals</span>, double <span
+                class="parameter-name">obj</span>, <a
+                href="../enumerations/SolutionStrategy_Types.html">SolutionStrategy::Types</a> <span
+            class="parameter-name">strat</span>) const</div><div
+                    class="description"><p>This method posts a (heuristic) solution to CPLEX. Specifically, 
+ the method posts a solution vector to CPLEX. The vector is queued
+ internally. Before CPLEX invokes a heuristic, CPLEX looks at the
+ queue and attempts to create a feasible solution from each vector.
+ This activity can result in new incumbent solutions. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ Variables that constitute the solution to be posted.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+                    class="description">
+ Values for variables in <code>vars</code>.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/obj"><span
+                        class="parameter-name">obj</span></a></td><td><div
+                    class="description">
+    (Estimated) objective value for the new solution.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/strat"><span
+                        class="parameter-name">strat</span></a></td><td><div
+                class="description">
+ Strategy for completing partial solutions.
+                    </div></td></tr></table><hr /><h3><a
+            name="method_postHeuristicSolution">postHeuristicSolution</a></h3><div
+                class="prototype">public void <span
+                class="function-name">postHeuristicSolution</span>(<a
+                href="../classes/IloNumVarArray.html">IloNumVarArray</a> const &amp; <span
+                class="parameter-name">vars</span>, <a
+                href="../classes/IloNumArray.html">IloNumArray</a> const &amp; <span
+                class="parameter-name">vals</span>, double <span
+                class="parameter-name">obj</span>, <a
+                href="../enumerations/SolutionStrategy_Types.html">SolutionStrategy::Types</a> <span
+            class="parameter-name">strat</span>) const</div><div
+                    class="description"><p>This method posts a (heuristic) solution to CPLEX. Specifically, 
+ the method posts a solution vector to CPLEX. The vector is queued
+ internally. Before CPLEX invokes a heuristic, CPLEX looks at the
+ queue and attempts to create a feasible solution from each vector.
+ This activity can result in new incumbent solutions. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/vars"><span
+                        class="parameter-name">vars</span></a></td><td><div
+                    class="description">
+ Variables that constitute the solution to be posted.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/vals"><span
+                        class="parameter-name">vals</span></a></td><td><div
+                    class="description">
+ Values for variables in <code>vars</code>.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/obj"><span
+                        class="parameter-name">obj</span></a></td><td><div
+                    class="description">
+    (Estimated) objective value for the new solution.
+ 
+                    </div></td></tr><tr><td
+                        valign="top"><a
+                            name="method_postHeuristicSolution/strat"><span
+                        class="parameter-name">strat</span></a></td><td><div
+                class="description">
+ Strategy for completing partial solutions.
+                    </div></td></tr></table><hr /><h3><a
+            name="method_pruneCurrentNode">pruneCurrentNode</a></h3><div
+                class="prototype">public void <span
+            class="function-name">pruneCurrentNode</span>() const</div><div
+                class="description"><p>This method prunes the current search tree node.</p><p>The node for which the callback was invoked is pruned, no further
+ children are created from it. Subsequent calls to
+ <code>makeBranch</code> for this node are ignored.</p><p>
+ This method can be invoked only from the context 
+ <code>IloCplex::Callback::Context::Id::Relaxation</code> or
+ <code>IloCplex::Callback::Context::Id::Branching</code>;
+ it throws an exception when invoked from another context. </p></div><hr /><h3><a
+            name="method_rejectCandidate">rejectCandidate</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloRange.html">IloRange</a> <span
+                class="function-name">rejectCandidate</span>(<a
+                href="../classes/IloRange.html">IloRange</a> <span
+                class="parameter-name">violated</span>=<span
+            class="parameter-name">0</span>) const</div><div
+                    class="description"><p>This method rejects the current candidate solution.
+ This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::rejectCandidate(IloRangeArray)</code>. 
+ (See the documentation of that method for more detail.)</p><p>The method creates a deep copy of the <code>IloRange</code> instance
+ passed to it, so you can invoke the <code>end</code>  method after this 
+ method returns. </p>
+
+                  can be <code>null</code>.
+ 
+                </div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_rejectCandidate/violated"><span
+                        class="parameter-name">violated</span></a></td><td><div
+            class="description">
+ A constraint that cuts off the candidate solution. This argument 
+                 can be <code>null</code>.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+Always returns <code>violated</code>.                  </div><hr /><h3><a
+            name="method_rejectCandidate">rejectCandidate</a></h3><div
+                class="prototype">public void <span
+                class="function-name">rejectCandidate</span>(<a
+                href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp; <span
+            class="parameter-name">violated</span>) const</div><div
+                    class="description"><p>This method rejects the current candidate solution.
+ This method can be invoked only from  the context 
+ <code>IloCplex::Callback::Context::Id::Candidate</code>;
+ it throws an exception when invoked from another context.</p><p>The function creates a deep copy of all <code>IloRange</code> instances
+ passed to it, so it is ok to invoke the method <code>end</code> on those 
+ ranges after the function returns.</p>
+
+                  the candidate solution. This argument may also be <code>null</code>.
+                 If not <code>null</code> and not empty, then CPLEX may use
+                 these constraints to cut off further candidate solutions that 
+                 it finds. (There is no guarantee that it does so, though.)
+                 These constraints are essentially lazy constraints.
+                 None of the elements in this array is allowed to be an
+                 empty handle (use an empty array to reject without
+                 constraints),
+                </div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_rejectCandidate/violated"><span
+                        class="parameter-name">violated</span></a></td><td><div
+                class="description">
+ A potentially empty set of constraints that cut off
+                 the candidate solution. This argument may also be <code>null</code>.
+                 If not <code>null</code> and not empty, then CPLEX may use
+                 these constraints to cut off further candidate solutions that 
+                 it finds. (There is no guarantee that it does so, though.)
+                 These constraints are essentially lazy constraints.
+                 None of the elements in this array is allowed to be an
+                 empty handle (use an empty array to reject without
+                 constraints),
+                    </div></td></tr></table><hr /><h3><a
+            name="method_rejectCandidateLocal">rejectCandidateLocal</a></h3><div
+                class="prototype">public <a
+                href="../classes/IloRange.html">IloRange</a> <span
+                class="function-name">rejectCandidateLocal</span>(<a
+                href="../classes/IloRange.html">IloRange</a> <span
+            class="parameter-name">violated</span>) const</div><div
+                    class="description"><p>This method rejects the current candidate solution.
+ This method is a convenience wrapper for the method 
+ <code>IloCplex::Callback::rejectCandidateLocal(IloRangeArray)</code>. 
+ (See the documentation of that method for more detail.)</p><p>The method creates a deep copy of the <code>IloRange</code> instance
+ passed to it, so you can invoke the <code>end</code>  method after this 
+ method returns. </p></div><h4>Parameters:</h4><table><tr><td
+                        valign="top"><a
+                            name="method_rejectCandidateLocal/violated"><span
+                        class="parameter-name">violated</span></a></td><td><div
+            class="description">
+ A constraint that cuts off the candidate solution locally.
+ 
+                    </div></td></tr></table><h4>Returns:</h4><div
+                class="description">
+Always returns <code>violated</code>.                  </div><hr /><h3><a
+            name="method_rejectCandidateLocal">rejectCandidateLocal</a></h3><div
+                class="prototype">public void <span
+                class="function-name">rejectCandidateLocal</span>(<a
+                href="../classes/IloRangeArray.html">IloRangeArray</a> const &amp;amp; <span
+            class="parameter-name">violated</span>) const</div><div
+            class="description"><p>This method rejects the current candidate solution.
+ This method can be invoked only from  the context 
+ <code>IloCplex::Callback::Context::Id::Candidate</code> and only
+ if the callback was invoked for an integral node
+ (see <code>CandidateSource</code>);
+ it throws an exception when invoked from another context.</p><p>The function creates a deep copy of all <code>IloRange</code> instances
+ passed to it, so it is ok to invoke the method <code>end</code> on those 
+ ranges after the function returns.</p><p>The passed constraints are not required to be globally valid.
+ CPLEX only assumes them to be valid in the subtree in which
+ the callback was invoked.</p><p>The parameter <code>violated</code> is a potentially empty set of 
+ constraints that cut off the candidate solution. This argument may also 
+ be <code>null</code>. If not <code>null</code> and not empty, 
+ then CPLEX may use these constraints to cut off further candidate solutions 
+ that it finds. (There is no guarantee that it does so, though.) 
+ These constraints are essentially lazy constraints. 
+ None of the elements in this array is allowed to be an 
+ empty handle (use an empty array to reject without
+ constraints). The constraints are not required to be 
+ globally valid. CPLEX only assumes them to be valid 
+ in the subtree in which the callback was invoked.</p></div><hr /><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Inner Struct Detail</th></tr></table><h1>Struct Context::Id</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcplex/ilocplexi.h</span></div><div
+            class="description"><p>This <code>struct</code> designates places in which 
+ a CPLEX generic callback can be invoked.
+ The values defined here specify in which contexts CPLEX can invoke a
+ callback. They are used in two different ways: </p><ul>
+<li>They are used as arguments to the method 
+       <code>IloCplex::Callback::Function::invoke</code> to specify in which
+       context the callback has just been invoked.</li><li>A bit-wise OR of these values passes as an argument to the method 
+       <code>IloCplex::use(Callback::Function, long)</code> to 
+       specify in which places CPLEX should invoke the registered callback.</li>
+</ul><p>For details about the various context values, see the 
+ reference manual of the Callable Library (C API). </p><p>Important notes about the <code>ThreadDown</code> context: </p><ul>
+<li>If a callback invoked in the <code>ThreadUp</code> context throws an
+       exception, then <code>ThreadDown</code> will <strong>not</strong> be invoked
+       on this thread.</li><li>The callback function is not allowed to throw exceptions if invoked
+       in the context <code>ThreadDown</code>. Any exception thrown in this
+       context will be ignored.</li>
+</ul><p>Think of <code>ThreadUp</code> and <code>ThreadDown</code> as
+ &quot;constructor&quot; and &quot;destructor&quot;: the destructor is invoked only if the
+ object was fully constructed and is not allowed to throw an exception. </p></div><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                    colspan="2">Attribute Summary</th></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+                    href="../structs/Context_Id.html#attribute_Branching">Branching</a></code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+                    href="../structs/Context_Id.html#attribute_Candidate">Candidate</a></code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+                    href="../structs/Context_Id.html#attribute_GlobalProgress">GlobalProgress</a></code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+                    href="../structs/Context_Id.html#attribute_LocalProgress">LocalProgress</a></code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+                    href="../structs/Context_Id.html#attribute_Relaxation">Relaxation</a></code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+                    href="../structs/Context_Id.html#attribute_ThreadDown">ThreadDown</a></code></td></tr><tr><td
+                    valign="top" align="right" nowrap=""><code
+                    class="prototype">static CPXLONG const</code></td><td
+                            width="100%"><code><a
+            href="../structs/Context_Id.html#attribute_ThreadUp">ThreadUp</a></code></td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Attribute Detail</th></tr></table><h3><a
+            name="attribute_Branching">Branching</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">Branching</span> </div><div
+                class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_BRANCHING</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h3><a
+            name="attribute_Candidate">Candidate</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">Candidate</span> </div><div
+                class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_CANDIDATE</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h3><a
+            name="attribute_GlobalProgress">GlobalProgress</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">GlobalProgress</span> </div><div
+                class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_GLOBAL_PROGRESS</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h3><a
+            name="attribute_LocalProgress">LocalProgress</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">LocalProgress</span> </div><div
+                class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_LOCAL_PROGRESS</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h3><a
+            name="attribute_Relaxation">Relaxation</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">Relaxation</span> </div><div
+                class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_RELAXATION</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h3><a
+            name="attribute_ThreadDown">ThreadDown</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">ThreadDown</span> </div><div
+                class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_THREAD_DOWN</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h3><a
+            name="attribute_ThreadUp">ThreadUp</a></h3><div
+                class="prototype"> static CPXLONG const <span
+            class="attribute-name">ThreadUp</span> </div><div
+            class="description"><p>See the documentation of <code>CPX_CALLBACKCONTEXT_THREAD_UP</code> 
+  in the  reference manual of the Callable Library (C API). </p></div><hr /><h1>Struct Context::Info</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcplex/ilocplexi.h</span></div><div
+            class="description"><p>This <code>struct</code> provides an <code>enum</code> of 
+ identifiers for the kinds of information that you can 
+ retrieve from a generic callback by invoking one (or more)
+ of the generic callback informational methods.   
+ </p></div><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                        colspan="1">Inner Enumeration</th></tr><tr><td><a
+            href="../enumerations/Info_Infos.html">Info::Infos</a></td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Inner Enumeration Detail</th></tr></table><h1><a
+            name="enumeration_Infos">Enumeration Infos</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcplex/ilocplexi.h</span></div><div
+            class="description"><p>This <code>enum</code> identifies the kinds of information 
+ that your application can retrieve from a generic callback
+ by means of the methods 
+ <code>IloCple::Callback::getIntInfo(Info)</code>, 
+ <code>IloCplex::Callback::getLongInfo(Info)</code>, or 
+ <code>IloCplex::Callback::getDoubleInfo(Info)</code>. 
+ See documentation of the enumeration <code>CPXCALLBACKINFO</code> in 
+ the reference manual of the Callable Library (C API) 
+ for further details about these values. </p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>ThreadId = CPXCALLBACKINFO_THREADID</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_THREADID</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodeCount = CPXCALLBACKINFO_NODECOUNT</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_NODECOUNT</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>IterationCount = CPXCALLBACKINFO_ITCOUNT</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_ITCOUNT</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>BestSolution = CPXCALLBACKINFO_BEST_SOL</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_BEST_SOL</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>BestBound = CPXCALLBACKINFO_BEST_BND</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_BEST_BND</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Threads = CPXCALLBACKINFO_THREADS</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_THREADS</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Feasible = CPXCALLBACKINFO_FEASIBLE</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_FEASIBLE</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Time = CPXCALLBACKINFO_TIME</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_TIME</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>DeterministicTime = CPXCALLBACKINFO_DETTIME</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_DETTIME</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodeUID = CPXCALLBACKINFO_NODEUID</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_NODEUID</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodeDepth = CPXCALLBACKINFO_NODEDEPTH</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_NODEDEPTH</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>CandidateSource = CPXCALLBACKINFO_CANDIDATE_SOURCE</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_CANDIDATE_SOURCE</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Restarts = CPXCALLBACKINFO_RESTARTS  AfterCutLoop = CPXCALLBACKINFO_AFTERCUTLOOP</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKINFO_RESTARTS</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NodesLeft = CPXCALLBACKINFO_NODESLEFT</code></td><td
+                    valign="top" align="left"><div
+            valign="top">
+ See <code>CPXCALLBACKINFO_NODESLEFT</code> in the callable library reference manual.  
+                        </div></td></tr></table><br /><h1>Struct Context::SolutionStrategy</h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcplex/ilocplexi.h</span></div><div
+            class="description"><p>This <code>struct</code> defines an <code>enum</code> 
+ that provides identifiers for the 
+ various completion strategies that can be passed to the method 
+ <code>IloCplex::Callback::Context::postHeuristicSolution</code>. </p><p>
+ For more detail, see the documentation of the enumeration
+ <code>CPXCALLBACKSOLUTIONSTRATEGY</code> in the reference  manual 
+ of the Callable Library (C API) of CPLEX.
+ </p></div><table
+            class="summary" border="1" cellpadding="3" cellspacing="0"
+                    width="100%"><tr><th
+                        colspan="1">Inner Enumeration</th></tr><tr><td><a
+            href="../enumerations/SolutionStrategy_Types.html">SolutionStrategy::Types</a></td></tr></table><table
+            border="1" cellspacing="0" width="100%"><tr><th
+                colspan="0">Inner Enumeration Detail</th></tr></table><h1><a
+            name="enumeration_Types">Enumeration Types</a></h1><div
+                class="definition-file"><strong>Definition file: </strong><span
+            class="definition-file">ilcplex/ilocplexi.h</span></div><div
+            class="description"><p>This <code>enum</code> identifies completion strategies 
+ for CPLEX to use with the method 
+ <code>IloCplex::Callback::Context::postHeuristicSolution</code>. </p><p>If you pass a complete solution to this method, that is, the
+ solution specifies a value for every variable in the model, then 
+ CPLEX can check the feasibility of that complete solution.</p><p>Possibly the arguments that you passed to that method specify only a 
+ partial solution. In such a case, CPLEX can attempt to complete the
+ partial solution by means of bound propagation. </p><p>For more detail about these completion strategies, see the documentation 
+ of the enumeration <code>CPXCALLBACKSOLUTIONSTRATEGY</code> in the reference  
+ manual of the Callable Library (C API) of CPLEX. </p></div><table
+            border="1" cellspacing="0" width="100%"><tr><th
+            colspan="0">Fields</th></tr></table><br /><table border="0"
+            width="100%" cellpadding="5" cellspacing="0"><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>NoCheck = CPXCALLBACKSOLUTION_NOCHECK</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKSOLUTION_NOCHECK</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>CheckFeasible = CPXCALLBACKSOLUTION_CHECKFEAS</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKSOLUTION_CHECKFEAS</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Propagate = CPXCALLBACKSOLUTION_PROPAGATE</code></td><td
+                    valign="top" align="left"><div
+                    valign="top">
+ See <code>CPXCALLBACKSOLUTION_PROPAGATE</code> in the callable library reference manual.  
+                        </div></td></tr><tr><td
+                    valign="top" align="left"
+                    width="20%"><code>Solve = CPXCALLBACKSOLUTION_SOLVE</code></td><td
+                    valign="top" align="left"><div valign="top">
+ See <code>CPXCALLBACKSOLUTION_SOLVE</code> in the callable library reference manual.  
+                        </div></td></tr></table><br /></body>
+</html>

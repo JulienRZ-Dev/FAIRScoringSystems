@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CPX_CALLBACKCONTEXT_CANDIDATE" />
+<meta name="abstract" content="Generic callback at feasible solution candidate" />
+<meta name="Description" content="Generic callback at feasible solution candidate" />
+<meta name="DC.subject" content="CPX_CALLBACKCONTEXT_CANDIDATE, C API Reference Manual" />
+<meta name="keywords" content="CPX_CALLBACKCONTEXT_CANDIDATE, C API Reference Manual" />
+<meta name="DC.Relation" scheme="URI" content="../../refcallablelibrary/macros/homepageCallbackContext.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CPX_CALLBACKCONTEXT_CANDIDATE" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common_opti.css" />
+<link rel="Start" href="../../refcallablelibrary/macros/homepageCallbackContext.html" />
+<title>CPX_CALLBACKCONTEXT_CANDIDATE</title>
+</head>
+<body id="CPX_CALLBACKCONTEXT_CANDIDATE"><div role="main">
+
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="keyword apiname">CPX_CALLBACKCONTEXT_CANDIDATE</span></h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">Generic callback at feasible solution candidate</p>
+
+    <section class="section refsyn"><span class="ph synph">
+      <span class="keyword kwd">#define</span><span class="ph sep"> </span><span class="ph var">CPX_CALLBACKCONTEXT_CANDIDATE</span><span class="ph sep"> </span>0x0020
+    </span></section>
+
+
+    
+    
+    
+
+    <section class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">
+        CPLEX invokes the generic callback when it has found a new candidate for an 
+        integer-feasible solution or has encountered an unbounded relaxation.
+        CPLEX offers the callback a chance to reject the candidate solution or the
+        unbounded relaxation.
+        To distinguish whether the callback was invoked for a candidate
+        integer-feasible solution or an unbounded relaxation, use the routines 
+        <a class="xref" href="../cpxapi/callbackcandidateispoint.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for a candidate feasible point.">CPXXcallbackcandidateispoint and CPXcallbackcandidateispoint</a> and
+        <a class="xref" href="../cpxapi/callbackcandidateisray.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for an unbounded relaxation.">CPXXcallbackcandidateisray and CPXcallbackcandidateisray</a>.
+      </p>
+
+      <p class="p">
+        If <a class="xref" href="../cpxapi/callbackcandidateispoint.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for a candidate feasible point.">CPXXcallbackcandidateispoint and CPXcallbackcandidateispoint</a> shows that
+        CPLEX has found a candidate feasible point, then you can query that point 
+        by using <a class="xref" href="../cpxapi/callbackgetcandidatepoint.html" title="Gets the candidate solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a>.
+      </p>
+
+      <p class="p">
+        If <a class="xref" href="../cpxapi/callbackcandidateisray.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for an unbounded relaxation.">CPXXcallbackcandidateisray and CPXcallbackcandidateisray</a> shows that
+        CPLEX has encountered an unbounded relaxation, then you can get 
+        the unbounded ray from 
+        <a class="xref" href="../cpxapi/callbackgetcandidateray.html" title="Gets the unbounded ray for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidateray and CPXcallbackgetcandidateray</a>.
+      </p>
+
+      <p class="p">
+        In either the case, the user can reject the feasible point or unbounded
+        direction by means of the routines <a class="xref" href="../cpxapi/callbackrejectcandidate.html" title="Rejects a candidate solution or an unbounded direction from a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE and potentially specifies additional constraints that cut off the solution.">CPXXcallbackrejectcandidate and CPXcallbackrejectcandidate</a>
+        and <a class="xref" href="../cpxapi/callbackrejectcandidatelocal.html" title="Rejects a candidate solution or an unbounded direction from a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE and specifies additional constraints that cut off the solution.">CPXXcallbackrejectcandidatelocal and CPXcallbackrejectcandidatelocal</a>.
+      </p>
+
+      <div class="p">
+        You can use the constant <code class="ph codeph">CPX_CALLBACKCONTEXT_CANDIDATE</code> in
+        two different ways:
+        <ul class="ul">
+          <li class="li">As a value passed into the generic callback function to specify 
+              in which context the generic callback is invoked.</li>
+
+          <li class="li">As a bit-wise OR with the <span class="keyword parmname">where</span> argument of the routine
+              <a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a> 
+              to specify in which situations CPLEX should invoke the generic
+              callback.</li>
+
+        </ul>
+
+      </div>
+
+      <div class="note important"><span class="importanttitle">Important:</span> 
+        All information queried from a callback in this context is thread-local.
+      </div>
+ 
+      <div class="note important"><span class="importanttitle">Important:</span> 
+        If the callback is invoked for a feasible point and does not reject the
+        candidate, this is no guarantee that the candidate will become the new
+        incumbent. The callback is only one of many feasibility tests that are
+        performed on a candidate solution.
+      </div>
+ 
+      </section>
+
+      <section class="section"><h2 class="title sectiontitle">Candidate context and lazy constraint separation</h2> 
+      
+      
+        <p class="p">
+          This context allows a user to separate lazy constraints. These
+          constraints are always specified in terms of the original model
+          and possibly have to be crushed to the presolved model. (This crushing happens
+          internally in CPLEX.) To guarantee that lazy constraints can be
+          crushed, certain presolve reductions 
+          (such as nonlinear reductions) have to be disabled.
+        </p>
+
+        <p class="p">
+          CPLEX cannot tell whether the user plans to separate lazy
+          constraints. Consequently,  
+          CPLEX always disables dual and nonlinear reductions in presolve
+          if the user asks for the callback to be invoked in this context.
+        </p>
+
+        <p class="p">
+          Moreover, if a user calls <a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a>
+          to modify the callback function or the set of contexts in which the
+          callback is invoked, then this change can render a resident solution invalid:
+          a new or modified callback possibly rejected that solution.
+          CPLEX does not validate any resident solution information
+          against a potential new callback. If you modify the callback settings
+          with respect to <code class="ph codeph">CPX_CALLBACKCONTEXT_CANDIDATE</code>, then it is best to
+          set <a class="xref" href="../../CPLEX/Parameters/topics/AdvInd.html" title="If set to 1 or 2, this parameter specifies that CPLEX should use advanced starting information when it initiates optimization.">advanced start switch</a>
+          to 0 (zero) and re-solve. This way, you can be sure that solution
+          information is consistent with lazy constraints separated in a
+          callback.
+        </p>
+
+    </section>
+ 
+    <section class="section"><h2 class="title sectiontitle">Incompatibility with Benders algorithm</h2> 
+     
+    <p class="p">This context is incompatible with 
+    <a class="xref" href="../../CPLEX/UsrMan/topics/discr_optim/benders/introBenders.html" title="CPLEX implements Benders algorithm.">Benders algorithm</a>.
+    </p>
+
+    </section>
+
+  
+  <section class="section"><h2 class="title sectiontitle">See also</h2> 
+       
+      <ul class="ul">
+      <li class="li"><a class="xref" href="../cpxapi/callbacksetfunc.html" title="Sets the generic callback function and specifies in which contexts it will be invoked.">CPXXcallbacksetfunc and CPXcallbacksetfunc</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackcandidateispoint.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for a candidate feasible point.">CPXXcallbackcandidateispoint and CPXcallbackcandidateispoint</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetcandidatepoint.html" title="Gets the candidate solution and its objective value for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidatepoint and CPXcallbackgetcandidatepoint</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackcandidateisray.html" title="Tests whether a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE was invoked for an unbounded relaxation.">CPXXcallbackcandidateisray and CPXcallbackcandidateisray</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetcandidateray.html" title="Gets the unbounded ray for callback invocations in the context CPX_CALLBACKCONTEXT_CANDIDATE.">CPXXcallbackgetcandidateray and CPXcallbackgetcandidateray</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackrejectcandidate.html" title="Rejects a candidate solution or an unbounded direction from a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE and potentially specifies additional constraints that cut off the solution.">CPXXcallbackrejectcandidate and CPXcallbackrejectcandidate</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackrejectcandidatelocal.html" title="Rejects a candidate solution or an unbounded direction from a callback in the context CPX_CALLBACKCONTEXT_CANDIDATE and specifies additional constraints that cut off the solution.">CPXXcallbackrejectcandidatelocal and CPXcallbackrejectcandidatelocal</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfodbl.html" title="Accesses information of type double from a generic callback.">CPXXcallbackgetinfodbl and CPXcallbackgetinfodbl</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfoint.html" title="Accesses information of type integer from a generic callback.">CPXXcallbackgetinfoint and CPXcallbackgetinfoint</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackgetinfolong.html" title="Accesses information of type long from a generic callback.">CPXXcallbackgetinfolong and CPXcallbackgetinfolong</a></li>
+
+      <li class="li"><a class="xref" href="../cpxapi/callbackpostheursoln.html" title="Posts a feasible solution to CPLEX.">CPXXcallbackpostheursoln and CPXcallbackpostheursoln</a></li>
+ 
+      </ul>
+
+  </section>
+
+  </div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../refcallablelibrary/macros/homepageCallbackContext.html">Callback context</a></div>
+</div>
+</nav></div></body>
+</html>

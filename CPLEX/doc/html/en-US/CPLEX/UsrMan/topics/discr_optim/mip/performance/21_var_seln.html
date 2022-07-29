@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Selecting variables" />
+<meta name="abstract" content="Describes trade-offs around variable selection and options of the parameter to control selection of the next variable." />
+<meta name="Description" content="Describes trade-offs around variable selection and options of the parameter to control selection of the next variable." />
+<meta name="DC.subject" content="strong branching, branching, strong, MIP strategy, variable selection, variable selection strategy, strong branching trade-offs" />
+<meta name="keywords" content="strong branching, branching, strong, MIP strategy, variable selection, variable selection strategy, strong branching trade-offs" />
+<meta name="DC.Relation" scheme="URI" content="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/performance/12_title_synopsis.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="User_manual.uss_solveMIP.684925" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/performance/12_title_synopsis.html" />
+<title>Selecting variables</title>
+</head>
+<body id="User_manual.uss_solveMIP.684925"><div role="main">
+ 
+<h1 class="title topictitle1" id="ariaid-title1">Selecting variables</h1>
+ 
+ 
+
+<div class="body"><p class="shortdesc">Describes trade-offs around variable selection and options of the parameter to control selection
+of the next variable.</p>
+ 
+<p class="p">After a node has been selected, the variable selection
+parameter influences which variable is chosen for branching at that
+node. (For documentation of that parameter, see <a class="xref" href="../../../../../Parameters/topics/VarSel.html" title="Sets the rule for selecting the branching variable at the node which has been selected for branching.">MIP variable selection strategy</a> in
+the <em class="ph i">CPLEX Parameters Reference Manual</em>.)</p>
+
+
+<p class="p">
+When CPLEX selects a branching variable during execution of the branch and cut algorithm, 
+there is a trade-off between more informed selections that require more computational effort 
+and less informed selections that are computationally cheaper. More computationally intensive 
+selection procedures can reduce the node count, but also reduce the rate of node throughput. 
+Less intensive procedures can increase the node count, but that improved node throughput can 
+yield an improvement in overall performance. If you can properly assess these trade-offs for 
+your model, you can achieve faster performance than the default variable selection strategy in 
+CPLEX. 
+</p>
+
+<p class="p">The key here is the concept of <strong class="ph b">strong branching</strong>, which can be computationally 
+expensive, but which can yield valuable information about branching. The idea behind 
+strong branching at a node relaxation (root node or child node) is the selection of a 
+subset of the integer-restricted variables with fractional values in the node relaxation 
+solution. For each variable in this subset, CPLEX explores both the up and down branches 
+by running a modest number of simplex iterations; CPLEX then uses the results to assess 
+the benefit of branching up or down on that variable. 
+</p>
+ 
+<p class="p"> 
+Setting the <a class="xref" href="../../../../../Parameters/topics/VarSel.html" title="Sets the rule for selecting the branching variable at the node which has been selected for branching.">MIP variable selection strategy</a> parameter 
+to 3 does this at every node.
+</p>
+ 
+<p class="p"> 
+The default of the <a class="xref" href="../../../../../Parameters/topics/VarSel.html" title="Sets the rule for selecting the branching variable at the node which has been selected for branching.">MIP variable selection strategy</a> parameter 
+(which is typically 2) computes strong branching data at the root node in order to calculate 
+<strong class="ph b">pseudo costs</strong> for each variable. These pseudo costs really help with subsequent branching, 
+but their calculation can be expensive. Setting the parameter to 4 computes much less expensive 
+pseudo <strong class="ph b">reduced</strong> costs. This choice can save time, particularly at the root node when you have 
+asked CPLEX to perform an optimization with limited total run time.
+</p>
+
+<p class="p"> 
+Recent versions of CPLEX perform powerful computations when processing the root node, and 
+consequently many models solve to optimality (or close to optimality) at the root node. 
+If most of the time is spent at the root node, CPLEX has little time left then for branching, 
+so the benefit  of more informed branching decisions at the child node probably may not be 
+worth the cost of those root node calculations. 
+</p>
+
+<p class="p"> 
+Note that this situation will not always be the case, though.
+</p>
+
+<p class="p"> 
+Sometimes, strong branching calculations at the root yield variable fixings. For example, 
+if CPLEX quickly discovers that the up branch on a binary variable is infeasible, CPLEX 
+can immediately fix that variable to 0 (zero). These variable fixings yielded by strong 
+branching calculations can make heuristics more effective, or can yield other 
+performance improvements.  
+</p>
+
+<p class="p"> 
+So, do not always set the <a class="xref" href="../../../../../Parameters/topics/VarSel.html" title="Sets the rule for selecting the branching variable at the node which has been selected for branching.">MIP variable selection strategy</a> parameter 
+to 4 with models that run for only a few nodes. But, for models where CPLEX seems to 
+spend a lot time at the root node, consider setting the parameter to 4 to see whether that helps.
+</p>
+ 
+<p class="p"> 
+Similarly, for models where root node processing time is brief, node relaxations solve quickly, 
+and lack of progress toward the best node is an issue, consider the more computationally 
+expensive setting of 3 for the 
+<a class="xref" href="../../../../../Parameters/topics/VarSel.html" title="Sets the rule for selecting the branching variable at the node which has been selected for branching.">MIP variable selection strategy</a> parameter. 
+This setting instructs CPLEX to perform strong branching calculations at the child nodes 
+as well as at the root node.
+</p>
+
+<p class="p">The following table summarizes the settings for this parameter.</p>
+
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A three-column table showing possible values of the variable selection parameter, their symbolic name, and their effect on the choice of branching variable." id="User_manual.uss_solveMIP.684925__User_manual.uss_solveMIP.676777" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. VarSel parameter settings for choice of branching variable</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;"><tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d218146e144"> VarSel Setting </th>
+
+<th class="entry thleft" align="left" valign="top" id="d218146e147"> Symbolic Value </th>
+
+<th class="entry thleft" align="left" valign="top" id="d218146e150"> Branching Variable Choice </th>
+
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d218146e144 ">  <code class="ph codeph">-1</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e147 ">  <code class="ph codeph">CPX_VARSEL_MININFEAS</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e150 "> Branch strictly at the nearest integer value
+which is closest to the fractional variable. </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d218146e144 ">  <code class="ph codeph">1</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e147 ">  <code class="ph codeph">CPX_VARSEL_MAXINFEAS</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e150 "> Branch strictly at the nearest integer value
+which is furthest from the fractional variable. </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d218146e144 ">  <code class="ph codeph">0 </code> (Default) </td>
+
+<td class="entry" valign="top" headers="d218146e147 ">  <code class="ph codeph">CPX_VARSEL_DEFAULT</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e150 "> CPLEX automatically decides each branch direction. </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d218146e144 ">  <code class="ph codeph">2</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e147 ">  <code class="ph codeph">CPX_VARSEL_PSEUDO</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e150 "> Use pseudo costs, which derives an estimate
+about the effect of each proposed branch from duality information. </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d218146e144 ">  <code class="ph codeph">3</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e147 ">  <code class="ph codeph">CPX_VARSEL_STRONG</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e150 "> Use strong branching, which invests considerable
+effort in analyzing potential branches in the hope of drastically
+reducing the number of nodes that will be explored. </td>
+
+</tr>
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d218146e144 ">  <code class="ph codeph">4</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e147 ">  <code class="ph codeph">CPX_VARSEL_PSEUDOREDUCED</code>  </td>
+
+<td class="entry" valign="top" headers="d218146e150 "> Use pseudo reduced costs, which is a computationally
+less intensive form of pseudo costs. </td>
+
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../../../CPLEX/UsrMan/topics/discr_optim/mip/performance/12_title_synopsis.html" title="Describes features for tuning performance of the MIP optimizer.">Tuning performance features of the mixed integer optimizer</a></div>
+</div>
+</nav></div></body>
+</html>

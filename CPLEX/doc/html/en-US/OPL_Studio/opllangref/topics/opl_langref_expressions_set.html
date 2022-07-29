@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Set expressions" />
+<meta name="abstract" content="Describes the use of set expressions in OPL." />
+<meta name="Description" content="Describes the use of set expressions in OPL." />
+<meta name="DC.subject" content="expressions, set, set expressions" />
+<meta name="keywords" content="expressions, set, set expressions" />
+<meta name="DC.Relation" scheme="URI" content="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usropllangref.uss_langref_expressRelations.1049578" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" />
+<title>Set expressions</title>
+</head>
+<body id="usropllangref.uss_langref_expressRelations.1049578"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">Set expressions</h1>
+
+
+
+<div class="body conbody"><div class="abstract"><p class="shortdesc">Describes the use of set expressions in OPL.</p>
+ <p class="p"> </p>
+ </div>
+
+<p class="p">Set data can be initialized by set expressions, as mentioned in <a class="xref" href="opl_langref_datatypes.html" title="Describes basic data types and data structures available for modeling data in OPL.">Data types</a>. This section
+describes how these expressions are constructed and what functions
+are defined over sets.</p>
+
+<ul class="ul">
+<li class="li"><p class="p"><a class="xref" href="opl_langref_expressions_set.html#usropllangref.uss_langref_expressRelations.1049578__usropllangref.uss_langref_expressRelations.1045483">Construction of set expressions</a></p>
+ </li>
+
+<li class="li"><p class="p"><a class="xref" href="opl_langref_expressions_set.html#usropllangref.uss_langref_expressRelations.1049578__usropllangref.uss_langref_expressRelations.1044087">Functions for sets</a></p>
+ </li>
+
+</ul>
+
+<section class="section" id="usropllangref.uss_langref_expressRelations.1049578__usropllangref.uss_langref_expressRelations.1045483"><h2 class="title sectiontitle">Construction
+of set expressions</h2><p class="p">Set expressions
+are constructed from previously defined sets and the set operations <code class="ph codeph">union</code>, <code class="ph codeph">inter</code>, <code class="ph codeph">diff</code>,
+and <code class="ph codeph">symdiff</code>. For instance:</p>
+<pre class="pre codeblock"><code>
+{int} s1 = {1,2,3}; 
+{int} s2 = {1,4,5}; 
+{int} i = s1 inter s2; 
+{int} u = s1 union s2; 
+{int} d = s1 diff s2; 
+{int} sd = s1 symdiff s2; 
+</code></pre><p class="p">initializes <code class="ph codeph">i</code> to <code class="ph codeph">{1}</code>, <code class="ph codeph">u</code> to <code class="ph codeph">{1,2,3,4,5}</code>, <code class="ph codeph">d</code> to <code class="ph codeph">{2,3}</code>,
+and <code class="ph codeph">sd</code> to <code class="ph codeph">{2,3,4,5}</code>. In addition,
+set expressions can be constructed from ranges. For instance, the
+excerpt </p>
+<pre class="pre codeblock"><code>
+{int} s = asSet(1..10);
+</code></pre><p class="p">initializes <code class="ph codeph">s</code> to the finite set <code class="ph codeph">{1,2,...,10}</code> </p>
+<div class="note important"><span class="importanttitle">Important:</span>  <p class="p">The range <code class="ph codeph">1..10</code> takes constant
+space, while the set <code class="ph codeph">s</code> takes space proportional to
+the number of elements in the range. </p>
+ </div>
+</section>
+
+<section class="section" id="usropllangref.uss_langref_expressRelations.1049578__usropllangref.uss_langref_expressRelations.1044087"><h2 class="title sectiontitle">Functions
+for sets</h2><div class="p"><a class="xref" href="opl_langref_expressions_set.html#usropllangref.uss_langref_expressRelations.1049578__usropllangref.uss_langref_expressRelations.1045635" title="A two-column table that lists and describes the functions available over sets.">Table 1</a> shows
+the functions available over sets. These methods apply to all sets,
+including sets of tuples and other complex sets. In this section,
+we assume that:</div>
+<ul class="ul">
+<li class="li"><p class="p"><code class="ph codeph">S</code> is the set <code class="ph codeph">3, 6, 7, 9</code> </p>
+ </li>
+
+<li class="li"><p class="p"><code class="ph codeph">item</code> is an element of <code class="ph codeph">S</code> </p>
+</li>
+
+<li class="li"><p class="p"><code class="ph codeph">n</code> is an integer number</p>
+</li>
+
+</ul>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table that lists and describes the functions available over sets." id="usropllangref.uss_langref_expressRelations.1049578__usropllangref.uss_langref_expressRelations.1045635" class="table ShadedHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Functions over sets </span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d467826e290">Function</th>
+
+<th class="entry thleft" align="left" valign="top" id="d467826e293">Description</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">card</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><code class="ph codeph">card(S)</code> returns the size of <code class="ph codeph">S</code>,
+that is, the number of items.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">ord</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><p class="p"><code class="ph codeph">ord(S,item)</code> returns the position of <code class="ph codeph">item</code> in <code class="ph codeph">S</code>.
+Positions start at <code class="ph codeph">0</code> and <code class="ph codeph">ord(S,item)</code> produces
+an execution error if <code class="ph codeph">item</code> is not in <code class="ph codeph">S</code>. </p>
+<p class="p">Example: <code class="ph codeph">ord(S,6)</code> evaluates
+to <code class="ph codeph">1</code> and <code class="ph codeph">ord(S,9)</code> to <code class="ph codeph">3</code>.</p>
+<p class="p">The
+order of items in an explicit set is by order of appearance in the
+initialization and is implementation-dependent when the sets are the
+results of a set operation.</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">first</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><code class="ph codeph">first(S)</code> returns the first item in <code class="ph codeph">S</code>, <code class="ph codeph">3</code> in
+this example.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">item</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><p class="p"><code class="ph codeph">item(S,n)</code> returns the n-th item in set
+S. Counting starts from 0. This is equivalent to <code class="ph codeph">next(first(S),n)</code> </p>
+<p class="p">Example:
+item(S,1) = 6</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">last</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><code class="ph codeph">last(S)</code> returns the last item in <code class="ph codeph">S</code>, <code class="ph codeph">9</code> in
+this example.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">next</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><p class="p"><code class="ph codeph">next(S,item)</code> returns the item in S that
+comes after item and produces an execution error if <code class="ph codeph">item</code> is
+the last item. </p>
+<p class="p">Example: <code class="ph codeph">next(S,3) = 6</code> </p>
+<p class="p"><code class="ph codeph">next(S,item,n)</code> returns
+the n-th next item. <code class="ph codeph">next(S,item)</code> is equivalent to <code class="ph codeph">next(S,item,1)</code>. </p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">nextc</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><p class="p">A circular version of <code class="ph codeph">next</code>. <code class="ph codeph">nextC(S,item)</code> returns
+the first item in <code class="ph codeph">S</code> if <code class="ph codeph">item</code> is the
+last item. </p>
+<p class="p">Example: <code class="ph codeph">nextc(S,9) = 3</code> </p>
+<p class="p"><code class="ph codeph">nextc(S,item,n)</code> returns
+the n-th circular next item. <code class="ph codeph">nextc(S,item)</code> is equivalent
+to <code class="ph codeph">nextc(S,item,1)</code>.</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">prev</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><p class="p"><code class="ph codeph">prev(S,item)</code> returns the item in <code class="ph codeph">S</code> that
+comes before <code class="ph codeph">item</code> and produces an execution error
+if <code class="ph codeph">item</code> is the first item.</p>
+<p class="p">Example: <code class="ph codeph">prev(S,6)
+= 3</code> </p>
+<p class="p"><code class="ph codeph">prev(S,item,n)</code> returns the n-th
+previous item. <code class="ph codeph">prev(S,item)</code> is equivalent to <code class="ph codeph">prev(S,item,1)</code>.</p>
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d467826e290 "><code class="ph codeph">prevc</code> </td>
+
+<td class="entry" valign="top" headers="d467826e293 "><p class="p">A circular version of <code class="ph codeph">prev</code>. <code class="ph codeph">prevc(S,item)</code> returns
+the last item in <code class="ph codeph">S</code> if <code class="ph codeph">item</code> is the
+first item.</p>
+<p class="p">Example: <code class="ph codeph">prev(S,3) = 9</code> </p>
+<p class="p"><code class="ph codeph">prevc(S,item,n</code>)
+returns the n-th circular previous item. <code class="ph codeph">prevc(S,item)</code> is
+equivalent to <code class="ph codeph">prevc(S,item,1)</code>.</p>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../OPL_Studio/opllangref/topics/opl_langref_expressions.html" title="Describes data and decision variable identifiers, integer and float expressions, aggregate operators, piecewise-linear functions (continuous and discontinuous), set expressions, and Boolean expressions.">Expressions</a></div>
+</div>
+</nav></div></body>
+</html>

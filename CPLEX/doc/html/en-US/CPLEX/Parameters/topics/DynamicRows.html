@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="dynamic row-management" />
+<meta name="abstract" content="This parameter specifies whether CPLEX should manage rows dynamically." />
+<meta name="Description" content="This parameter specifies whether CPLEX should manage rows dynamically." />
+<meta name="DC.subject" content="kernel simplex method (KSM), definition, parameter, CPX_PARAM_DYNAMICROWS, DynamicRows, rows, dynamic, CPXPARAM_Simplex_DynamicRows, simplex, dynamic row management" />
+<meta name="keywords" content="kernel simplex method (KSM), definition, parameter, CPX_PARAM_DYNAMICROWS, DynamicRows, rows, dynamic, CPXPARAM_Simplex_DynamicRows, simplex, dynamic row management" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="DynamicRows" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>dynamic row-management</title>
+</head>
+<body id="DynamicRows"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">dynamic row-management</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc"> 
+This parameter specifies whether CPLEX should manage rows dynamically.
+</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2>  <p class="p">Switch for dynamic management of rows</p>
+</section>
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d96853e76">API</th>
+
+<th class="entry nrule" valign="top" id="d96853e79">Parameter Name</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">CPXPARAM_Simplex_DynamicRows </td>
+ 
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">IloCplex::Param::Simplex::DynamicRows </td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">IloCplex.Param.Simplex.DynamicRows </td>
+
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">Cplex.Param.Simplex.DynamicRows </td>
+ 
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">dynamicrows</td>
+ 
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">parameters.simplex.dynamicrows </td>
+ 
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">simplex dynamicrows </td>
+ 
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d96853e76 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d96853e79 ">1161 </td>
+ 
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+<section class="section"><h2 class="title sectiontitle">Description</h2> 
+ 
+<p class="p"> 
+This parameter specifies how CPLEX should manage rows in the current model 
+during <strong class="ph b">dual simplex</strong> optimization. More specifically, this parameter 
+controls the use of the kernel simplex method (KSM) for the dual simplex algorithm.
+That is, Cplex dynamically adjusts the dimensions of the basis matrix
+during execution of the dual simplex algorithm, according to the settings of this parameter.
+</p>
+ 
+<p class="p">
+When the value of this parameter is -1 (minus one), its <strong class="ph b">default</strong> value, this parameter specifies 
+that the user wants CPLEX to manage rows dynamically, adjusting the dimensions of the basis matrix 
+during dual simplex optimization.
+When it is set to 0 (zero), this parameter specifies that CPLEX must keep all rows.
+When it is set to 1 (one), this parameter specifies that CPLEX can keep or discard 
+rows according to its internal calculations.
+</p>
+ 
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A two-column table showing possible values and their meaning." class="table PlainHead" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Values</span></caption><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:top;">
+<th class="entry thleft" align="left" valign="top" id="d96853e200">Value</th>
+
+<th class="entry thleft" align="left" valign="top" id="d96853e203">Meaning</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d96853e200 ">-1</td>
+
+<td class="entry" valign="top" headers="d96853e203 ">automatic: Let CPLEX decide.<strong class="ph b">default</strong></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d96853e200 ">0</td>
+
+<td class="entry" valign="top" headers="d96853e203 ">Tell CPLEX to keep all rows.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:top;">
+<td class="entry" valign="top" headers="d96853e200 ">1</td>
+
+<td class="entry" valign="top" headers="d96853e203 ">Let CPLEX manage rows.</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Constants" />
+<meta name="abstract" content="The CPO file format supports numerical constants such as 123, 2.57, 1.23e+11 or 3.45E-05. There are also several named constants." />
+<meta name="Description" content="The CPO file format supports numerical constants such as 123, 2.57, 1.23e+11 or 3.45E-05. There are also several named constants." />
+<meta name="DC.Relation" scheme="URI" content="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="Constants" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" />
+<title>Constants</title>
+</head>
+<body id="Constants"><div role="main">
+
+
+<h1 class="title topictitle1" id="ariaid-title1">Constants</h1>
+
+
+
+<div class="body conbody"><p class="shortdesc">
+The CPO file format supports numerical constants such as 123, 2.57, 1.23e+11 or
+3.45E-05. There are also several named constants.
+</p>
+
+
+<section class="section">
+
+<p class="p">
+Note that numerical constants can use only ASCII characters. If a
+number contains a decimal point then there must be a digit both before and
+after the decimal point. Therefore <code class="ph codeph">.5</code> or <code class="ph codeph">5.</code> are not valid numbers, and
+you need to write <code class="ph codeph">0.5</code> and <code class="ph codeph">5.0</code> instead.
+</p>
+
+
+<p class="p">
+Constants will be recognized as integer or floating-point constants: <code class="ph codeph"><a class="xref" href="070_Types.html#Numerical_types__int">int</a></code>
+and <code class="ph codeph"><a class="xref" href="070_Types.html#Numerical_types__float">float</a></code>. However there is no way to force an integer constant to be treated
+as floating-point constant even if it is written as <code class="ph codeph">7.0</code>.
+</p>
+
+
+<p class="p">
+There are also the following built-in named constants:
+</p>
+
+
+<dl class="dl">
+  
+    <dt class="dt dlterm" id="Constants__intmax"><code class="ph codeph">intmax</code></dt>
+
+    <dd class="dd"><code class="ph codeph">intmax</code> is the maximum value that can be represented by the <code class="ph codeph">int</code> type
+and also the maximum value of any <code class="ph codeph">intVar</code> or <code class="ph codeph">intExpr</code>. On 64-bit ports
+<code class="ph codeph">intmax = 2<sup class="ph sup">53</sup>-1</code>, and on 32-bit ports <code class="ph codeph">intmax = 2<sup class="ph sup">31</sup>-1</code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Constants__intmin"><code class="ph codeph">intmin</code></dt>
+
+    <dd class="dd"><code class="ph codeph">intmin</code>, similarly to <code class="ph codeph">intmax</code>, is the minimum value that can be
+represented by <code class="ph codeph">int</code> type and also the minimum value of any <code class="ph codeph">intVar</code> or
+<code class="ph codeph">intExpr</code>. Its value is <code class="ph codeph">intmin = -intmax</code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Constants__inf"><code class="ph codeph">inf</code></dt>
+
+    <dd class="dd"><code class="ph codeph">inf</code> is a floating point constant for infinity. Negative infinity is
+<code class="ph codeph">-inf</code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Constants__intervalmax"><code class="ph codeph">intervalmax</code></dt>
+
+    <dd class="dd"><code class="ph codeph">intervalmax</code> is the maximum value of any attribute of
+<code class="ph codeph">intervalVar</code> (that is start, end, size or length). On 64-bit ports
+<code class="ph codeph">intervalmax = 2<sup class="ph sup">52</sup>-2</code>, on 32-bit ports
+<code class="ph codeph">intervalmax = 2<sup class="ph sup">30</sup>-2</code>.</dd>
+
+  
+  
+    <dt class="dt dlterm" id="Constants__intervalmin"><code class="ph codeph">intervalmin</code></dt>
+
+    <dd class="dd"><code class="ph codeph">intervalmin</code> is similar to <code class="ph codeph">intervalmax</code>, it is the minimum
+value of the start or end attributes of <code class="ph codeph">intervalVar</code>. Its value is <code class="ph codeph">intervalmin =
+-intervalmax</code>.</dd>
+
+  
+</dl>
+
+
+</section>
+
+
+</div>
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CP_Optimizer/reffileformatcpo/syntax.html" title="This section describes the elements of the CPO file format such as statements, expressions, types, variables, constants or directives, and how to use them.">CP Optimizer file format syntax</a></div>
+</div>
+</nav></div></body>
+</html>

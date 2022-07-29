@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="network primal feasibility tolerance" />
+<meta name="abstract" content="Specifies feasibility tolerance for network primal optimization. The feasibility tolerance specifies the degree to which the flow value of a model may violate its bounds." />
+<meta name="Description" content="Specifies feasibility tolerance for network primal optimization. The feasibility tolerance specifies the degree to which the flow value of a model may violate its bounds." />
+<meta name="DC.subject" content="CPX_PARAM_NETEPRHS, NetEpRHS, network tolerances feasibility, tolerance, feasibility (network primal), bound violation, network flow, basis, network feasibility tolerance and" />
+<meta name="keywords" content="CPX_PARAM_NETEPRHS, NetEpRHS, network tolerances feasibility, tolerance, feasibility (network primal), bound violation, network flow, basis, network feasibility tolerance and" />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="languageRefTopic1196788476213" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/Parameters/topics/introListAlpha.html" />
+<title>network primal feasibility tolerance</title>
+</head>
+<body id="languageRefTopic1196788476213"><div role="main">
+
+<h1 class="title topictitle1" id="ariaid-title1">network primal feasibility tolerance</h1>
+
+
+
+<div class="body refbody"><p class="shortdesc">Specifies feasibility tolerance for network primal
+optimization. The feasibility tolerance specifies the degree to which
+the flow value of a model may violate its bounds.</p>
+
+<section class="section"><h2 class="title sectiontitle">Purpose</h2><p class="p">Feasibility
+tolerance for network primal optimization</p>
+</section>
+
+
+
+<table cellpadding="4" cellspacing="0" border="1" class="tableborder"><tr><td>
+<table cellpadding="4" cellspacing="0" summary="" class="table" rules="none" frame="border" border="1"><colgroup></colgroup><thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry nrule" valign="top" id="d114284e67">API</th>
+
+<th class="entry nrule" valign="top" id="d114284e70">Parameter Name</th>
+
+<th class="entry nrule" valign="top" id="d114284e73">Name prior to V12.6.0</th>
+
+</tr>
+
+</thead>
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">C</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">CPXPARAM_Network_Tolerances_Feasibility</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">CPX_PARAM_NETEPRHS</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">C++</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">IloCplex::Param::Network::Tolerances::Feasibility</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">NetEpRHS (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">Java</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">IloCplex.Param.Network.Tolerances.Feasibility</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">NetEpRHS (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">.NET</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">Cplex.Param.Network.Tolerances.Feasibility</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">NetEpRHS (double)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">OPL</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">neteprhs </td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">neteprhs</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">Python</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">parameters.network.tolerances.feasibility</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">not available</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">Interactive</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">network tolerances feasibility</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">network tolerances feasibility</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nrule" valign="top" headers="d114284e67 ">Identifier</td>
+
+<td class="entry nrule" valign="top" headers="d114284e70 ">5003</td>
+
+<td class="entry nrule" valign="top" headers="d114284e73 ">5003</td>
+
+</tr>
+
+</tbody>
+</table>
+</td></tr></table>
+
+
+<section class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Specifies
+feasibility tolerance for network primal optimization. The feasibility
+tolerance specifies the degree to which the flow value of a model
+may violate its bounds. This tolerance influences the selection of
+an optimal basis and can be reset to a higher value when a problem
+is having difficulty maintaining feasibility during optimization.
+You may also wish to lower this tolerance after finding an optimal
+solution if there is any doubt that the solution is truly optimal.
+If the feasibility tolerance is set too low, CPLEX may falsely conclude
+that a problem is infeasible. If you encounter reports of infeasibility
+during Phase II of the optimization, a small adjustment in the feasibility
+tolerance may improve performance.</p>
+<p class="p paragrouptitle">Values</p>
+<p class="p">Any number
+from 1e-11 to 1e-1; <strong class="ph b">default</strong>: 1e-6. </p>
+</section>
+
+</div>
+
+
+<nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/Parameters/topics/introListAlpha.html" title="CPLEX parameters, documented here alphabetically by name in the Callable Library (C API), are available in the C++, Java, .NET, and Python APIs, as well as in the Interactive Optimizer.">List of CPLEX parameters</a></div>
+</div>
+</nav></div></body>
+</html>

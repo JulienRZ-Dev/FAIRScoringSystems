@@ -1,0 +1,34 @@
+dataset : data/customer.csv
+labels_name : ['A', 'B', 'C', 'D']
+s : 10.0
+sp : 0.03
+a : 1.0
+sensitive_groups : ['Gender == Female']
+sensitive_labels : ['A', 'B', 'C', 'D']
+time_limit : 3600
+lambda_bound : 9
+n_folds : 5
+nb_samples : 4765
+nb_features : 33
+nb_labels : 4
+optimality_gap : [0.9914411506024114, 0.9917712730367781, 0.9931364166476414, 0.9905338761986794, 0.9932304544022758]
+execution_time : [3600.138409137726, 3600.097356081009, 3600.0092940330505, 3600.306130886078, 3600.172306060791]
+objective_function : [0.7093454879328445, 0.7072862014690457, 0.7119687827911865, 0.7122311122770207, 0.715116736621197]
+sparsity : [1, 7, 1, 1, 1]
+accuracy_train : [0.2906610703043022, 0.29275970619097585, 0.28803777544596015, 0.28777544596012594, 0.2848898216159496]
+balanced_accuracy_train : [0.25, 0.2503364737550471, 0.25, 0.25, 0.25]
+accuracy_test : [0.2812172088142707, 0.2738719832109129, 0.291710388247639, 0.29275970619097585, 0.304302203567681]
+balanced_accuracy_test : [0.25, 0.25, 0.25, 0.25, 0.25]
+overall_misclassification_rate_train : [0.06429401611111296, 0.060681000092425386, 0.06483902979455436, 0.06446289079876866, 0.0535418392709196]
+statistical_parity_train : [0.0, 0.0005770340450086555, 0.0, 0.0, 0.0]
+predictive_equality_train : [0.0, 0.0007788161993769194, 0.0, 0.0, 0.0]
+equal_opportunity_train : [0.0, 0.002824858757062147, 0.0, 0.0, 0.0]
+max_equalized_odds_train : [0.0, 0.002824858757062147, 0.0, 0.0, 0.0]
+mean_equalized_odds_train : [0.0, 0.0005510145041237018, 0.0, 0.0, 0.0]
+overall_misclassification_rate_test : [0.050719246031746046, 0.07222557433740692, 0.04908855207195684, 0.05031892591105758, 0.09461678427195663]
+statistical_parity_test : [0.0, 0.0, 0.0, 0.0, 0.0]
+predictive_equality_test : [0.0, 0.0, 0.0, 0.0, 0.0]
+equal_opportunity_test : [0.0, 0.0, 0.0, 0.0, 0.0]
+max_equalized_odds_test : [0.0, 0.0, 0.0, 0.0, 0.0]
+mean_equalized_odds_test : [0.0, 0.0, 0.0, 0.0, 0.0]
+end

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2020" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Accessing MIP problem data" />
+<meta name="abstract" content="These MIP problem query routines and methods access information about a problem object after it has been created." />
+<meta name="Description" content="These MIP problem query routines and methods access information about a problem object after it has been created." />
+<meta name="DC.Relation" scheme="URI" content="../../../CPLEX/homepages/apioverviewcplex.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="descriptiveTopic1199888125580" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common_opti.css" />
+<link rel="Start" href="../../../CPLEX/homepages/apioverviewcplex.html" />
+<title>Accessing MIP problem data</title>
+</head>
+<body id="descriptiveTopic1199888125580"><div role="main">
+
+   <h1 class="title topictitle1" id="ariaid-title1">Accessing MIP problem data</h1>
+
+   
+   <div class="body"><p class="shortdesc">These MIP problem query routines and methods access information
+about a problem object after it has been created.</p>
+
+      <p class="p">Problem query routines and methods are used to access information
+about a problem object once it has been created. They can be used
+at any time, even after problem modifications.</p>
+
+      <div class="note note"><span class="notetitle">Note:</span> 
+         <p class="p">Names of classes, methods, and symbolic constants in the
+C#.NET API correspond very closely to those in the Java API with these
+systematic exceptions:</p>
+
+         <ul class="ul">
+            <li class="li">
+               <p class="p">In the Java API, the names of classes begin with the prefix <span class="keyword apiname">Ilo</span>,
+whereas in C#.NET they do not.</p>
+
+            </li>
+
+            <li class="li">
+               <p class="p">In the Java API, the names of methods conventionally begin
+with a lowercase letter, for example, <code class="ph codeph">addCols</code>, whereas
+in the C#.NET API, the names of methods conventionally begin with
+an uppercase (that is, capital) letter, for example, <code class="ph codeph">AddCols</code> according
+to Microsoft practice. </p>
+
+            </li>
+
+         </ul>
+
+      </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="A four-column table; the first column lists tasks; the second column offers a link to the reference documentation to accomplish the task in the Java API; the third column offers a link to the reference documentation to accomplish the task in the C++ API; the fourth column offers a link to the reference documentation to accomplish the task in the Callable Library (C API)." class="table ShadedHead" rules="all" frame="border" border="1"><span class="desc tabledesc">
+            
+         </span><colgroup></colgroup><thead class="thead" style="text-align:left;">
+               <tr class="row">
+                  <th class="entry thleft" align="left" valign="top" id="d56072e74">Purpose</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d56072e77">Java API</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d56072e80">C++ API</th>
+
+                  <th class="entry thleft" align="left" valign="top" id="d56072e83">C API</th>
+
+               </tr>
+
+            </thead>
+<tbody class="tbody">
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses number of general integer variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNintVars()">getNintVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getNintVars">getNintVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getnumint.html" title="The routine CPXXgetnumint/CPXgetnumint accesses the number of general integer variables in a CPLEX problem object.">CPXXgetnumint and CPXgetnumint</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses number of binary integer variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNbinVars()">getNbinVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getNbinVars">getNbinVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getnumbin.html" title="The routine CPXXgetnumbin/CPXgetnumbin accesses the number of binary variables in a CPLEX problem object.">CPXXgetnumbin and CPXgetnumbin</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses a range of variable types</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <span class="keyword apiname">IloNumVar.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloNumVar.html#getType()">getType</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <span class="keyword apiname">IloNumVar::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloNumVar.html#method_getType">getType</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getctype.html" title="The routine CPXXgetctype/CPXgetctype accesses the types for a range of variables in a problem object.">CPXXgetctype and CPXgetctype</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses a priority order</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getDirections(ilog.concert.IloNumVar[])">getDirections</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getPriorities(ilog.concert.IloNumVar[])">getPriorities</a>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getDirections">getDirections</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getPriorities">getPriorities</a>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getorder.html" title="The routine CPXXgetorder/CPXgetorder accesses all the MIP priority order information stored in a CPLEX problem object.">CPXXgetorder and CPXgetorder</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses number of Special Ordered Sets</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNSOS1()">getNSOS1</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNSOS2()">getNSOS2</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloCplex.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNSOSs()">getNSOSs</a>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getNSOSs">getNSOSs</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getnumsos.html" title="The routine CPXXgetnumsos/CPXgetnumsos accesses the number of special ordered sets (SOS) in a CPLEX problem object.">CPXXgetnumsos and CPXgetnumsos</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses contents of Special Ordered Sets</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS1.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSOS1.html#getValues()">getValues</a> and</p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS1.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSOS1.html#getNumVars()">getNumVars</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS2.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSOS2.html#getValues()">getValues</a> and</p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS2.</span>
+                        <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/concert/IloSOS2.html#getNumVars()">getNumVars</a>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS1::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS1.html#method_getValues">getValues</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS1::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS1.html#method_getNumVars">getNumVars</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS2::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS2.html#method_getValues">getValues</a>
+                     </p>
+
+                     <p class="p">
+                        <span class="keyword apiname">IloSOS2::</span>
+                        <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloSOS2.html#method_getNumVars">getNumVars</a>
+                     </p>
+
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getsos.html" title="The routine CPXXgetsos/CPXgetsos accesses the definitions of a range of special ordered sets (SOS) stored in a CPLEX problem object.">CPXXgetsos and CPXgetsos</a>
+                     </code>
+                  </td>
+
+                  </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses the number of semi-continuous variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNsemiContVars()">getNsemiContVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getNsemiContVars">getNsemiContVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getnumsemicont.html" title="The routine CPXXgetnumsemicont/CPXgetnumsemicont accesses the number of semi-continuous variables in a CPLEX problem object.">CPXXgetnumsemicont and CPXgetnumsemicont</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e74 ">Accesses the number of semi-integer variables</td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e77 ">
+                     <span class="keyword apiname">IloCplex.</span>
+                     <a class="xref logicalApiLink" href="../../../refjavacplex/html/ilog/cplex/IloCplex.html#getNsemiIntVars()">getNsemiIntVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e80 ">
+                     <span class="keyword apiname">IloCplex::</span>
+                     <a class="xref logicalApiLink" href="../../../refcppcplex/html/classes/IloCplex.html#method_getNsemiIntVars">getNsemiIntVars</a>
+                  </td>
+
+                  <td class="entry tdleft" align="left" valign="top" headers="d56072e83 ">
+                     <code class="ph codeph">
+                        <a class="xref" href="../../../refcallablelibrary/mipapi/getnumsemiint.html" title="The routine CPXXgetnumsemiint/CPXgetnumsemiint accesses the number of semi-integer variables in a CPLEX problem object.">CPXXgetnumsemiint and CPXgetnumsemiint</a>
+                     </code>
+                  </td>
+
+               </tr>
+
+            </tbody>
+</table>
+</div>
+
+   </div>
+
+   <nav role="navigation" class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../CPLEX/homepages/apioverviewcplex.html" title="Provides links to reference manuals of the C, C++, and Java application programming interfaces of CPLEX">Overview of the APIs of CPLEX</a></div>
+</div>
+</nav></div></body>
+</html>
